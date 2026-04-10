@@ -1,0 +1,2 @@
+label,trials,successful_trials,wall_seconds_mean,wall_seconds_std,gcf_per_sec_mean,novel_finds_mean
+zeta3 | 50 iters | batch 64 | 300dp,3,3,131.809,17.895,25.057,61.667

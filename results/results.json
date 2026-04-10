@@ -1,0 +1,208 @@
+{
+  "best_formula": "-0.0722*IE_B*r_X + 2.4065",
+  "best_mae": 0.09273451586821381,
+  "all_formulas": [
+    [
+      "-0.0722*IE_B*r_X + 2.4065",
+      0.09273451586821381,
+      0.7543931411994175
+    ],
+    [
+      "-0.0722*IE_B*r_X + 2.4065",
+      0.09273451586821381,
+      0.7543931411994175
+    ],
+    [
+      "-0.0722*IE_B*r_X + 2.4065",
+      0.09273451586821381,
+      0.7543931411994175
+    ],
+    [
+      "-0.0722*IE_B*r_X + 2.4065",
+      0.09273451586821381,
+      0.7543931411994175
+    ],
+    [
+      "-0.0722*IE_B*r_X + 2.4065",
+      0.09273451586821381,
+      0.7543931411994175
+    ]
+  ],
+  "iteration_log": [
+    {
+      "iteration": 1,
+      "best_mae": 0.055091934875381304,
+      "best_r2": 0.8916002093481922,
+      "best_complexity": 3,
+      "n_candidates": 50,
+      "n_surviving": 50,
+      "reduction_factor": 1.0,
+      "n_descriptors": 12,
+      "elapsed_s": 33.726818323135376
+    },
+    {
+      "iteration": 2,
+      "best_mae": 0.055091934875381304,
+      "best_r2": 0.8916002093481922,
+      "best_complexity": 3,
+      "n_candidates": 65,
+      "n_surviving": 65,
+      "reduction_factor": 1.0,
+      "n_descriptors": 12,
+      "elapsed_s": 37.52982473373413
+    },
+    {
+      "iteration": 3,
+      "best_mae": 0.055091934875381304,
+      "best_r2": 0.8916002093481922,
+      "best_complexity": 3,
+      "n_candidates": 67,
+      "n_surviving": 67,
+      "reduction_factor": 1.0,
+      "n_descriptors": 12,
+      "elapsed_s": 38.886749505996704
+    },
+    {
+      "iteration": 4,
+      "best_mae": 0.055091934875381304,
+      "best_r2": 0.8916002093481922,
+      "best_complexity": 3,
+      "n_candidates": 67,
+      "n_surviving": 67,
+      "reduction_factor": 1.0,
+      "n_descriptors": 12,
+      "elapsed_s": 37.58486223220825
+    },
+    {
+      "iteration": 5,
+      "best_mae": 0.055091934875381304,
+      "best_r2": 0.8916002093481922,
+      "best_complexity": 3,
+      "n_candidates": 67,
+      "n_surviving": 66,
+      "reduction_factor": 1.0151515151515151,
+      "n_descriptors": 11,
+      "elapsed_s": 29.230486154556274
+    }
+  ],
+  "convergence": {
+    "n_iterations": 5,
+    "initial_mae": 0.055091934875381304,
+    "final_mae": 0.055091934875381304,
+    "mae_improvement": 0.0,
+    "convergence_rate_lambda": -0.0,
+    "cumulative_reduction_factor": 1.0151515151515151,
+    "log10_cumulative_reduction": 0.006530867158957755
+  },
+  "predictions_evaluation": {
+    "P1_accuracy": {
+      "passed": true,
+      "value": 0.055091934875381304,
+      "threshold": 0.15,
+      "unit": "eV"
+    },
+    "P1_improvement": {
+      "passed": false,
+      "value": 0.20401137323114782,
+      "threshold": 0.3,
+      "unit": "fraction"
+    },
+    "P2_parsimony": {
+      "passed": true,
+      "value": 3,
+      "threshold": 12,
+      "unit": "operations"
+    },
+    "P3_efficiency": {
+      "passed": true,
+      "value": 3.453911059420217e-50,
+      "threshold": 0.01,
+      "unit": "fraction"
+    },
+    "overall": {
+      "passed": false
+    }
+  },
+  "theory": {
+    "theorem1": {
+      "|S_0| (log10)": 51.96137593262389,
+      "|S_\u03a6| (log10)": 49.341587174335494,
+      "R (single iteration)": 416.6666666666666,
+      "R (5 iterations)": 30140817901.23454,
+      "R (10 iterations)": 9.084689037553806e+20,
+      "p_pass": 0.0024000000000000007
+    },
+    "cumulative_reduction": 1.0151515151515151
+  },
+  "descriptor_history": [
+    [
+      "Z_B",
+      "IE_A",
+      "Z_A",
+      "m_B",
+      "m_A",
+      "IE_B",
+      "EN_X",
+      "EA_B",
+      "delta_EN",
+      "EN_B",
+      "r_X",
+      "r_B"
+    ],
+    [
+      "IE_A",
+      "Z_B",
+      "Z_A",
+      "m_B",
+      "m_A",
+      "IE_B",
+      "EA_B",
+      "EN_X",
+      "delta_EN",
+      "EN_B",
+      "r_X",
+      "r_B"
+    ],
+    [
+      "IE_A",
+      "Z_B",
+      "Z_A",
+      "m_B",
+      "m_A",
+      "IE_B",
+      "EA_B",
+      "EN_X",
+      "delta_EN",
+      "EN_B",
+      "r_X",
+      "r_B"
+    ],
+    [
+      "IE_A",
+      "Z_B",
+      "Z_A",
+      "m_B",
+      "m_A",
+      "IE_B",
+      "EA_B",
+      "EN_X",
+      "delta_EN",
+      "EN_B",
+      "r_X",
+      "r_B"
+    ],
+    [
+      "IE_A",
+      "Z_B",
+      "Z_A",
+      "m_B",
+      "m_A",
+      "IE_B",
+      "EA_B",
+      "EN_X",
+      "delta_EN",
+      "EN_B",
+      "r_X"
+    ]
+  ]
+}

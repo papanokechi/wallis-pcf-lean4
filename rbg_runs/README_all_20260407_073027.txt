@@ -1,0 +1,334 @@
+RAMANUJAN PARAMETER SETS — ALL
+Generated: 20260407_073027
+============================================================
+Total runs:          38
+Estimated total:     564 min (9.4 hr)
+
+PRIORITY SUMMARY
+----------------------------------------
+  CRITICAL    : 4 run(s)
+  HIGH        : 10 run(s)
+  MEDIUM      : 23 run(s)
+  EXPLORATORY : 1 run(s)
+
+RUN DETAILS
+----------------------------------------
+
+[01] conjecture_proof_quick
+     Priority  : critical
+     Mode      : conjecture_prover
+     ETA       : ~30s
+     Rationale : Quick symbolic proof via Lagrange interpolation + sympy induction for m=0..5
+     Notes     : If m=1 shows PROVED, Conjecture 1 is done. Check output for status=PROVED.
+     Tags      : Pi_Family, Conjecture_1, sympy, induction
+
+[02] conjecture_proof_deep
+     Priority  : critical
+     Mode      : conjecture_prover
+     ETA       : ~2 min
+     Rationale : Extend N=500 to stress-test Lagrange polynomial fit and induction far from base cases
+     Notes     : Look for no_poly_fit status — means the (2n-1)!! ansatz breaks at large n.
+     Tags      : Pi_Family, Conjecture_1, verification, deep
+
+[03] parity_standard
+     Priority  : critical
+     Mode      : parity
+     ETA       : ~5 min
+     Rationale : Parity theorem verification c=1..20 at standard depth
+     Notes     : All ✓ expected. Any ? → increase depth. Even c should give exact rational via a(c/2)=0.
+     Tags      : parity, Pi_Family, theorem, verification
+
+[04] logladder_ln2_verify
+     Priority  : critical
+     Mode      : cmf
+     ETA       : ~8 min
+     Rationale : CMF verification of Logarithmic Ladder at k=2 (target = ln2 = 1/ln(2/1))
+     Notes     : seed_boost=1 tight — should immediately hit the known PCF from the paper.
+     Tags      : LogLadder, ln2, CMF, verification
+
+[05] hypergeometric_standard
+     Priority  : high
+     Mode      : hypergeometric_guess
+     ETA       : ~3 min
+     Rationale : Verify val(m) = 2Γ(m+1)/(√π·Γ(m+½)) for integer and half-integer m
+     Notes     : Half-integers → exact rationals; integers → π-multiples. Ratio check proves recurrence.
+     Tags      : Pi_Family, Gamma_formula, hypergeometric
+
+[06] hypergeometric_highprec
+     Priority  : high
+     Mode      : hypergeometric_guess
+     ETA       : ~15 min
+     Rationale : 150-digit Γ-formula verification — publication-grade evidence for all m in paper
+     Notes     : Γ-match digits should equal precision for all m. If any < 150, increase depth.
+     Tags      : Pi_Family, Gamma_formula, high_precision, publication
+
+[07] vquad_standard
+     Priority  : high
+     Mode      : quadratic_gcf
+     ETA       : ~10 min
+     Rationale : Standard V_quad family sweep: A∈[1,7], B∈[-6,6], C∈[1,7]
+     Notes     : Candidates printed with discriminant tag. Negative disc → elliptic-type behaviour.
+     Tags      : V_quad, quadratic_GCF, new_constants
+
+[08] vquad_overnight
+     Priority  : high
+     Mode      : quadratic_gcf
+     ETA       : ~2.0 hr
+     Rationale : Overnight high-precision sweep to find weaker candidates missed at 200 digits
+     Notes     : 300 dps → mp.dps=350. Increases chance of catching near-algebraic constants.
+     Tags      : V_quad, quadratic_GCF, overnight, high_precision
+
+[09] vquad_pslq_analysis
+     Priority  : high
+     Mode      : analyze
+     ETA       : ~5 min
+     Rationale : PSLQ exclusion analysis of V_quad from all 16 known function families
+     Notes     : Adds Heun-type and weight-3 motivic periods to exclusion basis.
+     Tags      : V_quad, PSLQ, exclusion, transcendence
+
+[10] parity_deep
+     Priority  : high
+     Mode      : parity
+     ETA       : ~15 min
+     Rationale : Deep parity verification: extra convergence margin for large c
+     Notes     : For c=19,20 (large m), depth=3000 may leave only 50-digit agreement. 5000 should hit 70+.
+     Tags      : parity, Pi_Family, deep, publication
+
+[11] logladder_ln32_verify
+     Priority  : high
+     Mode      : mitm
+     ETA       : ~20 min
+     Rationale : MITM search for k=3 Ladder: 1/ln(3/2). Note: add 'ln_3_2' to CONSTANTS dict first.
+     Notes     : Add to CONSTANTS: 'ln_3_2': ('1/ln(3/2)', '1.8204...') and to _get_constant(): mpmath.mpf(1)/mpmath.log(mpmath.mpf(3)/2). Then use --target ln_3_2.
+     Tags      : LogLadder, k=3, MITM, new_verification
+
+[12] logladder_k5
+     Priority  : high
+     Mode      : dr
+     ETA       : ~30 min
+     Rationale : D&R search for k=5 Logarithmic Ladder: 1/ln(5/4). Add 'ln_5_4' to dict first.
+     Notes     : Add: mpmath.mpf(1)/mpmath.log(mpmath.mpf(5)/4). The Ladder formula gives explicit α,β polynomials — hardcode as CMF seeds too.
+     Tags      : LogLadder, k=5, DR, new_k
+
+[13] heun_4pi_mitm
+     Priority  : high
+     Mode      : mitm
+     ETA       : ~40 min
+     Rationale : MITM for 4/π with degree-3 polynomials — targets Heun-type structure
+     Notes     : Heun equations have 4 singular points → degree-3 or higher polynomials. Look for hits near 4/π = 1.2732...
+     Tags      : Heun, 4_over_pi, MITM, deg3
+
+[14] heun_phi_cmf
+     Priority  : high
+     Mode      : cmf
+     ETA       : ~15 min
+     Rationale : CMF near φ (golden ratio) — probes Pochhammer-φ numerator structure
+     Notes     : Golden-ratio Pochhammer roots are the key feature. Look for PCFs whose value is a rational function of φ and π.
+     Tags      : Heun, phi, Pochhammer, CMF
+
+[15] pi_family_cmf_deg3
+     Priority  : medium
+     Mode      : cmf
+     ETA       : ~20 min
+     Rationale : CMF search for new Pi Family members with degree-3 numerators (needed for m≥2)
+     Notes     : Degree-3 α(n) matches Pi Family structure for m≥2. seed_boost=2 tight around known seeds.
+     Tags      : Pi_Family, CMF, deg3, new_PCF
+
+[16] pi_family_hybrid
+     Priority  : medium
+     Mode      : hybrid
+     ETA       : ~30 min
+     Rationale : Hybrid CMF→D&R to find π PCFs not reachable by pure CMF
+     Notes     : D&R phase perturbs around CMF hits; diversifies the search landscape.
+     Tags      : Pi_Family, hybrid, DR, CMF
+
+[17] vquad_irrationality
+     Priority  : medium
+     Mode      : analyze
+     ETA       : ~3 min
+     Rationale : Irrationality measure μ=2 confirmation via Wronskian method
+     Notes     : Should confirm μ=2 (provably irrational). Check if AI suggests μ>2 path.
+     Tags      : V_quad, irrationality_measure, Wronskian
+
+[18] vquad_mitm_relatives
+     Priority  : medium
+     Mode      : mitm
+     ETA       : ~25 min
+     Rationale : MITM sweep for degree-(1,2) PCFs near ζ(3) — probes V_quad algebraic relatives
+     Notes     : a(n)=linear, b(n)=quadratic matches V_quad family structure exactly.
+     Tags      : V_quad, MITM, relatives, zeta3
+
+[19] logladder_factorial_check
+     Priority  : medium
+     Mode      : analyze
+     ETA       : ~1 min
+     Rationale : Factorial reduction check on known Ladder PCF — confirms Taylor-series proof structure
+     Notes     : Should report FR=yes; gcd(p_n,q_n) grows factorially matching (n-1)! in denominator.
+     Tags      : LogLadder, factorial_reduction, analysis
+
+[20] logladder_cmf_alllog
+     Priority  : medium
+     Mode      : cmf
+     ETA       : ~10 min
+     Rationale : CMF search for ln3-related PCFs — extends Ladder family to log(3/2) territory
+     Notes     : Results can be combined: 1/ln(3/2) = 1/(ln3-ln2). Look for additive combinations.
+     Tags      : LogLadder, ln3, CMF, family_extension
+
+[21] heun_pade_analysis
+     Priority  : medium
+     Mode      : analyze
+     ETA       : ~2 min
+     Rationale : CMF analysis of the Padé near-miss structure — classify as Heun or _3F2
+     Notes     : The Padé near-miss suggests a _3F2 hypergeometric underlying the PCF. AI analysis mode 'cmf' will attempt to classify the CMF family.
+     Tags      : Heun, Pade, 3F2, analysis
+
+[22] sweep_pi_mitm_d22
+     Priority  : medium
+     Mode      : mitm
+     ETA       : ~10 min
+     Rationale : Broad sweep: pi via mitm deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, pi, mitm, deg22
+
+[23] sweep_pi_dr_d22
+     Priority  : medium
+     Mode      : dr
+     ETA       : ~10 min
+     Rationale : Broad sweep: pi via dr deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, pi, dr, deg22
+
+[24] sweep_pi_cmf_d22
+     Priority  : medium
+     Mode      : cmf
+     ETA       : ~10 min
+     Rationale : Broad sweep: pi via cmf deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, pi, cmf, deg22
+
+[25] sweep_pi_cmf_d32
+     Priority  : medium
+     Mode      : cmf
+     ETA       : ~10 min
+     Rationale : Broad sweep: pi via cmf deg(3,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, pi, cmf, deg32
+
+[26] sweep_zeta3_mitm_d22
+     Priority  : medium
+     Mode      : mitm
+     ETA       : ~10 min
+     Rationale : Broad sweep: zeta3 via mitm deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, zeta3, mitm, deg22
+
+[27] sweep_zeta3_dr_d22
+     Priority  : medium
+     Mode      : dr
+     ETA       : ~10 min
+     Rationale : Broad sweep: zeta3 via dr deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, zeta3, dr, deg22
+
+[28] sweep_zeta3_cmf_d22
+     Priority  : medium
+     Mode      : cmf
+     ETA       : ~10 min
+     Rationale : Broad sweep: zeta3 via cmf deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, zeta3, cmf, deg22
+
+[29] sweep_zeta3_cmf_d32
+     Priority  : medium
+     Mode      : cmf
+     ETA       : ~10 min
+     Rationale : Broad sweep: zeta3 via cmf deg(3,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, zeta3, cmf, deg32
+
+[30] sweep_catalan_mitm_d22
+     Priority  : medium
+     Mode      : mitm
+     ETA       : ~10 min
+     Rationale : Broad sweep: catalan via mitm deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, catalan, mitm, deg22
+
+[31] sweep_catalan_dr_d22
+     Priority  : medium
+     Mode      : dr
+     ETA       : ~10 min
+     Rationale : Broad sweep: catalan via dr deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, catalan, dr, deg22
+
+[32] sweep_catalan_cmf_d22
+     Priority  : medium
+     Mode      : cmf
+     ETA       : ~10 min
+     Rationale : Broad sweep: catalan via cmf deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, catalan, cmf, deg22
+
+[33] sweep_catalan_cmf_d32
+     Priority  : medium
+     Mode      : cmf
+     ETA       : ~10 min
+     Rationale : Broad sweep: catalan via cmf deg(3,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, catalan, cmf, deg32
+
+[34] sweep_euler_gamma_mitm_d22
+     Priority  : medium
+     Mode      : mitm
+     ETA       : ~10 min
+     Rationale : Broad sweep: euler_gamma via mitm deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, euler_gamma, mitm, deg22
+
+[35] sweep_euler_gamma_dr_d22
+     Priority  : medium
+     Mode      : dr
+     ETA       : ~10 min
+     Rationale : Broad sweep: euler_gamma via dr deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, euler_gamma, dr, deg22
+
+[36] sweep_euler_gamma_cmf_d22
+     Priority  : medium
+     Mode      : cmf
+     ETA       : ~10 min
+     Rationale : Broad sweep: euler_gamma via cmf deg(2,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, euler_gamma, cmf, deg22
+
+[37] sweep_euler_gamma_cmf_d32
+     Priority  : medium
+     Mode      : cmf
+     ETA       : ~10 min
+     Rationale : Broad sweep: euler_gamma via cmf deg(3,2)
+     Notes     : Part of overnight sweep. --max-time 600 prevents runaway.
+     Tags      : sweep, euler_gamma, cmf, deg32
+
+[38] parity_extended_c
+     Priority  : exploratory
+     Mode      : parity
+     ETA       : ~25 min
+     Rationale : Extend parity check to c=1..30 (edit c_range in source: range(1,31))
+     Notes     : Requires modifying c_range in run_parity_theorem() to range(1,31). Tests whether parity persists beyond c=20.
+     Tags      : parity, exploratory, extended
+
+ADDING MISSING CONSTANTS
+----------------------------------------
+Several runs reference targets not yet in CONSTANTS dict.
+Add these lines to ramanujan_breakthrough_generator.py:
+
+  In CONSTANTS dict:
+    "ln_3_2":  ("1/ln(3/2)",  "1.82047..."),
+    "ln_5_4":  ("1/ln(5/4)",  "4.48142..."),
+    "pi_fam1": ("2^3/(π·C(2,1))", "1.27324..."),
+
+  In PCFEngine._get_constant():
+    "ln_3_2":  mpmath.mpf(1) / mpmath.log(mpmath.mpf(3)/2),
+    "ln_5_4":  mpmath.mpf(1) / mpmath.log(mpmath.mpf(5)/4),
+    "pi_fam1": mpmath.mpf(8) / (mpmath.pi * 2),  # 2^3/(π·C(2,1))

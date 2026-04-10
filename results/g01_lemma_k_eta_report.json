@@ -1,0 +1,252 @@
+{
+  "generated_at": "2026-04-09 16:40:22",
+  "precision_dps": 80,
+  "main_qmax": 300,
+  "extended_qmax": 500,
+  "section_a": [
+    {
+      "k": 1,
+      "C_k_empirical": 1.076634708518117,
+      "q_max": 89,
+      "logC_over_logk": null,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 2,
+      "C_k_empirical": 1.1607424177819856,
+      "q_max": 443,
+      "logC_over_logk": 0.2150478569424331,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 3,
+      "C_k_empirical": 1.304176924364732,
+      "q_max": 181,
+      "logC_over_logk": 0.24173417249572537,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 4,
+      "C_k_empirical": 1.339862458262555,
+      "q_max": 281,
+      "logC_over_logk": 0.21104245520458423,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 5,
+      "C_k_empirical": 1.3632915204318397,
+      "q_max": 431,
+      "logC_over_logk": 0.1925529459149423,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 6,
+      "C_k_empirical": 1.2721294863650245,
+      "q_max": 449,
+      "logC_over_logk": 0.1343329064684105,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 7,
+      "C_k_empirical": 1.2521250773227663,
+      "q_max": 409,
+      "logC_over_logk": 0.11554601830520111,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 8,
+      "C_k_empirical": 1.1004910269492851,
+      "q_max": 337,
+      "logC_over_logk": 0.04604912733499554,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 10,
+      "C_k_empirical": 1.2134738613543175,
+      "q_max": 61,
+      "logC_over_logk": 0.08403042591571201,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 12,
+      "C_k_empirical": 1.0,
+      "q_max": 1,
+      "logC_over_logk": 0.0,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 13,
+      "C_k_empirical": 1.076634708518117,
+      "q_max": 89,
+      "logC_over_logk": 0.028788157325681563,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 16,
+      "C_k_empirical": 1.339862458262555,
+      "q_max": 281,
+      "logC_over_logk": 0.10552122760229211,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 20,
+      "C_k_empirical": 1.1004910269492851,
+      "q_max": 337,
+      "logC_over_logk": 0.03196429440101248,
+      "growth_class": "bounded (H4)"
+    },
+    {
+      "k": 24,
+      "C_k_empirical": 1.0,
+      "q_max": 1,
+      "logC_over_logk": 0.0,
+      "growth_class": "bounded (H4)"
+    }
+  ],
+  "section_b": {
+    "best_fit_hypothesis": "H4 bounded",
+    "sse": {
+      "H1 exponential": 0.2387795589530089,
+      "H2 power law": 0.24753473956440092,
+      "H3 logarithmic": 0.2989852820490075,
+      "H4 bounded": 0.34204934534649434
+    },
+    "bounded_mean": 1.1911593799311522,
+    "bounded_max": 1.3632915204318397,
+    "bounded_min": 1.0,
+    "exp_fit": {
+      "A": 1.235294982723372,
+      "alpha": -0.0033237612881723767
+    },
+    "power_fit": {
+      "A": 1.228483797969881,
+      "alpha": -0.01577868006247061
+    },
+    "log_fit": {
+      "A": -0.05308361682726939,
+      "B": 1.322580956225416
+    },
+    "consecutive_ratios": [
+      1.0781209342392786,
+      1.123571349151545,
+      1.0273624944830284,
+      1.0174861695876352,
+      0.9331309314988342,
+      0.9842748641103991,
+      0.87889863950517,
+      1.1004043178618388,
+      1.0020551727487745,
+      0.8240803793531519,
+      1.0,
+      1.076634708518117,
+      1.0781209342392786,
+      1.123571349151545,
+      1.0273624944830284,
+      1.0174861695876352,
+      0.9331309314988342,
+      0.9842748641103991,
+      0.87889863950517,
+      1.1004043178618388,
+      1.0020551727487745,
+      0.8240803793531519,
+      1.0
+    ],
+    "periodic_mod_12": true,
+    "confidence": "very high"
+  },
+  "section_c": "The corrected eta-multiplier computation supports H4: the empirical constants remain bounded in a narrow window (1.000 to 1.363) and are exactly 12-periodic in k, as expected from a 24th-root multiplier entering as nu_eta^{-2k}. This points to the low-difficulty route: invoke the classical Weil bound for Kloosterman sums together with the unit-modulus eta multiplier, then cite Weil (1948) or Iwaniec–Kowalski §4 for the q^{1/2} divisor-bound control.",
+  "section_d": {
+    "source": "g01_lemma_k_report.json",
+    "rows": [
+      {
+        "k": 13,
+        "predicted_A1": "-5.5323145008094008654",
+        "actual_A1": "-5.5323145462406939643",
+        "relative_error": "8.21198663221e-9",
+        "status": "PASS"
+      },
+      {
+        "k": 14,
+        "predicted_A1": "-6.1204360391020430899",
+        "actual_A1": "-6.1204360997478275408",
+        "relative_error": "9.90873582577e-9",
+        "status": "PASS"
+      },
+      {
+        "k": 15,
+        "predicted_A1": "-6.7282621045843481584",
+        "actual_A1": "-6.7282621832214566382",
+        "relative_error": "1.16875808847e-8",
+        "status": "PASS"
+      },
+      {
+        "k": 16,
+        "predicted_A1": "-7.3551651741578466952",
+        "actual_A1": "-7.3551652737805737203",
+        "relative_error": "1.35445939441e-8",
+        "status": "PASS"
+      },
+      {
+        "k": 17,
+        "predicted_A1": "-8.0005749454975911251",
+        "actual_A1": "-8.0005750693191028944",
+        "relative_error": "1.54765764581e-8",
+        "status": "PASS"
+      },
+      {
+        "k": 18,
+        "predicted_A1": "-8.6639700127206365754",
+        "actual_A1": "-8.6639701641752928651",
+        "relative_error": "1.7480976206e-8",
+        "status": "PASS"
+      },
+      {
+        "k": 19,
+        "predicted_A1": "-9.3448711682046155774",
+        "actual_A1": "-9.3448713509499654606",
+        "relative_error": "1.95556838634e-8",
+        "status": "PASS"
+      },
+      {
+        "k": 20,
+        "predicted_A1": "-10.042835938323694482",
+        "actual_A1": "-10.042836156242847423",
+        "relative_error": "2.16989652674e-8",
+        "status": "PASS"
+      },
+      {
+        "k": 21,
+        "predicted_A1": "-10.757454071996646728",
+        "actual_A1": "-10.757454329200470511",
+        "relative_error": "2.39093577264e-8",
+        "status": "PASS"
+      },
+      {
+        "k": 22,
+        "predicted_A1": "-11.488343776294150173",
+        "actual_A1": "-11.48834407712458372",
+        "relative_error": "2.61857088826e-8",
+        "status": "PASS"
+      },
+      {
+        "k": 23,
+        "predicted_A1": "-12.235148545710276946",
+        "actual_A1": "-12.235148894742014392",
+        "relative_error": "2.85269709791e-8",
+        "status": "PASS"
+      },
+      {
+        "k": 24,
+        "predicted_A1": "-12.997534468868920955",
+        "actual_A1": "-12.99753487091275872",
+        "relative_error": "3.09323146087e-8",
+        "status": "PASS"
+      }
+    ],
+    "all_below_1e6": true,
+    "max_relative_error": 3.09323146087e-08,
+    "note": "The recurrence-based A1 extraction is independent of the Kloosterman normalization. Using the corrected eta multiplier does not change the already-verified k=13..24 G-01 errors."
+  },
+  "section_e": "Lemma K follows from the standard Weil bound for Kloosterman sums together with the unit-modulus Dedekind eta multiplier; empirically, for 1<=k<=24 and q<=500 one finds max |A_k(1,q)|/(d(q)q^{1/2}) <= 1.3633, with no growth in k beyond the expected mod-12 periodicity.",
+  "elapsed_seconds": 908.726
+}

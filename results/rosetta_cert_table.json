@@ -1,0 +1,461 @@
+{
+  "title": "Rosetta Stone PCF Family Certification Table",
+  "generated": "2026-04-08T10:19:39.566572",
+  "families": [
+    {
+      "a_template": [
+        [
+          0,
+          0
+        ],
+        [
+          -3,
+          -2
+        ],
+        [
+          -2,
+          0
+        ]
+      ],
+      "b_coeffs": [
+        2,
+        3
+      ],
+      "ratios": {
+        "1": "5/3",
+        "2": "7/5",
+        "3": "9/7",
+        "4": "11/9",
+        "5": "13/11"
+      },
+      "members": {
+        "0": {
+          "stable_digits": 590,
+          "value_50dp": "3.00000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        },
+        "1": {
+          "stable_digits": 582,
+          "value_50dp": "5.00000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        },
+        "2": {
+          "stable_digits": 574,
+          "value_50dp": "7.00000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        },
+        "3": {
+          "stable_digits": 567,
+          "value_50dp": "9.00000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        },
+        "4": {
+          "stable_digits": 560,
+          "value_50dp": "11.0000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        },
+        "5": {
+          "stable_digits": 554,
+          "value_50dp": "13.0000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        }
+      },
+      "hypergeometric_identities": {
+        "0": {
+          "type": "2F1_gauss_rational",
+          "a": -2.0,
+          "b": -2.0,
+          "c": 1.0,
+          "z": 1.0,
+          "multiplier": "1/2",
+          "digits": 61.10908911978818
+        },
+        "1": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": -1.0,
+          "c": 4.5,
+          "z": 1.0,
+          "multiplier": "45/12",
+          "digits": 60.25715165524362
+        },
+        "2": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": 1.0,
+          "c": 5.5,
+          "z": 1.0,
+          "multiplier": "28/3",
+          "digits": 59.494794672043206
+        },
+        "3": {
+          "type": "2F1_gauss_rational",
+          "a": -2.0,
+          "b": 1.0,
+          "c": 2.5,
+          "z": 1.0,
+          "multiplier": "231/11",
+          "digits": 59.702733298350886
+        },
+        "4": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": -1.0,
+          "c": 4.5,
+          "z": 1.0,
+          "multiplier": "99/12",
+          "digits": 59.79339436208194
+        },
+        "5": {
+          "type": "2F1_gauss_rational",
+          "a": -2.0,
+          "b": 1.0,
+          "c": 2.5,
+          "z": 1.0,
+          "multiplier": "273/9",
+          "digits": 60.13701180151709
+        }
+      },
+      "proof_sketch": "-- Proof sketch: PCF \u2192 \u2082F\u2081 \u2192 Gamma reduction\n-- Family: a_template=[(0, 0), (-3, -2), (-2, 0)], b=[2, 3]\n-- Ratios: {1: Fraction(5, 3), 2: Fraction(7, 5), 3: Fraction(9, 7), 4: Fraction(11, 9), 5: Fraction(13, 11)}\n\n-- m=0: Value = (p/q) \u00b7 \u2082F\u2081(-2.0, -2.0; 1.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 5.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=1: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, -1.0; 4.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 7.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=2: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, 1.0; 5.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 6.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=3: Value = (p/q) \u00b7 \u2082F\u2081(-2.0, 1.0; 2.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 3.5 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=4: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, -1.0; 4.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 7.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=5: Value = (p/q) \u00b7 \u2082F\u2081(-2.0, 1.0; 2.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 3.5 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- theorem family_closed_form (m : \u2115) :\n--   V(m) = [closed form expression] := by\n--   induction m with\n--   | zero => simp [V, pcf_eval, hyp2f1_gauss]\n--   | succ n ih => \n--     rw [V_ratio_recurrence]  -- V(n+1)/V(n) = r(n)\n--     exact ih \u25b8 ratio_closed_form n"
+    },
+    {
+      "a_template": [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          -2
+        ],
+        [
+          -2,
+          0
+        ]
+      ],
+      "b_coeffs": [
+        2,
+        3
+      ],
+      "ratios": {
+        "1": "3",
+        "2": "5/3",
+        "3": "7/5",
+        "4": "9/7",
+        "5": "11/9"
+      },
+      "members": {
+        "0": {
+          "stable_digits": 600,
+          "value_50dp": "1.00000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        },
+        "1": {
+          "stable_digits": 590,
+          "value_50dp": "3.00000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        },
+        "2": {
+          "stable_digits": 582,
+          "value_50dp": "5.00000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        },
+        "3": {
+          "stable_digits": 574,
+          "value_50dp": "7.00000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        },
+        "4": {
+          "stable_digits": 567,
+          "value_50dp": "9.00000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        },
+        "5": {
+          "stable_digits": 560,
+          "value_50dp": "11.0000000000000000000000000000000000000000000000000000",
+          "status": "verified"
+        }
+      },
+      "hypergeometric_identities": {
+        "0": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": -1.0,
+          "c": 4.0,
+          "z": 1.0,
+          "multiplier": "8/11",
+          "digits": 61.10908911978818
+        },
+        "1": {
+          "type": "2F1_gauss_rational",
+          "a": -2.0,
+          "b": -2.0,
+          "c": 1.0,
+          "z": 1.0,
+          "multiplier": "1/2",
+          "digits": 61.10908911978818
+        },
+        "2": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": -1.0,
+          "c": 4.5,
+          "z": 1.0,
+          "multiplier": "45/12",
+          "digits": 60.25715165524362
+        },
+        "3": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": 1.0,
+          "c": 5.5,
+          "z": 1.0,
+          "multiplier": "28/3",
+          "digits": 59.494794672043206
+        },
+        "4": {
+          "type": "2F1_gauss_rational",
+          "a": -2.0,
+          "b": 1.0,
+          "c": 2.5,
+          "z": 1.0,
+          "multiplier": "231/11",
+          "digits": 59.702733298350886
+        },
+        "5": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": -1.0,
+          "c": 4.5,
+          "z": 1.0,
+          "multiplier": "99/12",
+          "digits": 59.79339436208194
+        }
+      },
+      "proof_sketch": "-- Proof sketch: PCF \u2192 \u2082F\u2081 \u2192 Gamma reduction\n-- Family: a_template=[(0, 0), (-1, -2), (-2, 0)], b=[2, 3]\n-- Ratios: {1: Fraction(3, 1), 2: Fraction(5, 3), 3: Fraction(7, 5), 4: Fraction(9, 7), 5: Fraction(11, 9)}\n\n-- m=0: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, -1.0; 4.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 6.5 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=1: Value = (p/q) \u00b7 \u2082F\u2081(-2.0, -2.0; 1.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 5.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=2: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, -1.0; 4.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 7.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=3: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, 1.0; 5.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 6.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=4: Value = (p/q) \u00b7 \u2082F\u2081(-2.0, 1.0; 2.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 3.5 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=5: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, -1.0; 4.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 7.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- theorem family_closed_form (m : \u2115) :\n--   V(m) = [closed form expression] := by\n--   induction m with\n--   | zero => simp [V, pcf_eval, hyp2f1_gauss]\n--   | succ n ih => \n--     rw [V_ratio_recurrence]  -- V(n+1)/V(n) = r(n)\n--     exact ih \u25b8 ratio_closed_form n"
+    },
+    {
+      "a_template": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          -2,
+          0
+        ]
+      ],
+      "b_coeffs": [
+        1,
+        3
+      ],
+      "ratios": {
+        "1": "4/3",
+        "2": "6/5",
+        "3": "8/7",
+        "4": "10/9",
+        "5": "12/11"
+      },
+      "members": {
+        "0": {
+          "stable_digits": 613,
+          "value_50dp": "1.27323954473516268615107010698011489627567716592365158",
+          "status": "verified"
+        },
+        "1": {
+          "stable_digits": 621,
+          "value_50dp": "1.69765272631355024820142680930681986170090288789820211",
+          "status": "verified"
+        },
+        "2": {
+          "stable_digits": 628,
+          "value_50dp": "2.03718327157626029784171217116818383404108346547784254",
+          "status": "verified"
+        },
+        "3": {
+          "stable_digits": 635,
+          "value_50dp": "2.32820945323001176896195676704935295318980967483182005",
+          "status": "verified"
+        },
+        "4": {
+          "stable_digits": 642,
+          "value_50dp": "2.58689939247779085440217418561039217021089963870202227",
+          "status": "verified"
+        },
+        "5": {
+          "stable_digits": 648,
+          "value_50dp": "2.82207206452122638662055365702951873113916324222038793",
+          "status": "verified"
+        }
+      },
+      "hypergeometric_identities": {
+        "0": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": 0.5,
+          "c": 1.0,
+          "z": 1.0,
+          "multiplier": "15/5",
+          "digits": 61.08106039618794
+        },
+        "1": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": 3.5,
+          "c": 4.0,
+          "z": 1.0,
+          "multiplier": "105/4",
+          "digits": 61.02306844921025
+        },
+        "2": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": 2.5,
+          "c": 4.0,
+          "z": 1.0,
+          "multiplier": "63/8",
+          "digits": 61.102249695257875
+        },
+        "3": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": -0.5,
+          "c": 3.0,
+          "z": 1.0,
+          "multiplier": "15/8",
+          "digits": 61.08106039618794
+        },
+        "4": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": 1.5,
+          "c": 4.0,
+          "z": 1.0,
+          "multiplier": "55/11",
+          "digits": 61.04327183529854
+        },
+        "5": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": 1.5,
+          "c": 4.0,
+          "z": 1.0,
+          "multiplier": "60/11",
+          "digits": 61.08106039618794
+        }
+      },
+      "proof_sketch": "-- Proof sketch: PCF \u2192 \u2082F\u2081 \u2192 Gamma reduction\n-- Family: a_template=[(0, 0), (3, 2), (-2, 0)], b=[1, 3]\n-- Ratios: {1: Fraction(4, 3), 2: Fraction(6, 5), 3: Fraction(8, 7), 4: Fraction(10, 9), 5: Fraction(12, 11)}\n\n-- m=0: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, 0.5; 1.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 2.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=1: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, 3.5; 4.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 2.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=2: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, 2.5; 4.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 3.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=3: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, -0.5; 3.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 5.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=4: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, 1.5; 4.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 4.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=5: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, 1.5; 4.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 4.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- theorem family_closed_form (m : \u2115) :\n--   V(m) = [closed form expression] := by\n--   induction m with\n--   | zero => simp [V, pcf_eval, hyp2f1_gauss]\n--   | succ n ih => \n--     rw [V_ratio_recurrence]  -- V(n+1)/V(n) = r(n)\n--     exact ih \u25b8 ratio_closed_form n"
+    },
+    {
+      "a_template": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          -2,
+          0
+        ]
+      ],
+      "b_coeffs": [
+        1,
+        3
+      ],
+      "ratios": {
+        "1": "5/4",
+        "2": "7/6",
+        "3": "9/8",
+        "4": "11/10",
+        "5": "13/12"
+      },
+      "members": {
+        "0": {
+          "stable_digits": 1000,
+          "value_50dp": "1.5",
+          "status": "verified"
+        },
+        "1": {
+          "stable_digits": 1000,
+          "value_50dp": "1.875",
+          "status": "verified"
+        },
+        "2": {
+          "stable_digits": 1000,
+          "value_50dp": "2.1875",
+          "status": "verified"
+        },
+        "3": {
+          "stable_digits": 1000,
+          "value_50dp": "2.4609375",
+          "status": "verified"
+        },
+        "4": {
+          "stable_digits": 1000,
+          "value_50dp": "2.70703125",
+          "status": "verified"
+        },
+        "5": {
+          "stable_digits": 1000,
+          "value_50dp": "2.9326171875",
+          "status": "verified"
+        }
+      },
+      "hypergeometric_identities": {
+        "0": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": 1.0,
+          "c": 5.5,
+          "z": 1.0,
+          "multiplier": "2/1",
+          "digits": 61.10908911978818
+        },
+        "1": {
+          "type": "2F1_gauss_rational",
+          "a": -2.0,
+          "b": -0.5,
+          "c": 1.0,
+          "z": 1.0,
+          "multiplier": "1/1",
+          "digits": 61.10908911978818
+        },
+        "2": {
+          "type": "2F1_gauss_rational",
+          "a": -2.0,
+          "b": -0.5,
+          "c": 2.0,
+          "z": 1.0,
+          "multiplier": "15/10",
+          "digits": 61.08106039618794
+        },
+        "3": {
+          "type": "2F1_gauss_rational",
+          "a": -2.0,
+          "b": 0.5,
+          "c": 3.0,
+          "z": 1.0,
+          "multiplier": "27/8",
+          "digits": 61.03530290562726
+        },
+        "4": {
+          "type": "2F1_gauss_rational",
+          "a": -1.5,
+          "b": 3.0,
+          "c": 4.5,
+          "z": 1.0,
+          "multiplier": "99/8",
+          "digits": 50
+        }
+      },
+      "proof_sketch": "-- Proof sketch: PCF \u2192 \u2082F\u2081 \u2192 Gamma reduction\n-- Family: a_template=[(0, 0), (4, 2), (-2, 0)], b=[1, 3]\n-- Ratios: {1: Fraction(5, 4), 2: Fraction(7, 6), 3: Fraction(9, 8), 4: Fraction(11, 10), 5: Fraction(13, 12)}\n\n-- m=0: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, 1.0; 5.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 6.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=1: Value = (p/q) \u00b7 \u2082F\u2081(-2.0, -0.5; 1.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 3.5 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=2: Value = (p/q) \u00b7 \u2082F\u2081(-2.0, -0.5; 2.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 4.5 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=3: Value = (p/q) \u00b7 \u2082F\u2081(-2.0, 0.5; 3.0; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 4.5 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- m=4: Value = (p/q) \u00b7 \u2082F\u2081(-1.5, 3.0; 4.5; 1)\n--   By Gauss summation: \u2082F\u2081(a,b;c;1) = \u0393(c)\u0393(c-a-b)/(\u0393(c-a)\u0393(c-b))\n--   Condition c-a-b = 3.0 > 0 \u2713\n--   Apply Legendre duplication: \u0393(z)\u0393(z+1/2) = \u221a\u03c0\u00b7\u0393(2z)/2^(2z-1)\n\n-- theorem family_closed_form (m : \u2115) :\n--   V(m) = [closed form expression] := by\n--   induction m with\n--   | zero => simp [V, pcf_eval, hyp2f1_gauss]\n--   | succ n ih => \n--     rw [V_ratio_recurrence]  -- V(n+1)/V(n) = r(n)\n--     exact ih \u25b8 ratio_closed_form n"
+    }
+  ]
+}

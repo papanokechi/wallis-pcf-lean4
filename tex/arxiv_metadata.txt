@@ -1,0 +1,17 @@
+Title:
+Polynomial continued fractions: a proved logarithmic ladder, a 4/pi Casoratian identity, and 482 irrational constants
+
+Primary MSC:
+11J70
+
+Secondary MSC:
+11Y60, 33C20
+
+Keywords:
+continued fractions, irrationality, Casoratian, Gauss hypergeometric, Pincherle's theorem, PSLQ
+
+Abstract:
+We prove that the polynomial continued fractions PCF(-kn^2,(k+1)n+k) and PCF(-n(2n-3),3n+1) converge respectively to 1/ln(k/(k-1)) for every real k>1 and to 4/pi, and from the second family we derive a rapidly convergent identity for pi/4. The key tool is a combination of closed-form convergents and a discrete Casoratian telescope for the underlying three-term recurrence. This differs from the classical Gauss and Brouncker formulas in that the evaluation is obtained directly inside the recurrence, with error O(2^{-N}/N^{7/2}) for the resulting series. As a computational application, we certify 482 quadratic generalized continued fractions against a basis of 15 standard constants using Arb ball arithmetic at 10,000-bit precision and depth N=5000. These computations yield 1500+ correct digits and rigorous irrationality statements for 482 previously unclassified constants. We also prove that the 4/pi family cannot be expressed as a Gauss 2F1 continued fraction, because its term ratio is forced into a 2F3 form over Q(sqrt(5)).
+
+Comments:
+13 pages, 4 tables, computational data available at https://github.com/ramanujan-breakthrough/ramanujan-breakthrough-generator. Submitted to Experimental Mathematics.

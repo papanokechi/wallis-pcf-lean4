@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-04-01T09:00:24.695295+00:00",
+  "k": 6,
+  "swarm_size": 8,
+  "candidates": [
+    {
+      "id": "C-0607",
+      "mutation": "structure_reset",
+      "formula": "C-0607: -(6*c6)/48 - 63/(8*c6)",
+      "gap_pct": 0.0,
+      "lfi": 0.09,
+      "verdict": "CHAMPION",
+      "alpha": "-1/8",
+      "beta": "-63/8",
+      "pslq_quality": "excellent"
+    },
+    {
+      "id": "C-0608",
+      "mutation": "binomial_alpha_probe",
+      "formula": "C-0608: -(6/924)*c6 - 63/(8*c6)",
+      "gap_pct": 20.046663354152194,
+      "lfi": 0.18576537843284513,
+      "verdict": "ELIMINATED",
+      "alpha": "-1/154",
+      "beta": "-63/8",
+      "pslq_quality": "excellent"
+    },
+    {
+      "id": "C-0606",
+      "mutation": "transcendental_zeta3",
+      "formula": "C-0606: (-(5*c5)/48 - 6/c5) + zeta(3)/(12*c6)",
+      "gap_pct": 100.0,
+      "lfi": 0.21,
+      "verdict": "ELIMINATED",
+      "alpha": "0",
+      "beta": "pslq_hit(max=6)",
+      "pslq_quality": "noise"
+    },
+    {
+      "id": "C-0601",
+      "mutation": "baseline",
+      "formula": "C-0601: -(5*c5)/48 - 6/c5",
+      "gap_pct": 100.0,
+      "lfi": 0.24,
+      "verdict": "ELIMINATED",
+      "alpha": "0",
+      "beta": "0",
+      "pslq_quality": "noise"
+    },
+    {
+      "id": "C-0602",
+      "mutation": "coeff_perturbation_+5%",
+      "formula": "C-0602: (0.0)*c6 + (0.0)/c6",
+      "gap_pct": 100.0,
+      "lfi": 0.24,
+      "verdict": "ELIMINATED",
+      "alpha": "0",
+      "beta": "0",
+      "pslq_quality": "noise"
+    },
+    {
+      "id": "C-0603",
+      "mutation": "coeff_perturbation_-5%",
+      "formula": "C-0603: (0.0)*c6 + (0.0)/c6",
+      "gap_pct": 100.0,
+      "lfi": 0.24,
+      "verdict": "ELIMINATED",
+      "alpha": "0",
+      "beta": "0",
+      "pslq_quality": "noise"
+    },
+    {
+      "id": "C-0604",
+      "mutation": "constant_injection",
+      "formula": "C-0604: (-(5*c5)/48 - 6/c5) + 0.095056",
+      "gap_pct": 100.0,
+      "lfi": 0.24,
+      "verdict": "ELIMINATED",
+      "alpha": "0",
+      "beta": "0",
+      "pslq_quality": "noise"
+    },
+    {
+      "id": "C-0605",
+      "mutation": "complexity_escalation",
+      "formula": "C-0605: (-(5*c5)/48 - 6/c5) + 0.001*c6**2",
+      "gap_pct": 100.0,
+      "lfi": 0.27,
+      "verdict": "ELIMINATED",
+      "alpha": "0",
+      "beta": "0",
+      "pslq_quality": "noise"
+    }
+  ],
+  "champion": {
+    "id": "C-0607",
+    "mutation": "structure_reset",
+    "formula": "C-0607: -(6*c6)/48 - 63/(8*c6)",
+    "gap_pct": 0.0,
+    "lfi": 0.09,
+    "verdict": "CHAMPION",
+    "alpha": "-1/8",
+    "beta": "-63/8",
+    "pslq_quality": "excellent"
+  },
+  "survivors": []
+}

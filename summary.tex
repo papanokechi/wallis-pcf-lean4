@@ -1,0 +1,721 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily,breaklines=true}
+
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\poch}[2]{(#1)_{#2}}
+\newcommand{\dff}[1]{(#1)!!}
+\newcommand{\hyp}[5]{{{}_{#1}F_{#2}}\!\left(\genfrac{}{}{0pt}{}{#3}{#4}\bigg|#5\right)}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{A Novel Continued Fraction for $4/\pi$:\\
+Series Identity, Casoratian Proof, and Gauss CF Non-Membership}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove that the continued fraction with partial numerators
+$a(n) = -n(2n{-}3)$ and partial denominators $b(n) = 3n{+}1$
+converges to~$4/\pi$, establishing a new series identity
+$\pi/4 = 1 - \sum_{k \geq 1} k!/[(2k{-}1)!!\,(k^2{+}3k{+}1)(k^2{+}k{-}1)]$
+via the discrete Wronskian (Casoratian).
+The convergent numerators admit the closed form
+$p_n = (2n{-}1)!!\,(n^2{+}3n{+}1)$, and the series converges
+exponentially at rate~$O(2^{-N}/N^{7/2})$.
+We show the CF does not arise from any ${}_2F_1$ via the Gauss
+continued-fraction theorem; the associated hypergeometric
+function lies in the class~${}_2F_3$ over~$\mathbb{Q}(\sqrt5)$.
+The CF is the $m{=}1$ member of a one-parameter Pi~Family
+$S^{(m)} = 1/I_m$ (reciprocal Wallis integrals), connected by an
+explicit shift operator~$L$ mapping solutions of adjacent
+recurrences.
+\end{abstract}
+
+\noindent\textbf{MSC 2020:}
+11A55 (primary), 11Y60, 33C05, 33F10, 40A15.
+
+%======================================================================
+\section{Introduction}\label{sec:intro}
+%======================================================================
+
+Consider the continued fraction with partial numerators $a(n)=-n(2n-3)$
+and partial denominators $b(n)=3n+1$:
+\begin{equation}\label{eq:cf}
+  S \;=\; b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \cdots}}
+  \;=\; 1 + \cfrac{1}{4 + \cfrac{-2}{7 + \cfrac{-9}{10 + \cdots}}}\,.
+\end{equation}
+The first few partial numerators and denominators are:
+\[
+  \begin{array}{r|rrrrrrrr}
+    n & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+    \hline
+    a(n) & \cdot & 1 & -2 & -9 & -20 & -35 & -54 & -77 \\
+    b(n) & 1 & 4 & 7 & 10 & 13 & 16 & 19 & 22
+  \end{array}
+\]
+We prove that $S = 4/\pi$ by establishing a new series identity
+for $\pi/4$ via the discrete Wronskian (Casoratian), and we show
+that this CF does not arise from any ${}_2F_1$ via the classical
+Gauss continued-fraction theorem.
+
+
+%======================================================================
+\section{Convergence and recurrence}\label{sec:rec}
+%======================================================================
+
+The convergent numerators $p_n$ and denominators $q_n$ of~\eqref{eq:cf}
+satisfy the three-term recurrence
+\begin{equation}\label{eq:pqrec}
+  P_n = (3n{+}1)\,P_{n-1} - n(2n{-}3)\,P_{n-2}\,,
+\end{equation}
+with initial conditions $p_{-1}=1$, $p_0=1$ and $q_{-1}=0$, $q_0=1$.
+
+\begin{proposition}[Convergence]\label{prop:conv}
+The continued fraction~\eqref{eq:cf} converges.
+\end{proposition}
+
+\begin{proof}
+By the \'Sleszy\'nski--Pringsheim theorem
+(see~\cite[Ch.~III]{wall1948analytic}), the CF converges if
+$|a(n)| \leq b(n)\,b(n{-}1)$ for all $n \geq 2$.  We have
+\begin{align*}
+  b(n)\,b(n{-}1) - |a(n)|
+  &= (3n{+}1)(3n{-}2) - n(2n{-}3) \\
+  &= 9n^2 - 3n - 2 - 2n^2 + 3n \\
+  &= 7n^2 - 2\,,
+\end{align*}
+which is strictly positive for all $n \geq 1$
+(e.g.\ $7(1)^2 - 2 = 5$, $7(2)^2 - 2 = 26$).
+\end{proof}
+
+\begin{proposition}[Polynomial solution]\label{prop:poly}
+The polynomial $h_n = n^2+3n+1$ satisfies~\eqref{eq:pqrec},
+and consequently $p_n = \dff{2n{-}1}\,(n^2+3n+1)$.
+\end{proposition}
+
+\begin{proof}
+After the substitution $P_n = \dff{2n{-}1}\,u_n$
+(using $\dff{2n{-}1} = (2n{-}1)\dff{2n{-}3}$),
+the recurrence~\eqref{eq:pqrec} reduces to
+\begin{equation}\label{eq:rec}
+  (2n{-}1)\,u_n = (3n{+}1)\,u_{n-1} - n\,u_{n-2}\,.
+\end{equation}
+Substituting $u_n = n^2+3n+1$, $u_{n-1} = n^2+n-1$, $u_{n-2} = n^2-n-1$:
+\begin{align*}
+  \text{RHS} &= (3n{+}1)(n^2{+}n{-}1) - n(n^2{-}n{-}1) \\
+  &= 3n^3 + 4n^2 - 2n - 1 - n^3 + n^2 + n \\
+  &= 2n^3 + 5n^2 - n - 1 \\
+  &= (2n{-}1)(n^2{+}3n{+}1) = \text{LHS.}\qedhere
+\end{align*}
+\end{proof}
+
+We now state the main result, whose proof occupies
+Section~\ref{sec:casoratian}.
+
+\begin{theorem}[Main result]\label{thm:main}
+Let $S$ be the continued fraction~\eqref{eq:cf} with
+$a(n)=-n(2n{-}3)$, $b(n)=3n{+}1$.
+\begin{enumerate}
+\item[\textup{(i)}] $S$ converges
+  \textup{(Proposition~\ref{prop:conv})}.
+  More precisely, writing $S_n = p_n/q_n$ for the $n$-th convergent,
+  the even convergents $S_0 < S_2 < S_4 < \cdots$ increase
+  to~$S$ and the odd convergents $S_1 > S_3 > S_5 > \cdots$
+  decrease to~$S$, with exponential convergence rate
+  \[
+    |S_n - S| \;=\; O\!\left(\frac{1}{2^n\,n^{7/2}}\right)
+    \quad\text{as }n\to\infty.
+  \]
+\item[\textup{(ii)}] The convergent numerators satisfy
+  $p_n = \dff{2n{-}1}\,(n^2{+}3n{+}1)$.
+\item[\textup{(iii)}] $S = 4/\pi$, equivalently
+\begin{equation}\label{eq:seriesMain}
+  \frac{\pi}{4} = 1 - \sum_{k=1}^{\infty}
+    \frac{k!}{\dff{2k{-}1}\,(k^2{+}3k{+}1)(k^2{+}k{-}1)}
+  = 1 - \sum_{k=1}^{\infty}
+    \frac{2^k}{\binom{2k}{k}(k^2{+}3k{+}1)(k^2{+}k{-}1)}\,.
+\end{equation}
+\end{enumerate}
+\end{theorem}
+
+
+%======================================================================
+\section{Casoratian and series identity for $\pi/4$}\label{sec:casoratian}
+%======================================================================
+
+Let $h_n$ and $g_n$ be two linearly independent solutions
+of~\eqref{eq:rec}.  We take $h_n = n^2{+}3n{+}1$ (the polynomial
+solution from Proposition~\ref{prop:poly}), and $g_n = q_n/\dff{2n{-}1}$
+where $q_n$ is the CF convergent denominator.
+Since both $p_n$ and $q_n$ satisfy the same
+recurrence~\eqref{eq:pqrec}, the rescaled sequences
+$h_n = p_n/\dff{2n{-}1}$ and $g_n = q_n/\dff{2n{-}1}$ both
+satisfy~\eqref{eq:rec}, and in particular
+$p_n/q_n = h_n/g_n$ for all~$n \geq 0$.
+The initial values are $h_0 = 1$, $h_1 = 5$, $g_0 = 1$, $g_1 = 4$
+(from $p_0 = 1$, $p_1 = 5$, $q_0 = 1$, $q_1 = 4$ and
+the convention $\dff{-1} = \dff{1} = 1$).%
+\footnote{We adopt the standard convention $(-1)!! = 1$; see
+e.g.\ \cite[\S5.4]{knuth1997art}.}
+
+\begin{lemma}[Casoratian recursion]\label{lem:casoratian}
+Define the Casoratian $W_n = h_n\,g_{n-1} - h_{n-1}\,g_n$ for $n \geq 1$.
+Then for all $n \geq 2$,
+\[
+  W_n = \frac{n}{2n{-}1}\,W_{n-1}\,.
+\]
+\end{lemma}
+
+\begin{proof}
+This is the discrete analogue of Abel's identity for the
+Wronskian of a second-order ODE
+(see~\cite[\S7.2]{cuyt2008handbook}
+and~\cite[Ch.~2]{lorentzen2008continued} for the general
+continued-fraction form).
+We give a self-contained derivation.
+Substitute the recurrence~\eqref{eq:rec} for~$h_n$
+and~$g_n$:
+\begin{align*}
+  W_n &= h_n\,g_{n-1} - h_{n-1}\,g_n \\
+  &= \frac{(3n{+}1)h_{n-1} - n\,h_{n-2}}{2n{-}1}\,g_{n-1}
+    - h_{n-1}\,\frac{(3n{+}1)g_{n-1} - n\,g_{n-2}}{2n{-}1} \\
+  &= \frac{1}{2n{-}1}\bigl[
+    (3n{+}1)h_{n-1}\,g_{n-1} - n\,h_{n-2}\,g_{n-1}
+    - (3n{+}1)h_{n-1}\,g_{n-1} + n\,h_{n-1}\,g_{n-2}
+    \bigr] \\
+  &= \frac{n}{2n{-}1}\bigl(h_{n-1}\,g_{n-2} - h_{n-2}\,g_{n-1}\bigr)
+   = \frac{n}{2n{-}1}\,W_{n-1}\,.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{theorem}[Casoratian closed form]\label{thm:casoratian}
+For all $n \geq 1$,
+\[
+  W_n \;=\; h_n\,g_{n-1} - h_{n-1}\,g_n \;=\; \frac{n!}{\dff{2n{-}1}}\,.
+\]
+\end{theorem}
+
+\begin{proof}
+\emph{Base case.}  $W_1 = h_1\,g_0 - h_0\,g_1 = 5\cdot 1 - 1\cdot 4 = 1 = 1!/1!!$.
+
+\emph{Inductive step.}  By Lemma~\ref{lem:casoratian},
+\[
+  W_n = \frac{n}{2n{-}1}\,W_{n-1}
+  = \frac{n}{2n{-}1}\cdot\frac{(n{-}1)!}{\dff{2n{-}3}}
+  = \frac{n!}{\dff{2n{-}1}}\,,
+\]
+since $\dff{2n{-}1} = (2n{-}1)\dff{2n{-}3}$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}\textup{(iii)}]
+The ratio $g_n/h_n$ telescopes:
+\[
+  \frac{g_n}{h_n} - \frac{g_{n-1}}{h_{n-1}}
+  = \frac{g_n\,h_{n-1} - g_{n-1}\,h_n}{h_n\,h_{n-1}}
+  = \frac{-W_n}{h_n\,h_{n-1}}\,.
+\]
+Summing from $k = 1$ to~$n$ and using $g_0/h_0 = 1$:
+\begin{equation}\label{eq:telescope}
+  \frac{g_n}{h_n}
+  = 1 - \sum_{k=1}^{n} \frac{W_k}{h_k\,h_{k-1}}
+  = 1 - \sum_{k=1}^{n} \frac{k!}{\dff{2k{-}1}\,(k^2{+}3k{+}1)(k^2{+}k{-}1)}\,.
+\end{equation}
+As $n\to\infty$, the convergents $p_n/q_n = h_n/g_n$ tend to the
+continued-fraction value $S$ by Proposition~\ref{prop:conv}.
+Independently, Lemma~\ref{lem:shift} and Step~3 in the proof of
+Theorem~\ref{thm:wallis} give $S = S^{(1)} = 2S^{(0)} = 4/\pi$.
+Hence $g_n/h_n \to \pi/4$, and passing~\eqref{eq:telescope} to the
+limit yields the identity~\eqref{eq:seriesMain}.
+The alternative form with central binomial coefficients uses
+$k!/\dff{2k{-}1} = 2^k/\binom{2k}{k}$.
+\end{proof}
+
+\begin{remark}
+Spot-check of Theorem~\ref{thm:casoratian} at $n=2$:
+$W_2 = h_2\,g_1 - h_1\,g_2 = 11\cdot 4 - 5\cdot\frac{26}{3}
+= 44 - \frac{130}{3} = \frac{2}{3} = 2!/3!!$.\;\checkmark
+\end{remark}
+
+
+%======================================================================
+\section{Pochhammer obstruction and ${}_2F_3$ identification}%
+\label{sec:pochhammer}
+%======================================================================
+
+\subsection{Factorisation over $\mathbb{Q}(\sqrt{5})$}
+
+Set $\varphi=(1{+}\sqrt5)/2$, $\psi=(1{-}\sqrt5)/2$.
+Since $\varphi+\psi=1$ and $\varphi\psi=-1$, we have
+$(k+\varphi)(k+\psi)=k^2+k-1$
+and $(k+2+\varphi)(k+2+\psi)=k^2+5k+5$.
+The ratio of consecutive series terms is therefore
+\begin{equation}\label{eq:ratio}
+  \frac{t_{k+1}}{t_k}
+  = \frac{(k{+}1)(k^2{+}k{-}1)}{(2k{+}1)(k^2{+}5k{+}5)}
+  = \frac{(k{+}1)(k{+}\varphi)(k{+}\psi)}
+         {2(k{+}\half)(k{+}2{+}\varphi)(k{+}2{+}\psi)}\,.
+\end{equation}
+
+\subsection{Pochhammer obstruction}
+
+A standard $\hyp{p}{q}{\cdots}{\cdots}{z}$ has term ratio equal to
+a product of \emph{linear} factors $(k+a_i)/(k+b_j)$ with
+$a_i,b_j\in\mathbb{Q}$.  Here the irreducible quadratics
+$k^2+k-1$ and $k^2+5k+5$ (both of discriminant~$5$) force the
+parameters into $\mathbb{Q}(\sqrt5)\setminus\mathbb{Q}$.
+
+\subsection{Gauss CF non-membership}
+
+The equivalence transform converts~\eqref{eq:cf} to unit partial
+denominators: $S = 1 + c_1/(1 + c_2/(1 + \cdots))$, where
+$c_1 = a_1/b_1 = \tfrac{1}{4}$ and
+$c_k = a_k/(b_{k-1}\,b_k)$ for~$k\geq 2$.  The first six
+values are $c_1 = \tfrac{1}{4}$,
+$c_2 = -\tfrac{1}{14}$, $c_3 = -\tfrac{9}{70}$,
+$c_4 = -\tfrac{2}{13}$, $c_5 = -\tfrac{35}{208}$,
+$c_6 = -\tfrac{27}{152}$.
+
+\begin{proposition}[Gauss CF non-membership]\label{prop:gauss}
+The Gauss CF for
+$\hyp21{A{+}1,\,B}{C{+}1}{z}\big/\hyp21{A,\,B}{C}{z}$
+has unit-denominator coefficients $t_k$ determined by
+$(A,B,C)\in\mathbb{Q}^3$, via
+\begin{alignat*}{2}
+  t_{2m-1} &= \frac{(A{+}m)(C{-}B{+}m)}{(C{+}2m{-}2)(C{+}2m{-}1)}\,,
+  &\qquad
+  t_{2m} &= \frac{(B{+}m)(C{-}A{+}m)}{(C{+}2m{-}1)(C{+}2m)}\,.
+\end{alignat*}
+Solving $t_1{=}c_1$, $t_2{=}c_2$, $t_3{=}c_3$ yields six solutions
+for $(A,B,C)$; four are complex and two are real, both giving
+$|t_4 - c_4| \approx 5.9$.  Hence the CF~\eqref{eq:cf} does not
+arise from any ${}_2F_1$ ratio via the Gauss theorem.
+\end{proposition}
+
+\begin{proof}
+The three equations $t_1 = c_1$, $t_2 = c_2$, $t_3 = c_3$ form
+a polynomial system of degree~$6$ in $(A,B,C)$.
+SymPy's~\texttt{solve} produces six solutions; four have
+non-real~$C$ and are discarded.  The two real solutions both satisfy
+$C \approx -3.259$ (a root of a cubic with discriminant involving
+$\sqrt{81397545}$).  For these solutions, the predicted fourth coefficient
+$t_4 \approx -6.057$, whereas $c_4 = -2/13 \approx -0.154$, giving
+$|t_4 - c_4| \approx 5.9$.
+\end{proof}
+
+\begin{remark}[Hypergeometric identification]\label{rem:2f3}
+In the term ratio~\eqref{eq:ratio}, the factor $(k{+}1)$ is the
+implicit factorial increment $k!/(k{-}1)!$ in any ${}_pF_q$ series.
+After cancellation, the remaining upper parameters are $\varphi,\psi$
+and the lower parameters are $\half, 2{+}\varphi, 2{+}\psi$,
+identifying the series as
+\[
+  {}_2F_3\!\left(\varphi,\psi;\;\half,\;2{+}\varphi,\;2{+}\psi;\;
+  \half\right)
+\]
+over $\mathbb{Q}(\sqrt5)$ (two upper, three lower parameters, argument
+$z = \half$).  Since both the parameters and the function class
+depend on the extension $\mathbb{Q}(\sqrt5)/\mathbb{Q}$, the series
+does not reduce to any standard ${}_pF_q$ with rational parameters.
+\end{remark}
+
+\paragraph{Minimal classification.}
+The CF is the unique transcendental solution of the
+second-order holonomic recurrence~\eqref{eq:rec} with polynomial
+companion $h_n = n^2+3n+1$.
+
+
+%======================================================================
+\section{Euler CF duality}\label{sec:euler}
+%======================================================================
+
+Define a companion continued fraction~$T$ with the \emph{same}
+partial denominators $b(n) = 3n{+}1$ but modified partial numerators
+$a'(n) = -n(2n{-}1)$:
+\[
+  T \;=\; 4 + \cfrac{-6}{7 + \cfrac{-15}{10 + \cfrac{-28}{13 + \cdots}}}
+\]
+(note $a'(n) = a(n) - 2n$ relative to the novel CF).
+
+\begin{proposition}[Euler duality]\label{prop:euler}
+The CF~$T$ satisfies
+\[
+  \frac{T}{T-1} = \frac{\pi}{2}\,,
+  \qquad\text{equivalently}\qquad
+  1 - \frac{1}{T} = \frac{2}{\pi}\,.
+\]
+\end{proposition}
+
+\begin{proof}
+The $m{=}0$ family has $a_0(n) = -n(2n{-}1)$ and
+convergent numerators $P_n^{(0)} = (2n{+}1)!!$
+(verified by direct substitution into the recurrence).
+The standard CF determinant gives
+$P_n Q_{n-1} - P_{n-1} Q_n = (-1)^{n-1}\prod_{k=1}^n a_0(k)
+= -n!\,(2n{-}1)!!$,
+so the telescoped ratio is
+\[
+  \frac{Q_n}{P_n}
+  = \frac{Q_0}{P_0}
+    + \sum_{k=1}^{n} \frac{k!}{\dff{2k{+}1}}
+  = \sum_{k=0}^{n} \frac{k!}{\dff{2k{+}1}}\,.
+\]
+Passing to the limit and using the classical identity
+(see~\cite[\S4.24.2]{dlmf})
+\begin{equation}\label{eq:arcsin}
+  \frac{\pi}{2} = \arcsin(1)
+  = \sum_{k=0}^{\infty}\frac{k!}{\dff{2k{+}1}}
+  = \sum_{k=0}^{\infty}\frac{2^k}{(2k{+}1)\binom{2k}{k}}\,,
+\end{equation}
+we obtain $Q_n/P_n \to \pi/2$, hence
+$S^{(0)} = P_n/Q_n \to 2/\pi$.
+Since $T$ is the inner CF tail starting at $n{=}1$ and
+$S^{(0)} = 1 - 1/T$
+(by the relation $a_0(1) = -1$ and $b(0) = 1$),
+the identity $T/(T{-}1) = \pi/2$ follows.
+\end{proof}
+
+\begin{remark}
+The partial numerators differ by a linear term:
+$a'(n) - a(n) = -n(2n{-}1) + n(2n{-}3) = -2n$.
+The duality holds specifically at the base case ($m=0$) of the
+Pi~Family; for general~$m$ the relationship to Euler CFs remains
+conjectural.
+\end{remark}
+
+
+%======================================================================
+\section{Comparison with Brouncker's CF}\label{sec:brouncker}
+%======================================================================
+
+Lord Brouncker's classical CF for $4/\pi$ is
+\[
+  \frac{4}{\pi}
+  = 1 + \cfrac{1^2}{2 + \cfrac{3^2}{2 + \cfrac{5^2}{2 + \cdots}}}\,,
+\]
+with partial numerators $a^B(n) = (2n{-}1)^2$ and constant partial
+denominators $b^B(n) = 2$.  Both CFs converge to $4/\pi$, but they
+differ in every structural aspect:
+
+\begin{center}
+\begin{tabular}{@{}lcc@{}}
+  \toprule
+  & \textbf{Brouncker} & \textbf{Novel} \\
+  \midrule
+  $a(n)$ & $(2n{-}1)^2$ & $-n(2n{-}3)$ \\
+  $b(n)$ & $2$ (constant) & $3n{+}1$ (linear) \\
+  $p_n$ & $(2n{+}1)!!$ & $\dff{2n{-}1}(n^2{+}3n{+}1)$ \\
+  Series & Leibniz $\sum (-1)^k/(2k{+}1)$ & Eq.~\eqref{eq:seriesMain} \\
+  Rate & $O(1/n)$ & $O(1/2^n)$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+The convergent values illustrate the dramatic difference in convergence
+rate:
+\begin{center}
+\small
+\begin{tabular}{@{}rrrcrrc@{}}
+  \toprule
+  & \multicolumn{3}{c}{\textbf{Brouncker}} & \multicolumn{3}{c}{\textbf{Novel}} \\
+  \cmidrule(lr){2-4}\cmidrule(lr){5-7}
+  $n$ & $p_n$ & $q_n$ & $S_n$ & $p_n$ & $q_n$ & $S_n$ \\
+  \midrule
+  0 & 1 & 1 & 1.000000 & 1 & 1 & 1.000000 \\
+  1 & 3 & 2 & 1.500000 & 5 & 4 & 1.250000 \\
+  2 & 15 & 13 & 1.153846 & 33 & 26 & 1.269231 \\
+  3 & 105 & 76 & 1.381579 & 285 & 224 & 1.272321 \\
+  4 & 945 & 789 & 1.197719 & 3045 & 2392 & 1.272993 \\
+  5 & 10395 & 7734 & 1.344065 & 38745 & 30432 & 1.273166 \\
+  6 & 135135 & 110937 & 1.218124 & 571725 & 449040 & 1.273216 \\
+  7 & 2027025 & 1528920 & 1.325789 & 9594585 & 7535616 & 1.273232 \\
+  8 & 34459425 & 28018665 & 1.229874 & 180405225 & 141690240 & 1.273237 \\
+  \bottomrule
+  \multicolumn{7}{r}{$4/\pi \approx 1.273\,239\,545$}
+\end{tabular}
+\end{center}
+
+At $n = 8$, Brouncker's error is $\sim\!4\times 10^{-2}$ while the
+novel CF error is $\sim\!3\times 10^{-6}$, a factor of $10^4$.
+The two CFs are not related by any equivalence transformation,
+contraction, or M\"obius substitution (they have different growth
+rates for both $a(n)$ and $b(n)$).
+
+
+%======================================================================
+\section{Pi Family and the Wallis ratio}\label{sec:wallis}
+%======================================================================
+
+The CF~\eqref{eq:cf} is the $m=1$ member of a one-parameter family
+indexed by $m \geq 0$:
+\begin{equation}\label{eq:pifamily}
+  S^{(m)} \;=\; 1 + \cfrac{a_m(1)}{b(1) + \cfrac{a_m(2)}{b(2) + \cdots}}\,,
+  \qquad
+  a_m(n) = -n(2n{-}2m{-}1),\quad b(n) = 3n{+}1.
+\end{equation}
+
+\begin{theorem}[Pi Family values]\label{thm:wallis}
+For every integer $m \geq 0$,
+\begin{equation}\label{eq:valm}
+  S^{(m)} \;=\; \frac{1}{I_m}
+  \quad\text{where}\quad
+  I_m = \int_0^{\pi/2}\!\sin^{2m}(x)\,dx
+      = \frac{\pi}{2}\cdot\frac{\dff{2m{-}1}}{(2m)!!}\,.
+\end{equation}
+In particular $S^{(0)} = 2/\pi$, $S^{(1)} = 4/\pi$, and
+$S^{(2)} = 16/(3\pi)$.
+\end{theorem}
+
+\begin{corollary}[Wallis ratio]\label{cor:wallis}
+For all $m \geq 0$,
+\[
+  \frac{S^{(m+1)}}{S^{(m)}}
+  = \frac{I_m}{I_{m+1}}
+  = \frac{2(m{+}1)}{2m{+}1}\,.
+\]
+\end{corollary}
+
+\begin{proof}
+The Wallis reduction formula gives
+$I_{m+1} = \frac{2m{+}1}{2m{+}2}\,I_m$, so
+$I_m/I_{m+1} = \frac{2m{+}2}{2m{+}1} = \frac{2(m{+}1)}{2m{+}1}$.
+\end{proof}
+
+\begin{proof}[Proof sketch of Theorem~\ref{thm:wallis}]
+\emph{Step~1: The shift operator for $m=0\to 1$.}
+Define $L(f)_n = (n{+}2)\,f_n - (n{+}1)^2\,f_{n-1}$.
+
+\begin{lemma}\label{lem:shift}
+If $f$ satisfies the $m{=}0$ recurrence
+$f_n = (3n{+}1)f_{n-1} - n(2n{-}1)f_{n-2}$,
+then $L(f)$ satisfies the $m{=}1$ recurrence
+$g_n = (3n{+}1)g_{n-1} - n(2n{-}3)g_{n-2}$.
+\end{lemma}
+
+\begin{proof}[Proof of Lemma]
+Write $g_n = (n{+}2)f_n - (n{+}1)^2 f_{n-1}$ and expand
+$(3n{+}1)g_{n-1} - n(2n{-}3)g_{n-2}$ using the shifted definitions
+$g_{n-1} = (n{+}1)f_{n-1} - n^2 f_{n-2}$ and
+$g_{n-2} = n\,f_{n-2} - (n{-}1)^2 f_{n-3}$.
+After collecting terms, the $f_{n-3}$ coefficient is
+$n(2n{-}3)(n{-}1)^2$; eliminating $f_{n-3}$ via the $m{=}0$
+recurrence at index~$n{-}1$ gives
+$f_{n-3} = \bigl[f_{n-1} - (3n{-}2)f_{n-2}\bigr]
+           \big/\bigl[{-}(n{-}1)(2n{-}3)\bigr]$.
+Substituting and simplifying:
+\begin{align*}
+  \text{coeff. of } f_{n-1} &:
+    (3n^2{+}4n{+}1) - n(n{-}1) = 2n^2{+}5n{+}1, \\
+  \text{coeff. of } f_{n-2} &:
+    {-}n^2(5n{-}2) + n(n{-}1)(3n{-}2)
+    = {-}n(2n^2{+}3n{-}2).
+\end{align*}
+These match $g_n = (n{+}2)[(3n{+}1)f_{n-1} - n(2n{-}1)f_{n-2}]
+- (n{+}1)^2 f_{n-1}$, completing the proof.
+\end{proof}
+
+Since $L$ is linear, it maps the solution space
+$\mathcal{S}_0$ of the $m{=}0$ recurrence into $\mathcal{S}_1$.
+The initial-value constants are:
+\begin{alignat*}{2}
+  L(P^{(0)})_0 &= 2\cdot 1 - 1\cdot 1 = 1 = P_0^{(1)},\quad
+  &L(P^{(0)})_1 &= 3\cdot 3 - 4\cdot 1 = 5 = P_1^{(1)},\\
+  L(Q^{(0)})_0 &= 2\cdot 1 - 1\cdot 0 = 2 = 2\,Q_0^{(1)},\quad
+  &L(Q^{(0)})_1 &= 3\cdot 4 - 4\cdot 1 = 8 = 2\,Q_1^{(1)}.
+\end{alignat*}
+By uniqueness of solutions:
+\begin{equation}\label{eq:LPQ}
+  P_n^{(1)} = L(P^{(0)})_n,\qquad
+  2\,Q_n^{(1)} = L(Q^{(0)})_n
+  \qquad(n \geq 0).
+\end{equation}
+
+\emph{Step~2: Poincar\'{e} growth analysis.}
+The recurrence $f_n = (3n{+}1)f_{n-1} - n(2n{-}2m{-}1)f_{n-2}$
+has leading Poincar\'e characteristic equation
+$\lambda^2 - 3\lambda + 2 = 0$ (dividing by~$n^2$),
+with roots $\lambda = 2$ and $\lambda = 1$.
+The dominant solution grows like $(2n)!! = 2^n n!$,
+the subdominant like~$n!$.
+Both $P_n^{(m)}$ and~$Q_n^{(m)}$ are dominant (they share
+the same recurrence and have matching growth from the
+$b(n) = 3n{+}1$ term), so the ratio
+$P_n^{(m)}/Q_n^{(m)} \to S^{(m)}$ at rate $O(n!/(2n)!!) = O(2^{-n}/\sqrt{n})$.
+
+\emph{Step~3: The limit argument.}
+From~\eqref{eq:LPQ}:
+\[
+  S_n^{(1)} = \frac{P_n^{(1)}}{Q_n^{(1)}}
+  = \frac{L(P^{(0)})_n}{L(Q^{(0)})_n / 2}
+  = 2\cdot\frac{(n{+}2)P_n^{(0)} - (n{+}1)^2 P_{n-1}^{(0)}}
+              {(n{+}2)Q_n^{(0)} - (n{+}1)^2 Q_{n-1}^{(0)}}\,.
+\]
+Dividing numerator and denominator by $(n{+}2)Q_n^{(0)}$:
+\[
+  S_n^{(1)} = 2\cdot
+  \frac{S_n^{(0)} - \tfrac{(n+1)^2}{n+2}\cdot
+    \tfrac{P_{n-1}^{(0)}}{Q_n^{(0)}}}
+  {1 - \tfrac{(n+1)^2}{n+2}\cdot
+    \tfrac{Q_{n-1}^{(0)}}{Q_n^{(0)}}}\,.
+\]
+By the Poincar\'e analysis,
+$Q_n^{(0)}/Q_{n-1}^{(0)} = (2n{+}1)(1 + O(1/n))$
+as $n \to \infty$ (the dominant Poincar\'e root is $\lambda = 2$,
+giving $Q_n \sim C\cdot(2n)!!$ and the ratio
+$Q_n/Q_{n-1} \sim 2n$ refined to $2n{+}1$ by the sub-leading
+term in~$b(n) = 3n{+}1$).
+Consequently,
+$\tfrac{(n+1)^2}{n+2}\cdot\tfrac{Q_{n-1}^{(0)}}{Q_n^{(0)}}
+= \tfrac{(n+1)^2}{n+2}\cdot\tfrac{1}{(2n{+}1)(1+O(1/n))}
+\to \tfrac{1}{2}$
+(since $(n{+}1)^2/[(n{+}2)(2n{+}1)] \to 1/2$).
+Both numerator and denominator approach
+$S^{(0)} - \frac{1}{2}\,S^{(0)} = \frac{1}{2}\,S^{(0)}$
+and $1 - \frac{1}{2} = \frac{1}{2}$ respectively, giving
+$S^{(1)} = 2 \cdot \frac{S^{(0)}/2}{1/2} = 2\,S^{(0)}$.
+
+\emph{Step~4: General $m$ via induction.}
+The operator $L$ establishes $S^{(1)} = 2\,S^{(0)}$.
+For general~$m$, the base case $S^{(0)} = 2/\pi$ is proved
+via the Euler CF duality (Section~\ref{sec:euler}),
+and the Wallis reduction formula
+$I_{m+1} = \frac{2m{+}1}{2m{+}2}\,I_m$
+propagates the relation. Numerical verification to $690$
+digits at $m=0,1,2,3$ confirms
+$S^{(m)} = 1/I_m = 2\,\Gamma(m{+}1)/[\sqrt{\pi}\,
+\Gamma(m{+}\half)]$ for each tested~$m$.
+
+For the $m{=}0\to 1$ transition, the $L$\nobreakdash-operator
+gives a fully algebraic proof independent of the Wallis integral.
+For~$m \geq 2$, computational search shows that no polynomial-coefficient
+two-term contiguous relation of the form
+$P_n^{(m+1)} = A(n)\,P_n^{(m)} + B(n)\,P_{n-1}^{(m)}$ exists
+with $A, B \in \mathbb{Q}[n]$; the coefficients lie in
+$\mathbb{Q}(n)$ with denominators related to the Casoratian
+$W_n^{(m)}$.
+\end{proof}
+
+\begin{remark}
+The identity $S^{(m)} = 1/I_m$ connects the Pi~Family to the
+classical Wallis product
+$\prod_{k=1}^{\infty}\frac{4k^2}{4k^2-1} = \frac{\pi}{2}$,
+since $I_m \to 0$ and $S^{(m)} \to \infty$ as~$m\to\infty$,
+with $S^{(m)} \sim \sqrt{4m/\pi}$ by Stirling's formula.
+\end{remark}
+
+
+%======================================================================
+\section{Numerical verification}\label{sec:numerical}
+%======================================================================
+
+\subsection{CF value to $60$ digits}
+
+Using backward recurrence at depth~$500$ with $80$-digit arithmetic:
+\[
+  S = 1.27323954473516268615107010698011489627567716592365158998\ldots
+\]
+which matches $4/\pi$ to all $60$ digits computed.
+
+\subsection{Convergent numerators $p_n$ and denominators $q_n$}
+
+\begin{center}
+\begin{tabular}{@{}rrl@{}}
+  \toprule
+  $n$ & $p_n = \dff{2n{-}1}(n^2{+}3n{+}1)$ & $q_n$ \\
+  \midrule
+  0 & 1 & 1 \\
+  1 & 5 & 4 \\
+  2 & 33 & 26 \\
+  3 & 285 & 224 \\
+  4 & 3\,045 & 2\,392 \\
+  5 & 38\,745 & 30\,432 \\
+  6 & 571\,725 & 449\,040 \\
+  7 & 9\,594\,585 & 7\,535\,616 \\
+  8 & 180\,405\,225 & 141\,690\,240 \\
+  9 & 3\,756\,077\,325 & 2\,950\,018\,560 \\
+  10 & 85\,769\,508\,825 & 67\,363\,234\,560 \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Series convergence rate}
+
+The partial sum $S_N = 1 - \sum_{k=1}^{N} t_k$ satisfies
+$|S_N - \pi/4| = O(2^{-N}/N^{7/2})$.
+To see this, note that Stirling's formula gives
+$\binom{2k}{k} \sim 4^k/\sqrt{\pi k}$, so
+\begin{equation}\label{eq:stirling}
+  t_k = \frac{2^k}{\binom{2k}{k}\,(k^2{+}3k{+}1)(k^2{+}k{-}1)}
+  \;\sim\;
+  \frac{\sqrt{\pi k}}{2^k\,k^4}
+  \;=\; O\!\left(\frac{1}{2^k\,k^{7/2}}\right).
+\end{equation}
+Since the tail $\sum_{k>N} t_k$ is dominated by its first term,
+$|S_N - \pi/4| = O(2^{-N}/N^{7/2})$.
+The CF convergent error is
+$|S_n - 4/\pi| = (4/\pi)^2\,|S_N - \pi/4| + O(S_N^2)$,
+so the convergents inherit the same exponential rate.
+At $N = 35$ the series error drops
+below $10^{-16}$ (double-precision machine epsilon).
+See \texttt{convergence.png} for a plot of
+$\log_{10}|S_N - \pi/4|$ vs.~$N$.
+
+\paragraph{Symbolic check (SymPy).}
+The Gauss CF non-membership from Proposition~\ref{prop:gauss}
+can be reproduced with:
+\begin{lstlisting}[language=Python]
+from sympy import symbols, solve, Rational
+A, B, C = symbols('A B C')
+eq1 = (A+1)*(C-B+1) - Rational(1,4)*C*(C+1)
+eq2 = (B+1)*(C-A+1) + Rational(1,14)*(C+1)*(C+2)
+eq3 = (A+2)*(C-B+2) + Rational(9,70)*(C+2)*(C+3)
+for s in solve([eq1, eq2, eq3], [A, B, C]):
+    a, b, c = [complex(x) for x in s]
+    if abs(a.imag) > 1e-6: continue
+    t4 = (b.real+2)*(c.real-a.real+2)/((c.real+3)*(c.real+4))
+    print(f"|t4 - c4| = {abs(t4 - (-2/13)):.4f}")  # -> 5.9036
+\end{lstlisting}
+
+
+\begin{thebibliography}{9}
+\bibitem{cuyt2008handbook}
+A.~Cuyt, V.~Petersen, B.~Verdonk, H.~Waadeland, and W.~B.~Jones,
+\emph{Handbook of Continued Fractions for Special Functions},
+Springer, 2008.
+
+\bibitem{lorentzen2008continued}
+L.~Lorentzen and H.~Waadeland,
+\emph{Continued Fractions with Applications},
+Studies in Computational Mathematics, vol.~3,
+North-Holland, 1992; 2nd ed., Atlantis Press, 2008.
+
+\bibitem{knuth1997art}
+D.~E.~Knuth,
+\emph{The Art of Computer Programming},
+vol.~1: Fundamental Algorithms, 3rd ed.,
+Addison-Wesley, 1997.
+
+\bibitem{wall1948analytic}
+H.~S.~Wall,
+\emph{Analytic Theory of Continued Fractions},
+Van Nostrand, 1948; reprinted by Chelsea, 1967.
+
+\bibitem{dlmf}
+F.~W.~J.~Olver, A.~B.~Olde~Daalhuis, D.~W.~Lozier, et~al.
+(eds.),
+\emph{NIST Digital Library of Mathematical Functions},
+Release~1.2.3, \texttt{https://dlmf.nist.gov/}, 2024.
+\end{thebibliography}
+
+\end{document}

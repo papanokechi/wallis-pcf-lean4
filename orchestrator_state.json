@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-04-08T20:16:33",
+  "resource_level": "CRITICAL",
+  "last_action": "critical_suspend",
+  "agents": {
+    "generator": {
+      "state": "SUSP",
+      "tier": 1,
+      "suspended": true,
+      "pid": 7340
+    },
+    "parallel": {
+      "state": "CRASH",
+      "tier": 2,
+      "suspended": false,
+      "pid": null
+    },
+    "ising": {
+      "state": "SUSP",
+      "tier": 2,
+      "suspended": true,
+      "pid": 29244
+    },
+    "deep_space": {
+      "state": "WAIT",
+      "tier": 3,
+      "suspended": false,
+      "pid": null
+    },
+    "even_k_sweep": {
+      "state": "WAIT",
+      "tier": 3,
+      "suspended": false,
+      "pid": null
+    }
+  }
+}

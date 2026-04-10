@@ -1,0 +1,194 @@
+[
+  {
+    "timestamp_utc": "2026-03-31T06:13:17.053339+00:00",
+    "hypothesis_id": "H-0023-prove_A1_k5",
+    "gap_id": "prove_A1_k5",
+    "verdict": "progress",
+    "scores": {
+      "N": 0.55,
+      "F": 0.66,
+      "E": 0.58,
+      "C": 0.52
+    },
+    "lfi": 0.46,
+    "controller_action": "TRIGGER_PERTURBATION",
+    "meta_directive": "Run a symbolic-regression / coefficient-perturbation sweep and keep only variants with gap_pct <= 10% before the next round.",
+    "critique_summary": "[DRY RUN] Synthetic scores — no real API call made. Run without --debate-dry-run for live evaluation.",
+    "lethal_flaws": [
+      "Numeric mismatch remains large: gap_pct=97.01%.",
+      "`pslq_search` was skipped, so the claimed relation remains unanchored to a symbolic constant search.",
+      "`symbolic_verify` was skipped, so no formal proof layer validated the claim."
+    ],
+    "gap_pct": 97.01068414152594
+  },
+  {
+    "timestamp_utc": "2026-03-31T06:13:37.370367+00:00",
+    "hypothesis_id": "H-0024-prove_A1_k5",
+    "gap_id": "prove_A1_k5",
+    "verdict": "progress",
+    "scores": {
+      "N": 0.55,
+      "F": 0.66,
+      "E": 0.58,
+      "C": 0.52
+    },
+    "lfi": 0.46,
+    "controller_action": "TRIGGER_PERTURBATION",
+    "meta_directive": "Run a symbolic-regression / coefficient-perturbation sweep and keep only variants with gap_pct <= 10% before the next round.",
+    "critique_summary": "[DRY RUN] Synthetic scores — no real API call made. Run without --debate-dry-run for live evaluation.",
+    "lethal_flaws": [
+      "Numeric mismatch remains large: gap_pct=97.01%.",
+      "`pslq_search` was skipped, so the claimed relation remains unanchored to a symbolic constant search.",
+      "`symbolic_verify` was skipped, so no formal proof layer validated the claim."
+    ],
+    "gap_pct": 97.01068414152594
+  },
+  {
+    "timestamp_utc": "2026-03-31T06:41:14.796821+00:00",
+    "hypothesis_id": "H-0024-prove_A1_k5",
+    "gap_id": "prove_A1_k5",
+    "verdict": "progress",
+    "scores": {
+      "N": 0.55,
+      "F": 0.66,
+      "E": 0.58,
+      "C": 0.52
+    },
+    "lfi": 0.46,
+    "controller_action": "TRIGGER_PERTURBATION",
+    "meta_directive": "Run a symbolic-regression / coefficient-perturbation sweep and keep only variants with gap_pct <= 10% before the next round.",
+    "critique_summary": "[DRY RUN] Synthetic scores — no real API call made. Run without --debate-dry-run for live evaluation.",
+    "lethal_flaws": [
+      "Numeric mismatch remains large: gap_pct=97.01%.",
+      "`pslq_search` was skipped, so the claimed relation remains unanchored to a symbolic constant search.",
+      "`symbolic_verify` was skipped, so no formal proof layer validated the claim."
+    ],
+    "gap_pct": 97.01068414152594,
+    "swarm_id": "S-H-0024-prove_A1_k5-G3",
+    "generation": 3,
+    "best_gap_pct": 9.15356,
+    "survivor_ids": [
+      "H-0024-prove_A1_k5-m5",
+      "H-0024-prove_A1_k5-m6"
+    ]
+  },
+  {
+    "timestamp_utc": "2026-03-31T06:41:34.369803+00:00",
+    "hypothesis_id": "H-0025-prove_A1_k5",
+    "gap_id": "prove_A1_k5",
+    "verdict": "progress",
+    "scores": {
+      "N": 0.55,
+      "F": 0.66,
+      "E": 0.58,
+      "C": 0.52
+    },
+    "lfi": 0.46,
+    "controller_action": "TRIGGER_PERTURBATION",
+    "meta_directive": "Run a symbolic-regression / coefficient-perturbation sweep and keep only variants with gap_pct <= 10% before the next round.",
+    "critique_summary": "[DRY RUN] Synthetic scores — no real API call made. Run without --debate-dry-run for live evaluation.",
+    "lethal_flaws": [
+      "Numeric mismatch remains large: gap_pct=97.01%.",
+      "`pslq_search` was skipped, so the claimed relation remains unanchored to a symbolic constant search.",
+      "`symbolic_verify` was skipped, so no formal proof layer validated the claim."
+    ],
+    "gap_pct": 97.01068414152594,
+    "swarm_id": "S-H-0025-prove_A1_k5-G4",
+    "generation": 4,
+    "best_gap_pct": 9.15356,
+    "survivor_ids": [
+      "H-0025-prove_A1_k5-m5",
+      "H-0025-prove_A1_k5-m4"
+    ]
+  },
+  {
+    "timestamp_utc": "2026-03-31T06:57:21.648235+00:00",
+    "hypothesis_id": "H-0025",
+    "gap_id": "k5",
+    "verdict": "progress",
+    "scores": {
+      "N": 0.55,
+      "F": 0.66,
+      "E": 0.58,
+      "C": 0.52
+    },
+    "lfi": 0.26,
+    "controller_action": "TRIGGER_PERTURBATION_ON_BEST_SURVIVOR",
+    "meta_directive": "Run one more verification pass on the ASR-refined survivor before judge escalation: best_gap_pct=1e-05, formula=(-0.0374954478291)*(-(5.339*c5)/48 - 6/c5)",
+    "critique_summary": "[DRY RUN] Synthetic scores — no real API call made. Run without --debate-dry-run for live evaluation.",
+    "lethal_flaws": [
+      "Swarm survivor improved local fit to gap_pct=0.00001; independent verification is still required.",
+      "`pslq_search` was skipped, so the claimed relation remains unanchored to a symbolic constant search.",
+      "`symbolic_verify` was skipped, so no formal proof layer validated the claim.",
+      "The formula includes an inverse-`c` term, which may signal a pole / structural mismatch that needs first-principles justification."
+    ],
+    "gap_pct": 97.01068414152594,
+    "swarm_id": "S-H-0025-G1",
+    "generation": 1,
+    "best_gap_pct": 1e-05,
+    "survivor_ids": [
+      "H-0025-m2",
+      "H-0025-m3"
+    ]
+  },
+  {
+    "timestamp_utc": "2026-03-31T06:58:10.538067+00:00",
+    "hypothesis_id": "H-0025",
+    "gap_id": "k5",
+    "verdict": "progress",
+    "scores": {
+      "N": 0.55,
+      "F": 0.66,
+      "E": 0.58,
+      "C": 0.52
+    },
+    "lfi": 0.16,
+    "controller_action": "PROCEED_TO_JUDGE_WITH_ASR_SURVIVOR",
+    "meta_directive": "Active symbolic refinement produced a near-zero local gap (1e-05); escalate the best survivor to judge and independent verification: (-0.0401476179701)*(-(4.408*c5)/48 - 6/c5)",
+    "critique_summary": "[DRY RUN] Synthetic scores — no real API call made. Run without --debate-dry-run for live evaluation.",
+    "lethal_flaws": [
+      "Swarm survivor improved local fit to gap_pct=0.00001; independent verification is still required.",
+      "`pslq_search` was skipped, so the claimed relation remains unanchored to a symbolic constant search.",
+      "`symbolic_verify` was skipped, so no formal proof layer validated the claim.",
+      "The formula includes an inverse-`c` term, which may signal a pole / structural mismatch that needs first-principles justification."
+    ],
+    "gap_pct": 97.01068414152594,
+    "swarm_id": "S-H-0025-G2",
+    "generation": 2,
+    "best_gap_pct": 1e-05,
+    "survivor_ids": [
+      "H-0025-m2",
+      "H-0025-m3"
+    ]
+  },
+  {
+    "timestamp_utc": "2026-03-31T06:58:47.389409+00:00",
+    "hypothesis_id": "H-0025-prove_A1_k5",
+    "gap_id": "prove_A1_k5",
+    "verdict": "progress",
+    "scores": {
+      "N": 0.55,
+      "F": 0.66,
+      "E": 0.58,
+      "C": 0.52
+    },
+    "lfi": 0.16,
+    "controller_action": "PROCEED_TO_JUDGE_WITH_ASR_SURVIVOR",
+    "meta_directive": "Active symbolic refinement produced a near-zero local gap (1e-05); escalate the best survivor to judge and independent verification: (-0.0384196021075)*(-5*c5/48 - 6*8/(8*c5))",
+    "critique_summary": "[DRY RUN] Synthetic scores — no real API call made. Run without --debate-dry-run for live evaluation.",
+    "lethal_flaws": [
+      "Swarm survivor improved local fit to gap_pct=0.00001; independent verification is still required.",
+      "`pslq_search` was skipped, so the claimed relation remains unanchored to a symbolic constant search.",
+      "`symbolic_verify` was skipped, so no formal proof layer validated the claim.",
+      "The partition-ratio pathway did not execute cleanly for this gap, weakening the evidence chain."
+    ],
+    "gap_pct": 97.01068414152594,
+    "swarm_id": "S-H-0025-prove_A1_k5-G4",
+    "generation": 4,
+    "best_gap_pct": 1e-05,
+    "survivor_ids": [
+      "H-0025-prove_A1_k5-m1",
+      "H-0025-prove_A1_k5-m2"
+    ]
+  }
+]

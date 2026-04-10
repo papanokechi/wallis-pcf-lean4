@@ -1,0 +1,101 @@
+{
+  "cluster_count": 6,
+  "clusters": [
+    {
+      "cluster_key": "cf_(0, 1, '-', '-')",
+      "count": 1,
+      "avg_confidence": 1.0,
+      "statuses": {
+        "novel_proven": 1
+      },
+      "shapes": {
+        "constant_a / linear_b": 1
+      },
+      "hypothesis": "Linear denominator families tend to collapse to Bessel/hypergeometric ratios",
+      "sample_ids": [
+        "2d04456e7962"
+      ]
+    },
+    {
+      "cluster_key": "cf_('unknown',)",
+      "count": 1,
+      "avg_confidence": 1.0,
+      "statuses": {
+        "novel_unproven": 1
+      },
+      "shapes": {
+        "deg(a)=0, deg(b)=0": 1
+      },
+      "hypothesis": "Generic polynomial CF family",
+      "sample_ids": [
+        "41122fd465cc"
+      ]
+    },
+    {
+      "cluster_key": "cf_(0, 2, '-', '-')",
+      "count": 1,
+      "avg_confidence": 1.0,
+      "statuses": {
+        "candidate": 1
+      },
+      "shapes": {
+        "constant_a / quadratic_b": 1
+      },
+      "hypothesis": "Quadratic denominator families may hide higher special-function structure",
+      "sample_ids": [
+        "4feccd7bcac5"
+      ]
+    },
+    {
+      "cluster_key": "cf_(0, 2, '-', '+')",
+      "count": 1,
+      "avg_confidence": 1.0,
+      "statuses": {
+        "candidate": 1
+      },
+      "shapes": {
+        "constant_a / quadratic_b": 1
+      },
+      "hypothesis": "Quadratic denominator families may hide higher special-function structure",
+      "sample_ids": [
+        "9eda7636628f"
+      ]
+    },
+    {
+      "cluster_key": "cf_(0, 2, '+', '+')",
+      "count": 3,
+      "avg_confidence": 0.9467,
+      "statuses": {
+        "novel_unproven": 1,
+        "candidate": 1,
+        "verified_known": 1
+      },
+      "shapes": {
+        "constant_a / quadratic_b": 3
+      },
+      "hypothesis": "Quadratic denominator families may hide higher special-function structure",
+      "sample_ids": [
+        "3694a5c13ada",
+        "5866a1ce7f90",
+        "lirec_demo_2"
+      ]
+    },
+    {
+      "cluster_key": "cf_(0, 1, '+', '+')",
+      "count": 1,
+      "avg_confidence": 0.88,
+      "statuses": {
+        "verified_known": 1
+      },
+      "shapes": {
+        "constant_a / linear_b": 1
+      },
+      "hypothesis": "Linear denominator families tend to collapse to Bessel/hypergeometric ratios",
+      "sample_ids": [
+        "lirec_demo_1"
+      ]
+    }
+  ],
+  "template_count": 0,
+  "templates": []
+}

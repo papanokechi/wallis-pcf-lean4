@@ -1,0 +1,931 @@
+{
+  "sweep_spec": {
+    "targets": [
+      "zeta3",
+      "pi",
+      "e",
+      "log2"
+    ],
+    "iters": 2,
+    "batch": 16,
+    "prec": 300,
+    "workers": 0,
+    "executor": "process",
+    "quiet": true,
+    "seed": 123,
+    "seed_file": null,
+    "use_llm": false,
+    "use_lirec": false
+  },
+  "targets": [
+    {
+      "target": "zeta3",
+      "seed": 123,
+      "summary": {
+        "generated_at": "2026-04-04 19:27:22",
+        "script": "multi_target_ramanujan_sweep.py",
+        "target": "zeta3",
+        "llm_mode": "disabled",
+        "lirec_enabled": false,
+        "stats": {
+          "iters": 2,
+          "tested": 32,
+          "discoveries": 3,
+          "novel": 3,
+          "rate_percent": 150.0,
+          "seeds_injected": 15,
+          "llm_calls": 0,
+          "elapsed_human": "0m12s",
+          "elapsed_seconds": 12.159,
+          "gcf_per_sec": 2.632
+        },
+        "environment": {
+          "python": "3.14.3",
+          "implementation": "CPython",
+          "platform": "Windows-11-10.0.29560-SP0",
+          "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+          "cpu_count": 8,
+          "mpmath": "1.4.1"
+        },
+        "artifacts": {
+          "discoveries_path": "ramanujan_discoveries.json",
+          "seed_path": "relay_chain_seed_pool.json",
+          "profile_path": null
+        },
+        "pslq": {
+          "tested_targets": 76,
+          "pslq_calls": 152,
+          "degree2_calls": 76,
+          "prefilter_skips": 0,
+          "neighbour_attempts": 54,
+          "neighbour_skips": 54,
+          "found": 3
+        },
+        "run_config": {
+          "target": "zeta3",
+          "iters": 2,
+          "batch": 16,
+          "effective_batch": 16,
+          "workers": 0,
+          "resolved_workers": 1,
+          "auto_worker_cap": 4,
+          "executor": "process",
+          "prec": 300,
+          "quiet": true,
+          "seed": 123,
+          "seed_file": null,
+          "llm": false,
+          "lirec": false
+        },
+        "discoveries": [
+          {
+            "spec": {
+              "spec_id": "GCF_5782F9DC",
+              "alpha": [
+                0,
+                -1,
+                1
+              ],
+              "beta": [
+                1,
+                2
+              ],
+              "target": "zeta3",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta3",
+            "relation": [
+              0,
+              1,
+              0,
+              0,
+              -1,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+            "cf_approx": "1.0",
+            "timestamp": 1775298435.25989,
+            "enrichment": {
+              "closed_form": "1",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_BBF8DADD",
+              "alpha": [
+                0,
+                -2,
+                1
+              ],
+              "beta": [
+                -2,
+                4
+              ],
+              "target": "zeta3",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta4",
+            "relation": [
+              0,
+              2,
+              0,
+              0,
+              5,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "2\u00b7CF\u00b7zeta4 + 5\u00b7zeta4 = 0",
+            "cf_approx": "-2.5",
+            "timestamp": 1775298436.9762294,
+            "enrichment": {
+              "closed_form": "-5/2",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_85A6D7D3",
+              "alpha": [
+                -6,
+                6
+              ],
+              "beta": [
+                2,
+                0,
+                2,
+                -2
+              ],
+              "target": "zeta3",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta3",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              -2,
+              2
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + -2\u00b7zeta3 + 2 = 0",
+            "cf_approx": "2.0",
+            "timestamp": 1775298440.3395936,
+            "enrichment": {
+              "closed_form": "2",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          }
+        ]
+      },
+      "discoveries": [
+        {
+          "spec": {
+            "spec_id": "GCF_5782F9DC",
+            "alpha": [
+              0,
+              -1,
+              1
+            ],
+            "beta": [
+              1,
+              2
+            ],
+            "target": "zeta3",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta3",
+          "relation": [
+            0,
+            1,
+            0,
+            0,
+            -1,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+          "cf_approx": "1.0",
+          "timestamp": 1775298435.25989,
+          "enrichment": {
+            "closed_form": "1",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_BBF8DADD",
+            "alpha": [
+              0,
+              -2,
+              1
+            ],
+            "beta": [
+              -2,
+              4
+            ],
+            "target": "zeta3",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta4",
+          "relation": [
+            0,
+            2,
+            0,
+            0,
+            5,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "2\u00b7CF\u00b7zeta4 + 5\u00b7zeta4 = 0",
+          "cf_approx": "-2.5",
+          "timestamp": 1775298436.9762294,
+          "enrichment": {
+            "closed_form": "-5/2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_85A6D7D3",
+            "alpha": [
+              -6,
+              6
+            ],
+            "beta": [
+              2,
+              0,
+              2,
+              -2
+            ],
+            "target": "zeta3",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta3",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -2,
+            2
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + -2\u00b7zeta3 + 2 = 0",
+          "cf_approx": "2.0",
+          "timestamp": 1775298440.3395936,
+          "enrichment": {
+            "closed_form": "2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        }
+      ],
+      "discovery_count": 3,
+      "novel_count": 3,
+      "elapsed_seconds": 12.159
+    },
+    {
+      "target": "pi",
+      "seed": 124,
+      "summary": {
+        "generated_at": "2026-04-04 19:27:36",
+        "script": "multi_target_ramanujan_sweep.py",
+        "target": "pi",
+        "llm_mode": "disabled",
+        "lirec_enabled": false,
+        "stats": {
+          "iters": 2,
+          "tested": 32,
+          "discoveries": 1,
+          "novel": 1,
+          "rate_percent": 50.0,
+          "seeds_injected": 5,
+          "llm_calls": 0,
+          "elapsed_human": "0m12s",
+          "elapsed_seconds": 12.919,
+          "gcf_per_sec": 2.477
+        },
+        "environment": {
+          "python": "3.14.3",
+          "implementation": "CPython",
+          "platform": "Windows-11-10.0.29560-SP0",
+          "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+          "cpu_count": 8,
+          "mpmath": "1.4.1"
+        },
+        "artifacts": {
+          "discoveries_path": "ramanujan_discoveries.json",
+          "seed_path": "relay_chain_seed_pool.json",
+          "profile_path": null
+        },
+        "pslq": {
+          "tested_targets": 76,
+          "pslq_calls": 152,
+          "degree2_calls": 76,
+          "prefilter_skips": 1,
+          "neighbour_attempts": 52,
+          "neighbour_skips": 52,
+          "found": 1
+        },
+        "run_config": {
+          "target": "pi",
+          "iters": 2,
+          "batch": 16,
+          "effective_batch": 16,
+          "workers": 0,
+          "resolved_workers": 1,
+          "auto_worker_cap": 4,
+          "executor": "process",
+          "prec": 300,
+          "quiet": true,
+          "seed": 124,
+          "seed_file": null,
+          "llm": false,
+          "lirec": false
+        },
+        "discoveries": [
+          {
+            "spec": {
+              "spec_id": "GCF_93A50D98",
+              "alpha": [
+                0,
+                0,
+                1
+              ],
+              "beta": [
+                1,
+                2
+              ],
+              "target": "pi",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "pi",
+            "relation": [
+              0,
+              -1,
+              0,
+              0,
+              0,
+              4
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 115,
+            "formula": "-1\u00b7CF\u00b7pi + 4 = 0",
+            "cf_approx": "1.2732395447351626861510701069801148962756771659237",
+            "timestamp": 1775298448.4263182,
+            "enrichment": {
+              "closed_form": "4/pi",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          }
+        ]
+      },
+      "discoveries": [
+        {
+          "spec": {
+            "spec_id": "GCF_93A50D98",
+            "alpha": [
+              0,
+              0,
+              1
+            ],
+            "beta": [
+              1,
+              2
+            ],
+            "target": "pi",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "pi",
+          "relation": [
+            0,
+            -1,
+            0,
+            0,
+            0,
+            4
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 115,
+          "formula": "-1\u00b7CF\u00b7pi + 4 = 0",
+          "cf_approx": "1.2732395447351626861510701069801148962756771659237",
+          "timestamp": 1775298448.4263182,
+          "enrichment": {
+            "closed_form": "4/pi",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        }
+      ],
+      "discovery_count": 1,
+      "novel_count": 1,
+      "elapsed_seconds": 12.919
+    },
+    {
+      "target": "e",
+      "seed": 125,
+      "summary": {
+        "generated_at": "2026-04-04 19:27:48",
+        "script": "multi_target_ramanujan_sweep.py",
+        "target": "e",
+        "llm_mode": "disabled",
+        "lirec_enabled": false,
+        "stats": {
+          "iters": 2,
+          "tested": 32,
+          "discoveries": 2,
+          "novel": 2,
+          "rate_percent": 100.0,
+          "seeds_injected": 10,
+          "llm_calls": 0,
+          "elapsed_human": "0m11s",
+          "elapsed_seconds": 11.283,
+          "gcf_per_sec": 2.836
+        },
+        "environment": {
+          "python": "3.14.3",
+          "implementation": "CPython",
+          "platform": "Windows-11-10.0.29560-SP0",
+          "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+          "cpu_count": 8,
+          "mpmath": "1.4.1"
+        },
+        "artifacts": {
+          "discoveries_path": "ramanujan_discoveries.json",
+          "seed_path": "relay_chain_seed_pool.json",
+          "profile_path": null
+        },
+        "pslq": {
+          "tested_targets": 80,
+          "pslq_calls": 160,
+          "degree2_calls": 80,
+          "prefilter_skips": 0,
+          "neighbour_attempts": 54,
+          "neighbour_skips": 54,
+          "found": 2
+        },
+        "run_config": {
+          "target": "e",
+          "iters": 2,
+          "batch": 16,
+          "effective_batch": 16,
+          "workers": 0,
+          "resolved_workers": 1,
+          "auto_worker_cap": 4,
+          "executor": "process",
+          "prec": 300,
+          "quiet": true,
+          "seed": 125,
+          "seed_file": null,
+          "llm": false,
+          "lirec": false
+        },
+        "discoveries": [
+          {
+            "spec": {
+              "spec_id": "GCF_4E42CFC9",
+              "alpha": [
+                3,
+                -5,
+                2
+              ],
+              "beta": [
+                3,
+                -1
+              ],
+              "target": "e",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "ln_pi",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              -3,
+              3
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7ln_pi + -1\u00b7CF + -3\u00b7ln_pi + 3 = 0",
+            "cf_approx": "3.0",
+            "timestamp": 1775298465.864097,
+            "enrichment": {
+              "closed_form": "3",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_093B8BD0",
+              "alpha": [
+                -6,
+                2,
+                4
+              ],
+              "beta": [
+                -6,
+                -5
+              ],
+              "target": "e",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "log2",
+            "relation": [
+              0,
+              -1,
+              0,
+              0,
+              -6,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "-1\u00b7CF\u00b7log2 + -6\u00b7log2 = 0",
+            "cf_approx": "-6.0",
+            "timestamp": 1775298467.9596565,
+            "enrichment": {
+              "closed_form": "-6",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          }
+        ]
+      },
+      "discoveries": [
+        {
+          "spec": {
+            "spec_id": "GCF_4E42CFC9",
+            "alpha": [
+              3,
+              -5,
+              2
+            ],
+            "beta": [
+              3,
+              -1
+            ],
+            "target": "e",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "ln_pi",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -3,
+            3
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7ln_pi + -1\u00b7CF + -3\u00b7ln_pi + 3 = 0",
+          "cf_approx": "3.0",
+          "timestamp": 1775298465.864097,
+          "enrichment": {
+            "closed_form": "3",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_093B8BD0",
+            "alpha": [
+              -6,
+              2,
+              4
+            ],
+            "beta": [
+              -6,
+              -5
+            ],
+            "target": "e",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "log2",
+          "relation": [
+            0,
+            -1,
+            0,
+            0,
+            -6,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "-1\u00b7CF\u00b7log2 + -6\u00b7log2 = 0",
+          "cf_approx": "-6.0",
+          "timestamp": 1775298467.9596565,
+          "enrichment": {
+            "closed_form": "-6",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        }
+      ],
+      "discovery_count": 2,
+      "novel_count": 2,
+      "elapsed_seconds": 11.283
+    },
+    {
+      "target": "log2",
+      "seed": 126,
+      "summary": {
+        "generated_at": "2026-04-04 19:27:58",
+        "script": "multi_target_ramanujan_sweep.py",
+        "target": "log2",
+        "llm_mode": "disabled",
+        "lirec_enabled": false,
+        "stats": {
+          "iters": 2,
+          "tested": 32,
+          "discoveries": 2,
+          "novel": 2,
+          "rate_percent": 100.0,
+          "seeds_injected": 10,
+          "llm_calls": 0,
+          "elapsed_human": "0m10s",
+          "elapsed_seconds": 10.13,
+          "gcf_per_sec": 3.159
+        },
+        "environment": {
+          "python": "3.14.3",
+          "implementation": "CPython",
+          "platform": "Windows-11-10.0.29560-SP0",
+          "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+          "cpu_count": 8,
+          "mpmath": "1.4.1"
+        },
+        "artifacts": {
+          "discoveries_path": "ramanujan_discoveries.json",
+          "seed_path": "relay_chain_seed_pool.json",
+          "profile_path": null
+        },
+        "pslq": {
+          "tested_targets": 70,
+          "pslq_calls": 140,
+          "degree2_calls": 70,
+          "prefilter_skips": 1,
+          "neighbour_attempts": 46,
+          "neighbour_skips": 50,
+          "found": 2
+        },
+        "run_config": {
+          "target": "log2",
+          "iters": 2,
+          "batch": 16,
+          "effective_batch": 16,
+          "workers": 0,
+          "resolved_workers": 1,
+          "auto_worker_cap": 4,
+          "executor": "process",
+          "prec": 300,
+          "quiet": true,
+          "seed": 126,
+          "seed_file": null,
+          "llm": false,
+          "lirec": false
+        },
+        "discoveries": [
+          {
+            "spec": {
+              "spec_id": "GCF_CCDA8EC2",
+              "alpha": [
+                6,
+                -6
+              ],
+              "beta": [
+                2,
+                3
+              ],
+              "target": "log2",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "log3",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              -2,
+              2
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7log3 + -1\u00b7CF + -2\u00b7log3 + 2 = 0",
+            "cf_approx": "2.0",
+            "timestamp": 1775298473.2329092,
+            "enrichment": {
+              "closed_form": "2",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_13F41DD4",
+              "alpha": [
+                -4,
+                5,
+                -6,
+                5
+              ],
+              "beta": [
+                -3,
+                -1,
+                3
+              ],
+              "target": "log2",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "log3",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              3,
+              -3
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7log3 + -1\u00b7CF + 3\u00b7log3 + -3 = 0",
+            "cf_approx": "-3.0",
+            "timestamp": 1775298477.9512029,
+            "enrichment": {
+              "closed_form": "-3",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          }
+        ]
+      },
+      "discoveries": [
+        {
+          "spec": {
+            "spec_id": "GCF_CCDA8EC2",
+            "alpha": [
+              6,
+              -6
+            ],
+            "beta": [
+              2,
+              3
+            ],
+            "target": "log2",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "log3",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -2,
+            2
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7log3 + -1\u00b7CF + -2\u00b7log3 + 2 = 0",
+          "cf_approx": "2.0",
+          "timestamp": 1775298473.2329092,
+          "enrichment": {
+            "closed_form": "2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_13F41DD4",
+            "alpha": [
+              -4,
+              5,
+              -6,
+              5
+            ],
+            "beta": [
+              -3,
+              -1,
+              3
+            ],
+            "target": "log2",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "log3",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            3,
+            -3
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7log3 + -1\u00b7CF + 3\u00b7log3 + -3 = 0",
+          "cf_approx": "-3.0",
+          "timestamp": 1775298477.9512029,
+          "enrichment": {
+            "closed_form": "-3",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        }
+      ],
+      "discovery_count": 2,
+      "novel_count": 2,
+      "elapsed_seconds": 10.13
+    }
+  ],
+  "aggregate": {
+    "target_count": 4,
+    "total_discoveries": 8,
+    "total_novel": 8,
+    "elapsed_seconds": 46.491,
+    "shared_pattern_count": 1
+  },
+  "shared_patterns": [
+    {
+      "signature": "adeg=2|bdeg=1|mode=backward|order=0",
+      "targets": [
+        "e",
+        "pi",
+        "zeta3"
+      ],
+      "example": {
+        "target": "zeta3",
+        "spec_id": "GCF_5782F9DC",
+        "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+        "closed_form": "1"
+      }
+    }
+  ],
+  "generated_at": "2026-04-04 19:27:58",
+  "wall_seconds": 48.401
+}

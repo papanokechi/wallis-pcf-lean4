@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Royale - Learn to Code Game</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif; }
+  canvas { display: block; }
+
+  /* ── HUD ── */
+  #hud {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    height: 90px; display: flex; align-items: center; justify-content: center; gap: 24px;
+    background: rgba(0,0,0,.65); backdrop-filter: blur(6px);
+    pointer-events: none; z-index: 10;
+  }
+  .bar-group { display: flex; flex-direction: column; gap: 3px; width: 220px; }
+  .bar-label { color: #ccc; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+  .bar-outer { height: 16px; background: #222; border-radius: 4px; overflow: hidden; position: relative; }
+  .bar-inner { height: 100%; border-radius: 4px; transition: width .3s; }
+  .bar-text { position: absolute; right: 6px; top: 0; line-height: 16px; font-size: 11px; color: #fff; font-weight: 600; }
+  #healthBar { background: linear-gradient(90deg, #2ecc71, #27ae60); }
+  #shieldBar { background: linear-gradient(90deg, #3498db, #2980b9); }
+  #mats { color: #f39c12; font-size: 14px; font-weight: 700; display: flex; flex-direction: column; align-items: center; }
+  #mats span { font-size: 10px; color: #aaa; text-transform: uppercase; }
+
+  /* weapon slots */
+  #slots { display: flex; gap: 6px; }
+  .slot {
+    width: 56px; height: 56px; border: 2px solid #444; border-radius: 6px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #ccc; font-size: 20px; background: rgba(255,255,255,.06);
+    position: relative;
+  }
+  .slot.active { border-color: #f1c40f; background: rgba(241,196,15,.12); }
+  .slot .ammo { font-size: 9px; color: #aaa; }
+  .slot .key { position: absolute; top: 2px; left: 4px; font-size: 9px; color: #888; }
+
+  /* kill-feed & info */
+  #killfeed {
+    position: fixed; top: 12px; right: 12px; width: 260px; z-index: 10;
+    display: flex; flex-direction: column; gap: 4px; pointer-events: none;
+  }
+  .kill-msg {
+    background: rgba(0,0,0,.55); color: #eee; padding: 4px 10px; border-radius: 4px;
+    font-size: 12px; animation: fadeOut 4s forwards;
+  }
+  @keyframes fadeOut { 0%{opacity:1} 80%{opacity:1} 100%{opacity:0} }
+
+  #alive {
+    position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
+    color: #fff; font-size: 14px; background: rgba(0,0,0,.5); padding: 6px 18px;
+    border-radius: 20px; z-index: 10; pointer-events: none;
+  }
+
+  #minimap {
+    position: fixed; top: 12px; left: 12px; width: 150px; height: 150px;
+    border: 2px solid rgba(255,255,255,.25); border-radius: 8px; z-index: 10;
+    pointer-events: none; background: rgba(0,0,0,.35);
+  }
+
+  /* overlay screens */
+  .overlay {
+    position: fixed; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; z-index: 100;
+    background: rgba(0,0,0,.8); backdrop-filter: blur(8px);
+  }
+  .overlay h1 { font-size: 48px; color: #f1c40f; margin-bottom: 12px; text-shadow: 0 0 30px rgba(241,196,15,.4); }
+  .overlay h2 { font-size: 28px; color: #e74c3c; margin-bottom: 12px; }
+  .overlay p { color: #ccc; font-size: 16px; margin-bottom: 24px; max-width: 500px; text-align: center; line-height: 1.5; }
+  .overlay button {
+    padding: 14px 40px; font-size: 18px; border: none; border-radius: 8px;
+    background: linear-gradient(135deg, #f1c40f, #e67e22); color: #111;
+    font-weight: 700; cursor: pointer; transition: transform .15s;
+    pointer-events: all;
+  }
+  .overlay button:hover { transform: scale(1.05); }
+  #startScreen .controls { color: #999; font-size: 13px; line-height: 1.8; margin-top: 16px; }
+  #buildHelp { color: #f39c12; font-size: 13px; margin-top: 8px; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- Start Screen -->
+<div id="startScreen" class="overlay">
+  <h1>⚔️ BATTLE ROYALE</h1>
+  <p>Drop in, loot up, build, and be the last one standing! A Fortnite-inspired game built from scratch to learn HTML5 Canvas & JavaScript.</p>
+  <button onclick="startGame()">DROP IN</button>
+  <div class="controls">
+    WASD — Move &nbsp;|&nbsp; Mouse — Aim &nbsp;|&nbsp; Click — Shoot &nbsp;|&nbsp; 1-5 — Weapons<br>
+    Q — Build Wall &nbsp;|&nbsp; E — Edit/Destroy Build &nbsp;|&nbsp; R — Reload<br>
+    F — Pick up loot &nbsp;|&nbsp; Scroll — Switch Weapons
+  </div>
+</div>
+
+<!-- Win / Loss screen -->
+<div id="endScreen" class="overlay hidden">
+  <h2 id="endTitle">VICTORY ROYALE!</h2>
+  <p id="endStats"></p>
+  <button onclick="startGame()">PLAY AGAIN</button>
+</div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div class="bar-group">
+    <div class="bar-label">Health</div>
+    <div class="bar-outer"><div id="healthBar" class="bar-inner" style="width:100%"></div><div id="healthText" class="bar-text">100</div></div>
+  </div>
+  <div class="bar-group">
+    <div class="bar-label">Shield</div>
+    <div class="bar-outer"><div id="shieldBar" class="bar-inner" style="width:0%"></div><div id="shieldText" class="bar-text">0</div></div>
+  </div>
+  <div id="mats"><span>Materials</span><span id="matCount">0</span></div>
+  <div id="slots"></div>
+</div>
+<div id="alive" class="hidden">👥 <span id="aliveCount">50</span> alive</div>
+<div id="killfeed"></div>
+<canvas id="minimap" class="hidden"></canvas>
+<canvas id="game"></canvas>
+
+<script>
+// =====================================================================
+//  BATTLE ROYALE — full game in a single file for learning
+//  Topics covered:
+//    - Game loop & requestAnimationFrame
+//    - 2D Camera & world-space coordinates
+//    - Collision detection (circle-circle, circle-rect, line-rect)
+//    - AI state machines (wander, loot, chase, flee, build)
+//    - Object pooling (bullets)
+//    - Procedural map generation
+//    - Storm/zone shrink mechanic
+//    - Simple building system
+//    - Inventory & weapon system
+//    - Minimap rendering
+// =====================================================================
+
+const canvas  = document.getElementById('game');
+const ctx     = canvas.getContext('2d');
+const mmCanvas= document.getElementById('minimap');
+const mmCtx   = mmCanvas.getContext('2d');
+
+// ── Constants ──
+const MAP_SIZE      = 4000;
+const TILE          = 40;         // grid size for buildings
+const NUM_BOTS      = 49;
+const NUM_TREES     = 300;
+const NUM_ROCKS     = 120;
+const NUM_LOOT      = 80;
+const STORM_INITIAL = MAP_SIZE / 2;
+const STORM_SHRINK_INTERVAL = 15000;  // ms between shrinks
+const STORM_DMG     = 2;             // damage per second in storm
+const PICKUP_RANGE  = 50;
+const BUILD_COST    = 10;
+const WALL_HP       = 150;
+
+// Weapon definitions
+const WEAPONS = {
+  pickaxe:  { name:'Pickaxe', emoji:'⛏️', dmg:20, fireRate:500, range:60, spread:0, ammo:Infinity, reload:0, projSpeed:0, auto:false },
+  pistol:   { name:'Pistol',  emoji:'🔫', dmg:24, fireRate:350, range:500, spread:.06, ammo:16, reload:1500, projSpeed:28, auto:false },
+  smg:      { name:'SMG',     emoji:'🔫', dmg:17, fireRate:100, range:400, spread:.12, ammo:30, reload:2000, projSpeed:30, auto:true },
+  shotgun:  { name:'Shotgun', emoji:'💥', dmg:80, fireRate:800, range:200, spread:.25, ammo:8,  reload:2500, projSpeed:26, auto:false },
+  ar:       { name:'AR',      emoji:'🎯', dmg:33, fireRate:180, range:700, spread:.04, ammo:30, reload:2200, projSpeed:32, auto:true },
+  sniper:   { name:'Sniper',  emoji:'🔭', dmg:105,fireRate:1500,range:1200,spread:.01, ammo:5,  reload:3000, projSpeed:50, auto:false },
+};
+const LOOT_TABLE = ['pistol','pistol','smg','smg','shotgun','shotgun','ar','ar','sniper'];
+
+// Rarity colors
+const RARITY = { pickaxe:'#aaa', pistol:'#2ecc71', smg:'#3498db', shotgun:'#9b59b6', ar:'#e67e22', sniper:'#e74c3c' };
+
+// ── Game state ──
+let gameRunning = false;
+let player, bots, trees, rocks, lootItems, bullets, walls, camera;
+let stormCenter, stormRadius, stormTarget, stormTimer;
+let kills, startTime;
+let keys = {}, mouse = { x:0, y:0, down:false };
+let lastShot = 0, reloading = false, reloadTimer = 0;
+
+// ── Resize ──
+function resize() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+  mmCanvas.width  = 150;
+  mmCanvas.height = 150;
+}
+window.addEventListener('resize', resize);
+resize();
+
+// ── Utility ──
+function rand(a, b) { return Math.random() * (b - a) + a; }
+function randInt(a, b) { return Math.floor(rand(a, b)); }
+function dist(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
+function angle(a, b) { return Math.atan2(b.y - a.y, b.x - a.x); }
+function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+// ── Entity factories ──
+function createPlayer(x, y, isBot = false) {
+  return {
+    x, y, radius: 16, angle: 0,
+    hp: 100, shield: 0, maxHp: 100, maxShield: 100,
+    speed: isBot ? 3 : 3.8,
+    weapons: [{ type:'pickaxe', ammo: Infinity }],
+    activeSlot: 0,
+    mats: isBot ? randInt(20, 80) : 0,
+    alive: true, isBot,
+    // Bot AI state
+    aiState: 'wander', aiTimer: 0, aiTarget: null,
+    wanderX: x, wanderY: y,
+    name: isBot ? botName() : 'You',
+    lastShot: 0, botAccuracy: rand(0.4, 0.85),
+  };
+}
+
+const BOT_NAMES = ['Shadow','Blaze','Drift','Raven','Skull','Nova','Frostbite','Omega','Lynx','Havoc',
+  'Rex','Raptor','Catalyst','Hybrid','Zenith','Ember','Storm','Chaos','Vortex','Phantom',
+  'Circuit','Pulse','Nebula','Reaper','Specter','Cipher','Vector','Bolt','Flash','Surge',
+  'Titan','Zero','Ace','Claw','Jinx','Knox','Mars','Onyx','Pike','Riot',
+  'Sage','Thorn','Volt','Wren','Axle','Dove','Echo','Grim','Haze','Jade'];
+let nameIdx = 0;
+function botName() { return BOT_NAMES[nameIdx++ % BOT_NAMES.length]; }
+
+function createTree(x, y) { return { x, y, radius: 20, hp: 80, type: 'tree' }; }
+function createRock(x, y) { return { x, y, radius: 16, hp: 120, type: 'rock' }; }
+function createLoot(x, y, type) { return { x, y, type, radius: 12 }; }
+function createBullet(owner, x, y, ang, weap) {
+  return { x, y, owner, angle: ang, speed: weap.projSpeed, dmg: weap.dmg, range: weap.range, dist: 0, alive: true, radius: 4 };
+}
+function createWall(gx, gy, owner) {
+  return { gx, gy, x: gx * TILE + TILE/2, y: gy * TILE + TILE/2, hp: WALL_HP, maxHp: WALL_HP, owner, w: TILE, h: TILE };
+}
+
+// ── Map generation ──
+function generateMap() {
+  trees = [];
+  rocks = [];
+  lootItems = [];
+  walls = [];
+  bullets = [];
+
+  // Create some clusters of trees & rocks for interesting terrain
+  for (let i = 0; i < NUM_TREES; i++) {
+    let cx = rand(100, MAP_SIZE - 100), cy = rand(100, MAP_SIZE - 100);
+    trees.push(createTree(cx, cy));
+  }
+  for (let i = 0; i < NUM_ROCKS; i++) {
+    rocks.push(createRock(rand(100, MAP_SIZE - 100), rand(100, MAP_SIZE - 100)));
+  }
+  for (let i = 0; i < NUM_LOOT; i++) {
+    let t = LOOT_TABLE[randInt(0, LOOT_TABLE.length)];
+    lootItems.push(createLoot(rand(200, MAP_SIZE - 200), rand(200, MAP_SIZE - 200), t));
+  }
+}
+
+// ── Storm ──
+function initStorm() {
+  stormCenter = { x: MAP_SIZE / 2, y: MAP_SIZE / 2 };
+  stormRadius = STORM_INITIAL;
+  stormTarget = STORM_INITIAL;
+  stormTimer  = performance.now();
+}
+
+function updateStorm(now) {
+  if (now - stormTimer > STORM_SHRINK_INTERVAL && stormRadius > 100) {
+    stormTimer = now;
+    stormTarget = Math.max(100, stormRadius * 0.65);
+    // Shift center a bit toward a random point
+    let shift = stormRadius * 0.15;
+    stormCenter.x = clamp(stormCenter.x + rand(-shift, shift), stormRadius, MAP_SIZE - stormRadius);
+    stormCenter.y = clamp(stormCenter.y + rand(-shift, shift), stormRadius, MAP_SIZE - stormRadius);
+  }
+  if (stormRadius > stormTarget) {
+    stormRadius = Math.max(stormTarget, stormRadius - 0.4);
+  }
+}
+
+function isInStorm(entity) {
+  return dist(entity, stormCenter) > stormRadius;
+}
+
+// ── Collision helpers ──
+function circleCircle(a, b) {
+  return dist(a, b) < a.radius + b.radius;
+}
+function circleRect(cx, cy, cr, rx, ry, rw, rh) {
+  let nx = clamp(cx, rx - rw/2, rx + rw/2);
+  let ny = clamp(cy, ry - rh/2, ry + rh/2);
+  return Math.hypot(cx - nx, cy - ny) < cr;
+}
+
+// ── Start game ──
+function startGame() {
+  document.getElementById('startScreen').classList.add('hidden');
+  document.getElementById('endScreen').classList.add('hidden');
+  document.getElementById('hud').classList.remove('hidden');
+  document.getElementById('alive').classList.remove('hidden');
+  document.getElementById('minimap').classList.remove('hidden');
+
+  nameIdx = 0;
+  kills = 0;
+  startTime = performance.now();
+  reloading = false;
+
+  // Create player at random position
+  let px = rand(400, MAP_SIZE - 400), py = rand(400, MAP_SIZE - 400);
+  player = createPlayer(px, py, false);
+
+  // Create bots
+  bots = [];
+  for (let i = 0; i < NUM_BOTS; i++) {
+    let bx = rand(200, MAP_SIZE - 200), by = rand(200, MAP_SIZE - 200);
+    let bot = createPlayer(bx, by, true);
+    // Give bots some starting weapons
+    let rw = LOOT_TABLE[randInt(0, LOOT_TABLE.length)];
+    bot.weapons.push({ type: rw, ammo: WEAPONS[rw].ammo });
+    bot.activeSlot = 1;
+    bots.push(bot);
+  }
+
+  generateMap();
+  initStorm();
+
+  camera = { x: player.x, y: player.y };
+
+  buildSlotUI();
+  gameRunning = true;
+  requestAnimationFrame(gameLoop);
+}
+
+// ── Input ──
+window.addEventListener('keydown', e => {
+  keys[e.key.toLowerCase()] = true;
+  // Weapon slots 1-5
+  if (e.key >= '1' && e.key <= '5') {
+    let idx = parseInt(e.key) - 1;
+    if (idx < player.weapons.length) {
+      player.activeSlot = idx;
+      reloading = false;
+      buildSlotUI();
+    }
+  }
+  // Build wall
+  if (e.key.toLowerCase() === 'q' && gameRunning && player.alive) {
+    tryBuild(player);
+  }
+  // Destroy / edit wall
+  if (e.key.toLowerCase() === 'e' && gameRunning && player.alive) {
+    tryDestroyWall();
+  }
+  // Reload
+  if (e.key.toLowerCase() === 'r' && gameRunning && player.alive) {
+    tryReload();
+  }
+  // Pick up loot
+  if (e.key.toLowerCase() === 'f' && gameRunning && player.alive) {
+    tryPickup();
+  }
+});
+window.addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
+canvas.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+canvas.addEventListener('mousedown', e => { mouse.down = true; });
+canvas.addEventListener('mouseup', e => { mouse.down = false; });
+canvas.addEventListener('wheel', e => {
+  if (!player || !player.alive) return;
+  let dir = e.deltaY > 0 ? 1 : -1;
+  player.activeSlot = (player.activeSlot + dir + player.weapons.length) % player.weapons.length;
+  reloading = false;
+  buildSlotUI();
+});
+canvas.addEventListener('contextmenu', e => e.preventDefault());
+
+// ── Player actions ──
+function tryPickup() {
+  let best = null, bestD = PICKUP_RANGE;
+  for (let l of lootItems) {
+    let d = dist(player, l);
+    if (d < bestD) { bestD = d; best = l; }
+  }
+  if (best) {
+    if (player.weapons.length < 5) {
+      player.weapons.push({ type: best.type, ammo: WEAPONS[best.type].ammo });
+    } else {
+      // Replace current slot (keep pickaxe in slot 0)
+      if (player.activeSlot === 0 && player.weapons.length > 1) {
+        player.weapons[1] = { type: best.type, ammo: WEAPONS[best.type].ammo };
+      } else if (player.activeSlot > 0) {
+        player.weapons[player.activeSlot] = { type: best.type, ammo: WEAPONS[best.type].ammo };
+      }
+    }
+    lootItems.splice(lootItems.indexOf(best), 1);
+    buildSlotUI();
+  }
+}
+
+function tryReload() {
+  let w = player.weapons[player.activeSlot];
+  let def = WEAPONS[w.type];
+  if (w.ammo < def.ammo && !reloading && def.reload > 0) {
+    reloading = true;
+    reloadTimer = performance.now();
+  }
+}
+
+function tryBuild(entity) {
+  if (entity.mats < BUILD_COST) return;
+  let gx = Math.round((entity.x + Math.cos(entity.angle) * 50) / TILE);
+  let gy = Math.round((entity.y + Math.sin(entity.angle) * 50) / TILE);
+  gx = clamp(gx, 0, MAP_SIZE / TILE - 1);
+  gy = clamp(gy, 0, MAP_SIZE / TILE - 1);
+  // Check no existing wall
+  if (walls.find(w => w.gx === gx && w.gy === gy)) return;
+  entity.mats -= BUILD_COST;
+  walls.push(createWall(gx, gy, entity));
+}
+
+function tryDestroyWall() {
+  let gx = Math.round((player.x + Math.cos(player.angle) * 50) / TILE);
+  let gy = Math.round((player.y + Math.sin(player.angle) * 50) / TILE);
+  let idx = walls.findIndex(w => w.gx === gx && w.gy === gy);
+  if (idx >= 0) {
+    player.mats += Math.floor(BUILD_COST / 2); // reclaim some mats
+    walls.splice(idx, 1);
+  }
+}
+
+// ── Shooting ──
+function shoot(entity, now) {
+  let w = entity.weapons[entity.activeSlot];
+  let def = WEAPONS[w.type];
+  if (now - entity.lastShot < def.fireRate) return;
+  if (w.ammo <= 0 && w.ammo !== Infinity) return;
+  entity.lastShot = now;
+  if (w.ammo !== Infinity) w.ammo--;
+
+  if (def.projSpeed === 0) {
+    // Melee — pickaxe
+    meleeSweep(entity, def);
+  } else {
+    let spread = (Math.random() - 0.5) * def.spread;
+    let ang = entity.angle + spread;
+    bullets.push(createBullet(entity, entity.x, entity.y, ang, def));
+    // Shotgun fires multiple pellets
+    if (w.type === 'shotgun') {
+      for (let i = 0; i < 4; i++) {
+        let s = (Math.random() - 0.5) * def.spread;
+        bullets.push(createBullet(entity, entity.x, entity.y, entity.angle + s, {...def, dmg: Math.floor(def.dmg / 5)}));
+      }
+    }
+  }
+}
+
+function meleeSweep(entity, def) {
+  // Hit anything in front within range
+  let targets = entity.isBot ? [player, ...bots.filter(b => b !== entity)] : bots;
+  for (let t of targets) {
+    if (!t.alive) continue;
+    let d = dist(entity, t);
+    if (d < def.range) {
+      let a = angle(entity, t);
+      let diff = Math.abs(a - entity.angle);
+      if (diff > Math.PI) diff = Math.PI * 2 - diff;
+      if (diff < 1.0) { // ~57° cone
+        applyDamage(t, def.dmg, entity);
+      }
+    }
+  }
+  // Harvest resources from trees/rocks
+  for (let arr of [trees, rocks]) {
+    for (let i = arr.length - 1; i >= 0; i--) {
+      let obj = arr[i];
+      if (dist(entity, obj) < def.range + obj.radius) {
+        obj.hp -= def.dmg;
+        entity.mats += 3;
+        if (obj.hp <= 0) {
+          entity.mats += obj.type === 'rock' ? 15 : 10;
+          arr.splice(i, 1);
+        }
+      }
+    }
+  }
+  // Damage walls
+  for (let i = walls.length - 1; i >= 0; i--) {
+    let w = walls[i];
+    if (circleRect(entity.x + Math.cos(entity.angle) * 30, entity.y + Math.sin(entity.angle) * 30, 20, w.x, w.y, w.w, w.h)) {
+      w.hp -= def.dmg;
+      entity.mats += 2;
+      if (w.hp <= 0) { walls.splice(i, 1); entity.mats += 5; }
+    }
+  }
+}
+
+function applyDamage(target, dmg, source) {
+  if (!target.alive) return;
+  // Shield absorbs first
+  if (target.shield > 0) {
+    let absorbed = Math.min(target.shield, dmg);
+    target.shield -= absorbed;
+    dmg -= absorbed;
+  }
+  target.hp -= dmg;
+  if (target.hp <= 0) {
+    target.hp = 0;
+    target.alive = false;
+    if (source && source === player) {
+      kills++;
+      addKillMsg(player.name + ' eliminated ' + target.name);
+    } else if (source && source.isBot && target === player) {
+      addKillMsg(source.name + ' eliminated You');
+    } else if (source && source.isBot && target.isBot) {
+      addKillMsg(source.name + ' eliminated ' + target.name);
+      // Transfer some loot
+      if (source.weapons.length < 5 && target.weapons.length > 1) {
+        source.weapons.push(target.weapons[1]);
+      }
+      source.mats += Math.floor(target.mats / 2);
+    }
+    // Drop loot on death
+    for (let i = 1; i < target.weapons.length; i++) {
+      lootItems.push(createLoot(target.x + rand(-30, 30), target.y + rand(-30, 30), target.weapons[i].type));
+    }
+  }
+}
+
+// ── Kill feed ──
+function addKillMsg(msg) {
+  let feed = document.getElementById('killfeed');
+  let el = document.createElement('div');
+  el.className = 'kill-msg';
+  el.textContent = msg;
+  feed.prepend(el);
+  setTimeout(() => el.remove(), 4500);
+}
+
+// ── Bot AI ──
+function updateBot(bot, now, dt) {
+  if (!bot.alive) return;
+
+  // Storm damage
+  if (isInStorm(bot)) {
+    bot.hp -= STORM_DMG * dt / 1000;
+    if (bot.hp <= 0) { bot.hp = 0; bot.alive = false; addKillMsg('⚡ Storm eliminated ' + bot.name); return; }
+  }
+
+  // Auto-reload bots
+  let bw = bot.weapons[bot.activeSlot];
+  let bdef = WEAPONS[bw.type];
+  if (bw.ammo <= 0 && bw.ammo !== Infinity) bw.ammo = bdef.ammo;
+
+  // Find nearest enemy
+  let nearest = null, nearDist = 800;
+  if (player.alive) {
+    let pd = dist(bot, player);
+    if (pd < nearDist) { nearest = player; nearDist = pd; }
+  }
+  for (let other of bots) {
+    if (other === bot || !other.alive) continue;
+    let d = dist(bot, other);
+    if (d < nearDist) { nearest = other; nearDist = d; }
+  }
+
+  // Pick up nearby loot
+  for (let i = lootItems.length - 1; i >= 0; i--) {
+    if (dist(bot, lootItems[i]) < 40) {
+      if (bot.weapons.length < 5) {
+        bot.weapons.push({ type: lootItems[i].type, ammo: WEAPONS[lootItems[i].type].ammo });
+        if (bot.activeSlot === 0) bot.activeSlot = bot.weapons.length - 1;
+      }
+      lootItems.splice(i, 1);
+      break;
+    }
+  }
+
+  // Choose best weapon for range
+  if (nearest) {
+    let bestIdx = 0, bestScore = -1;
+    for (let i = 0; i < bot.weapons.length; i++) {
+      let wd = WEAPONS[bot.weapons[i].type];
+      if (wd.projSpeed === 0 && nearDist > 80) continue;
+      let score = wd.dmg / Math.max(1, wd.fireRate / 100);
+      if (nearDist > 300 && wd.range > 500) score *= 2;
+      if (nearDist < 150 && (bot.weapons[i].type === 'shotgun' || bot.weapons[i].type === 'smg')) score *= 2;
+      if (score > bestScore) { bestScore = score; bestIdx = i; }
+    }
+    bot.activeSlot = bestIdx;
+  }
+
+  // State machine
+  bot.aiTimer -= dt;
+  let inStorm = isInStorm(bot);
+
+  if (inStorm) {
+    // Flee to safe zone
+    bot.aiState = 'flee';
+    let a = angle(bot, stormCenter);
+    bot.x += Math.cos(a) * bot.speed;
+    bot.y += Math.sin(a) * bot.speed;
+    bot.angle = a;
+  } else if (nearest && nearDist < 300) {
+    // Combat
+    bot.aiState = 'chase';
+    bot.angle = angle(bot, nearest);
+
+    // Build defensively if taking fire and has mats
+    if (bot.hp < 60 && bot.mats >= BUILD_COST && Math.random() < 0.02) {
+      tryBuild(bot);
+    }
+
+    if (nearDist > 80) {
+      // Move toward target
+      bot.x += Math.cos(bot.angle) * bot.speed * 0.8;
+      bot.y += Math.sin(bot.angle) * bot.speed * 0.8;
+    } else if (nearDist < 50) {
+      // Back up a little
+      bot.x -= Math.cos(bot.angle) * bot.speed * 0.5;
+      bot.y -= Math.sin(bot.angle) * bot.speed * 0.5;
+    }
+
+    // Shoot (with accuracy factor)
+    if (Math.random() < bot.botAccuracy) {
+      shoot(bot, now);
+    }
+  } else {
+    // Wander
+    bot.aiState = 'wander';
+    if (bot.aiTimer <= 0) {
+      bot.aiTimer = rand(1500, 4000);
+      bot.wanderX = clamp(bot.x + rand(-400, 400), 100, MAP_SIZE - 100);
+      bot.wanderY = clamp(bot.y + rand(-400, 400), 100, MAP_SIZE - 100);
+    }
+    let a = angle(bot, { x: bot.wanderX, y: bot.wanderY });
+    bot.angle = a;
+    if (dist(bot, { x: bot.wanderX, y: bot.wanderY }) > 20) {
+      bot.x += Math.cos(a) * bot.speed * 0.6;
+      bot.y += Math.sin(a) * bot.speed * 0.6;
+    }
+
+    // Approach nearby loot
+    let closestLoot = null, cld = 200;
+    for (let l of lootItems) {
+      let d = dist(bot, l);
+      if (d < cld) { cld = d; closestLoot = l; }
+    }
+    if (closestLoot) {
+      let la = angle(bot, closestLoot);
+      bot.x += Math.cos(la) * bot.speed * 0.5;
+      bot.y += Math.sin(la) * bot.speed * 0.5;
+    }
+  }
+
+  // Keep in bounds
+  bot.x = clamp(bot.x, 20, MAP_SIZE - 20);
+  bot.y = clamp(bot.y, 20, MAP_SIZE - 20);
+
+  // Wall collision for bots
+  for (let w of walls) {
+    if (circleRect(bot.x, bot.y, bot.radius, w.x, w.y, w.w, w.h)) {
+      pushOut(bot, w);
+    }
+  }
+}
+
+// ── Physics ──
+function pushOut(entity, wall) {
+  let cx = clamp(entity.x, wall.x - wall.w/2, wall.x + wall.w/2);
+  let cy = clamp(entity.y, wall.y - wall.h/2, wall.y + wall.h/2);
+  let dx = entity.x - cx, dy = entity.y - cy;
+  let d = Math.hypot(dx, dy);
+  if (d < entity.radius && d > 0) {
+    entity.x += (dx / d) * (entity.radius - d);
+    entity.y += (dy / d) * (entity.radius - d);
+  }
+}
+
+// ── Main game loop ──
+let lastTime = 0;
+function gameLoop(time) {
+  if (!gameRunning) return;
+  let dt = Math.min(time - lastTime, 50);  // cap delta
+  lastTime = time;
+
+  update(time, dt);
+  render();
+  requestAnimationFrame(gameLoop);
+}
+
+function update(now, dt) {
+  // ── Player movement ──
+  if (player.alive) {
+    let dx = 0, dy = 0;
+    if (keys['w']) dy -= 1;
+    if (keys['s']) dy += 1;
+    if (keys['a']) dx -= 1;
+    if (keys['d']) dx += 1;
+    if (dx || dy) {
+      let len = Math.hypot(dx, dy);
+      player.x += (dx / len) * player.speed;
+      player.y += (dy / len) * player.speed;
+    }
+    player.x = clamp(player.x, 20, MAP_SIZE - 20);
+    player.y = clamp(player.y, 20, MAP_SIZE - 20);
+
+    // Player aim angle (screen → world)
+    let wx = mouse.x - canvas.width / 2 + camera.x;
+    let wy = mouse.y - canvas.height / 2 + camera.y;
+    player.angle = Math.atan2(wy - player.y, wx - player.x);
+
+    // Shoot
+    if (mouse.down) {
+      let w = player.weapons[player.activeSlot];
+      let def = WEAPONS[w.type];
+      if (def.auto || (now - player.lastShot >= def.fireRate)) {
+        if (!reloading) shoot(player, now);
+      }
+    }
+
+    // Reload progress
+    if (reloading) {
+      let w = player.weapons[player.activeSlot];
+      let def = WEAPONS[w.type];
+      if (now - reloadTimer >= def.reload) {
+        w.ammo = def.ammo;
+        reloading = false;
+        buildSlotUI();
+      }
+    }
+
+    // Auto-reload when empty
+    let pw = player.weapons[player.activeSlot];
+    if (pw.ammo <= 0 && pw.ammo !== Infinity && !reloading) {
+      tryReload();
+    }
+
+    // Storm damage to player
+    if (isInStorm(player)) {
+      player.hp -= STORM_DMG * dt / 1000;
+      if (player.hp <= 0) {
+        player.hp = 0;
+        player.alive = false;
+        addKillMsg('⚡ Storm eliminated You');
+      }
+    }
+
+    // Wall collision
+    for (let w of walls) {
+      if (circleRect(player.x, player.y, player.radius, w.x, w.y, w.w, w.h)) {
+        pushOut(player, w);
+      }
+    }
+
+    // Tree/rock collision
+    for (let t of trees) {
+      if (circleCircle(player, t)) {
+        let a = angle(t, player);
+        let overlap = player.radius + t.radius - dist(player, t);
+        player.x += Math.cos(a) * overlap;
+        player.y += Math.sin(a) * overlap;
+      }
+    }
+    for (let r of rocks) {
+      if (circleCircle(player, r)) {
+        let a = angle(r, player);
+        let overlap = player.radius + r.radius - dist(player, r);
+        player.x += Math.cos(a) * overlap;
+        player.y += Math.sin(a) * overlap;
+      }
+    }
+  }
+
+  // ── Camera ──
+  camera.x = lerp(camera.x, player.x, 0.08);
+  camera.y = lerp(camera.y, player.y, 0.08);
+
+  // ── Storm ──
+  updateStorm(now);
+
+  // ── Bots ──
+  for (let b of bots) updateBot(b, now, dt);
+
+  // Let bots fight each other occasionally even at range
+  // (already handled in updateBot chase state)
+
+  // ── Bullets ──
+  for (let i = bullets.length - 1; i >= 0; i--) {
+    let b = bullets[i];
+    b.x += Math.cos(b.angle) * b.speed;
+    b.y += Math.sin(b.angle) * b.speed;
+    b.dist += b.speed;
+    if (b.dist > b.range || b.x < 0 || b.x > MAP_SIZE || b.y < 0 || b.y > MAP_SIZE) {
+      bullets.splice(i, 1);
+      continue;
+    }
+
+    // Hit walls
+    let hitWall = false;
+    for (let wi = walls.length - 1; wi >= 0; wi--) {
+      let w = walls[wi];
+      if (circleRect(b.x, b.y, b.radius, w.x, w.y, w.w, w.h)) {
+        w.hp -= b.dmg;
+        if (w.hp <= 0) walls.splice(wi, 1);
+        bullets.splice(i, 1);
+        hitWall = true;
+        break;
+      }
+    }
+    if (hitWall) continue;
+
+    // Hit trees/rocks
+    let hitEnv = false;
+    for (let arr of [trees, rocks]) {
+      for (let ei = arr.length - 1; ei >= 0; ei--) {
+        if (circleCircle(b, arr[ei])) {
+          arr[ei].hp -= b.dmg;
+          if (arr[ei].hp <= 0) arr.splice(ei, 1);
+          bullets.splice(i, 1);
+          hitEnv = true;
+          break;
+        }
+      }
+      if (hitEnv) break;
+    }
+    if (hitEnv) continue;
+
+    // Hit player
+    if (b.owner !== player && player.alive && circleCircle(b, player)) {
+      applyDamage(player, b.dmg, b.owner);
+      bullets.splice(i, 1);
+      continue;
+    }
+    // Hit bots
+    let hitBot = false;
+    for (let bot of bots) {
+      if (bot === b.owner || !bot.alive) continue;
+      if (circleCircle(b, bot)) {
+        applyDamage(bot, b.dmg, b.owner);
+        bullets.splice(i, 1);
+        hitBot = true;
+        break;
+      }
+    }
+  }
+
+  // ── Update HUD ──
+  updateHUD();
+
+  // ── Check win/lose ──
+  let aliveCount = (player.alive ? 1 : 0) + bots.filter(b => b.alive).length;
+  document.getElementById('aliveCount').textContent = aliveCount;
+
+  if (!player.alive) {
+    endGame(false, aliveCount);
+  } else if (aliveCount <= 1) {
+    endGame(true, 1);
+  }
+}
+
+function endGame(won, placement) {
+  gameRunning = false;
+  let elapsed = ((performance.now() - startTime) / 1000).toFixed(0);
+  document.getElementById('endTitle').textContent = won ? '🏆 VICTORY ROYALE!' : '☠️ ELIMINATED';
+  document.getElementById('endTitle').style.color = won ? '#f1c40f' : '#e74c3c';
+  document.getElementById('endStats').textContent = `Placement: #${placement} | Kills: ${kills} | Time: ${elapsed}s`;
+  document.getElementById('endScreen').classList.remove('hidden');
+}
+
+// ── HUD ──
+function updateHUD() {
+  let hp = Math.max(0, Math.round(player.hp));
+  let sh = Math.max(0, Math.round(player.shield));
+  document.getElementById('healthBar').style.width = hp + '%';
+  document.getElementById('healthText').textContent = hp;
+  document.getElementById('shieldBar').style.width = sh + '%';
+  document.getElementById('shieldText').textContent = sh;
+  document.getElementById('matCount').textContent = player.mats;
+
+  // Update ammo in active slot
+  let slots = document.querySelectorAll('.slot');
+  slots.forEach((sl, i) => {
+    sl.classList.toggle('active', i === player.activeSlot);
+    if (i < player.weapons.length) {
+      let w = player.weapons[i];
+      let def = WEAPONS[w.type];
+      let ammoText = sl.querySelector('.ammo');
+      if (w.ammo === Infinity) {
+        ammoText.textContent = '∞';
+      } else {
+        ammoText.textContent = (reloading && i === player.activeSlot ? '...' : w.ammo) + '/' + def.ammo;
+      }
+    }
+  });
+}
+
+function buildSlotUI() {
+  let container = document.getElementById('slots');
+  container.innerHTML = '';
+  player.weapons.forEach((w, i) => {
+    let def = WEAPONS[w.type];
+    let div = document.createElement('div');
+    div.className = 'slot' + (i === player.activeSlot ? ' active' : '');
+    div.style.borderColor = i === player.activeSlot ? RARITY[w.type] : '#444';
+    div.innerHTML = `<div class="key">${i + 1}</div>${def.emoji}<div class="ammo">${w.ammo === Infinity ? '∞' : w.ammo + '/' + def.ammo}</div>`;
+    container.appendChild(div);
+  });
+}
+
+// ── Rendering ──
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.save();
+  // Move camera
+  ctx.translate(canvas.width / 2 - camera.x, canvas.height / 2 - camera.y);
+
+  drawGround();
+  drawLoot();
+  drawTrees();
+  drawRocks();
+  drawWalls();
+  drawBullets();
+  drawBots();
+  drawPlayer();
+  drawStorm();
+
+  ctx.restore();
+
+  // Loot proximity hint
+  drawLootHint();
+
+  // Minimap
+  drawMinimap();
+}
+
+function drawGround() {
+  // Background
+  ctx.fillStyle = '#2d5016';
+  ctx.fillRect(0, 0, MAP_SIZE, MAP_SIZE);
+
+  // Grid lines for spatial awareness
+  ctx.strokeStyle = 'rgba(255,255,255,.04)';
+  ctx.lineWidth = 1;
+  let startX = Math.floor((camera.x - canvas.width / 2) / 100) * 100;
+  let startY = Math.floor((camera.y - canvas.height / 2) / 100) * 100;
+  for (let x = startX; x < camera.x + canvas.width / 2; x += 100) {
+    ctx.beginPath(); ctx.moveTo(x, camera.y - canvas.height / 2); ctx.lineTo(x, camera.y + canvas.height / 2); ctx.stroke();
+  }
+  for (let y = startY; y < camera.y + canvas.height / 2; y += 100) {
+    ctx.beginPath(); ctx.moveTo(camera.x - canvas.width / 2, y); ctx.lineTo(camera.x + canvas.width / 2, y); ctx.stroke();
+  }
+
+  // Map border
+  ctx.strokeStyle = '#e74c3c';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(0, 0, MAP_SIZE, MAP_SIZE);
+}
+
+function drawLoot() {
+  for (let l of lootItems) {
+    if (!onScreen(l)) continue;
+    ctx.save();
+    ctx.translate(l.x, l.y);
+    // Glow
+    ctx.shadowColor = RARITY[l.type];
+    ctx.shadowBlur = 12;
+    ctx.fillStyle = RARITY[l.type];
+    ctx.beginPath();
+    ctx.arc(0, 0, 10, 0, Math.PI * 2);
+    ctx.fill();
+    // Emoji
+    ctx.shadowBlur = 0;
+    ctx.font = '14px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(WEAPONS[l.type].emoji, 0, 0);
+    ctx.restore();
+  }
+}
+
+function drawTrees() {
+  for (let t of trees) {
+    if (!onScreen(t, 40)) continue;
+    ctx.fillStyle = '#1a4d1a';
+    ctx.beginPath();
+    ctx.arc(t.x, t.y, t.radius + 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#2ecc71';
+    ctx.beginPath();
+    ctx.arc(t.x, t.y, t.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#6b3e1f';
+    ctx.fillRect(t.x - 3, t.y - 3, 6, 6);
+  }
+}
+
+function drawRocks() {
+  for (let r of rocks) {
+    if (!onScreen(r, 30)) continue;
+    ctx.fillStyle = '#7f8c8d';
+    ctx.beginPath();
+    ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#95a5a6';
+    ctx.beginPath();
+    ctx.arc(r.x - 3, r.y - 3, r.radius * 0.6, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function drawWalls() {
+  for (let w of walls) {
+    if (!onScreen(w, TILE)) continue;
+    let hpRatio = w.hp / w.maxHp;
+    let baseColor = w.owner === player ? '52, 152, 219' : '149, 165, 166';
+    ctx.fillStyle = `rgba(${baseColor}, ${0.4 + hpRatio * 0.5})`;
+    ctx.fillRect(w.x - w.w / 2, w.y - w.h / 2, w.w, w.h);
+    ctx.strokeStyle = `rgba(${baseColor}, 0.8)`;
+    ctx.lineWidth = 2;
+    ctx.strokeRect(w.x - w.w / 2, w.y - w.h / 2, w.w, w.h);
+    // HP bar on damaged walls
+    if (hpRatio < 1) {
+      ctx.fillStyle = '#e74c3c';
+      ctx.fillRect(w.x - w.w / 2, w.y - w.h / 2 - 5, w.w, 3);
+      ctx.fillStyle = '#2ecc71';
+      ctx.fillRect(w.x - w.w / 2, w.y - w.h / 2 - 5, w.w * hpRatio, 3);
+    }
+  }
+}
+
+function drawBullets() {
+  ctx.fillStyle = '#f1c40f';
+  for (let b of bullets) {
+    if (!onScreen(b)) continue;
+    ctx.beginPath();
+    ctx.arc(b.x, b.y, 3, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function drawEntity(e, color, nameColor) {
+  if (!e.alive || !onScreen(e, 40)) return;
+  ctx.save();
+  ctx.translate(e.x, e.y);
+
+  // Body
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(0, 0, e.radius, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Direction indicator
+  ctx.strokeStyle = '#fff';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(Math.cos(e.angle) * 24, Math.sin(e.angle) * 24);
+  ctx.stroke();
+
+  // Name tag
+  ctx.font = 'bold 11px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillStyle = nameColor;
+  ctx.fillText(e.name, 0, -24);
+
+  // Health bar
+  ctx.fillStyle = '#333';
+  ctx.fillRect(-16, -20, 32, 4);
+  ctx.fillStyle = e.hp > 30 ? '#2ecc71' : '#e74c3c';
+  ctx.fillRect(-16, -20, 32 * (e.hp / e.maxHp), 4);
+  if (e.shield > 0) {
+    ctx.fillStyle = '#3498db';
+    ctx.fillRect(-16, -16, 32 * (e.shield / e.maxShield), 3);
+  }
+
+  ctx.restore();
+}
+
+function drawPlayer() {
+  drawEntity(player, '#3498db', '#fff');
+  // Weapon range indicator when aiming
+  if (player.alive && mouse.down) {
+    ctx.save();
+    ctx.globalAlpha = 0.1;
+    ctx.strokeStyle = '#f1c40f';
+    ctx.lineWidth = 1;
+    let def = WEAPONS[player.weapons[player.activeSlot].type];
+    ctx.beginPath();
+    ctx.arc(player.x, player.y, def.range, player.angle - 0.15, player.angle + 0.15);
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+function drawBots() {
+  for (let b of bots) {
+    let color = b.aiState === 'chase' ? '#e74c3c' : b.aiState === 'flee' ? '#e67e22' : '#c0392b';
+    drawEntity(b, color, '#ff9999');
+  }
+}
+
+function drawStorm() {
+  // Draw storm as a dark overlay outside the safe zone
+  ctx.save();
+  ctx.fillStyle = 'rgba(128, 0, 255, 0.25)';
+  ctx.beginPath();
+  // Outer rect (whole map)
+  ctx.rect(0, 0, MAP_SIZE, MAP_SIZE);
+  // Inner circle (safe zone) — counter-clockwise to cut it out
+  ctx.moveTo(stormCenter.x + stormRadius, stormCenter.y);
+  ctx.arc(stormCenter.x, stormCenter.y, stormRadius, 0, Math.PI * 2, true);
+  ctx.fill();
+
+  // Storm circle edge
+  ctx.strokeStyle = 'rgba(180, 50, 255, 0.6)';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.arc(stormCenter.x, stormCenter.y, stormRadius, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Moving storm particles on edge
+  let time = performance.now() / 1000;
+  ctx.fillStyle = 'rgba(180, 50, 255, 0.4)';
+  for (let i = 0; i < 60; i++) {
+    let a = (i / 60) * Math.PI * 2 + time * 0.3;
+    let r = stormRadius + Math.sin(time * 2 + i) * 8;
+    ctx.beginPath();
+    ctx.arc(stormCenter.x + Math.cos(a) * r, stormCenter.y + Math.sin(a) * r, 3, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.restore();
+}
+
+function drawLootHint() {
+  // Show "Press F" near loot
+  for (let l of lootItems) {
+    if (dist(player, l) < PICKUP_RANGE + 20) {
+      let sx = l.x - camera.x + canvas.width / 2;
+      let sy = l.y - camera.y + canvas.height / 2;
+      ctx.font = 'bold 12px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#f1c40f';
+      ctx.fillText('[F] ' + WEAPONS[l.type].name, sx, sy - 22);
+    }
+  }
+}
+
+function drawMinimap() {
+  let w = mmCanvas.width, h = mmCanvas.height;
+  let scale = w / MAP_SIZE;
+  mmCtx.clearRect(0, 0, w, h);
+  mmCtx.fillStyle = 'rgba(30,60,20,.8)';
+  mmCtx.fillRect(0, 0, w, h);
+
+  // Storm
+  mmCtx.save();
+  mmCtx.fillStyle = 'rgba(128,0,255,.3)';
+  mmCtx.fillRect(0, 0, w, h);
+  mmCtx.globalCompositeOperation = 'destination-out';
+  mmCtx.beginPath();
+  mmCtx.arc(stormCenter.x * scale, stormCenter.y * scale, stormRadius * scale, 0, Math.PI * 2);
+  mmCtx.fill();
+  mmCtx.restore();
+
+  // Storm circle on minimap
+  mmCtx.strokeStyle = 'rgba(180,50,255,.5)';
+  mmCtx.lineWidth = 1;
+  mmCtx.beginPath();
+  mmCtx.arc(stormCenter.x * scale, stormCenter.y * scale, stormRadius * scale, 0, Math.PI * 2);
+  mmCtx.stroke();
+
+  // Bots (red dots)
+  mmCtx.fillStyle = '#e74c3c';
+  for (let b of bots) {
+    if (!b.alive) continue;
+    // Only show nearby bots on minimap
+    if (dist(player, b) < 400) {
+      mmCtx.beginPath();
+      mmCtx.arc(b.x * scale, b.y * scale, 2, 0, Math.PI * 2);
+      mmCtx.fill();
+    }
+  }
+
+  // Player (blue dot)
+  mmCtx.fillStyle = '#3498db';
+  mmCtx.beginPath();
+  mmCtx.arc(player.x * scale, player.y * scale, 3, 0, Math.PI * 2);
+  mmCtx.fill();
+}
+
+function onScreen(entity, pad = 0) {
+  let sx = entity.x - camera.x;
+  let sy = entity.y - camera.y;
+  let hw = canvas.width / 2 + pad + 50;
+  let hh = canvas.height / 2 + pad + 50;
+  return sx > -hw && sx < hw && sy > -hh && sy < hh;
+}
+
+// Bonus: shield potions occasionally spawn
+setInterval(() => {
+  if (!gameRunning) return;
+  // Spawn a shield potion somewhere in the safe zone
+  let a = Math.random() * Math.PI * 2;
+  let r = Math.random() * stormRadius * 0.8;
+  let sx = stormCenter.x + Math.cos(a) * r;
+  let sy = stormCenter.y + Math.sin(a) * r;
+  lootItems.push({
+    x: clamp(sx, 50, MAP_SIZE - 50),
+    y: clamp(sy, 50, MAP_SIZE - 50),
+    type: 'shield', radius: 12
+  });
+}, 20000);
+
+// Add shield to weapons defs for rendering
+WEAPONS.shield = { name: 'Shield Potion', emoji: '🛡️', dmg:0, fireRate:0, range:0, spread:0, ammo:1, reload:0, projSpeed:0, auto:false };
+RARITY.shield = '#3498db';
+
+// Override pickup to handle shields
+const origPickup = tryPickup;
+window.tryPickup = undefined; // clear
+tryPickup = function() {
+  let best = null, bestD = PICKUP_RANGE;
+  for (let l of lootItems) {
+    let d = dist(player, l);
+    if (d < bestD) { bestD = d; best = l; }
+  }
+  if (best) {
+    if (best.type === 'shield') {
+      player.shield = Math.min(player.maxShield, player.shield + 50);
+      lootItems.splice(lootItems.indexOf(best), 1);
+      return;
+    }
+    if (player.weapons.length < 5) {
+      player.weapons.push({ type: best.type, ammo: WEAPONS[best.type].ammo });
+    } else {
+      if (player.activeSlot === 0 && player.weapons.length > 1) {
+        player.weapons[1] = { type: best.type, ammo: WEAPONS[best.type].ammo };
+      } else if (player.activeSlot > 0) {
+        player.weapons[player.activeSlot] = { type: best.type, ammo: WEAPONS[best.type].ammo };
+      }
+    }
+    lootItems.splice(lootItems.indexOf(best), 1);
+    buildSlotUI();
+  }
+};
+
+</script>
+</body>
+</html>

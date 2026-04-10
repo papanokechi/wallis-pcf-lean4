@@ -1,0 +1,210 @@
+discovery_id,alpha,beta,mode,order,target,closed_form,relation,digits,n_terms,convergence_rate,adeg,bdeg,signature,fingerprint,verified,verified_digits,category
+GCF_5E259469,"[0, 0, 0]","[-2, 4]",backward,0,zeta3,-2,1·CF·zeta3 + -1·CF + 2·zeta3 + -2 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,5e259469e16e,False,0,other
+GCF_DED80901,"[4, -5, -3, 1, 3]","[3, 1]",backward,0,zeta5,3.0,1·CF² + -1·CF·zeta5 + -2·CF + 3·zeta5 + -3 = 0,300,120,2.5,4,1,adeg=4|bdeg=1|mode=backward|order=0,ded8090196b3,True,1000,zeta5_quartic_higher
+GCF_F8A68CD0,"[1, -1]","[5, 0]",backward,0,zeta3,5,1·CF² + 1·CF·zeta3 + -5·CF + -5·zeta3 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,f8a68cd01129,False,0,other
+GCF_3F4C8F1A,"[-5, 1, 0, 0, 0]","[5, 0]",backward,0,zeta4,975/239,-239·CF² + 239·CF·zeta4 + 975·CF + -975·zeta4 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,3f4c8f1a38b0,False,0,zeta4_standard
+GCF_0F6F8162,"[-5, -1, 0, 0, 0]","[2, 1]",backward,0,zeta3,75/19,-19·CF·zeta3 + 75·zeta3 = 0,256,300,0.853,4,1,adeg=4|bdeg=1|mode=backward|order=0,0f6f8162b236,False,0,other
+GCF_A284CE55,"[-2, 1, 0]","[-2, 4]",backward,0,zeta5,-2.5,2·CF·zeta5 + 5·zeta5 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,a284ce55c90e,False,0,zeta5_standard
+GCF_0C968A18,"[-4, 1, 0, 0, 0]","[-3, -1]",backward,0,zeta4,-225/104,-104·CF·zeta4 + -225·zeta4 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,0c968a180b76,False,0,zeta4_standard
+GCF_B220AF13,"[6, -2]","[-4, -6]",backward,0,zeta2,-356/81,-81·CF·zeta2 + -356·zeta2 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,b220af130912,False,0,zeta2_standard
+GCF_5FC74795,"[0, -5, 1, 0]","[-3, -1]",backward,0,zeta4,-125/91,-91·CF·zeta4 + -125·zeta4 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,5fc74795a97c,False,0,zeta4_standard
+GCF_948F6505,"[6, -3, 0, -3]","[-3, -1]",backward,0,zeta5,-3.0,1·CF² + 1·CF·zeta5 + 2·CF + 3·zeta5 + -3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,948f65057d2e,False,0,zeta5_standard
+GCF_5E59A7FF,"[-1, 1, 0, 0]","[-4, -3, 4]",backward,0,zeta5,-4.0,1·CF² + 2·CF·zeta5 + 2·CF + 8·zeta5 + -8 = 0,300,300,1.0,3,2,adeg=3|bdeg=2|mode=backward|order=0,5e59a7ffdc93,False,0,zeta5_standard
+GCF_5041EC58,"[-3, -1, 4]","[1, 1, 8, 48]",backward,3,zeta3,1,1·CF·zeta3 + -1·zeta3 = 0,300,300,1.0,2,3,adeg=2|bdeg=3|mode=backward|order=3,5041ec58750c,False,0,zeta3_cubic_cusp
+GCF_9C5F84CE,"[-6, 2, 0, 0]","[2, 1]",backward,0,zeta3,2/5,-5·CF·zeta3 + 2·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,9c5f84cefe62,False,0,other
+GCF_739339E7,"[0, -3, 1]","[1, 2]",backward,0,zeta3,3/13,-13·CF·zeta3 + 3·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,739339e79834,False,0,other
+GCF_2D797469,"[-3, 1, 0, 0]","[-4, -3, 4]",backward,0,zeta3,-64/19,19·CF·zeta3 + 64·zeta3 = 0,300,300,1.0,3,2,adeg=3|bdeg=2|mode=backward|order=0,2d7974694d4e,False,0,other
+GCF_38A82B1E,"[-4, 2, 0, 0]","[-4, -3, 4]",backward,0,zeta4,-10/3,-3·CF·zeta4 + -10·zeta4 = 0,300,300,1.0,3,2,adeg=3|bdeg=2|mode=backward|order=0,38a82b1ed541,False,0,zeta4_standard
+GCF_F6071427,"[6, -3, 0]","[-4, -3, 4]",backward,0,zeta3,-5,1·CF² + -1·CF·zeta3 + 5·CF + -5·zeta3 = 0,300,300,1.0,2,2,adeg=2|bdeg=2|mode=backward|order=0,f6071427558a,False,0,other
+GCF_86CEE6DE,"[-4, 2]","[-2, -4]",backward,0,zeta3,-5/3,-3·CF·zeta3 + -5·zeta3 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,86cee6de31e8,False,0,other
+GCF_C01D653C,"[8, -2, 0]","[1, 2]",backward,0,zeta5,2.5971223021582733812949640287769784172661870503597,-139·CF·zeta5 + 139·CF + 361·zeta5 + -361 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,c01d653cbc3a,False,0,zeta5_standard
+GCF_FDCB6918,"[4, -5, -3, 1]","[3, 1]",backward,0,zeta3,-9/16,16·CF² + -16·CF·zeta3 + -7·CF + -9·zeta3 + -9 = 0,300,200,1.5,3,1,adeg=3|bdeg=1|mode=backward|order=0,fdcb6918f6d7,False,0,other
+GCF_E97C3F37,"[8, -2, -1]","[-4, -3, 4]",backward,0,zeta3,-17/3,3·CF² + -3·CF·zeta3 + 17·CF + -17·zeta3 = 0,300,300,1.0,2,2,adeg=2|bdeg=2|mode=backward|order=0,e97c3f374ec5,False,0,other
+GCF_42EFCF0D,"[4, -4, 1, 0]","[2, 1]",backward,0,zeta5,2.3333333333333333333333333333333333333333333333333,-3·CF·zeta5 + 7·zeta5 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,42efcf0d59f3,False,0,zeta5_standard
+GCF_29526C91,"[-8, 2, 1, 0]","[-3, -1]",backward,0,zeta4,-7/4,4·CF² + 4·CF·zeta4 + 7·CF + 7·zeta4 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,29526c91d28b,False,0,zeta4_standard
+GCF_824B9240,"[2, 1, -3, 1]","[-3, -6, -2, 5]",backward,0,zeta3,-19/6,-6·CF·zeta3 + -19·zeta3 = 0,300,120,2.5,3,3,adeg=3|bdeg=3|mode=backward|order=0,824b9240a79f,True,1000,zeta3_cubic_cusp
+GCF_088240DA,"[3, -1, 0, 0, 0]","[0, 6]",backward,0,zeta3,24/73,-73·CF·zeta3 + 24·zeta3 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,088240dad8c7,False,0,other
+GCF_60902956,"[4, -4, 1, 2, -1, -2]","[-8, 6]",backward,0,zeta3,-8,1·CF² + -1·CF·zeta3 + 8·CF + -8·zeta3 = 0,300,300,1.0,5,1,adeg=5|bdeg=1|mode=backward|order=0,6090295672dd,False,0,other
+GCF_3B362CFB,"[-2, 1]","[-4, -6]",backward,0,zeta4,-39/10,-10·CF² + 10·CF·zeta4 + -49·CF + 39·zeta4 + -39 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,3b362cfb3952,False,0,zeta4_standard
+GCF_CD86AB7E,"[8, -2, 0]","[5, 0]",backward,0,zeta3,937/155,-155·CF·zeta3 + 155·CF + 937·zeta3 + -937 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,cd86ab7ef1d0,False,0,other
+GCF_47FC0A8C,"[4, -4, 1, 0]","[-8, 6]",backward,0,zeta3,-17/2,2·CF·zeta3 + 17·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,47fc0a8c7190,False,0,other
+GCF_5E749725,"[-6, -1, 0, 0]","[2, 1]",backward,0,zeta3,336/151,-151·CF·zeta3 + 336·zeta3 = 0,255,300,0.85,3,1,adeg=3|bdeg=1|mode=backward|order=0,5e7497258676,False,0,other
+GCF_1A5369C4,"[-4, 2]","[-4, -6]",backward,0,zeta4,-19/5,5·CF·zeta4 + 19·zeta4 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,1a5369c4e47b,False,0,zeta4_standard
+GCF_A579B361,"[-5, 1, 0, 0, 0]","[-5, 0]",backward,0,zeta4,-975/239,-239·CF² + -239·CF·zeta4 + -975·CF + -975·zeta4 = 0,300,500,0.6,4,1,adeg=4|bdeg=1|mode=backward|order=0,a579b3611d21,False,0,zeta4_standard
+GCF_A7A7EA37,"[-3, 1, 0, 0]","[-3, -1]",backward,0,zeta3,-47/19,-19·CF·zeta3 + -47·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,a7a7ea374309,False,0,other
+GCF_741CB047,"[-4, -3, 1]","[3, 1, -1]",backward,0,zeta2,-11,1·CF·zeta2 + 11·zeta2 = 0,300,500,0.6,2,2,adeg=2|bdeg=2|mode=backward|order=0,741cb0478770,False,0,zeta2_standard
+GCF_01C143DD,"[-4, 1, 0, 0]","[-2, 4]",backward,0,zeta3,-373/98,-98·CF·zeta3 + -373·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,01c143dda6b1,False,0,other
+GCF_E02F6C58,"[-4, 1, 0, 0, 0]","[-8, 6]",backward,0,zeta2,-667/98,-98·CF·zeta2 + -667·zeta2 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,e02f6c58e705,False,0,zeta2_standard
+GCF_AD67F506,"[-1, -2, 1]","[-2, -2, 1]",backward,0,zeta3,-1,1·CF·zeta3 + 1·zeta3 = 0,300,300,1.0,2,2,adeg=2|bdeg=2|mode=backward|order=0,ad67f5069dd1,False,0,other
+GCF_CA01D459,"[6, 3, -4, -8, 3]","[4, 0, 1, -4, -6, -4]",ratio,4,zeta5,4.0,1·CF² + -2·CF·zeta5 + -2·CF + 8·zeta5 + -8 = 0,300,500,0.6,4,5,adeg=4|bdeg=5|mode=ratio|order=4,ca01d45969a2,False,0,zeta5_quartic_higher
+GCF_1E96C2A2,"[-4, -4, -5, -4, 4]","[10, 9, 8, -4, 0, -9, -7]",backward,0,zeta5,8.1428571428571428571428571428571428571428571428571,-7·CF² + -7·CF·zeta5 + 64·CF + 57·zeta5 + -57 = 0,300,500,0.6,4,6,adeg=4|bdeg=6|mode=backward|order=0,1e96c2a24d07,True,1000,zeta5_quartic_higher
+GCF_1E2F2F48,"[-5, -2, 0, 0, 0]","[4, 2]",backward,0,zeta5,2.5,-2·CF·zeta5 + 5·zeta5 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,1e2f2f483259,False,0,zeta5_quartic_higher
+GCF_25F67854,"[-6, 2, 0, 0, 0]","[-8, 6]",backward,0,zeta3,-32/5,-10·CF² + 5·CF·zeta3 + -59·CF + 32·zeta3 + 32 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,25f678547bac,False,0,other
+GCF_11EE225C,"[-4, -1, 0, 0, 0]","[2, 1]",backward,0,zeta3,16,-1·CF·zeta3 + 16·zeta3 = 0,257,300,0.857,4,1,adeg=4|bdeg=1|mode=backward|order=0,11ee225cc188,False,0,other
+GCF_63F7A424,"[8, -2, 0, 0, 0]","[-4, -3, 4]",backward,0,zeta3,-269/41,-41·CF·zeta3 + -269·zeta3 = 0,300,300,1.0,4,2,adeg=4|bdeg=2|mode=backward|order=0,63f7a424a737,False,0,other
+GCF_F3C2E25D,"[-2, 1, 0, 0, 0]","[5, -3]",backward,0,zeta5,4.5,-2·CF·zeta5 + 2·CF + 9·zeta5 + -9 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,f3c2e25deda0,False,0,zeta5_quartic_higher
+GCF_C1791B5F,"[6, -3, 0, 0]","[-3, -1]",backward,0,zeta3,-15/4,4·CF·zeta3 + 15·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,c1791b5f029d,False,0,other
+GCF_DC026271,"[-3, 1]","[-4, -6]",backward,0,zeta3,-604/159,159·CF·zeta3 + 604·zeta3 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,dc0262710459,False,0,other
+GCF_0F1326A9,"[8, -4, 0]","[-5, 2]",backward,0,zeta3,-19/3,-3·CF·zeta3 + -19·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,0f1326a94efb,False,0,other
+GCF_E2EC21F3,"[-5, 5]","[-6, 1, 5]",backward,0,zeta3,-6,1·CF² + -1·CF·zeta3 + 6·CF + -6·zeta3 = 0,300,120,2.5,1,2,adeg=1|bdeg=2|mode=backward|order=0,e2ec21f3215d,False,0,other
+GCF_7DF6E26A,"[-4, -3, 1]","[-2, 4]",backward,0,pi2,-110/13,13·CF·pi2 + 110·pi2 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,7df6e26a94fe,False,0,pi_family
+GCF_B6CD80E8,"[0, -4, 1]","[5, 0]",backward,0,zeta2,64/15,15·CF·zeta2 + -64·zeta2 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,b6cd80e8c500,False,0,zeta2_standard
+GCF_1FF51D3F,"[-4, -3, 1]","[1, 2]",backward,0,zeta5,-2.6470588235294117647058823529411764705882352941176,-17·CF·zeta5 + -45·zeta5 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,1ff51d3f211e,False,0,zeta5_standard
+GCF_E65A8EA4,"[-6, -1, -5, 2]","[-2, -3, 4, 3]",backward,0,zeta3,-106/13,-13·CF·zeta3 + -106·zeta3 = 0,300,300,1.0,3,3,adeg=3|bdeg=3|mode=backward|order=0,e65a8ea4474d,False,0,zeta3_cubic_cusp
+GCF_65E052E9,"[4, 3]","[-3, 3]",backward,0,zeta3,4/13,-13·CF² + 13·CF·zeta3 + 4·CF + -4·zeta3 = 0,200,200,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,65e052e9c262,False,0,other
+GCF_4263A37B,"[6, -2, 0]","[5, 0]",backward,0,zeta4,155/27,27·CF·zeta4 + -155·zeta4 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,4263a37b630f,False,0,zeta4_standard
+GCF_48F18E1E,"[-5, -1, 0]","[-3, -1]",backward,0,zeta2,5/14,-14·CF·zeta2 + 5·zeta2 = 0,260,300,0.867,2,1,adeg=2|bdeg=1|mode=backward|order=0,48f18e1e5194,False,0,zeta2_standard
+GCF_93A65B86,"[-6, 1, 1]","[4, -1]",backward,0,zeta5,2.6666666666666666666666666666666666666666666666667,3·CF·zeta5 + -3·CF + -8·zeta5 + 8 = 0,300,200,1.5,2,1,adeg=2|bdeg=1|mode=backward|order=0,93a65b868e53,False,0,zeta5_standard
+GCF_9B3D43C8,"[0, -7, 1]","[-3, -1]",backward,0,zeta3,-31/4,4·CF·zeta3 + 31·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,9b3d43c82797,False,0,other
+GCF_716008B3,"[2, -1, 2, -1]","[1, 2]",backward,0,zeta3,5/3,3·CF·zeta3 + -5·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,716008b39dc0,False,0,other
+GCF_3496E0B8,"[-5, 1, 0, 0]","[2, 1]",backward,0,zeta3,34/225,-225·CF² + -225·CF·zeta3 + 34·CF + 34·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,3496e0b8c8c3,False,0,other
+GCF_B5505CA9,"[6, -3]","[-4, -6]",backward,0,zeta4,-43/10,10·CF² + 10·CF·zeta4 + 43·CF + 43·zeta4 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,b5505ca935e7,False,0,zeta4_standard
+GCF_63435A97,"[-2, 1, 0, 0]","[-4, -3, 4]",backward,0,zeta4,-11/3,-3·CF·zeta4 + -11·zeta4 = 0,300,300,1.0,3,2,adeg=3|bdeg=2|mode=backward|order=0,63435a978eee,False,0,zeta4_standard
+GCF_7C0FE4BA,"[0, -3, 3]","[2, 4]",backward,0,zeta3,2,1·CF·zeta3 + -1·CF + -2·zeta3 + 2 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,7c0fe4baf44e,False,0,other
+GCF_72E9CC58,"[-4, 1, 0, 0, 0]","[5, -3]",backward,0,zeta3,61/14,14·CF² + 14·CF·zeta3 + -61·CF + -61·zeta3 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,72e9cc5851f6,False,0,other
+GCF_D6F5E74E,"[4, -5, -3, 1]","[2, 1]",backward,0,zeta4,73/23,-23·CF·zeta4 + 73·zeta4 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,d6f5e74e56a0,False,0,zeta4_standard
+GCF_90FE56EF,"[6, -3]","[-3, -3, 0, 1]",backward,0,zeta3,-18/5,5·CF·zeta3 + 18·zeta3 = 0,300,300,1.0,1,3,adeg=1|bdeg=3|mode=backward|order=0,90fe56ef0ade,False,0,zeta3_cubic_cusp
+GCF_3EFC24F8,"[2, -1, 2, -1]","[5, 0, 0]",backward,0,zeta3,27/5,-10·CF² + -5·CF·zeta3 + 39·CF + 27·zeta3 + 81 = 0,300,300,1.0,3,2,adeg=3|bdeg=2|mode=backward|order=0,3efc24f86c50,False,0,other
+GCF_7D5DDB87,"[-6, 2]","[-2, -4]",backward,0,zeta3,-38/29,29·CF·zeta3 + -29·CF + 38·zeta3 + -38 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,7d5ddb873e88,False,0,other
+GCF_96F08458,"[-6, 1, 0]","[4, -1]",backward,0,zeta4,19/11,-11·CF·zeta4 + 19·zeta4 = 0,300,200,1.5,2,1,adeg=2|bdeg=1|mode=backward|order=0,96f0845822be,False,0,zeta4_standard
+GCF_3C3B111F,"[8, -2, 0, 0]","[-8, 6]",backward,0,zeta3,-151/11,-11·CF² + 11·CF·zeta3 + -151·CF + 151·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,3c3b111f4df9,False,0,other
+GCF_C5B6C2EE,"[-3, 1, 0, 0, 0]","[5, -3]",backward,0,zeta4,13/3,-3·CF·zeta4 + 13·zeta4 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,c5b6c2eec1c2,False,0,zeta4_standard
+GCF_F66B7CAD,"[4, -4, 1, 0]","[3, 1]",backward,0,zeta3,13/4,-4·CF·zeta3 + 13·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,f66b7cad8794,False,0,other
+GCF_45049A0C,"[-3, 1, 0, 0]","[-2, 4]",backward,0,catalan,-34/11,11·CF·catalan + 34·catalan = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,45049a0c2189,False,0,catalan_discovery
+GCF_B8EC78EB,"[8, -4, 0]","[5, 0]",backward,0,zeta3,29/5,-5·CF·zeta3 + 29·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,b8ec78eb267b,False,0,other
+GCF_41B51386,"[4, -1, 0]","[-2, 4]",backward,0,zeta5,-0.71126760563380281690140845070422535211267605633803,142·CF² + 142·CF·zeta5 + -41·CF + 101·zeta5 + -101 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,41b51386c24c,False,0,zeta5_standard
+GCF_3301707C,"[-4, 2, 0, 0, 0]","[5, 0]",backward,0,zeta3,23/5,5·CF² + -5·CF·zeta3 + -28·CF + 23·zeta3 + 23 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,3301707ca758,False,0,other
+GCF_C2173927,"[2, -1, 0]","[-4, -3, 4]",backward,0,zeta4,-13/3,-3·CF·zeta4 + -13·zeta4 = 0,300,300,1.0,2,2,adeg=2|bdeg=2|mode=backward|order=0,c2173927c3c0,False,0,zeta4_standard
+GCF_E0194FD8,"[6, 4, -2, 0]","[5, 0]",backward,0,zeta3,195/31,-31·CF·zeta3 + 195·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,e0194fd88506,False,0,other
+GCF_7AB486D6,"[-5, 1, 0, 0, 0]","[3, 1, -1]",backward,0,zeta5,-0.25925925925925925925925925925925925925925925925926,-54·CF² + 27·CF·zeta5 + -41·CF + 7·zeta5 + -7 = 0,300,500,0.6,4,2,adeg=4|bdeg=2|mode=backward|order=0,7ab486d616b9,False,0,zeta5_quartic_higher
+GCF_47A1C0FF,"[2, -1, -3, 1, 1]","[-9, -18, -6, 15, 3]",backward,0,zeta3,-9,1·CF² + -1·CF·zeta3 + 9·CF + -9·zeta3 = 0,300,500,0.6,4,4,adeg=4|bdeg=4|mode=backward|order=0,47a1c0ffacc3,True,1000,zeta3_cubic_cusp
+GCF_AC2938EC,"[3, -1, 0]","[5, 0]",backward,0,zeta3,70/13,13·CF·zeta3 + -70·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,ac2938ec2cec,False,0,other
+GCF_3AB02E7C,"[-2, -6, 6, 2, 0]","[6, -2]",backward,0,zeta3,6,1·CF² + 1·CF·zeta3 + -6·CF + -6·zeta3 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,3ab02e7ce5d7,False,0,other
+GCF_D37C1DEA,"[10, -4, 0]","[-5, 2]",backward,0,zeta2,-45/7,-7·CF² + -7·CF·zeta2 + -45·CF + -45·zeta2 = 0,253,300,0.843,2,1,adeg=2|bdeg=1|mode=backward|order=0,d37c1dea2f7b,False,0,zeta2_standard
+GCF_7D6DAC94,"[8, -2, -1]","[2, 1]",backward,0,zeta4,11/3,3·CF·zeta4 + -11·zeta4 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,7d6dac945556,False,0,zeta4_standard
+GCF_C45C3C5F,"[-6, 3]","[-1, 1, 3, 4]",backward,0,zeta5,-1.4285714285714285714285714285714285714285714285714,7·CF·zeta5 + -7·CF + 10·zeta5 + -10 = 0,300,120,2.5,1,3,adeg=1|bdeg=3|mode=backward|order=0,c45c3c5f6882,True,1000,zeta5_standard
+GCF_667119A3,"[-4, -3, 1, 0]","[-8, 6]",backward,0,zeta3,-70/11,11·CF·zeta3 + 70·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,667119a30b91,False,0,other
+GCF_D66CD934,"[-8, 1]","[4, -1]",backward,0,zeta3,641/225,-225·CF·zeta3 + 641·zeta3 = 0,300,200,1.5,1,1,adeg=1|bdeg=1|mode=backward|order=0,d66cd934c9ce,False,0,other
+GCF_87CDFA16,"[-6, 2, 0, 0]","[1, 2, -1, 7, -6, -4, 3]",backward,0,catalan,-13/12,12·CF·catalan + -12·CF + 13·catalan + -13 = 0,300,500,0.6,3,6,adeg=3|bdeg=6|mode=backward|order=0,87cdfa1655c3,False,0,catalan_discovery
+GCF_9BE7FF88,"[-5, 1, 0, 0]","[5, -3]",backward,0,zeta3,483/107,107·CF·zeta3 + -107·CF + -483·zeta3 + 483 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,9be7ff884adb,False,0,other
+GCF_36147C1E,"[4, -4, 1]","[-3, -1]",backward,0,zeta3,-13/4,-4·CF·zeta3 + -13·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,36147c1e54e4,False,0,other
+GCF_EBF4C4D1,"[-4, 4, -1]","[-4, -12]",backward,0,zeta3,-63/16,16·CF² + -16·CF·zeta3 + 47·CF + -63·zeta3 + -63 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,ebf4c4d1f33d,False,0,other
+GCF_2A95C1CA,"[2, -1, 2, -1]","[3, 1]",backward,0,zeta5,3.5,-2·CF·zeta5 + 7·zeta5 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,2a95c1cad3cd,False,0,zeta5_standard
+GCF_F65D3011,"[4, -4, 1]","[-5, 0]",backward,0,zeta4,-26/5,5·CF·zeta4 + 26·zeta4 = 0,300,500,0.6,2,1,adeg=2|bdeg=1|mode=backward|order=0,f65d30110b69,False,0,zeta4_standard
+GCF_1A54342D,"[4, -1, 0]","[5, 0]",backward,0,zeta3,389/70,-70·CF² + -70·CF·zeta3 + 389·CF + 389·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,1a54342db12b,False,0,other
+GCF_421E55DE,"[-4, -3, 1]","[-4, -3, 4]",backward,0,zeta5,-2.5111111111111111111111111111111111111111111111111,45·CF·zeta5 + 113·zeta5 = 0,300,300,1.0,2,2,adeg=2|bdeg=2|mode=backward|order=0,421e55de3986,False,0,zeta5_standard
+GCF_B348BEFE,"[8, -2, 0, 0]","[2, 1]",backward,0,zeta5,3.5348837209302325581395348837209302325581395348837,43·CF·zeta5 + -152·zeta5 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,b348befe00df,False,0,zeta5_standard
+GCF_CA785662,"[-6, 2, 0, 0]","[5, 0, 0]",backward,0,zeta5,4.1304347826086956521739130434782608695652173913043,-23·CF·zeta5 + 95·zeta5 = 0,300,300,1.0,3,2,adeg=3|bdeg=2|mode=backward|order=0,ca785662c13c,False,0,zeta5_standard
+GCF_C1E7B596,"[4, -1]","[5, -3]",backward,0,zeta3,25/2,-2·CF·zeta3 + 2·CF + 25·zeta3 + -25 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,c1e7b5962ad7,False,0,other
+GCF_C404F982,"[-4, -8, -20, -32, 64]","[10, 18, 32, -32, -1, -288, -448]",backward,0,zeta5,10.0,1·CF·zeta5 + -1·CF + -10·zeta5 + 10 = 0,300,500,0.6,4,6,adeg=4|bdeg=6|mode=backward|order=0,c404f9828f63,True,1000,zeta5_quartic_higher
+GCF_167D67DB,"[-8, 2, 0, 0, 0]","[-8, 6]",backward,0,zeta5,-6.0344827586206896551724137931034482758620689655172,-29·CF² + 29·CF·zeta5 + -146·CF + 175·zeta5 + 175 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,167d67dbf5c5,False,0,zeta5_quartic_higher
+GCF_EDA013DB,"[6, -2, 0, 0]","[-4, -3, 4]",backward,0,zeta5,-5.5,2·CF·zeta5 + -2·CF + 11·zeta5 + -11 = 0,300,300,1.0,3,2,adeg=3|bdeg=2|mode=backward|order=0,eda013db998c,False,0,zeta5_standard
+GCF_A5FA7994,"[-2, 1, 0]","[-5, 0]",backward,0,zeta5,-4.8,-5·CF·zeta5 + 5·CF + -24·zeta5 + 24 = 0,300,500,0.6,2,1,adeg=2|bdeg=1|mode=backward|order=0,a5fa79945909,False,0,zeta5_standard
+GCF_CB5FA994,"[-6, 2, 0, 0]","[-2, -1]",backward,0,zeta3,-2/5,-5·CF·zeta3 + -2·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,cb5fa9941754,False,0,other
+GCF_EABC6107,"[-6, -3, 3]","[-3, -3, 0, 1]",backward,0,zeta3,-9/5,5·CF·zeta3 + 9·zeta3 = 0,300,300,1.0,2,3,adeg=2|bdeg=3|mode=backward|order=0,eabc6107b608,False,0,zeta3_cubic_cusp
+GCF_BDC41E93,"[-4, 2]","[-8, 6]",backward,0,zeta5,-7.0,1·CF·zeta5 + -1·CF + 7·zeta5 + -7 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,bdc41e93bb2e,False,0,zeta5_standard
+GCF_F9E82A7E,"[4, -1]","[1, 2]",backward,0,zeta3,115/61,61·CF·zeta3 + -115·zeta3 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,f9e82a7e1c30,False,0,other
+GCF_8C3B63BB,"[0, -4, 1]","[-2, 4]",backward,0,zeta3,-319/74,74·CF² + 74·CF·zeta3 + 319·CF + 319·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,8c3b63bbe8bc,False,0,other
+GCF_A5E9AEA8,"[-3, 1, 0, 0]","[5, 0]",backward,0,zeta4,55/12,-12·CF·zeta4 + 55·zeta4 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,a5e9aea8926b,False,0,zeta4_standard
+GCF_D0F8AAA8,"[-4, 2]","[2, 1]",backward,0,zeta5,1.3333333333333333333333333333333333333333333333333,-3·CF·zeta5 + 3·CF + 4·zeta5 + -4 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,d0f8aaa8efed,False,0,zeta5_standard
+GCF_9FB77715,"[-4, 0, -1, 1]","[-5, -5]",backward,0,zeta3,-23/5,5·CF² + 5·CF·zeta3 + 28·CF + 23·zeta3 + 23 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,9fb77715f007,False,0,other
+GCF_BD2DE7E8,"[0, -5, 1]","[-2, 4]",backward,0,zeta3,-176/27,27·CF·zeta3 + 176·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,bd2de7e8b3ee,False,0,other
+GCF_51DE6A1D,"[4, -4, 1]","[-2, -1]",backward,0,zeta5,-2.3333333333333333333333333333333333333333333333333,3·CF·zeta5 + 7·zeta5 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,51de6a1dddc9,False,0,zeta5_standard
+GCF_49423BC7,"[8, -2, 0]","[-3, -3, 0, 1]",backward,0,zeta4,-453/125,125·CF² + -125·CF·zeta4 + 203·CF + -453·zeta4 + -906 = 0,300,300,1.0,2,3,adeg=2|bdeg=3|mode=backward|order=0,49423bc7d533,False,0,zeta4_standard
+GCF_064418EC,"[1, -1]","[-40, 129, -136, 48]",backward,0,zeta3,-40,1·CF² + 1·CF·zeta3 + 38·CF + 40·zeta3 + -80 = 0,300,300,1.0,1,3,adeg=1|bdeg=3|mode=backward|order=0,064418ecd6fd,False,0,zeta3_cubic_cusp
+GCF_795971DF,"[8, -2, -1]","[-6, -3]",backward,0,zeta3,-59/9,-9·CF·zeta3 + -59·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,795971df9f1f,False,0,other
+GCF_FEB9DE29,"[0, -4, 1]","[-8, 6]",backward,0,zeta3,-267/38,-38·CF² + 38·CF·zeta3 + -305·CF + 267·zeta3 + -267 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,feb9de29e57e,False,0,other
+GCF_21068BA2,"[-2, -3, 0, 1]","[5, 0, 6]",backward,0,zeta2,51/11,-11·CF·zeta2 + 51·zeta2 = 0,300,120,2.5,3,2,adeg=3|bdeg=2|mode=backward|order=0,21068ba2be52,False,0,zeta2_standard
+GCF_06E3ECF9,"[3, 5, -5, 1]","[2, 2]",backward,0,zeta3,74/25,25·CF² + -25·CF·zeta3 + -74·CF + 74·zeta3 = 0,300,120,2.5,3,1,adeg=3|bdeg=1|mode=backward|order=0,06e3ecf9d538,False,0,other
+GCF_FCC1B843,"[2, -1, 2, -1]","[-2, -1]",backward,0,zeta5,-2.6666666666666666666666666666666666666666666666667,-3·CF·zeta5 + 3·CF + -8·zeta5 + 8 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,fcc1b843f16f,False,0,zeta5_standard
+GCF_8F89FF59,"[-8, 2]","[-2, -4]",backward,0,zeta2,-179/193,-193·CF·zeta2 + -179·zeta2 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,8f89ff593b2b,False,0,zeta2_standard
+GCF_7BAE5F83,"[-6, 2, 0, 0]","[-4, -3, 4]",backward,0,zeta3,-14/5,-5·CF·zeta3 + -14·zeta3 = 0,300,300,1.0,3,2,adeg=3|bdeg=2|mode=backward|order=0,7bae5f83a1a1,False,0,other
+GCF_FDB0B855,"[-2, 1, 0]","[5, 0]",backward,0,zeta5,4.8,5·CF·zeta5 + -5·CF + -24·zeta5 + 24 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,fdb0b855c865,False,0,zeta5_standard
+GCF_55CCFA2D,"[-8, 2, 1, 0]","[-2, 4]",backward,0,zeta5,-4.5,2·CF·zeta5 + -2·CF + 9·zeta5 + -9 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,55ccfa2d6222,False,0,zeta5_standard
+GCF_657B4134,"[-3, 1, 0, 0, 0]","[2, 1]",backward,0,zeta3,14/11,-11·CF·zeta3 + 14·zeta3 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,657b4134e16e,False,0,other
+GCF_C60D8AE5,"[-6, 3, -4, 2]","[-4, -6, -5, -6]",backward,0,zeta3,-79/21,-21·CF·zeta3 + -79·zeta3 = 0,300,300,1.0,3,3,adeg=3|bdeg=3|mode=backward|order=0,c60d8ae5a049,False,0,zeta3_cubic_cusp
+GCF_D83C97E9,"[-4, 1, 0, 0, 0]","[2, 4, -1]",backward,0,zeta2,61/45,-45·CF·zeta2 + 61·zeta2 = 0,300,300,1.0,4,2,adeg=4|bdeg=2|mode=backward|order=0,d83c97e9a91b,False,0,zeta2_standard
+GCF_2F2E7317,"[-6, -1, 0]","[-3, -1]",backward,0,zeta3,114/37,37·CF·zeta3 + -114·zeta3 = 0,258,300,0.86,2,1,adeg=2|bdeg=1|mode=backward|order=0,2f2e731785ef,False,0,other
+GCF_CFA99273,"[-3, 1, 0, 0]","[-8, 6]",backward,0,zeta5,-7.1111111111111111111111111111111111111111111111111,9·CF·zeta5 + -9·CF + 64·zeta5 + -64 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,cfa99273a44d,False,0,zeta5_standard
+GCF_9BB58B04,"[4, -4, 1]","[-5, 2]",backward,0,zeta4,-16/3,-3·CF·zeta4 + -16·zeta4 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,9bb58b04ded4,False,0,zeta4_standard
+GCF_ACDC2F70,"[-6, 2, 0, 0]","[-4, -6]",backward,0,zeta5,-3.5949367088607594936708860759493670886075949367089,-79·CF·zeta5 + -284·zeta5 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,acdc2f706e6a,False,0,zeta5_standard
+GCF_0309BB7E,"[-10, -10, 5, 4, 4, 7]","[8, -4, 0, 4, -8, -5, -7]",ratio,5,zeta3,8,1·CF² + 1·CF·zeta3 + -8·CF + -8·zeta3 = 0,300,500,0.6,5,6,adeg=5|bdeg=6|mode=ratio|order=5,0309bb7ebae8,False,0,zeta3_cubic_cusp
+GCF_F02998B9,"[2, -1, 2, -1]","[-3, -1]",backward,0,zeta5,-3.5,2·CF·zeta5 + 7·zeta5 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,f02998b9255e,False,0,zeta5_standard
+GCF_993B6AF1,"[-6, -1, -5, 2]","[5, 0]",backward,0,zeta3,15/13,-13·CF·zeta3 + 15·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,993b6af174c7,False,0,other
+GCF_FB837110,"[2, -1]","[-2, 8]",backward,0,zeta3,-11/6,6·CF·zeta3 + 11·zeta3 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,fb837110afe3,False,0,other
+GCF_EA431CC3,"[-3, 1, 0, 0, 0]","[-2, 8]",backward,0,catalan,-194/83,83·CF·catalan + 194·catalan = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,ea431cc3b7e4,False,0,catalan_discovery
+GCF_A23E9874,"[-2, -1, 1]","[6, -5, 3]",backward,0,zeta5,5.5,-2·CF·zeta5 + 2·CF + 11·zeta5 + -11 = 0,300,120,2.5,2,2,adeg=2|bdeg=2|mode=backward|order=0,a23e98742b75,False,0,zeta5_standard
+GCF_3A6243C3,"[2, -3, 2, -1, 0]","[9, 3, 3]",backward,0,zeta3,9,1·CF² + 1·CF·zeta3 + -9·CF + -9·zeta3 = 0,300,500,0.6,4,2,adeg=4|bdeg=2|mode=backward|order=0,3a6243c38a1c,False,0,other
+GCF_7F7273F1,"[-2, -3, -2, 2]","[5, 2, -5, 1]",backward,0,zeta4,10/3,3·CF·zeta4 + -10·zeta4 = 0,300,120,2.5,3,3,adeg=3|bdeg=3|mode=backward|order=0,7f7273f1d2ff,True,1000,zeta4_standard
+GCF_B719E995,"[0, -4, 1]","[2, 1]",backward,0,zeta2,11/31,-31·CF·zeta2 + 11·zeta2 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,b719e9950018,False,0,zeta2_standard
+GCF_2D26824B,"[0, -4, 1]","[4, -1]",backward,0,zeta3,25/7,7·CF² + -7·CF·zeta3 + -18·CF + 25·zeta3 + -25 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,2d26824bae52,False,0,other
+GCF_C8A898AB,"[8, -2, 0]","[3, 1]",backward,0,zeta3,81/19,-19·CF·zeta3 + 81·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,c8a898aba3e4,False,0,other
+GCF_B5C3A37E,"[0, -6, 2]","[5, -4]",backward,0,zeta2,23/7,-7·CF·zeta2 + 7·CF + 23·zeta2 + -23 = 0,300,120,2.5,2,1,adeg=2|bdeg=1|mode=backward|order=0,b5c3a37e59db,False,0,zeta2_standard
+GCF_CD34EA76,"[-4, 1, 0, 0, 0]","[1, 2]",backward,0,zeta3,-7/44,44·CF·zeta3 + 7·zeta3 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,cd34ea769acb,False,0,other
+GCF_19C8832E,"[2, -1]","[-4, -6]",backward,0,zeta5,-4.1,10·CF·zeta5 + -10·CF + 41·zeta5 + -41 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,19c8832e5d61,False,0,zeta5_standard
+GCF_8AD3B450,"[0, -8, 4]","[-1, 8]",backward,0,zeta2,-11/7,7·CF·zeta2 + 11·zeta2 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,8ad3b450a185,False,0,zeta2_standard
+GCF_40069A9B,"[-3, 1, 0, 0]","[3, 1]",backward,0,zeta3,47/19,19·CF·zeta3 + -47·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,40069a9b1fb8,False,0,other
+GCF_A26DBF15,"[-2, 1, 0]","[6, -2]",backward,0,zeta4,23/4,4·CF² + -4·CF·zeta4 + -23·CF + 23·zeta4 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,a26dbf153361,False,0,zeta4_standard
+GCF_98912BE6,"[-8, 4]","[-2, -4]",backward,0,zeta5,-1.3333333333333333333333333333333333333333333333333,3·CF·zeta5 + -3·CF + 4·zeta5 + -4 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,98912be6da33,False,0,zeta5_standard
+GCF_6C0D3992,"[-6, -3, 3]","[5, 0]",backward,0,zeta4,19/5,-5·CF·zeta4 + 19·zeta4 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,6c0d3992b651,False,0,zeta4_standard
+GCF_0E7ECAC0,"[-2, 1, 0]","[-5, 2]",backward,0,zeta3,-14/3,-3·CF·zeta3 + -3·CF + -14·zeta3 + -14 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,0e7ecac0334e,False,0,other
+GCF_4405BB6F,"[3, -1, 0, 0]","[1, 2]",backward,0,zeta4,13/8,8·CF·zeta4 + -13·zeta4 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,4405bb6f971c,False,0,zeta4_standard
+GCF_AF03CA09,"[0, -3, 1]","[-2, 4]",backward,0,zeta3,-16/5,-5·CF² + -5·CF·zeta3 + -21·CF + -16·zeta3 + -16 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,af03ca095154,False,0,other
+GCF_4B8561C3,"[2, -5, 2]","[-3, -5, -5]",backward,0,zeta4,-38/13,-13·CF·zeta4 + -38·zeta4 = 0,300,300,1.0,2,2,adeg=2|bdeg=2|mode=backward|order=0,4b8561c3ec1a,False,0,zeta4_standard
+GCF_71B32B4C,"[8, -2, -1]","[-3, -1]",backward,0,zeta4,-17/4,4·CF·zeta4 + -4·CF + 17·zeta4 + -17 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,71b32b4caca8,False,0,zeta4_standard
+GCF_89D8FF44,"[-5, -2, 0, 0, 0]","[6, -2]",backward,0,zeta4,505/103,-103·CF² + -103·CF·zeta4 + 505·CF + 505·zeta4 = 0,288,300,0.96,4,1,adeg=4|bdeg=1|mode=backward|order=0,89d8ff440a00,False,0,zeta4_standard
+GCF_AFE0B85D,"[-2, 1, 0]","[2, 2]",backward,0,zeta4,7/4,4·CF² + -4·CF·zeta4 + -7·CF + 7·zeta4 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,afe0b85daf11,False,0,zeta4_standard
+GCF_84BFFA64,"[4, -1, 0]","[-3, -1]",backward,0,zeta5,-3.6838235294117647058823529411764705882352941176471,136·CF·zeta5 + 501·zeta5 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,84bffa64032a,False,0,zeta5_standard
+GCF_A32BF798,"[2, -3, 3, -1, 0]","[9, 3, 3]",backward,0,zeta4,136/15,15·CF·zeta4 + -15·CF + -136·zeta4 + 136 = 0,300,500,0.6,4,2,adeg=4|bdeg=2|mode=backward|order=0,a32bf79897f0,False,0,zeta4_standard
+GCF_584E42A7,"[-4, 1, 0, 0, 0, 0]","[0, 1]",backward,0,zeta5,15.0,1·CF² + 1·CF·zeta5 + -16·CF + -15·zeta5 + 15 = 0,300,300,1.0,5,1,adeg=5|bdeg=1|mode=backward|order=0,584e42a786a0,False,0,zeta5_quartic_higher
+GCF_7D1E3A1F,"[-5, -1, 0, 0, 0]","[0, 1]",backward,0,zeta3,185/151,151·CF·zeta3 + -185·zeta3 = 0,249,300,0.83,4,1,adeg=4|bdeg=1|mode=backward|order=0,7d1e3a1f01ba,False,0,other
+GCF_17A45811,"[0, -3, 1]","[5, 0, 0]",backward,0,zeta3,105/23,-23·CF² + 23·CF·zeta3 + 128·CF + -105·zeta3 + -105 = 0,300,300,1.0,2,2,adeg=2|bdeg=2|mode=backward|order=0,17a45811cc26,False,0,other
+GCF_24526017,"[-2, 1, 0]","[-2, 8]",backward,0,zeta3,-13/6,-6·CF·zeta3 + -13·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,2452601723f3,False,0,other
+GCF_C61F3D62,"[0, -3, 1]","[-3, -1]",backward,0,zeta5,-2.4444444444444444444444444444444444444444444444444,-9·CF² + -9·CF·zeta5 + -22·CF + -22·zeta5 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,c61f3d624846,False,0,zeta5_standard
+GCF_83217914,"[0, -4, 1]","[1, 2]",backward,0,zeta2,-7/17,17·CF·zeta2 + 7·zeta2 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,83217914af6d,False,0,zeta2_standard
+GCF_BE63C53D,"[-4, -1, 0, 0, 0, 0]","[0, 1]",backward,0,zeta5,2.9473684210526315789473684210526315789473684210526,-19·CF·zeta5 + 56·zeta5 = 0,250,300,0.833,5,1,adeg=5|bdeg=1|mode=backward|order=0,be63c53d5b21,False,0,zeta5_quartic_higher
+GCF_61E33071,"[1, -3, 3, -1, 0]","[18, 6, 6]",backward,0,zeta5,18.0,1·CF² + -1·CF·zeta5 + -17·CF + 18·zeta5 + -18 = 0,300,500,0.6,4,2,adeg=4|bdeg=2|mode=backward|order=0,61e330713ee3,False,0,zeta5_quartic_higher
+GCF_8A34C116,"[-3, 4, -4, 1]","[4, -2, -3]",backward,0,zeta3,20/3,3·CF·zeta3 + -20·zeta3 = 0,300,120,2.5,3,2,adeg=3|bdeg=2|mode=backward|order=0,8a34c116a137,False,0,other
+GCF_7D3FD420,"[4, -4, 1, 0]","[5, 0]",backward,0,zeta4,26/5,-5·CF·zeta4 + 26·zeta4 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,7d3fd4204ec0,False,0,zeta4_standard
+GCF_2F926C6F,"[8, -2, 0, 0]","[-3, -1]",backward,0,zeta3,-81/19,19·CF·zeta3 + 81·zeta3 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,2f926c6fd798,False,0,other
+GCF_29A225AF,"[-4, -3, 1]","[5, 0]",backward,0,zeta3,83/25,-25·CF·zeta3 + 83·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,29a225af07a3,False,0,other
+GCF_8FBC7FE0,"[3, -4, -2, 1]","[4, -6]",backward,0,zeta3,60/11,11·CF·zeta3 + -60·zeta3 = 0,300,120,2.5,3,1,adeg=3|bdeg=1|mode=backward|order=0,8fbc7fe0b63e,False,0,other
+GCF_CC9570E3,"[-3, -5, 2]","[-6, -2, 1]",backward,0,zeta5,-5.027027027027027027027027027027027027027027027027,37·CF² + 37·CF·zeta5 + 186·CF + 186·zeta5 = 0,300,120,2.5,2,2,adeg=2|bdeg=2|mode=backward|order=0,cc9570e37482,False,0,zeta5_standard
+GCF_D20B2614,"[4, -5, -3, 1]","[-2, 4]",backward,0,zeta5,71.5,-2·CF·zeta5 + 143·zeta5 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,d20b261413a5,False,0,zeta5_standard
+GCF_B7A1F95D,"[3, -1]","[-3, -1]",backward,0,zeta4,-73/21,21·CF·zeta4 + 73·zeta4 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,b7a1f95dfdc7,False,0,zeta4_standard
+GCF_3597E171,"[-4, -2, 0, 1]","[-3, -4]",backward,0,zeta2,-16/7,-7·CF·zeta2 + 7·CF + -16·zeta2 + 16 = 0,300,120,2.5,3,1,adeg=3|bdeg=1|mode=backward|order=0,3597e171b7d4,False,0,zeta2_standard
+GCF_E96A8152,"[-6, 2, 0, 0]","[0, 6]",backward,0,zeta2,-24/35,35·CF·zeta2 + 24·zeta2 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,e96a8152b4b4,False,0,zeta2_standard
+GCF_5BA39B1F,"[0, -3, 1]","[3, 1]",backward,0,zeta5,2.4444444444444444444444444444444444444444444444444,-9·CF² + 9·CF·zeta5 + 22·CF + -22·zeta5 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,5ba39b1f6592,False,0,zeta5_standard
+GCF_9312F0BA,"[6, -3]","[0, -2, 6, 4]",backward,0,catalan,3/8,8·CF² + 8·CF·catalan + 5·CF + -3·catalan + -3 = 0,300,300,1.0,1,3,adeg=1|bdeg=3|mode=backward|order=0,9312f0babe67,False,0,catalan_discovery
+GCF_919E1119,"[6, -3, 0]","[5, 0]",backward,0,zeta4,28/5,5·CF² + -5·CF·zeta4 + -28·CF + 28·zeta4 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,919e111915b0,False,0,zeta4_standard
+GCF_4AC4288B,"[6, -3, 0]","[-5, 0]",backward,0,zeta4,-28/5,-5·CF² + -5·CF·zeta4 + -28·CF + -28·zeta4 = 0,300,500,0.6,2,1,adeg=2|bdeg=1|mode=backward|order=0,4ac4288b4aa8,False,0,zeta4_standard
+GCF_756E14B4,"[4, -5, -3, 1]","[2, 4, -1]",backward,0,zeta3,11/15,15·CF² + 15·CF·zeta3 + -11·CF + -11·zeta3 = 0,300,300,1.0,3,2,adeg=3|bdeg=2|mode=backward|order=0,756e14b4b1ee,False,0,other
+GCF_F2C491E3,"[-4, 1, 0, 0, 0]","[3, 1]",backward,0,zeta4,225/104,104·CF·zeta4 + -225·zeta4 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,f2c491e334af,False,0,zeta4_standard
+GCF_5F1CB84E,"[-3, 1, 0]","[0, -2, 6, 4]",backward,0,zeta3,-104/415,-415·CF·zeta3 + -104·zeta3 = 0,300,300,1.0,2,3,adeg=2|bdeg=3|mode=backward|order=0,5f1cb84e9c27,False,0,zeta3_cubic_cusp
+GCF_A7362035,"[6, -3, 0]","[3, 1]",backward,0,zeta3,15/4,-4·CF·zeta3 + 15·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,a7362035f425,False,0,other
+GCF_CE0B11B8,"[-2, -5, -1, 2]","[4, 1, 5, -3]",backward,0,zeta5,3.1428571428571428571428571428571428571428571428571,-7·CF·zeta5 + 22·zeta5 = 0,300,300,1.0,3,3,adeg=3|bdeg=3|mode=backward|order=0,ce0b11b8c55a,False,0,zeta5_standard
+GCF_FCD0487E,"[3, -1]","[-5, -5]",backward,0,zeta5,-5.1986754966887417218543046357615894039735099337748,-151·CF² + 151·CF·zeta5 + -785·CF + 785·zeta5 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,fcd0487e04fa,False,0,zeta5_standard
+GCF_CB356814,"[-6, -4, -4, 2]","[1, -4]",backward,0,zeta3,13,1·CF·zeta3 + -1·CF + -13·zeta3 + 13 = 0,300,120,2.5,3,1,adeg=3|bdeg=1|mode=backward|order=0,cb356814e4c1,False,0,other
+GCF_1558D904,"[6, 4, -2]","[-8, 6]",backward,0,zeta3,-24,1·CF·zeta3 + 24·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,1558d904642a,False,0,other
+GCF_0E72ADB6,"[-2, 1, 0]","[-8, 6]",backward,0,zeta5,-7.5,2·CF·zeta5 + 15·zeta5 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,0e72adb64420,False,0,zeta5_standard
+GCF_9D243391,"[-4, -3, 1]","[-3, -1]",backward,0,zeta2,-12/17,17·CF·zeta2 + 12·zeta2 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,9d2433911750,False,0,zeta2_standard
+GCF_D97CBFB2,"[-8, 2, 1, 0]","[-40, 129, -136, 48]",backward,0,zeta3,-45,1·CF² + -2·CF·zeta3 + 46·CF + -90·zeta3 + 45 = 0,300,300,1.0,3,3,adeg=3|bdeg=3|mode=backward|order=0,d97cbfb2d022,False,0,zeta3_cubic_cusp
+GCF_56B26AAD,"[4, -2, -2, 1]","[1, 5, -2, 3]",backward,0,zeta2,8/7,14·CF² + -14·CF·zeta2 + -9·CF + 16·zeta2 + -8 = 0,300,120,2.5,3,3,adeg=3|bdeg=3|mode=backward|order=0,56b26aad741e,False,0,zeta2_standard
+GCF_70F23F50,"[4, -1, 0]","[-5, 0]",backward,0,zeta3,-389/70,-70·CF² + 70·CF·zeta3 + -389·CF + 389·zeta3 = 0,300,500,0.6,2,1,adeg=2|bdeg=1|mode=backward|order=0,70f23f5036b2,False,0,other
+GCF_9AFDD4F7,"[0, -6, -1, 1]","[5, -2, 2, -6]",backward,0,zeta2,389/31,-31·CF·zeta2 + 389·zeta2 = 0,300,120,2.5,3,3,adeg=3|bdeg=3|mode=backward|order=0,9afdd4f72906,False,0,zeta2_standard
+GCF_559ADB89,"[-4, -3, 1]","[3, 1]",backward,0,zeta2,12/17,-17·CF·zeta2 + 12·zeta2 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,559adb89d8bc,False,0,zeta2_standard
+GCF_D88857AD,"[-4, 2, 0, 0, 0]","[8, 6]",backward,0,pi2,55/7,-7·CF·pi2 + 55·pi2 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,d88857adedcd,False,0,pi_family
+GCF_43517D81,"[-4, 4, -1, 0, 0]","[8, 12]",backward,0,zeta3,159/20,20·CF·zeta3 + 20·CF + -159·zeta3 + -159 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,43517d81d4a4,False,0,other
+GCF_6D29EA73,"[8, -4, 0]","[-8, 6]",backward,0,zeta5,-10.0,1·CF·zeta5 + -1·CF + 10·zeta5 + -10 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,6d29ea73974a,False,0,zeta5_standard
+GCF_010257D6,"[3, -1, 0, 0]","[-4, -3, 4]",backward,0,zeta2,-80/17,17·CF² + 17·CF·zeta2 + 63·CF + 80·zeta2 + -80 = 0,300,300,1.0,3,2,adeg=3|bdeg=2|mode=backward|order=0,010257d6ebfd,False,0,zeta2_standard
+GCF_F656573E,"[8, -2, 0]","[0, 6]",backward,0,zeta3,109/115,115·CF·zeta3 + -109·zeta3 = 0,300,300,1.0,2,1,adeg=2|bdeg=1|mode=backward|order=0,f656573e6799,False,0,other
+GCF_5763F234,"[4, -5, -3, 1]","[-2, -1]",backward,0,zeta4,-73/23,-23·CF·zeta4 + -73·zeta4 = 0,300,300,1.0,3,1,adeg=3|bdeg=1|mode=backward|order=0,5763f234fe92,False,0,zeta4_standard
+GCF_542BCEF5,"[-4, -6, -2, 3]","[3, 4, 5]",backward,0,zeta4,9/4,-4·CF·zeta4 + 9·zeta4 = 0,300,120,2.5,3,2,adeg=3|bdeg=2|mode=backward|order=0,542bcef55397,False,0,zeta4_standard
+GCF_00EAE552,"[-3, 1, 0, 0]","[-5, 0]",backward,0,zeta4,-55/12,-12·CF·zeta4 + -55·zeta4 = 0,300,500,0.6,3,1,adeg=3|bdeg=1|mode=backward|order=0,00eae5529295,False,0,zeta4_standard
+GCF_EF0B1446,"[-4, 1, -4, 1]","[5, 3, 2, -1]",backward,0,zeta3,301/71,71·CF·zeta3 + -301·zeta3 = 0,300,120,2.5,3,3,adeg=3|bdeg=3|mode=backward|order=0,ef0b1446525e,True,1000,zeta3_cubic_cusp
+GCF_30A8DFB8,"[-5, 1, 0, 0, 0]","[2, 4, -1]",backward,0,zeta3,246/223,223·CF·zeta3 + -246·zeta3 = 0,300,300,1.0,4,2,adeg=4|bdeg=2|mode=backward|order=0,30a8dfb892fa,False,0,other
+GCF_D1B84976,"[4, -4, 1, 2, -1]","[4, -1]",backward,0,zeta3,14/3,3·CF·zeta3 + 3·CF + -14·zeta3 + -14 = 0,300,300,1.0,4,1,adeg=4|bdeg=1|mode=backward|order=0,d1b84976fc8b,False,0,other
+GCF_866FB295,"[4, -1]","[-8, 6]",backward,0,zeta5,-9.9838709677419354838709677419354838709677419354839,62·CF·zeta5 + 619·zeta5 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,866fb295258e,False,0,zeta5_standard
+GCF_035C243D,"[0, -2, -3, 2]","[-5, -6]",backward,0,zeta4,-52/11,-11·CF·zeta4 + -11·CF + -52·zeta4 + -52 = 0,300,120,2.5,3,1,adeg=3|bdeg=1|mode=backward|order=0,035c243d6851,False,0,zeta4_standard
+GCF_25672EA2,"[4, -1]","[3, 1]",backward,0,zeta5,3.6838235294117647058823529411764705882352941176471,-136·CF·zeta5 + 501·zeta5 = 0,300,300,1.0,1,1,adeg=1|bdeg=1|mode=backward|order=0,25672ea2bfaa,False,0,zeta5_standard
+GCF_08B90A72,"[0, -5, 1]","[-2, -2, 1]",backward,0,zeta3,-14/27,27·CF·zeta3 + 14·zeta3 = 0,300,300,1.0,2,2,adeg=2|bdeg=2|mode=backward|order=0,08b90a724ba7,False,0,other

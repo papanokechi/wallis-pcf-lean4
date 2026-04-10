@@ -1,0 +1,248 @@
+[
+  {
+    "fingerprint": "9350f1896b80",
+    "alpha": [
+      0,
+      -2,
+      -3,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      3,
+      2,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "closed_form": "4.6666666666666666666666666666666666666666666666667",
+    "self_agreement_digits": 1000,
+    "cf_value_30": "4.66666666666666666666666666667",
+    "verified_digits": 1000,
+    "status": "VERIFIED",
+    "elapsed_s": 0.34
+  },
+  {
+    "fingerprint": "8f4772ce16af",
+    "alpha": [
+      6,
+      -6
+    ],
+    "beta": [
+      2,
+      -4,
+      2,
+      -3
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "closed_form": "2.0",
+    "self_agreement_digits": 1000,
+    "cf_value_30": "2.0",
+    "verified_digits": 1000,
+    "status": "VERIFIED",
+    "elapsed_s": 0.23
+  },
+  {
+    "fingerprint": "efb3a66ec352",
+    "alpha": [
+      2,
+      5,
+      1,
+      -2
+    ],
+    "beta": [
+      -1,
+      -5,
+      1,
+      -6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "closed_form": "-1.5454545454545454545454545454545454545454545454545",
+    "self_agreement_digits": 1000,
+    "cf_value_30": "-1.54545454545454545454545454545",
+    "verified_digits": 1000,
+    "status": "VERIFIED",
+    "elapsed_s": 0.22
+  },
+  {
+    "fingerprint": "2ef896dcce6b",
+    "alpha": [
+      -4,
+      -4,
+      3
+    ],
+    "beta": [
+      6,
+      3,
+      -6,
+      0
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "closed_form": "4.3333333333333333333333333333333333333333333333333",
+    "self_agreement_digits": 1000,
+    "cf_value_30": "4.33333333333333333333333333333",
+    "verified_digits": 1000,
+    "status": "VERIFIED",
+    "elapsed_s": 0.52
+  },
+  {
+    "fingerprint": "553622eb7575",
+    "alpha": [
+      -4,
+      -2,
+      2
+    ],
+    "beta": [
+      4,
+      2,
+      -6,
+      -3
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "closed_form": "5.3333333333333333333333333333333333333333333333333",
+    "self_agreement_digits": 1000,
+    "cf_value_30": "5.33333333333333333333333333333",
+    "verified_digits": 1000,
+    "status": "VERIFIED",
+    "elapsed_s": 0.55
+  },
+  {
+    "fingerprint": "aae20dc7bde1",
+    "alpha": [
+      -2,
+      1
+    ],
+    "beta": [
+      2,
+      -5,
+      -2
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "closed_form": "2.2",
+    "self_agreement_digits": 1000,
+    "cf_value_30": "2.2",
+    "verified_digits": 1000,
+    "status": "VERIFIED",
+    "elapsed_s": 0.25
+  },
+  {
+    "fingerprint": "6e2b25ef922b",
+    "alpha": [
+      6,
+      -2,
+      3,
+      -1
+    ],
+    "beta": [
+      -2,
+      5,
+      3
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "closed_form": "-1.047619047619047619047619047619047619047619047619",
+    "self_agreement_digits": 1000,
+    "cf_value_30": "-1.04761904761904761904761904762",
+    "verified_digits": 1000,
+    "status": "VERIFIED",
+    "elapsed_s": 0.25
+  },
+  {
+    "fingerprint": "9ae3cf02e081",
+    "alpha": [
+      -6,
+      -1,
+      0
+    ],
+    "beta": [
+      -1,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "closed_form": "4.8972972972972972972972972972972972972972972972973",
+    "self_agreement_digits": 1000,
+    "cf_value_30": "4.8972972972972972972972972973",
+    "verified_digits": 1000,
+    "status": "VERIFIED",
+    "measured_rate": 2.46,
+    "convergence_profile": [
+      [
+        100,
+        147
+      ],
+      [
+        200,
+        362
+      ],
+      [
+        400,
+        854
+      ]
+    ],
+    "elapsed_s": 0.23
+  },
+  {
+    "fingerprint": "ded8090196b3",
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1,
+      3
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "closed_form": "3.0",
+    "self_agreement_digits": 1000,
+    "cf_value_30": "3.0",
+    "verified_digits": 1000,
+    "status": "VERIFIED",
+    "elapsed_s": 0.23
+  },
+  {
+    "fingerprint": "c41c592f05b6",
+    "alpha": [
+      -2,
+      -3,
+      -2,
+      2,
+      0
+    ],
+    "beta": [
+      5,
+      3,
+      2,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta3",
+    "closed_form": "40/9",
+    "self_agreement_digits": 1000,
+    "cf_value_30": "4.44444444444444444444444444444",
+    "verified_digits": 1000,
+    "status": "VERIFIED",
+    "elapsed_s": 0.28
+  }
+]

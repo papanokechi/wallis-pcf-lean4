@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARIA — Discovery Report</title>
+<style>
+  :root {
+    --bg: #0a0a1a; --surface: #12122a; --surface2: #1a1a3a;
+    --border: #2a2a5a; --text: #e0e0f0; --text-dim: #8888aa;
+    --accent: #6c5ce7; --accent2: #00cec9; --gold: #fdcb6e;
+    --green: #00b894; --red: #ff6b6b; --blue: #74b9ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+  /* Header */
+  .hero {
+    text-align: center; padding: 3rem 1rem; margin-bottom: 2rem;
+    background: linear-gradient(135deg, #1a1a3a 0%, #0d0d2b 100%);
+    border: 1px solid var(--border); border-radius: 12px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(108,92,231,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(0,206,201,0.06) 0%, transparent 60%);
+    animation: shimmer 15s ease-in-out infinite alternate;
+  }
+  @keyframes shimmer { 0% { transform: rotate(0deg); } 100% { transform: rotate(3deg); } }
+  .hero h1 { font-size: 2.8rem; letter-spacing: 0.3em; color: var(--accent); position: relative; }
+  .hero .subtitle { color: var(--accent2); font-size: 1.1rem; margin-top: 0.5rem; position: relative; }
+  .hero .timestamp { color: var(--text-dim); font-size: 0.85rem; margin-top: 1rem; position: relative; }
+
+  /* Summary grid */
+  .summary-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem; margin-bottom: 2rem;
+  }
+  .stat-box {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 1.2rem; text-align: center;
+  }
+  .stat-box .value { font-size: 2rem; font-weight: 700; color: var(--accent); }
+  .stat-box .label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* Sections */
+  .section { margin-bottom: 2rem; }
+  .section h2 {
+    font-size: 1.4rem; color: var(--accent2); margin-bottom: 1rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+  }
+  .section h3 {
+    font-size: 1.15rem; color: var(--gold); margin-bottom: 0.75rem;
+  }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: var(--surface2); color: var(--accent2); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  tr:hover { background: rgba(108,92,231,0.05); }
+  .stats-table td:first-child { color: var(--text-dim); font-weight: 500; width: 50%; }
+
+  /* Cards */
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 1rem 1.2rem; margin-bottom: 0.8rem;
+  }
+  .card-header { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .badge {
+    display: inline-block; padding: 0.15rem 0.6rem; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .badge-verified { background: rgba(0,184,148,0.15); color: var(--green); border: 1px solid rgba(0,184,148,0.3); }
+  .badge-other { background: rgba(253,203,110,0.15); color: var(--gold); border: 1px solid rgba(253,203,110,0.3); }
+  .confidence { color: var(--blue); font-size: 0.85rem; }
+  .meta { color: var(--text-dim); font-size: 0.8rem; margin-left: auto; }
+  .statement { font-size: 0.9rem; line-height: 1.5; color: var(--text); }
+  .finding-verified { border-left: 3px solid var(--green); }
+  .finding-other { border-left: 3px solid var(--gold); }
+  .experiment { border-left: 3px solid var(--accent); }
+  .experiment h4 { color: var(--accent); margin-bottom: 0.5rem; }
+  .experiment pre {
+    background: var(--bg); padding: 1rem; border-radius: 6px; overflow-x: auto;
+    font-size: 0.82rem; line-height: 1.5; color: var(--text-dim);
+    white-space: pre-wrap; word-break: break-word;
+  }
+
+  /* Architecture diagram */
+  .arch-flow {
+    display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+    gap: 0.5rem; padding: 1.5rem; background: var(--surface); border-radius: 8px;
+    border: 1px solid var(--border); margin-bottom: 2rem;
+  }
+  .arch-node {
+    padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600;
+    background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+  }
+  .arch-node.active { border-color: var(--accent); color: var(--accent); }
+  .arch-arrow { color: var(--text-dim); font-size: 1.2rem; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 2rem 0; color: var(--text-dim); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>A R I A</h1>
+    <p class="subtitle">Autonomous Reasoning &amp; Intuition Architecture &mdash; Discovery Report</p>
+    <p class="timestamp">Generated 2026-03-24 10:17:12 &middot; 3 iterations</p>
+  </div>
+
+  <!-- Architecture flow -->
+  <div class="arch-flow">
+    <span class="arch-node active">Layer 0: Ingest</span><span class="arch-arrow">&rarr;</span>
+    <span class="arch-node active">Layer 1: Encode</span><span class="arch-arrow">&rarr;</span>
+    <span class="arch-node active">Layer 2: Conjecture</span><span class="arch-arrow">&rarr;</span>
+    <span class="arch-node active">Layer 3: Verify</span><span class="arch-arrow">&rarr;</span>
+    <span class="arch-node">Layer 4: Axiom Bank / Lost Notebook</span><span class="arch-arrow">&rarr;</span>
+    <span class="arch-node">Layer 5: Synthesize</span><span class="arch-arrow">&rarr;</span>
+    <span class="arch-node">Layer 6: Iterate</span>
+  </div>
+
+  <!-- Summary stats -->
+  <div class="summary-grid">
+    <div class="stat-box"><div class="value">66</div><div class="label">Conjectures</div></div>
+    <div class="stat-box"><div class="value">42</div><div class="label">Verified</div></div>
+    <div class="stat-box"><div class="value">42</div><div class="label">Axioms</div></div>
+    <div class="stat-box"><div class="value">42</div><div class="label">Syntheses</div></div>
+    <div class="stat-box"><div class="value">0</div><div class="label">Experiments</div></div>
+    <div class="stat-box"><div class="value">64%</div><div class="label">Verification Rate</div></div>
+  </div>
+
+  <!-- Iteration table -->
+  <div class="section">
+    <h2>Iteration History</h2>
+    <table>
+      <thead><tr>
+        <th>Gen</th><th>Generated</th><th>Verified</th><th>Falsified</th>
+        <th>New Axioms</th><th>Lost NB</th><th>Syntheses</th><th>Seeds</th><th>Rate</th>
+      </tr></thead>
+      <tbody><tr><td>1</td><td>22</td><td>14</td><td>8</td><td>14</td><td>0</td><td>14</td><td>3</td><td>64%</td></tr>
+<tr><td>2</td><td>22</td><td>14</td><td>8</td><td>14</td><td>0</td><td>14</td><td>3</td><td>64%</td></tr>
+<tr><td>3</td><td>22</td><td>14</td><td>8</td><td>14</td><td>0</td><td>14</td><td>3</td><td>64%</td></tr>
+</tbody>
+    </table>
+  </div>
+
+  <!-- Top findings -->
+  <div class="section">
+    <h2>Top Findings</h2>
+    
+            <div class="card finding-verified">
+              <div class="card-header">
+                <span class="badge badge-verified">verified_full</span>
+                <span class="confidence">Confidence: 1.00</span>
+                <span class="meta">Gen 1 &middot; analogy &middot; CF depth 2</span>
+              </div>
+              <p class="statement">Analogy chain: mock_theta → black_hole_entropy → mock_theta. Via: Ramanujan mock theta functions ↔ black hole microstate counting; Ramanujan mock theta functions ↔ black hole microstate counting. Conj</p>
+            </div>
+            <div class="card finding-verified">
+              <div class="card-header">
+                <span class="badge badge-verified">verified_full</span>
+                <span class="confidence">Confidence: 1.00</span>
+                <span class="meta">Gen 1 &middot; analogy &middot; CF depth 2</span>
+              </div>
+              <p class="statement">Analogy chain: black_hole_entropy → mock_theta → black_hole_entropy. Via: Ramanujan mock theta functions ↔ black hole microstate counting; Ramanujan mock theta functions ↔ black hole microstate counti</p>
+            </div>
+            <div class="card finding-verified">
+              <div class="card-header">
+                <span class="badge badge-verified">verified_full</span>
+                <span class="confidence">Confidence: 1.00</span>
+                <span class="meta">Gen 1 &middot; analogy &middot; CF depth 2</span>
+              </div>
+              <p class="statement">Analogy chain: catalan_numbers → binary_trees → catalan_numbers. Via: Catalan numbers ↔ full binary tree count; Catalan numbers ↔ full binary tree count. Conjecture: There exists a direct structural c</p>
+            </div>
+            <div class="card finding-verified">
+              <div class="card-header">
+                <span class="badge badge-verified">verified_full</span>
+                <span class="confidence">Confidence: 1.00</span>
+                <span class="meta">Gen 1 &middot; analogy &middot; CF depth 2</span>
+              </div>
+              <p class="statement">Analogy chain: binary_trees → catalan_numbers → binary_trees. Via: Catalan numbers ↔ full binary tree count; Catalan numbers ↔ full binary tree count. Conjecture: There exists a direct structural conn</p>
+            </div>
+            <div class="card finding-verified">
+              <div class="card-header">
+                <span class="badge badge-verified">verified_full</span>
+                <span class="confidence">Confidence: 1.00</span>
+                <span class="meta">Gen 1 &middot; analogy &middot; CF depth 2</span>
+              </div>
+              <p class="statement">Analogy chain: bell_numbers → set_partitions → bell_numbers. Via: Bell numbers ↔ set partition count; Bell numbers ↔ set partition count. Conjecture: There exists a direct structural connection betwee</p>
+            </div>
+            <div class="card finding-verified">
+              <div class="card-header">
+                <span class="badge badge-verified">verified_full</span>
+                <span class="confidence">Confidence: 1.00</span>
+                <span class="meta">Gen 2 &middot; analogy &middot; CF depth 2</span>
+              </div>
+              <p class="statement">Analogy chain: mock_theta → black_hole_entropy → mock_theta. Via: Ramanujan mock theta functions ↔ black hole microstate counting; Ramanujan mock theta functions ↔ black hole microstate counting. Conj</p>
+            </div>
+            <div class="card finding-verified">
+              <div class="card-header">
+                <span class="badge badge-verified">verified_full</span>
+                <span class="confidence">Confidence: 1.00</span>
+                <span class="meta">Gen 2 &middot; analogy &middot; CF depth 2</span>
+              </div>
+              <p class="statement">Analogy chain: black_hole_entropy → mock_theta → black_hole_entropy. Via: Ramanujan mock theta functions ↔ black hole microstate counting; Ramanujan mock theta functions ↔ black hole microstate counti</p>
+            </div>
+            <div class="card finding-verified">
+              <div class="card-header">
+                <span class="badge badge-verified">verified_full</span>
+                <span class="confidence">Confidence: 1.00</span>
+                <span class="meta">Gen 2 &middot; analogy &middot; CF depth 2</span>
+              </div>
+              <p class="statement">Analogy chain: catalan_numbers → binary_trees → catalan_numbers. Via: Catalan numbers ↔ full binary tree count; Catalan numbers ↔ full binary tree count. Conjecture: There exists a direct structural c</p>
+            </div>
+            <div class="card finding-verified">
+              <div class="card-header">
+                <span class="badge badge-verified">verified_full</span>
+                <span class="confidence">Confidence: 1.00</span>
+                <span class="meta">Gen 2 &middot; analogy &middot; CF depth 2</span>
+              </div>
+              <p class="statement">Analogy chain: binary_trees → catalan_numbers → binary_trees. Via: Catalan numbers ↔ full binary tree count; Catalan numbers ↔ full binary tree count. Conjecture: There exists a direct structural conn</p>
+            </div>
+            <div class="card finding-verified">
+              <div class="card-header">
+                <span class="badge badge-verified">verified_full</span>
+                <span class="confidence">Confidence: 1.00</span>
+                <span class="meta">Gen 2 &middot; analogy &middot; CF depth 2</span>
+              </div>
+              <p class="statement">Analogy chain: bell_numbers → set_partitions → bell_numbers. Via: Bell numbers ↔ set partition count; Bell numbers ↔ set partition count. Conjecture: There exists a direct structural connection betwee</p>
+            </div>
+  </div>
+
+  <!-- Experiment specs -->
+  <div class="section">
+    <h2>Experiment Specifications</h2>
+    <p style="color:var(--text-dim)">No experiment specs generated.</p>
+  </div>
+
+  <!-- Extra data sections -->
+  
+                <div class="section">
+                  <h3>Axiom Bank</h3>
+                  <table class="stats-table"><tbody><tr><td>total</td><td>14</td></tr>
+<tr><td>by_domain</td><td>{&#x27;analogy&#x27;: 14}</td></tr>
+<tr><td>by_proof_status</td><td>{&#x27;domain_verified&#x27;: 14}</td></tr>
+<tr><td>avg_generativity</td><td>0.0</td></tr>
+<tr><td>max_generativity</td><td>0.0</td></tr>
+</tbody></table>
+                </div>
+                <div class="section">
+                  <h3>Lost Notebook</h3>
+                  <table class="stats-table"><tbody><tr><td>total</td><td>0</td></tr>
+</tbody></table>
+                </div>
+                <div class="section">
+                  <h3>Verifier Stats</h3>
+                  <table class="stats-table"><tbody><tr><td>total</td><td>66</td></tr>
+<tr><td>killed_r1</td><td>0</td></tr>
+<tr><td>killed_r2</td><td>0</td></tr>
+<tr><td>killed_r3</td><td>0</td></tr>
+<tr><td>killed_r4</td><td>24</td></tr>
+<tr><td>survived</td><td>42</td></tr>
+<tr><td>lost_notebook</td><td>0</td></tr>
+</tbody></table>
+                </div>
+                <div class="section">
+                  <h3>Encoder Stats</h3>
+                  <table class="stats-table"><tbody><tr><td>total_encoded</td><td>131</td></tr>
+<tr><td>with_partition_sig</td><td>77</td></tr>
+<tr><td>with_modular_emb</td><td>100</td></tr>
+<tr><td>with_cf_depth</td><td>131</td></tr>
+<tr><td>cf_sweet_spot</td><td>4</td></tr>
+<tr><td>orphans</td><td>0</td></tr>
+</tbody></table>
+                </div>
+                <div class="section">
+                  <h3>Synthesizer Stats</h3>
+                  <table class="stats-table"><tbody><tr><td>total</td><td>42</td></tr>
+<tr><td>essential_isomorphisms</td><td>42</td></tr>
+<tr><td>actionable</td><td>0</td></tr>
+<tr><td>with_experiment_spec</td><td>0</td></tr>
+</tbody></table>
+                </div>
+
+  <div class="footer">
+    ARIA v0.1.0 &middot; Autonomous Reasoning &amp; Intuition Architecture &middot; Self-iterating Ramanujan discovery engine
+  </div>
+</div>
+</body>
+</html>

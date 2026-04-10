@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Super Mario Bros - Stage 1-1</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=960, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- 3rd party libraries -->
+    <script src="https://martindrapeau.github.io/backbone-game-engine/3rd/qtree.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/3rd/underscore.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/3rd/backbone.native.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/3rd/backbone.js"></script>
+
+    <!-- Engine source -->
+    <script src="https://martindrapeau.github.io/backbone-game-engine/src/adjust-viewport.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/src/shapes.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/src/core.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/src/character.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/src/input.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/src/hero.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/src/world.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/src/local-storage.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/src/camera.js"></script>
+
+    <!-- Game-specific sprites and classes -->
+    <script src="https://martindrapeau.github.io/backbone-game-engine/super-mario-bros/mario.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/super-mario-bros/tiles.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/super-mario-bros/artifacts.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/super-mario-bros/enemies.js"></script>
+    <script src="https://martindrapeau.github.io/backbone-game-engine/super-mario-bros/display.js"></script>
+
+    <!-- Level 1-1 data -->
+    <script src="https://martindrapeau.github.io/backbone-game-engine/super-mario-bros/level_1-1.js"></script>
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background-color: #000;
+        overflow: hidden;
+        touch-action: none;
+      }
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      #loading {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        z-index: 10;
+      }
+      #controls-info {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255,255,255,0.6);
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        z-index: 5;
+        text-align: center;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Sprite sheet images (hidden, used by engine) -->
+    <img id="mario" src="https://martindrapeau.github.io/backbone-game-engine/super-mario-bros/super-mario-2x.png" style="display:none;" crossorigin="anonymous" />
+    <img id="tiles" src="https://martindrapeau.github.io/backbone-game-engine/super-mario-bros/super-mario-tiles-2x.png" style="display:none;" crossorigin="anonymous" />
+    <img id="enemies" src="https://martindrapeau.github.io/backbone-game-engine/super-mario-bros/super-mario-enemies-2x.png" style="display:none;" crossorigin="anonymous" />
+    <img id="icons" src="https://martindrapeau.github.io/backbone-game-engine/super-mario-bros/icons.png" style="display:none;" crossorigin="anonymous" />
+
+    <!-- Game canvas -->
+    <canvas id="foreground" width="960" height="700">
+      Your browser does not support the canvas element.
+    </canvas>
+
+    <!-- Loading indicator -->
+    <div id="loading">Loading Super Mario Bros...</div>
+
+    <!-- Controls hint -->
+    <div id="controls-info">
+      Arrow Keys: Move &amp; Jump | P: Pause | Touch: On-screen pad on mobile
+    </div>
+
+    <script>
+    $(window).on("load", function() {
+      // Hide loading indicator
+      var loadingEl = document.getElementById("loading");
+      if (loadingEl) loadingEl.style.display = "none";
+
+      // Fade out controls info after 5 seconds
+      setTimeout(function() {
+        var info = document.getElementById("controls-info");
+        if (info) info.style.opacity = "0";
+        setTimeout(function() { if (info) info.style.display = "none"; }, 1000);
+      }, 5000);
+
+      var canvas = document.getElementById("foreground"),
+          context = canvas.getContext("2d");
+
+      // Adjust viewport for device
+      adjustViewport(canvas);
+
+      // Create sprite sheets and attach to sprite classes
+      var spriteSheets = new Backbone.SpriteSheetCollection([{
+        id: "mario",
+        img: "#mario",
+        tileWidth: 32,
+        tileHeight: 64,
+        tileColumns: 21,
+        tileRows: 6
+      }, {
+        id: "tiles",
+        img: "#tiles",
+        tileWidth: 32,
+        tileHeight: 32,
+        tileColumns: 29,
+        tileRows: 28
+      }, {
+        id: "enemies",
+        img: "#enemies",
+        tileWidth: 32,
+        tileHeight: 64,
+        tileColumns: 51,
+        tileRows: 3
+      }]).attachToSpriteClasses();
+
+      // Debug panel (shows FPS)
+      var debugPanel = new Backbone.DebugPanel();
+
+      // User input - keyboard + touchpad for mobile
+      var input = new Backbone.Input({
+        drawTouchpad: true
+      });
+
+      // Camera follows the hero
+      var camera = new Backbone.Camera();
+
+      // Create the world from level 1-1 data
+      // viewportBottom reserves space for touch controls
+      var world = new Backbone.World(
+        _.extend({viewportBottom: 156}, window._world),
+        {
+          input: input,
+          camera: camera
+        }
+      );
+
+      // Spawn all sprites defined in the level data
+      world.spawnSprites();
+
+      // HUD display (coin counter, level name)
+      var display = new Backbone.Display({}, {
+        world: world
+      });
+
+      // Message overlay
+      var message = new Backbone.Message({
+        x: 480, y: 20
+      });
+
+      // The game engine - drives the update/draw loop at 60fps
+      var engine = new Backbone.Engine({}, {
+        canvas: canvas,
+        debugPanel: debugPanel
+      });
+
+      // Add all game objects to the engine
+      engine.add([
+        world,
+        display,
+        camera,
+        input,
+        message,
+        debugPanel
+      ]);
+
+      // Start in play mode
+      world.set("state", "play");
+
+      // Keyboard shortcuts
+      $(document).on("keypress", function(e) {
+        // B = break/resume animation loop
+        if (e.keyCode === 66 || e.keyCode === 98)
+          engine.toggle();
+        // P = pause/play game
+        else if (e.keyCode === 80 || e.keyCode === 112) {
+          var state = world.get("state");
+          world.set("state", state === "pause" ? "play" : "pause");
+          if (!engine.isRunning()) engine.start();
+        }
+      });
+
+      // Show welcome message briefly
+      message.show("World 1-1");
+
+      // Expose globals for debugging
+      _.extend(window, {
+        canvas: canvas,
+        context: context,
+        engine: engine,
+        world: world
+      });
+    });
+    </script>
+  </body>
+</html>

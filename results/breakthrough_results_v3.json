@@ -1,0 +1,1176 @@
+{
+  "version": "v3_frontier",
+  "timestamp": "2026-03-21 19:54:01",
+  "elapsed_seconds": 17.47310781478882,
+  "n_rounds": 3,
+  "dataset_sizes": {
+    "exoplanet": 240,
+    "materials": 160,
+    "critical_transitions": 240
+  },
+  "best_per_domain": {
+    "exoplanet": {
+      "expression": "-0.6613*delta_Hill_01^1 + 0.5859*delta_Hill_01^1.5 + -0.09117*delta_Hill_01^2",
+      "r_squared": 0.7188811534963878
+    },
+    "materials": {
+      "expression": "2.107 * r_X^-0.667",
+      "r_squared": 0.5324154943614652
+    },
+    "critical_transitions": {
+      "expression": "0.1497 * control_param^3",
+      "r_squared": 0.9989803471781664
+    }
+  },
+  "round_metrics": [
+    {
+      "exoplanet": 0.7185515461301797,
+      "materials": 0.5324154943614652,
+      "critical_transitions": 0.9989803471781664
+    },
+    {
+      "exoplanet": 0.7188811534963878,
+      "materials": 0.5324154943614652,
+      "critical_transitions": 0.9989803471781664
+    },
+    {
+      "exoplanet": 0.7185993894368161,
+      "materials": 0.5324154943614652,
+      "critical_transitions": 0.9989803471781664
+    }
+  ],
+  "rg_analysis": {
+    "exoplanet": {
+      "is_fixed_point": false,
+      "exponent_drift": 0.39999999999999997,
+      "fixed_point_exponent": 2.8,
+      "laws_per_scale": [
+        {
+          "scale": 1.0,
+          "n_points": 240,
+          "expression": "0.03668 * delta_Hill_01^2",
+          "r_squared": 0.6690246085922189,
+          "exponent": 2.0
+        },
+        {
+          "scale": 0.7,
+          "n_points": 168,
+          "expression": "0.007575 * delta_Hill_01^3",
+          "r_squared": 0.7038264980461066,
+          "exponent": 3.0
+        },
+        {
+          "scale": 0.5,
+          "n_points": 120,
+          "expression": "0.007214 * delta_Hill_01^3",
+          "r_squared": 0.7334169142864385,
+          "exponent": 3.0
+        },
+        {
+          "scale": 0.3,
+          "n_points": 72,
+          "expression": "0.007999 * delta_Hill_01^3",
+          "r_squared": 0.8578356007717423,
+          "exponent": 3.0
+        },
+        {
+          "scale": 0.2,
+          "n_points": 48,
+          "expression": "0.007465 * delta_Hill_01^3",
+          "r_squared": 0.8349508200338286,
+          "exponent": 3.0
+        }
+      ]
+    },
+    "materials": {
+      "is_fixed_point": true,
+      "exponent_drift": 0.0,
+      "fixed_point_exponent": -0.667,
+      "laws_per_scale": [
+        {
+          "scale": 1.0,
+          "n_points": 160,
+          "expression": "2.107 * r_X^-0.667",
+          "r_squared": 0.5324154943614652,
+          "exponent": -0.667
+        },
+        {
+          "scale": 0.7,
+          "n_points": 112,
+          "expression": "2.116 * r_X^-0.667",
+          "r_squared": 0.6159094420983531,
+          "exponent": -0.667
+        },
+        {
+          "scale": 0.5,
+          "n_points": 80,
+          "expression": "2.128 * r_X^-0.667",
+          "r_squared": 0.5792991287333054,
+          "exponent": -0.667
+        },
+        {
+          "scale": 0.3,
+          "n_points": 48,
+          "expression": "2.148 * r_X^-0.667",
+          "r_squared": 0.673943720835255,
+          "exponent": -0.667
+        },
+        {
+          "scale": 0.2,
+          "n_points": 32,
+          "expression": "2.105 * r_X^-0.667",
+          "r_squared": 0.7347123729034291,
+          "exponent": -0.667
+        }
+      ]
+    },
+    "critical_transitions": {
+      "is_fixed_point": true,
+      "exponent_drift": 0.0,
+      "fixed_point_exponent": 3.0,
+      "laws_per_scale": [
+        {
+          "scale": 1.0,
+          "n_points": 240,
+          "expression": "0.1497 * control_param^3",
+          "r_squared": 0.9989803471781664,
+          "exponent": 3.0
+        },
+        {
+          "scale": 0.7,
+          "n_points": 168,
+          "expression": "0.1495 * control_cube^1",
+          "r_squared": 0.9989852775016946,
+          "exponent": 3.0
+        },
+        {
+          "scale": 0.5,
+          "n_points": 120,
+          "expression": "0.1498 * control_cube^1",
+          "r_squared": 0.9991826922098775,
+          "exponent": 3.0
+        },
+        {
+          "scale": 0.3,
+          "n_points": 72,
+          "expression": "0.1495 * control_cube^1",
+          "r_squared": 0.9995557790246494,
+          "exponent": 3.0
+        },
+        {
+          "scale": 0.2,
+          "n_points": 48,
+          "expression": "0.1495 * control_cube^1",
+          "r_squared": 0.9994031330244197,
+          "exponent": 3.0
+        }
+      ]
+    }
+  },
+  "auto_isomorphisms": {
+    "exoplanet\u2194materials": {
+      "alpha_01": {
+        "target": "r_A",
+        "similarity": 0.8671448427416453
+      },
+      "inc_0": {
+        "target": "m_A",
+        "similarity": 0.8541379389718258
+      },
+      "P_ratio_01": {
+        "target": "t_factor",
+        "similarity": 0.8338373311250997
+      },
+      "e_1": {
+        "target": "octahedral_factor",
+        "similarity": 0.8334361373715395
+      },
+      "mu_0": {
+        "target": "Z_B",
+        "similarity": 0.8301423875082874
+      },
+      "mu_1": {
+        "target": "IE_B",
+        "similarity": 0.8278510042018814
+      },
+      "inc_1": {
+        "target": "EA_B",
+        "similarity": 0.8174694157352671
+      },
+      "mu_sum_01": {
+        "target": "EN_X",
+        "similarity": 0.8131728937494658
+      },
+      "e_0": {
+        "target": "r_X",
+        "similarity": 0.7856867818824378
+      },
+      "delta_Hill_01": {
+        "target": "delta_EN",
+        "similarity": 0.7491777894159589
+      },
+      "nearest_mmr_01": {
+        "target": "EN_B",
+        "similarity": 0.6708696922981998
+      }
+    },
+    "exoplanet\u2194critical_transitions": {
+      "mu_1": {
+        "target": "asymmetry",
+        "similarity": 0.9267793874720305
+      },
+      "inc_0": {
+        "target": "dimensionality",
+        "similarity": 0.8540841629409235
+      },
+      "e_1": {
+        "target": "coupling",
+        "similarity": 0.8328402081906324
+      },
+      "delta_Hill_01": {
+        "target": "control_param",
+        "similarity": 0.7812594242698788
+      },
+      "mu_0": {
+        "target": "log_system_size",
+        "similarity": 0.7780690476846616
+      },
+      "nearest_mmr_01": {
+        "target": "control_cube",
+        "similarity": 0.7765803807328191
+      },
+      "P_ratio_01": {
+        "target": "control_sq",
+        "similarity": 0.7365832943505116
+      },
+      "inc_1": {
+        "target": "coupling_x_fluct",
+        "similarity": 0.7081814641508498
+      },
+      "mu_sum_01": {
+        "target": "temp_ratio",
+        "similarity": 0.6842456862890048
+      },
+      "e_0": {
+        "target": "fluctuation_amp",
+        "similarity": 0.5707359832073954
+      },
+      "alpha_01": {
+        "target": "correlation_length",
+        "similarity": 0.41297007831829635
+      }
+    },
+    "materials\u2194critical_transitions": {
+      "IE_B": {
+        "target": "asymmetry",
+        "similarity": 0.8865481611834038
+      },
+      "octahedral_factor": {
+        "target": "fluctuation_amp",
+        "similarity": 0.8316652562991154
+      },
+      "IE_A": {
+        "target": "control_param",
+        "similarity": 0.8096460973929493
+      },
+      "m_A": {
+        "target": "dimensionality",
+        "similarity": 0.8066529110705984
+      },
+      "delta_EN": {
+        "target": "control_cube",
+        "similarity": 0.7719550847378133
+      },
+      "Z_B": {
+        "target": "log_system_size",
+        "similarity": 0.7537515053793238
+      },
+      "EA_B": {
+        "target": "coupling_x_fluct",
+        "similarity": 0.7230663461030424
+      },
+      "r_A": {
+        "target": "temp_ratio",
+        "similarity": 0.7201748586828338
+      },
+      "Z_A": {
+        "target": "coupling",
+        "similarity": 0.7072279374594731
+      },
+      "t_factor": {
+        "target": "control_sq",
+        "similarity": 0.678208393113007
+      },
+      "m_B": {
+        "target": "correlation_length",
+        "similarity": 0.6227797717412791
+      }
+    }
+  },
+  "causal_testing": {
+    "exoplanet": [
+      {
+        "expression": "-0.6613*delta_Hill_01^1 + 0.5859*delta_Hill_01^1.5 + -0.09117*delta_Hill_01^2",
+        "variable": "delta_Hill_01",
+        "r2_obs": 0.7179672930616532,
+        "r2_int": -0.8851389565482579,
+        "is_causal": true,
+        "confounding": 0.0
+      },
+      {
+        "expression": "-0.6605*delta_Hill_01^1 + 0.585*delta_Hill_01^1.5 + -0.09093*delta_Hill_01^2",
+        "variable": "delta_Hill_01",
+        "r2_obs": 0.7179671784095414,
+        "r2_int": -0.8850385703891692,
+        "is_causal": true,
+        "confounding": 0.0
+      },
+      {
+        "expression": "-0.6601*delta_Hill_01^1 + 0.5844*delta_Hill_01^1.5 + -0.09074*delta_Hill_01^2",
+        "variable": "delta_Hill_01",
+        "r2_obs": 0.7179674200404882,
+        "r2_int": -0.8853456590674966,
+        "is_causal": true,
+        "confounding": 0.0
+      }
+    ],
+    "materials": [
+      {
+        "expression": "2.107 * r_X^-0.667",
+        "variable": "r_X",
+        "r2_obs": 0.5324247844155097,
+        "r2_int": -0.6039085197960743,
+        "is_causal": true,
+        "confounding": 0.0
+      },
+      {
+        "expression": "2.292 * EN_B^-0.667",
+        "variable": "EN_B",
+        "r2_obs": 0.517297927329851,
+        "r2_int": -0.5051566388846565,
+        "is_causal": true,
+        "confounding": 0.0
+      },
+      {
+        "expression": "0.4663 * EN_X^1",
+        "variable": "EN_X",
+        "r2_obs": 0.5101736495794611,
+        "r2_int": -0.6557046853062614,
+        "is_causal": true,
+        "confounding": 0.0
+      }
+    ],
+    "critical_transitions": [
+      {
+        "expression": "0.1497 * control_param^3",
+        "variable": "control_param",
+        "r2_obs": 0.9989801733572333,
+        "r2_int": -1.2148111437905778,
+        "is_causal": true,
+        "confounding": 0.0
+      },
+      {
+        "expression": "0.1497 * control_sq^1.5",
+        "variable": "control_sq",
+        "r2_obs": 0.9989801733572333,
+        "r2_int": -1.2148111437905778,
+        "is_causal": true,
+        "confounding": 0.0
+      },
+      {
+        "expression": "0.1497 * control_cube^1",
+        "variable": "control_cube",
+        "r2_obs": 0.9989801733572333,
+        "r2_int": -1.2148111437905778,
+        "is_causal": true,
+        "confounding": 0.0
+      }
+    ]
+  },
+  "experiment_designs": {
+    "materials": [
+      {
+        "law_a": "2.292 * EN_B^-0.667",
+        "law_b": "0.4663 * EN_X^1",
+        "optimal_feature": "EN_B",
+        "discrimination_power": 0.816210939623664,
+        "predicted_a": 3.1074858751247114,
+        "predicted_b": 0.571121909040286
+      },
+      {
+        "law_a": "2.107 * r_X^-0.667",
+        "law_b": "0.4663 * EN_X^1",
+        "optimal_feature": "EN_X",
+        "discrimination_power": 0.8112665609587911,
+        "predicted_a": 0.7391059161114741,
+        "predicted_b": 3.9161365359914906
+      },
+      {
+        "law_a": "0.4663 * EN_X^1",
+        "law_b": "2.078 * EN_B^-0.5",
+        "optimal_feature": "EN_B",
+        "discrimination_power": 0.7791108575964194,
+        "predicted_a": 0.5734035351564161,
+        "predicted_b": 2.5958882767840032
+      },
+      {
+        "law_a": "0.4663 * EN_X^1",
+        "law_b": "1.951 * r_X^-0.5",
+        "optimal_feature": "EN_X",
+        "discrimination_power": 0.7756710259411583,
+        "predicted_a": 4.0377271262751115,
+        "predicted_b": 0.9057791836892837
+      },
+      {
+        "law_a": "2.107 * r_X^-0.667",
+        "law_b": "2.292 * EN_B^-0.667",
+        "optimal_feature": "EN_B",
+        "discrimination_power": 0.7447633965026146,
+        "predicted_a": 0.8139556668425133,
+        "predicted_b": 3.189024049700331
+      }
+    ],
+    "critical_transitions": [
+      {
+        "law_a": "0.1497 * control_sq^1.5",
+        "law_b": "0.06587 * control_param^3.5",
+        "optimal_feature": "control_sq",
+        "discrimination_power": 0.9999868219811474,
+        "predicted_a": 58.14878091230208,
+        "predicted_b": 0.000766285631113198
+      },
+      {
+        "law_a": "0.1497 * control_cube^1",
+        "law_b": "0.02864 * control_sq^2",
+        "optimal_feature": "control_cube",
+        "discrimination_power": 0.999982786802566,
+        "predicted_a": 33.05052950751327,
+        "predicted_b": 0.0005689051897108196
+      },
+      {
+        "law_a": "0.1497 * control_param^3",
+        "law_b": "0.02864 * control_sq^2",
+        "optimal_feature": "control_param",
+        "discrimination_power": 0.999979509666645,
+        "predicted_a": 99.22295055046816,
+        "predicted_b": 0.0020331112332496785
+      },
+      {
+        "law_a": "0.1497 * control_cube^1",
+        "law_b": "0.06587 * control_param^3.5",
+        "optimal_feature": "control_cube",
+        "discrimination_power": 0.9999781161448967,
+        "predicted_a": 50.6834532241639,
+        "predicted_b": 0.0011091492464867607
+      },
+      {
+        "law_a": "0.1497 * control_param^3",
+        "law_b": "0.1497 * control_sq^1.5",
+        "optimal_feature": "control_sq",
+        "discrimination_power": 0.9999655176770982,
+        "predicted_a": 0.0025337899403218354,
+        "predicted_b": 73.4808396618019
+      }
+    ]
+  },
+  "meta_laws": [
+    {
+      "description": "Meta-law: R\u00b2 \u2248 0.5983 * mean_exponent^0.333",
+      "expression": "0.5983 * mean_exponent^0.333",
+      "r2": 0.07249342035655049,
+      "features": {
+        "mean_exponent": 1.0
+      },
+      "n_laws": 35
+    },
+    {
+      "description": "Meta-law: R\u00b2 \u2248 0.5906 * max_exponent^0.333",
+      "expression": "0.5906 * max_exponent^0.333",
+      "r2": 0.06830068470521267,
+      "features": {
+        "max_exponent": 1.0
+      },
+      "n_laws": 35
+    },
+    {
+      "description": "Meta-law: R\u00b2 \u2248 0.6064 * min_exponent^0.333",
+      "expression": "0.6064 * min_exponent^0.333",
+      "r2": 0.044771029939415175,
+      "features": {
+        "min_exponent": 1.0
+      },
+      "n_laws": 35
+    },
+    {
+      "description": "Meta-law: R\u00b2 \u2248 0.7665 * n_terms^-0.333",
+      "expression": "0.7665 * n_terms^-0.333",
+      "r2": 0.024725195510098552,
+      "features": {
+        "n_terms": 1.0
+      },
+      "n_laws": 35
+    },
+    {
+      "description": "Meta-law: R\u00b2 \u2248 0.6956 * n_variables^-3",
+      "expression": "0.6956 * n_variables^-3",
+      "r2": -2.220446049250313e-16,
+      "features": {
+        "n_variables": 1.0
+      },
+      "n_laws": 35
+    }
+  ],
+  "statistical_correction": {
+    "significant": 25,
+    "total": 35
+  },
+  "transfers_all_rounds": [
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "materials",
+      "source_expression": "-0.6601*delta_Hill_01^1 + 0.5844*delta_Hill_01^1.5 + -0.09074*delta_Hill_01^2",
+      "translated_expression": "-0.6601*delta_EN^1 + 0.5844*delta_EN^1.5 + -0.09074*delta_EN^2",
+      "r2_direct": -34.745372731081886,
+      "mapping_used": {
+        "alpha_01": "r_A",
+        "inc_0": "m_A",
+        "P_ratio_01": "t_factor",
+        "e_1": "octahedral_factor",
+        "mu_0": "Z_B",
+        "mu_1": "IE_B",
+        "inc_1": "EA_B",
+        "mu_sum_01": "EN_X",
+        "e_0": "r_X",
+        "delta_Hill_01": "delta_EN",
+        "nearest_mmr_01": "EN_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "materials",
+      "source_expression": "-0.1026*delta_Hill_01^1.5 + 0.08432*delta_Hill_01^2",
+      "translated_expression": "-0.1026*delta_EN^1.5 + 0.08432*delta_EN^2",
+      "r2_direct": -29.400691008021386,
+      "mapping_used": {
+        "alpha_01": "r_A",
+        "inc_0": "m_A",
+        "P_ratio_01": "t_factor",
+        "e_1": "octahedral_factor",
+        "mu_0": "Z_B",
+        "mu_1": "IE_B",
+        "inc_1": "EA_B",
+        "mu_sum_01": "EN_X",
+        "e_0": "r_X",
+        "delta_Hill_01": "delta_EN",
+        "nearest_mmr_01": "EN_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "critical_transitions",
+      "source_expression": "-0.6601*delta_Hill_01^1 + 0.5844*delta_Hill_01^1.5 + -0.09074*delta_Hill_01^2",
+      "translated_expression": "-0.6601*control_param^1 + 0.5844*control_param^1.5 + -0.09074*control_param^2",
+      "r2_direct": -0.6913968689164045,
+      "mapping_used": {
+        "mu_1": "asymmetry",
+        "inc_0": "dimensionality",
+        "e_1": "coupling",
+        "delta_Hill_01": "control_param",
+        "mu_0": "log_system_size",
+        "nearest_mmr_01": "control_cube",
+        "P_ratio_01": "control_sq",
+        "inc_1": "coupling_x_fluct",
+        "mu_sum_01": "temp_ratio",
+        "e_0": "fluctuation_amp",
+        "alpha_01": "correlation_length"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "critical_transitions",
+      "source_expression": "-0.1026*delta_Hill_01^1.5 + 0.08432*delta_Hill_01^2",
+      "translated_expression": "-0.1026*control_param^1.5 + 0.08432*control_param^2",
+      "r2_direct": -0.687833162770495,
+      "mapping_used": {
+        "mu_1": "asymmetry",
+        "inc_0": "dimensionality",
+        "e_1": "coupling",
+        "delta_Hill_01": "control_param",
+        "mu_0": "log_system_size",
+        "nearest_mmr_01": "control_cube",
+        "P_ratio_01": "control_sq",
+        "inc_1": "coupling_x_fluct",
+        "mu_sum_01": "temp_ratio",
+        "e_0": "fluctuation_amp",
+        "alpha_01": "correlation_length"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "exoplanet",
+      "source_expression": "2.107 * r_X^-0.667",
+      "translated_expression": "2.107 * e_0^-0.667",
+      "r2_direct": -55624.439396786096,
+      "mapping_used": {
+        "r_A": "alpha_01",
+        "m_A": "inc_0",
+        "t_factor": "P_ratio_01",
+        "octahedral_factor": "e_1",
+        "Z_B": "mu_0",
+        "IE_B": "mu_1",
+        "EA_B": "inc_1",
+        "EN_X": "mu_sum_01",
+        "r_X": "e_0",
+        "delta_EN": "delta_Hill_01",
+        "EN_B": "nearest_mmr_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "exoplanet",
+      "source_expression": "2.292 * EN_B^-0.667",
+      "translated_expression": "2.292 * nearest_mmr_01^-0.667",
+      "r2_direct": -236416.2667247485,
+      "mapping_used": {
+        "r_A": "alpha_01",
+        "m_A": "inc_0",
+        "t_factor": "P_ratio_01",
+        "octahedral_factor": "e_1",
+        "Z_B": "mu_0",
+        "IE_B": "mu_1",
+        "EA_B": "inc_1",
+        "EN_X": "mu_sum_01",
+        "r_X": "e_0",
+        "delta_EN": "delta_Hill_01",
+        "EN_B": "nearest_mmr_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "exoplanet",
+      "source_expression": "0.1497 * control_param^3",
+      "translated_expression": "0.1497 * delta_Hill_01^3",
+      "r2_direct": -515.7102866804066,
+      "mapping_used": {
+        "asymmetry": "mu_1",
+        "dimensionality": "inc_0",
+        "coupling": "e_1",
+        "control_param": "delta_Hill_01",
+        "log_system_size": "mu_0",
+        "control_cube": "nearest_mmr_01",
+        "control_sq": "P_ratio_01",
+        "coupling_x_fluct": "inc_1",
+        "temp_ratio": "mu_sum_01",
+        "fluctuation_amp": "e_0",
+        "correlation_length": "alpha_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "exoplanet",
+      "source_expression": "0.1497 * control_sq^1.5",
+      "translated_expression": "0.1497 * P_ratio_01^1.5",
+      "r2_direct": 0.028283470729249527,
+      "mapping_used": {
+        "asymmetry": "mu_1",
+        "dimensionality": "inc_0",
+        "coupling": "e_1",
+        "control_param": "delta_Hill_01",
+        "log_system_size": "mu_0",
+        "control_cube": "nearest_mmr_01",
+        "control_sq": "P_ratio_01",
+        "coupling_x_fluct": "inc_1",
+        "temp_ratio": "mu_sum_01",
+        "fluctuation_amp": "e_0",
+        "correlation_length": "alpha_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "materials",
+      "source_expression": "0.1497 * control_param^3",
+      "translated_expression": "0.1497 * IE_A^3",
+      "r2_direct": -3995.1677158523576,
+      "mapping_used": {
+        "asymmetry": "IE_B",
+        "fluctuation_amp": "octahedral_factor",
+        "control_param": "IE_A",
+        "dimensionality": "m_A",
+        "control_cube": "delta_EN",
+        "log_system_size": "Z_B",
+        "coupling_x_fluct": "EA_B",
+        "temp_ratio": "r_A",
+        "coupling": "Z_A",
+        "control_sq": "t_factor",
+        "correlation_length": "m_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "materials",
+      "source_expression": "0.1497 * control_sq^1.5",
+      "translated_expression": "0.1497 * t_factor^1.5",
+      "r2_direct": -24.056778424068145,
+      "mapping_used": {
+        "asymmetry": "IE_B",
+        "fluctuation_amp": "octahedral_factor",
+        "control_param": "IE_A",
+        "dimensionality": "m_A",
+        "control_cube": "delta_EN",
+        "log_system_size": "Z_B",
+        "coupling_x_fluct": "EA_B",
+        "temp_ratio": "r_A",
+        "coupling": "Z_A",
+        "control_sq": "t_factor",
+        "correlation_length": "m_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "materials",
+      "source_expression": "-0.6613*delta_Hill_01^1 + 0.5859*delta_Hill_01^1.5 + -0.09117*delta_Hill_01^2",
+      "translated_expression": "-0.6613*delta_EN^1 + 0.5859*delta_EN^1.5 + -0.09117*delta_EN^2",
+      "r2_direct": -34.749731820729075,
+      "mapping_used": {
+        "alpha_01": "r_A",
+        "inc_0": "m_A",
+        "P_ratio_01": "t_factor",
+        "e_1": "octahedral_factor",
+        "mu_0": "Z_B",
+        "mu_1": "IE_B",
+        "inc_1": "EA_B",
+        "mu_sum_01": "EN_X",
+        "e_0": "r_X",
+        "delta_Hill_01": "delta_EN",
+        "nearest_mmr_01": "EN_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "materials",
+      "source_expression": "-0.1023*delta_Hill_01^1.5 + 0.08423*delta_Hill_01^2",
+      "translated_expression": "-0.1023*delta_EN^1.5 + 0.08423*delta_EN^2",
+      "r2_direct": -29.39244461551838,
+      "mapping_used": {
+        "alpha_01": "r_A",
+        "inc_0": "m_A",
+        "P_ratio_01": "t_factor",
+        "e_1": "octahedral_factor",
+        "mu_0": "Z_B",
+        "mu_1": "IE_B",
+        "inc_1": "EA_B",
+        "mu_sum_01": "EN_X",
+        "e_0": "r_X",
+        "delta_Hill_01": "delta_EN",
+        "nearest_mmr_01": "EN_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "critical_transitions",
+      "source_expression": "-0.6613*delta_Hill_01^1 + 0.5859*delta_Hill_01^1.5 + -0.09117*delta_Hill_01^2",
+      "translated_expression": "-0.6613*control_param^1 + 0.5859*control_param^1.5 + -0.09117*control_param^2",
+      "r2_direct": -0.6913968300512026,
+      "mapping_used": {
+        "mu_1": "asymmetry",
+        "inc_0": "dimensionality",
+        "e_1": "coupling",
+        "delta_Hill_01": "control_param",
+        "mu_0": "log_system_size",
+        "nearest_mmr_01": "control_cube",
+        "P_ratio_01": "control_sq",
+        "inc_1": "coupling_x_fluct",
+        "mu_sum_01": "temp_ratio",
+        "e_0": "fluctuation_amp",
+        "alpha_01": "correlation_length"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "critical_transitions",
+      "source_expression": "-0.1023*delta_Hill_01^1.5 + 0.08423*delta_Hill_01^2",
+      "translated_expression": "-0.1023*control_param^1.5 + 0.08423*control_param^2",
+      "r2_direct": -0.6876198584092579,
+      "mapping_used": {
+        "mu_1": "asymmetry",
+        "inc_0": "dimensionality",
+        "e_1": "coupling",
+        "delta_Hill_01": "control_param",
+        "mu_0": "log_system_size",
+        "nearest_mmr_01": "control_cube",
+        "P_ratio_01": "control_sq",
+        "inc_1": "coupling_x_fluct",
+        "mu_sum_01": "temp_ratio",
+        "e_0": "fluctuation_amp",
+        "alpha_01": "correlation_length"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "exoplanet",
+      "source_expression": "2.107 * r_X^-0.667",
+      "translated_expression": "2.107 * e_0^-0.667",
+      "r2_direct": -55624.439396786096,
+      "mapping_used": {
+        "r_A": "alpha_01",
+        "m_A": "inc_0",
+        "t_factor": "P_ratio_01",
+        "octahedral_factor": "e_1",
+        "Z_B": "mu_0",
+        "IE_B": "mu_1",
+        "EA_B": "inc_1",
+        "EN_X": "mu_sum_01",
+        "r_X": "e_0",
+        "delta_EN": "delta_Hill_01",
+        "EN_B": "nearest_mmr_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "exoplanet",
+      "source_expression": "2.292 * EN_B^-0.667",
+      "translated_expression": "2.292 * nearest_mmr_01^-0.667",
+      "r2_direct": -236416.2667247485,
+      "mapping_used": {
+        "r_A": "alpha_01",
+        "m_A": "inc_0",
+        "t_factor": "P_ratio_01",
+        "octahedral_factor": "e_1",
+        "Z_B": "mu_0",
+        "IE_B": "mu_1",
+        "EA_B": "inc_1",
+        "EN_X": "mu_sum_01",
+        "r_X": "e_0",
+        "delta_EN": "delta_Hill_01",
+        "EN_B": "nearest_mmr_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "exoplanet",
+      "source_expression": "0.1497 * control_param^3",
+      "translated_expression": "0.1497 * delta_Hill_01^3",
+      "r2_direct": -515.7102866804066,
+      "mapping_used": {
+        "asymmetry": "mu_1",
+        "dimensionality": "inc_0",
+        "coupling": "e_1",
+        "control_param": "delta_Hill_01",
+        "log_system_size": "mu_0",
+        "control_cube": "nearest_mmr_01",
+        "control_sq": "P_ratio_01",
+        "coupling_x_fluct": "inc_1",
+        "temp_ratio": "mu_sum_01",
+        "fluctuation_amp": "e_0",
+        "correlation_length": "alpha_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "exoplanet",
+      "source_expression": "0.1497 * control_sq^1.5",
+      "translated_expression": "0.1497 * P_ratio_01^1.5",
+      "r2_direct": 0.028283470729249527,
+      "mapping_used": {
+        "asymmetry": "mu_1",
+        "dimensionality": "inc_0",
+        "coupling": "e_1",
+        "control_param": "delta_Hill_01",
+        "log_system_size": "mu_0",
+        "control_cube": "nearest_mmr_01",
+        "control_sq": "P_ratio_01",
+        "coupling_x_fluct": "inc_1",
+        "temp_ratio": "mu_sum_01",
+        "fluctuation_amp": "e_0",
+        "correlation_length": "alpha_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "materials",
+      "source_expression": "0.1497 * control_param^3",
+      "translated_expression": "0.1497 * IE_A^3",
+      "r2_direct": -3995.1677158523576,
+      "mapping_used": {
+        "asymmetry": "IE_B",
+        "fluctuation_amp": "octahedral_factor",
+        "control_param": "IE_A",
+        "dimensionality": "m_A",
+        "control_cube": "delta_EN",
+        "log_system_size": "Z_B",
+        "coupling_x_fluct": "EA_B",
+        "temp_ratio": "r_A",
+        "coupling": "Z_A",
+        "control_sq": "t_factor",
+        "correlation_length": "m_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "materials",
+      "source_expression": "0.1497 * control_sq^1.5",
+      "translated_expression": "0.1497 * t_factor^1.5",
+      "r2_direct": -24.056778424068145,
+      "mapping_used": {
+        "asymmetry": "IE_B",
+        "fluctuation_amp": "octahedral_factor",
+        "control_param": "IE_A",
+        "dimensionality": "m_A",
+        "control_cube": "delta_EN",
+        "log_system_size": "Z_B",
+        "coupling_x_fluct": "EA_B",
+        "temp_ratio": "r_A",
+        "coupling": "Z_A",
+        "control_sq": "t_factor",
+        "correlation_length": "m_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "materials",
+      "source_expression": "-0.6605*delta_Hill_01^1 + 0.585*delta_Hill_01^1.5 + -0.09093*delta_Hill_01^2",
+      "translated_expression": "-0.6605*delta_EN^1 + 0.585*delta_EN^1.5 + -0.09093*delta_EN^2",
+      "r2_direct": -34.74463453979933,
+      "mapping_used": {
+        "alpha_01": "r_A",
+        "inc_0": "m_A",
+        "P_ratio_01": "t_factor",
+        "e_1": "octahedral_factor",
+        "mu_0": "Z_B",
+        "mu_1": "IE_B",
+        "inc_1": "EA_B",
+        "mu_sum_01": "EN_X",
+        "e_0": "r_X",
+        "delta_Hill_01": "delta_EN",
+        "nearest_mmr_01": "EN_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "materials",
+      "source_expression": "-0.1024*delta_Hill_01^1.5 + 0.08426*delta_Hill_01^2",
+      "translated_expression": "-0.1024*delta_EN^1.5 + 0.08426*delta_EN^2",
+      "r2_direct": -29.395193237813317,
+      "mapping_used": {
+        "alpha_01": "r_A",
+        "inc_0": "m_A",
+        "P_ratio_01": "t_factor",
+        "e_1": "octahedral_factor",
+        "mu_0": "Z_B",
+        "mu_1": "IE_B",
+        "inc_1": "EA_B",
+        "mu_sum_01": "EN_X",
+        "e_0": "r_X",
+        "delta_Hill_01": "delta_EN",
+        "nearest_mmr_01": "EN_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "critical_transitions",
+      "source_expression": "-0.6605*delta_Hill_01^1 + 0.585*delta_Hill_01^1.5 + -0.09093*delta_Hill_01^2",
+      "translated_expression": "-0.6605*control_param^1 + 0.585*control_param^1.5 + -0.09093*control_param^2",
+      "r2_direct": -0.6914043965458965,
+      "mapping_used": {
+        "mu_1": "asymmetry",
+        "inc_0": "dimensionality",
+        "e_1": "coupling",
+        "delta_Hill_01": "control_param",
+        "mu_0": "log_system_size",
+        "nearest_mmr_01": "control_cube",
+        "P_ratio_01": "control_sq",
+        "inc_1": "coupling_x_fluct",
+        "mu_sum_01": "temp_ratio",
+        "e_0": "fluctuation_amp",
+        "alpha_01": "correlation_length"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "critical_transitions",
+      "source_expression": "-0.1024*delta_Hill_01^1.5 + 0.08426*delta_Hill_01^2",
+      "translated_expression": "-0.1024*control_param^1.5 + 0.08426*control_param^2",
+      "r2_direct": -0.6876909579283714,
+      "mapping_used": {
+        "mu_1": "asymmetry",
+        "inc_0": "dimensionality",
+        "e_1": "coupling",
+        "delta_Hill_01": "control_param",
+        "mu_0": "log_system_size",
+        "nearest_mmr_01": "control_cube",
+        "P_ratio_01": "control_sq",
+        "inc_1": "coupling_x_fluct",
+        "mu_sum_01": "temp_ratio",
+        "e_0": "fluctuation_amp",
+        "alpha_01": "correlation_length"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "exoplanet",
+      "source_expression": "2.107 * r_X^-0.667",
+      "translated_expression": "2.107 * e_0^-0.667",
+      "r2_direct": -55624.439396786096,
+      "mapping_used": {
+        "r_A": "alpha_01",
+        "m_A": "inc_0",
+        "t_factor": "P_ratio_01",
+        "octahedral_factor": "e_1",
+        "Z_B": "mu_0",
+        "IE_B": "mu_1",
+        "EA_B": "inc_1",
+        "EN_X": "mu_sum_01",
+        "r_X": "e_0",
+        "delta_EN": "delta_Hill_01",
+        "EN_B": "nearest_mmr_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "exoplanet",
+      "source_expression": "2.292 * EN_B^-0.667",
+      "translated_expression": "2.292 * nearest_mmr_01^-0.667",
+      "r2_direct": -236416.2667247485,
+      "mapping_used": {
+        "r_A": "alpha_01",
+        "m_A": "inc_0",
+        "t_factor": "P_ratio_01",
+        "octahedral_factor": "e_1",
+        "Z_B": "mu_0",
+        "IE_B": "mu_1",
+        "EA_B": "inc_1",
+        "EN_X": "mu_sum_01",
+        "r_X": "e_0",
+        "delta_EN": "delta_Hill_01",
+        "EN_B": "nearest_mmr_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "exoplanet",
+      "source_expression": "0.1497 * control_param^3",
+      "translated_expression": "0.1497 * delta_Hill_01^3",
+      "r2_direct": -515.7102866804066,
+      "mapping_used": {
+        "asymmetry": "mu_1",
+        "dimensionality": "inc_0",
+        "coupling": "e_1",
+        "control_param": "delta_Hill_01",
+        "log_system_size": "mu_0",
+        "control_cube": "nearest_mmr_01",
+        "control_sq": "P_ratio_01",
+        "coupling_x_fluct": "inc_1",
+        "temp_ratio": "mu_sum_01",
+        "fluctuation_amp": "e_0",
+        "correlation_length": "alpha_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "exoplanet",
+      "source_expression": "0.1497 * control_sq^1.5",
+      "translated_expression": "0.1497 * P_ratio_01^1.5",
+      "r2_direct": 0.028283470729249527,
+      "mapping_used": {
+        "asymmetry": "mu_1",
+        "dimensionality": "inc_0",
+        "coupling": "e_1",
+        "control_param": "delta_Hill_01",
+        "log_system_size": "mu_0",
+        "control_cube": "nearest_mmr_01",
+        "control_sq": "P_ratio_01",
+        "coupling_x_fluct": "inc_1",
+        "temp_ratio": "mu_sum_01",
+        "fluctuation_amp": "e_0",
+        "correlation_length": "alpha_01"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "materials",
+      "source_expression": "0.1497 * control_param^3",
+      "translated_expression": "0.1497 * IE_A^3",
+      "r2_direct": -3995.1677158523576,
+      "mapping_used": {
+        "asymmetry": "IE_B",
+        "fluctuation_amp": "octahedral_factor",
+        "control_param": "IE_A",
+        "dimensionality": "m_A",
+        "control_cube": "delta_EN",
+        "log_system_size": "Z_B",
+        "coupling_x_fluct": "EA_B",
+        "temp_ratio": "r_A",
+        "coupling": "Z_A",
+        "control_sq": "t_factor",
+        "correlation_length": "m_B"
+      },
+      "auto_discovered": true
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "materials",
+      "source_expression": "0.1497 * control_sq^1.5",
+      "translated_expression": "0.1497 * t_factor^1.5",
+      "r2_direct": -24.056778424068145,
+      "mapping_used": {
+        "asymmetry": "IE_B",
+        "fluctuation_amp": "octahedral_factor",
+        "control_param": "IE_A",
+        "dimensionality": "m_A",
+        "control_cube": "delta_EN",
+        "log_system_size": "Z_B",
+        "coupling_x_fluct": "EA_B",
+        "temp_ratio": "r_A",
+        "coupling": "Z_A",
+        "control_sq": "t_factor",
+        "correlation_length": "m_B"
+      },
+      "auto_discovered": true
+    }
+  ],
+  "n_successful_transfers": 0,
+  "universal_patterns": [
+    {
+      "type": "RG_CAUSAL_CONVERGENCE",
+      "description": "In materials: the RG fixed-point exponent \u03b2=-0.67 is also causal (passes interventional test). This is the strongest possible evidence for a universal causal law.",
+      "domain": "materials",
+      "exponent": -0.667,
+      "n_causal": 3
+    },
+    {
+      "type": "RG_CAUSAL_CONVERGENCE",
+      "description": "In critical_transitions: the RG fixed-point exponent \u03b2=3.00 is also causal (passes interventional test). This is the strongest possible evidence for a universal causal law.",
+      "domain": "critical_transitions",
+      "exponent": 3.0,
+      "n_causal": 3
+    }
+  ]
+}

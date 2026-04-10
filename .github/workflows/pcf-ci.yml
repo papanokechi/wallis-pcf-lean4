@@ -1,0 +1,70 @@
+name: PCF Families CI
+
+on:
+  push:
+    paths:
+      - 'pcf_*.py'
+      - 'pcf_*.tex'
+      - 'test_pcf*.py'
+      - 'requirements.txt'
+  pull_request:
+    paths:
+      - 'pcf_*.py'
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install mpmath python-flint sympy
+
+      - name: Run unit tests
+        run: python -m pytest test_pcf_families.py -v
+
+      - name: Smoke test - standalone verification
+        run: python pcf_families.py --precision 50 --depth 200
+
+      - name: Smoke test - pipeline (small budget)
+        run: python pcf_discovery_engine.py --budget 50 --precision 50 --depth 100
+
+      - name: Verify LaTeX structure
+        run: |
+          python -c "
+          t=open('pcf_paper_final.tex').read()
+          assert t.count('\\\\begin{') == t.count('\\\\end{'), 'Unbalanced begin/end'
+          assert '\\\\begin{theorem}' in t, 'No theorems'
+          assert '\\\\begin{proof}' in t, 'No proofs'
+          print('LaTeX structure OK')
+          "
+
+  arb-certification:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install mpmath python-flint sympy
+
+      - name: Full Arb certification
+        run: python pcf_families.py --arb --export --precision 120 --depth 1000
+
+      - name: Upload certification artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pcf-certification
+          path: |
+            pcf_families_results.json
+            proof_ready/

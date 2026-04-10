@@ -1,0 +1,2465 @@
+{
+  "10000": {
+    "max_n": 10000,
+    "total_time_seconds": 1.75,
+    "phase_times": {
+      "coverage": 1.45,
+      "deep_search": 0.0,
+      "family_discovery": 0.29,
+      "analysis": 0.0
+    },
+    "coverage": {
+      "total": 9999,
+      "covered_after_phase1": 9999,
+      "rescued_in_phase2": 0,
+      "final_covered": 9999,
+      "final_unsolved": 0,
+      "coverage_pct": 100.0
+    },
+    "method_stats": {
+      "family_mod4_eq2": 2500,
+      "family_prime": 1145,
+      "family_mod4_eq3_schinzel": 2500,
+      "divisor_fast": 3998,
+      "family_mod12_1": 692
+    },
+    "rescued_by_method": {},
+    "unsolved": {
+      "count": 0,
+      "primes": [],
+      "all_values": [],
+      "prime_count": 0
+    },
+    "prime_mod_analysis": {},
+    "families": [
+      {
+        "modulus": 4,
+        "residue": 2,
+        "count": 2500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 4): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 4,
+        "residue": 3,
+        "count": 2500,
+        "a_over_n": 0.2502227501723077,
+        "a_over_n_var": 3.9214443727258495e-06,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 3 (mod 4): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 4,
+        "residue": 0,
+        "count": 2500,
+        "a_over_n": 0.25084014616624245,
+        "a_over_n_var": 4.040750809028711e-05,
+        "suggested_a": "ceil(0.2508 * n)",
+        "description": "For n \u2261 0 (mod 4): a \u2248 0.2508\u00b7n"
+      },
+      {
+        "modulus": 4,
+        "residue": 1,
+        "count": 2499,
+        "a_over_n": 0.2506503058276068,
+        "a_over_n_var": 1.7173404013466284e-05,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 1 (mod 4): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 6,
+        "residue": 3,
+        "count": 1667,
+        "a_over_n": 0.25042975118928096,
+        "a_over_n_var": 1.0246104190741897e-05,
+        "suggested_a": "ceil(0.2504 * n)",
+        "description": "For n \u2261 3 (mod 6): a \u2248 0.2504\u00b7n"
+      },
+      {
+        "modulus": 6,
+        "residue": 5,
+        "count": 1666,
+        "a_over_n": 0.2504371367353329,
+        "a_over_n_var": 1.6164561735487142e-05,
+        "suggested_a": "ceil(0.2504 * n)",
+        "description": "For n \u2261 5 (mod 6): a \u2248 0.2504\u00b7n"
+      },
+      {
+        "modulus": 6,
+        "residue": 1,
+        "count": 1666,
+        "a_over_n": 0.25044257182494756,
+        "a_over_n_var": 5.36485779786627e-06,
+        "suggested_a": "ceil(0.2504 * n)",
+        "description": "For n \u2261 1 (mod 6): a \u2248 0.2504\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 2,
+        "count": 1250,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 8): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 3,
+        "count": 1250,
+        "a_over_n": 0.25024711994752785,
+        "a_over_n_var": 6.31469544465586e-06,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 3 (mod 8): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 4,
+        "count": 1250,
+        "a_over_n": 0.2509094408882984,
+        "a_over_n_var": 6.084794477803276e-05,
+        "suggested_a": "ceil(0.2509 * n)",
+        "description": "For n \u2261 4 (mod 8): a \u2248 0.2509\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 5,
+        "count": 1250,
+        "a_over_n": 0.2506437780712401,
+        "a_over_n_var": 2.3494494543174426e-05,
+        "suggested_a": "ceil(0.2506 * n)",
+        "description": "For n \u2261 5 (mod 8): a \u2248 0.2506\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 6,
+        "count": 1250,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 8): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 7,
+        "count": 1250,
+        "a_over_n": 0.25019838039708764,
+        "a_over_n_var": 1.5270055289072795e-06,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 7 (mod 8): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 0,
+        "count": 1250,
+        "a_over_n": 0.2507708514441865,
+        "a_over_n_var": 1.9957467885531824e-05,
+        "suggested_a": "ceil(0.2508 * n)",
+        "description": "For n \u2261 0 (mod 8): a \u2248 0.2508\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 1,
+        "count": 1249,
+        "a_over_n": 0.2506568388103596,
+        "a_over_n_var": 1.0847167237014035e-05,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 1 (mod 8): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 2,
+        "count": 834,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 12): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 3,
+        "count": 834,
+        "a_over_n": 0.2502736157871339,
+        "a_over_n_var": 8.874292654819205e-06,
+        "suggested_a": "ceil(0.2503 * n)",
+        "description": "For n \u2261 3 (mod 12): a \u2248 0.2503\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 4,
+        "count": 834,
+        "a_over_n": 0.2509850187232423,
+        "a_over_n_var": 8.308247796580711e-05,
+        "suggested_a": "ceil(0.2510 * n)",
+        "description": "For n \u2261 4 (mod 12): a \u2248 0.2510\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 5,
+        "count": 833,
+        "a_over_n": 0.25068797755965827,
+        "a_over_n_var": 3.126400513766717e-05,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 5 (mod 12): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 6,
+        "count": 833,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 12): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 7,
+        "count": 833,
+        "a_over_n": 0.2502082777556187,
+        "a_over_n_var": 1.940689791291976e-06,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 7 (mod 12): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 8,
+        "count": 833,
+        "a_over_n": 0.25080466868527374,
+        "a_over_n_var": 2.4885014388162302e-05,
+        "suggested_a": "ceil(0.2508 * n)",
+        "description": "For n \u2261 8 (mod 12): a \u2248 0.2508\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 9,
+        "count": 833,
+        "a_over_n": 0.2505860740288855,
+        "a_over_n_var": 1.1570718199632264e-05,
+        "suggested_a": "ceil(0.2506 * n)",
+        "description": "For n \u2261 9 (mod 12): a \u2248 0.2506\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 10,
+        "count": 833,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 12): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 11,
+        "count": 833,
+        "a_over_n": 0.25018629591100744,
+        "a_over_n_var": 9.392760950105986e-07,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 11 (mod 12): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 0,
+        "count": 833,
+        "a_over_n": 0.2507305771735763,
+        "a_over_n_var": 1.3169524191529788e-05,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 0 (mod 12): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 1,
+        "count": 833,
+        "a_over_n": 0.25067686589427646,
+        "a_over_n_var": 8.679238382595184e-06,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 1 (mod 12): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 2,
+        "count": 625,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 3,
+        "count": 625,
+        "a_over_n": 0.25030188959037103,
+        "a_over_n_var": 1.152173501252016e-05,
+        "suggested_a": "ceil(0.2503 * n)",
+        "description": "For n \u2261 3 (mod 16): a \u2248 0.2503\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 4,
+        "count": 625,
+        "a_over_n": 0.25106648052098435,
+        "a_over_n_var": 0.00010633592251456569,
+        "suggested_a": "ceil(0.2511 * n)",
+        "description": "For n \u2261 4 (mod 16): a \u2248 0.2511\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 5,
+        "count": 625,
+        "a_over_n": 0.25073444179657506,
+        "a_over_n_var": 3.9390563110013595e-05,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 5 (mod 16): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 6,
+        "count": 625,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 7,
+        "count": 625,
+        "a_over_n": 0.25021867448952856,
+        "a_over_n_var": 2.378897309090122e-06,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 7 (mod 16): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 8,
+        "count": 625,
+        "a_over_n": 0.2508401261782425,
+        "a_over_n_var": 3.012670176016933e-05,
+        "suggested_a": "ceil(0.2508 * n)",
+        "description": "For n \u2261 8 (mod 16): a \u2248 0.2508\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 9,
+        "count": 625,
+        "a_over_n": 0.250701226916601,
+        "a_over_n_var": 1.4805529170106562e-05,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 9 (mod 16): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 10,
+        "count": 625,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 11,
+        "count": 625,
+        "a_over_n": 0.2501923503046846,
+        "a_over_n_var": 1.1016564492372155e-06,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 11 (mod 16): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 12,
+        "count": 625,
+        "a_over_n": 0.25075240125561254,
+        "a_over_n_var": 1.5310644149031597e-05,
+        "suggested_a": "ceil(0.2508 * n)",
+        "description": "For n \u2261 12 (mod 16): a \u2248 0.2508\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 13,
+        "count": 625,
+        "a_over_n": 0.2505531143459051,
+        "a_over_n_var": 7.581986154152025e-06,
+        "suggested_a": "ceil(0.2506 * n)",
+        "description": "For n \u2261 13 (mod 16): a \u2248 0.2506\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 14,
+        "count": 625,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 14 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 15,
+        "count": 625,
+        "a_over_n": 0.2501780863046466,
+        "a_over_n_var": 6.742900483484301e-07,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 15 (mod 16): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 0,
+        "count": 625,
+        "a_over_n": 0.2507015767101305,
+        "a_over_n_var": 9.77863603333726e-06,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 0 (mod 16): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 1,
+        "count": 624,
+        "a_over_n": 0.2506123795693326,
+        "a_over_n_var": 6.878511689555754e-06,
+        "suggested_a": "ceil(0.2506 * n)",
+        "description": "For n \u2261 1 (mod 16): a \u2248 0.2506\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 2,
+        "count": 500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 3,
+        "count": 500,
+        "a_over_n": 0.2503308725341213,
+        "a_over_n_var": 1.419927411496664e-05,
+        "suggested_a": "ceil(0.2503 * n)",
+        "description": "For n \u2261 3 (mod 20): a \u2248 0.2503\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 4,
+        "count": 500,
+        "a_over_n": 0.2511503047981809,
+        "a_over_n_var": 0.00013000367889813805,
+        "suggested_a": "ceil(0.2512 * n)",
+        "description": "For n \u2261 4 (mod 20): a \u2248 0.2512\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 5,
+        "count": 500,
+        "a_over_n": 0.25078311712551926,
+        "a_over_n_var": 4.774858800274058e-05,
+        "suggested_a": "ceil(0.2508 * n)",
+        "description": "For n \u2261 5 (mod 20): a \u2248 0.2508\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 6,
+        "count": 500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 7,
+        "count": 500,
+        "a_over_n": 0.2502296344772501,
+        "a_over_n_var": 2.8342862701996208e-06,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 7 (mod 20): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 8,
+        "count": 500,
+        "a_over_n": 0.2508775792789738,
+        "a_over_n_var": 3.559663556469908e-05,
+        "suggested_a": "ceil(0.2509 * n)",
+        "description": "For n \u2261 8 (mod 20): a \u2248 0.2509\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 9,
+        "count": 500,
+        "a_over_n": 0.25073057830051393,
+        "a_over_n_var": 1.845686735377252e-05,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 9 (mod 20): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 10,
+        "count": 500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 11,
+        "count": 500,
+        "a_over_n": 0.25019876668776747,
+        "a_over_n_var": 1.27262913561595e-06,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 11 (mod 20): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 12,
+        "count": 500,
+        "a_over_n": 0.2507755427458918,
+        "a_over_n_var": 1.7569583806737803e-05,
+        "suggested_a": "ceil(0.2508 * n)",
+        "description": "For n \u2261 12 (mod 20): a \u2248 0.2508\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 13,
+        "count": 500,
+        "a_over_n": 0.250648401398642,
+        "a_over_n_var": 9.756235695150542e-06,
+        "suggested_a": "ceil(0.2506 * n)",
+        "description": "For n \u2261 13 (mod 20): a \u2248 0.2506\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 14,
+        "count": 500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 14 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 15,
+        "count": 500,
+        "a_over_n": 0.25018252422549375,
+        "a_over_n_var": 7.603976095571279e-07,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 15 (mod 20): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 16,
+        "count": 500,
+        "a_over_n": 0.2507180216651667,
+        "a_over_n_var": 1.0971821575589231e-05,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 16 (mod 20): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 17,
+        "count": 500,
+        "a_over_n": 0.2505302933963995,
+        "a_over_n_var": 5.607429806962371e-06,
+        "suggested_a": "ceil(0.2505 * n)",
+        "description": "For n \u2261 17 (mod 20): a \u2248 0.2505\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 18,
+        "count": 500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 18 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 19,
+        "count": 500,
+        "a_over_n": 0.2501719529369059,
+        "a_over_n_var": 5.241232010589857e-07,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 19 (mod 20): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 0,
+        "count": 500,
+        "a_over_n": 0.250679282342999,
+        "a_over_n_var": 7.753255826064187e-06,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 0 (mod 20): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 1,
+        "count": 499,
+        "a_over_n": 0.25055895621773944,
+        "a_over_n_var": 4.225185588881964e-06,
+        "suggested_a": "ceil(0.2506 * n)",
+        "description": "For n \u2261 1 (mod 20): a \u2248 0.2506\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 2,
+        "count": 417,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 3,
+        "count": 417,
+        "a_over_n": 0.25036022880295694,
+        "a_over_n_var": 1.6884158759772818e-05,
+        "suggested_a": "ceil(0.2504 * n)",
+        "description": "For n \u2261 3 (mod 24): a \u2248 0.2504\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 4,
+        "count": 417,
+        "a_over_n": 0.2512354530662473,
+        "a_over_n_var": 0.00015383317266380288,
+        "suggested_a": "ceil(0.2512 * n)",
+        "description": "For n \u2261 4 (mod 24): a \u2248 0.2512\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 5,
+        "count": 417,
+        "a_over_n": 0.2508326525933915,
+        "a_over_n_var": 5.61973619075082e-05,
+        "suggested_a": "ceil(0.2508 * n)",
+        "description": "For n \u2261 5 (mod 24): a \u2248 0.2508\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 6,
+        "count": 417,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 7,
+        "count": 417,
+        "a_over_n": 0.2502408034325578,
+        "a_over_n_var": 3.297929866240923e-06,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 7 (mod 24): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 8,
+        "count": 417,
+        "a_over_n": 0.2509157394565825,
+        "a_over_n_var": 4.118279617352496e-05,
+        "suggested_a": "ceil(0.2509 * n)",
+        "description": "For n \u2261 8 (mod 24): a \u2248 0.2509\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 9,
+        "count": 417,
+        "a_over_n": 0.2506584821422044,
+        "a_over_n_var": 1.8674658802945493e-05,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 9 (mod 24): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 10,
+        "count": 417,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 11,
+        "count": 417,
+        "a_over_n": 0.25020528581420376,
+        "a_over_n_var": 1.4484710124143832e-06,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 11 (mod 24): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 12,
+        "count": 417,
+        "a_over_n": 0.2507990204323977,
+        "a_over_n_var": 1.9896821978103784e-05,
+        "suggested_a": "ceil(0.2508 * n)",
+        "description": "For n \u2261 12 (mod 24): a \u2248 0.2508\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 13,
+        "count": 417,
+        "a_over_n": 0.2505848773257637,
+        "a_over_n_var": 9.745171736608655e-06,
+        "suggested_a": "ceil(0.2506 * n)",
+        "description": "For n \u2261 13 (mod 24): a \u2248 0.2506\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 14,
+        "count": 417,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 14 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 15,
+        "count": 417,
+        "a_over_n": 0.250187002771311,
+        "a_over_n_var": 8.49422920845689e-07,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 15 (mod 24): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 16,
+        "count": 417,
+        "a_over_n": 0.2507345843802373,
+        "a_over_n_var": 1.220634854749867e-05,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 16 (mod 24): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 17,
+        "count": 416,
+        "a_over_n": 0.2505429547494017,
+        "a_over_n_var": 6.2286996185918315e-06,
+        "suggested_a": "ceil(0.2505 * n)",
+        "description": "For n \u2261 17 (mod 24): a \u2248 0.2505\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 18,
+        "count": 416,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 18 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 19,
+        "count": 416,
+        "a_over_n": 0.25017567389195616,
+        "a_over_n_var": 5.780636453468441e-07,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 19 (mod 24): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 20,
+        "count": 416,
+        "a_over_n": 0.2506933309169185,
+        "a_over_n_var": 8.52329277226933e-06,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 20 (mod 24): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 21,
+        "count": 416,
+        "a_over_n": 0.250513491857602,
+        "a_over_n_var": 4.439177106351154e-06,
+        "suggested_a": "ceil(0.2505 * n)",
+        "description": "For n \u2261 21 (mod 24): a \u2248 0.2505\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 22,
+        "count": 416,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 22 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 23,
+        "count": 416,
+        "a_over_n": 0.2501672603590054,
+        "a_over_n_var": 4.2813331583322326e-07,
+        "suggested_a": "ceil(0.2502 * n)",
+        "description": "For n \u2261 23 (mod 24): a \u2248 0.2502\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 0,
+        "count": 416,
+        "a_over_n": 0.25066196938769036,
+        "a_over_n_var": 6.41665224731503e-06,
+        "suggested_a": "ceil(0.2507 * n)",
+        "description": "For n \u2261 0 (mod 24): a \u2248 0.2507\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 1,
+        "count": 416,
+        "a_over_n": 0.2507690755891559,
+        "a_over_n_var": 7.5937578231237e-06,
+        "suggested_a": "ceil(0.2508 * n)",
+        "description": "For n \u2261 1 (mod 24): a \u2248 0.2508\u00b7n"
+      }
+    ],
+    "family_count": 87,
+    "active_methods": 5,
+    "compression_ratio": 1999.8
+  },
+  "100000": {
+    "max_n": 100000,
+    "total_time_seconds": 21.45,
+    "phase_times": {
+      "coverage": 18.96,
+      "deep_search": 0.0,
+      "family_discovery": 2.48,
+      "analysis": 0.0
+    },
+    "coverage": {
+      "total": 99999,
+      "covered_after_phase1": 99999,
+      "rescued_in_phase2": 0,
+      "final_covered": 99999,
+      "final_unsolved": 0,
+      "coverage_pct": 100.0
+    },
+    "method_stats": {
+      "family_mod4_eq2": 25000,
+      "family_prime": 8986,
+      "family_mod4_eq3_schinzel": 25000,
+      "divisor_fast": 40390,
+      "family_mod12_1": 7200
+    },
+    "rescued_by_method": {},
+    "unsolved": {
+      "count": 0,
+      "primes": [],
+      "all_values": [],
+      "prime_count": 0
+    },
+    "prime_mod_analysis": {},
+    "families": [
+      {
+        "modulus": 4,
+        "residue": 2,
+        "count": 25000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 4): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 4,
+        "residue": 3,
+        "count": 25000,
+        "a_over_n": 0.25002803125495915,
+        "a_over_n_var": 3.963766937566044e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 4): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 4,
+        "residue": 0,
+        "count": 25000,
+        "a_over_n": 0.2501070386676862,
+        "a_over_n_var": 4.1007778927405055e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 0 (mod 4): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 4,
+        "residue": 1,
+        "count": 24999,
+        "a_over_n": 0.25008357691500227,
+        "a_over_n_var": 1.752677709581933e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 1 (mod 4): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 6,
+        "residue": 3,
+        "count": 16667,
+        "a_over_n": 0.25005449532438656,
+        "a_over_n_var": 1.0405782943559868e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 3 (mod 6): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 6,
+        "residue": 5,
+        "count": 16666,
+        "a_over_n": 0.25005521289721794,
+        "a_over_n_var": 1.6322091325187688e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 5 (mod 6): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 6,
+        "residue": 1,
+        "count": 16666,
+        "a_over_n": 0.25005770244542985,
+        "a_over_n_var": 5.530638948023103e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 1 (mod 6): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 2,
+        "count": 12500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 8): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 3,
+        "count": 12500,
+        "a_over_n": 0.2500304686824316,
+        "a_over_n_var": 6.367042868878756e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 8): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 4,
+        "count": 12500,
+        "a_over_n": 0.2501139699394958,
+        "a_over_n_var": 6.15541360357223e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 4 (mod 8): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 5,
+        "count": 12500,
+        "a_over_n": 0.2500816465201606,
+        "a_over_n_var": 2.3847345148522226e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 5 (mod 8): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 6,
+        "count": 12500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 8): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 7,
+        "count": 12500,
+        "a_over_n": 0.2500255938274866,
+        "a_over_n_var": 1.56037218519966e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 7 (mod 8): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 0,
+        "count": 12500,
+        "a_over_n": 0.25010010739587657,
+        "a_over_n_var": 2.046046096850985e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 0 (mod 8): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 1,
+        "count": 12499,
+        "a_over_n": 0.2500855074642878,
+        "a_over_n_var": 1.120562881978808e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 1 (mod 8): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 2,
+        "count": 8334,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 12): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 3,
+        "count": 8334,
+        "a_over_n": 0.25003313615497735,
+        "a_over_n_var": 8.94518323036828e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 4,
+        "count": 8334,
+        "a_over_n": 0.2501215913986281,
+        "a_over_n_var": 8.397440164331386e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 4 (mod 12): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 5,
+        "count": 8333,
+        "a_over_n": 0.25008604644240107,
+        "a_over_n_var": 3.1656917953877086e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 5 (mod 12): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 6,
+        "count": 8333,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 12): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 7,
+        "count": 8333,
+        "a_over_n": 0.25002657764525277,
+        "a_over_n_var": 1.9768541170592038e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 7 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 8,
+        "count": 8333,
+        "a_over_n": 0.25010346647097254,
+        "a_over_n_var": 2.5425263244489046e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 8 (mod 12): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 9,
+        "count": 8333,
+        "a_over_n": 0.25007585705699864,
+        "a_over_n_var": 1.1857432010868942e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 9 (mod 12): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 10,
+        "count": 8333,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 12): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 11,
+        "count": 8333,
+        "a_over_n": 0.2500243793520348,
+        "a_over_n_var": 9.682505463270659e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 11 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 0,
+        "count": 8333,
+        "a_over_n": 0.2500960563870603,
+        "a_over_n_var": 1.361506390874001e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 0 (mod 12): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 1,
+        "count": 8333,
+        "a_over_n": 0.250088827245607,
+        "a_over_n_var": 9.065048715265679e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 1 (mod 12): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 2,
+        "count": 6250,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 3,
+        "count": 6250,
+        "a_over_n": 0.2500359465468148,
+        "a_over_n_var": 1.1600513604413235e-06,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 4,
+        "count": 6250,
+        "a_over_n": 0.2501296775027637,
+        "a_over_n_var": 1.073141446284396e-05,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 4 (mod 16): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 5,
+        "count": 6250,
+        "a_over_n": 0.25009071559239665,
+        "a_over_n_var": 3.985273884546226e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 5 (mod 16): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 6,
+        "count": 6250,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 7,
+        "count": 6250,
+        "a_over_n": 0.25002762413643365,
+        "a_over_n_var": 2.4196474740716566e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 7 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 8,
+        "count": 6250,
+        "a_over_n": 0.25010703846769816,
+        "a_over_n_var": 3.0726941417734627e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 8 (mod 16): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 9,
+        "count": 6250,
+        "a_over_n": 0.2500899170034962,
+        "a_over_n_var": 1.522435468395939e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 9 (mod 16): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 10,
+        "count": 6250,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 11,
+        "count": 6250,
+        "a_over_n": 0.25002499081804846,
+        "a_over_n_var": 1.132971993380268e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 11 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 12,
+        "count": 6250,
+        "a_over_n": 0.25009826237622784,
+        "a_over_n_var": 1.5789192892128653e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 12 (mod 16): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 13,
+        "count": 6250,
+        "a_over_n": 0.25007257744792455,
+        "a_over_n_var": 7.840306490157739e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 13 (mod 16): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 14,
+        "count": 6250,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 14 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 15,
+        "count": 6250,
+        "a_over_n": 0.2500235635185396,
+        "a_over_n_var": 7.010144532392552e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 15 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 0,
+        "count": 6250,
+        "a_over_n": 0.250093176324055,
+        "a_over_n_var": 1.0193019724153147e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 0 (mod 16): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 1,
+        "count": 6249,
+        "a_over_n": 0.2500810972194403,
+        "a_over_n_var": 7.185870882510774e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 1 (mod 16): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 2,
+        "count": 5000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 3,
+        "count": 5000,
+        "a_over_n": 0.2500388452913382,
+        "a_over_n_var": 1.429422411543358e-06,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 4,
+        "count": 5000,
+        "a_over_n": 0.2501380617308787,
+        "a_over_n_var": 1.3114527555178626e-05,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 4 (mod 20): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 5,
+        "count": 5000,
+        "a_over_n": 0.2500955844754391,
+        "a_over_n_var": 4.827556179947711e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 5 (mod 20): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 6,
+        "count": 5000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 7,
+        "count": 5000,
+        "a_over_n": 0.25002872058515613,
+        "a_over_n_var": 2.8793322286973496e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 7 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 8,
+        "count": 5000,
+        "a_over_n": 0.2501107855773747,
+        "a_over_n_var": 3.6253048491108503e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 8 (mod 20): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 9,
+        "count": 5000,
+        "a_over_n": 0.25009269672095413,
+        "a_over_n_var": 1.8912763032706212e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 9 (mod 20): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 10,
+        "count": 5000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 11,
+        "count": 5000,
+        "a_over_n": 0.2500256329061092,
+        "a_over_n_var": 1.3061293109491485e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 11 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 12,
+        "count": 5000,
+        "a_over_n": 0.2501005783240678,
+        "a_over_n_var": 1.807888838179192e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 12 (mod 20): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 13,
+        "count": 5000,
+        "a_over_n": 0.2500839274861472,
+        "a_over_n_var": 1.0113168284688776e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 13 (mod 20): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 14,
+        "count": 5000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 14 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 15,
+        "count": 5000,
+        "a_over_n": 0.250024007760179,
+        "a_over_n_var": 7.885111675342807e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 15 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 16,
+        "count": 5000,
+        "a_over_n": 0.25009482261757987,
+        "a_over_n_var": 1.1406457459461216e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 16 (mod 20): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 17,
+        "count": 5000,
+        "a_over_n": 0.25007029400341996,
+        "a_over_n_var": 5.844287026816646e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 17 (mod 20): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 18,
+        "count": 5000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 18 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 19,
+        "count": 5000,
+        "a_over_n": 0.2500229497320131,
+        "a_over_n_var": 5.489860549975574e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 19 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 0,
+        "count": 5000,
+        "a_over_n": 0.25009094508852986,
+        "a_over_n_var": 8.140960342957451e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 0 (mod 20): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 1,
+        "count": 4999,
+        "a_over_n": 0.25007538024971787,
+        "a_over_n_var": 4.4807853081184e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 1 (mod 20): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 2,
+        "count": 4167,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 3,
+        "count": 4167,
+        "a_over_n": 0.2500418050413474,
+        "a_over_n_var": 1.7009258497044758e-06,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 4,
+        "count": 4167,
+        "a_over_n": 0.25014665825876325,
+        "a_over_n_var": 1.5526527967353718e-05,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 4 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 5,
+        "count": 4167,
+        "a_over_n": 0.2501005925355967,
+        "a_over_n_var": 5.683550320955237e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 5 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 6,
+        "count": 4167,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 7,
+        "count": 4167,
+        "a_over_n": 0.25002985300654007,
+        "a_over_n_var": 3.3499824748773683e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 7 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 8,
+        "count": 4167,
+        "a_over_n": 0.25011466028133994,
+        "a_over_n_var": 4.1929153411589565e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 8 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 9,
+        "count": 4167,
+        "a_over_n": 0.2500831602523167,
+        "a_over_n_var": 1.9057917413362181e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 9 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 10,
+        "count": 4167,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 11,
+        "count": 4167,
+        "a_over_n": 0.2500262977882079,
+        "a_over_n_var": 1.4853327189089808e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 11 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 12,
+        "count": 4167,
+        "a_over_n": 0.25010297637848816,
+        "a_over_n_var": 2.045298984784041e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 12 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 13,
+        "count": 4167,
+        "a_over_n": 0.25007579177384454,
+        "a_over_n_var": 1.0042128619732993e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 13 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 14,
+        "count": 4167,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 14 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 15,
+        "count": 4167,
+        "a_over_n": 0.2500244672686074,
+        "a_over_n_var": 8.796049718738869e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 15 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 16,
+        "count": 4167,
+        "a_over_n": 0.250096524538493,
+        "a_over_n_var": 1.2670956663549865e-06,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 16 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 17,
+        "count": 4166,
+        "a_over_n": 0.2500714968575844,
+        "a_over_n_var": 6.468055570377664e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 17 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 18,
+        "count": 4166,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 18 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 19,
+        "count": 4166,
+        "a_over_n": 0.2500233014977529,
+        "a_over_n_var": 6.03181518607267e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 19 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 20,
+        "count": 4166,
+        "a_over_n": 0.25009226997366074,
+        "a_over_n_var": 8.914904579700217e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 20 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 21,
+        "count": 4166,
+        "a_over_n": 0.25006855210863327,
+        "a_over_n_var": 4.654151097983005e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 21 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 22,
+        "count": 4166,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 22 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 23,
+        "count": 4166,
+        "a_over_n": 0.25002246045536336,
+        "a_over_n_var": 4.509706197123718e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 23 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 0,
+        "count": 4166,
+        "a_over_n": 0.2500891347345688,
+        "a_over_n_var": 6.774538534304633e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 0 (mod 24): a \u2248 0.2501\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 1,
+        "count": 4166,
+        "a_over_n": 0.2501018658463834,
+        "a_over_n_var": 8.08433457987094e-07,
+        "suggested_a": "ceil(0.2501 * n)",
+        "description": "For n \u2261 1 (mod 24): a \u2248 0.2501\u00b7n"
+      }
+    ],
+    "family_count": 87,
+    "active_methods": 5,
+    "compression_ratio": 19999.8
+  },
+  "1000000": {
+    "max_n": 1000000,
+    "total_time_seconds": 384.54,
+    "phase_times": {
+      "coverage": 358.9,
+      "deep_search": 0.0,
+      "family_discovery": 25.64,
+      "analysis": 0.0
+    },
+    "coverage": {
+      "total": 999999,
+      "covered_after_phase1": 999999,
+      "rescued_in_phase2": 0,
+      "final_covered": 999999,
+      "final_unsolved": 0,
+      "coverage_pct": 100.0
+    },
+    "method_stats": {
+      "family_mod4_eq2": 250000,
+      "family_prime": 73958,
+      "family_mod4_eq3_schinzel": 250000,
+      "divisor_fast": 406473,
+      "family_mod12_1": 73915
+    },
+    "rescued_by_method": {},
+    "unsolved": {
+      "count": 0,
+      "primes": [],
+      "all_values": [],
+      "prime_count": 0
+    },
+    "prime_mod_analysis": {},
+    "families": [
+      {
+        "modulus": 4,
+        "residue": 2,
+        "count": 250000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 4): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 4,
+        "residue": 3,
+        "count": 250000,
+        "a_over_n": 0.25000337876951917,
+        "a_over_n_var": 3.9705390911467725e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 4): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 4,
+        "residue": 0,
+        "count": 250000,
+        "a_over_n": 0.25001300643386176,
+        "a_over_n_var": 4.110633493922566e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 0 (mod 4): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 4,
+        "residue": 1,
+        "count": 249999,
+        "a_over_n": 0.25001019245005285,
+        "a_over_n_var": 1.7586255701491474e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 1 (mod 4): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 6,
+        "residue": 3,
+        "count": 166667,
+        "a_over_n": 0.25000660091852384,
+        "a_over_n_var": 1.0431592223769333e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 6): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 6,
+        "residue": 5,
+        "count": 166666,
+        "a_over_n": 0.2500066724038565,
+        "a_over_n_var": 1.634781643770561e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 5 (mod 6): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 6,
+        "residue": 1,
+        "count": 166666,
+        "a_over_n": 0.2500070834876448,
+        "a_over_n_var": 5.559213170366882e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 1 (mod 6): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 2,
+        "count": 125000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 8): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 3,
+        "count": 125000,
+        "a_over_n": 0.2500036225167664,
+        "a_over_n_var": 6.375070262816419e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 8): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 4,
+        "count": 125000,
+        "a_over_n": 0.2500136995790423,
+        "a_over_n_var": 6.166615966021484e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 4 (mod 8): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 5,
+        "count": 125000,
+        "a_over_n": 0.25000989158408565,
+        "a_over_n_var": 2.3904728591924283e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 5 (mod 8): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 6,
+        "count": 125000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 8): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 7,
+        "count": 125000,
+        "a_over_n": 0.25000313502227195,
+        "a_over_n_var": 1.565996036933023e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 7 (mod 8): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 0,
+        "count": 125000,
+        "a_over_n": 0.2500123132886812,
+        "a_over_n_var": 2.0546414128188222e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 0 (mod 8): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 8,
+        "residue": 1,
+        "count": 124999,
+        "a_over_n": 0.25001049331842706,
+        "a_over_n_var": 1.1267714158587855e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 1 (mod 8): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 2,
+        "count": 83334,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 12): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 3,
+        "count": 83334,
+        "a_over_n": 0.2500038894844945,
+        "a_over_n_var": 8.955351554125491e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 4,
+        "count": 83334,
+        "a_over_n": 0.2500144625279879,
+        "a_over_n_var": 8.410828654062142e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 4 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 5,
+        "count": 83333,
+        "a_over_n": 0.25001033131394984,
+        "a_over_n_var": 3.1719648212400425e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 5 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 6,
+        "count": 83333,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 12): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 7,
+        "count": 83333,
+        "a_over_n": 0.25000323332417124,
+        "a_over_n_var": 1.9828572215651032e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 7 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 8,
+        "count": 83333,
+        "a_over_n": 0.2500126488869195,
+        "a_over_n_var": 2.551629777294787e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 8 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 9,
+        "count": 83333,
+        "a_over_n": 0.2500093123850905,
+        "a_over_n_var": 1.1906380207006022e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 9 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 10,
+        "count": 83333,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 12): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 11,
+        "count": 83333,
+        "a_over_n": 0.25000301349376314,
+        "a_over_n_var": 9.733071383965797e-09,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 11 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 0,
+        "count": 83333,
+        "a_over_n": 0.2500119078692046,
+        "a_over_n_var": 1.3693558986657484e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 0 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 12,
+        "residue": 1,
+        "count": 83333,
+        "a_over_n": 0.2500109336511183,
+        "a_over_n_var": 9.132604367414049e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 1 (mod 12): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 2,
+        "count": 62500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 3,
+        "count": 62500,
+        "a_over_n": 0.2500041703122048,
+        "a_over_n_var": 1.1611752249397565e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 4,
+        "count": 62500,
+        "a_over_n": 0.2500152703713691,
+        "a_over_n_var": 1.074598887910944e-06,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 4 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 5,
+        "count": 62500,
+        "a_over_n": 0.250010798518309,
+        "a_over_n_var": 3.9923877499439727e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 5 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 6,
+        "count": 62500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 7,
+        "count": 62500,
+        "a_over_n": 0.25000333806216635,
+        "a_over_n_var": 2.4262203879246875e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 7 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 8,
+        "count": 62500,
+        "a_over_n": 0.25001300643186175,
+        "a_over_n_var": 3.0825497026426803e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 8 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 9,
+        "count": 62500,
+        "a_over_n": 0.2500109342095363,
+        "a_over_n_var": 1.5294028469203207e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 9 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 10,
+        "count": 62500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 11,
+        "count": 62500,
+        "a_over_n": 0.25000307472132793,
+        "a_over_n_var": 1.1383282602668032e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 11 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 12,
+        "count": 62500,
+        "a_over_n": 0.2500121287867155,
+        "a_over_n_var": 1.5871937051628487e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 12 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 13,
+        "count": 62500,
+        "a_over_n": 0.2500089846498623,
+        "a_over_n_var": 7.88541517847176e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 13 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 14,
+        "count": 62500,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 14 (mod 16): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 15,
+        "count": 62500,
+        "a_over_n": 0.25000293198237755,
+        "a_over_n_var": 7.057634409016148e-09,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 15 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 0,
+        "count": 62500,
+        "a_over_n": 0.2500116201455006,
+        "a_over_n_var": 1.0267235140455887e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 0 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 16,
+        "residue": 1,
+        "count": 62499,
+        "a_over_n": 0.2500100524202635,
+        "a_over_n_var": 7.241296547985672e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 1 (mod 16): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 2,
+        "count": 50000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 3,
+        "count": 50000,
+        "a_over_n": 0.25000446019115724,
+        "a_over_n_var": 1.4307380605840484e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 4,
+        "count": 50000,
+        "a_over_n": 0.250016108812181,
+        "a_over_n_var": 1.3131083664353064e-06,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 4 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 5,
+        "count": 50000,
+        "a_over_n": 0.25001128542011336,
+        "a_over_n_var": 4.835469592605654e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 5 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 6,
+        "count": 50000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 7,
+        "count": 50000,
+        "a_over_n": 0.2500034477115386,
+        "a_over_n_var": 2.8864485291852496e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 7 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 8,
+        "count": 50000,
+        "a_over_n": 0.250013381160829,
+        "a_over_n_var": 3.63587774059348e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 8 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 9,
+        "count": 50000,
+        "a_over_n": 0.2500111896303162,
+        "a_over_n_var": 1.898693691522939e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 9 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 10,
+        "count": 50000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 11,
+        "count": 50000,
+        "a_over_n": 0.2500031389346338,
+        "a_over_n_var": 1.3117707280227149e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 11 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 12,
+        "count": 50000,
+        "a_over_n": 0.2500123603994983,
+        "a_over_n_var": 1.8165670407135983e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 12 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 13,
+        "count": 50000,
+        "a_over_n": 0.250010265926168,
+        "a_over_n_var": 1.0173721152731047e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 13 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 14,
+        "count": 50000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 14 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 15,
+        "count": 50000,
+        "a_over_n": 0.2500029764110411,
+        "a_over_n_var": 7.934452376600972e-09,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 15 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 16,
+        "count": 50000,
+        "a_over_n": 0.2500117847928511,
+        "a_over_n_var": 1.1483382553854133e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 16 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 17,
+        "count": 50000,
+        "a_over_n": 0.2500087562919123,
+        "a_over_n_var": 5.8865384421988983e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 17 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 18,
+        "count": 50000,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 18 (mod 20): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 19,
+        "count": 50000,
+        "a_over_n": 0.25000287059922516,
+        "a_over_n_var": 5.534851674326921e-09,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 19 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 0,
+        "count": 50000,
+        "a_over_n": 0.25001139700394925,
+        "a_over_n_var": 8.211581165339138e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 0 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 20,
+        "residue": 1,
+        "count": 49999,
+        "a_over_n": 0.2500094649672049,
+        "a_over_n_var": 4.528646306885152e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 1 (mod 20): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 2,
+        "count": 41667,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 3,
+        "count": 41667,
+        "a_over_n": 0.25000475644904613,
+        "a_over_n_var": 1.702575489640164e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 3 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 4,
+        "count": 41667,
+        "a_over_n": 0.2500169694484774,
+        "a_over_n_var": 1.554636643936092e-06,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 4 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 5,
+        "count": 41667,
+        "a_over_n": 0.2500117868960728,
+        "a_over_n_var": 5.692740434921947e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 5 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 6,
+        "count": 41667,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 7,
+        "count": 41667,
+        "a_over_n": 0.25000356115051164,
+        "a_over_n_var": 3.3579244017379817e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 7 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 8,
+        "count": 41667,
+        "a_over_n": 0.2500137693843526,
+        "a_over_n_var": 4.204559191205594e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 8 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 9,
+        "count": 41667,
+        "a_over_n": 0.2500100435152345,
+        "a_over_n_var": 1.911886982558318e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 9 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 10,
+        "count": 41667,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 10 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 11,
+        "count": 41667,
+        "a_over_n": 0.25000320559408157,
+        "a_over_n_var": 1.491384558461707e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 11 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 12,
+        "count": 41667,
+        "a_over_n": 0.25001260087394667,
+        "a_over_n_var": 2.0545533142690155e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 12 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 13,
+        "count": 41667,
+        "a_over_n": 0.25000930658733694,
+        "a_over_n_var": 1.0092144652011813e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 13 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 14,
+        "count": 41667,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 14 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 15,
+        "count": 41667,
+        "a_over_n": 0.2500030225199429,
+        "a_over_n_var": 8.84797886342585e-09,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 15 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 16,
+        "count": 41667,
+        "a_over_n": 0.2500119556074985,
+        "a_over_n_var": 1.275165175756554e-07,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 16 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 17,
+        "count": 41666,
+        "a_over_n": 0.25000887569689234,
+        "a_over_n_var": 6.510863320635681e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 17 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 18,
+        "count": 41666,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 18 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 19,
+        "count": 41666,
+        "a_over_n": 0.25000290548996285,
+        "a_over_n_var": 6.077355444561686e-09,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 19 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 20,
+        "count": 41666,
+        "a_over_n": 0.25001152836259405,
+        "a_over_n_var": 8.98635581249369e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 20 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 21,
+        "count": 41666,
+        "a_over_n": 0.25000858123739916,
+        "a_over_n_var": 4.6936105718020434e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 21 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 22,
+        "count": 41666,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 22 (mod 24): a \u2248 0.5000\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 23,
+        "count": 41666,
+        "a_over_n": 0.25000282138883423,
+        "a_over_n_var": 4.55209903502252e-09,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 23 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 0,
+        "count": 41666,
+        "a_over_n": 0.2500112148478301,
+        "a_over_n_var": 6.841324326041435e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 0 (mod 24): a \u2248 0.2500\u00b7n"
+      },
+      {
+        "modulus": 24,
+        "residue": 1,
+        "count": 41666,
+        "a_over_n": 0.25001256075394984,
+        "a_over_n_var": 8.172511567109962e-08,
+        "suggested_a": "ceil(0.2500 * n)",
+        "description": "For n \u2261 1 (mod 24): a \u2248 0.2500\u00b7n"
+      }
+    ],
+    "family_count": 87,
+    "active_methods": 5,
+    "compression_ratio": 199999.8
+  }
+}

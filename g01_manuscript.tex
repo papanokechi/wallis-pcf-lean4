@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+
+\title{G-01 Calibration Notes}
+\author{Local workspace draft}
+\date{April 2, 2026}
+
+\begin{document}
+\maketitle
+
+\section{Empirical Verification of the Invariant}
+Using the current local \texttt{g01\_ladder.py} weight sweep, we tested the aligned G-01 law across the set $k \in \{12,24,48,96\}$. Under the active vacuum calibration, the alignment scalar remained numerically fixed at $\Gamma = 0.98623000$ while the raw prediction magnitude increased sharply with $k$.
+
+\begin{center}
+\begin{tabular}{rcc}
+\toprule
+$k$ & G-01 prediction & Gap (\%) \\
+\midrule
+12 & $-33.40042$ & $10183.381686$ \\
+24 & $-163.4577$ & n/a \\
+48 & $-1.287169 \times 10^{14}$ & n/a \\
+96 & $-2.594522 \times 10^{57}$ & n/a \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This section is a manuscript-ready snapshot of the verified local sweep. It should be interpreted as a reproducible numerical summary of the current workspace calibration rather than as a standalone proof claim.
+
+\section{Cosmological Outlook}
+For the current workspace model, we summarize the vacuum-aligned Hubble prescription as
+\[
+H_0^{\mathrm{G\text{-}01}}(k) = H_0\,\frac{1 + \alpha/(12k)}{\Gamma},
+\qquad
+\Gamma = 0.98623000,
+\qquad
+\alpha = \frac{1}{137}.
+\]
+With the local default $H_0 = 67.4$ and a cosmological effective weight $k = 10^{120}$, this gives the workspace prediction
+\[
+H_0^{\mathrm{G\text{-}01}}(10^{120}) \approx 68.34\ \mathrm{km\ s^{-1}\ Mpc^{-1}}.
+\]
+In the present draft, this is recorded as a model-based outlook tied to the local calibration, not as an experimental claim.
+
+\end{document}

@@ -1,0 +1,31 @@
+{
+  "updated_at": "2026-03-31 22:04:08Z",
+  "mode": "local_workspace",
+  "brief": {
+    "mission_id": "V2-LOCAL-TEST-20260331-220408",
+    "topic": "v2 local test",
+    "domain": "general-research",
+    "success_metric": "low gap, low LFI, stable across 10 seeds, no dry-run contamination",
+    "validation_mode": "local_workspace",
+    "red_team_focus": [
+      "dry-run detection",
+      "outer-scalar audit",
+      "multi-seed robustness",
+      "small-relation PSLQ only"
+    ],
+    "suggested_paths": {
+      "controller": "multi_agent_discussion/controller.py",
+      "siarc_adapter": "multi_agent_discussion/siarc_adapter.py",
+      "gauntlet": "multi_agent_discussion/gauntlet.py",
+      "main_runner": "siarc.py",
+      "agent_d_output": "siarc_outputs/agent_D_out.json",
+      "agent_j_output": "siarc_outputs/agent_J_out.json",
+      "self_correction_log": "multi_agent_discussion/self_correction_log.json",
+      "formal_report": "breakthroughs/H-0025_Final.md",
+      "epoch5_state": "epoch5_state.json"
+    }
+  },
+  "seed_prompt": "# FIELD AGENT MISSION BRIEF\n\nMission ID: V2-LOCAL-TEST-20260331-220408\nTopic: v2 local test\nDomain: general-research\nValidation mode: local_workspace\nSwarm size: 6\nASR threshold: 0.0001\nSeed formula / starting hypothesis: test seed\n\n## Suggested paths to inspect first\n- `multi_agent_discussion/controller.py`\n- `multi_agent_discussion/siarc_adapter.py`\n- `multi_agent_discussion/gauntlet.py`\n- `siarc.py`\n- `siarc_outputs/agent_D_out.json`\n- `siarc_outputs/agent_J_out.json`\n- `multi_agent_discussion/self_correction_log.json`\n- `breakthroughs/H-0025_Final.md`\n- `epoch5_state.json`\n\n## Mission objective\nInvestigate the topic 'v2 local test' in the domain 'general-research', route it through the full SIARC pipeline, and return only claims that survive numeric checking, red-team pressure, and judge review.\n\n## Required workflow\n1. **Swarm**\n   - Generate diverse candidates around the current hypothesis.\n   - Keep at least one conservative mutation and one adversarial mutation.\n2. **Gauntlet**\n   - Score each candidate by numeric gap, LFI, stability, and cross-seed consistency.\n   - Reject any candidate that only improves through an untrusted outer scalar wrapper.\n3. **ASR**\n   - Refine only the internal structure of the formula.\n   - If the best result depends on a scale far from ±1, report `CALIBRATED`, not `PERFECTED`.\n4. **PSLQ / symbolic recovery**\n   - Re-run at higher precision before proposing exact constants.\n   - Prefer small, interpretable relations over giant rational noise.\n5. **Judge / report**\n   - Send only live-validated survivors to JUDGE-01.\n   - If any artifact contains `[DRY RUN]`, stop immediately with verdict `DRY_RUN_DETECTED`.\n\n## Red-team requirements\n- Explain the strongest failure mode.\n- Test 10 seed windows or 10 randomized restarts where applicable.\n- Quantify the best gap, median gap, and pass rate.\n- Explain any alpha/beta discrepancy instead of silently absorbing it into calibration.\n\n## Memory loading\nBefore proposing a breakthrough, load recent notes from:\n- `multi_agent_discussion/self_correction_log.json`\n- `siarc_outputs/agent_D_out.json`\n- `siarc_outputs/agent_J_out.json`\n- `breakthroughs/H-0025_Final.md`\n\n## Termination conditions\n- `REPORT_READY`: live evidence, low LFI, stable across seeds, no dry-run contamination.\n- `REVISE_AND_REPEAT`: promising numeric fit but still unstable or structurally unclear.\n- `DRY_RUN_DETECTED`: any synthetic or mocked judge/debate evidence remains.\n- `RED_TEAM_BLOCK`: a lethal flaw survives critique.\n- `FORMAL_PROOF_PENDING`: numerics hold, but symbolic proof is incomplete.\n\n## Deliverable format\nReturn:\n1. concise mission log\n2. surviving candidate formulas / hypotheses\n3. evidence table with gap/LFI/seed robustness\n4. exact recommendation for CTRL-01 and JUDGE-01",
+  "ctrl_reply": "CTRL-01 local mode is active with no API key required. Current evidence status: dry_run, best gap 9.15356, LFI 0.16. Next gate: Live API adjudication. Deploy any field mission with topic, domain, swarm size, and ASR threshold.",
+  "topic": "v2 local test"
+}

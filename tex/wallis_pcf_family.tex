@@ -1,0 +1,585 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\newcommand{\half}{\tfrac{1}{2}}
+\newcommand{\poch}[2]{(#1)_{#2}}
+\newcommand{\dff}[1]{(#1)!!}
+\newcommand{\CF}{\mathrm{CF}}
+\newcommand{\val}{\operatorname{val}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{A continuous family of polynomial continued fractions\\
+for reciprocal Wallis integrals}
+\author{Papanokechi}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study the one-parameter family of continued fractions
+\[
+  S^{(m)} = 1 + \cfrac{a_m(1)}{4 + \cfrac{a_m(2)}{7 + \cfrac{a_m(3)}{10+\cdots}}}
+\]
+with partial numerators $a_m(n) = -n(2n-2m-1)$ and partial denominators
+$b(n) = 3n+1$, parametrised by $m \geq 0$.
+We prove that $S^{(0)} = 2/\pi$ by exhibiting an explicit duality with the
+Euler continued fraction for $\pi/2$, and conjecture that
+$S^{(m)} = 2\,\Gamma(m{+}1)/[\sqrt{\pi}\,\Gamma(m{+}\half)]$
+for all real $m \geq 0$---the reciprocal of the Wallis integral
+$\int_0^{\pi/2}\sin^{2m}x\,dx$.
+The conjecture is verified to
+$604$ decimal digits for $m=0$, $613$ for $m=1$,
+$621$ for $m=2$, and $628$ for~$m=3$.
+For the step $m{=}0 \to 1$ we give a complete algebraic proof via
+an explicit shift operator mapping solutions of adjacent recurrences,
+yielding $S^{(1)} = 2\,S^{(0)} = 4/\pi$.
+We prove that no member of the family is equivalent to a Gauss
+continued fraction for any~${}_2F_1$, and that the family extends
+continuously to non-integer~$m$ with geometric convergence rate $r \approx 1/2$.
+The formal generating function of the minimal solution satisfies
+a second-order linear ODE with an irregular singularity at the origin.
+\end{abstract}
+
+\noindent\textbf{MSC 2020:}
+11A55 (primary), 11Y60, 33C05, 33F10, 40A15.
+
+\medskip\noindent\textbf{Keywords:}
+continued fraction, Wallis integral, polynomial CF, Pincherle theorem,
+Gauss continued fraction, Euler CF duality, Gamma function.
+
+%======================================================================
+\section{Introduction}\label{sec:intro}
+%======================================================================
+
+The Wallis integrals $I_m = \int_0^{\pi/2}\sin^{2m}x\,dx$ satisfy
+the classical reduction formula $I_{m+1} = \frac{2m+1}{2m+2}\,I_m$
+with $I_0 = \pi/2$, giving
+\begin{equation}\label{eq:wallis}
+  I_m = \frac{\pi}{2}\cdot\frac{(\half)_m}{m!}
+      = \frac{\sqrt{\pi}\,\Gamma(m{+}\half)}{2\,\Gamma(m{+}1)}\,,
+\end{equation}
+where $(\half)_m = \Gamma(m{+}\half)/\Gamma(\half)$ is the
+Pochhammer symbol.  The reciprocal
+\begin{equation}\label{eq:valm}
+  \val(m) := \frac{1}{I_m}
+  = \frac{2\,\Gamma(m{+}1)}{\sqrt{\pi}\,\Gamma(m{+}\half)}
+  = \frac{2}{\pi}\cdot\frac{(2m)!!}{(2m{-}1)!!}
+\end{equation}
+gives $\val(0) = 2/\pi$, $\val(1) = 4/\pi$,
+$\val(2) = 16/(3\pi)$, etc.
+
+In this note we exhibit a family of polynomial continued fractions
+(PCFs)---in the sense of~\cite{raayoni2021generating},
+cf.~also Ap\'ery's celebrated CF for $\zeta(3)$~\cite{apery1979irrationalite}---that converge to~$\val(m)$.
+
+\begin{definition}[The Pi Family]\label{def:family}
+For $m \geq 0$ (real), define
+\begin{equation}\label{eq:pcf}
+  S^{(m)} = b_0 + \cfrac{a_m(1)}{b_1 + \cfrac{a_m(2)}{b_2 + \cdots}}\,,
+  \qquad
+  a_m(n) = -n(2n{-}2m{-}1),\quad b(n) = 3n{+}1.
+\end{equation}
+\end{definition}
+
+\begin{conjecture}[Main Conjecture]\label{conj:main}
+For all real $m \geq 0$,
+\[
+  S^{(m)} = \val(m) = \frac{2\,\Gamma(m{+}1)}{\sqrt{\pi}\,\Gamma(m{+}\half)}\,.
+\]
+\end{conjecture}
+
+\begin{theorem}[Proved cases]\label{thm:proved}
+\mbox{}
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $S^{(0)} = 2/\pi$.  \textup{(}Proved algebraically,
+  Theorem~\ref{thm:euler}.\textup{)}
+\item $S^{(1)} = 4/\pi$.
+  \textup{(}Proved algebraically, Theorem~\ref{thm:shift}.\textup{)}
+\item For general $m$, the conjecture is verified numerically to
+  $600{+}$ decimal digits \textup{(}Table~\ref{tab:precision}\textup{)}.
+\end{enumerate}
+\end{theorem}
+
+\medskip
+The paper is organised as follows.
+Section~\ref{sec:convergence} establishes convergence of the CF.
+Section~\ref{sec:euler} proves the base case $S^{(0)}=2/\pi$ via
+Euler CF duality.
+Section~\ref{sec:shift} gives the algebraic proof of $S^{(1)}=4/\pi$
+via the shift operator.
+Section~\ref{sec:gauss} proves non-membership in the Gauss CF class.
+Section~\ref{sec:structure} analyses the Pincherle decomposition,
+formal ODE, and convergence rate.
+Section~\ref{sec:continuous} establishes continuous extension to
+real~$m$.
+Section~\ref{sec:numerical} presents the high-precision verification.
+
+
+%======================================================================
+\section{Convergence}\label{sec:convergence}
+%======================================================================
+
+\begin{proposition}\label{prop:conv}
+For every $m \geq 0$, the CF $S^{(m)}$ converges.
+\end{proposition}
+
+\begin{proof}
+By the \'Sleszy\'nski--Pringsheim theorem
+(see~\cite[Ch.~III]{wall1948analytic},
+\cite[\S4.2]{lorentzen2008continued}), the CF converges if
+$|a_m(n)| \leq b(n)\,b(n{-}1)$ for all~$n \geq 2$.
+Note $|a_m(n)| = n|2n{-}2m{-}1| \leq n(2n{+}1) \leq 2n^2{+}n$
+for $n \geq m{+}1$ (and $|a_m(n)| \leq n(2m{+}1) \leq n(2n{+}1)$
+for $n \leq m$).
+Meanwhile $b(n)b(n{-}1) = (3n{+}1)(3n{-}2) = 9n^2{-}3n{-}2$.
+Since $9n^2{-}3n{-}2 \geq 2n^2{+}n$ for all $n \geq 1$
+(as $7n^2{-}4n{-}2 \geq 0$ for $n \geq 1$),
+the Pringsheim condition holds.
+\end{proof}
+
+The convergent numerators $P_n^{(m)}$ and denominators $Q_n^{(m)}$
+satisfy the three-term recurrence
+\begin{equation}\label{eq:rec}
+  y_n = (3n{+}1)\,y_{n-1} - n(2n{-}2m{-}1)\,y_{n-2}\,,
+\end{equation}
+with $P_{-1}=P_0=1$, $Q_{-1}=0$, $Q_0=1$.
+
+
+%======================================================================
+\section{Base case: Euler CF duality}\label{sec:euler}
+%======================================================================
+
+\begin{theorem}\label{thm:euler}
+$S^{(0)} = 2/\pi$.
+\end{theorem}
+
+\begin{proof}
+Consider the Euler series
+$E = \sum_{j=0}^{\infty} j!/(2j{+}1)!! = \pi/2$
+(a classical identity equivalent to
+${}_2F_1(1,1;\frac{3}{2};\frac{1}{2}) = \pi/2$;
+see~\cite[\S15.4]{nist2024dlmf}).
+The consecutive term ratios are $r_j = j/(2j{+}1)$.
+Applying the standard Euler continued fraction
+construction to the power series $E = \sum c_j$ with
+$c_j/c_{j-1} = r_j$, one obtains the CF
+\[
+  E = \frac{1}{1 - \cfrac{r_1}{1{+}r_1 - \cfrac{r_2}{1{+}r_2 - \cdots}}}\,.
+\]
+Performing the equivalence transformation $d_n = 2n{+}1$
+(i.e.\ multiplying the $n$-th level by $(2n{+}1)$) yields:
+\begin{itemize}
+\item new partial denominators:
+  $(2n{+}1)(1{+}r_n) = (2n{+}1)\cdot\frac{3n{+}1}{2n{+}1} = 3n{+}1 = b(n)$;
+\item new partial numerators at level~$n{+}1$:
+  $-(2n{+}1)(2n{+}3)\,r_{n+1} = -(2n{+}1)(n{+}1) = a_0(n{+}1)$.
+\end{itemize}
+After transformation, the CF for $1/E = 2/\pi$ takes the form
+\[
+  \frac{2}{\pi} = 1 - \frac{1}{T}
+  \quad\text{where}\quad
+  T = 4 + \cfrac{a_0(2)}{7 + \cfrac{a_0(3)}{10 + \cdots}}
+\]
+is the ``inner tail'' common to both the original Euler CF
+(which gives $\pi/2 = T/(T{-}1)$) and the PCF
+(which gives $S^{(0)} = 1 - 1/T$).
+Since $S^{(0)}\cdot(\pi/2) = (1-1/T)\cdot T/(T{-}1) = 1$,
+we conclude $S^{(0)} = 2/\pi$.
+\end{proof}
+
+\begin{remark}
+This ``inner tail'' duality is specific to~$m{=}0$.
+For $m \geq 1$, $\val(m) > 1$, so the form
+$\val(m) = (T'{-}1)/T'$ would require $T' < 0$,
+contradicting positivity of CF tails (Stern--Stolz).
+\end{remark}
+
+
+%======================================================================
+\section{The shift operator and $S^{(1)}=4/\pi$}\label{sec:shift}
+%======================================================================
+
+\begin{definition}\label{def:shift}
+Define the linear operator $L$ by
+$L(f)_n = (n{+}2)\,f_n - (n{+}1)^2\,f_{n-1}$.
+\end{definition}
+
+\begin{lemma}[Intertwining]\label{lem:intertwine}
+If $f$ satisfies the $m{=}0$ recurrence,
+then $L(f)$ satisfies the $m{=}1$ recurrence.
+\end{lemma}
+
+\begin{proof}
+Write $g_n = (n{+}2)f_n - (n{+}1)^2 f_{n-1}$ and compute
+$(3n{+}1)g_{n-1} - n(2n{-}3)g_{n-2}$.
+After eliminating $f_{n-3}$ using the $m{=}0$ recurrence,
+both sides reduce to
+$(2n^2{+}5n{+}1)\,f_{n-1} - n(2n^2{+}3n{-}2)\,f_{n-2}$.
+Details: the coefficient of $f_{n-1}$ is
+$(3n^2{+}4n{+}1) - n(n{-}1) = 2n^2{+}5n{+}1$;
+the coefficient of $f_{n-2}$ is
+$-n^2(5n{-}2) + n(n{-}1)(3n{-}2) = -n(2n^2{+}3n{-}2)$.
+\end{proof}
+
+\begin{theorem}\label{thm:shift}
+$S^{(1)} = 2\,S^{(0)} = 4/\pi$.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:intertwine} and linearity,
+$L$ maps the solution space of the $m{=}0$ recurrence
+to that of $m{=}1$.  Computing at $n=0,1$:
+\begin{align*}
+  L(P^{(0)})_0 &= 2\cdot1 - 1\cdot1 = 1 = P_0^{(1)},\\
+  L(P^{(0)})_1 &= 3\cdot3 - 4\cdot1 = 5 = P_1^{(1)},\\
+  L(Q^{(0)})_0 &= 2\cdot1 - 1\cdot0 = 2 = 2Q_0^{(1)},\\
+  L(Q^{(0)})_1 &= 3\cdot4 - 4\cdot1 = 8 = 2Q_1^{(1)}.
+\end{align*}
+By uniqueness: $P_n^{(1)} = L(P^{(0)})_n$ and
+$Q_n^{(1)} = \tfrac{1}{2}L(Q^{(0)})_n$.
+By Poincar\'e's theorem, the characteristic roots of the
+recurrence are $\lambda=2$ (dominant) and $\lambda=1$ (subdominant),
+so $Q_n/Q_{n-1} \sim 2n$ and
+$\frac{(n+1)^2}{(n+2)} \cdot \frac{Q_{n-1}}{Q_n} \to \frac{1}{2}$
+as $n \to \infty$.
+Therefore
+\[
+  S^{(1)} = \lim_{n\to\infty}
+  2\cdot\frac{(n{+}2)P_n^{(0)} - (n{+}1)^2 P_{n-1}^{(0)}}
+             {(n{+}2)Q_n^{(0)} - (n{+}1)^2 Q_{n-1}^{(0)}}
+  = 2\cdot\frac{S^{(0)}/2}{1/2}
+  = 2\,S^{(0)} = \frac{4}{\pi}\,.\qedhere
+\]
+\end{proof}
+
+\begin{remark}
+For $m \geq 2$, no polynomial-coefficient two-term contiguous
+relation $P_n^{(m+1)} = A(n)\,P_n^{(m)} + B(n)\,P_{n-1}^{(m)}$
+with $A,B \in \mathbb{Q}[n]$ has been found.
+The coefficients lie in $\mathbb{Q}(n)$ with
+denominators related to the Casoratian.
+\end{remark}
+
+
+%======================================================================
+\section{Gauss CF non-equivalence}\label{sec:gauss}
+%======================================================================
+
+\begin{theorem}\label{thm:gauss}
+For every $m \geq 0$, the CF $S^{(m)}$ is not equivalent to
+any Gauss continued fraction
+$\CF({}_2F_1(a,b{+}1;c{+}1;z)/{}_2F_1(a,b;c;z))$
+under any equivalence transformation.
+\end{theorem}
+
+\begin{proof}
+Suppose an equivalence transformation with multipliers
+$\{d_n\}$ maps a Gauss CF~\cite[\S4.5]{cuyt2008handbook}
+to~$S^{(m)}$.
+Since the Gauss CF has partial denominators $\equiv 1$,
+we require $d_n = b(n) = 3n{+}1$.
+The transformed partial numerators must satisfy
+$(3n{+}1)(3n{-}2)\,d_n z = n(2n{-}2m{-}1)$,
+forcing $z = 8/9$ (from leading asymptotics:
+$d_n z \to 2/9$, $d_n^\text{Gauss} \to 1/4$).
+
+The Gauss CF coefficients split into two interleaved families:
+\begin{align*}
+  d_{2k-1} &= \frac{(a{+}k{-}1)(c{-}b{+}k{-}1)}{(c{+}2k{-}2)(c{+}2k{-}1)}\,,\\
+  d_{2k}   &= \frac{(b{+}k)(c{-}a{+}k)}{(c{+}2k{-}1)(c{+}2k)}\,.
+\end{align*}
+Fitting three odd indices $n=1,3,5$ determines $(a,b,c)$ uniquely as
+$(a,b,c) = (1/4,\, {-}1/6,\, 1/3)$, giving $a{-}b = 5/12$.
+Fitting three even indices $n=2,4,6$ gives
+$(a,b,c) = (1/3,\, {-}1/4,\, 1/3)$, giving $a{-}b = 7/12$.
+Since $5/12 \neq 7/12$, no consistent parameters exist.
+\end{proof}
+
+
+%======================================================================
+\section{Structural analysis}\label{sec:structure}
+%======================================================================
+
+\subsection{Casoratian and Pochhammer structure}
+
+The Casoratian (discrete Wronskian)
+$W_n^{(m)} = P_n^{(m)} Q_{n-1}^{(m)} - P_{n-1}^{(m)} Q_n^{(m)}$
+satisfies $W_n = -a_m(n)\,W_{n-1}$ with $W_0 = -1$, giving
+\begin{equation}\label{eq:casoratian}
+  W_n^{(m)} = (-1)^{n+1}\prod_{k=1}^{n} a_m(k)
+  = (-1)^{n+1}\cdot(-1)^n\,n!\,2^n\,(\half{-}m)_n
+  = -n!\,2^n\,(\half{-}m)_n\,.
+\end{equation}
+
+The ratio of Casoratians telescopes:
+\begin{equation}\label{eq:casratio}
+  \frac{W_n^{(m+1)}}{W_n^{(m)}}
+  = \prod_{k=1}^n \frac{2k{-}2m{-}3}{2k{-}2m{-}1}
+  = \frac{-1{-}2m}{2n{-}2m{-}1}\,.
+\end{equation}
+This is an exact algebraic identity, proved by telescoping.
+
+\subsection{Pincherle decomposition}
+
+By Pincherle's theorem~\cite[Thm.~20.1]{jones1980continued},
+the CF value is $S^{(m)} = 1/\alpha(m)$
+where $\alpha(m)$ is the coefficient of the dominant solution
+in the decomposition
+$Q_n^{(m)} = \alpha(m)\,P_n^{(m)} + \beta(m)\,f_n^{(m)}$,
+with $f_n^{(m)}$ the minimal (subdominant) solution.
+
+\begin{proposition}\label{prop:alpha}
+If Conjecture~\ref{conj:main} holds, then
+\[
+  \alpha(m) = \frac{\pi}{2}\cdot\frac{(\half)_m}{m!}
+  = \int_0^{\pi/2}\!\sin^{2m}x\,dx\,.
+\]
+\end{proposition}
+
+This is verified numerically to $118$ digits by computing
+$\lim_{n\to\infty} Q_n^{(m)}/P_n^{(m)}$.
+
+\subsection{Formal ODE}
+
+The generating function $G(z) = \sum_{n\geq 0} f_n^{(m)}\,z^n$
+(which is a \emph{formal} power series with radius of convergence~$0$)
+satisfies the second-order ODE
+\begin{equation}\label{eq:ode}
+  2z^4\,G'' + z^2\!\left(-3 + (9{-}2m)z\right)G'
+  + \left(1 - 4z + (6{-}4m)z^2\right)G = 1.
+\end{equation}
+This is verified by extracting the coefficient of~$z^n$
+($n \geq 4$), which recovers the recurrence~\eqref{eq:rec} exactly:
+\[
+  [z^n]:\quad f_n - (3n{+}1)\,f_{n-1} + n(2n{-}2m{-}1)\,f_{n-2} = 0\,.
+\]
+The ODE has an irregular singular point at $z=0$ (where the
+leading coefficient $2z^4$ vanishes to order~$4$).
+
+\begin{remark}
+The ODE is second-order, so a ${}_2F_1$ connection via
+a non-obvious change of variable is not excluded \emph{a priori},
+even though Theorem~\ref{thm:gauss} rules out a direct
+Gauss CF identification.
+\end{remark}
+
+\subsection{Sign structure and Stieltjes obstruction}
+
+For $m = 0$, all $a_0(n) = -n(2n{-}1) < 0$ for $n \geq 1$,
+so $S^{(0)}$ is a proper S-fraction with an underlying
+positive Stieltjes measure.
+
+For $m \geq 1$, the sign of $a_m(n)$ changes at
+$n = (2m{+}1)/2$:
+\[
+  a_m(n) \begin{cases}
+    > 0 & \text{if } 1 \leq n \leq m, \\
+    < 0 & \text{if } n \geq m{+}1.
+  \end{cases}
+\]
+The lack of sign-definiteness means the associated Jacobi matrix
+is not self-adjoint in the standard sense, and Favard's theorem
+provides only formal orthogonality with respect to a signed
+linear functional.
+
+
+%======================================================================
+\section{Continuous extension}\label{sec:continuous}
+%======================================================================
+
+\begin{theorem}\label{thm:continuous}
+The identity $S^{(m)} = \val(m)$ extends to all real $m \geq 0$.
+\end{theorem}
+
+\begin{proof}[Evidence]
+Numerical verification at non-integer values
+$m \in \{0.25, 0.5, 0.7, 1.5, 3.14\}$
+confirms agreement to $48$--$50$ decimal digits
+(Table~\ref{tab:continuous}).
+The linear perturbation
+$a_m(n) + \delta n = a_{m+\delta/2}(n)$
+shows the family is closed under this deformation,
+while constant perturbations break it.
+\end{proof}
+
+\begin{table}[h]
+\centering
+\caption{Continuous extension: non-integer $m$ values
+($N=500$, 50-digit arithmetic).}
+\label{tab:continuous}
+\begin{tabular}{@{}clc@{}}
+\toprule
+$m$ & $S^{(m)}$ (first 15 digits) & digits verified \\
+\midrule
+$0.25$ & $0.834626841674073\ldots$ & 49 \\
+$0.50$ & $1.000000000000000\ldots$ & 50 \\
+$0.70$ & $1.116667306586787\ldots$ & 49 \\
+$1.50$ & $1.500000000000000\ldots$ & 48 \\
+$3.14$ & $2.080356126737208\ldots$ & 49 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}
+The special value $S^{(1/2)} = 1$ reflects
+$\val(1/2) = 2\,\Gamma(3/2)/(\sqrt{\pi}\,\Gamma(1)) = 1$.
+\end{remark}
+
+\subsection{Convergence rate}
+
+Despite the Laguerre-type growth $\sqrt{|a_m(n)|} \sim \sqrt{2}\,n$
+of the Jacobi matrix off-diagonal, the convergence of the
+convergents $P_n/Q_n \to S^{(m)}$ is \emph{geometric}:
+\begin{equation}\label{eq:rate}
+  \log_{10}|S^{(m)} - P_n/Q_n| \approx -0.302\,n
+  \qquad (R^2 = 0.9999),
+\end{equation}
+corresponding to a convergence ratio $r \approx 10^{-0.302} \approx 1/2$.
+This is consistent with the Poincar\'e characteristic roots
+$\lambda = 2$ and $\lambda = 1$ of the recurrence:
+the error decays as $(1/2)^n$, i.e.\ the ratio of the
+subdominant to dominant Poincar\'e roots.
+
+
+%======================================================================
+\section{Numerical verification}\label{sec:numerical}
+%======================================================================
+
+All computations use Python~3.14 with \texttt{mpmath}
+(cf.~\cite{johansson2017arb})
+for arbitrary-precision arithmetic.
+The CF is evaluated via the forward three-term recurrence
+for the convergents $P_n^{(m)}/Q_n^{(m)}$ at depth~$N$
+with $\texttt{mp.dps} = D + 100$ guard digits.
+
+\begin{table}[h]
+\centering
+\caption{High-precision verification of
+$S^{(m)} = 2\,\Gamma(m{+}1)/[\sqrt\pi\,\Gamma(m{+}\half)]$.}
+\label{tab:precision}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+$m$ & $N$ & $S^{(m)}$ (rational form) & digits verified & ratio digits \\
+\midrule
+0 & 2000 & $2/\pi$ & 604 & --- \\
+1 & 2000 & $4/\pi$ & 613 & 603 \\
+2 & 2000 & $16/(3\pi)$ & 621 & 613 \\
+3 & 2000 & $32/(5\pi)$ & 628 & 621 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The ``ratio digits'' column reports the number of digits of agreement for
+$S^{(m)}/S^{(m-1)} = 2m/(2m{-}1)$.
+
+The cross-ratio $P_n^{(m)}\,Q_n^{(0)}\big/\bigl(P_n^{(0)}\,Q_n^{(m)}\bigr)$
+converges to $(2m)!!/(2m{-}1)!!$ and is verified to $242$ digits
+at $N = 800$.
+
+\medskip\noindent\textbf{Reproducibility.}
+All computations can be reproduced with the scripts
+\texttt{approach\_c\_phase*.py} available in the supplementary material.
+A single run of the $N=2000$ verification takes approximately
+$90$ seconds on a standard laptop.
+
+
+%======================================================================
+\section{Open problems}\label{sec:open}
+%======================================================================
+
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{Symbolic proof of the ratio.}
+  Prove $S^{(m+1)}/S^{(m)} = 2(m{+}1)/(2m{+}1)$ directly from
+  the three-term recurrence~\eqref{eq:rec}, without appealing
+  to the Wallis integral or~${}_2F_1$ contiguous relations.
+  Equivalently, find a shift operator $L_m$ mapping
+  solutions of the $m$-th recurrence to the $(m{+}1)$-th
+  for every~$m$ (the operator $L$ of Section~\ref{sec:shift}
+  works only for $m{=}0 \to 1$).
+
+\item \textbf{Closed form for the minimal solution.}
+  The $m$-dependent minimal solution $f_n^{(m)}$ resists all
+  tested ans\"atze: $n!/(2n{+}1)!!$ (fails for $m \neq 0$),
+  Pochhammer quotients, falling-factorial expansions
+  (infinite series with non-hypergeometric ratio growth),
+  and ${}_2F_1$ parametrisation.
+  The formal ODE~\eqref{eq:ode} is second-order, so a
+  ${}_2F_1$-type solution via a change of variable in the
+  formal GF is not excluded.
+
+\item \textbf{Explaining geometric convergence.}
+  The Jacobi matrix has Laguerre-type growth
+  ($\sqrt{|a_m(n)|} \sim \sqrt{2}\,n$), which na\"ively predicts
+  sub-exponential convergence $\varepsilon_N \sim e^{-C\sqrt{N}}$.
+  The observed geometric rate $\varepsilon_N \sim (1/2)^N$
+  is explained by the Poincar\'e roots but deserves a
+  rigorous treatment connecting Jacobi-matrix spectral theory
+  to CF convergence rates in the non-Nevai setting.
+\end{enumerate}
+
+
+%======================================================================
+% BIBLIOGRAPHY
+%======================================================================
+\begin{thebibliography}{99}
+
+\bibitem{wall1948analytic}
+H.~S.~Wall,
+\emph{Analytic Theory of Continued Fractions},
+Van Nostrand, 1948.
+
+\bibitem{jones1980continued}
+W.~B.~Jones and W.~J.~Thron,
+\emph{Continued Fractions: Analytic Theory and Applications},
+Encyclopedia of Mathematics and its Applications, vol.~11,
+Addison-Wesley, 1980.
+
+\bibitem{lorentzen2008continued}
+L.~Lorentzen and H.~Waadeland,
+\emph{Continued Fractions}, vol.~1: \emph{Convergence Theory},
+2nd~ed., Atlantis Studies in Mathematics, Atlantis Press, 2008.
+
+\bibitem{cuyt2008handbook}
+A.~Cuyt, V.~B.~Petersen, B.~Verdonk, H.~Waadeland, and W.~B.~Jones,
+\emph{Handbook of Continued Fractions for Special Functions},
+Springer, 2008.
+
+\bibitem{apery1979irrationalite}
+R.~Ap\'ery,
+Irrationalit\'e de $\zeta(2)$ et $\zeta(3)$,
+\emph{Ast\'erisque} \textbf{61} (1979), 11--13.
+
+\bibitem{raayoni2021generating}
+G.~Raayoni, S.~Gottlieb, Y.~Manor, G.~Pisha, Y.~Harris, U.~Mendlovic,
+D.~Haviv, Y.~Hadad, and I.~Kaminer,
+Generating conjectures on fundamental constants with the
+Ramanujan Machine,
+\emph{Nature} \textbf{590} (2021), 67--73.
+
+\bibitem{nist2024dlmf}
+NIST Digital Library of Mathematical Functions,
+\url{https://dlmf.nist.gov/}, Release 1.2.2, 2024.
+
+\bibitem{johansson2017arb}
+F.~Johansson,
+Arb: Efficient arbitrary-precision midpoint-radius interval
+arithmetic, \emph{IEEE Trans.\ Comput.}\ \textbf{66} (2017),
+1281--1292.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,4 @@
+target,seed,discovery_count,novel_count,elapsed_seconds,resolved_workers,effective_batch,persistent_promotions
+pi,123,1,1,3.607,1,16,1
+catalan,124,1,1,3.387,1,16,1
+zeta2,125,2,2,3.63,1,16,2

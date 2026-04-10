@@ -1,0 +1,623 @@
+{
+  "reason": "iter_4_breakthrough",
+  "saved_at": "2026-04-04 18:53:58",
+  "iter": 4,
+  "runtime_seconds": 8.502,
+  "stats": {
+    "iters": 4,
+    "breakthroughs": 21,
+    "fertilized_born": 9,
+    "teleports": 0,
+    "teleport_cooldowns": 0,
+    "entropy_tax_hits": 0,
+    "gate_cracker_bursts": 0,
+    "modular_grafts": 0,
+    "g1_specialists": 3,
+    "ramanujan_relays": 7,
+    "cross_track_seeds": 7,
+    "adaptive_mutations": 0,
+    "radical_resets": 0,
+    "catastrophic_resets": 0,
+    "post_closure_mutations": 0,
+    "cascade_injections": 3,
+    "lemma_k_proven": 8,
+    "double_borel_proven": 2,
+    "vquad_proven": 1,
+    "gaps_resolved": 8
+  },
+  "champions": [
+    {
+      "id": "K-437200-296",
+      "hyp_id": "K-437200-296",
+      "formula": "V\u2081(k) = k \u00b7 e^k \u00b7 E\u2081(k) + -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) [G1-specialist: donor-lock; donor=C-431020-327]",
+      "description": "G1-specialist for BOREL-L1: Import the known-k donor block from C-431020-327",
+      "paper": "P1",
+      "birth_mode": "g1_specialist",
+      "parent_ids": [
+        "BOREL-L1",
+        "C-431020-327"
+      ],
+      "k_values": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 1,
+      "plateau_count": 0,
+      "gradient_score": 179.287,
+      "gradient_history": [
+        179.2875
+      ],
+      "sig_history": [
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "g1_specialist": {
+          "target": "BOREL-L1",
+          "donor": "C-431020-327",
+          "label": "donor-lock",
+          "focus_gate": 1
+        }
+      },
+      "created_at": 1775296437.200141,
+      "last_updated": 1775296438.7031412
+    },
+    {
+      "id": "K-437200-631",
+      "hyp_id": "K-437200-631",
+      "formula": "V\u2081(k) = k \u00b7 e^k \u00b7 E\u2081(k) + -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) [G1-specialist: high-energy; donor=C-431020-327]",
+      "description": "G1-specialist for BOREL-L1: High-energy G1 sweep around the known-k manifold",
+      "paper": "P1",
+      "birth_mode": "g1_specialist",
+      "parent_ids": [
+        "BOREL-L1",
+        "C-431020-327"
+      ],
+      "k_values": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 1,
+      "plateau_count": 0,
+      "gradient_score": 179.287,
+      "gradient_history": [
+        179.2875
+      ],
+      "sig_history": [
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "g1_specialist": {
+          "target": "BOREL-L1",
+          "donor": "C-431020-327",
+          "label": "high-energy",
+          "focus_gate": 1
+        }
+      },
+      "created_at": 1775296437.2001665,
+      "last_updated": 1775296438.9150229
+    },
+    {
+      "id": "K-437200-881",
+      "hyp_id": "K-437200-881",
+      "formula": "V\u2081(k) = k \u00b7 e^k \u00b7 E\u2081(k) + -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) [G1-specialist: canonical-lock; donor=C-431020-327]",
+      "description": "G1-specialist for BOREL-L1: Freeze the 5/6 Borel skeleton and lock the canonical known-k calibration",
+      "paper": "P1",
+      "birth_mode": "g1_specialist",
+      "parent_ids": [
+        "BOREL-L1",
+        "C-431020-327"
+      ],
+      "k_values": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 1,
+      "plateau_count": 0,
+      "gradient_score": 179.287,
+      "gradient_history": [
+        179.2875
+      ],
+      "sig_history": [
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "g1_specialist": {
+          "target": "BOREL-L1",
+          "donor": "C-431020-327",
+          "label": "canonical-lock",
+          "focus_gate": 1
+        }
+      },
+      "created_at": 1775296437.200104,
+      "last_updated": 1775296438.3518178
+    },
+    {
+      "id": "X-431043-434",
+      "hyp_id": "X-431043-434",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: double-Borel kernel bridge; lemma_k\u00d7double_borel]",
+      "description": "Cross-track seed from LemmaKAgent + factorial_sq",
+      "paper": "P3\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "LemmaKAgent",
+        "factorial_sq"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 4,
+      "plateau_count": 3,
+      "gradient_score": 133.262,
+      "gradient_history": [
+        353.05,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "double_borel",
+            "lemma_k"
+          ],
+          "sources": [
+            "LemmaKAgent",
+            "factorial_sq"
+          ],
+          "strength": 5.85
+        }
+      },
+      "created_at": 1775296431.0430765,
+      "last_updated": 1775296437.484796
+    },
+    {
+      "id": "X-431608-621",
+      "hyp_id": "X-431608-621",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: double-Borel kernel bridge; analytic\u00d7double_borel]",
+      "description": "Cross-track seed from X-431043-434 + factorial_sq",
+      "paper": "P3\u00d7P1\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "X-431043-434",
+        "factorial_sq"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 3,
+      "plateau_count": 2,
+      "gradient_score": 157.683,
+      "gradient_history": [
+        353.05,
+        60.0,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "analytic",
+            "double_borel"
+          ],
+          "sources": [
+            "X-431043-434",
+            "factorial_sq"
+          ],
+          "strength": 40.355
+        }
+      },
+      "created_at": 1775296431.6081927,
+      "last_updated": 1775296437.7206032
+    },
+    {
+      "id": "X-431608-686",
+      "hyp_id": "X-431608-686",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: Laplace transcendence bridge; analytic\u00d7vquad]",
+      "description": "Cross-track seed from X-431043-434 + VQuadTranscendenceAgent",
+      "paper": "P3\u00d7P1\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "X-431043-434",
+        "VQuadTranscendenceAgent"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 3,
+      "plateau_count": 2,
+      "gradient_score": 157.683,
+      "gradient_history": [
+        353.05,
+        60.0,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "analytic",
+            "vquad"
+          ],
+          "sources": [
+            "X-431043-434",
+            "VQuadTranscendenceAgent"
+          ],
+          "strength": 40.805
+        }
+      },
+      "created_at": 1775296431.6081426,
+      "last_updated": 1775296437.719335
+    },
+    {
+      "id": "X-432287-249",
+      "hyp_id": "X-432287-249",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: Laplace transcendence bridge; analytic\u00d7borel]",
+      "description": "Cross-track seed from X-431043-434 + X-431043-048",
+      "paper": "P3\u00d7P1\u00d7P1\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "X-431043-434",
+        "X-431043-048"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 2,
+      "plateau_count": 1,
+      "gradient_score": 206.525,
+      "gradient_history": [
+        353.05,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "analytic",
+            "borel"
+          ],
+          "sources": [
+            "X-431043-434",
+            "X-431043-048"
+          ],
+          "strength": 40.055
+        }
+      },
+      "created_at": 1775296432.2879715,
+      "last_updated": 1775296437.731002
+    },
+    {
+      "id": "X-432897-123",
+      "hyp_id": "X-432897-123",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: Laplace/Bessel bridge; analytic\u00d7lemma_k]",
+      "description": "Cross-track seed from X-431043-434 + LemmaKAgent",
+      "paper": "P3\u00d7P1\u00d7P3",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "X-431043-434",
+        "LemmaKAgent"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 1,
+      "plateau_count": 0,
+      "gradient_score": 353.05,
+      "gradient_history": [
+        353.05
+      ],
+      "sig_history": [
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "analytic",
+            "lemma_k"
+          ],
+          "sources": [
+            "X-431043-434",
+            "LemmaKAgent"
+          ],
+          "strength": 41.105
+        }
+      },
+      "created_at": 1775296432.8976705,
+      "last_updated": 1775296437.9804397
+    },
+    {
+      "id": "BOREL-L1",
+      "hyp_id": "BOREL-L1",
+      "formula": "V\u2081(k) = k \u00b7 e^k \u00b7 E\u2081(k)",
+      "description": "Lemma 1 fully proven. V_quad irrationality via Stern-Stolz.",
+      "paper": "P1",
+      "birth_mode": "seed",
+      "parent_ids": [],
+      "k_values": [],
+      "alpha": null,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.05,
+      "gap_pct": 0.0,
+      "proof_progress": 83.3,
+      "gates_passed": 5,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 4,
+      "plateau_count": 3,
+      "gradient_score": 11.613,
+      "gradient_history": [
+        46.45000000000003,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 0,
+      "breakthrough_iters": [],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {},
+      "created_at": 1775296430.4134092,
+      "last_updated": 1775296437.478068
+    },
+    {
+      "id": "F-432293-201",
+      "hyp_id": "F-432293-201",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -0.012259\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "\u03b1-blend of R-431607-662 (\u03bb=0.59) and BOREL-L1",
+      "paper": "P3",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "R-431607-662",
+        "BOREL-L1"
+      ],
+      "k_values": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "alpha": -0.012258740007702901,
+      "beta": 0.0,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.05,
+      "gap_pct": 0.0,
+      "proof_progress": 83.3,
+      "gates_passed": 5,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 2,
+      "plateau_count": 1,
+      "gradient_score": 179.55,
+      "gradient_history": [
+        359.1,
+        2.842170943040401e-14
+      ],
+      "sig_history": [
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {},
+      "created_at": 1775296432.2934368,
+      "last_updated": 1775296437.9613197
+    }
+  ]
+}

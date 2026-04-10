@@ -1,0 +1,513 @@
+% gcf_irrationality_schema.tex — General Irrationality Schema for Quadratic-Denominator PCFs
+% Central theorem for the V_quad paper
+% Revision 2: fixed d_a scope, added summary table, algorithm env, polished citations
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{algorithmicx}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\title{General Irrationality Schema for Quadratic-Denominator\\Polynomial Continued Fractions}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+%% ═══════════════════════════════════════════════════════════════════════
+\section{Setup and Notation}
+%% ═══════════════════════════════════════════════════════════════════════
+
+Consider the generalized continued fraction (GCF)
+\[
+  \alpha = b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \cdots}}
+  \eqqcolon b_0 + \mathop{K}_{n=1}^{\infty}\frac{a_n}{b_n}\,,
+\]
+where $a_n, b_n \in \mathbb{Q}[n]$ are polynomials in $n$ with rational coefficients.
+The \emph{convergents} $p_n/q_n$ are defined by the three-term recurrence
+\begin{equation}\label{eq:recurrence}
+  y_n = b_n\, y_{n-1} + a_n\, y_{n-2}, \qquad n \geq 1,
+\end{equation}
+with initial conditions $p_{-1} = 1$, $p_0 = b_0$, $q_{-1} = 0$, $q_0 = 1$.
+
+We write
+\[
+  b_n = \beta_2 n^2 + \beta_1 n + \beta_0 \quad (\beta_2 \neq 0), \qquad
+  a_n = \alpha_d n^d + \cdots + \alpha_0 \quad (\alpha_d \neq 0),
+\]
+with $d = \deg(a_n) \eqqcolon d_a$.  We define $A_n := \prod_{k=1}^n a_k$
+and $B_n := \prod_{k=1}^n b_k$ ($B_0 := 1$).
+
+
+%% ═══════════════════════════════════════════════════════════════════════
+\section{Poincar\'e--Perron Analysis}\label{sec:poincare}
+%% ═══════════════════════════════════════════════════════════════════════
+
+Since the coefficients of~\eqref{eq:recurrence} diverge, the classical
+Poincar\'e theorem does not apply directly.  We normalize by setting
+$\hat{y}_n := y_n / B_n$.  Substituting into~\eqref{eq:recurrence}
+and dividing by $B_n = b_n B_{n-1}$ yields the \emph{normalized recurrence}
+\begin{equation}\label{eq:normalized}
+  \hat{y}_n = \hat{y}_{n-1} + c_n\, \hat{y}_{n-2},
+  \qquad c_n := \frac{a_n}{b_n\, b_{n-1}}\,.
+\end{equation}
+
+Since $\deg(a_n) = d_a$ and $\deg(b_n b_{n-1}) = 4$, we have
+$c_n = (\alpha_d / \beta_2^2)\, n^{d_a - 4} + O(n^{d_a - 5})$.
+
+\medskip
+\noindent\textbf{Case I: $d_a \leq 3$.}
+Then $c_n \to 0$ and $\sum \abs{c_n} < \infty$ (since $d_a - 4 \leq -1$).
+The limiting characteristic equation of~\eqref{eq:normalized} is
+$\lambda^2 - \lambda = 0$ with roots $\lambda_+ = 1$, $\lambda_- = 0$.
+By the Perron--Kreuser refinement of Poincar\'e's
+theorem~\cite{perron1929,pituk2002}, the absolute summability
+$\sum\abs{c_n} < \infty$ guarantees that two linearly independent
+solutions of~\eqref{eq:normalized} satisfy
+$\hat{y}_n^{(+)} \to L \neq 0$ and $\hat{y}_n^{(-)} \to 0$.
+In original coordinates:
+\begin{equation}\label{eq:growth}
+  y_n^{(+)} \sim L\, B_n, \qquad y_n^{(-)} = o(B_n).
+\end{equation}
+
+\noindent\textbf{Case II: $d_a = 4$.}
+Then $c_n \to c := \alpha_4/\beta_2^2$.  The characteristic equation is
+$\lambda^2 - \lambda - c = 0$ with roots
+$\lambda_{\pm} = (1 \pm \sqrt{1+4c}\,)/2$.
+Two distinct positive roots exist iff $-\tfrac{1}{4} < c < 0$,
+equivalently $-\beta_2^2/4 < \alpha_4 < 0$.
+Then $y_n^{(\pm)} \sim L_{\pm}\, \lambda_{\pm}^n\, B_n$
+with $0 < \lambda_- < \lambda_+ < 1$.
+
+\medskip
+\noindent\textbf{Growth of $B_n$.}
+For $b_k = \beta_2 k^2 + O(k)$, Stirling's approximation gives
+\begin{equation}\label{eq:Bn_growth}
+  \log B_n = 2n\log n + n(\log\beta_2 - 2) + O(\log n).
+\end{equation}
+In particular, $B_n$ (and hence $q_n$) grows \emph{super-exponentially}.
+
+
+%% ═══════════════════════════════════════════════════════════════════════
+\section{Irrationality via Convergent Speed}\label{sec:irrationality}
+%% ═══════════════════════════════════════════════════════════════════════
+
+\begin{lemma}[Wronskian identity]\label{lem:wronskian}
+For the recurrence~\eqref{eq:recurrence}:
+\[
+  W_n := p_n\, q_{n-1} - p_{n-1}\, q_n = (-1)^{n-1} A_n,
+  \qquad n \geq 1.
+\]
+\end{lemma}
+
+\begin{proof}
+Induction on $n$.  At $n=1$: $W_1 = (b_1 b_0 + a_1)\cdot 1 - b_0 \cdot b_1 = a_1$.
+Inductive step:
+$W_n = a_n(p_{n-2} q_{n-1} - p_{n-1} q_{n-2}) = -a_n W_{n-1}
+     = (-1)^{n-1} A_n$.
+\end{proof}
+
+\begin{lemma}[Approximation quality]\label{lem:approx}
+If the GCF converges to $\alpha$, then
+\[
+  \alpha - \frac{p_n}{q_n}
+  = \sum_{m=n+1}^{\infty} \frac{(-1)^{m-1} A_m}{q_m\, q_{m-1}}\,,
+\]
+and in particular
+$\bigl|\alpha - p_n/q_n\bigr| = \abs{A_{n+1}} / (q_n\, q_{n+1})
+ \cdot \bigl(1 + O(\abs{a_{n+2}}/\abs{b_{n+2}})\bigr)$.
+\end{lemma}
+
+\begin{proof}
+From the Wronskian: $p_m/q_m - p_{m-1}/q_{m-1} = (-1)^{m-1}A_m/(q_m q_{m-1})$.
+Summing from $m = n+1$ to $\infty$ and noting the ratio of successive terms
+$a_{m+1} q_{m-1}/q_{m+1} = O(m^{d_a - 4}) \to 0$ for $d_a \leq 3$
+gives the asymptotic.  (The factor~2 in subsequent estimates absorbs the
+geometric tail for all $n$ beyond an explicit computable threshold.)
+\end{proof}
+
+\begin{theorem}[Irrationality criterion]\label{thm:irrationality}
+Suppose:
+\begin{enumerate}
+  \item[\emph{(i)}]   $a_n \neq 0$ for all $n \geq 1$;
+  \item[\emph{(ii)}]  $\abs{A_n}/\abs{q_n} \to 0$ as $n \to \infty$;
+  \item[\emph{(iii)}] $p_n, q_n \in \mathbb{Z}$ for all $n \geq 0$.
+\end{enumerate}
+Then $\alpha$ is irrational.
+\end{theorem}
+
+\begin{proof}
+Suppose $\alpha = p/q$ with $p, q \in \mathbb{Z}$, $q > 0$.
+Set $\delta_n := p\,q_n - q\,p_n \in \mathbb{Z}$.
+
+By~(i), $W_n \neq 0$, so consecutive convergents are distinct;
+hence $\delta_n \neq 0$ for infinitely many $n$.
+For such $n$, $\abs{\delta_n} \geq 1$, giving
+\[
+  \abs{\alpha - p_n/q_n} = \frac{\abs{\delta_n}}{q\,q_n} \geq \frac{1}{q\,q_n}\,.
+\]
+By Lemma~\ref{lem:approx}:
+$\abs{\alpha - p_n/q_n} \leq 2\abs{A_{n+1}}/(q_n\, q_{n+1})$.
+By~(ii), $\abs{A_{n+1}}/q_{n+1} \to 0$, so for $n$ large:
+\[
+  \frac{2\abs{A_{n+1}}}{q_n\, q_{n+1}}
+  = \frac{2}{q_n}\cdot\frac{\abs{A_{n+1}}}{q_{n+1}}
+  < \frac{1}{q\,q_n}\,.
+\]
+Combining: $1/(q\,q_n) \leq 2\abs{A_{n+1}}/(q_n q_{n+1}) < 1/(q\,q_n)$,
+a contradiction.
+\end{proof}
+
+
+%% ═══════════════════════════════════════════════════════════════════════
+\section{Irrationality Measure}\label{sec:mu}
+%% ═══════════════════════════════════════════════════════════════════════
+
+The following lemma makes condition~(ii) of Theorem~\ref{thm:irrationality}
+concrete for polynomial GCFs.
+
+\begin{lemma}[Denominator-growth domination]\label{lem:growth_domination}
+Let $\deg(b_n) = 2$ with leading coefficient $\beta_2 > 0$
+and $\deg(a_n) = d$.
+\begin{enumerate}
+\item[\emph{(a)}] If $d \leq 1$, then
+  $\prod_{k=1}^n \abs{a_k/b_k} \to 0$.
+\item[\emph{(b)}] If $d = 2$ and
+  $\abs{\alpha_2} < \beta_2$, then
+  $\prod_{k=1}^n \abs{a_k/b_k} \leq C\,(\abs{\alpha_2}/\beta_2)^n \to 0$.
+\item[\emph{(c)}] If $d = 2$ and
+  $\abs{\alpha_2} = \beta_2$, then
+  $\sum_{k=1}^n \log\abs{a_k/b_k}
+  = (\alpha_1/\alpha_2 - \beta_1/\beta_2) \log n + O(1)$,
+  so the product vanishes iff the subleading ratio favours $b_k$.
+\item[\emph{(d)}] If $d \geq 3$, then
+  $\prod_{k=1}^n \abs{a_k/b_k} \to \infty$,
+  so condition~\emph{(ii)} of Theorem~\ref{thm:irrationality} fails
+  \textup{(}the Wronskian argument does not close\textup{)}.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Since $q_n \sim L\, B_n$ (\S\ref{sec:poincare}, Case~I),
+we have $\abs{A_n}/q_n \sim L^{-1} \prod_{k=1}^n \abs{a_k}/b_k$.
+For part~(a): $\abs{a_k}/b_k = O(k^{d-2}) = O(k^{-1})$ so
+$\sum \log\abs{a_k/b_k} = -\infty$.
+Parts~(b) and~(c) follow from $\abs{a_k}/b_k \to \abs{\alpha_2}/\beta_2$
+and the standard logarithmic estimate.
+For part~(d): $\abs{a_k}/b_k \sim (\abs{\alpha_d}/\beta_2)\, k^{d-2}$
+with $d-2 \geq 1$, so the product
+$\prod (\abs{\alpha_d}/\beta_2) k^{d-2} \geq
+(\abs{\alpha_d}/\beta_2)^n (n!)^{d-2} \to \infty$.
+\end{proof}
+
+\medskip
+Table~\ref{tab:degrees} summarises the status by degree.
+
+\begin{table}[h]
+\centering
+\caption{Irrationality argument by numerator degree $d = \deg(a_n)$,
+  with $\deg(b_n) = 2$.}\label{tab:degrees}
+\begin{tabular}{@{}cccp{6.4cm}@{}}
+\toprule
+$d$ & GCF converges? & $\abs{A_n}/q_n \to 0$? & Status \\
+\midrule
+$0$ & yes & yes (automatic) & Schema applies; $\mu=2$ \\
+$1$ & yes & yes (automatic) & Schema applies; $\mu=2$ \\
+$2$ & yes & iff $\abs{\alpha_2} < \beta_2$ (or borderline) &
+  Schema applies under $C_4$; $\mu=2$ \\
+$3$ & yes & \textbf{no} (generic) &
+  Convergence holds but Wronskian argument fails.
+  Irrationality requires different tools
+  (e.g.\ Ap\'ery-type arithmetic cancellations). \\
+$4$ & yes (eigenvalue case) & open & Deferred; see~\S\ref{sec:scope}. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{theorem}[Irrationality measure]\label{thm:mu}
+Under the hypotheses of Theorem~\ref{thm:irrationality} with
+$\deg(b_n) = 2$:
+\[
+  \mu(\alpha) = 2.
+\]
+\end{theorem}
+
+\begin{proof}
+\emph{Lower bound.}  $\mu(\alpha) \geq 2$ for any irrational real
+(Dirichlet's approximation theorem).
+
+\emph{Upper bound.}  Given $p/q \in \mathbb{Q}$ with $q > 0$, choose
+$n$ such that $q_n \leq q < q_{n+1}$.  By the triangle inequality:
+\[
+  \abs{\alpha - p/q}
+  \geq \frac{\abs{p\,q_n - q\,p_n}}{q\,q_n} - \abs{\alpha - p_n/q_n}
+  \geq \frac{1}{q\,q_n} - \frac{C}{q_n\,q_{n+1}}
+  = \frac{1}{q\,q_n}\Bigl(1 - \frac{Cq}{q_{n+1}}\Bigr)
+  \geq \frac{1}{2q^2}
+\]
+for $q \leq q_{n+1}/(2C)$ (using $q_n \leq q$).
+
+The gap ratio $q_{n+1}/q_n \sim b_{n+1} \sim \beta_2(n{+}1)^2$
+is polynomial in $n$, so
+\[
+  \frac{\log q_{n+1}}{\log q_n}
+  = 1 + \frac{2\log n + O(1)}{2n\log n + O(n)} \to 1.
+\]
+Hence $\mu(\alpha) \leq 1 + \limsup_{n\to\infty}
+\bigl(\log q_{n+1}/\log q_n\bigr) = 2$.
+\end{proof}
+
+
+%% ═══════════════════════════════════════════════════════════════════════
+\section{The Master Theorem}\label{sec:master}
+%% ═══════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[GCF Irrationality Schema]\label{thm:master}
+Let $a_n, b_n \in \mathbb{Q}[n]$ with $\deg(b_n) = 2$.
+Write $b_n = \beta_2 n^2 + \beta_1 n + \beta_0$ and
+$a_n = \alpha_d n^d + \cdots + \alpha_0$ with $d = \deg(a_n)$.
+Suppose:
+\begin{enumerate}
+  \item[$(C_1)$] $\beta_2 > 0$ and $b_n > 0$ for all $n \geq 1$;
+  \item[$(C_2)$] $a_n \neq 0$ for all $n \geq 1$
+        \textup{(}$a_n$ has no positive integer root\textup{)};
+  \item[$(C_3)$] $a_n, b_n \in \mathbb{Z}$ for all $n \geq 0$;
+  \item[$(C_4)$] $\displaystyle\prod_{k=1}^n \frac{\abs{a_k}}{b_k} \to 0$
+        as $n \to \infty$.
+\end{enumerate}
+Then:
+\begin{enumerate}
+  \item The GCF $\alpha := b_0 + K_{n=1}^{\infty}(a_n/b_n)$ converges.
+  \item $\alpha$ is irrational.
+  \item $\mu(\alpha) = 2$.
+\end{enumerate}
+\end{theorem}
+
+By Lemma~\ref{lem:growth_domination}, condition $(C_4)$ is equivalent to:
+\begin{itemize}
+\item $d \leq 1$ \textup{(}automatic\textup{)}, or
+\item $d = 2$ with $\abs{\alpha_2} < \beta_2$, or
+\item $d = 2$ with $\abs{\alpha_2} = \beta_2$
+      and the subleading coefficients satisfy
+      $\alpha_1/\alpha_2 < \beta_1/\beta_2$
+      \textup{(}negative logarithmic drift\textup{)}.
+\end{itemize}
+For $d \geq 3$ the product in $(C_4)$ diverges
+(Lemma~\ref{lem:growth_domination}(d)) and the schema does not apply;
+see Remark~\ref{rem:boundary}.
+
+\begin{proof}
+\emph{Convergence.}  Since $b_n > 0$ and $\deg(b_n) = 2$,
+the normalized coefficients satisfy
+$c_n = a_n / (b_n b_{n-1}) = O(n^{d-4})$.
+Whenever $d \leq 3$ we have $\sum \abs{c_n} < \infty$, so convergence
+follows from the Poincar\'e analysis of
+\S\ref{sec:poincare}~\cite{perron1929,pituk2002}.
+When $d \geq 3$ but $(C_4)$ holds by direct verification,
+convergence still follows from the Seidel--Stern
+criterion~\cite{lorentzen2008}: $\sum b_n / \abs{a_n}$ diverges
+since $b_n / \abs{a_n} \sim (\beta_2/\abs{\alpha_d}) n^{2-d}$
+and $d \leq 2$ whenever $(C_4)$ holds.
+(For $d \leq 2$: each $c_n = O(n^{-2})$, giving absolute summability.)
+
+\emph{Irrationality.} $(C_2)$ gives Theorem~\ref{thm:irrationality}(i);
+$(C_3)$ gives (iii); $(C_4)$ combined with $q_n \sim L\, B_n$
+(\eqref{eq:growth}) gives (ii) since
+$\abs{A_n}/q_n \sim L^{-1}\prod_{k=1}^n \abs{a_k}/b_k \to 0$.
+Apply Theorem~\ref{thm:irrationality}.
+
+\emph{Irrationality measure.}
+$\mu(\alpha) = 2$ follows from Theorem~\ref{thm:mu}.
+\end{proof}
+
+
+\begin{corollary}[Unit-numerator quadratic GCFs]\label{cor:unit}
+Let $A, B, C \in \mathbb{Z}$ with $A > 0$ and $An^2 + Bn + C > 0$
+for all $n \geq 1$.  Then
+\[
+  V(A,B,C) := 1 + \cfrac{1}{A{+}B{+}C + \cfrac{1}{4A{+}2B{+}C + \cfrac{1}{\ddots}}}
+\]
+is irrational with $\mu\bigl(V(A,B,C)\bigr) = 2$.
+\end{corollary}
+
+\begin{proof}
+Set $a_n = 1$, $b_n = An^2 + Bn + C$, $b_0 = 1$.
+Then $(C_1)$--$(C_4)$ hold trivially:
+$d = 0 \leq 3$; $a_n = 1 \neq 0$;\ $a_n, b_n \in \mathbb{Z}$;
+$d = 0 \leq 1$.
+\end{proof}
+
+This corollary applies to all 253 distinct constants in the standard
+catalogue ($A \leq 5$, $B \in [-5,5]$, $C \leq 5$, deduplicated by value).
+
+
+%% ═══════════════════════════════════════════════════════════════════════
+\section{Scope and Limitations}\label{sec:scope}
+%% ═══════════════════════════════════════════════════════════════════════
+
+\begin{remark}[Boundary of the method]\label{rem:boundary}
+For $\deg(a_n) = d \geq 3$ with $\deg(b_n) = 2$, the numerator product
+$\abs{A_n} = \prod\abs{a_k} \sim \abs{\alpha_d}^n (n!)^d$ outgrows
+$q_n \sim C\, B_n \sim C\, \beta_2^n (n!)^2$, so condition~$(C_4)$ fails.
+The convergent denominators do not grow fast enough to ``absorb'' the
+numerator product, and the Wronskian argument does not close.
+
+Note, however, that the GCF may still \emph{converge} when $d = 3$
+(since $\sum\abs{c_n} < \infty$), and the limit may well be irrational.
+Proving irrationality in this regime requires \emph{arithmetic
+cancellations}---analogous to the miracle in Ap\'ery's proof of
+$\zeta(3) \notin \mathbb{Q}$~\cite{apery1979,beukers1979}, which uses
+$d = 6$ with $\deg(b_n) = 3$ together with the fact that
+$\lcm(1,\ldots,n)$ divides the auxiliary denominators.
+Extending the schema to $d \geq 3$ is an open problem;
+finding such arithmetic structure (or a substitute) for specific
+two-parametric families is a natural next step.
+More precisely, if one could show that $\lcm(1,\ldots,n)^s$
+divides $A_n$ for some $s > 0$---so that the ``arithmetically corrected''
+numerator product grows more slowly than $q_n$---the Wronskian argument
+would close even for $d \geq 3$.
+\end{remark}
+
+\begin{remark}[Poincar\'e eigenvalues vs.\ Wronskian]
+In the Beukers framework, irrationality measures depend on the ratio
+$\log\lambda_1/\log\lambda_2$ of two Poincar\'e--Perron eigenvalues.
+For the quadratic-denominator family with $d \leq 2$, the eigenvalues
+are degenerate ($\lambda_+ = 1, \lambda_- = 0$), and the entire proof
+runs on the Wronskian identity alone---the eigenvalue analysis is
+essentially irrelevant.  Only for $d = 4$ (Case~II of \S\ref{sec:poincare})
+do two distinct eigenvalues arise; this regime, which may connect to
+Beukers-type constructions, is deferred to future work.
+\end{remark}
+
+\begin{remark}[Constant Wronskian as arithmetic miracle]
+For unit-numerator GCFs ($a_n = 1$),
+$\abs{W_n} = \abs{A_n} = 1$ for all $n$---the Wronskian is
+\emph{constant} at the strongest possible value.
+This plays the role of the ``arithmetic miracle'' in Beukers-type
+proofs: it is trivially built into the structure rather than requiring
+delicate divisibility arguments.
+\end{remark}
+
+
+%% ═══════════════════════════════════════════════════════════════════════
+\section{Verification Algorithm}\label{sec:algorithm}
+%% ═══════════════════════════════════════════════════════════════════════
+
+Algorithm~\ref{alg:verify} implements the checkability protocol for
+Theorem~\ref{thm:master}.  All conditions are decidable from the
+coefficients of~$a_n$ and~$b_n$.
+
+\begin{algorithm}[h]
+\caption{\textsc{VerifyGCFIrrationality}$(a_n, b_n)$}\label{alg:verify}
+\begin{algorithmic}[1]
+\Require Polynomials $a_n = \sum_{i=0}^d \alpha_i n^i$,\quad
+  $b_n = \beta_2 n^2 + \beta_1 n + \beta_0$
+\Ensure $(\mathsf{converges},\, \mathsf{irrational},\, \mu)$ or $\mathsf{FAIL}$
+\Statex
+\State \textbf{--- Check $(C_1)$: Positivity ---}
+\State $n^* \gets -\beta_1/(2\beta_2)$
+\If{$n^* \leq 1$}
+  \State \textbf{assert} $b_1 = \beta_2 + \beta_1 + \beta_0 > 0$
+\Else
+  \State \textbf{assert} $b_{\lfloor n^*\rfloor} > 0$ \textbf{and}
+    $b_{\lceil n^*\rceil} > 0$ \textbf{and} $b_1 > 0$
+\EndIf
+\Statex
+\State \textbf{--- Check $(C_2)$: Non-vanishing ---}
+\State $R \gets \{\text{positive integer roots of } a_n\}$
+  \Comment{rational root theorem}
+\State \textbf{assert} $R = \varnothing$
+\Statex
+\State \textbf{--- Check $(C_3)$: Integrality ---}
+\State \textbf{assert} $a_n(0), a_n(1), \ldots, a_n(d) \in \mathbb{Z}$
+  \Comment{integer-valued polynomial test}
+\State \textbf{assert} $b_n(0), b_n(1), b_n(2) \in \mathbb{Z}$
+\Statex
+\State \textbf{--- Check $(C_4)$: Growth domination ---}
+\If{$d \leq 1$}
+  \State \textbf{pass} \Comment{automatic}
+\ElsIf{$d = 2$ \textbf{and} $\abs{\alpha_2} < \beta_2$}
+  \State \textbf{pass} \Comment{geometric decay}
+\ElsIf{$d = 2$ \textbf{and} $\abs{\alpha_2} = \beta_2$}
+  \State Compute $S \gets \sum_{k=1}^{10^4} \log\abs{a_k/b_k}$
+  \State \textbf{assert} $S < -10$ \Comment{numerical; flag for review}
+\Else
+  \State \Return \textsf{FAIL}
+    \Comment{$d \geq 3$: product diverges}
+\EndIf
+\Statex
+\State \Return $(\mathsf{True},\, \mathsf{True},\, \mu = 2)$
+\end{algorithmic}
+\end{algorithm}
+
+
+%% ═══════════════════════════════════════════════════════════════════════
+%% References
+%% ═══════════════════════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+\bibitem{perron1929}
+  O.~Perron, \emph{Die Lehre von den Kettenbr\"uchen}, Band~II,
+  Teubner, 1929; reprinted Chelsea, 1957.
+
+\bibitem{pituk2002}
+  M.~Pituk, More on Poincar\'e's and Perron's theorems for
+  difference equations,
+  \emph{J.\ Difference Equ.\ Appl.}\ \textbf{8} (2002), 201--216.
+
+\bibitem{apery1979}
+  R.~Ap\'ery, Irrationalit\'e de $\zeta(2)$ et $\zeta(3)$,
+  \emph{Ast\'erisque} \textbf{61} (1979), 11--13.
+
+\bibitem{beukers1979}
+  F.~Beukers, A note on the irrationality of $\zeta(2)$ and $\zeta(3)$,
+  \emph{Bull.\ London Math.\ Soc.}\ \textbf{11} (1979), 268--272.
+
+\bibitem{sleszynski1889}
+  I.~\'{S}leszy\'{n}ski, \"Uber die Convergenz der Kettenbr\"uche,
+  \emph{Mat.\ Sb.}\ \textbf{14} (1889), 436--498.
+
+\bibitem{wall1948}
+  H.\,S.~Wall, \emph{Analytic Theory of Continued Fractions},
+  Van Nostrand, 1948.
+
+\bibitem{lorentzen2008}
+  L.~Lorentzen and H.~Waadeland,
+  \emph{Continued Fractions: Convergence Theory}, 2nd ed.,
+  Atlantis Press, 2008.
+
+\bibitem{beardon2007}
+  A.~Beardon and I.~Short, The Seidel, Stern, Stolz and Van~Vleck
+  theorems on continued fractions,
+  \emph{Bull.\ London Math.\ Soc.}\ \textbf{42} (2010), 457--466.
+
+\bibitem{hancl2006}
+  J.~Han\v{c}l and R.~Ti\v{c}h\'{y},
+  On the irrationality of certain generalized continued fractions,
+  \emph{Monatsh.\ Math.}\ \textbf{148} (2006), 29--44.
+
+\bibitem{raayoni2021}
+  G.~Raayoni et al., Generating conjectures on fundamental constants
+  with the Ramanujan Machine, \emph{Nature} \textbf{590} (2021), 67--73.
+
+\bibitem{ferguson1999}
+  H.\,R.\,P.~Ferguson, D.\,H.~Bailey, and S.~Arwade,
+  Analysis of PSLQ, an integer relation finding algorithm,
+  \emph{Math.\ Comput.}\ \textbf{68} (1999), 351--369.
+\end{thebibliography}
+
+\end{document}

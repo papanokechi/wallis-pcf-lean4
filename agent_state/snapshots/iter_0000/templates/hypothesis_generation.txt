@@ -1,0 +1,1 @@
+Given the identified gap '{gap_description}', generate a specific, testable hypothesis. Include: (1) precise claim, (2) mechanism, (3) testable prediction with expected numeric value, (4) falsification condition.

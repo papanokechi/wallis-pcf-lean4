@@ -1,0 +1,4 @@
+target,seed,prec,deep_mode,discovery_count,novel_count,high_value_count,near_miss_count,elapsed_seconds
+zeta3,42,1000,True,109,109,109,0,211.979
+zeta5,43,1000,True,126,126,126,0,332.096
+zeta7,44,1000,True,136,136,136,0,360.184

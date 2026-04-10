@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Iterative AI Problem Solver — Results Report</title>
+<style>
+:root {
+    --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
+    --border: #30363d; --text: #e6edf3; --text2: #8b949e;
+    --accent: #58a6ff; --success: #3fb950; --warning: #d29922;
+    --danger: #f85149; --purple: #bc8cff; --pink: #f778ba;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+h1 { font-size: 2rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, var(--accent), var(--purple), var(--pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+h2 { font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; color: var(--purple); }
+.subtitle { color: var(--text2); margin-bottom: 2rem; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+.stat-value { font-size: 1.8rem; font-weight: bold; color: var(--accent); }
+.stat-label { font-size: 0.85rem; color: var(--text2); }
+.domain-section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+.discovery-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 0.5rem 0; }
+.discovery-card .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.discovery-card .category { font-size: 0.8rem; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+.cat-pattern { background: #1f3a5f; color: var(--accent); }
+.cat-invariant { background: #1a3a1a; color: var(--success); }
+.cat-hypothesis { background: #3a2a0a; color: var(--warning); }
+.cat-proof_sketch { background: #2a1a3a; color: var(--purple); }
+.cat-counterexample { background: #3a1a1a; color: var(--danger); }
+.cat-construction { background: #1a2a3a; color: var(--pink); }
+.cat-family { background: #2a2a1a; color: #e3c97a; }
+.cat-transfer { background: #1a3a3a; color: #7ae3c9; }
+.confidence-bar { height: 4px; border-radius: 2px; background: var(--border); margin-top: 0.5rem; }
+.confidence-fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+.conf-high { background: var(--success); }
+.conf-med { background: var(--warning); }
+.conf-low { background: var(--danger); }
+.content-preview { font-size: 0.85rem; color: var(--text2); margin: 0.5rem 0; max-height: 100px; overflow: hidden; }
+.proof-code { background: #0d1117; border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem; font-family: 'Cascadia Code', monospace; font-size: 0.8rem; white-space: pre-wrap; overflow-x: auto; margin: 0.5rem 0; max-height: 300px; overflow-y: auto; color: #c9d1d9; }
+.category-bar, .status-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.5rem 0; }
+.badge { font-size: 0.75rem; padding: 2px 10px; border-radius: 12px; background: var(--surface2); border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th, td { padding: 0.5rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--text2); font-weight: 600; font-size: 0.85rem; }
+td { font-size: 0.9rem; }
+tr:hover { background: var(--surface2); }
+.chart-container { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+canvas { width: 100% !important; height: 300px !important; }
+.hash { font-family: monospace; font-size: 0.75rem; color: var(--text2); word-break: break-all; background: var(--surface); padding: 0.5rem; border-radius: 4px; }
+.nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0.8rem 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+.nav a { color: var(--accent); text-decoration: none; font-size: 0.9rem; padding: 4px 12px; border-radius: 6px; }
+.nav a:hover { background: var(--surface); }
+.expand-btn { cursor: pointer; color: var(--accent); font-size: 0.8rem; margin-top: 0.3rem; }
+</style>
+</head>
+<body>
+<nav class="nav">
+    <a href="#overview">Overview</a>
+    <a href="#collatz">Collatz</a>
+    <a href="#erdos_straus">Erdős–Straus</a>
+    <a href="#hadamard">Hadamard</a>
+    <a href="#discoveries">Top Discoveries</a>
+    <a href="#agents">Agents</a>
+    <a href="#progress">Progress</a>
+</nav>
+
+<div class="container">
+    <h1>Self-Iterative Collaborative AI Problem Solver</h1>
+    <p class="subtitle">Attacking Collatz · Erdős–Straus · Hadamard conjectures via multi-agent swarm intelligence</p>
+
+    <div id="overview">
+        <h2>📊 Overview</h2>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Rounds Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">965</div>
+                <div class="stat-label">Total Discoveries</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">79</div>
+                <div class="stat-label">Validated</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Falsified</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">507.7s</div>
+                <div class="stat-label">Total Time</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">7</div>
+                <div class="stat-label">Active Agents</div>
+            </div>
+        </div>
+        <p class="hash">Pre-registration SHA-256: e5300134b50bb23b75d2c52d81369168b47d88c02a00af045f10bd1b0aabc83a</p>
+    </div>
+
+    
+        <div class="domain-section" id="collatz">
+            <h2>🌀 Collatz Conjecture</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-value">110</div>
+                    <div class="stat-label">Discoveries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0.700</div>
+                    <div class="stat-label">Max Confidence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">10</div>
+                    <div class="stat-label">Proof Sketches</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Breakthroughs</div>
+                </div>
+            </div>
+            <div class="category-bar">
+                <span class="badge cat-invariant">invariant: 39</span> <span class="badge cat-pattern">pattern: 26</span> <span class="badge cat-proof_sketch">proof_sketch: 17</span> <span class="badge cat-transfer">transfer: 16</span> <span class="badge cat-hypothesis">hypothesis: 12</span>
+            </div>
+            <div class="status-bar">
+                <span class="badge" style="color:#8b949e">proposed: 48</span> <span class="badge" style="color:#d29922">refined: 32</span> <span class="badge" style="color:#3fb950">validated: 30</span>
+            </div>
+            
+            <h3>📝 Proof Sketches</h3><div class="proof-list">
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000201</strong>
+                <span class="category cat-proof_sketch">proof_sketch</span>
+            </span>
+            <span style="color: var(--purple)">probabilistic_bound</span>
+        </div>
+        <div class="proof-code">
+-- Stopping time scaling lemma
+-- E[stopping_time(n)] ∼ 9.77 * ln(n)
+theorem collatz_expected_stopping_time :
+  ∃ C &gt; 0, ∀ n &gt; 1,
+    stopping_time(n) ≤ C * Real.log n := by
+  -- Proof sketch: probabilistic heuristic formalization
+  -- Each step reduces n by factor ~2/3 on average (when odd ratio → ln2/ln3)
+  -- Expected steps to reach 1: log(n) / log(3/2) ≈ 9.77 * ln(n)
+  sorry
+</div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000202</strong>
+                <span class="category cat-proof_sketch">proof_sketch</span>
+            </span>
+            <span style="color: var(--purple)">probabilistic_bound</span>
+        </div>
+        <div class="proof-code">
+-- Stopping time scaling lemma
+-- E[stopping_time(n)] ∼ 13.01 * ln(n)
+theorem collatz_expected_stopping_time :
+  ∃ C &gt; 0, ∀ n &gt; 1,
+    stopping_time(n) ≤ C * Real.log n := by
+  -- Proof sketch: probabilistic heuristic formalization
+  -- Each step reduces n by factor ~2/3 on average (when odd ratio → ln2/ln3)
+  -- Expected steps to reach 1: log(n) / log(3/2) ≈ 13.01 * ln(n)
+  sorry
+</div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000439</strong>
+                <span class="category cat-proof_sketch">proof_sketch</span>
+            </span>
+            <span style="color: var(--purple)">probabilistic_bound</span>
+        </div>
+        <div class="proof-code">
+-- Stopping time scaling lemma
+-- E[stopping_time(n)] ∼ 12.18 * ln(n)
+theorem collatz_expected_stopping_time :
+  ∃ C &gt; 0, ∀ n &gt; 1,
+    stopping_time(n) ≤ C * Real.log n := by
+  -- Proof sketch: probabilistic heuristic formalization
+  -- Each step reduces n by factor ~2/3 on average (when odd ratio → ln2/ln3)
+  -- Expected steps to reach 1: log(n) / log(3/2) ≈ 12.18 * ln(n)
+  sorry
+</div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000440</strong>
+                <span class="category cat-proof_sketch">proof_sketch</span>
+            </span>
+            <span style="color: var(--purple)">probabilistic_bound</span>
+        </div>
+        <div class="proof-code">
+-- Stopping time scaling lemma
+-- E[stopping_time(n)] ∼ 10.55 * ln(n)
+theorem collatz_expected_stopping_time :
+  ∃ C &gt; 0, ∀ n &gt; 1,
+    stopping_time(n) ≤ C * Real.log n := by
+  -- Proof sketch: probabilistic heuristic formalization
+  -- Each step reduces n by factor ~2/3 on average (when odd ratio → ln2/ln3)
+  -- Expected steps to reach 1: log(n) / log(3/2) ≈ 10.55 * ln(n)
+  sorry
+</div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000441</strong>
+                <span class="category cat-proof_sketch">proof_sketch</span>
+            </span>
+            <span style="color: var(--purple)">probabilistic_bound</span>
+        </div>
+        <div class="proof-code">
+-- Stopping time scaling lemma
+-- E[stopping_time(n)] ∼ 9.77 * ln(n)
+theorem collatz_expected_stopping_time :
+  ∃ C &gt; 0, ∀ n &gt; 1,
+    stopping_time(n) ≤ C * Real.log n := by
+  -- Proof sketch: probabilistic heuristic formalization
+  -- Each step reduces n by factor ~2/3 on average (when odd ratio → ln2/ln3)
+  -- Expected steps to reach 1: log(n) / log(3/2) ≈ 9.77 * ln(n)
+  sorry
+</div>
+    </div>
+    </div>
+        </div>
+        
+        <div class="domain-section" id="erdos_straus">
+            <h2>🔢 Erdős–Straus Conjecture</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-value">784</div>
+                    <div class="stat-label">Discoveries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1.000</div>
+                    <div class="stat-label">Max Confidence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">10</div>
+                    <div class="stat-label">Proof Sketches</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">10</div>
+                    <div class="stat-label">Breakthroughs</div>
+                </div>
+            </div>
+            <div class="category-bar">
+                <span class="badge cat-family">family: 696</span> <span class="badge cat-proof_sketch">proof_sketch: 40</span> <span class="badge cat-transfer">transfer: 36</span> <span class="badge cat-pattern">pattern: 8</span> <span class="badge cat-hypothesis">hypothesis: 4</span>
+            </div>
+            <div class="status-bar">
+                <span class="badge" style="color:#8b949e">proposed: 738</span> <span class="badge" style="color:#3fb950">validated: 46</span>
+            </div>
+            <h3>🌟 Breakthroughs</h3><div class="discovery-list">
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000007</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 2 (mod 4): a ≈ 0.5000·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000008</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 3 (mod 4): a ≈ 0.2545·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000009</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 0 (mod 4): a ≈ 0.2663·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000010</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 1 (mod 4): a ≈ 0.2622·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000011</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 3 (mod 6): a ≈ 0.2585·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    </div>
+            <h3>📝 Proof Sketches</h3><div class="proof-list">
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000205</strong>
+                <span class="category cat-proof_sketch">proof_sketch</span>
+            </span>
+            <span style="color: var(--purple)"></span>
+        </div>
+        <div class="proof-code">
+-- Erdős–Straus family for n ≡ 2 (mod 4)
+theorem erdos_straus_mod4_class2 :
+  ∀ n : ℕ, n ≡ 2 [MOD 4] → n ≥ 2 →
+    ∃ a b c : ℕ, a ≥ 1 ∧ b ≥ 1 ∧ c ≥ 1 ∧
+      4 * a * b * c = n * (b * c + a * c + a * b) := by
+  -- Construction: a ≈ 0.5 * n
+  -- Then solve for b, c from remaining fraction
+  sorry
+</div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000206</strong>
+                <span class="category cat-proof_sketch">proof_sketch</span>
+            </span>
+            <span style="color: var(--purple)"></span>
+        </div>
+        <div class="proof-code">
+-- Erdős–Straus family for n ≡ 3 (mod 4)
+theorem erdos_straus_mod4_class3 :
+  ∀ n : ℕ, n ≡ 3 [MOD 4] → n ≥ 2 →
+    ∃ a b c : ℕ, a ≥ 1 ∧ b ≥ 1 ∧ c ≥ 1 ∧
+      4 * a * b * c = n * (b * c + a * c + a * b) := by
+  -- Construction: a ≈ 0.25450557011788216 * n
+  -- Then solve for b, c from remaining fraction
+  sorry
+</div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000207</strong>
+                <span class="category cat-proof_sketch">proof_sketch</span>
+            </span>
+            <span style="color: var(--purple)"></span>
+        </div>
+        <div class="proof-code">
+-- Erdős–Straus family for n ≡ 0 (mod 4)
+theorem erdos_straus_mod4_class0 :
+  ∀ n : ℕ, n ≡ 0 [MOD 4] → n ≥ 2 →
+    ∃ a b c : ℕ, a ≥ 1 ∧ b ≥ 1 ∧ c ≥ 1 ∧
+      4 * a * b * c = n * (b * c + a * c + a * b) := by
+  -- Construction: a ≈ 0.26633785210184346 * n
+  -- Then solve for b, c from remaining fraction
+  sorry
+</div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000208</strong>
+                <span class="category cat-proof_sketch">proof_sketch</span>
+            </span>
+            <span style="color: var(--purple)"></span>
+        </div>
+        <div class="proof-code">
+-- Erdős–Straus family for n ≡ 1 (mod 4)
+theorem erdos_straus_mod4_class1 :
+  ∀ n : ℕ, n ≡ 1 [MOD 4] → n ≥ 2 →
+    ∃ a b c : ℕ, a ≥ 1 ∧ b ≥ 1 ∧ c ≥ 1 ∧
+      4 * a * b * c = n * (b * c + a * c + a * b) := by
+  -- Construction: a ≈ 0.26217441339012043 * n
+  -- Then solve for b, c from remaining fraction
+  sorry
+</div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000209</strong>
+                <span class="category cat-proof_sketch">proof_sketch</span>
+            </span>
+            <span style="color: var(--purple)"></span>
+        </div>
+        <div class="proof-code">
+-- Erdős–Straus family for n ≡ 3 (mod 6)
+theorem erdos_straus_mod6_class3 :
+  ∀ n : ℕ, n ≡ 3 [MOD 6] → n ≥ 2 →
+    ∃ a b c : ℕ, a ≥ 1 ∧ b ≥ 1 ∧ c ≥ 1 ∧
+      4 * a * b * c = n * (b * c + a * c + a * b) := by
+  -- Construction: a ≈ 0.2584919183896701 * n
+  -- Then solve for b, c from remaining fraction
+  sorry
+</div>
+    </div>
+    </div>
+        </div>
+        
+        <div class="domain-section" id="hadamard">
+            <h2>🔲 Hadamard Conjecture</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-value">71</div>
+                    <div class="stat-label">Discoveries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0.500</div>
+                    <div class="stat-label">Max Confidence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Proof Sketches</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Breakthroughs</div>
+                </div>
+            </div>
+            <div class="category-bar">
+                <span class="badge cat-transfer">transfer: 40</span> <span class="badge cat-hypothesis">hypothesis: 12</span> <span class="badge cat-pattern">pattern: 11</span> <span class="badge cat-invariant">invariant: 8</span>
+            </div>
+            <div class="status-bar">
+                <span class="badge" style="color:#8b949e">proposed: 60</span> <span class="badge" style="color:#d29922">refined: 8</span> <span class="badge" style="color:#3fb950">validated: 3</span>
+            </div>
+            
+            
+        </div>
+        
+
+    <div id="discoveries">
+        <h2>🏆 Top Discoveries (All Domains)</h2>
+        <div class="discovery-list">
+            
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000007</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 2 (mod 4): a ≈ 0.5000·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000008</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 3 (mod 4): a ≈ 0.2545·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000009</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 0 (mod 4): a ≈ 0.2663·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000010</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 1 (mod 4): a ≈ 0.2622·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000011</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 3 (mod 6): a ≈ 0.2585·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000012</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 5 (mod 6): a ≈ 0.2587·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000107</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 2 (mod 4): a ≈ 0.5000·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000108</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 3 (mod 4): a ≈ 0.2536·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000109</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 0 (mod 4): a ≈ 0.2630·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000110</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 1 (mod 4): a ≈ 0.2597·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000111</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 3 (mod 6): a ≈ 0.2567·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000112</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 5 (mod 6): a ≈ 0.2570·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000113</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 1 (mod 6): a ≈ 0.2562·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000114</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 2 (mod 8): a ≈ 0.5000·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+
+    <div class="discovery-card">
+        <div class="header">
+            <span>
+                <strong>D000115</strong>
+                <span class="category cat-family">family</span>
+                <span class="badge">erdos_straus</span>
+            </span>
+            <span style="color: var(--text2)">0.80</span>
+        </div>
+        <div class="content-preview">For n ≡ 3 (mod 8): a ≈ 0.2542·n</div>
+        <span class="expand-btn">▼ expand</span>
+        <div class="confidence-bar">
+            <div class="confidence-fill conf-high" style="width: 80%"></div>
+        </div>
+    </div>
+    
+        </div>
+    </div>
+
+    <div id="agents">
+        <h2>🤖 Agent Performance</h2>
+        <table>
+            <thead>
+                <tr><th>Agent</th><th>Type</th><th>Rounds</th><th>Discoveries</th><th>Time</th></tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td><code>adversary_0</code></td>
+            <td>adversary</td>
+            <td>24</td>
+            <td>19</td>
+            <td>488.1s</td>
+        </tr>
+    
+
+        <tr>
+            <td><code>explorer_0</code></td>
+            <td>explorer</td>
+            <td>24</td>
+            <td>762</td>
+            <td>19.5s</td>
+        </tr>
+    
+
+        <tr>
+            <td><code>formalizer_0</code></td>
+            <td>formalizer</td>
+            <td>12</td>
+            <td>57</td>
+            <td>0.0s</td>
+        </tr>
+    
+
+        <tr>
+            <td><code>meta_learner_0</code></td>
+            <td>meta_learner</td>
+            <td>12</td>
+            <td>12</td>
+            <td>0.0s</td>
+        </tr>
+    
+
+        <tr>
+            <td><code>pattern_miner_0</code></td>
+            <td>pattern_miner</td>
+            <td>24</td>
+            <td>23</td>
+            <td>0.0s</td>
+        </tr>
+    
+
+        <tr>
+            <td><code>pollinator_0</code></td>
+            <td>pollinator</td>
+            <td>12</td>
+            <td>92</td>
+            <td>0.0s</td>
+        </tr>
+    
+
+        <tr>
+            <td><code>refiner_0</code></td>
+            <td>refiner</td>
+            <td>24</td>
+            <td>0</td>
+            <td>0.0s</td>
+        </tr>
+    
+            </tbody>
+        </table>
+    </div>
+
+    <div id="progress" class="chart-container">
+        <h2>📈 Discovery Progress</h2>
+        <canvas id="progressChart"></canvas>
+    </div>
+</div>
+
+<script>
+// Simple chart rendering using Canvas API
+const progressData = [{"round": 1, "discoveries": 100, "time": 212.65998029708862, "stats": {"total_proposed": 100, "total_validated": 0, "total_falsified": 0, "breakthroughs": 1, "total_discoveries": 100, "by_domain": {"collatz": 8, "erdos_straus": 88, "hadamard": 4}, "by_category": {"pattern": 6, "invariant": 5, "family": 87, "hypothesis": 2}, "rounds_completed": 0}}, {"round": 2, "discoveries": 136, "time": 2.7155396938323975, "stats": {"total_proposed": 236, "total_validated": 10, "total_falsified": 0, "breakthroughs": 2, "total_discoveries": 236, "by_domain": {"collatz": 24, "erdos_straus": 194, "hadamard": 18}, "by_category": {"pattern": 11, "invariant": 11, "family": 174, "hypothesis": 7, "proof_sketch": 14, "transfer": 19}, "rounds_completed": 1}}, {"round": 3, "discoveries": 101, "time": 3.588970184326172, "stats": {"total_proposed": 337, "total_validated": 19, "total_falsified": 0, "breakthroughs": 3, "total_discoveries": 337, "by_domain": {"collatz": 34, "erdos_straus": 282, "hadamard": 21}, "by_category": {"pattern": 17, "invariant": 17, "family": 261, "hypothesis": 9, "proof_sketch": 14, "transfer": 19}, "rounds_completed": 2}}, {"round": 4, "discoveries": 142, "time": 111.58127212524414, "stats": {"total_proposed": 479, "total_validated": 33, "total_falsified": 0, "breakthroughs": 4, "total_discoveries": 479, "by_domain": {"collatz": 53, "erdos_straus": 390, "hadamard": 36}, "by_category": {"pattern": 23, "invariant": 23, "family": 348, "hypothesis": 14, "proof_sketch": 29, "transfer": 42}, "rounds_completed": 3}}, {"round": 5, "discoveries": 101, "time": 165.52204275131226, "stats": {"total_proposed": 580, "total_validated": 42, "total_falsified": 0, "breakthroughs": 5, "total_discoveries": 580, "by_domain": {"collatz": 62, "erdos_straus": 478, "hadamard": 40}, "by_category": {"pattern": 29, "invariant": 29, "family": 435, "hypothesis": 16, "proof_sketch": 29, "transfer": 42}, "rounds_completed": 4}}, {"round": 6, "discoveries": 144, "time": 3.8541383743286133, "stats": {"total_proposed": 724, "total_validated": 56, "total_falsified": 0, "breakthroughs": 6, "total_discoveries": 724, "by_domain": {"collatz": 83, "erdos_straus": 587, "hadamard": 54}, "by_category": {"pattern": 35, "invariant": 35, "family": 522, "hypothesis": 21, "proof_sketch": 44, "transfer": 67}, "rounds_completed": 5}}, {"round": 7, "discoveries": 100, "time": 3.7026379108428955, "stats": {"total_proposed": 824, "total_validated": 65, "total_falsified": 0, "breakthroughs": 7, "total_discoveries": 824, "by_domain": {"collatz": 92, "erdos_straus": 675, "hadamard": 57}, "by_category": {"pattern": 40, "invariant": 41, "family": 609, "hypothesis": 23, "proof_sketch": 44, "transfer": 67}, "rounds_completed": 6}}, {"round": 8, "discoveries": 141, "time": 4.006499767303467, "stats": {"total_proposed": 965, "total_validated": 79, "total_falsified": 0, "breakthroughs": 8, "total_discoveries": 965, "by_domain": {"collatz": 110, "erdos_straus": 784, "hadamard": 71}, "by_category": {"pattern": 45, "invariant": 47, "family": 696, "hypothesis": 28, "proof_sketch": 57, "transfer": 92}, "rounds_completed": 7}}];
+const canvas = document.getElementById('progressChart');
+if (canvas && progressData.length > 0) {
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width = canvas.parentElement.clientWidth - 48;
+    const H = canvas.height = 280;
+    const pad = { top: 30, right: 20, bottom: 40, left: 50 };
+    const plotW = W - pad.left - pad.right;
+    const plotH = H - pad.top - pad.bottom;
+
+    // Extract data
+    const rounds = progressData.map(d => d.round);
+    const discoveries = progressData.map(d => d.discoveries);
+    const cumulative = discoveries.reduce((acc, v) => {
+        acc.push((acc.length > 0 ? acc[acc.length-1] : 0) + v);
+        return acc;
+    }, []);
+
+    const maxY = Math.max(...cumulative, 1);
+    const scaleX = (i) => pad.left + (i / Math.max(rounds.length - 1, 1)) * plotW;
+    const scaleY = (v) => pad.top + plotH - (v / maxY) * plotH;
+
+    // Grid
+    ctx.strokeStyle = '#30363d';
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i <= 4; i++) {
+        const y = pad.top + (i / 4) * plotH;
+        ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
+    }
+
+    // Cumulative line
+    ctx.strokeStyle = '#58a6ff';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    cumulative.forEach((v, i) => {
+        const x = scaleX(i), y = scaleY(v);
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    // Per-round bars
+    const barW = Math.max(plotW / rounds.length * 0.6, 4);
+    ctx.fillStyle = 'rgba(188, 140, 255, 0.5)';
+    discoveries.forEach((v, i) => {
+        const x = scaleX(i) - barW/2;
+        const h = (v / maxY) * plotH;
+        ctx.fillRect(x, pad.top + plotH - h, barW, h);
+    });
+
+    // Points
+    ctx.fillStyle = '#58a6ff';
+    cumulative.forEach((v, i) => {
+        ctx.beginPath();
+        ctx.arc(scaleX(i), scaleY(v), 4, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    // Labels
+    ctx.fillStyle = '#8b949e';
+    ctx.font = '12px system-ui';
+    ctx.textAlign = 'center';
+    rounds.forEach((r, i) => {
+        ctx.fillText('R' + r, scaleX(i), H - 10);
+    });
+    ctx.textAlign = 'right';
+    for (let i = 0; i <= 4; i++) {
+        const v = Math.round(maxY * (4 - i) / 4);
+        ctx.fillText(v, pad.left - 8, pad.top + (i / 4) * plotH + 4);
+    }
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#58a6ff';
+    ctx.fillText('Cumulative Discoveries', W/2, 18);
+}
+
+// Expand/collapse
+document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const target = btn.previousElementSibling;
+        if (target) {
+            target.style.maxHeight = target.style.maxHeight === 'none' ? '100px' : 'none';
+            btn.textContent = target.style.maxHeight === 'none' ? '▲ collapse' : '▼ expand';
+        }
+    });
+});
+</script>
+</body>
+</html>

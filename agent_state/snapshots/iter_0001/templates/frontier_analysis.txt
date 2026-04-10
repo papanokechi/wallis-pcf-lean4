@@ -1,0 +1,1 @@
+Analyze the current research frontier. Given the proven theorems, open conjectures, and recent discoveries, identify the most promising gap to attack next. Consider: feasibility with available tools, potential impact, and whether we've already failed at similar attempts.

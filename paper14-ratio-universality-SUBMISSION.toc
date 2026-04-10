@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}Introduction: Why Ratios?}{2}{section.1}%
+\contentsline {section}{\numberline {2}Background: Meinardus Asymptotics}{2}{section.2}%
+\contentsline {section}{\numberline {3}Main Theorem: Ratio Universality}{3}{section.3}%
+\contentsline {section}{\numberline {4}Worked Example: $k=3$ Colored Partitions}{4}{section.4}%
+\contentsline {section}{\numberline {5}Exact 4-Term Expansion for $k=1$}{4}{section.5}%
+\contentsline {section}{\numberline {6}Seven-Family Verification}{4}{section.6}%
+\contentsline {section}{\numberline {7}Plane Partitions: Cube-Root Growth}{5}{section.7}%
+\contentsline {section}{\numberline {8}The Third-Order Coefficient and the $A_1$ Frontier}{5}{section.8}%
+\contentsline {section}{\numberline {9}Closed Form for $A_1^{(k)}$: Theorem~2 and Theorem~$2^*$}{5}{section.9}%
+\contentsline {section}{\numberline {10}Higher Growth Regimes}{8}{section.10}%
+\contentsline {section}{\numberline {11}Error Bounds}{9}{section.11}%
+\contentsline {section}{\numberline {12}Correction Note}{9}{section.12}%
+\contentsline {section}{\numberline {13}Related Work}{9}{section.13}%
+\contentsline {section}{\numberline {14}Discussion and Open Problems}{9}{section.14}%
+\contentsline {section}{\numberline {15}Computational Methods}{10}{section.15}%
+\contentsline {section}{\numberline {A}Plane Partition Recurrence}{10}{appendix.A}%
+\contentsline {section}{\numberline {B}Ngo--Rhoades Connection}{10}{appendix.B}%
+\contentsline {section}{\numberline {C}Olver Derivation for Lemma~PP}{10}{appendix.C}%
+\contentsline {section}{\numberline {D}Compact proof of Lemma~K and Theorem~$2^*$}{10}{appendix.D}%

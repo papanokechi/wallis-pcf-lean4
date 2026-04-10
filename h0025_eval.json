@@ -1,0 +1,78 @@
+{
+  "formula_raw": "-(5*c5)/48 - 6/c5",
+  "formula_clean": "-5*c5/48 - 6/c5",
+  "k": 5,
+  "timestamp": "2026-04-01T08:01:51.219816+00:00",
+  "gap_pct": 0.0,
+  "gap_seeds": [
+    {
+      "c_k": 1.0,
+      "formula_val": -6.104166666666667,
+      "gap_pct": 0.0
+    },
+    {
+      "c_k": 1.5,
+      "formula_val": -4.15625,
+      "gap_pct": 0.0
+    },
+    {
+      "c_k": 2.0,
+      "formula_val": -3.2083333333333335,
+      "gap_pct": 0.0
+    },
+    {
+      "c_k": 2.5,
+      "formula_val": -2.660416666666667,
+      "gap_pct": 0.0
+    },
+    {
+      "c_k": 3.0,
+      "formula_val": -2.3125,
+      "gap_pct": 0.0
+    },
+    {
+      "c_k": 3.7,
+      "formula_val": -2.007038288288288,
+      "gap_pct": 0.0
+    },
+    {
+      "c_k": 4.2,
+      "formula_val": -1.8660714285714284,
+      "gap_pct": 0.0
+    },
+    {
+      "c_k": 5.0,
+      "formula_val": -1.7208333333333337,
+      "gap_pct": 0.0
+    },
+    {
+      "c_k": 6.1,
+      "formula_val": -1.619023224043716,
+      "gap_pct": 0.0
+    },
+    {
+      "c_k": 7.8,
+      "formula_val": -1.5817307692307694,
+      "gap_pct": 0.0
+    }
+  ],
+  "gap_std": 0.0,
+  "gap_stable": true,
+  "scalar_value": 1.0,
+  "scalar_unity": true,
+  "alpha_exact": "-5/48",
+  "beta_exact": "-6",
+  "pslq_quality": "excellent",
+  "lfi": {
+    "dimensional": 0.3,
+    "scaling": 0.0,
+    "scalar_wrap": 0.0,
+    "transcendental": 0.0,
+    "seed_variance": 0.0
+  },
+  "verdict": "CHAMPION",
+  "verdict_detail": "Gap=0.00e+00%, LFI=0.090, PSLQ=excellent, 10-seed stable. Publication gate open.",
+  "action": "Submit to JUDGE-01 for formal verdict.",
+  "broadcast": "CHAMPION: -5*c5/48 - 6/c5 gap=0.00e+00%",
+  "lfi_total": 0.09
+}

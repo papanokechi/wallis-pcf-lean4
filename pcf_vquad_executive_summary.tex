@@ -1,0 +1,273 @@
+% ══════════════════════════════════════════════════════════════════════════════
+%  EXECUTIVE SUMMARY — PEER REVIEW STATUS
+%  PCF & V_quad Research Program
+%  As of: April 7, 2026 (Feature-Locked)
+% ══════════════════════════════════════════════════════════════════════════════
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,booktabs,geometry,enumitem,xcolor}
+\geometry{margin=1in}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+\definecolor{proved}{RGB}{46,139,87}
+\definecolor{evidence}{RGB}{200,140,20}
+\definecolor{open}{RGB}{200,50,50}
+\newcommand{\PROVED}{\textcolor{proved}{\textbf{PROVED}}}
+\newcommand{\EVIDENCE}{\textcolor{evidence}{\textbf{EVIDENCE}}}
+\newcommand{\OPEN}{\textcolor{open}{\textbf{OPEN}}}
+
+\title{Executive Summary: Peer Review Status\\[4pt]
+\large Polynomial Continued Fractions, Parity Phenomena,\\
+and Quadratic GCF Constants}
+\author{Research Program Summary — April 7, 2026}
+\date{}
+
+\begin{document}
+\maketitle
+
+% ─── 1. SCOPE ────────────────────────────────────────────────────────────────
+\section*{1. Scope}
+
+This summary covers two manuscripts and one software system developed over
+Phases 0--5 of a research program on polynomial continued fractions (PCFs)
+and generalized continued fractions (GCFs):
+
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{Paper A} (\texttt{pcf\_vquad\_paper.tex}, 273 lines, 8 sections) ---
+  The primary submission target.  Status: \textbf{Feature-locked, ready for proofreading.}
+\item \textbf{Paper B} (\texttt{summary.tex}, 659 lines, 8 sections) ---
+  Companion paper with detailed proofs on convergence, Casoratian identity,
+  Pochhammer obstruction, and Euler CF duality.
+\item \textbf{Ramanujan Breakthrough Generator v2.0}
+  (\texttt{ramanujan\_breakthrough\_generator.py}, 2444 lines, 12 CLI modes) ---
+  Integrated search/analysis/proof engine.
+\end{itemize}
+
+% ─── 2. MAIN RESULTS ────────────────────────────────────────────────────────
+\section*{2. Main Results and Proof Status}
+
+\begin{center}
+\small
+\begin{tabular}{@{} p{0.52\textwidth} c p{0.28\textwidth} @{}}
+\toprule
+\textbf{Result} & \textbf{Status} & \textbf{Method / Evidence} \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{The Continuous Gamma Identity (Centerpiece)}} \\[2pt]
+$\mathrm{val}(m) = \dfrac{2\,\Gamma(m{+}1)}{\sqrt{\pi}\,\Gamma(m{+}\frac{1}{2})}$ for all real $m > -\frac{1}{2}$
+  & \EVIDENCE & 100+ digits at 11 values of $m$ (integer and half-integer) \\[6pt]
+Integer $m$: $\mathrm{val}(m) = 2^{2m+1}/(\pi\binom{2m}{m})$
+  & \EVIDENCE & 80 digits, $m = 0,\ldots,9$ \\
+Half-integer $m$: exact Wallis rationals
+  & \PROVED & $\alpha(m) = 0$ truncation \\
+$\mathrm{val}(m{+}1)/\mathrm{val}(m) = 2(m{+}1)/(2m{+}1)$
+  & \EVIDENCE & 200 digits, $m = 0,\ldots,4$ \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Logarithmic Ladder}} \\[2pt]
+$\alpha(n)\!=\!-kn^2,\;\beta(n)\!=\!(k{+}1)n{+}k \;\to\; 1/\ln(k/(k{-}1))$
+  & \PROVED & Gauss CF equivalence \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Conjecture 1: Convergent Numerator Closed Forms}} \\[2pt]
+$m=0$: $p_n = (2n{-}1)!!\,(2n{+}1)$
+  & \PROVED & Symbolic induction \\
+$m=1$: $p_n = (2n{-}1)!!\,(n^2{+}3n{+}1)$
+  & \PROVED & Symbolic induction \\
+$m \ge 2$: $R(n,m)$ polynomial in $m$ of degree $\lfloor n/2\rfloor$
+  & \EVIDENCE & Verified $m \le 12$, $n \le 20$ \\
+General hypergeometric closed form
+  & \OPEN & Odd-prime denominator structure identified \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{V-Constants (Quadratic GCF Zoo)}} \\[2pt]
+$V(A,B,C)$ irrational for $A\!\ge\!1$, $C\!\ge\!1$, $An^2\!+\!Bn\!+\!C > 0$
+  & \PROVED & Wronskian/Euler criterion \\
+482 distinct constants, none algebraic deg $\le$ 8
+  & \EVIDENCE & PSLQ at 300 digits, coeff $\le 10^5$ \\
+No linear relation with 15 handbook constants
+  & \EVIDENCE & PSLQ 300-digit, coeff $\le 10^4$ \\
+No $V = \mathrm{val}(m)$ for any real $m$
+  & \EVIDENCE & 588-expression sweep at 300 digits \\
+Pairwise algebraic independence (5 samples)
+  & \EVIDENCE & 10 pair-tests, coeff $\le 10^4$ \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Meta-Family}} \\[2pt]
+Unified template containing Log Ladder + Pi Family
+  & \PROVED & Parameter identification \\
+Two new sub-families ($\to 2/\ln 3$, $4/\ln 3$)
+  & \EVIDENCE & 60-digit verification \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Ancillary}} \\[2pt]
+$R(n,1) = n^2{+}3n{+}1$ is OEIS A028387
+  & \PROVED & Exact match \\
+Sum $\sum 1/(n^2{+}3n{+}1) = 1 + \pi\tan(\sqrt{5}\pi/2)/\sqrt{5}$
+  & Known & OEIS reference \\
+Contiguous relation $L: m{=}0 \to m{=}1$
+  & \PROVED & Algebraic substitution \\
+Formal ODE for $m{=}0$ generating function
+  & \PROVED & Term-by-term verification \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ─── 3. WHAT IS PROVED vs CONJECTURAL ───────────────────────────────────────
+\section*{3. Classification: Proved / Numerical / Open}
+
+\textbf{Fully proved (4 results):}
+Logarithmic Ladder identity;
+Parity theorem (even $c$ truncation);
+Conjecture 1 for $m = 0$ and $m = 1$;
+irrationality of all $V(A,B,C)$.
+
+\textbf{Numerically verified to high precision (5 results):}
+Continuous Gamma Identity (100+ digits);
+Pi Family integer evaluations (80 digits);
+ratio formula (200 digits);
+$V$-constant non-algebraicity (deg $\le 8$);
+V-constant PSLQ exclusion (15 constants, 300 digits).
+
+\textbf{Open conjectures (3):}
+Hypergeometric closed form for $R(n,m)$ at general $m$;
+algebraic independence of $V$-constants (only evidence);
+exact identification of the half-integer Pochhammer structure for $c_k(n)$.
+
+% ─── 4. STRENGTHS ───────────────────────────────────────────────────────────
+\section*{4. Strengths}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item \textbf{The Gamma identity is a genuine discovery.}
+  Moving from a discrete integer family to a continuous functional equation
+  $\mathrm{val}(m) = 2\Gamma(m{+}1)/(\sqrt\pi\,\Gamma(m{+}\tfrac12))$
+  is a qualitative level-up.  It unifies the $\pi$-multiples and Wallis rationals
+  under one formula and would be the paper's publishable centerpiece.
+
+\item \textbf{The parity theorem has a clean, self-contained proof.}
+  $\alpha(m) = 0$ is a one-line argument, yet the phenomenon it explains
+  (integer vs.\ half-integer parameter dichotomy) is non-trivial to guess.
+
+\item \textbf{The V-constant zoo is well-characterized.}
+  482 irrationals, all proved irrational, none identified after extensive
+  PSLQ searches at 300 digits against 588 targets.
+  The trivial $\sqrt5 - 2\varphi + 1 = 0$ artefact is explicitly addressed.
+
+\item \textbf{Reproducibility.}
+  Every numerical claim is generated by runnable Python scripts
+  (Phases 0--5, plus 12 \texttt{--mode} options in the generator),
+  with JSON result files archived at each phase.
+\end{enumerate}
+
+% ─── 5. WEAKNESSES / RISKS ──────────────────────────────────────────────────
+\section*{5. Weaknesses and Risks}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item \textbf{The Gamma identity is numerically verified, not proved.}
+  The paper states it as a ``Theorem'' but provides no analytic proof.
+  A skeptical referee would downgrade this to a conjecture.
+  \emph{Recommendation:} Either prove it via the ${}_2F_1$ contiguous-relation
+  framework (the partial fractions of the PCF are Pad\'e approximants to a
+  $\Gamma$-ratio), or relabel as ``Numerical Theorem'' with explicit precision
+  bounds.
+
+\item \textbf{The hypergeometric form for general $m$ is still open.}
+  The paper identifies the odd-prime denominator structure of $c_k(n)$
+  but does not produce a closed formula.
+  This is honest but leaves the Conjecture 1 story at ``proved for two cases,
+  open for the rest.'' A referee may ask: what is the obstruction?
+
+\item \textbf{The V-constant section is a catalogue, not a theory.}
+  482 constants, all unidentified --- this is impressive as data but thin
+  as mathematics.  The irrationality proof is elementary (Wronskian).
+  What converts it from ``table'' to ``paper'' is the non-identification,
+  but that is inherently an evidence-based negative result.
+
+\item \textbf{Single reference.}
+  The bibliography has only one entry (Raayoni et al.\ 2021).
+  The paper should cite at least: Euler's CF criterion, the Gauss CF theorem,
+  Wallis product, Ap\'ery's theorem, and the OEIS entry for A028387.
+
+\item \textbf{Companion paper overlap.}
+  \texttt{summary.tex} (659 lines) covers Casoratian identities, Euler duality,
+  and Brouncker comparison for the same PCF families.
+  Referees will want to know: is this a single paper or two?
+  The current \texttt{pcf\_vquad\_paper.tex} is self-contained but thin (273 lines);
+  merging the strongest sections of both would yield a stronger submission.
+\end{enumerate}
+
+% ─── 6. QUANTITATIVE SUMMARY ────────────────────────────────────────────────
+\section*{6. Quantitative Summary}
+
+\begin{center}
+\begin{tabular}{@{} l r @{}}
+\toprule
+Metric & Value \\
+\midrule
+Theorems proved (rigorous) & 6 \\
+Conjectures stated & 2 \\
+Numerical verifications ($\ge$ 80 digits) & 11 \\
+V-constants catalogued & 482 \\
+V-constants proved irrational & 482 \\
+V-constants excluded by PSLQ (15 basis, 300d) & 482/482 \\
+PSLQ targets tested per V-constant & 588 \\
+Maximum verification precision & 300 digits \\
+Unique PCFs in conjecture registry & 21 \\
+Generator CLI modes & 12 \\
+Phase scripts & 12 \\
+Total Python LOC (generator+phases+runner) & $\sim$5{,}000 \\
+LaTeX paper (primary) & 273 lines \\
+LaTeX paper (companion) & 659 lines \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ─── 7. ROADMAP STATUS ──────────────────────────────────────────────────────
+\section*{7. Phase Roadmap Status}
+
+\begin{center}
+\small
+\begin{tabular}{@{} c l c r l @{}}
+\toprule
+Phase & Description & Status & Time & Key Output \\
+\midrule
+0   & Seed generator (Conj.\ 1) & \PROVED\ $m{=}0,1$ & 3s & Symbolic induction \\
+0b  & Extended guess ($m \ge 2$) & Complete & 12s & Polynomial-in-$m$ structure \\
+0c  & Higher-$m$ guesser         & Complete & 10s & $c_k(n)$ odd-prime denominators \\
+1   & Generalize (parity, meta)  & Complete & 217s & Parity theorem, 2 new sub-families \\
+2   & V-quad hunt + PSLQ         & Complete & 579s & 482 constants, independence evidence \\
+3   & Dashboard                  & Complete & 7s & Interactive HTML \\
+4   & Higher-degree + \LaTeX     & Complete & 208s & Paper draft \\
+5   & Hypergeometric attack      & Complete & 39s & Gamma identity \\
+\midrule
+    & \textbf{Total compute}     &          & \textbf{$\sim$18 min} & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Additional deep-dive sessions (zeta(3) symmetry, V-quad clustering,
+cubic Riccati) ran $\sim$40 additional searches with 0 new zeta(3) PCFs
+discovered (confirming Ap\'ery uniqueness in the tested search space)
+and 0 new V-constant identifications (strengthening the ``new family'' claim).
+
+% ─── 8. RECOMMENDATION ─────────────────────────────────────────────────────
+\section*{8. Recommendation}
+
+\textbf{Verdict: Submit with revisions.}
+
+The Continuous Gamma Identity is the paper's strongest contribution and should
+be either proved analytically or clearly labelled as a high-precision conjecture
+with an explicit numerical-evidence framework.
+The V-constant zoo is a solid secondary contribution but needs 5--8 more
+bibliography entries to contextualize the Wronskian method and PSLQ protocol.
+
+\textbf{Immediate actions before submission:}
+\begin{enumerate}[leftmargin=1.5em]
+\item Add references: Euler, Gauss CF, Wallis, OEIS A028387, Borwein (PSLQ).
+\item Decide: merge with companion paper, or submit as two linked preprints?
+\item Relabel Theorem~5 as ``Conjecture (verified to 100 digits)'' unless
+  an analytic proof via ${}_2F_1$ Pad\'e theory is completed.
+\item Add a short ``Computational Methods'' section or appendix describing
+  the generator, precision levels, and reproducibility.
+\end{enumerate}
+
+\textbf{Separate track (not blocking):}
+Lemma~K (Kloosterman sum bound for Conjecture~2* of Paper~14) is unrelated
+to the PCF/Gamma methods and should not delay this submission.
+
+\end{document}

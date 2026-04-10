@@ -1,0 +1,2792 @@
+[
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      40,
+      -80,
+      56
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta3_0000",
+    "_conductor": 8,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      40,
+      -80,
+      56
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta5_0001",
+    "_conductor": 8,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      -40,
+      -80,
+      -56
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta3_0002",
+    "_conductor": 8,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      -40,
+      -80,
+      -56
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta5_0003",
+    "_conductor": 8,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -14,
+      80,
+      -160,
+      112
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta3_0004",
+    "_conductor": 8,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -14,
+      80,
+      -160,
+      112
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta5_0005",
+    "_conductor": 8,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -15,
+      32,
+      -88,
+      48
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta3_0006",
+    "_conductor": 8,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -15,
+      32,
+      -88,
+      48
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta5_0007",
+    "_conductor": 8,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -8,
+      43,
+      -80,
+      55
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta3_0008",
+    "_conductor": 8,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -8,
+      43,
+      -80,
+      55
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta5_0009",
+    "_conductor": 8,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      20,
+      -45,
+      32
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta3_0010",
+    "_conductor": 8,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      20,
+      -45,
+      32
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta5_0011",
+    "_conductor": 8,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      -20,
+      -45,
+      -32
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta3_0012",
+    "_conductor": 8,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      -20,
+      -45,
+      -32
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta5_0013",
+    "_conductor": 8,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -6,
+      40,
+      -90,
+      64
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta3_0014",
+    "_conductor": 8,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -6,
+      40,
+      -90,
+      64
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta5_0015",
+    "_conductor": 8,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -11,
+      12,
+      -53,
+      24
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta3_0016",
+    "_conductor": 8,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -11,
+      12,
+      -53,
+      24
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta5_0017",
+    "_conductor": 8,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -4,
+      23,
+      -48,
+      33
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta3_0018",
+    "_conductor": 8,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -4,
+      23,
+      -48,
+      33
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N8_zeta5_0019",
+    "_conductor": 8,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -8,
+      56,
+      -128,
+      128,
+      -48
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 4,
+    "spec_id": "KLOOST_N8_zeta5_0020",
+    "_conductor": 8,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -8,
+      -56,
+      -128,
+      -128,
+      -48
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 4,
+    "spec_id": "KLOOST_N8_zeta5_0021",
+    "_conductor": 8,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -16,
+      112,
+      -256,
+      256,
+      -96
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 4,
+    "spec_id": "KLOOST_N8_zeta5_0022",
+    "_conductor": 8,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -16,
+      48,
+      -136,
+      120,
+      -56
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 4,
+    "spec_id": "KLOOST_N8_zeta5_0023",
+    "_conductor": 8,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      56,
+      -134,
+      124,
+      -49
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 4,
+    "spec_id": "KLOOST_N8_zeta5_0024",
+    "_conductor": 8,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -11,
+      120,
+      -540,
+      1320,
+      -1760,
+      1024
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0025",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -11,
+      -120,
+      -540,
+      -1320,
+      -1760,
+      -1024
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0026",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -22,
+      240,
+      -1080,
+      2640,
+      -3520,
+      2048
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0027",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -35,
+      96,
+      -564,
+      1296,
+      -1784,
+      1000
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0028",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -12,
+      125,
+      -530,
+      1310,
+      -1755,
+      1023
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0029",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      85,
+      -400,
+      1000,
+      -1344,
+      768
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0030",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      -85,
+      -400,
+      -1000,
+      -1344,
+      -768
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0031",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -14,
+      170,
+      -800,
+      2000,
+      -2688,
+      1536
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0032",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      17,
+      109,
+      -376,
+      1024,
+      -1320,
+      792
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0033",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -8,
+      85,
+      -390,
+      1000,
+      -1349,
+      767
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0034",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -13,
+      156,
+      -780,
+      2080,
+      -2880,
+      1536
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0035",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -13,
+      -156,
+      -780,
+      -2080,
+      -2880,
+      -1536
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0036",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -26,
+      312,
+      -1560,
+      4160,
+      -5760,
+      3072
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0037",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      11,
+      180,
+      -756,
+      2104,
+      -2856,
+      1560
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0038",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -13,
+      156,
+      -790,
+      2070,
+      -2880,
+      1535
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N24_zeta5_0039",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -5,
+      33,
+      -75,
+      58
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0040",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -5,
+      33,
+      -75,
+      58
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0041",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -5,
+      -33,
+      -75,
+      -58
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0042",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -5,
+      -33,
+      -75,
+      -58
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0043",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -10,
+      66,
+      -150,
+      116
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0044",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -10,
+      66,
+      -150,
+      116
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0045",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -29,
+      9,
+      -99,
+      34
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0046",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -29,
+      9,
+      -99,
+      34
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0047",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -5,
+      30,
+      -75,
+      58
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0048",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -5,
+      30,
+      -75,
+      58
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0049",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      48,
+      -114,
+      90
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0050",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      48,
+      -114,
+      90
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0051",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      -48,
+      -114,
+      -90
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0052",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      -48,
+      -114,
+      -90
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0053",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -14,
+      96,
+      -228,
+      180
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0054",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -14,
+      96,
+      -228,
+      180
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0055",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      17,
+      72,
+      -90,
+      114
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0056",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      17,
+      72,
+      -90,
+      114
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0057",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -8,
+      51,
+      -114,
+      91
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0058",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -8,
+      51,
+      -114,
+      91
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0059",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      24,
+      -60,
+      48
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0060",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      24,
+      -60,
+      48
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0061",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      -24,
+      -60,
+      -48
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0062",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      -24,
+      -60,
+      -48
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0063",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -6,
+      48,
+      -120,
+      96
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0064",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -6,
+      48,
+      -120,
+      96
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0065",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -27,
+      0,
+      -84,
+      24
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0066",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -27,
+      0,
+      -84,
+      24
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0067",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      21,
+      -57,
+      48
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta3_0068",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      21,
+      -57,
+      48
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "ratio",
+    "order": 3,
+    "spec_id": "KLOOST_N24_zeta5_0069",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      -24,
+      120,
+      -192,
+      96
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta5_0070",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      -24,
+      120,
+      -192,
+      96
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta3_0071",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -1,
+      24,
+      120,
+      192,
+      96
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta5_0072",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -1,
+      24,
+      120,
+      192,
+      96
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta3_0073",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -1,
+      -48,
+      240,
+      -384,
+      192
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta5_0074",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -1,
+      -48,
+      240,
+      -384,
+      192
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta3_0075",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -24,
+      -48,
+      96,
+      -216,
+      72
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta5_0076",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -24,
+      -48,
+      96,
+      -216,
+      72
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta3_0077",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      -28,
+      120,
+      -196,
+      95
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta5_0078",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      -28,
+      120,
+      -196,
+      95
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta3_0079",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -1,
+      -12,
+      72,
+      -144,
+      96
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta5_0080",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -1,
+      -12,
+      72,
+      -144,
+      96
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta3_0081",
+    "_conductor": 24,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      12,
+      72,
+      144,
+      96
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta5_0082",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      12,
+      72,
+      144,
+      96
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta3_0083",
+    "_conductor": 24,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      -24,
+      144,
+      -288,
+      192
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta5_0084",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      -24,
+      144,
+      -288,
+      192
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta3_0085",
+    "_conductor": 24,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      24,
+      12,
+      96,
+      -120,
+      120
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta5_0086",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      24,
+      12,
+      96,
+      -120,
+      120
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta3_0087",
+    "_conductor": 24,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      -12,
+      66,
+      -144,
+      96
+    ],
+    "target": "zeta5",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta5_0088",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      -12,
+      66,
+      -144,
+      96
+    ],
+    "target": "zeta3",
+    "n_terms": 400,
+    "mode": "backward",
+    "order": 0,
+    "spec_id": "KLOOST_N24_zeta3_0089",
+    "_conductor": 24,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -15,
+      252,
+      -1890,
+      8400,
+      -23520,
+      42336,
+      -45360,
+      21504
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 7,
+    "spec_id": "KLOOST_N48_zeta7_0090",
+    "_conductor": 48,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -15,
+      -252,
+      -1890,
+      -8400,
+      -23520,
+      -42336,
+      -45360,
+      -21504
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 7,
+    "spec_id": "KLOOST_N48_zeta7_0091",
+    "_conductor": 48,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -30,
+      504,
+      -3780,
+      16800,
+      -47040,
+      84672,
+      -90720,
+      43008
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 7,
+    "spec_id": "KLOOST_N48_zeta7_0092",
+    "_conductor": 48,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -63,
+      204,
+      -1938,
+      8352,
+      -23568,
+      42288,
+      -45408,
+      21456
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 7,
+    "spec_id": "KLOOST_N48_zeta7_0093",
+    "_conductor": 48,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -14,
+      252,
+      -1869,
+      8435,
+      -23485,
+      42315,
+      -45353,
+      21505
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 7,
+    "spec_id": "KLOOST_N48_zeta7_0094",
+    "_conductor": 48,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -13,
+      210,
+      -1512,
+      6300,
+      -16380,
+      27216,
+      -26880,
+      11520
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 7,
+    "spec_id": "KLOOST_N48_zeta7_0095",
+    "_conductor": 48,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -13,
+      -210,
+      -1512,
+      -6300,
+      -16380,
+      -27216,
+      -26880,
+      -11520
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 7,
+    "spec_id": "KLOOST_N48_zeta7_0096",
+    "_conductor": 48,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -26,
+      420,
+      -3024,
+      12600,
+      -32760,
+      54432,
+      -53760,
+      23040
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 7,
+    "spec_id": "KLOOST_N48_zeta7_0097",
+    "_conductor": 48,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -61,
+      162,
+      -1560,
+      6252,
+      -16428,
+      27168,
+      -26928,
+      11472
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 7,
+    "spec_id": "KLOOST_N48_zeta7_0098",
+    "_conductor": 48,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -12,
+      217,
+      -1533,
+      6265,
+      -16380,
+      27216,
+      -26880,
+      11521
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 7,
+    "spec_id": "KLOOST_N48_zeta7_0099",
+    "_conductor": 48,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -9,
+      108,
+      -540,
+      1440,
+      -2016,
+      1152
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta7_0100",
+    "_conductor": 48,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -9,
+      108,
+      -540,
+      1440,
+      -2016,
+      1152
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta5_0101",
+    "_conductor": 48,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -9,
+      -108,
+      -540,
+      -1440,
+      -2016,
+      -1152
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta7_0102",
+    "_conductor": 48,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -9,
+      -108,
+      -540,
+      -1440,
+      -2016,
+      -1152
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta5_0103",
+    "_conductor": 48,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -18,
+      216,
+      -1080,
+      2880,
+      -4032,
+      2304
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta7_0104",
+    "_conductor": 48,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -18,
+      216,
+      -1080,
+      2880,
+      -4032,
+      2304
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta5_0105",
+    "_conductor": 48,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -57,
+      60,
+      -588,
+      1392,
+      -2064,
+      1104
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta7_0106",
+    "_conductor": 48,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -57,
+      60,
+      -588,
+      1392,
+      -2064,
+      1104
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta5_0107",
+    "_conductor": 48,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -8,
+      108,
+      -550,
+      1430,
+      -2021,
+      1152
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta7_0108",
+    "_conductor": 48,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -8,
+      108,
+      -550,
+      1430,
+      -2021,
+      1152
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta5_0109",
+    "_conductor": 48,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -11,
+      144,
+      -780,
+      2240,
+      -3360,
+      2048
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta7_0110",
+    "_conductor": 48,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -11,
+      144,
+      -780,
+      2240,
+      -3360,
+      2048
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta5_0111",
+    "_conductor": 48,
+    "_strategy": "identity"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -11,
+      -144,
+      -780,
+      -2240,
+      -3360,
+      -2048
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta7_0112",
+    "_conductor": 48,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -11,
+      -144,
+      -780,
+      -2240,
+      -3360,
+      -2048
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta5_0113",
+    "_conductor": 48,
+    "_strategy": "sign_flip"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -22,
+      288,
+      -1560,
+      4480,
+      -6720,
+      4096
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta7_0114",
+    "_conductor": 48,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -22,
+      288,
+      -1560,
+      4480,
+      -6720,
+      4096
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta5_0115",
+    "_conductor": 48,
+    "_strategy": "scale_2"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      37,
+      192,
+      -732,
+      2288,
+      -3312,
+      2096
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta7_0116",
+    "_conductor": 48,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      37,
+      192,
+      -732,
+      2288,
+      -3312,
+      2096
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta5_0117",
+    "_conductor": 48,
+    "_strategy": "shift_conductor"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -11,
+      139,
+      -790,
+      2250,
+      -3355,
+      2048
+    ],
+    "target": "zeta7",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta7_0118",
+    "_conductor": 48,
+    "_strategy": "pochhammer_twist"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -11,
+      139,
+      -790,
+      2250,
+      -3355,
+      2048
+    ],
+    "target": "zeta5",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5,
+    "spec_id": "KLOOST_N48_zeta5_0119",
+    "_conductor": 48,
+    "_strategy": "pochhammer_twist"
+  }
+]

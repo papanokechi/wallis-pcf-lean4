@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-04-05 12:45:00",
+  "catalog_size": 342,
+  "rational_count": 335,
+  "transcendental_count": 7,
+  "genuine_hits": [
+    {
+      "index": 235,
+      "alpha": [
+        -4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "beta": [
+        5,
+        0
+      ],
+      "mode": "backward",
+      "order": 0,
+      "target": "zeta5",
+      "relation_deg2": [
+        1,
+        0,
+        -8,
+        0,
+        16
+      ],
+      "pslq_digits": 500,
+      "cf_value_20": "4.0"
+    }
+  ],
+  "error_count": 0,
+  "rational_rate_pct": 97.95
+}

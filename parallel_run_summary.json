@@ -1,0 +1,10 @@
+{
+  "elapsed_seconds": 204.08,
+  "num_workers": 7,
+  "total_discoveries": 1,
+  "total_near_misses": 0,
+  "discoveries_per_hour": 17.64,
+  "precision": 60,
+  "depth": 300,
+  "timestamp": "2026-04-08T16:13:29.640353"
+}

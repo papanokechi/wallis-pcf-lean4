@@ -1,0 +1,144 @@
+{# conflict_heatmap.html — Layer×Token Internal Friction heatmap visualization #}
+{# Usage: {% include 'conflict_heatmap.html' with context %} #}
+{# Required vars: canvas_id, caption #}
+{# Runtime data: window.__heatmap_data = {heatmap: number[][], tokens: string[], safety_bottleneck_layer: number, global_spike: {...}} #}
+
+<section class="card" style="border-left:3px solid var(--pink)">
+  <h3 style="margin-top:0; color:var(--pink)">Internal Friction: Layer × Token Conflict Map</h3>
+  <p>
+    The heatmap shows cosine distance between consecutive residual stream layers for each token position.
+    Bright spots indicate where safety-tuned weights and next-token predictors <strong>diverge</strong>,
+    revealing the "moment of compliance" during a jailbreak attempt.
+  </p>
+  <div class="canvas-container">
+    <canvas id="{{ canvas_id }}" width="{{ width | default(800) }}" height="{{ height | default(400) }}"></canvas>
+    <div class="canvas-label">{{ caption | default('Figure 3. Layer × Token Internal Friction heatmap. Bright regions indicate high safety-concept conflict.') }}</div>
+  </div>
+</section>
+
+<script>
+(function() {
+  const c = document.getElementById('{{ canvas_id }}');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  const W = c.width, H = c.height;
+  const pad = {l:70, r:20, t:30, b:60};
+  const pw = W - pad.l - pad.r, ph = H - pad.t - pad.b;
+
+  ctx.fillStyle = '#0f172a';
+  ctx.fillRect(0, 0, W, H);
+
+  // Check for live data, otherwise generate synthetic demo
+  const data = window.__heatmap_data || generateSynthetic();
+
+  function generateSynthetic() {
+    // Synthetic 32-layer × 40-token heatmap for demo
+    const L = 31, T = 40;
+    const heatmap = [];
+    for (let l = 0; l < L; l++) {
+      const row = [];
+      for (let t = 0; t < T; t++) {
+        // Base friction increases in middle layers
+        let base = 0.02 + 0.04 * Math.exp(-((l - 18) ** 2) / 50);
+        // Spike at token 22-26 in layers 16-22 (the "compliance moment")
+        if (t >= 22 && t <= 26 && l >= 16 && l <= 22) {
+          base += 0.12 * Math.exp(-((t - 24) ** 2) / 4 - ((l - 19) ** 2) / 8);
+        }
+        // Add noise
+        base += (Math.random() - 0.5) * 0.01;
+        row.push(Math.max(0, base));
+      }
+      heatmap.push(row);
+    }
+    const tokens = Array.from({length: T}, (_, i) => `tok_${i}`);
+    // Mark the jailbreak region
+    tokens[22] = '▸Sure'; tokens[23] = ',▸I'; tokens[24] = '▸can';
+    tokens[25] = '▸help'; tokens[26] = '▸with';
+    return {heatmap, tokens, safety_bottleneck_layer: 19,
+            global_spike: {layer: 19, token_idx: 24, token: '▸can', friction: 0.15}};
+  }
+
+  const hm = data.heatmap;
+  const L = hm.length, T = hm[0].length;
+  const cellW = pw / T, cellH = ph / L;
+
+  // Find max for color scaling
+  let maxVal = 0;
+  for (const row of hm) for (const v of row) if (v > maxVal) maxVal = v;
+
+  // Draw cells
+  for (let l = 0; l < L; l++) {
+    for (let t = 0; t < T; t++) {
+      const intensity = hm[l][t] / maxVal;
+      // Color: dark blue → teal → pink → white
+      let r, g, b;
+      if (intensity < 0.33) {
+        const p = intensity / 0.33;
+        r = Math.round(15 + p * 30);
+        g = Math.round(23 + p * 190);
+        b = Math.round(42 + p * 149);
+      } else if (intensity < 0.66) {
+        const p = (intensity - 0.33) / 0.33;
+        r = Math.round(45 + p * 199);
+        g = Math.round(212 - p * 100);
+        b = Math.round(191 - p * 9);
+      } else {
+        const p = (intensity - 0.66) / 0.34;
+        r = Math.round(244 + p * 11);
+        g = Math.round(114 + p * 141);
+        b = Math.round(182 + p * 73);
+      }
+      ctx.fillStyle = `rgb(${r},${g},${b})`;
+      ctx.fillRect(pad.l + t * cellW, pad.t + l * cellH, cellW + 0.5, cellH + 0.5);
+    }
+  }
+
+  // Mark safety bottleneck layer
+  if (data.safety_bottleneck_layer !== undefined) {
+    const y = pad.t + data.safety_bottleneck_layer * cellH;
+    ctx.strokeStyle = 'rgba(244,114,182,0.8)'; ctx.lineWidth = 2; ctx.setLineDash([4, 3]);
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(W - pad.r, y); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#f472b6'; ctx.font = '9px Inter'; ctx.textAlign = 'left';
+    ctx.fillText('← Safety Bottleneck (L' + data.safety_bottleneck_layer + ')', W - pad.r + 3, y + 4);
+  }
+
+  // Mark global spike
+  if (data.global_spike) {
+    const sx = pad.l + data.global_spike.token_idx * cellW + cellW / 2;
+    const sy = pad.t + data.global_spike.layer * cellH + cellH / 2;
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(sx, sy, 8, 0, 2 * Math.PI); ctx.stroke();
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 8px Inter'; ctx.textAlign = 'center';
+    ctx.fillText('MAX', sx, sy - 12);
+  }
+
+  // Axes
+  ctx.fillStyle = '#94a3b8'; ctx.font = '9px Inter';
+  ctx.textAlign = 'right';
+  for (let l = 0; l < L; l += 5) {
+    ctx.fillText('L' + l, pad.l - 4, pad.t + l * cellH + cellH / 2 + 3);
+  }
+  ctx.textAlign = 'center';
+  const step = Math.max(1, Math.floor(T / 15));
+  for (let t = 0; t < T; t += step) {
+    const label = data.tokens ? data.tokens[t] : 't' + t;
+    ctx.save();
+    ctx.translate(pad.l + t * cellW + cellW / 2, H - pad.b + 8);
+    ctx.rotate(-Math.PI / 4);
+    ctx.textAlign = 'right';
+    ctx.fillText(label.substring(0, 8), 0, 0);
+    ctx.restore();
+  }
+
+  // Axis titles
+  ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter';
+  ctx.save();
+  ctx.translate(12, pad.t + ph / 2);
+  ctx.rotate(-Math.PI / 2); ctx.textAlign = 'center';
+  ctx.fillText('Layer', 0, 0);
+  ctx.restore();
+  ctx.textAlign = 'center';
+  ctx.fillText('Token Position', pad.l + pw / 2, H - 5);
+})();
+</script>

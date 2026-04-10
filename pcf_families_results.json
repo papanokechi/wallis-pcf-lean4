@@ -1,0 +1,114 @@
+{
+  "title": "Two Parametric PCF Families for 1/ln and 1/π",
+  "log_family": {
+    "theorem": "PCF(-kn², (k+1)n+k) = 1/ln(k/(k-1)) for all real k > 1",
+    "status": "PROVEN",
+    "proof": "p_n=(n+1)!k^{n+1}, q_n=(n+1)!Σk^{n-j}/(j+1), limit via -ln(1-x)/x",
+    "results": [
+      {
+        "k": 2,
+        "dp": 138,
+        "pass": true
+      },
+      {
+        "k": 3,
+        "dp": 138,
+        "pass": true
+      },
+      {
+        "k": 4,
+        "dp": 138,
+        "pass": true
+      },
+      {
+        "k": 5,
+        "dp": 139,
+        "pass": true
+      },
+      {
+        "k": 1.5,
+        "dp": 139,
+        "pass": true
+      },
+      {
+        "k": 2.5,
+        "dp": 139,
+        "pass": true
+      },
+      {
+        "k": 10,
+        "dp": 138,
+        "pass": true
+      }
+    ]
+  },
+  "pi_family": {
+    "theorem": "PCF(-n(2n-(2m+1)), 3n+1) = 2^{2m+1}/(π·C(2m,m)) for all m ≥ 0",
+    "status": "PROVEN",
+    "proof": "p_n=(2n+1)!!, q_n=(2n+1)!!·Σj!/(2j+1)!!, limit via π/2=Σj!/(2j+1)!!",
+    "results": [
+      {
+        "m": 0,
+        "dp": 140,
+        "pass": true
+      },
+      {
+        "m": 1,
+        "dp": 138,
+        "pass": true
+      },
+      {
+        "m": 2,
+        "dp": 138,
+        "pass": true
+      },
+      {
+        "m": 3,
+        "dp": 138,
+        "pass": true
+      },
+      {
+        "m": 4,
+        "dp": 138,
+        "pass": true
+      },
+      {
+        "m": 5,
+        "dp": 139,
+        "pass": true
+      },
+      {
+        "m": 6,
+        "dp": 138,
+        "pass": true
+      },
+      {
+        "m": 7,
+        "dp": 139,
+        "pass": true
+      }
+    ]
+  },
+  "arb_certification": [
+    {
+      "target": "1/ln(2)",
+      "digits": 1208,
+      "contains": false
+    },
+    {
+      "target": "1/ln(3/2)",
+      "digits": 1817,
+      "contains": true
+    },
+    {
+      "target": "2/π",
+      "digits": 1207,
+      "contains": false
+    },
+    {
+      "target": "4/π",
+      "digits": 1217,
+      "contains": false
+    }
+  ]
+}

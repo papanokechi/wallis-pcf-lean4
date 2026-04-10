@@ -1,0 +1,2895 @@
+{
+  "sweep_spec": {
+    "targets": [
+      "zeta3",
+      "pi",
+      "e",
+      "log2",
+      "catalan",
+      "zeta2"
+    ],
+    "iters": 4,
+    "batch": 32,
+    "prec": 300,
+    "workers": 0,
+    "executor": "process",
+    "quiet": true,
+    "seed": 123,
+    "seed_file": null,
+    "use_llm": false,
+    "use_lirec": false
+  },
+  "targets": [
+    {
+      "target": "zeta3",
+      "seed": 123,
+      "summary": {
+        "generated_at": "2026-04-04 20:11:52",
+        "script": "multi_target_ramanujan_sweep.py",
+        "target": "zeta3",
+        "llm_mode": "disabled",
+        "lirec_enabled": false,
+        "stats": {
+          "iters": 4,
+          "tested": 128,
+          "discoveries": 4,
+          "novel": 4,
+          "rate_percent": 100.0,
+          "seeds_injected": 20,
+          "llm_calls": 0,
+          "elapsed_human": "0m13s",
+          "elapsed_seconds": 13.602,
+          "gcf_per_sec": 9.41
+        },
+        "environment": {
+          "python": "3.14.3",
+          "implementation": "CPython",
+          "platform": "Windows-11-10.0.29560-SP0",
+          "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+          "cpu_count": 8,
+          "mpmath": "1.4.1"
+        },
+        "artifacts": {
+          "discoveries_path": "ramanujan_discoveries.json",
+          "seed_path": "relay_chain_seed_pool.json",
+          "profile_path": null
+        },
+        "pslq": {
+          "tested_targets": 268,
+          "pslq_calls": 534,
+          "degree2_calls": 266,
+          "prefilter_skips": 0,
+          "neighbour_attempts": 182,
+          "neighbour_skips": 190,
+          "found": 4
+        },
+        "run_config": {
+          "target": "zeta3",
+          "iters": 4,
+          "batch": 32,
+          "effective_batch": 32,
+          "workers": 0,
+          "resolved_workers": 1,
+          "auto_worker_cap": 4,
+          "executor": "process",
+          "prec": 300,
+          "quiet": true,
+          "seed": 123,
+          "seed_file": null,
+          "llm": false,
+          "lirec": false
+        },
+        "discoveries": [
+          {
+            "spec": {
+              "spec_id": "GCF_85A6D7D3",
+              "alpha": [
+                -6,
+                6
+              ],
+              "beta": [
+                2,
+                0,
+                2,
+                -2
+              ],
+              "target": "zeta3",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta3",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              -2,
+              2
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + -2\u00b7zeta3 + 2 = 0",
+            "cf_approx": "2.0",
+            "timestamp": 1775301101.6176565,
+            "enrichment": {
+              "closed_form": "2",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_C0C79573",
+              "alpha": [
+                -1,
+                1
+              ],
+              "beta": [
+                1,
+                2
+              ],
+              "target": "zeta3",
+              "n_terms": 200,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta3",
+            "relation": [
+              0,
+              1,
+              0,
+              0,
+              -1,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+            "cf_approx": "1.0",
+            "timestamp": 1775301103.7009494,
+            "enrichment": {
+              "closed_form": "1",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_6713EBA0",
+              "alpha": [
+                -1,
+                0,
+                1
+              ],
+              "beta": [
+                -2,
+                4
+              ],
+              "target": "zeta3",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta3",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              2,
+              -2
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + 2\u00b7zeta3 + -2 = 0",
+            "cf_approx": "-2.0",
+            "timestamp": 1775301103.9130123,
+            "enrichment": {
+              "closed_form": "-2",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_33FA8742",
+              "alpha": [
+                -4,
+                -4,
+                3
+              ],
+              "beta": [
+                -4,
+                4,
+                4
+              ],
+              "target": "zeta3",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta4",
+            "relation": [
+              0,
+              4,
+              0,
+              -4,
+              21,
+              -21
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "4\u00b7CF\u00b7zeta4 + -4\u00b7CF + 21\u00b7zeta4 + -21 = 0",
+            "cf_approx": "-5.25",
+            "timestamp": 1775301111.6289377,
+            "enrichment": {
+              "closed_form": "-21/4",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          }
+        ]
+      },
+      "discoveries": [
+        {
+          "spec": {
+            "spec_id": "GCF_85A6D7D3",
+            "alpha": [
+              -6,
+              6
+            ],
+            "beta": [
+              2,
+              0,
+              2,
+              -2
+            ],
+            "target": "zeta3",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta3",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -2,
+            2
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + -2\u00b7zeta3 + 2 = 0",
+          "cf_approx": "2.0",
+          "timestamp": 1775301101.6176565,
+          "enrichment": {
+            "closed_form": "2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_C0C79573",
+            "alpha": [
+              -1,
+              1
+            ],
+            "beta": [
+              1,
+              2
+            ],
+            "target": "zeta3",
+            "n_terms": 200,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta3",
+          "relation": [
+            0,
+            1,
+            0,
+            0,
+            -1,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+          "cf_approx": "1.0",
+          "timestamp": 1775301103.7009494,
+          "enrichment": {
+            "closed_form": "1",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_6713EBA0",
+            "alpha": [
+              -1,
+              0,
+              1
+            ],
+            "beta": [
+              -2,
+              4
+            ],
+            "target": "zeta3",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta3",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            2,
+            -2
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + 2\u00b7zeta3 + -2 = 0",
+          "cf_approx": "-2.0",
+          "timestamp": 1775301103.9130123,
+          "enrichment": {
+            "closed_form": "-2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_33FA8742",
+            "alpha": [
+              -4,
+              -4,
+              3
+            ],
+            "beta": [
+              -4,
+              4,
+              4
+            ],
+            "target": "zeta3",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta4",
+          "relation": [
+            0,
+            4,
+            0,
+            -4,
+            21,
+            -21
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "4\u00b7CF\u00b7zeta4 + -4\u00b7CF + 21\u00b7zeta4 + -21 = 0",
+          "cf_approx": "-5.25",
+          "timestamp": 1775301111.6289377,
+          "enrichment": {
+            "closed_form": "-21/4",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        }
+      ],
+      "discovery_count": 4,
+      "novel_count": 4,
+      "elapsed_seconds": 13.602
+    },
+    {
+      "target": "pi",
+      "seed": 124,
+      "summary": {
+        "generated_at": "2026-04-04 20:12:02",
+        "script": "multi_target_ramanujan_sweep.py",
+        "target": "pi",
+        "llm_mode": "disabled",
+        "lirec_enabled": false,
+        "stats": {
+          "iters": 4,
+          "tested": 128,
+          "discoveries": 5,
+          "novel": 5,
+          "rate_percent": 125.0,
+          "seeds_injected": 25,
+          "llm_calls": 0,
+          "elapsed_human": "0m10s",
+          "elapsed_seconds": 10.384,
+          "gcf_per_sec": 12.326
+        },
+        "environment": {
+          "python": "3.14.3",
+          "implementation": "CPython",
+          "platform": "Windows-11-10.0.29560-SP0",
+          "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+          "cpu_count": 8,
+          "mpmath": "1.4.1"
+        },
+        "artifacts": {
+          "discoveries_path": "ramanujan_discoveries.json",
+          "seed_path": "relay_chain_seed_pool.json",
+          "profile_path": null
+        },
+        "pslq": {
+          "tested_targets": 279,
+          "pslq_calls": 557,
+          "degree2_calls": 278,
+          "prefilter_skips": 1,
+          "neighbour_attempts": 188,
+          "neighbour_skips": 192,
+          "found": 5
+        },
+        "run_config": {
+          "target": "pi",
+          "iters": 4,
+          "batch": 32,
+          "effective_batch": 32,
+          "workers": 0,
+          "resolved_workers": 1,
+          "auto_worker_cap": 4,
+          "executor": "process",
+          "prec": 300,
+          "quiet": true,
+          "seed": 124,
+          "seed_file": null,
+          "llm": false,
+          "lirec": false
+        },
+        "discoveries": [
+          {
+            "spec": {
+              "spec_id": "GCF_277DAF88",
+              "alpha": [
+                2,
+                -1,
+                -1
+              ],
+              "beta": [
+                -5,
+                3,
+                -6,
+                -2
+              ],
+              "target": "pi",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "pi3",
+            "relation": [
+              0,
+              1,
+              0,
+              0,
+              5,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7pi3 + 5\u00b7pi3 = 0",
+            "cf_approx": "-5.0",
+            "timestamp": 1775301113.8122456,
+            "enrichment": {
+              "closed_form": "-5",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_A0F77379",
+              "alpha": [
+                -4,
+                5
+              ],
+              "beta": [
+                5,
+                -5
+              ],
+              "target": "pi",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta2",
+            "relation": [
+              1,
+              1,
+              0,
+              -3,
+              -4,
+              -4
+            ],
+            "degree": 2,
+            "precision_dp": 79,
+            "conv_digits": 121,
+            "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta2 + -3\u00b7CF + -4\u00b7zeta2 + -4 = 0",
+            "cf_approx": "4.0",
+            "timestamp": 1775301114.0111954,
+            "enrichment": {
+              "closed_form": "4",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_5134CF36",
+              "alpha": [
+                2,
+                -1,
+                0
+              ],
+              "beta": [
+                -5,
+                3,
+                -6,
+                -2
+              ],
+              "target": "pi",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta2",
+            "relation": [
+              0,
+              -10,
+              0,
+              0,
+              -51,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "-10\u00b7CF\u00b7zeta2 + -51\u00b7zeta2 = 0",
+            "cf_approx": "-5.1",
+            "timestamp": 1775301115.1198485,
+            "enrichment": {
+              "closed_form": "-51/10",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_C4C0099A",
+              "alpha": [
+                0,
+                0,
+                1,
+                0
+              ],
+              "beta": [
+                1,
+                2
+              ],
+              "target": "pi",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "pi",
+            "relation": [
+              0,
+              -1,
+              0,
+              0,
+              0,
+              4
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 115,
+            "formula": "-1\u00b7CF\u00b7pi + 4 = 0",
+            "cf_approx": "1.2732395447351626861510701069801148962756771659237",
+            "timestamp": 1775301118.36904,
+            "enrichment": {
+              "closed_form": "4/pi",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_2AEE551C",
+              "alpha": [
+                2,
+                1,
+                -1
+              ],
+              "beta": [
+                -5,
+                3,
+                -6,
+                -2
+              ],
+              "target": "pi",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "pi2",
+            "relation": [
+              0,
+              -5,
+              0,
+              0,
+              -26,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "-5\u00b7CF\u00b7pi2 + -26\u00b7pi2 = 0",
+            "cf_approx": "-5.2",
+            "timestamp": 1775301119.1331453,
+            "enrichment": {
+              "closed_form": "-26/5",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          }
+        ]
+      },
+      "discoveries": [
+        {
+          "spec": {
+            "spec_id": "GCF_277DAF88",
+            "alpha": [
+              2,
+              -1,
+              -1
+            ],
+            "beta": [
+              -5,
+              3,
+              -6,
+              -2
+            ],
+            "target": "pi",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "pi3",
+          "relation": [
+            0,
+            1,
+            0,
+            0,
+            5,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7pi3 + 5\u00b7pi3 = 0",
+          "cf_approx": "-5.0",
+          "timestamp": 1775301113.8122456,
+          "enrichment": {
+            "closed_form": "-5",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_A0F77379",
+            "alpha": [
+              -4,
+              5
+            ],
+            "beta": [
+              5,
+              -5
+            ],
+            "target": "pi",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta2",
+          "relation": [
+            1,
+            1,
+            0,
+            -3,
+            -4,
+            -4
+          ],
+          "degree": 2,
+          "precision_dp": 79,
+          "conv_digits": 121,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta2 + -3\u00b7CF + -4\u00b7zeta2 + -4 = 0",
+          "cf_approx": "4.0",
+          "timestamp": 1775301114.0111954,
+          "enrichment": {
+            "closed_form": "4",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_5134CF36",
+            "alpha": [
+              2,
+              -1,
+              0
+            ],
+            "beta": [
+              -5,
+              3,
+              -6,
+              -2
+            ],
+            "target": "pi",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta2",
+          "relation": [
+            0,
+            -10,
+            0,
+            0,
+            -51,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "-10\u00b7CF\u00b7zeta2 + -51\u00b7zeta2 = 0",
+          "cf_approx": "-5.1",
+          "timestamp": 1775301115.1198485,
+          "enrichment": {
+            "closed_form": "-51/10",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_C4C0099A",
+            "alpha": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "beta": [
+              1,
+              2
+            ],
+            "target": "pi",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "pi",
+          "relation": [
+            0,
+            -1,
+            0,
+            0,
+            0,
+            4
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 115,
+          "formula": "-1\u00b7CF\u00b7pi + 4 = 0",
+          "cf_approx": "1.2732395447351626861510701069801148962756771659237",
+          "timestamp": 1775301118.36904,
+          "enrichment": {
+            "closed_form": "4/pi",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_2AEE551C",
+            "alpha": [
+              2,
+              1,
+              -1
+            ],
+            "beta": [
+              -5,
+              3,
+              -6,
+              -2
+            ],
+            "target": "pi",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "pi2",
+          "relation": [
+            0,
+            -5,
+            0,
+            0,
+            -26,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "-5\u00b7CF\u00b7pi2 + -26\u00b7pi2 = 0",
+          "cf_approx": "-5.2",
+          "timestamp": 1775301119.1331453,
+          "enrichment": {
+            "closed_form": "-26/5",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        }
+      ],
+      "discovery_count": 5,
+      "novel_count": 5,
+      "elapsed_seconds": 10.384
+    },
+    {
+      "target": "e",
+      "seed": 125,
+      "summary": {
+        "generated_at": "2026-04-04 20:12:13",
+        "script": "multi_target_ramanujan_sweep.py",
+        "target": "e",
+        "llm_mode": "disabled",
+        "lirec_enabled": false,
+        "stats": {
+          "iters": 4,
+          "tested": 128,
+          "discoveries": 7,
+          "novel": 7,
+          "rate_percent": 175.0,
+          "seeds_injected": 35,
+          "llm_calls": 0,
+          "elapsed_human": "0m10s",
+          "elapsed_seconds": 10.477,
+          "gcf_per_sec": 12.216
+        },
+        "environment": {
+          "python": "3.14.3",
+          "implementation": "CPython",
+          "platform": "Windows-11-10.0.29560-SP0",
+          "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+          "cpu_count": 8,
+          "mpmath": "1.4.1"
+        },
+        "artifacts": {
+          "discoveries_path": "ramanujan_discoveries.json",
+          "seed_path": "relay_chain_seed_pool.json",
+          "profile_path": null
+        },
+        "pslq": {
+          "tested_targets": 246,
+          "pslq_calls": 490,
+          "degree2_calls": 244,
+          "prefilter_skips": 0,
+          "neighbour_attempts": 166,
+          "neighbour_skips": 174,
+          "found": 7
+        },
+        "run_config": {
+          "target": "e",
+          "iters": 4,
+          "batch": 32,
+          "effective_batch": 32,
+          "workers": 0,
+          "resolved_workers": 1,
+          "auto_worker_cap": 4,
+          "executor": "process",
+          "prec": 300,
+          "quiet": true,
+          "seed": 125,
+          "seed_file": null,
+          "llm": false,
+          "lirec": false
+        },
+        "discoveries": [
+          {
+            "spec": {
+              "spec_id": "GCF_A8D4543B",
+              "alpha": [
+                6,
+                3,
+                -3,
+                0
+              ],
+              "beta": [
+                3,
+                4,
+                2
+              ],
+              "target": "e",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "ln_pi",
+            "relation": [
+              -3,
+              3,
+              0,
+              11,
+              -11,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "-3\u00b7CF\u00b2 + 3\u00b7CF\u00b7ln_pi + 11\u00b7CF + -11\u00b7ln_pi = 0",
+            "cf_approx": "3.6666666666666666666666666666666666666666666666667",
+            "timestamp": 1775301123.7696903,
+            "enrichment": {
+              "closed_form": "11/3",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_093B8BD0",
+              "alpha": [
+                -6,
+                2,
+                4
+              ],
+              "beta": [
+                -6,
+                -5
+              ],
+              "target": "e",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "log2",
+            "relation": [
+              0,
+              -1,
+              0,
+              0,
+              -6,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "-1\u00b7CF\u00b7log2 + -6\u00b7log2 = 0",
+            "cf_approx": "-6.0",
+            "timestamp": 1775301124.9586997,
+            "enrichment": {
+              "closed_form": "-6",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_5F8713BC",
+              "alpha": [
+                0,
+                -2,
+                1
+              ],
+              "beta": [
+                1,
+                2
+              ],
+              "target": "e",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "log2",
+            "relation": [
+              -3,
+              3,
+              0,
+              -1,
+              -2,
+              2
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "-3\u00b7CF\u00b2 + 3\u00b7CF\u00b7log2 + -1\u00b7CF + -2\u00b7log2 + 2 = 0",
+            "cf_approx": "0.66666666666666666666666666666666666666666666666667",
+            "timestamp": 1775301125.6605666,
+            "enrichment": {
+              "closed_form": "2/3",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_F9F52DD8",
+              "alpha": [
+                0,
+                0,
+                1,
+                -1
+              ],
+              "beta": [
+                -2,
+                4
+              ],
+              "target": "e",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "ln_pi",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              2,
+              -2
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7ln_pi + -1\u00b7CF + 2\u00b7ln_pi + -2 = 0",
+            "cf_approx": "-2.0",
+            "timestamp": 1775301127.4357197,
+            "enrichment": {
+              "closed_form": "-2",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_9FA5E2F4",
+              "alpha": [
+                6,
+                3,
+                -3,
+                0
+              ],
+              "beta": [
+                1,
+                2
+              ],
+              "target": "e",
+              "n_terms": 200,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "ln_pi",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              -3,
+              3
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7ln_pi + -1\u00b7CF + -3\u00b7ln_pi + 3 = 0",
+            "cf_approx": "3.0",
+            "timestamp": 1775301128.4719813,
+            "enrichment": {
+              "closed_form": "3",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_2633641B",
+              "alpha": [
+                0,
+                -2,
+                1
+              ],
+              "beta": [
+                3,
+                4,
+                2
+              ],
+              "target": "e",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "e",
+            "relation": [
+              0,
+              9,
+              0,
+              0,
+              -26,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "9\u00b7CF\u00b7e + -26\u00b7e = 0",
+            "cf_approx": "2.8888888888888888888888888888888888888888888888889",
+            "timestamp": 1775301128.7096367,
+            "enrichment": {
+              "closed_form": "26/9",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_8B6723A3",
+              "alpha": [
+                0,
+                0,
+                2,
+                -1
+              ],
+              "beta": [
+                -2,
+                4
+              ],
+              "target": "e",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "log2",
+            "relation": [
+              0,
+              -2,
+              0,
+              0,
+              -3,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "-2\u00b7CF\u00b7log2 + -3\u00b7log2 = 0",
+            "cf_approx": "-1.5",
+            "timestamp": 1775301129.9273257,
+            "enrichment": {
+              "closed_form": "-3/2",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          }
+        ]
+      },
+      "discoveries": [
+        {
+          "spec": {
+            "spec_id": "GCF_A8D4543B",
+            "alpha": [
+              6,
+              3,
+              -3,
+              0
+            ],
+            "beta": [
+              3,
+              4,
+              2
+            ],
+            "target": "e",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "ln_pi",
+          "relation": [
+            -3,
+            3,
+            0,
+            11,
+            -11,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "-3\u00b7CF\u00b2 + 3\u00b7CF\u00b7ln_pi + 11\u00b7CF + -11\u00b7ln_pi = 0",
+          "cf_approx": "3.6666666666666666666666666666666666666666666666667",
+          "timestamp": 1775301123.7696903,
+          "enrichment": {
+            "closed_form": "11/3",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_093B8BD0",
+            "alpha": [
+              -6,
+              2,
+              4
+            ],
+            "beta": [
+              -6,
+              -5
+            ],
+            "target": "e",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "log2",
+          "relation": [
+            0,
+            -1,
+            0,
+            0,
+            -6,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "-1\u00b7CF\u00b7log2 + -6\u00b7log2 = 0",
+          "cf_approx": "-6.0",
+          "timestamp": 1775301124.9586997,
+          "enrichment": {
+            "closed_form": "-6",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_5F8713BC",
+            "alpha": [
+              0,
+              -2,
+              1
+            ],
+            "beta": [
+              1,
+              2
+            ],
+            "target": "e",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "log2",
+          "relation": [
+            -3,
+            3,
+            0,
+            -1,
+            -2,
+            2
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "-3\u00b7CF\u00b2 + 3\u00b7CF\u00b7log2 + -1\u00b7CF + -2\u00b7log2 + 2 = 0",
+          "cf_approx": "0.66666666666666666666666666666666666666666666666667",
+          "timestamp": 1775301125.6605666,
+          "enrichment": {
+            "closed_form": "2/3",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_F9F52DD8",
+            "alpha": [
+              0,
+              0,
+              1,
+              -1
+            ],
+            "beta": [
+              -2,
+              4
+            ],
+            "target": "e",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "ln_pi",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            2,
+            -2
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7ln_pi + -1\u00b7CF + 2\u00b7ln_pi + -2 = 0",
+          "cf_approx": "-2.0",
+          "timestamp": 1775301127.4357197,
+          "enrichment": {
+            "closed_form": "-2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_9FA5E2F4",
+            "alpha": [
+              6,
+              3,
+              -3,
+              0
+            ],
+            "beta": [
+              1,
+              2
+            ],
+            "target": "e",
+            "n_terms": 200,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "ln_pi",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -3,
+            3
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7ln_pi + -1\u00b7CF + -3\u00b7ln_pi + 3 = 0",
+          "cf_approx": "3.0",
+          "timestamp": 1775301128.4719813,
+          "enrichment": {
+            "closed_form": "3",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_2633641B",
+            "alpha": [
+              0,
+              -2,
+              1
+            ],
+            "beta": [
+              3,
+              4,
+              2
+            ],
+            "target": "e",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "e",
+          "relation": [
+            0,
+            9,
+            0,
+            0,
+            -26,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "9\u00b7CF\u00b7e + -26\u00b7e = 0",
+          "cf_approx": "2.8888888888888888888888888888888888888888888888889",
+          "timestamp": 1775301128.7096367,
+          "enrichment": {
+            "closed_form": "26/9",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_8B6723A3",
+            "alpha": [
+              0,
+              0,
+              2,
+              -1
+            ],
+            "beta": [
+              -2,
+              4
+            ],
+            "target": "e",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "log2",
+          "relation": [
+            0,
+            -2,
+            0,
+            0,
+            -3,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "-2\u00b7CF\u00b7log2 + -3\u00b7log2 = 0",
+          "cf_approx": "-1.5",
+          "timestamp": 1775301129.9273257,
+          "enrichment": {
+            "closed_form": "-3/2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        }
+      ],
+      "discovery_count": 7,
+      "novel_count": 7,
+      "elapsed_seconds": 10.477
+    },
+    {
+      "target": "log2",
+      "seed": 126,
+      "summary": {
+        "generated_at": "2026-04-04 20:12:26",
+        "script": "multi_target_ramanujan_sweep.py",
+        "target": "log2",
+        "llm_mode": "disabled",
+        "lirec_enabled": false,
+        "stats": {
+          "iters": 4,
+          "tested": 128,
+          "discoveries": 4,
+          "novel": 4,
+          "rate_percent": 100.0,
+          "seeds_injected": 20,
+          "llm_calls": 0,
+          "elapsed_human": "0m13s",
+          "elapsed_seconds": 13.399,
+          "gcf_per_sec": 9.553
+        },
+        "environment": {
+          "python": "3.14.3",
+          "implementation": "CPython",
+          "platform": "Windows-11-10.0.29560-SP0",
+          "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+          "cpu_count": 8,
+          "mpmath": "1.4.1"
+        },
+        "artifacts": {
+          "discoveries_path": "ramanujan_discoveries.json",
+          "seed_path": "relay_chain_seed_pool.json",
+          "profile_path": null
+        },
+        "pslq": {
+          "tested_targets": 274,
+          "pslq_calls": 546,
+          "degree2_calls": 272,
+          "prefilter_skips": 0,
+          "neighbour_attempts": 184,
+          "neighbour_skips": 192,
+          "found": 4
+        },
+        "run_config": {
+          "target": "log2",
+          "iters": 4,
+          "batch": 32,
+          "effective_batch": 32,
+          "workers": 0,
+          "resolved_workers": 1,
+          "auto_worker_cap": 4,
+          "executor": "process",
+          "prec": 300,
+          "quiet": true,
+          "seed": 126,
+          "seed_file": null,
+          "llm": false,
+          "lirec": false
+        },
+        "discoveries": [
+          {
+            "spec": {
+              "spec_id": "GCF_10B81130",
+              "alpha": [
+                6,
+                3,
+                3,
+                -3
+              ],
+              "beta": [
+                -1,
+                5,
+                1,
+                -6
+              ],
+              "target": "log2",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "log2",
+            "relation": [
+              0,
+              1,
+              0,
+              0,
+              10,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7log2 + 10\u00b7log2 = 0",
+            "cf_approx": "-10.0",
+            "timestamp": 1775301134.9461024,
+            "enrichment": {
+              "closed_form": "-10",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_BB2E76B3",
+              "alpha": [
+                2,
+                -2
+              ],
+              "beta": [
+                6,
+                -2
+              ],
+              "target": "log2",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "log2",
+            "relation": [
+              0,
+              1,
+              0,
+              0,
+              -6,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7log2 + -6\u00b7log2 = 0",
+            "cf_approx": "6.0",
+            "timestamp": 1775301140.810066,
+            "enrichment": {
+              "closed_form": "6",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_3471349B",
+              "alpha": [
+                0,
+                -2,
+                2
+              ],
+              "beta": [
+                -3,
+                -1,
+                -4
+              ],
+              "target": "log2",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "log3",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              3,
+              -3
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7log3 + -1\u00b7CF + 3\u00b7log3 + -3 = 0",
+            "cf_approx": "-3.0",
+            "timestamp": 1775301141.3123496,
+            "enrichment": {
+              "closed_form": "-3",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_BBF8DADD",
+              "alpha": [
+                0,
+                -2,
+                1
+              ],
+              "beta": [
+                -2,
+                4
+              ],
+              "target": "log2",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "log3",
+            "relation": [
+              0,
+              2,
+              0,
+              0,
+              5,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "2\u00b7CF\u00b7log3 + 5\u00b7log3 = 0",
+            "cf_approx": "-2.5",
+            "timestamp": 1775301143.23425,
+            "enrichment": {
+              "closed_form": "-5/2",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          }
+        ]
+      },
+      "discoveries": [
+        {
+          "spec": {
+            "spec_id": "GCF_10B81130",
+            "alpha": [
+              6,
+              3,
+              3,
+              -3
+            ],
+            "beta": [
+              -1,
+              5,
+              1,
+              -6
+            ],
+            "target": "log2",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "log2",
+          "relation": [
+            0,
+            1,
+            0,
+            0,
+            10,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7log2 + 10\u00b7log2 = 0",
+          "cf_approx": "-10.0",
+          "timestamp": 1775301134.9461024,
+          "enrichment": {
+            "closed_form": "-10",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_BB2E76B3",
+            "alpha": [
+              2,
+              -2
+            ],
+            "beta": [
+              6,
+              -2
+            ],
+            "target": "log2",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "log2",
+          "relation": [
+            0,
+            1,
+            0,
+            0,
+            -6,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7log2 + -6\u00b7log2 = 0",
+          "cf_approx": "6.0",
+          "timestamp": 1775301140.810066,
+          "enrichment": {
+            "closed_form": "6",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_3471349B",
+            "alpha": [
+              0,
+              -2,
+              2
+            ],
+            "beta": [
+              -3,
+              -1,
+              -4
+            ],
+            "target": "log2",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "log3",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            3,
+            -3
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7log3 + -1\u00b7CF + 3\u00b7log3 + -3 = 0",
+          "cf_approx": "-3.0",
+          "timestamp": 1775301141.3123496,
+          "enrichment": {
+            "closed_form": "-3",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_BBF8DADD",
+            "alpha": [
+              0,
+              -2,
+              1
+            ],
+            "beta": [
+              -2,
+              4
+            ],
+            "target": "log2",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "log3",
+          "relation": [
+            0,
+            2,
+            0,
+            0,
+            5,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "2\u00b7CF\u00b7log3 + 5\u00b7log3 = 0",
+          "cf_approx": "-2.5",
+          "timestamp": 1775301143.23425,
+          "enrichment": {
+            "closed_form": "-5/2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        }
+      ],
+      "discovery_count": 4,
+      "novel_count": 4,
+      "elapsed_seconds": 13.399
+    },
+    {
+      "target": "catalan",
+      "seed": 127,
+      "summary": {
+        "generated_at": "2026-04-04 20:12:41",
+        "script": "multi_target_ramanujan_sweep.py",
+        "target": "catalan",
+        "llm_mode": "disabled",
+        "lirec_enabled": false,
+        "stats": {
+          "iters": 4,
+          "tested": 128,
+          "discoveries": 6,
+          "novel": 6,
+          "rate_percent": 150.0,
+          "seeds_injected": 30,
+          "llm_calls": 0,
+          "elapsed_human": "0m15s",
+          "elapsed_seconds": 15.278,
+          "gcf_per_sec": 8.378
+        },
+        "environment": {
+          "python": "3.14.3",
+          "implementation": "CPython",
+          "platform": "Windows-11-10.0.29560-SP0",
+          "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+          "cpu_count": 8,
+          "mpmath": "1.4.1"
+        },
+        "artifacts": {
+          "discoveries_path": "ramanujan_discoveries.json",
+          "seed_path": "relay_chain_seed_pool.json",
+          "profile_path": null
+        },
+        "pslq": {
+          "tested_targets": 252,
+          "pslq_calls": 502,
+          "degree2_calls": 250,
+          "prefilter_skips": 0,
+          "neighbour_attempts": 172,
+          "neighbour_skips": 180,
+          "found": 6
+        },
+        "run_config": {
+          "target": "catalan",
+          "iters": 4,
+          "batch": 32,
+          "effective_batch": 32,
+          "workers": 0,
+          "resolved_workers": 1,
+          "auto_worker_cap": 4,
+          "executor": "process",
+          "prec": 300,
+          "quiet": true,
+          "seed": 127,
+          "seed_file": null,
+          "llm": false,
+          "lirec": false
+        },
+        "discoveries": [
+          {
+            "spec": {
+              "spec_id": "GCF_60BF7838",
+              "alpha": [
+                0,
+                0
+              ],
+              "beta": [
+                1,
+                2
+              ],
+              "target": "catalan",
+              "n_terms": 200,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta3",
+            "relation": [
+              0,
+              1,
+              0,
+              0,
+              -1,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+            "cf_approx": "1.0",
+            "timestamp": 1775301146.7224553,
+            "enrichment": {
+              "closed_form": "1",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_1964333A",
+              "alpha": [
+                -4,
+                1
+              ],
+              "beta": [
+                -1,
+                -3
+              ],
+              "target": "catalan",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta3",
+            "relation": [
+              0,
+              256,
+              0,
+              256,
+              49,
+              49
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "256\u00b7CF\u00b7zeta3 + 256\u00b7CF + 49\u00b7zeta3 + 49 = 0",
+            "cf_approx": "-0.19140625",
+            "timestamp": 1775301150.6184373,
+            "enrichment": {
+              "closed_form": "-49/256",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_93A50D98",
+              "alpha": [
+                0,
+                0,
+                1
+              ],
+              "beta": [
+                1,
+                2
+              ],
+              "target": "catalan",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "pi",
+            "relation": [
+              0,
+              -1,
+              0,
+              0,
+              0,
+              4
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 115,
+            "formula": "-1\u00b7CF\u00b7pi + 4 = 0",
+            "cf_approx": "1.2732395447351626861510701069801148962756771659237",
+            "timestamp": 1775301152.9620934,
+            "enrichment": {
+              "closed_form": "4/pi",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_4E3F809B",
+              "alpha": [
+                -4,
+                1
+              ],
+              "beta": [
+                0,
+                1
+              ],
+              "target": "catalan",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "catalan",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              -15,
+              15
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7catalan + -1\u00b7CF + -15\u00b7catalan + 15 = 0",
+            "cf_approx": "15.0",
+            "timestamp": 1775301153.2263598,
+            "enrichment": {
+              "closed_form": "15",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_44BA479B",
+              "alpha": [
+                -2,
+                1
+              ],
+              "beta": [
+                0,
+                1
+              ],
+              "target": "catalan",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta3",
+            "relation": [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7zeta3 + 1\u00b7zeta3 = 0",
+            "cf_approx": "-1.0",
+            "timestamp": 1775301156.9874063,
+            "enrichment": {
+              "closed_form": "-1",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_8A98DD17",
+              "alpha": [
+                -3,
+                1
+              ],
+              "beta": [
+                0,
+                1
+              ],
+              "target": "catalan",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "catalan",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              4,
+              -4
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7catalan + -1\u00b7CF + 4\u00b7catalan + -4 = 0",
+            "cf_approx": "-4.0",
+            "timestamp": 1775301157.4797525,
+            "enrichment": {
+              "closed_form": "-4",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          }
+        ]
+      },
+      "discoveries": [
+        {
+          "spec": {
+            "spec_id": "GCF_60BF7838",
+            "alpha": [
+              0,
+              0
+            ],
+            "beta": [
+              1,
+              2
+            ],
+            "target": "catalan",
+            "n_terms": 200,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta3",
+          "relation": [
+            0,
+            1,
+            0,
+            0,
+            -1,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+          "cf_approx": "1.0",
+          "timestamp": 1775301146.7224553,
+          "enrichment": {
+            "closed_form": "1",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_1964333A",
+            "alpha": [
+              -4,
+              1
+            ],
+            "beta": [
+              -1,
+              -3
+            ],
+            "target": "catalan",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta3",
+          "relation": [
+            0,
+            256,
+            0,
+            256,
+            49,
+            49
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "256\u00b7CF\u00b7zeta3 + 256\u00b7CF + 49\u00b7zeta3 + 49 = 0",
+          "cf_approx": "-0.19140625",
+          "timestamp": 1775301150.6184373,
+          "enrichment": {
+            "closed_form": "-49/256",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_93A50D98",
+            "alpha": [
+              0,
+              0,
+              1
+            ],
+            "beta": [
+              1,
+              2
+            ],
+            "target": "catalan",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "pi",
+          "relation": [
+            0,
+            -1,
+            0,
+            0,
+            0,
+            4
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 115,
+          "formula": "-1\u00b7CF\u00b7pi + 4 = 0",
+          "cf_approx": "1.2732395447351626861510701069801148962756771659237",
+          "timestamp": 1775301152.9620934,
+          "enrichment": {
+            "closed_form": "4/pi",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_4E3F809B",
+            "alpha": [
+              -4,
+              1
+            ],
+            "beta": [
+              0,
+              1
+            ],
+            "target": "catalan",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "catalan",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -15,
+            15
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7catalan + -1\u00b7CF + -15\u00b7catalan + 15 = 0",
+          "cf_approx": "15.0",
+          "timestamp": 1775301153.2263598,
+          "enrichment": {
+            "closed_form": "15",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_44BA479B",
+            "alpha": [
+              -2,
+              1
+            ],
+            "beta": [
+              0,
+              1
+            ],
+            "target": "catalan",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta3",
+          "relation": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7zeta3 + 1\u00b7zeta3 = 0",
+          "cf_approx": "-1.0",
+          "timestamp": 1775301156.9874063,
+          "enrichment": {
+            "closed_form": "-1",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_8A98DD17",
+            "alpha": [
+              -3,
+              1
+            ],
+            "beta": [
+              0,
+              1
+            ],
+            "target": "catalan",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "catalan",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            4,
+            -4
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7catalan + -1\u00b7CF + 4\u00b7catalan + -4 = 0",
+          "cf_approx": "-4.0",
+          "timestamp": 1775301157.4797525,
+          "enrichment": {
+            "closed_form": "-4",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        }
+      ],
+      "discovery_count": 6,
+      "novel_count": 6,
+      "elapsed_seconds": 15.278
+    },
+    {
+      "target": "zeta2",
+      "seed": 128,
+      "summary": {
+        "generated_at": "2026-04-04 20:12:50",
+        "script": "multi_target_ramanujan_sweep.py",
+        "target": "zeta2",
+        "llm_mode": "disabled",
+        "lirec_enabled": false,
+        "stats": {
+          "iters": 4,
+          "tested": 128,
+          "discoveries": 5,
+          "novel": 5,
+          "rate_percent": 125.0,
+          "seeds_injected": 25,
+          "llm_calls": 0,
+          "elapsed_human": "0m08s",
+          "elapsed_seconds": 8.487,
+          "gcf_per_sec": 15.082
+        },
+        "environment": {
+          "python": "3.14.3",
+          "implementation": "CPython",
+          "platform": "Windows-11-10.0.29560-SP0",
+          "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+          "cpu_count": 8,
+          "mpmath": "1.4.1"
+        },
+        "artifacts": {
+          "discoveries_path": "ramanujan_discoveries.json",
+          "seed_path": "relay_chain_seed_pool.json",
+          "profile_path": null
+        },
+        "pslq": {
+          "tested_targets": 212,
+          "pslq_calls": 422,
+          "degree2_calls": 210,
+          "prefilter_skips": 0,
+          "neighbour_attempts": 142,
+          "neighbour_skips": 154,
+          "found": 5
+        },
+        "run_config": {
+          "target": "zeta2",
+          "iters": 4,
+          "batch": 32,
+          "effective_batch": 32,
+          "workers": 0,
+          "resolved_workers": 1,
+          "auto_worker_cap": 4,
+          "executor": "process",
+          "prec": 300,
+          "quiet": true,
+          "seed": 128,
+          "seed_file": null,
+          "llm": false,
+          "lirec": false
+        },
+        "discoveries": [
+          {
+            "spec": {
+              "spec_id": "GCF_79B1779E",
+              "alpha": [
+                0,
+                -2,
+                1
+              ],
+              "beta": [
+                0,
+                1
+              ],
+              "target": "zeta2",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta3",
+            "relation": [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7zeta3 + 1\u00b7zeta3 = 0",
+            "cf_approx": "-1.0",
+            "timestamp": 1775301162.113874,
+            "enrichment": {
+              "closed_form": "-1",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_7AA59A93",
+              "alpha": [
+                -1,
+                1
+              ],
+              "beta": [
+                6,
+                -3
+              ],
+              "target": "zeta2",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta2",
+            "relation": [
+              0,
+              -1,
+              0,
+              0,
+              6,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "-1\u00b7CF\u00b7zeta2 + 6\u00b7zeta2 = 0",
+            "cf_approx": "6.0",
+            "timestamp": 1775301163.7782662,
+            "enrichment": {
+              "closed_form": "6",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_2389E514",
+              "alpha": [
+                6,
+                -6
+              ],
+              "beta": [
+                -5,
+                -4,
+                -3,
+                5
+              ],
+              "target": "zeta2",
+              "n_terms": 120,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta4",
+            "relation": [
+              0,
+              1,
+              0,
+              -1,
+              5,
+              -5
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7zeta4 + -1\u00b7CF + 5\u00b7zeta4 + -5 = 0",
+            "cf_approx": "-5.0",
+            "timestamp": 1775301164.2403824,
+            "enrichment": {
+              "closed_form": "-5",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_5E259469",
+              "alpha": [
+                0,
+                0,
+                0
+              ],
+              "beta": [
+                -2,
+                4
+              ],
+              "target": "zeta2",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta4",
+            "relation": [
+              1,
+              1,
+              0,
+              0,
+              2,
+              -4
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta4 + 2\u00b7zeta4 + -4 = 0",
+            "cf_approx": "-2.0",
+            "timestamp": 1775301166.9816656,
+            "enrichment": {
+              "closed_form": "-2",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          },
+          {
+            "spec": {
+              "spec_id": "GCF_89DC43D4",
+              "alpha": [
+                0,
+                -4,
+                1
+              ],
+              "beta": [
+                0,
+                1
+              ],
+              "target": "zeta2",
+              "n_terms": 300,
+              "mode": "backward",
+              "order": 0
+            },
+            "constant": "zeta3",
+            "relation": [
+              0,
+              1,
+              0,
+              0,
+              -1,
+              0
+            ],
+            "degree": 2,
+            "precision_dp": 300,
+            "conv_digits": 300,
+            "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+            "cf_approx": "1.0",
+            "timestamp": 1775301167.4628384,
+            "enrichment": {
+              "closed_form": "1",
+              "closed_form_source": "sympy_relation",
+              "closed_form_kind": "algebraic_root"
+            }
+          }
+        ]
+      },
+      "discoveries": [
+        {
+          "spec": {
+            "spec_id": "GCF_79B1779E",
+            "alpha": [
+              0,
+              -2,
+              1
+            ],
+            "beta": [
+              0,
+              1
+            ],
+            "target": "zeta2",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta3",
+          "relation": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7zeta3 + 1\u00b7zeta3 = 0",
+          "cf_approx": "-1.0",
+          "timestamp": 1775301162.113874,
+          "enrichment": {
+            "closed_form": "-1",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_7AA59A93",
+            "alpha": [
+              -1,
+              1
+            ],
+            "beta": [
+              6,
+              -3
+            ],
+            "target": "zeta2",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta2",
+          "relation": [
+            0,
+            -1,
+            0,
+            0,
+            6,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "-1\u00b7CF\u00b7zeta2 + 6\u00b7zeta2 = 0",
+          "cf_approx": "6.0",
+          "timestamp": 1775301163.7782662,
+          "enrichment": {
+            "closed_form": "6",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_2389E514",
+            "alpha": [
+              6,
+              -6
+            ],
+            "beta": [
+              -5,
+              -4,
+              -3,
+              5
+            ],
+            "target": "zeta2",
+            "n_terms": 120,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta4",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            5,
+            -5
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7zeta4 + -1\u00b7CF + 5\u00b7zeta4 + -5 = 0",
+          "cf_approx": "-5.0",
+          "timestamp": 1775301164.2403824,
+          "enrichment": {
+            "closed_form": "-5",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_5E259469",
+            "alpha": [
+              0,
+              0,
+              0
+            ],
+            "beta": [
+              -2,
+              4
+            ],
+            "target": "zeta2",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta4",
+          "relation": [
+            1,
+            1,
+            0,
+            0,
+            2,
+            -4
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta4 + 2\u00b7zeta4 + -4 = 0",
+          "cf_approx": "-2.0",
+          "timestamp": 1775301166.9816656,
+          "enrichment": {
+            "closed_form": "-2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "spec": {
+            "spec_id": "GCF_89DC43D4",
+            "alpha": [
+              0,
+              -4,
+              1
+            ],
+            "beta": [
+              0,
+              1
+            ],
+            "target": "zeta2",
+            "n_terms": 300,
+            "mode": "backward",
+            "order": 0
+          },
+          "constant": "zeta3",
+          "relation": [
+            0,
+            1,
+            0,
+            0,
+            -1,
+            0
+          ],
+          "degree": 2,
+          "precision_dp": 300,
+          "conv_digits": 300,
+          "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+          "cf_approx": "1.0",
+          "timestamp": 1775301167.4628384,
+          "enrichment": {
+            "closed_form": "1",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        }
+      ],
+      "discovery_count": 5,
+      "novel_count": 5,
+      "elapsed_seconds": 8.487
+    }
+  ],
+  "aggregate": {
+    "target_count": 6,
+    "total_discoveries": 31,
+    "total_novel": 31,
+    "elapsed_seconds": 71.627,
+    "shared_pattern_count": 5
+  },
+  "shared_patterns": [
+    {
+      "signature": "adeg=0|bdeg=1|mode=backward|order=0",
+      "targets": [
+        "catalan",
+        "zeta2"
+      ],
+      "example": {
+        "target": "catalan",
+        "spec_id": "GCF_60BF7838",
+        "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+        "closed_form": "1"
+      }
+    },
+    {
+      "signature": "adeg=1|bdeg=1|mode=backward|order=0",
+      "targets": [
+        "catalan",
+        "log2",
+        "pi",
+        "zeta2",
+        "zeta3"
+      ],
+      "example": {
+        "target": "zeta3",
+        "spec_id": "GCF_C0C79573",
+        "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+        "closed_form": "1"
+      }
+    },
+    {
+      "signature": "adeg=1|bdeg=3|mode=backward|order=0",
+      "targets": [
+        "pi",
+        "zeta2",
+        "zeta3"
+      ],
+      "example": {
+        "target": "zeta3",
+        "spec_id": "GCF_85A6D7D3",
+        "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + -2\u00b7zeta3 + 2 = 0",
+        "closed_form": "2"
+      }
+    },
+    {
+      "signature": "adeg=2|bdeg=1|mode=backward|order=0",
+      "targets": [
+        "catalan",
+        "e",
+        "log2",
+        "pi",
+        "zeta2",
+        "zeta3"
+      ],
+      "example": {
+        "target": "zeta3",
+        "spec_id": "GCF_6713EBA0",
+        "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + 2\u00b7zeta3 + -2 = 0",
+        "closed_form": "-2"
+      }
+    },
+    {
+      "signature": "adeg=2|bdeg=2|mode=backward|order=0",
+      "targets": [
+        "e",
+        "log2",
+        "zeta3"
+      ],
+      "example": {
+        "target": "zeta3",
+        "spec_id": "GCF_33FA8742",
+        "formula": "4\u00b7CF\u00b7zeta4 + -4\u00b7CF + 21\u00b7zeta4 + -21 = 0",
+        "closed_form": "-21/4"
+      }
+    }
+  ],
+  "generated_at": "2026-04-04 20:12:50",
+  "wall_seconds": 71.912
+}

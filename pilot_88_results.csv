@@ -1,0 +1,4 @@
+target,tested,novel,deep8_hits,hit_rate_pct,elapsed_seconds
+zeta7,512,62,3,12.109,116.023
+zeta5,512,67,2,13.086,101.523
+zeta3,512,0,0,0.0,60.679

@@ -1,0 +1,508 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\PCF}{\mathrm{PCF}}
+
+\title{A Proved Logarithmic Ladder and a Conjectural Pi Family\\
+of Polynomial Continued Fractions}
+\author{Papanokechi}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present two infinite parametric families of polynomial continued fraction
+(PCF) identities discovered through systematic modular signature sweeps.
+The \emph{logarithmic ladder},
+$\PCF(-k\,n^2,\;(k{+}1)n{+}k) = 1/\ln(k/(k{-}1))$
+for all real $k > 1$,
+is \textbf{proved} by exhibiting closed forms
+$p_n = (n{+}1)!\,k^{n+1}$ and
+$q_n = (n{+}1)!\sum_{j=0}^n k^{n-j}/(j{+}1)$
+for the convergents, reducing the limit to the Taylor series
+$\sum x^j/(j{+}1) = -\ln(1{-}x)/x$.
+For the \emph{pi family},
+$\PCF(-n(2n{-}(2m{+}1)),\;3n{+}1) = 2^{2m+1}/(\pi\binom{2m}{m})$,
+the base case $m=0$ ($2/\pi$) is \textbf{proved} via
+$p_n = (2n{+}1)!!$ and
+$q_n = (2n{+}1)!!\sum_{j=0}^n j!/(2j{+}1)!!$;
+the extension to all $m \ge 0$ is \textbf{conjectured}
+and supported by $1\,500{+}$ digits of Arb-certified evidence.
+Both families are certified using ball arithmetic with
+consecutive-convergent bracketing.
+The pi family exhibits a parity phenomenon: odd parameters yield
+transcendental multiples of $1/\pi$, while even parameters collapse
+to Wallis-type rationals.
+\end{abstract}
+
+\section{Introduction}
+
+A polynomial continued fraction (PCF) is an expression
+\begin{equation}\label{eq:pcf}
+  b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \cfrac{a_3}{b_3 + \cdots}}}
+\end{equation}
+where $a_n = \alpha(n)$ and $b_n = \beta(n)$ are polynomials in~$n$.
+We use the forward recurrence with
+$p_{-1} = 1$, $p_0 = b_0$, $q_{-1} = 0$, $q_0 = 1$, and
+\begin{equation}\label{eq:rec}
+  p_n = b_n\,p_{n-1} + a_n\,p_{n-2}, \qquad
+  q_n = b_n\,q_{n-1} + a_n\,q_{n-2},
+  \quad n \ge 1.
+\end{equation}
+The $n$-th convergent is $C_n = p_n/q_n$.
+
+Recent algorithmic work---notably the Ramanujan Machine
+project~\cite{raayoni2021,elimelech2024}---has revived interest in
+discovering new PCF identities for fundamental constants.
+We report two infinite parametric families discovered through
+\emph{modular signature sweeps}: fixing $b(n) = dn + e$ for small
+$d,e$ and exhaustively searching quadratic numerators~$a(n)$.
+The $d{=}3$ family produces both $\pi$- and $\ln$-related constants,
+complementing the classical $d{=}2$ family
+(Brouncker's $4/\pi$~\cite{osler2010}).
+
+We emphasise the asymmetry of our results: the logarithmic ladder
+is fully proved for all real $k > 1$, while the pi family is proved
+only for the base case $m = 0$; the general case rests on a
+numerically well-supported conjecture (Conjecture~\ref{conj:rec}).
+
+\section{Main Results}
+
+\subsection{The Logarithmic Ladder}
+
+\begin{theorem}[Logarithmic Ladder]\label{thm:log}
+For all real $k > 1$, the PCF with
+$a(n) = -kn^2$ and $b(n) = (k{+}1)n + k$
+converges to $1/\ln(k/(k{-}1))$.
+\end{theorem}
+
+\begin{proof}
+\textbf{Claim.}
+\begin{equation}\label{eq:log-pq}
+  p_n = (n{+}1)!\, k^{n+1}, \qquad
+  q_n = (n{+}1)!\, \sum_{j=0}^{n} \frac{k^{n-j}}{j+1}.
+\end{equation}
+
+\textbf{Base case.}
+$p_0 = b(0) = k = 1!\cdot k^1$ and $q_0 = 1 = 1!\cdot k^0/1$.
+
+\medskip\noindent\textbf{Induction for $p_n$.}
+Assume $p_{n-1} = n!\,k^n$ and $p_{n-2} = (n{-}1)!\,k^{n-1}$.
+\begin{align*}
+  b(n)\,p_{n-1} + a(n)\,p_{n-2}
+  &= \bigl((k{+}1)n + k\bigr) n!\,k^n - kn^2 (n{-}1)!\,k^{n-1} \\
+  &= n!\,k^n\bigl((k{+}1)n + k - n\bigr)
+   = n!\,k^n \cdot k(n{+}1) = (n{+}1)!\,k^{n+1}.
+\end{align*}
+
+\medskip\noindent\textbf{Induction for $q_n$.}
+Write $S_n = \sum_{j=0}^{n} k^{n-j}/(j{+}1)$.
+Note the recursion $S_n = k\,S_{n-1} + 1/(n{+}1)$.
+Assume $q_{n-1} = n!\,S_{n-1}$ and $q_{n-2} = (n{-}1)!\,S_{n-2}$.
+We must show $b(n)\,q_{n-1} + a(n)\,q_{n-2} = (n{+}1)!\,S_n$.
+
+Using $S_{n-1} = k\,S_{n-2} + 1/n$:
+\begin{align*}
+b(n)\,q_{n-1} + a(n)\,q_{n-2}
+&= \bigl((k{+}1)n{+}k\bigr)\,n!\bigl(k\,S_{n-2}+\tfrac{1}{n}\bigr)
+   - kn^2\,(n{-}1)!\,S_{n-2} \\
+&= S_{n-2}\bigl[k\bigl((k{+}1)n{+}k\bigr)\,n! - kn\cdot n!\bigr]
+   + \bigl((k{+}1)n{+}k\bigr)(n{-}1)! \\
+&= S_{n-2}\cdot k^2(n{+}1)\,n!
+   + (n{-}1)!\bigl(kn+k+n\bigr).
+\end{align*}
+Meanwhile, $S_n = k^2 S_{n-2} + k/n + 1/(n{+}1)$, so
+\begin{align*}
+(n{+}1)!\,S_n
+&= k^2(n{+}1)!\,S_{n-2} + k\,(n{+}1)!/n + n! \\
+&= k^2(n{+}1)\,n!\,S_{n-2} + k(n{+}1)(n{-}1)! + n!.
+\end{align*}
+Since $(n{-}1)!(kn{+}k{+}n) = k(n{+}1)(n{-}1)! + n!$,
+the two expressions are equal.
+
+\medskip\noindent\textbf{Limit.}
+The closed forms~\eqref{eq:log-pq} are polynomial identities in~$k$
+and thus hold for all real $k > 1$.
+The convergent ratio is
+$C_n = k/\sum_{j=0}^{n}(1/k)^j/(j{+}1)$.
+For $|1/k| < 1$, the series
+$\sum_{j=0}^{\infty} x^j/(j{+}1) = -\ln(1{-}x)/x$
+converges at $x = 1/k$, giving
+$\sum (1/k)^j/(j{+}1) = k\ln(k/(k{-}1))$.
+Therefore
+$\lim C_n = k/(k\ln(k/(k{-}1))) = 1/\ln(k/(k{-}1))$.
+\end{proof}
+
+\begin{remark}\label{rem:real-k}
+The closed forms for $p_n$ and $q_n$ in~\eqref{eq:log-pq} are
+polynomial identities in~$k$, valid for all real~$k$.
+The Taylor series converges for $|1/k| < 1$, i.e.\ $k > 1$.
+Thus the theorem holds for all real $k > 1$, not just integers.
+This has been verified numerically for $15$ non-integer values in
+the range $[1.5, 100]$ to $90$--$120$ matching digits.
+\end{remark}
+
+\begin{table}[h]
+\centering
+\caption{Logarithmic Ladder: first instances}\label{tab:log}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+$k$ & $a(n)$ & $b(n)$ & Value \\
+\midrule
+$2$ & $-2n^2$ & $3n+2$ & $1/\ln 2$ \\
+$3$ & $-3n^2$ & $4n+3$ & $1/\ln(3/2)$ \\
+$4$ & $-4n^2$ & $5n+4$ & $1/\ln(4/3)$ \\
+$5$ & $-5n^2$ & $6n+5$ & $1/\ln(5/4)$ \\
+$k$ & $-kn^2$ & $(k{+}1)n{+}k$ & $1/\ln(k/(k{-}1))$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The Pi Family}
+
+\begin{theorem}[Pi Family, base case]\label{thm:pi}
+The PCF with $a(n) = -n(2n{-}1)$ and $b(n) = 3n+1$ converges to $2/\pi$.
+\end{theorem}
+
+\begin{proof}
+\textbf{Claim.}
+\begin{equation}\label{eq:pi-pq}
+  p_n = (2n{+}1)!!, \qquad
+  q_n = (2n{+}1)!! \sum_{j=0}^{n} \frac{j!}{(2j{+}1)!!}.
+\end{equation}
+
+\textbf{Base case.} $p_0 = b(0) = 1 = (1)!!$ and $q_0 = 1 = 1\cdot(0!/1!!)$.
+
+\medskip\noindent\textbf{Induction for $p_n$.}
+Assume $p_{n-1} = (2n{-}1)!!$ and $p_{n-2} = (2n{-}3)!!$.
+Using $(2n{-}1)!! = (2n{-}1)(2n{-}3)!!$:
+\begin{align*}
+  b(n)\,p_{n-1} + a(n)\,p_{n-2}
+  &= (3n{+}1)(2n{-}1)!! - n(2n{-}1)(2n{-}3)!! \\
+  &= (2n{-}3)!!\bigl[(3n{+}1)(2n{-}1) - n(2n{-}1)\bigr] \\
+  &= (2n{-}3)!!(2n{-}1)(2n{+}1) = (2n{+}1)!!.
+\end{align*}
+
+\medskip\noindent\textbf{Induction for $q_n$.}
+Write $T_n = \sum_{j=0}^{n} j!/(2j{+}1)!!$, so the claim is
+$q_n = (2n{+}1)!!\,T_n$.
+Note $T_{n-1} = T_{n-2} + (n{-}1)!/(2n{-}1)!!$.
+With the inductive hypotheses
+$q_{n-1} = (2n{-}1)!!\,T_{n-1}$ and $q_{n-2} = (2n{-}3)!!\,T_{n-2}$:
+\begin{align*}
+&b(n)\,q_{n-1} + a(n)\,q_{n-2} \\
+&= (3n{+}1)(2n{-}1)!!\,T_{n-1}
+   - n(2n{-}1)(2n{-}3)!!\,T_{n-2}.
+\end{align*}
+Since $(2n{-}1)!! = (2n{-}1)(2n{-}3)!!$, we factor:
+\begin{align*}
+&= (2n{-}1)!!\bigl[(3n{+}1)\,T_{n-1} - n\,T_{n-2}\bigr].
+\end{align*}
+Substituting $T_{n-1} = T_{n-2} + (n{-}1)!/(2n{-}1)!!$:
+\begin{align*}
+(3n{+}1)\,T_{n-1} - n\,T_{n-2}
+&= (2n{+}1)\,T_{n-2} + \frac{(3n{+}1)(n{-}1)!}{(2n{-}1)!!}.
+\end{align*}
+Therefore
+\[
+b(n)\,q_{n-1} + a(n)\,q_{n-2}
+= (2n{+}1)!!\,T_{n-2} + (3n{+}1)(n{-}1)!.
+\]
+The target is
+$(2n{+}1)!!\,T_n = (2n{+}1)!!\,T_{n-2} + (2n{+}1)(n{-}1)! + n!$,
+since $T_n - T_{n-2} = (n{-}1)!/(2n{-}1)!! + n!/(2n{+}1)!!$
+and $(2n{+}1)!!/(2n{-}1)!! = 2n{+}1$.
+So the identity reduces to
+\[
+(3n{+}1)(n{-}1)! = (2n{+}1)(n{-}1)! + n!,
+\]
+which holds since $n! = n(n{-}1)!$ gives
+$(2n{+}1)(n{-}1)! + n(n{-}1)! = (3n{+}1)(n{-}1)!$.
+
+\medskip\noindent\textbf{Limit.}
+$C_n = p_n/q_n = 1/T_n$.
+The identity~\cite[Chapter~5]{cuyt2008}
+\begin{equation}\label{eq:pi-id}
+  \frac{\pi}{2}
+  = \sum_{j=0}^{\infty} \frac{j!}{(2j{+}1)!!}
+  = \sum_{j=0}^{\infty} \frac{2^j(j!)^2}{(2j{+}1)!},
+\end{equation}
+derivable from $\arcsin(1) = \pi/2$ via the Maclaurin series
+$\arcsin(x) = \sum_{j=0}^\infty \frac{(2j)!}{4^j(j!)^2(2j{+}1)}\,x^{2j+1}$
+at $x = 1$ (convergence at the endpoint follows from Raabe's test
+applied to the positive-term series;
+see, e.g.,~\cite[\S5.2]{cuyt2008}),
+gives $\lim T_n = \pi/2$ and $\lim C_n = 2/\pi$.
+\end{proof}
+
+\begin{conjecture}[Binomial Recurrence]\label{conj:rec}
+Define $\mathrm{val}(m)$ as the limit of the PCF with
+$a(n) = -n(2n{-}(2m{+}1))$ and $b(n) = 3n{+}1$.
+Then $\mathrm{val}(m{+}1) = \mathrm{val}(m)\cdot 2(m{+}1)/(2m{+}1)$.
+\end{conjecture}
+\begin{remark}[Evidence for Conjecture~\ref{conj:rec}]
+The recurrence is verified numerically to $1\,500{+}$ matching digits
+for $m = 0,1,\ldots,7$ (independently of the Arb certification of
+individual PCF values).  It is consistent with the closed form
+$\mathrm{val}(m) = 2^{2m+1}/(\pi\binom{2m}{m})$, since
+$\binom{2m+2}{m+1} = \binom{2m}{m}\cdot 2(2m{+}1)/(m{+}1)$ gives
+ratio $4\binom{2m}{m}/\binom{2m+2}{m+1} = 2(m{+}1)/(2m{+}1)$.
+A direct algebraic proof via equivalence transformations
+of the CF as $c \to c{+}2$ remains an open problem.
+\end{remark}
+
+\begin{corollary}[Full Pi Family]\label{cor:pi}
+Assuming Conjecture~\ref{conj:rec}, for all $m \ge 0$ the PCF with
+$a(n) = -n(2n{-}(2m{+}1))$ and $b(n) = 3n+1$ converges to
+$2^{2m+1}/(\pi\binom{2m}{m})$.
+\end{corollary}
+\begin{proof}
+By Conjecture~\ref{conj:rec},
+$\mathrm{val}(m{+}1) = \mathrm{val}(m)\cdot 2(m{+}1)/(2m{+}1)$.
+From $\mathrm{val}(0) = 2/\pi$ (Theorem~\ref{thm:pi}), iteration gives
+$\mathrm{val}(m) = (2/\pi)\prod_{i=1}^m 2i/(2i{-}1) = 2^{2m+1}/(\pi\binom{2m}{m})$,
+using the identity $\prod_{i=1}^m 2i/(2i{-}1) = 4^m/\binom{2m}{m}$.
+\end{proof}
+
+\begin{remark}[Parity Phenomenon]\label{rem:parity}
+When $c = 2\ell$ is even, the numerator $a(n) = -n(2n{-}2\ell) = -2n(n{-}\ell)$
+vanishes at $n = \ell$, so the continued fraction terminates
+after $\ell$ steps and evaluates to a rational number.
+For $c = 2,4,6,8,10,12,\ldots$ the values are
+$1,\;3/2,\;15/8,\;35/16,\;315/128,\;693/256,\ldots$---the
+Wallis product partial convergents.
+\end{remark}
+
+\begin{table}[h]
+\centering
+\caption{Pi Family: odd parameter $c = 2m{+}1$}\label{tab:pi}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+$m$ & $c$ & $a(n)$ & $\mathrm{val}(m)\cdot\pi$ & $\mathrm{val}(m)$ \\
+\midrule
+$0$ & $1$ & $-n(2n{-}1)$ & $2$ & $2/\pi$ \\
+$1$ & $3$ & $-n(2n{-}3)$ & $4$ & $4/\pi$ \\
+$2$ & $5$ & $-n(2n{-}5)$ & $16/3$ & $16/(3\pi)$ \\
+$3$ & $7$ & $-n(2n{-}7)$ & $32/5$ & $32/(5\pi)$ \\
+$4$ & $9$ & $-n(2n{-}9)$ & $256/35$ & $256/(35\pi)$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Convergence and Bracketing}\label{sec:conv}
+
+\begin{lemma}[Worpitzky Condition]\label{lem:work}
+For both families, the normalised partial numerators
+$|\tilde a_n| = |a_n|/(b_n\,b_{n-1})$ satisfy
+$|\tilde a_n| < 1/4$ for all sufficiently large~$n$.
+\end{lemma}
+\begin{proof}
+\textbf{Log family.}
+The asymptotic ratio is $|\tilde a_n| \to k/(k{+}1)^2$.
+Since $4k < (k{+}1)^2 \iff (k{-}1)^2 > 0$, we have
+$k/(k{+}1)^2 < 1/4$ for all $k > 1$.
+For $k \ge 2$, direct computation confirms $|\tilde a_n| < 1/4$
+for all $n \ge 1$.
+For $1 < k < 2$, the bound may fail at $n = 1$
+(where $|\tilde a_1| = 1/(2k{+}1)$, which exceeds $1/4$
+when $k < 3/2$); however, convergence for all $k > 1$ is
+established independently by the closed-form proof
+(Theorem~\ref{thm:log}).
+
+\textbf{Pi family.}
+$|\tilde a_n| = n(2n{-}1)/((3n{+}1)(3n{-}2)) \to 2/9 < 1/4$.
+At $n = 1$: $|\tilde a_1| = 1\cdot1/(4\cdot1) = 1/4$, so strict inequality holds
+for all $n \ge 2$.  By a classical result
+(see~\cite[\S4.2]{lorentzen2008}), convergence still follows
+when $|\tilde a_n| \le 1/4$ with equality at finitely many~$n$.
+\end{proof}
+
+\noindent Convergence of both families is therefore guaranteed:
+for the log family by the closed-form proof when $1 < k < 2$ and
+by Worpitzky for $k \ge 2$; for the pi family by Worpitzky
+for all $n \ge 2$ (with the $n=1$ borderline handled by the
+classical extension).
+
+\begin{lemma}[Bracketing]\label{lem:bracket}
+If $a_n < 0$ and $b_n > 0$ for all $n \ge 1$, and the CF converges,
+then $\min(C_N,C_{N+1}) \le L \le \max(C_N,C_{N+1})$.
+\end{lemma}
+\begin{proof}
+The determinant $p_nq_{n-1}-p_{n-1}q_n = \prod_{j=1}^n(-a_j)>0$
+shows $C_n-C_{n-1}$ alternates in sign
+(since $q_n>0$ by induction and $b_n>0$).
+See~\cite[Theorem~4.35]{lorentzen2008}.
+\end{proof}
+
+\section{Hypergeometric Connections}\label{sec:hyper}
+
+\textbf{Log family.}
+From the proof of Theorem~\ref{thm:log}, the convergent ratio
+$C_n = k/\sum_{j=0}^n (1/k)^j/(j{+}1)$ has limit determined by
+the series $\sum_{j=0}^\infty x^j/(j{+}1) = {}_2F_1(1,1;2;x)$
+evaluated at $x = 1/k$.  Since
+$\ln(k/(k{-}1)) = (1/k)\cdot{}_2F_1(1,1;2;1/k)$, the PCF value
+is $k/({}_2F_1(1,1;2;1/k))$.
+
+\textbf{Pi family.}
+The series~\eqref{eq:pi-id} arises from $\arcsin(1)=\pi/2$.
+The parity phenomenon (Remark~\ref{rem:parity}) connects even-$c$
+values to Wallis product partial products.
+
+\section{Numerical Certification}\label{sec:cert}
+
+Arb ball arithmetic (\texttt{python-flint}~0.8.0, $10\,000$-bit precision)
+at depth $N{=}5000$; by Lemma~\ref{lem:bracket}
+the limit lies in $[\min(C_N,C_{N-1}),\max(C_N,C_{N-1})]$.
+
+\begin{table}[h]
+\centering
+\caption{Arb-certified intervals (depth $5000$)}\label{tab:cert}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+PCF & Target & Bracket & Digits \\
+\midrule
+$a=-2n^2,\;b=3n{+}2$      & $1/\ln 2$    & $<10^{-1509}$ & $1509$ \\
+$a=-3n^2,\;b=4n{+}3$      & $1/\ln(3/2)$ & $<10^{-2265}$ & $2265$ \\
+$a=-n(2n{-}1),\;b=3n{+}1$ & $2/\pi$      & $<10^{-1508}$ & $1508$ \\
+$a=-n(2n{-}3),\;b=3n{+}1$ & $4/\pi$      & $<10^{-1518}$ & $1518$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discovery Methodology}
+
+\begin{enumerate}
+\item \textbf{MITM sweep.}
+  Fix $b(n)=dn{+}e$; enumerate $a(n)=pn^2{+}qn{+}r$
+  with $|p|,|q|,|r|\le 5$; match against known constants.
+\item \textbf{Modular signature sweep.}
+  Vary $d\in\{2,\ldots,8\}$, $e\in\{1,\ldots,8\}$.
+  The $d{=}3$ family produced $\pi$- and $\ln$-hits.
+\item \textbf{Parametric generalization.}
+  Sweep $c$ in $a(n)=-n(2n{-}c)$ and $k$ in $a(n)=-kn^2$.
+\end{enumerate}
+
+\section{Open Questions}
+
+\begin{enumerate}
+\item Is there a unified framework producing both families?
+\item For $m = 1$, numerical computation gives convergents whose
+  numerators are $p_n^{(1)} = 1, 5, 33, 285, 3045, \ldots$;
+  can these be expressed in terms of known combinatorial sequences
+  (shifted double factorials, Pochhammer symbols)?
+  Clean closed forms for $p_n^{(m)}$ and $q_n^{(m)}$ for general
+  $m > 0$ would likely yield a proof of Conjecture~\ref{conj:rec}.
+\item Do these PCFs yield irrationality measures for $\ln 2$,
+  $\ln(3/2)$, or $1/\pi$ via Ap\'ery-style arguments?
+\item Do analogous families exist for $d \ge 5$,
+  producing $\zeta(3)$, Catalan's constant, or polylogarithms?
+\end{enumerate}
+
+\appendix
+\section{Exact Convergents}\label{app:conv}
+
+\textbf{Log ($k{=}2$):} $p_n = (n{+}1)!\cdot 2^{n+1}$.
+
+\smallskip
+\begin{center}
+\begin{tabular}{@{}rrrl@{}}
+\toprule
+$n$ & $p_n$ & $q_n$ & $C_n$ \\
+\midrule
+0 & 2 & 1 & 2.000000 \\
+1 & 8 & 5 & 1.600000 \\
+2 & 48 & 32 & 1.500000 \\
+3 & 384 & 262 & 1.465649 \\
+4 & 3840 & 2644 & 1.452345 \\
+5 & 46080 & 31832 & 1.447584 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\smallskip\noindent Limit: $1/\ln 2 = 1.442695\ldots$
+
+\medskip
+\textbf{Pi ($m{=}0$):} $p_n = (2n{+}1)!!$.
+
+\smallskip
+\begin{center}
+\begin{tabular}{@{}rrrl@{}}
+\toprule
+$n$ & $p_n$ & $q_n$ & $C_n$ \\
+\midrule
+0 & 1 & 1 & 1.000000 \\
+1 & 3 & 4 & 0.750000 \\
+2 & 15 & 22 & 0.681818 \\
+3 & 105 & 160 & 0.656250 \\
+4 & 945 & 1464 & 0.645492 \\
+5 & 10395 & 16224 & 0.640688 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\smallskip\noindent Limit: $2/\pi = 0.636620\ldots$
+
+\section{Reproducibility}\label{app:repro}
+
+Python~3.12, \texttt{mpmath}~1.4.1, \texttt{python-flint}~0.8.0 (Arb),
+\texttt{sympy}~1.14.0.
+Forward recurrence~\eqref{eq:rec} with $p_{-1}{=}1$, $p_0{=}b(0)$,
+$q_{-1}{=}0$, $q_0{=}1$.
+
+\begin{verbatim}
+pip install mpmath python-flint sympy
+python run_phase4_certification.py  # Arb
+python run_phase5_proofs.py         # Proofs
+python run_phase7_pi_analysis.py    # Pi convergents
+\end{verbatim}
+
+\noindent Runtime: ${<}\,2$~hours on standard desktop.
+All source code, certification logs, and a verification notebook
+are available at \url{https://github.com/PLACEHOLDER/pcf-families}
+(to be made public upon publication).
+
+\section*{Acknowledgements}
+
+Inspired by the Ramanujan Machine~\cite{raayoni2021,elimelech2024}.
+
+\begin{thebibliography}{5}
+
+\bibitem{raayoni2021}
+G.\,Raayoni et al.,
+\emph{Generating conjectures on fundamental constants with the Ramanujan Machine},
+Nature \textbf{590} (2021), 67--73.
+
+\bibitem{elimelech2024}
+D.\,Elimelech et al.,
+\emph{Algorithm-assisted discovery of an intrinsic order among mathematical constants},
+PNAS \textbf{121}(25) (2024), e2321440121.
+
+\bibitem{cuyt2008}
+A.\,Cuyt, V.\,B.\,Petersen, B.\,Verdonk, H.\,Waadeland, W.\,B.\,Jones,
+\emph{Handbook of Continued Fractions for Special Functions},
+Springer, 2008.
+
+\bibitem{lorentzen2008}
+L.\,Lorentzen, H.\,Waadeland,
+\emph{Continued Fractions: Convergence Theory},
+2nd ed., Atlantis Press, 2008.
+
+\bibitem{osler2010}
+T.\,J.\,Osler,
+\emph{Lord Brouncker's forgotten sequence of continued fractions for pi},
+Int.\ J.\ Math.\ Ed.\ Sci.\ Tech.\ \textbf{41} (2010), 249--256.
+
+\end{thebibliography}
+
+\end{document}

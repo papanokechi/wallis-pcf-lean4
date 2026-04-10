@@ -1,0 +1,123 @@
+[
+  {
+    "alpha": [
+      1,
+      -1
+    ],
+    "beta": [
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "spec_id": "SUPER_CLUSTER00",
+    "source_cluster_size": 7,
+    "source_members": [
+      "GCF_C0C79573",
+      "GCF_9312F0BA",
+      "GCF_BD2DE7E8",
+      "GCF_1887FA23",
+      "GCF_A40D5266"
+    ]
+  },
+  {
+    "alpha": [
+      0,
+      -2,
+      0,
+      1,
+      -1
+    ],
+    "beta": [
+      -10,
+      -57
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "spec_id": "SUPER_CLUSTER01",
+    "source_cluster_size": 5,
+    "source_members": [
+      "GCF_791EFA6B",
+      "GCF_D1B84976",
+      "GCF_29566589",
+      "GCF_33EA0BAB",
+      "GCF_4F66432E"
+    ]
+  },
+  {
+    "alpha": [
+      -1,
+      -1,
+      1
+    ],
+    "beta": [
+      0,
+      -1
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "spec_id": "SUPER_CLUSTER03",
+    "source_cluster_size": 17,
+    "source_members": [
+      "GCF_675469BE",
+      "GCF_AC2938EC",
+      "GCF_7457E7FB",
+      "GCF_71B32B4C",
+      "GCF_7EF62B26"
+    ]
+  },
+  {
+    "alpha": [
+      1,
+      -3,
+      -2,
+      1
+    ],
+    "beta": [
+      3,
+      17
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "spec_id": "SUPER_CLUSTER04",
+    "source_cluster_size": 7,
+    "source_members": [
+      "GCF_AE8D42B9",
+      "GCF_81C72ABE",
+      "GCF_8FBC7FE0",
+      "GCF_5763F234",
+      "GCF_F5FE57DB"
+    ]
+  },
+  {
+    "alpha": [
+      2,
+      -4,
+      -3,
+      1
+    ],
+    "beta": [
+      5,
+      -14,
+      47
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "spec_id": "SUPER_CLUSTER06",
+    "source_cluster_size": 2,
+    "source_members": [
+      "GCF_5A8C4F18",
+      "GCF_756E14B4"
+    ]
+  }
+]

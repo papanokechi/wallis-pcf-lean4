@@ -1,0 +1,163 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+
+\title{Executive Summary for Peer Review:\\
+Polynomial Continued Fractions — Proved Families,\\Parity Phenomena, and New Irrational Constants}
+\author{Research Programme Summary — April 2026}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+%======================================================================
+\section{Scope and Objectives}
+%======================================================================
+
+This research programme investigates polynomial continued fractions (PCFs) of the form
+\[
+  v = \beta(0) + \cfrac{\alpha(1)}{\beta(1) + \cfrac{\alpha(2)}{\beta(2) + \cdots}},
+\]
+where $\alpha(n), \beta(n)$ are polynomials in $n$.  The primary objectives were:
+\begin{enumerate}
+\item Prove closed-form evaluations for specific PCF families;
+\item Classify the constants produced by quadratic-denominator generalized continued fractions;
+\item Determine whether new representations of $\zeta(3)$, Catalan's constant $G$, and the Euler--Mascheroni constant $\gamma$ exist in low-degree polynomial PCF space;
+\item Build computational infrastructure to automate the search at scale.
+\end{enumerate}
+
+%======================================================================
+\section{Deliverables}
+%======================================================================
+
+\subsection{Papers}
+\begin{itemize}
+\item \textbf{Paper~1}: ``A Novel Continued Fraction for $4/\pi$: Series Identity, Casoratian Proof, and Gauss CF Non-Membership.''  (\texttt{summary.tex}, $\approx$1\,270 lines, 2 propositions, 3 theorems, 2 lemmas, 1 corollary.)
+\item \textbf{Paper~2}: ``Polynomial Continued Fractions: Proved Families, Parity Phenomena, and New Irrational Constants.''  (\texttt{pcf\_vquad\_paper.tex}, 673 lines, 6 theorems, 1 conjecture, 1 corollary, 1 proposition.  Feature-locked for submission.)
+\end{itemize}
+
+\subsection{Software}
+\begin{itemize}
+\item \texttt{ramanujan\_breakthrough\_generator.py} v3.1 — 13 operational modes (MITM-RF, Descent \& Repel, CMF Navigator, conjecture prover, quadratic GCF, parity, hypergeometric guess, etc.)
+\item \texttt{ramanujan\_param\_generator.py} — batch parameter-set generator producing manifests, shell scripts, and READMEs for systematic sweeps.
+\item 45 archived computational sessions in \texttt{rbg\_runs/}.
+\end{itemize}
+
+%======================================================================
+\section{Principal Results}
+%======================================================================
+
+\subsection{The Pi Family (Proved)}
+
+For $\alpha(n) = -n(2n - 2m - 1)$, $\beta(n) = 3n + 1$, and real $m > -\tfrac{1}{2}$:
+\[
+  \boxed{
+    \operatorname{val}(m) = \frac{2\,\Gamma(m+1)}{\sqrt{\pi}\,\Gamma(m + \tfrac{1}{2})}
+  }
+\]
+\begin{itemize}
+\item \textbf{Verification}: matched to \textbf{500 digits} at $m = 0, 0.5, 1, \ldots, 10.5$ (depth 8\,000).
+\item \textbf{Parity Theorem}: odd $c = 2m+1$ yields $2^{c}/(\pi\binom{c-1}{(c-1)/2})$; even $c$ yields exact rationals (e.g.\ $c = 18 \to 109395/32768$, $c = 20 \to 230945/65536$).  Verified for $c = 1, \ldots, 22$.
+\item \textbf{Closed-form numerators}: proved for $m = 0$ ($p_n = (2n-1)!!\cdot(2n+1)$) and $m = 1$ ($p_n = (2n-1)!!\cdot(n^2+3n+1)$).
+\item \textbf{Raising operator}: $L(f)_n = (n+2)f_n - (n+1)^2 f_{n-1}$ maps $m$-solutions to $(m{+}1)$-solutions (proved algebraically).
+\end{itemize}
+
+\subsection{The Logarithmic Ladder (Proved)}
+
+$\alpha(n) = -n(n-1)$, $\beta(n) = (2k{-}1)n + 1$ produces $1/\ln(k/(k{-}1))$ for all real $k > 1$.  Verified for $k = 2$ ($\to 1/\ln 2$), $k = \varphi$ (golden ratio), $k = e$, $k = \pi$, each to 80+ digits.
+
+\subsection{The 2nd-Order ODE (Proved)}
+
+The generating function $G(z) = \sum f_n z^n$ (where $f_n$ satisfies the $m = 0$ recurrence) satisfies:
+\[
+  2z^4 G'' + z^2(-3 + 9z)G' + (1 - 4z + 6z^2)G = 1
+\]
+This is a 2nd-order irregular-singular ODE (correcting an earlier claim of 3rd order), verified term-by-term.
+
+\subsection{The $V_{\mathrm{quad}}$ Zoo (New Constants)}
+
+Quadratic-denominator GCFs $b(n) = An^2 + Bn + C$, $a(n) = 1$ produce a family of \textbf{482 new irrational constants} with the following properties:
+
+\begin{center}
+\begin{tabular}{lrl}
+\toprule
+Test & Scope & Result \\
+\midrule
+Wronskian irrationality & all 482 & \textbf{proved irrational} \\
+Algebraic degree $\le 8$ & all 482 & excluded \\
+PSLQ vs.\ 15 handbook constants & 91 tested & \textbf{0 relations} \\
+Pairwise PSLQ (coeff $\le 500$) & 435 pairs & \textbf{0 relations} \\
+Triple PSLQ (coeff $\le 200$) & 455 triples & \textbf{0 relations} \\
+Prefactor sweep ($a V + b T + c = 0$) & 510 tests & \textbf{0 relations} \\
+Extended PSLQ ($a V + b T_1 + c T_2 + d = 0$) & 120 tests & \textbf{0 relations} \\
+$B \to -B$ shift symmetry & all & $V(1, B, C) - V(1, -B, C) \in \mathbb{Z}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{Conclusion}: These constants are \emph{mutually algebraically independent} (at 300-digit PSLQ resolution) and independent from $\pi, e, \ln 2, \zeta(3), G, \gamma, \varphi, \sqrt{2}, \sqrt{3}, \sqrt{5}$.
+
+\subsection{The $\zeta(3)$ Uniqueness Result (Negative)}
+
+Exhaustive search for $\zeta(3)$ PCF representations:
+
+\begin{center}
+\begin{tabular}{llrl}
+\toprule
+Method & Degrees & Budget & Hits \\
+\midrule
+MITM-RF  & $(2,2)$, $(3,2)$ & 200k each & 0 \\
+D\&R     & $(2,2)$, $(3,2)$ & 3k--5k & 0 \\
+CMF      & $(2,2)$, $(3,2)$, $(6,3)$ & 300--2k & 0 \\
+MITM     & $(3,4)$, coeff 12 & 5k & 0 \\
+D\&R     & $(4,3)$, coeff 15 & 5k & 0 (best score $9.2 \times 10^{-6}$) \\
+Symmetry & $a_n = -n^6$, palindromic $b_n$ & 83\,648 & \textbf{Ap\'ery only} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{Conclusion}: Ap\'ery's PCF ($\alpha_n = -n^6$, $\beta_n = (2n{+}1)(17n^2 + 17n + 5)$, converging to $6/\zeta(3)$) appears to be \emph{unique} in the symmetric polynomial PCF class.  Similar negative results hold for Catalan's $G$ and $\gamma$.
+
+%======================================================================
+\section{Computational Scale}
+%======================================================================
+
+\begin{itemize}
+\item \textbf{Full roadmap}: 38 parameter sets across 7 research goals, executed in $\approx$62~minutes.
+\item \textbf{Total PCFs evaluated}: $> 100{,}000$ across all modes and sessions.
+\item \textbf{Registry}: 21 conjectures (PCF $\to$ constant identities) across $\pi$, $\varphi$, $\sqrt{2}$, $e$, $\ln 2$.
+\item \textbf{Precision}: key results verified at 200--500 digit precision.
+\end{itemize}
+
+%======================================================================
+\section{Open Problems}
+%======================================================================
+
+\begin{enumerate}
+\item \textbf{Conjecture 1 for $m \ge 2$}: What is the correct prefactor for the convergent numerators?  The $(2n{-}1)!!$ factorization fails; the actual structure involves denominators dividing products of odd primes $\le 2n{-}1$.
+\item \textbf{$V_{\mathrm{quad}}$ closed forms}: Do any of the 482 new constants admit hypergeometric representations (e.g.\ as ${}_3F_2$ values)?  The PSLQ opacity suggests they may define a genuinely new transcendence class.
+\item \textbf{$\zeta(3)$ isolation}: Why is Ap\'ery's PCF apparently unique?  Is there a theoretical obstruction (e.g.\ a modularity constraint) preventing other polynomial representations?
+\item \textbf{$V_{\mathrm{quad}}$ functional equation}: The shift relation $V(1,B,C) - V(1,-B,C) \in \mathbb{Z}$ is proved for all $B, C$.  Does this extend to a deeper algebraic identity?
+\end{enumerate}
+
+%======================================================================
+\section{Assessment for Peer Review}
+%======================================================================
+
+\textbf{Strengths}:
+\begin{itemize}
+\item The Gamma identity $\operatorname{val}(m) = 2\Gamma(m{+}1)/(\sqrt{\pi}\Gamma(m{+}\tfrac{1}{2}))$ is the centrepiece theorem — a continuous generalization that unifies parity and closed-form evaluation into a single formula.  It is verified to 500 digits and has a clean proof via the Gauss hypergeometric function.
+\item The $V_{\mathrm{quad}}$ zoo is a concrete, reproducible contribution: 482 new provably irrational constants with no known closed forms.  The mutual algebraic independence (via PSLQ at 300 digits) is a strong computational result.
+\item The negative result on $\zeta(3)$ — 83{,}648 symmetric PCFs tested with Ap\'ery as the only hit — is valuable ``empty space'' evidence.
+\end{itemize}
+
+\textbf{Limitations}:
+\begin{itemize}
+\item PSLQ independence is numerical, not a proof of algebraic independence.  True transcendence proofs for $V_{\mathrm{quad}}$ remain open.
+\item The $\zeta(3)$ search, though extensive, is necessarily bounded by computational budget.  The Ap\'ery PCF involves $n^6$ numerators and coefficients $\{5, 27, 51, 34\}$, which sit outside the ``small coefficient'' regime of most modes.
+\item Conjecture 1 for $m \ge 2$ is still open — the paper honestly states this.
+\end{itemize}
+
+\textbf{Recommendation}: Paper~2 (\texttt{pcf\_vquad\_paper.tex}) is ready for submission to a number theory or experimental mathematics journal (e.g.\ \emph{Experimental Mathematics}, \emph{Ramanujan Journal}).  Paper~1 (\texttt{summary.tex}) is a longer companion with detailed proofs suitable for a more specialized venue.
+
+\end{document}

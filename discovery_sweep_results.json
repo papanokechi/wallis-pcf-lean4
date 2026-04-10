@@ -1,0 +1,96 @@
+{
+  "timestamp": "2026-04-05T18:13:54",
+  "precision": 80,
+  "depth": 300,
+  "total_time_s": 2031.0,
+  "verified_count": 4,
+  "discoveries": [
+    {
+      "target": "phi",
+      "constant": "\u03c6",
+      "alpha_coeffs": [
+        2,
+        3,
+        1
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "alpha_str": "2 + 3n + n^2",
+      "beta_str": "2 + n",
+      "formula_match": "phi / 1/2",
+      "digits": 110,
+      "convergence": "exponential",
+      "factorial_reduction": false,
+      "algorithm": "mitm",
+      "numerical_value": "3.2360679774997896964091736687312762354406183596115257242708"
+    },
+    {
+      "target": "phi",
+      "constant": "\u03c6",
+      "alpha_coeffs": [
+        0,
+        1,
+        1
+      ],
+      "beta_coeffs": [
+        -1,
+        -1
+      ],
+      "alpha_str": "n + n^2",
+      "beta_str": "-1 + -1n",
+      "formula_match": "-8/8 * phi",
+      "digits": 110,
+      "convergence": "exponential",
+      "factorial_reduction": false,
+      "algorithm": "mitm",
+      "numerical_value": "-1.618033988749894848204586834365638117720309179805762862135"
+    },
+    {
+      "target": "pi",
+      "constant": "\u03c0",
+      "alpha_coeffs": [
+        0,
+        0,
+        1
+      ],
+      "beta_coeffs": [
+        1,
+        2,
+        0
+      ],
+      "alpha_str": "n^2",
+      "beta_str": "1 + 2n",
+      "formula_match": "4 / pi",
+      "digits": 109,
+      "convergence": "exponential",
+      "factorial_reduction": false,
+      "algorithm": "cmf",
+      "numerical_value": "1.2732395447351626861510701069801148962756771659236515899813"
+    },
+    {
+      "target": "pi",
+      "constant": "\u03c0",
+      "alpha_coeffs": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "beta_coeffs": [
+        1,
+        2,
+        0
+      ],
+      "alpha_str": "n^2",
+      "beta_str": "1 + 2n",
+      "formula_match": "4 / pi",
+      "digits": 109,
+      "convergence": "exponential",
+      "factorial_reduction": false,
+      "algorithm": "cmf",
+      "numerical_value": "1.2732395447351626861510701069801148962756771659236515899813"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+\documentclass[11pt]{letter}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+
+\signature{}
+\address{}
+
+\begin{document}
+\begin{letter}{%
+  Editorial Board \\
+  \textit{Experimental Mathematics} \\
+  Taylor \& Francis}
+
+\opening{Dear Editors,}
+
+We submit the manuscript ``A new transcendental constant from a
+quadratic continued fraction: Exclusion from classical
+special-function families'' for consideration in
+\textit{Experimental Mathematics}.
+
+The paper introduces and studies the constant
+$V_{\mathrm{quad}} = 1 + K_{n \ge 1} \frac{1}{3n^2 + n + 1}
+\approx 1.19737$, a generalized continued fraction with quadratic
+partial denominators and discriminant $\Delta = -11$.  The main
+contributions are:
+
+\begin{enumerate}
+\item A proof that $V_{\mathrm{quad}}$ is irrational with optimal
+  irrationality measure $\mu = 2$, via a symplectic Wronskian
+  identity for the convergent sequence.
+
+\item A comprehensive exclusion theorem showing that
+  $V_{\mathrm{quad}}$ is not a rational linear combination
+  (coefficient bound $|c_i| \le 10{,}000$) of values from $16$
+  classical special-function families, established by over
+  $20{,}000$ individual PSLQ searches at precision levels up
+  to $2{,}050$ digits.  The tested families include hypergeometric
+  functions, Airy, Bessel, and parabolic cylinder functions,
+  complete elliptic integrals, Meijer $G$- and Lommel functions,
+  $L$-values and periods of the conductor-$11$ elliptic curve
+  $E_{11a1}$, Eisenstein series, Dedekind eta products, and
+  Ramanujan's mock theta functions.
+
+\item Evidence that the generating function of the convergent
+  denominators has an irregular singular point, placing
+  $V_{\mathrm{quad}}$ outside the D-finite (holonomic) class.
+\end{enumerate}
+
+We also report a degree-$2$ PSLQ false-positive mechanism
+affecting rational CF values (Section~5.1) and two additional
+unidentified irrational constants from higher-order recurrences
+(Section~4.5).
+
+A self-contained Python script reproducing all core computations
+is included as supplementary material.
+
+The manuscript has not been submitted elsewhere.
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}

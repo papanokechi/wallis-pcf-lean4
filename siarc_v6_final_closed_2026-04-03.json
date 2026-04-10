@@ -1,0 +1,807 @@
+{
+  "global_iter": 50,
+  "stats": {
+    "iters": 50,
+    "breakthroughs": 13,
+    "fertilized_born": 60,
+    "teleports": 11,
+    "cascade_injections": 3,
+    "lemma_k_proven": 8,
+    "double_borel_proven": 2,
+    "vquad_proven": 1,
+    "gaps_resolved": 8
+  },
+  "breakthroughs": [
+    {
+      "iter": 1,
+      "hyp_id": "H-002695",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "sig": 99.0,
+      "gap": 5.5,
+      "gates": 6,
+      "birth_mode": "seed"
+    },
+    {
+      "iter": 1,
+      "hyp_id": "C-528219",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [k\u22655]",
+      "sig": 99.0,
+      "gap": 4.0,
+      "gates": 6,
+      "birth_mode": "cascade"
+    },
+    {
+      "iter": 1,
+      "hyp_id": "C-528219",
+      "formula": "\u03b2_k / A\u2082\u207d\u1d4f\u207e = -(k+1)(k+3)/(8\u00b7c_k)  [from A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48",
+      "sig": 99.0,
+      "gap": 4.0,
+      "gates": 6,
+      "birth_mode": "cascade"
+    },
+    {
+      "iter": 1,
+      "hyp_id": "C-528219",
+      "formula": "Theorem 2* (k\u22655): A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  ",
+      "sig": 99.0,
+      "gap": 4.0,
+      "gates": 6,
+      "birth_mode": "cascade"
+    },
+    {
+      "iter": 37,
+      "hyp_id": "E-534574",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + O(log(c_k)/c_k\u00b2",
+      "sig": 99.0,
+      "gap": 6.0,
+      "gates": 6,
+      "birth_mode": "teleport"
+    },
+    {
+      "iter": 37,
+      "hyp_id": "E-534574",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [teleport k=[5, 6,",
+      "sig": 99.0,
+      "gap": 4.0,
+      "gates": 6,
+      "birth_mode": "teleport"
+    },
+    {
+      "iter": 38,
+      "hyp_id": "E-534740",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + \u03b2_k/c_k  [\u03b2 pattern 3, \u03b2(5)=-4.3750]",
+      "sig": 99.0,
+      "gap": 0.0,
+      "gates": 6,
+      "birth_mode": "teleport"
+    },
+    {
+      "iter": 38,
+      "hyp_id": "E-534740",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [Lemma K at conduc",
+      "sig": 99.0,
+      "gap": 0.0,
+      "gates": 6,
+      "birth_mode": "teleport"
+    },
+    {
+      "iter": 39,
+      "hyp_id": "E-534938",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [teleport k=[25, 2",
+      "sig": 99.0,
+      "gap": 4.0,
+      "gates": 6,
+      "birth_mode": "teleport"
+    },
+    {
+      "iter": 40,
+      "hyp_id": "E-535131",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + O(log(c_k)/c_k\u00b2",
+      "sig": 99.0,
+      "gap": 0.0,
+      "gates": 6,
+      "birth_mode": "teleport"
+    },
+    {
+      "iter": 47,
+      "hyp_id": "E-536395",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + \u03b2_k/c_k  [\u03b2 pattern 2, \u03b2(5)=-7.8750]",
+      "sig": 99.0,
+      "gap": 0.0,
+      "gates": 6,
+      "birth_mode": "teleport"
+    },
+    {
+      "iter": 49,
+      "hyp_id": "E-536725",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + \u03b2_k/c_k  [\u03b2 pattern 6, \u03b2(5)=-8.0000]",
+      "sig": 99.0,
+      "gap": 0.0,
+      "gates": 6,
+      "birth_mode": "teleport"
+    },
+    {
+      "iter": 50,
+      "hyp_id": "E-536895",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + \u03b2_k/c_k  [\u03b2 pattern 4, \u03b2(5)=-6.0000]",
+      "sig": 99.0,
+      "gap": 0.0,
+      "gates": 6,
+      "birth_mode": "teleport"
+    }
+  ],
+  "pool": [
+    {
+      "id": "H-002599",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(5\u00b7c\u2085)/48 \u2212 6/c\u2085",
+      "description": "G-01 law k=5. All 4 gates passed. ASR outer scalar confirmed spurious.",
+      "birth_mode": "seed",
+      "parent_ids": [],
+      "sig": 52.0,
+      "lfi": 0.5,
+      "gap_pct": 20.0,
+      "proof_progress": 50.0,
+      "gates_passed": 3,
+      "status": "champion",
+      "iteration": 50,
+      "gradient_score": 30.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "C_P14_01",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [k\u22655 extended]",
+      "description": "G-01 universal law k\u22655. Blocked by Lemma K Kloosterman bound.",
+      "birth_mode": "seed",
+      "parent_ids": [],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 4.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 50,
+      "gradient_score": 60.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "H-002695",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "G-01 confirmed k=5..8 via zero-API engine. k=9..12 pending.",
+      "birth_mode": "seed",
+      "parent_ids": [],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 4.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 50,
+      "gradient_score": 60.0,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "BOREL-L1",
+      "formula": "V\u2081(k) = k \u00b7 e^k \u00b7 E\u2081(k)",
+      "description": "Lemma 1 fully proven. V_quad irrationality via Stern-Stolz.",
+      "birth_mode": "seed",
+      "parent_ids": [],
+      "sig": 99.0,
+      "lfi": 0.05,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 5,
+      "status": "champion",
+      "iteration": 50,
+      "gradient_score": 0.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "C_P14_04",
+      "formula": "A\u2081\u207d\u00b2\u2074\u207e = -(24\u00b7c\u2082\u2084)/48 \u2212 25\u00b727/(8\u00b7c\u2082\u2084)  [k=24 boss]",
+      "description": "G-01 law k=9,10,11,12; k=24 boss-level stress test.",
+      "birth_mode": "seed",
+      "parent_ids": [],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 3.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 50,
+      "gradient_score": 60.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "C-528219",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [k\u22655]",
+      "description": "Extend G-01 derivation package \u2014 full symbolic proof Lemm to k=[9, 10, 11, 12]",
+      "birth_mode": "cascade",
+      "parent_ids": [
+        "H-0025"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 4.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 50,
+      "gradient_score": 60.0,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "C-528219",
+      "formula": "\u03b2_k / A\u2082\u207d\u1d4f\u207e = -(k+1)(k+3)/(8\u00b7c_k)  [from A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)...]",
+      "description": "Apply G-01 derivation package \u2014 full symbolic proof Lemm to \u03b2_k closed form",
+      "birth_mode": "cascade",
+      "parent_ids": [
+        "H-0025"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 4.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 50,
+      "gradient_score": 60.0,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "C-528219",
+      "formula": "Theorem 2* (k\u22655): A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [via cascade lemma]",
+      "description": "Use G-01 derivation package \u2014 full symbolic proof Lemm as lemma \u2192 Theorem 2* direct attack",
+      "birth_mode": "cascade",
+      "parent_ids": [
+        "H-0025"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 4.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 50,
+      "gradient_score": 60.0,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "F-528220",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -0.062837\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "\u03b1-blend of C-528219 (\u03bb=0.50) and H-002599",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "C-528219",
+        "H-002599"
+      ],
+      "sig": 49.0,
+      "lfi": 0.5,
+      "gap_pct": 20.0,
+      "proof_progress": 50.0,
+      "gates_passed": 3,
+      "status": "escaped",
+      "iteration": 38,
+      "gradient_score": 30.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-528220",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + -6.0000/c_k",
+      "description": "\u03b2-swap: \u03b1 from C-528219, \u03b2 from H-002599",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "C-528219",
+        "H-002599"
+      ],
+      "sig": 69.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "escaped",
+      "iteration": 36,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-528220",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)  [k\u2208[5, 6, 7, 8, 24]]",
+      "description": "k-extension of C_P14_01 to k=[5, 24]",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "C_P14_01",
+        "H-002599"
+      ],
+      "sig": 75.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "escaped",
+      "iteration": 36,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-528385",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "\u03b1-blend of C-528219 (\u03bb=0.34) and C-528219",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "C-528219",
+        "C-528219"
+      ],
+      "sig": 75.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "escaped",
+      "iteration": 36,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-528385",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + 0.0000/c_k",
+      "description": "\u03b2-swap: \u03b1 from C-528219, \u03b2 from F-528220",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "F-528220",
+        "C-528219"
+      ],
+      "sig": 75.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "escaped",
+      "iteration": 36,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-528385",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)  [k\u2208[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]]",
+      "description": "k-extension of C-528219 to k=[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "F-528220",
+        "C-528219"
+      ],
+      "sig": 75.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "escaped",
+      "iteration": 37,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-528752",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + -6.0000/c_k",
+      "description": "\u03b2-swap: \u03b1 from C-528219, \u03b2 from F-528220",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "C-528219",
+        "F-528220"
+      ],
+      "sig": 75.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "escaped",
+      "iteration": 36,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-528920",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "\u03b1-blend of F-528220 (\u03bb=0.42) and F-528385",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "F-528220",
+        "F-528385"
+      ],
+      "sig": 75.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "escaped",
+      "iteration": 36,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-529843",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "\u03b1-blend of F-528385 (\u03bb=0.41) and F-528752",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "F-528385",
+        "F-528752"
+      ],
+      "sig": 75.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "escaped",
+      "iteration": 36,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-530141",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + 0.0000/c_k",
+      "description": "\u03b2-swap: \u03b1 from F-529843, \u03b2 from H-002695",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "F-529843",
+        "H-002695"
+      ],
+      "sig": 75.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "escaped",
+      "iteration": 36,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-530290",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + -6.0000/c_k",
+      "description": "\u03b2-swap: \u03b1 from F-530141, \u03b2 from F-528752",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "F-528752",
+        "F-530141"
+      ],
+      "sig": 75.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "escaped",
+      "iteration": 36,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-530436",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)  [k\u2208[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]]",
+      "description": "k-extension of F-530290 to k=[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "C-528219",
+        "F-530290"
+      ],
+      "sig": 75.0,
+      "lfi": 0.333,
+      "gap_pct": 13.33,
+      "proof_progress": 66.7,
+      "gates_passed": 4,
+      "status": "active",
+      "iteration": 36,
+      "gradient_score": 40.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-530605",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -0.048239\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "\u03b1-blend of F-528752 (\u03bb=0.35) and F-528220",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "F-528752",
+        "F-528220"
+      ],
+      "sig": 55.0,
+      "lfi": 0.5,
+      "gap_pct": 20.0,
+      "proof_progress": 50.0,
+      "gates_passed": 3,
+      "status": "active",
+      "iteration": 35,
+      "gradient_score": 30.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-530776",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -0.036605\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "\u03b1-blend of F-530605 (\u03bb=0.58) and F-528220",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "F-530605",
+        "F-528220"
+      ],
+      "sig": 55.0,
+      "lfi": 0.5,
+      "gap_pct": 20.0,
+      "proof_progress": 50.0,
+      "gates_passed": 3,
+      "status": "active",
+      "iteration": 34,
+      "gradient_score": 30.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-530938",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -0.025898\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "\u03b1-blend of F-530776 (\u03bb=0.32) and C_P14_04",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "F-530776",
+        "C_P14_04"
+      ],
+      "sig": 55.0,
+      "lfi": 0.5,
+      "gap_pct": 20.0,
+      "proof_progress": 50.0,
+      "gates_passed": 3,
+      "status": "active",
+      "iteration": 33,
+      "gradient_score": 30.0,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-531097",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -0.036605\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)  [k\u2208[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]]",
+      "description": "k-extension of F-530776 to k=[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "H-002695",
+        "F-530776"
+      ],
+      "sig": 55.0,
+      "lfi": 0.5,
+      "gap_pct": 20.0,
+      "proof_progress": 50.0,
+      "gates_passed": 3,
+      "status": "active",
+      "iteration": 32,
+      "gradient_score": 30.001,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "F-531257",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -0.031240\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "\u03b1-blend of F-530776 (\u03bb=0.66) and C-528219",
+      "birth_mode": "fertilized",
+      "parent_ids": [
+        "F-530776",
+        "C-528219"
+      ],
+      "sig": 55.0,
+      "lfi": 0.5,
+      "gap_pct": 20.0,
+      "proof_progress": 50.0,
+      "gates_passed": 3,
+      "status": "active",
+      "iteration": 31,
+      "gradient_score": 30.002,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "E-534574",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + O(log(c_k)/c_k\u00b2)  [with log-correction]",
+      "description": "formula-morph teleport from F-528220: add log-correction",
+      "birth_mode": "teleport",
+      "parent_ids": [
+        "F-528220"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 6.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 14,
+      "gradient_score": 60.0,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "E-534574",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [teleport k=[5, 6, 7, 8]]",
+      "description": "k-jump teleport from F-528220 \u2192 k=[5, 6, 7, 8]",
+      "birth_mode": "teleport",
+      "parent_ids": [
+        "F-528220"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 4.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 14,
+      "gradient_score": 60.0,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "E-534740",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + \u03b2_k/c_k  [\u03b2 pattern 3, \u03b2(5)=-4.3750]",
+      "description": "\u03b2-explore teleport from F-528385, pattern 3",
+      "birth_mode": "teleport",
+      "parent_ids": [
+        "F-528385"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 13,
+      "gradient_score": 60.0,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "E-534740",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [Lemma K at conductor N=6]",
+      "description": "conductor teleport from F-528385: N\u21926",
+      "birth_mode": "teleport",
+      "parent_ids": [
+        "F-528385"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 13,
+      "gradient_score": 60.0,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "E-534938",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [teleport k=[25, 26, 27, 28]]",
+      "description": "k-jump teleport from F-528385 \u2192 k=[25, 26, 27, 28]",
+      "birth_mode": "teleport",
+      "parent_ids": [
+        "F-528385"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 4.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 12,
+      "gradient_score": 60.0,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "E-534939",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -0.270833\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k)",
+      "description": "\u03b1-flip teleport from F-528220: \u03b1=-0.270833",
+      "birth_mode": "teleport",
+      "parent_ids": [
+        "F-528220"
+      ],
+      "sig": 52.1,
+      "lfi": 0.5,
+      "gap_pct": 20.0,
+      "proof_progress": 50.0,
+      "gates_passed": 3,
+      "status": "active",
+      "iteration": 12,
+      "gradient_score": 30.584,
+      "breakthrough_count": 0,
+      "blocked_by": []
+    },
+    {
+      "id": "E-535131",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + O(log(c_k)/c_k\u00b2)  [with log-correction]",
+      "description": "formula-morph teleport from F-528752: add log-correction",
+      "birth_mode": "teleport",
+      "parent_ids": [
+        "F-528752"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 11,
+      "gradient_score": 60.0,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "E-536395",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + \u03b2_k/c_k  [\u03b2 pattern 2, \u03b2(5)=-7.8750]",
+      "description": "\u03b2-explore teleport from F-529843, pattern 2",
+      "birth_mode": "teleport",
+      "parent_ids": [
+        "F-529843"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 4,
+      "gradient_score": 313.212,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "E-536725",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + \u03b2_k/c_k  [\u03b2 pattern 6, \u03b2(5)=-8.0000]",
+      "description": "\u03b2-explore teleport from F-530141, pattern 6",
+      "birth_mode": "teleport",
+      "parent_ids": [
+        "F-530141"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 2,
+      "gradient_score": 566.425,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    },
+    {
+      "id": "E-536895",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) + \u03b2_k/c_k  [\u03b2 pattern 4, \u03b2(5)=-6.0000]",
+      "description": "\u03b2-explore teleport from F-530290, pattern 4",
+      "birth_mode": "teleport",
+      "parent_ids": [
+        "F-530290"
+      ],
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "status": "champion",
+      "iteration": 1,
+      "gradient_score": 1072.85,
+      "breakthrough_count": 1,
+      "blocked_by": []
+    }
+  ]
+}

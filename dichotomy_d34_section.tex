@@ -1,0 +1,44 @@
+\subsection{Degree-3 and degree-4 numerators: a refined picture}\label{sec:d3-p1-a6-b53}
+
+The fractional-$\beta$ scan tests the generalized Dichotomy Principle for $d \in \{3,4\}$ at 150 decimal digits and truncation depths $200$, $350$, and $500$ by choosing $\beta$ so that $\rho = \alpha - \beta$ has prescribed fractional part.
+Table~\ref{tab:d34scan} records the targeted cases. The reported digit count is the minimum agreement across the depth comparisons $(200,350)$, $(350,500)$, and $(200,500)$. PSLQ was applied only when this stability exceeded $15$ digits, with coefficient bound $500$ in the requested rational or $\Gamma(j/d)$ bases.
+
+\begin{table}[h]
+\centering
+\caption{Fractional-$\beta$ scan for $d \in \{3,4\}$, computed at $\mathrm{dps}=150$ and depth $500$.}
+\label{tab:d34scan}
+\scriptsize
+\begin{tabular}{llllr}
+\toprule
+$(d,p,\alpha,\beta)$ & $\rho$ & $\rho \bmod 1$ & result & digits \\
+\midrule
+$( 3, 1, 4, 1 )$ & $3$ & $0$ & no rational hit & 43.91 \\
+$( 3, 1, 5, 2 )$ & $3$ & $0$ & no rational hit & 54.57 \\
+$( 3, 2, 6, 3 )$ & $3$ & $0$ & no rational hit & 46.87 \\
+$( 3, 1, 4, 5/3 )$ & $\tfrac{7}{3}$ & $\tfrac{1}{3}$ & no $\Gamma(1/3),\Gamma(2/3)$ hit & 44.29 \\
+$( 3, 1, 5, 5/3 )$ & $\tfrac{10}{3}$ & $\tfrac{1}{3}$ & no $\Gamma(1/3),\Gamma(2/3)$ hit & 54.40 \\
+$( 3, 1, 6, 5/3 )$ & $\tfrac{13}{3}$ & $\tfrac{1}{3}$ & no $\Gamma(1/3),\Gamma(2/3)$ hit & 64.22 \\
+$( 3, 2, 4, 5/3 )$ & $\tfrac{7}{3}$ & $\tfrac{1}{3}$ & no $\Gamma(1/3),\Gamma(2/3)$ hit & 31.64 \\
+$( 3, 1, 3, 2/3 )$ & $\tfrac{7}{3}$ & $\tfrac{1}{3}$ & no $\Gamma(1/3),\Gamma(2/3)$ hit & 33.27 \\
+$( 3, 1, 4, 1/3 )$ & $\tfrac{11}{3}$ & $\tfrac{2}{3}$ & no $\Gamma(1/3),\Gamma(2/3)$ hit & 43.50 \\
+$( 3, 1, 5, 2/3 )$ & $\tfrac{13}{3}$ & $\tfrac{1}{3}$ & no $\Gamma(1/3),\Gamma(2/3)$ hit & 53.86 \\
+$( 4, 1, 5, 3/4 )$ & $\tfrac{17}{4}$ & $\tfrac{1}{4}$ & not tested & 10.63 \\
+$( 4, 1, 6, 3/4 )$ & $\tfrac{21}{4}$ & $\tfrac{1}{4}$ & not tested & 12.54 \\
+$( 4, 1, 5, 7/4 )$ & $\tfrac{13}{4}$ & $\tfrac{1}{4}$ & not tested & 10.92 \\
+$( 4, 1, 5, 1/4 )$ & $\tfrac{19}{4}$ & $\tfrac{3}{4}$ & not tested & 10.47 \\
+$( 4, 1, 6, 1/4 )$ & $\tfrac{23}{4}$ & $\tfrac{3}{4}$ & not tested & 12.39 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The rational-control cases ($\rho \in \mathbb{Z}$) all converge stably and exhibit no unexpected $\Gamma$-sector relation. The cubic cases with $\rho \bmod 1 \in \{1/3,2/3\}$ also converge stably, but they resist identification in the standard $\Gamma(1/3),\Gamma(2/3)$ basis at coefficient bound $500$.
+For the strongest cubic example $(p,\alpha,\beta)=(1,6,5/3)$ with $d=3$, the value at depth $600$ is approximately $\,1.7885654281636925083376\ldots$, \texttt{mp.identify} returns no recognition, its simple continued fraction begins $[1; 1, 3, 1, 2, 1, \ldots]$, and an extended PSLQ search including $\pi^{1/3}, \pi^{2/3}, 3^{1/3}$, and $\log 3$ combinations with $\Gamma(1/3),\Gamma(2/3)$ still finds no relation at coefficient bound 500.
+
+\begin{remark}\label{rem:d34-open}
+These computations do not confirm the naive residue-class extension of the Dichotomy Principle to $d \geq 3$. At the same time, they do not constitute a formal refutation of every possible $\Gamma(k/d)$ description, since PSLQ only tests the specified low-coefficient bases.
+The evidence instead suggests that any correct generalization for $d \geq 3$ must involve additional structural conditions beyond the characteristic exponent difference $\rho$, and possibly a richer period basis incorporating terms such as $\pi^{1/d}$ or $d^{1/d}$.
+\end{remark}
+
+The quartic $1/4$ and $3/4$ buckets remain under-resolved at the tested depth, so the data refine the question rather than close it.
+
+% Verdict summary: OPEN — The naive residue-class-only extension is not supported by the tested cases: the strongest cubic example (3,1,6,5/3) stabilized to 64.22 digits but gave no standard Gamma-basis PSLQ relation at coeff bound 500. The extended diagnostic search (adding pi^(1/3), pi^(2/3), 3^(1/3), and log(3) mixtures) also returned no relation at the same coefficient bound.

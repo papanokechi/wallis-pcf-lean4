@@ -1,0 +1,774 @@
+{
+  "discoveries": {
+    "bc9a4e836d16": {
+      "id": "bc9a4e836d16",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.5010657,
+      "law_expression": "-0.6613*delta_Hill_01^1 + 0.5859*delta_Hill_01^1.5 + -0.09117*delta_Hill_01^2",
+      "accuracy": 0.7188811534963878,
+      "complexity": 9,
+      "r_squared": 0.7188811534963878,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.0692053935726352,
+        "coefficients": {
+          "delta_Hill_01^1": -0.6613181280155621,
+          "delta_Hill_01^1.5": 0.585914875436639,
+          "delta_Hill_01^2": -0.09116586019814082
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "f3753f05173f": {
+      "id": "f3753f05173f",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.5027356,
+      "law_expression": "-0.6605*delta_Hill_01^1 + 0.585*delta_Hill_01^1.5 + -0.09093*delta_Hill_01^2",
+      "accuracy": 0.7185993894368161,
+      "complexity": 9,
+      "r_squared": 0.7185993894368161,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.06928256273896553,
+        "coefficients": {
+          "delta_Hill_01^1": -0.6605255819914252,
+          "delta_Hill_01^1.5": 0.5850108914646194,
+          "delta_Hill_01^2": -0.0909264953866067
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "c75645e917a9": {
+      "id": "c75645e917a9",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.504238,
+      "law_expression": "-0.6601*delta_Hill_01^1 + 0.5844*delta_Hill_01^1.5 + -0.09074*delta_Hill_01^2",
+      "accuracy": 0.7185515461301797,
+      "complexity": 9,
+      "r_squared": 0.7185515461301797,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.06930655024446394,
+        "coefficients": {
+          "delta_Hill_01^1": -0.6600550568395437,
+          "delta_Hill_01^1.5": 0.5843846213044595,
+          "delta_Hill_01^2": -0.09074231989460109
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "96b169687e1f": {
+      "id": "96b169687e1f",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.506315,
+      "law_expression": "-0.1023*delta_Hill_01^1.5 + 0.08423*delta_Hill_01^2",
+      "accuracy": 0.6968588951406605,
+      "complexity": 6,
+      "r_squared": 0.6968588951406605,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.07462679834795247,
+        "coefficients": {
+          "delta_Hill_01^1.5": -0.10234461326268846,
+          "delta_Hill_01^2": 0.08423392747863305
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "ecdab2a095cf": {
+      "id": "ecdab2a095cf",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.5087435,
+      "law_expression": "-0.1024*delta_Hill_01^1.5 + 0.08426*delta_Hill_01^2",
+      "accuracy": 0.6966323643035883,
+      "complexity": 6,
+      "r_squared": 0.6966323643035883,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.07469097956484005,
+        "coefficients": {
+          "delta_Hill_01^1.5": -0.10242376377221346,
+          "delta_Hill_01^2": 0.08426308724895037
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "edd178a2f985": {
+      "id": "edd178a2f985",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.5110855,
+      "law_expression": "-0.1026*delta_Hill_01^1.5 + 0.08432*delta_Hill_01^2",
+      "accuracy": 0.696619675762724,
+      "complexity": 6,
+      "r_squared": 0.696619675762724,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.07470726307367778,
+        "coefficients": {
+          "delta_Hill_01^1.5": -0.10256034011220412,
+          "delta_Hill_01^2": 0.0843224665071302
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "86a95519dbae": {
+      "id": "86a95519dbae",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.5129168,
+      "law_expression": "0.03667 * delta_Hill_01^2",
+      "accuracy": 0.6685317726637929,
+      "complexity": 3,
+      "r_squared": 0.6685317726637929,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.08160032461335234,
+        "coefficients": {
+          "delta_Hill_01": 0.03666953342259232
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "6db2ae1eda05": {
+      "id": "6db2ae1eda05",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.5142725,
+      "law_expression": "0.03667*delta_Hill_01^2",
+      "accuracy": 0.6685317726637927,
+      "complexity": 3,
+      "r_squared": 0.6685317726637927,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.08160032461335241,
+        "coefficients": {
+          "delta_Hill_01^2": 0.03666953285734052
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "2489f8a9370e": {
+      "id": "2489f8a9370e",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.515858,
+      "law_expression": "0.03666 * delta_Hill_01^2",
+      "accuracy": 0.6682646061992171,
+      "complexity": 3,
+      "r_squared": 0.6682646061992171,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.08167529625376421,
+        "coefficients": {
+          "delta_Hill_01": 0.03666190819796426
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "eb36423cf57a": {
+      "id": "eb36423cf57a",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.518367,
+      "law_expression": "0.03666*delta_Hill_01^2",
+      "accuracy": 0.6682646061992168,
+      "complexity": 3,
+      "r_squared": 0.6682646061992168,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.08167529625376431,
+        "coefficients": {
+          "delta_Hill_01^2": 0.036661907632830004
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "cf6b2e306ef7": {
+      "id": "cf6b2e306ef7",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.521299,
+      "law_expression": "0.007575 * delta_Hill_01^3",
+      "accuracy": 0.6642656633481911,
+      "complexity": 3,
+      "r_squared": 0.6642656633481911,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.08265054866585578,
+        "coefficients": {
+          "delta_Hill_01": 0.00757489628088301
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "dde3144c6cb2": {
+      "id": "dde3144c6cb2",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.5247476,
+      "law_expression": "0.007573 * delta_Hill_01^3",
+      "accuracy": 0.6641061656621596,
+      "complexity": 3,
+      "r_squared": 0.6641061656621596,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.082713699742365,
+        "coefficients": {
+          "delta_Hill_01": 0.007572956982161852
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "69ad5330eb66": {
+      "id": "69ad5330eb66",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.5270798,
+      "law_expression": "0.007574 * delta_Hill_01^3",
+      "accuracy": 0.6640811410334666,
+      "complexity": 3,
+      "r_squared": 0.6640811410334666,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.08270529113271033,
+        "coefficients": {
+          "delta_Hill_01": 0.00757352800624013
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "a1de94c7adf0": {
+      "id": "a1de94c7adf0",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.5296853,
+      "law_expression": "0.003327 * delta_Hill_01^3.5",
+      "accuracy": 0.6210741689215222,
+      "complexity": 3,
+      "r_squared": 0.6210741689215222,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.09328336253786877,
+        "coefficients": {
+          "delta_Hill_01": 0.0033266945016084694
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "35f02313f6b8": {
+      "id": "35f02313f6b8",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774090435.532632,
+      "law_expression": "0.003326 * delta_Hill_01^3.5",
+      "accuracy": 0.6210278492250295,
+      "complexity": 3,
+      "r_squared": 0.6210278492250295,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.09332171503449314,
+        "coefficients": {
+          "delta_Hill_01": 0.0033259343517009223
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "d47e6e6a10f5": {
+      "id": "d47e6e6a10f5",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774090435.5359926,
+      "law_expression": "2.107 * r_X^-0.667",
+      "accuracy": 0.5324154943614652,
+      "complexity": 3,
+      "r_squared": 0.5324154943614652,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.037151813667166855,
+        "coefficients": {
+          "r_X": 2.107342375040536
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "6ecc93dfa5fa": {
+      "id": "6ecc93dfa5fa",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774090435.5388284,
+      "law_expression": "2.292 * EN_B^-0.667",
+      "accuracy": 0.5173048474732562,
+      "complexity": 3,
+      "r_squared": 0.5173048474732562,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.038352426456537324,
+        "coefficients": {
+          "EN_B": 2.2918795542932284
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "2d207e8bcdf2": {
+      "id": "2d207e8bcdf2",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774090435.5420191,
+      "law_expression": "0.4663 * EN_X^1",
+      "accuracy": 0.5101739073075829,
+      "complexity": 3,
+      "r_squared": 0.5101739073075829,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.03891901358060172,
+        "coefficients": {
+          "EN_X": 0.4662564051704872
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "a2b579ef35bf": {
+      "id": "a2b579ef35bf",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774090435.545574,
+      "law_expression": "1.951 * r_X^-0.5",
+      "accuracy": 0.4956428794028258,
+      "complexity": 3,
+      "r_squared": 0.4956428794028258,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.04007357288400017,
+        "coefficients": {
+          "r_X": 1.950620783658212
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "85abf99e469a": {
+      "id": "85abf99e469a",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774090435.5489547,
+      "law_expression": "2.078 * EN_B^-0.5",
+      "accuracy": 0.48571735252212034,
+      "complexity": 3,
+      "r_squared": 0.48571735252212034,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.04086220321878181,
+        "coefficients": {
+          "EN_B": 2.0778557648070297
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "c7e58d01056f": {
+      "id": "c7e58d01056f",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774090435.5523915,
+      "law_expression": "0.6948 * EN_X^0.667",
+      "accuracy": 0.4509629841172875,
+      "complexity": 3,
+      "r_squared": 0.4509629841172875,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.04362360314441273,
+        "coefficients": {
+          "EN_X": 0.6948128081104827
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "6893b64c2390": {
+      "id": "6893b64c2390",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774090435.5546892,
+      "law_expression": "2.438 * r_X^-1",
+      "accuracy": 0.42957191793567695,
+      "complexity": 3,
+      "r_squared": 0.42957191793567695,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.045323225127899894,
+        "coefficients": {
+          "r_X": 2.437579021007298
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "3d603fa95187": {
+      "id": "3d603fa95187",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774090435.557763,
+      "law_expression": "1.465 * delta_EN^-0.333",
+      "accuracy": 0.41353973195467975,
+      "complexity": 3,
+      "r_squared": 0.41353973195467975,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.046597058582731735,
+        "coefficients": {
+          "delta_EN": 1.4645990172153724
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "32c4c8816fb2": {
+      "id": "32c4c8816fb2",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774090435.5601423,
+      "law_expression": "1.8 * r_X^-0.333",
+      "accuracy": 0.3957920266924211,
+      "complexity": 3,
+      "r_squared": 0.3957920266924211,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.04800719820663311,
+        "coefficients": {
+          "r_X": 1.7998351695563501
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "1dd3700bd078": {
+      "id": "1dd3700bd078",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774090435.5627117,
+      "law_expression": "0.2537 * EN_X^1.5",
+      "accuracy": 0.3949539970701921,
+      "complexity": 3,
+      "r_squared": 0.3949539970701921,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.0480737836473335,
+        "coefficients": {
+          "EN_X": 0.25368907016468073
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "c13f51b0cc2b": {
+      "id": "c13f51b0cc2b",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774090435.5654566,
+      "law_expression": "0.1497 * control_param^3",
+      "accuracy": 0.9989803471781664,
+      "complexity": 3,
+      "r_squared": 0.9989803471781664,
+      "status": "proposed",
+      "priority": 4,
+      "metadata": {
+        "mse": 0.0745324647426092,
+        "coefficients": {
+          "control_param": 0.1496543897097866
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "240a9a46b11c": {
+      "id": "240a9a46b11c",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774090435.5681756,
+      "law_expression": "0.1497 * control_sq^1.5",
+      "accuracy": 0.9989803471781664,
+      "complexity": 3,
+      "r_squared": 0.9989803471781664,
+      "status": "proposed",
+      "priority": 4,
+      "metadata": {
+        "mse": 0.07453246474260924,
+        "coefficients": {
+          "control_sq": 0.1496543897097866
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "6f02eea0619e": {
+      "id": "6f02eea0619e",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774090435.571,
+      "law_expression": "0.1497 * control_cube^1",
+      "accuracy": 0.9989803471781664,
+      "complexity": 3,
+      "r_squared": 0.9989803471781664,
+      "status": "proposed",
+      "priority": 4,
+      "metadata": {
+        "mse": 0.0745324647426092,
+        "coefficients": {
+          "control_cube": 0.1496543897097866
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "5a397687232c": {
+      "id": "5a397687232c",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774090435.5741324,
+      "law_expression": "0.06587 * control_param^3.5",
+      "accuracy": 0.9907795920805934,
+      "complexity": 3,
+      "r_squared": 0.9907795920805934,
+      "status": "proposed",
+      "priority": 4,
+      "metadata": {
+        "mse": 0.6739742326509017,
+        "coefficients": {
+          "control_param": 0.06586593643381727
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "5cf4b1145169": {
+      "id": "5cf4b1145169",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774090435.5769227,
+      "law_expression": "0.02864 * control_sq^2",
+      "accuracy": 0.9690626989622025,
+      "complexity": 3,
+      "r_squared": 0.9690626989622025,
+      "status": "proposed",
+      "priority": 4,
+      "metadata": {
+        "mse": 2.2613905924220234,
+        "coefficients": {
+          "control_sq": 0.02864044217742463
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "c9cafbd2b8c8": {
+      "id": "c9cafbd2b8c8",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774090435.5793269,
+      "law_expression": "0.7293 * control_param^2",
+      "accuracy": 0.94085634443687,
+      "complexity": 3,
+      "r_squared": 0.94085634443687,
+      "status": "proposed",
+      "priority": 3,
+      "metadata": {
+        "mse": 4.3231601272685625,
+        "coefficients": {
+          "control_param": 0.7292512672052752
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "f5877710f11e": {
+      "id": "f5877710f11e",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774090435.5819836,
+      "law_expression": "0.7293 * control_sq^1",
+      "accuracy": 0.94085634443687,
+      "complexity": 3,
+      "r_squared": 0.94085634443687,
+      "status": "proposed",
+      "priority": 3,
+      "metadata": {
+        "mse": 4.3231601272685625,
+        "coefficients": {
+          "control_sq": 0.7292512672052752
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "17952ce1a650": {
+      "id": "17952ce1a650",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774090435.5844772,
+      "law_expression": "0.7293 * control_cube^0.667",
+      "accuracy": 0.94085634443687,
+      "complexity": 3,
+      "r_squared": 0.94085634443687,
+      "status": "proposed",
+      "priority": 3,
+      "metadata": {
+        "mse": 4.3231601272685625,
+        "coefficients": {
+          "control_cube": 0.7292512672052752
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "028362f2da51": {
+      "id": "028362f2da51",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774090435.5871532,
+      "law_expression": "0.01234 * control_cube^1.5",
+      "accuracy": 0.9388467670737398,
+      "complexity": 3,
+      "r_squared": 0.9388467670737398,
+      "status": "proposed",
+      "priority": 3,
+      "metadata": {
+        "mse": 4.470052040631488,
+        "coefficients": {
+          "control_cube": 0.012342337674580416
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "00fec3d6fc4a": {
+      "id": "00fec3d6fc4a",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774090435.5916636,
+      "law_expression": "1.534 * control_param^1.5",
+      "accuracy": 0.8466197960861455,
+      "complexity": 3,
+      "r_squared": 0.8466197960861455,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 11.211467663930883,
+        "coefficients": {
+          "control_param": 1.5338421779937226
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    }
+  },
+  "analogies": [],
+  "meta_insights": [],
+  "domain_stats": {
+    "exoplanet": {
+      "total_discoveries": 15,
+      "validated": 0,
+      "best_accuracy": 0.7188811534963878,
+      "min_complexity": 3,
+      "breakthrough_count": 0
+    },
+    "materials": {
+      "total_discoveries": 10,
+      "validated": 0,
+      "best_accuracy": 0.5324154943614652,
+      "min_complexity": 3,
+      "breakthrough_count": 0
+    },
+    "critical_transitions": {
+      "total_discoveries": 10,
+      "validated": 0,
+      "best_accuracy": 0.9989803471781664,
+      "min_complexity": 3,
+      "breakthrough_count": 5
+    }
+  },
+  "iteration_count": 0
+}

@@ -1,0 +1,780 @@
+[
+  {
+    "alpha": [
+      9,
+      -2,
+      1,
+      -8,
+      -2,
+      -6,
+      -5,
+      5
+    ],
+    "beta": [
+      9,
+      3,
+      -4,
+      0,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 7,
+    "n_terms": 500,
+    "_source": "harvest_zeta5_55",
+    "_signature": "adeg=7|bdeg=4|mode=ratio|order=7"
+  },
+  {
+    "alpha": [
+      -6,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      1,
+      2,
+      -1,
+      7,
+      -6,
+      -4,
+      3
+    ],
+    "target": "catalan",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "_source": "harvest_kloosterman",
+    "_signature": "adeg=3|bdeg=6|mode=backward|order=0"
+  },
+  {
+    "alpha": [
+      -10,
+      8,
+      4,
+      -2,
+      6
+    ],
+    "beta": [
+      -10,
+      10,
+      8,
+      10,
+      -3
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 4,
+    "n_terms": 500,
+    "_source": "harvest_zeta5_55",
+    "_signature": "adeg=4|bdeg=4|mode=ratio|order=4"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      -3,
+      1,
+      1
+    ],
+    "beta": [
+      -9,
+      -18,
+      -6,
+      15,
+      3
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "_source": "harvest_kloosterman",
+    "_signature": "adeg=4|bdeg=4|mode=backward|order=0"
+  },
+  {
+    "alpha": [
+      0,
+      -3,
+      1,
+      0,
+      0,
+      0,
+      2
+    ],
+    "beta": [
+      8,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "_source": "harvest_zeta5_55",
+    "_signature": "adeg=6|bdeg=1|mode=backward|order=0"
+  },
+  {
+    "alpha": [
+      0,
+      -3,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "_source": "harvest_zeta5_55",
+    "_signature": "adeg=5|bdeg=1|mode=backward|order=0"
+  },
+  {
+    "alpha": [
+      0,
+      -3,
+      3,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "_source": "harvest_zeta5_55",
+    "_signature": "adeg=5|bdeg=1|mode=backward|order=0"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -1,
+      -3,
+      0,
+      1,
+      4,
+      6,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      0,
+      1,
+      3,
+      6,
+      3,
+      1,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      -1,
+      -3,
+      0,
+      1,
+      4,
+      6,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      0,
+      1,
+      3,
+      6,
+      3,
+      1,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -1,
+      -3,
+      0,
+      1,
+      4,
+      6,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      0,
+      1,
+      3,
+      6,
+      3,
+      1,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      -1,
+      -3,
+      0,
+      1,
+      4,
+      6,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      0,
+      1,
+      3,
+      6,
+      3,
+      1,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      -1,
+      -3,
+      0,
+      1,
+      4,
+      6,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      6,
+      6,
+      6,
+      6,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      0,
+      1,
+      3,
+      6,
+      3,
+      1,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N6"
+  }
+]

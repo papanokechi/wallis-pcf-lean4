@@ -1,0 +1,502 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage[expansion=false]{microtype}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+% ── Theorem environments ──────────────────────────────────────────────────
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ── Title / Author ────────────────────────────────────────────────────────
+\title{Grand Rosetta Table:\\
+  Complete Classification of Polynomial Continued Fraction Families\\
+  and the Dichotomy Principle}
+\author{Papanokechi Nnaji}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present a complete classification of four polynomial continued fraction (PCF)
+families discovered via a systematic search over quadratic--linear parameter
+spaces.  All families share the structure $a_n = (k_0 + 2m\sigma)\,n - 2n^2$,
+$b_n = \varepsilon + 3n$, and obey a universal Gamma-function ratio formula
+$V(m)/V(m{-}1) = (m+\alpha)/(m+\beta)$.  A sharp dichotomy emerges:
+when $\alpha - \beta \in \mathbb{Z}$ the Pochhammer symbol telescopes to a
+polynomial, yielding purely rational values (\emph{T-type});
+when $\alpha - \beta \in \mathbb{Z} + \tfrac{1}{2}$ the values are
+transcendental shifts of the classical $S$-family involving $\sqrt\pi$
+and the Gamma function.
+All identities are verified to 550--2000 digits of precision via
+high-precision backward evaluation and PSLQ integer-relation detection.
+\end{abstract}
+
+% ══════════════════════════════════════════════════════════════════════════
+\section{Introduction}\label{sec:intro}
+% ══════════════════════════════════════════════════════════════════════════
+
+A \emph{polynomial continued fraction} (PCF) is an expression of the form
+\begin{equation}\label{eq:pcf-def}
+  V \;=\; b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \cfrac{a_3}{\ddots}}}
+\end{equation}
+where $a_n$ and $b_n$ are polynomials in $n$.
+When the limit exists, it often equals a closed-form combination
+of classical constants.  The programme of systematically discovering
+such identities was initiated by the Ramanujan Machine
+project~\cite{raab2021ramanujan}, which used massively parallel search
+to rediscover and extend formulas for $\pi$, $e$, and $\zeta(3)$.
+Theoretical foundations connecting PCFs to hypergeometric functions
+are developed in~\cite{aptekarev2007turan,borwein2004mathematics},
+while the classical relationship between continued fractions and
+Pad\'e approximants dates to Euler and Gauss~\cite{jones1980continued}.
+
+The \emph{$S$-family}, defined by $a_n = -n(2n - 2m - 1)$ and $b_n = 3n+1$,
+is a one-parameter family whose $m=0$ member yields the well-known
+$S^{(0)} = 2/\pi$ (equivalent, via Euler's continued fraction theorem,
+to the Wallis product~\cite{lange1999elementary}).
+Its closed form is given by the Gauss summation of a ${}_2F_1$
+hypergeometric series evaluated at unit argument:
+\begin{equation}\label{eq:s-family}
+  S^{(m)} \;=\; \frac{2\,\Gamma(m+1)}{\sqrt{\pi}\,\Gamma(m+\tfrac{1}{2})}\,.
+\end{equation}
+This identity, together with the inter-member ratio
+$S^{(m)}/S^{(m-1)} = 2m/(2m-1)$, serves as the ``Rosetta Stone''
+template for our search: we scan all quadratic~$a_n$, linear~$b_n$ families
+over small integer coefficients and flag those whose consecutive members
+have exact rational ratios, then classify the survivors.
+
+In this paper we report the results of this systematic scan.
+All four families found are completely classified in the
+Grand Rosetta Table (Table~\ref{tab:rosetta}), and a sharp
+\emph{Dichotomy Principle} (Theorem~\ref{thm:dichotomy}) is established
+distinguishing rational from transcendental families by the
+arithmetic nature of a single parameter.
+
+% ══════════════════════════════════════════════════════════════════════════
+\section{Setup and family parameterisation}\label{sec:setup}
+% ══════════════════════════════════════════════════════════════════════════
+
+We consider one-parameter families of PCFs of the form~\eqref{eq:pcf-def}
+with
+\begin{equation}\label{eq:family-param}
+  a_n(m) = (k_0 + 2m\sigma)\,n - 2n^2, \qquad
+  b_n = \varepsilon + 3n, \qquad
+  b_0 \in \{1,2\},
+\end{equation}
+where $k_0 \in \mathbb{Z}$ is a constant offset,
+$\sigma \in \{+1,-1\}$ controls the sign of the $m$-coupling,
+and $\varepsilon \in \{1,2\}$ is the $b$-intercept.
+The parameter $m$ ranges over the non-negative integers (and analytically
+continues to half-integers and beyond).
+
+The systematic search scans all $(k_0, \sigma, \varepsilon, b_0)$
+with $|k_0| \leq 5$, evaluates each family at $m = 0,1,\dotsc,5$
+to~60-digit precision via backward continued-fraction evaluation
+(depth~$N = 5000$), and applies a \emph{Wallis check}: the consecutive
+ratios $V(m)/V(m{-}1)$ are tested for exact rationality by searching
+for $p/q$ with $q \leq 200$ matching to $>50$ digits.
+Families passing this filter are promoted to full verification at
+550--2000 digits.
+
+The four families that survive are listed below with their
+explicit parameters:
+
+\begin{center}
+\begin{tabular}{crrrccc}
+\toprule
+Family & $k_0$ & $\sigma$ & $\varepsilon$ & $b_0$ & $a_n(m)$ & $b_n$ \\
+\midrule
+1 & $-3$ & $-1$ & $2$ & $2$ & $-(2m{+}3)\,n - 2n^2$ & $3n+2$ \\
+2 & $-1$ & $-1$ & $2$ & $2$ & $-(2m{+}1)\,n - 2n^2$ & $3n+2$ \\
+3 & $+3$ & $+1$ & $1$ & $1$ & $(2m{+}3)\,n - 2n^2$  & $3n+1$ \\
+4 & $+4$ & $+1$ & $1$ & $1$ & $(2m{+}4)\,n - 2n^2$  & $3n+1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Families~1--2 have $b_0 = 2$ and $\sigma = -1$ (negative $m$-coupling);
+Families~3--4 have $b_0 = 1$ and $\sigma = +1$ (positive $m$-coupling).
+This structural split is the origin of the dichotomy.
+
+% ══════════════════════════════════════════════════════════════════════════
+\section{The Grand Rosetta Table}\label{sec:table}
+% ══════════════════════════════════════════════════════════════════════════
+
+For each family, the consecutive-member ratio takes the universal form
+\begin{equation}\label{eq:ratio}
+  \frac{V(m)}{V(m-1)} \;=\; \frac{m + \alpha}{m + \beta}
+\end{equation}
+for specific constants $\alpha,\beta$.
+Iterating this recurrence from the base value $V(0)$ gives the
+universal closed form
+\begin{equation}\label{eq:universal}
+  V(m) \;=\; V(0)\;\frac{\Gamma(m+\alpha+1)\;\Gamma(\beta+1)}
+                         {\Gamma(\alpha+1)\;\Gamma(m+\beta+1)}\,.
+\end{equation}
+Table~\ref{tab:rosetta} collects the parameters $\alpha$, $\beta$,
+the base value $V(0)$, and the closed form for all four families.
+Every entry has been verified to at least 550~stable digits by
+comparing the PCF value (backward evaluation at depth $N=5000$,
+precision~600\,dp) against the right-hand side
+of~\eqref{eq:universal}.
+
+\begin{table}[ht]
+\centering
+\caption{Complete classification of Rosetta Stone PCF families.
+The telescoping condition $\alpha - \beta \in \mathbb{Z}$ causes all
+transcendental factors to cancel, yielding rational closed forms.}
+\label{tab:rosetta}
+\begin{tabular}{cccccccll}
+\toprule
+Fam & Label & $\alpha$ & $\beta$ & $\alpha{-}\beta$
+    & $V(0)$ & Ratio & Closed Form & Type \\
+\midrule
+1 & $T^{(m+1)}$   & $\frac{3}{2}$ & $\frac{1}{2}$  & $1$
+  & $3$            & $\dfrac{m+\frac{3}{2}}{m+\frac{1}{2}}$
+  & $2m + 3$       & Telescoping \\[6pt]
+2 & $T^{(m)}$     & $\frac{1}{2}$ & $-\frac{1}{2}$ & $1$
+  & $1$            & $\dfrac{m+\frac{1}{2}}{m-\frac{1}{2}}$
+  & $2m + 1$       & Telescoping \\[6pt]
+3 & $S^{(m+1)}$   & $1$   & $\frac{1}{2}$  & $\frac{1}{2}$
+  & $\dfrac{4}{\pi}$ & $\dfrac{m+1}{m+\frac{1}{2}}$
+  & $\dfrac{2\,\Gamma(m+2)}{\sqrt{\pi}\,\Gamma(m+\frac{3}{2})}$
+  & $S$-shift \\[6pt]
+4 & $S^{(m+\frac{3}{2})}$ & $\frac{3}{2}$ & $1$    & $\frac{1}{2}$
+  & $\dfrac{3}{2}$   & $\dfrac{m+\frac{3}{2}}{m+1}$
+  & $\dfrac{2\,\Gamma(m+\frac{5}{2})}{\sqrt{\pi}\,\Gamma(m+2)}$
+  & $S$-shift \\
+\midrule
+\multicolumn{9}{p{0.92\linewidth}}{\textbf{Experiment log (2026-04-09):} Fractional $\beta$ sweep over reduced $p/q$ with $1 \le q \le 12$, $|\beta| \le 3$, and $\gcd(p,q)=1$ (266 cases). The best cubic candidates reached $81.1{+}$ stable digits, but no PSLQ relation was found in the rational, $\Gamma(1/3)$, or $\Gamma(2/3)$ sectors; the $\Gamma(1/4)$ and $\Gamma(3/4)$ sectors remain under-resolved.} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[Base values]
+Family~3 satisfies $V_3(0) = S^{(1)} = 4/\pi$, which follows from
+the Wallis-product representation of the $S$-family
+at $m=1$~\cite{lange1999elementary}.
+Family~4 satisfies $V_4(0) = S^{(3/2)} = 3/2$; here the Gamma
+functions in~\eqref{eq:s-family} evaluate to $\Gamma(5/2) = 3\sqrt\pi/4$
+and $\Gamma(2) = 1$, giving $2 \cdot (3\sqrt\pi/4)/(\sqrt\pi \cdot 1) = 3/2$.
+\end{remark}
+
+% ══════════════════════════════════════════════════════════════════════════
+\section{The Dichotomy Principle}\label{sec:dichotomy}
+% ══════════════════════════════════════════════════════════════════════════
+
+The central structural result is:
+
+\begin{theorem}[Dichotomy Principle]\label{thm:dichotomy}
+Let $\{V(m)\}_{m \geq 0}$ be a PCF family of the
+form~\eqref{eq:family-param} whose consecutive-member ratio satisfies
+\[
+  \frac{V(m)}{V(m-1)} = \frac{m+\alpha}{m+\beta}
+\]
+for constants $\alpha, \beta$ with $\alpha \neq \beta$.  Then:
+\begin{enumerate}
+\item[\textup{(T)}]
+  If\/ $\alpha - \beta \in \mathbb{Z}$, then $V(m) \in \mathbb{Q}$
+  for all $m \in \mathbb{Z}_{\geq 0}$
+  \textup{(}provided $V(0) \in \mathbb{Q}$\textup{)}.
+\item[\textup{(S)}]
+  If\/ $\alpha - \beta \in \mathbb{Z} + \tfrac{1}{2}$,
+  then $V(m)$ lies in $\mathbb{Q} \cdot \pi^{-1}$ for $m$ of one parity
+  and in $\mathbb{Q}$ for $m$ of the other, with the
+  transcendental factor $\sqrt\pi$ present in~\eqref{eq:universal}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+From~\eqref{eq:universal}, the $m$-dependent factor is the ratio
+\[
+  R(m) \;=\; \frac{\Gamma(m + \alpha + 1)}{\Gamma(m + \beta + 1)}\,.
+\]
+
+\emph{Case}~(T): When $d \coloneqq \alpha - \beta \in \mathbb{Z}_{>0}$
+(the case $d < 0$ is analogous), the Gamma ratio reduces to a
+Pochhammer symbol:
+\[
+  R(m) = (m + \beta + 1)_d
+       = \prod_{j=0}^{d-1}(m + \beta + 1 + j)\,,
+\]
+which is a polynomial in~$m$ with rational coefficients
+(since $\beta \in \tfrac{1}{2}\mathbb{Z}$).
+The prefactor $\Gamma(\beta+1)/\Gamma(\alpha+1)$ is likewise rational
+when $d$ is a positive integer, because $\Gamma(\alpha+1)/\Gamma(\beta+1)$
+is itself a Pochhammer with rational argument.
+Hence $V(m) = V(0) \cdot [\text{rational}]$.
+
+Concretely, for Family~1 ($\alpha = 3/2$, $\beta = 1/2$, $d=1$):
+\[
+  R(m) = m + \tfrac{3}{2}, \quad
+  \frac{\Gamma(3/2)}{\Gamma(5/2)} = \frac{2}{3}, \quad
+  V(m) = 3 \cdot \tfrac{2}{3}(m + \tfrac{3}{2}) = 2m + 3.
+\]
+
+\emph{Case}~(S): When $\alpha - \beta = k + \tfrac{1}{2}$
+with $k \in \mathbb{Z}$, the Gamma ratio $R(m)$ still reduces to a
+Pochhammer, but the prefactor
+$\Gamma(\beta+1)/\Gamma(\alpha+1)$ involves
+$\Gamma$ at half-integer vs.\ integer arguments.
+By the Legendre duplication formula,
+\[
+  \Gamma\bigl(n + \tfrac{1}{2}\bigr) = \frac{(2n)!}{4^n\,n!}\,\sqrt\pi\,,
+\]
+so the ratio acquires an ineliminable factor of $\sqrt\pi$ (or $1/\sqrt\pi$).
+This factor propagates through~\eqref{eq:universal};
+at integer~$m$ the $\Gamma$-terms in $R(m)$ alternate between producing an
+additional $\sqrt\pi$ and cancelling it, giving the parity pattern
+$V(m) \in \mathbb{Q}$ versus $V(m) \in \mathbb{Q}/\pi$.
+
+Concretely, for Family~4 ($\alpha = 3/2$, $\beta = 1$, $d = 1/2$):
+\[
+  V_4(m) = \frac{2\,\Gamma(m+\tfrac{5}{2})}{\sqrt\pi\;\Gamma(m+2)}\,,
+\]
+and PSLQ confirms $V_4 \cdot \sqrt\pi \cdot \Gamma(m+2)/\Gamma(m+\tfrac{5}{2}) = 2$
+to 200~digits for all tested $m$~values~\cite{ferguson1999pslq}.
+\end{proof}
+
+\begin{corollary}\label{cor:half-int-m}
+Evaluating the $S$-type families at half-integer~$m$ swaps
+the transcendental content:
+Family~$4$ yields $V_4(-\tfrac{1}{2}) = 4/\pi$,
+$V_4(\tfrac{1}{2}) = 16/(3\pi)$, and
+$V_4(\tfrac{3}{2}) = 32/(5\pi)$,
+while integer~$m$ gives $V_4(0) = 3/2$, $V_4(1) = 15/8$, $V_4(2) = 35/16$.
+\end{corollary}
+
+The phase diagram in Figure~\ref{fig:dichotomy} visualises the
+dichotomy: integer values of the gap $\alpha - \beta$ correspond
+to rational (T-type) families, while half-integer gaps produce
+transcendental (S-type) families.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    >=latex,
+    every node/.style={font=\small},
+    rational/.style={line width=2pt, blue!70!black},
+    transcendental/.style={line width=1.4pt, dashed, red!70!black},
+    fampoint/.style={circle, inner sep=2.2pt, fill},
+    famlabel/.style={font=\footnotesize\bfseries, anchor=south west, inner sep=2pt},
+]
+
+% ── Coordinate scaling ──
+\def\xscale{3.2}
+\def\yscale{2.6}
+
+% ── Background shading for zones ──
+\fill[blue!6] (-0.4*\xscale, 0.75*\yscale) rectangle (2.6*\xscale, 1.25*\yscale);
+\fill[blue!6] (-0.4*\xscale, 1.75*\yscale) rectangle (2.6*\xscale, 2.25*\yscale);
+\fill[red!6]  (-0.4*\xscale, 0.25*\yscale) rectangle (2.6*\xscale, 0.75*\yscale);
+\fill[red!6]  (-0.4*\xscale, 1.25*\yscale) rectangle (2.6*\xscale, 1.75*\yscale);
+
+% ── Axes ──
+\draw[->] (-0.5*\xscale, 0) -- (2.8*\xscale, 0)
+    node[right, font=\normalsize] {Parameter~$(m)$};
+\draw[->] (-0.4*\xscale, -0.15*\yscale) -- (-0.4*\xscale, 2.4*\yscale)
+    node[above, font=\normalsize] {Gap~$(\alpha - \beta)$};
+
+% ── Y-axis tick labels ──
+\foreach \y/\lab in {0/$0$, 0.5/$\tfrac{1}{2}$, 1/$1$, 1.5/$\tfrac{3}{2}$, 2/$2$} {
+    \draw (-0.4*\xscale - 3pt, \y*\yscale) -- (-0.4*\xscale + 3pt, \y*\yscale);
+    \node[left, font=\small] at (-0.4*\xscale - 4pt, \y*\yscale) {\lab};
+}
+
+% ── X-axis tick labels ──
+\foreach \x in {0, 1, 2} {
+    \draw (\x*\xscale, -3pt) -- (\x*\xscale, 3pt);
+    \node[below, font=\small] at (\x*\xscale, -5pt) {$\x$};
+}
+
+% ── Horizontal zone lines ──
+\draw[rational] (-0.3*\xscale, 1*\yscale) -- (2.5*\xscale, 1*\yscale);
+\draw[rational] (-0.3*\xscale, 2*\yscale) -- (2.5*\xscale, 2*\yscale);
+\node[blue!70!black, font=\footnotesize, anchor=west]
+    at (2.55*\xscale, 1*\yscale) {Rational ($T$-type)};
+\node[blue!70!black, font=\footnotesize, anchor=west]
+    at (2.55*\xscale, 2*\yscale) {Rational ($T$-type)};
+
+\draw[transcendental] (-0.3*\xscale, 0.5*\yscale) -- (2.5*\xscale, 0.5*\yscale);
+\draw[transcendental] (-0.3*\xscale, 1.5*\yscale) -- (2.5*\xscale, 1.5*\yscale);
+\node[red!70!black, font=\footnotesize, anchor=west]
+    at (2.55*\xscale, 0.5*\yscale) {Transcendental ($S$-type)};
+\node[red!70!black, font=\footnotesize, anchor=west]
+    at (2.55*\xscale, 1.5*\yscale) {Transcendental ($S$-type)};
+
+% ── Family discovery points ──
+\node[fampoint, blue!70!black] (F2) at (0*\xscale, 1*\yscale) {};
+\node[famlabel, blue!70!black, anchor=north east]
+    at ([xshift=-2pt, yshift=-1pt] F2) {Fam\,2: $T^{(m)}$};
+
+\node[fampoint, blue!70!black] (F1) at (0.35*\xscale, 1*\yscale) {};
+\node[famlabel, blue!70!black, anchor=south west]
+    at ([xshift=2pt, yshift=1pt] F1) {Fam\,1: $T^{(m+1)}$};
+
+\node[fampoint, red!70!black] (F3) at (1*\xscale, 0.5*\yscale) {};
+\node[famlabel, red!70!black, anchor=south west]
+    at ([xshift=2pt, yshift=1pt] F3) {Fam\,3: $S^{(m+1)}$};
+
+\node[fampoint, red!70!black] (F4) at (1.5*\xscale, 0.5*\yscale) {};
+\node[famlabel, red!70!black, anchor=north west]
+    at ([xshift=2pt, yshift=-1pt] F4) {Fam\,4: $S^{(m+\frac{3}{2})}$};
+
+% ── Dashed zero line ──
+\draw[gray!40, thin] (-0.3*\xscale, 0) -- (2.5*\xscale, 0);
+
+% ── Legend ──
+\node[draw, rounded corners=3pt, fill=white, inner sep=5pt,
+      font=\footnotesize, text width=5.8cm, align=center]
+    at (1*\xscale, -0.65*\yscale)
+    {$\alpha - \beta \in \mathbb{Z}$~\textcolor{blue!70!black}{\rule{0.5cm}{1.5pt}}~Rational
+     \quad$|$\quad
+     $\alpha - \beta \in \mathbb{Z}{+}\tfrac{1}{2}$~{\color{red!70!black}\leaders\hbox{\kern1pt.\kern1pt}\hskip0.5cm\relax}~Transcendental};
+
+\end{tikzpicture}
+\caption{Phase diagram of PCF convergence types in the
+$(\alpha{-}\beta,\, m)$ plane.
+Rational solutions coalesce on integer gaps
+($\alpha - \beta \in \mathbb{Z}$, solid blue),
+while transcendental values emerge at half-integer shifts
+($\alpha - \beta \in \mathbb{Z} + \tfrac{1}{2}$, dashed red).
+Shaded bands indicate the predicted continuation of each zone
+to higher gap values.}
+\label{fig:dichotomy}
+\end{figure}
+
+% ══════════════════════════════════════════════════════════════════════════
+\section{Connection to the $S$-family}\label{sec:s-family}
+% ══════════════════════════════════════════════════════════════════════════
+
+Families~3 and~4 are shifts of the classical $S$-family defined
+in~\eqref{eq:s-family}.  Specifically:
+\begin{itemize}
+\item Family~3 satisfies $V_3(m) = S^{(m+1)}$, an integer shift.
+  Its $a_n$ polynomial can be rewritten as
+  $a_n = -n(2n - 2(m{+}1) - 1)$, which is the $S$-family
+  at parameter $m' = m+1$.
+\item Family~4 satisfies $V_4(m) = S^{(m+3/2)}$, a half-integer shift.
+  Here $a_n = -n(2n - 2(m{+}\tfrac{3}{2}) - 1)$, which is the $S$-family
+  at parameter $m' = m + 3/2$.
+\end{itemize}
+Both identities are confirmed by direct PCF-vs-PCF comparison
+to 550~digits via the evaluation code accompanying this paper.
+
+Families~1 and~2, by contrast, are \emph{not} shifts of the S-family:
+they use $b_0 = 2$ and $b_n = 3n + 2$ (rather than $b_0 = 1$, $b_n = 3n+1$),
+and the negative $m$-coupling ($\sigma = -1$) produces the integer gap
+$\alpha - \beta = 1$ that triggers telescoping.
+We denote these the \emph{$T$-type} families.
+
+% ══════════════════════════════════════════════════════════════════════════
+\section{Concluding remarks}\label{sec:conclusion}
+% ══════════════════════════════════════════════════════════════════════════
+
+\subsection{Open cubic PCF constant from the fractional-$\beta$ scan}
+
+\begin{table}[ht]
+\centering
+\caption{Master summary table for currently open higher-degree PCF cases.}
+\label{tab:open-master-summary}
+\begin{tabular}{cccc}
+\toprule
+$(d,p,\alpha,\beta)$ & Value & Basis size & Verdict \\
+\midrule
+$(3,1,6,5/3)$ & $1.78856\ldots$ & $24$ & OPEN \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\input{dichotomy_d34_section.tex}
+
+\subsection{Fractional $\beta$ sweep: negative result for $q \le 12$}
+
+A dense follow-up sweep tested reduced fractions $\beta = p/q$ with
+$1 \le q \le 12$, $|\beta| \le 3$, and $\gcd(p,q)=1$, giving
+266 targeted cases across the cubic and quartic candidates singled out by
+the earlier dichotomy search.  The strongest cubic cases,
+$(3,1,6,8/3)$ and $(3,1,6,7/3)$, reached $81.1{+}$ and $80.9{+}$ stable
+digits respectively, so the negative outcome is not attributable to a lack
+of numerical stability at the current depth settings.
+
+Despite this, no relation was detected in the rational,
+$\Gamma(1/3)$, or $\Gamma(2/3)$ families at the $15$-digit PSLQ threshold.
+This sweep therefore strengthens the evidence that the verified Rosetta
+lines are concentrated on the integer and half-integer regimes already
+represented in Table~\ref{tab:rosetta}.  What remains open is narrower:
+the $\Gamma(1/4)$ and $\Gamma(3/4)$ buckets are still under-resolved
+(they remained below $15$ stable digits), and genuinely new behaviour could
+still emerge for finer fractional parameters with $q>12$.
+
+The Dichotomy Principle provides a clean arithmetic criterion
+for the nature of PCF limits within the quadratic--linear class
+studied here.  Several directions remain:
+\begin{itemize}
+\item A fully rigorous proof (beyond the sketch in
+  Theorem~\ref{thm:dichotomy}) via Euler's continued fraction
+  theorem and Gauss summation of ${}_2F_1(a,b;c;1)$.
+\item Extension to cubic $a_n$ or quadratic $b_n$, where the ratio
+  structure may involve ${}_3F_2$ hypergeometric functions.
+\item Lean~4 formalisation of the telescoping identities.
+\end{itemize}
+
+All computational verification code (PCF evaluators, PSLQ pipelines,
+and the systematic search engine) is available at the
+repository accompanying this manuscript.
+
+% ══════════════════════════════════════════════════════════════════════════
+% REFERENCES
+% ══════════════════════════════════════════════════════════════════════════
+\begin{thebibliography}{9}
+
+\bibitem{raab2021ramanujan}
+G.~Raayoni, S.~Gottlieb, Y.~Manor, G.~Pisha, Y.~Harris, U.~Mendlovic,
+D.~Haviv, Y.~Hadad, and I.~Kaminer,
+\emph{Generating conjectures on fundamental constants with the
+Ramanujan Machine},
+Nature \textbf{590} (2021), 67--73.
+
+\bibitem{borwein2004mathematics}
+J.~M.~Borwein and D.~H.~Bailey,
+\emph{Mathematics by Experiment: Plausible Reasoning in the 21st Century},
+A~K~Peters, 2004.
+
+\bibitem{aptekarev2007turan}
+A.~I.~Aptekarev, A.~Branquinho, and W.~Van~Assche,
+\emph{Multiple orthogonal polynomials for classical weights},
+Trans.\ Amer.\ Math.\ Soc.\ \textbf{355} (2003), 3887--3914.
+
+\bibitem{jones1980continued}
+W.~B.~Jones and W.~J.~Thron,
+\emph{Continued Fractions: Analytic Theory and Applications},
+Encyclopedia of Mathematics and its Applications, vol.~11,
+Addison-Wesley, 1980.
+
+\bibitem{lange1999elementary}
+L.~J.~Lange,
+\emph{An elegant continued fraction for~$\pi$},
+Amer.\ Math.\ Monthly \textbf{106} (1999), 456--458.
+
+\bibitem{ferguson1999pslq}
+H.~R.~P.~Ferguson, D.~H.~Bailey, and S.~Arwade,
+\emph{Recognition of algebraic and other constants using PSLQ},
+Math.\ Comp.\ \textbf{68} (1999), 351--369.
+
+\end{thebibliography}
+
+\end{document}

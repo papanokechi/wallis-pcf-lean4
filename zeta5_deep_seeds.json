@@ -1,0 +1,1075 @@
+[
+  {
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1,
+      3
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      6,
+      -3,
+      0,
+      -3
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -1,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      4,
+      -4,
+      1,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      6,
+      3,
+      -4,
+      -8,
+      3
+    ],
+    "beta": [
+      4,
+      0,
+      1,
+      -4,
+      -6,
+      -4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 4,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -4,
+      -4,
+      -5,
+      -4,
+      4
+    ],
+    "beta": [
+      10,
+      9,
+      8,
+      -4,
+      0,
+      -9,
+      -7
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -5,
+      -2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      4,
+      2
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      -3
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      3,
+      1,
+      -1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      2,
+      -1
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -6,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0,
+      0
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -4,
+      -8,
+      -20,
+      -32,
+      64
+    ],
+    "beta": [
+      10,
+      18,
+      32,
+      -32,
+      -1,
+      -288,
+      -448
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -8,
+      2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      6,
+      -2,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      2,
+      -1
+    ],
+    "beta": [
+      -2,
+      -1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -8,
+      2,
+      1,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -3,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -6,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      2,
+      -1
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -4,
+      -1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      1,
+      -3,
+      3,
+      -1,
+      0
+    ],
+    "beta": [
+      18,
+      6,
+      6
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -2,
+      -5,
+      -1,
+      2
+    ],
+    "beta": [
+      4,
+      1,
+      5,
+      -3
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      -15,
+      75,
+      -155,
+      120,
+      34
+    ],
+    "mode": "ratio",
+    "order": 5,
+    "target": "zeta5",
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1
+    ],
+    "beta": [
+      1,
+      10,
+      120,
+      240,
+      120,
+      24
+    ],
+    "mode": "ratio",
+    "order": 5,
+    "target": "zeta5",
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      5,
+      25,
+      50,
+      50,
+      25,
+      5
+    ],
+    "mode": "ratio",
+    "order": 5,
+    "target": "zeta5",
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      -1,
+      1
+    ],
+    "beta": [
+      1,
+      -5,
+      10,
+      -10,
+      5,
+      -1
+    ],
+    "mode": "ratio",
+    "order": 4,
+    "target": "zeta5",
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1
+    ],
+    "mode": "ratio",
+    "order": 4,
+    "target": "zeta5",
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      8,
+      -8,
+      12,
+      -11,
+      3
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      4,
+      18,
+      13,
+      3
+    ],
+    "beta": [
+      4,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      38,
+      91,
+      75,
+      25,
+      3
+    ],
+    "beta": [
+      5,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      12,
+      -12,
+      9,
+      -3
+    ],
+    "beta": [
+      -2,
+      -1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      -12,
+      -9,
+      -3
+    ],
+    "beta": [
+      -4,
+      -1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -24,
+      -39,
+      -18,
+      -3
+    ],
+    "beta": [
+      -5,
+      -1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      3,
+      -11,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      5,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      6,
+      13,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      9,
+      -6,
+      1,
+      0
+    ],
+    "beta": [
+      1,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      1,
+      -2,
+      1,
+      0
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "beta": [
+      4,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      10,
+      -25,
+      38,
+      -20,
+      3
+    ],
+    "beta": [
+      7,
+      -10,
+      17,
+      -20,
+      14,
+      -4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 4,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      -17,
+      -10,
+      4,
+      3
+    ],
+    "beta": [
+      -9,
+      -54,
+      -87,
+      -68,
+      -26,
+      -4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 4,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -20,
+      -13,
+      20,
+      16,
+      3
+    ],
+    "beta": [
+      -248,
+      -556,
+      -487,
+      -212,
+      -46,
+      -4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 4,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      3,
+      -22,
+      31,
+      -20,
+      4
+    ],
+    "beta": [
+      15,
+      -22,
+      5,
+      46,
+      -60,
+      33,
+      -7
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -13,
+      -10,
+      7,
+      12,
+      4
+    ],
+    "beta": [
+      7,
+      -74,
+      -199,
+      -234,
+      -150,
+      -51,
+      -7
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      56,
+      67,
+      28,
+      4
+    ],
+    "beta": [
+      -708,
+      -2071,
+      -2416,
+      -1484,
+      -510,
+      -93,
+      -7
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -3,
+      -2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      2
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -7,
+      -2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      6,
+      2
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -9,
+      -2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      8,
+      2
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -3,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      8,
+      -3
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      -3
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -1,
+      -3
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -6,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      1,
+      3,
+      -1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      3,
+      -1,
+      -1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      -3,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      1,
+      -3,
+      -1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      6,
+      -8,
+      5,
+      -1
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      2,
+      0,
+      -1,
+      -1
+    ],
+    "beta": [
+      4,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  },
+  {
+    "alpha": [
+      0,
+      -5,
+      -4,
+      -1
+    ],
+    "beta": [
+      5,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500
+  }
+]

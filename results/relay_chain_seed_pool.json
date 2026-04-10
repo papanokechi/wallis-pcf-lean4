@@ -1,0 +1,245 @@
+[
+  {
+    "score": 0.96,
+    "family": "continued_fraction",
+    "source": "relay_index_transform",
+    "candidate_targets": [
+      "novel_constant?",
+      "pi",
+      "pi^2",
+      "zeta3"
+    ],
+    "rationale": "Apply n->n+1 to successful constant_a / linear_b seed for an Euler-Ramanujan style acceleration test",
+    "params": {
+      "_family": "continued_fraction",
+      "an": [
+        -3
+      ],
+      "bn": [
+        -4,
+        0
+      ],
+      "relay_origin": "2d04456e7962",
+      "transform": "n->n+1",
+      "candidate_targets": [
+        "novel_constant?",
+        "pi",
+        "pi^2",
+        "zeta3"
+      ]
+    }
+  },
+  {
+    "score": 0.96,
+    "family": "continued_fraction",
+    "source": "relay_index_transform",
+    "candidate_targets": [
+      "novel_constant?",
+      "pi",
+      "pi^2",
+      "zeta3"
+    ],
+    "rationale": "Apply n->2n to successful constant_a / linear_b seed for an Euler-Ramanujan style acceleration test",
+    "params": {
+      "_family": "continued_fraction",
+      "an": [
+        -3
+      ],
+      "bn": [
+        -8,
+        4
+      ],
+      "relay_origin": "2d04456e7962",
+      "transform": "n->2n",
+      "candidate_targets": [
+        "novel_constant?",
+        "pi",
+        "pi^2",
+        "zeta3"
+      ]
+    }
+  },
+  {
+    "score": 0.96,
+    "family": "continued_fraction",
+    "source": "relay_index_transform",
+    "candidate_targets": [
+      "novel_constant?",
+      "pi",
+      "pi^2",
+      "zeta3"
+    ],
+    "rationale": "Apply n->2n+1 to successful constant_a / linear_b seed for an Euler-Ramanujan style acceleration test",
+    "params": {
+      "_family": "continued_fraction",
+      "an": [
+        -3
+      ],
+      "bn": [
+        -8,
+        0
+      ],
+      "relay_origin": "2d04456e7962",
+      "transform": "n->2n+1",
+      "candidate_targets": [
+        "novel_constant?",
+        "pi",
+        "pi^2",
+        "zeta3"
+      ]
+    }
+  },
+  {
+    "score": 0.96,
+    "family": "continued_fraction",
+    "source": "relay_index_transform",
+    "candidate_targets": [
+      "novel_constant?",
+      "pi",
+      "pi^2",
+      "zeta3"
+    ],
+    "rationale": "Apply n->n+1 to successful constant_a / quadratic_b seed for an Euler-Ramanujan style acceleration test",
+    "params": {
+      "_family": "continued_fraction",
+      "an": [
+        1
+      ],
+      "bn": [
+        1,
+        4,
+        5
+      ],
+      "relay_origin": "3694a5c13ada",
+      "transform": "n->n+1",
+      "candidate_targets": [
+        "novel_constant?",
+        "pi",
+        "pi^2",
+        "zeta3"
+      ]
+    }
+  },
+  {
+    "score": 0.96,
+    "family": "continued_fraction",
+    "source": "relay_index_transform",
+    "candidate_targets": [
+      "novel_constant?",
+      "pi",
+      "pi^2",
+      "zeta3"
+    ],
+    "rationale": "Apply n->2n to successful constant_a / quadratic_b seed for an Euler-Ramanujan style acceleration test",
+    "params": {
+      "_family": "continued_fraction",
+      "an": [
+        1
+      ],
+      "bn": [
+        4,
+        4,
+        2
+      ],
+      "relay_origin": "3694a5c13ada",
+      "transform": "n->2n",
+      "candidate_targets": [
+        "novel_constant?",
+        "pi",
+        "pi^2",
+        "zeta3"
+      ]
+    }
+  },
+  {
+    "score": 0.96,
+    "family": "continued_fraction",
+    "source": "relay_index_transform",
+    "candidate_targets": [
+      "novel_constant?",
+      "pi",
+      "pi^2",
+      "zeta3"
+    ],
+    "rationale": "Apply n->2n+1 to successful constant_a / quadratic_b seed for an Euler-Ramanujan style acceleration test",
+    "params": {
+      "_family": "continued_fraction",
+      "an": [
+        1
+      ],
+      "bn": [
+        4,
+        8,
+        5
+      ],
+      "relay_origin": "3694a5c13ada",
+      "transform": "n->2n+1",
+      "candidate_targets": [
+        "novel_constant?",
+        "pi",
+        "pi^2",
+        "zeta3"
+      ]
+    }
+  },
+  {
+    "score": 0.9456,
+    "family": "continued_fraction",
+    "source": "relay_index_transform",
+    "candidate_targets": [
+      "pi",
+      "pi^2",
+      "ln2",
+      "golden_ratio"
+    ],
+    "rationale": "Apply n->n+1 to successful constant_a / linear_b seed for an Euler-Ramanujan style acceleration test",
+    "params": {
+      "_family": "continued_fraction",
+      "an": [
+        2
+      ],
+      "bn": [
+        3,
+        4
+      ],
+      "relay_origin": "lirec_demo_1",
+      "transform": "n->n+1",
+      "candidate_targets": [
+        "pi",
+        "pi^2",
+        "ln2",
+        "golden_ratio"
+      ]
+    }
+  },
+  {
+    "score": 0.9456,
+    "family": "continued_fraction",
+    "source": "relay_index_transform",
+    "candidate_targets": [
+      "pi",
+      "pi^2",
+      "ln2",
+      "golden_ratio"
+    ],
+    "rationale": "Apply n->2n to successful constant_a / linear_b seed for an Euler-Ramanujan style acceleration test",
+    "params": {
+      "_family": "continued_fraction",
+      "an": [
+        2
+      ],
+      "bn": [
+        6,
+        1
+      ],
+      "relay_origin": "lirec_demo_1",
+      "transform": "n->2n",
+      "candidate_targets": [
+        "pi",
+        "pi^2",
+        "ln2",
+        "golden_ratio"
+      ]
+    }
+  }
+]

@@ -1,0 +1,15 @@
+# Reproducibility requirements for PCF / V_quad arXiv submission
+# Tested with Python 3.11+
+mpmath>=1.2
+sympy>=1.11
+numpy>=1.25
+scipy>=1.11
+matplotlib>=3.7
+pytest>=7.0
+
+# GitHub sync (optional)
+PyGithub>=2.1
+python-dotenv>=1.0
+
+# Hardware thermal monitoring (optional)
+psutil>=5.9

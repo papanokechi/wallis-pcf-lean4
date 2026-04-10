@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIARC Control Center</title>
+  <style>
+    :root {
+      --bg:#0a0f1c; --panel:#11192b; --panel2:#182338; --line:#2a3953;
+      --text:#e8eef9; --muted:#9db0cb; --cyan:#56d4ff; --green:#2dd4bf;
+      --gold:#fbbf24; --red:#fb7185; --violet:#b78cff;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Segoe UI,Inter,Arial,sans-serif; background:var(--bg); color:var(--text); }
+    .app { display:grid; grid-template-columns:280px 1fr 420px; min-height:100vh; }
+    .sidebar, .rightbar { background:var(--panel); border-right:1px solid var(--line); }
+    .rightbar { border-right:none; border-left:1px solid var(--line); }
+    .sidebar, .rightbar, .center { padding:16px; }
+    .brand { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+    .brand h1 { font-size:18px; margin:0; }
+    .muted { color:var(--muted); }
+    .small { font-size:12px; }
+    .tag, .badge {
+      display:inline-flex; align-items:center; gap:6px; padding:3px 8px; border:1px solid var(--line);
+      border-radius:999px; font-size:11px; font-weight:700;
+    }
+    .tag.live, .badge.good { color:var(--green); background:rgba(45,212,191,.12); }
+    .tag.warn, .badge.warn { color:var(--gold); background:rgba(251,191,36,.12); }
+    .tag.bad, .badge.bad { color:var(--red); background:rgba(251,113,133,.12); }
+    .tag.info { color:var(--cyan); background:rgba(86,212,255,.12); }
+    .agent-card, .card {
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:10px;
+    }
+    .agent-top, .row-between { display:flex; justify-content:space-between; gap:10px; align-items:center; }
+    .dot { width:8px; height:8px; border-radius:50%; display:inline-block; background:var(--green); box-shadow:0 0 10px currentColor; animation:pulse 1.5s infinite; }
+    .dot.warn { background:var(--gold); }
+    .dot.bad { background:var(--red); }
+    @keyframes pulse { 0%{opacity:.45} 50%{opacity:1} 100%{opacity:.45} }
+    .bar { height:8px; background:#0c1322; border:1px solid rgba(255,255,255,.06); border-radius:999px; overflow:hidden; margin-top:8px; }
+    .bar > div { height:100%; background:linear-gradient(90deg,var(--cyan),var(--violet)); }
+    .center-header { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:14px; }
+    .btn {
+      background:var(--panel2); color:var(--text); border:1px solid var(--line); border-radius:10px;
+      padding:8px 12px; cursor:pointer; font-weight:700;
+    }
+    .btn.primary { background:#12304d; border-color:#255b8d; }
+    .btn:hover { border-color:var(--cyan); }
+    .stats { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:14px; }
+    .stat { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:12px; }
+    .stat .v { font-size:22px; font-weight:800; margin-top:6px; }
+    .grid2 { display:grid; grid-template-columns:1.15fr .85fr; gap:14px; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { padding:8px 6px; border-bottom:1px solid rgba(255,255,255,.06); text-align:left; font-size:13px; }
+    th { color:var(--muted); }
+    code, pre { font-family:Consolas, monospace; }
+    pre { margin:0; white-space:pre-wrap; word-break:break-word; background:#0b1321; border:1px solid rgba(255,255,255,.06); padding:10px; border-radius:12px; }
+    .tabs { display:flex; gap:8px; margin-bottom:10px; }
+    .tab { flex:1; }
+    .tab.active { border-color:var(--cyan); }
+    .log { max-height:300px; overflow:auto; }
+    .log-item { padding:8px 10px; border-left:3px solid var(--cyan); background:#0c1321; border-radius:8px; margin-bottom:8px; font-size:12px; }
+    .chat-stream { min-height:180px; max-height:240px; overflow:auto; margin-bottom:10px; }
+    .bubble { padding:10px; border-radius:10px; margin-bottom:8px; font-size:13px; }
+    .bubble.user { background:#16243a; }
+    .bubble.ctrl { background:#0c1321; border:1px solid rgba(255,255,255,.06); }
+    .input-row { display:flex; gap:8px; }
+    input[type="text"], input[type="number"], textarea, select {
+      width:100%; background:#0b1321; color:var(--text); border:1px solid var(--line); border-radius:10px; padding:10px;
+    }
+    textarea { min-height:90px; resize:vertical; }
+    .callout { padding:10px 12px; border-radius:12px; border:1px solid var(--line); background:#102238; margin-bottom:10px; font-size:13px; }
+    .callout.warn { background:rgba(251,191,36,.10); border-color:rgba(251,191,36,.35); }
+    .callout.bad { background:rgba(251,113,133,.10); border-color:rgba(251,113,133,.35); }
+    .modal-backdrop {
+      position:fixed; inset:0; background:rgba(3,8,17,.72); display:none; align-items:center; justify-content:center; padding:18px;
+    }
+    .modal { width:min(760px, 100%); background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:16px; }
+    .modal-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    @media (max-width: 1200px) {
+      .app { grid-template-columns:1fr; }
+      .stats, .grid2, .modal-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div>
+          <h1>CTRL-01 Control Center</h1>
+          <div class="muted small">SIARC multi-agent mission board</div>
+        </div>
+        <span id="modeTag" class="tag info">loading</span>
+      </div>
+      <div id="roster"></div>
+    </aside>
+
+    <main class="center">
+      <div class="center-header">
+        <div>
+          <h2 style="margin:0 0 4px 0">Live Dashboard</h2>
+          <div id="statusLine" class="muted">Waiting for state...</div>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="btn primary" onclick="openDeployModal()">+ Deploy Field Agent</button>
+          <button class="btn" id="runObligationsBtn" onclick="runObligations()">Run Obligations</button>
+          <button class="btn" onclick="refreshAll()">Refresh</button>
+        </div>
+      </div>
+
+      <section class="stats" id="statsStrip"></section>
+
+      <div class="grid2">
+        <section class="card">
+          <div class="row-between"><h3 style="margin:0">Active Mission Queue</h3><span class="tag info">gap tracking</span></div>
+          <div id="missionQueue"></div>
+        </section>
+
+        <section class="card">
+          <div class="row-between"><h3 style="margin:0">Breakthrough Feed</h3><span class="tag live">recent</span></div>
+          <div id="breakthroughFeed"></div>
+        </section>
+      </div>
+
+      <section class="card" style="margin-top:14px;">
+        <div class="row-between"><h3 style="margin:0">Generated Field Agent Brief</h3><span class="tag info">CTRL-01 output</span></div>
+        <div id="promptMeta" class="muted small" style="margin:8px 0"></div>
+        <pre id="promptOutput">Launch a mission to generate a field-agent brief.</pre>
+      </section>
+    </main>
+
+    <aside class="rightbar">
+      <div class="tabs">
+        <button id="tabChat" class="btn tab active" onclick="showPanel('chat')">CTRL-01 Chat</button>
+        <button id="tabLog" class="btn tab" onclick="showPanel('log')">Live Agent Log</button>
+      </div>
+
+      <section id="panelChat">
+        <div class="callout">Talk directly to CTRL-01. This build is <b>local-first</b> and works without any API key: the workspace server or the browser itself can generate the mission brief.</div>
+        <div id="chatStream" class="chat-stream"></div>
+        <div class="input-row">
+          <input id="chatInput" type="text" placeholder="Ask CTRL-01 to prepare or route a mission..." />
+          <button class="btn primary" onclick="sendChat()">Send</button>
+        </div>
+      </section>
+
+      <section id="panelLog" style="display:none;">
+        <div id="logWarnings"></div>
+        <div id="agentLog" class="log"></div>
+      </section>
+    </aside>
+  </div>
+
+  <div id="deployModal" class="modal-backdrop">
+    <div class="modal">
+      <div class="row-between" style="margin-bottom:10px;">
+        <h3 style="margin:0">Deploy Field Agent</h3>
+        <button class="btn" onclick="closeDeployModal()">Close</button>
+      </div>
+      <div class="modal-grid">
+        <div>
+          <label class="small muted">Topic</label>
+          <input id="missionTopic" type="text" value="search for next largest prime number" />
+        </div>
+        <div>
+          <label class="small muted">Domain</label>
+          <select id="missionDomain">
+            <option value="auto">Auto-detect</option>
+            <option value="general-research">General research</option>
+            <option value="formal-verification">Formal verification</option>
+            <option value="symbolic-recovery">Symbolic recovery</option>
+            <option value="prime-search">Prime search</option>
+            <option value="physics-bridge">Physics bridge</option>
+          </select>
+        </div>
+        <div>
+          <label class="small muted">Swarm size</label>
+          <input id="missionSwarm" type="number" min="2" max="32" value="8" />
+        </div>
+        <div>
+          <label class="small muted">ASR threshold</label>
+          <input id="missionAsr" type="text" value="1e-4" />
+        </div>
+      </div>
+      <div style="margin-top:10px;">
+        <label class="small muted">Optional seed formula / starting hypothesis</label>
+        <textarea id="missionSeed" placeholder="Optional formula or policy seed"></textarea>
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:12px;">
+        <button class="btn" onclick="closeDeployModal()">Cancel</button>
+        <button class="btn primary" onclick="deployMission()">Launch mission</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const SERVED = location.protocol.startsWith('http');
+    const storedBase = localStorage.getItem('siarcApiBase') || '';
+    const cachedStateRaw = localStorage.getItem('siarcControlState') || '';
+    let cachedControlState = null;
+    try {
+      cachedControlState = cachedStateRaw ? JSON.parse(cachedStateRaw) : null;
+    } catch (_) {
+      cachedControlState = null;
+    }
+    let ACTIVE_API_BASE = SERVED ? '' : (storedBase || 'http://127.0.0.1:8766');
+    const API_CANDIDATES = Array.from(new Set([ACTIVE_API_BASE, 'http://127.0.0.1:8766', 'http://127.0.0.1:8765', '']));
+    const fallbackState = cachedControlState || {
+      updated_at: 'preview',
+      validation_mode: 'local_workspace',
+      warnings: ['No API key needed — using the built-in local preview until the workspace server responds.'],
+      roster: [
+        {id:'CTRL-01', role:'Overseer', badge:'router', status:'online', progress:94},
+        {id:'JUDGE-01', role:'Publication gate', badge:'verifier', status:'watch', progress:72},
+        {id:'FIELD-A', role:'Swarm scout', badge:'search', status:'online', progress:88},
+        {id:'FIELD-B', role:'Gauntlet', badge:'filter', status:'online', progress:81},
+        {id:'FIELD-C', role:'ASR', badge:'refine', status:'watch', progress:69},
+        {id:'FIELD-D', role:'Red-team', badge:'critic', status:'online', progress:86},
+        {id:'PSLQ-01', role:'Symbolic recovery', badge:'exactness', status:'watch', progress:58},
+      ],
+      stats: { breakthroughs:3, iterations:18, best_gap_pct:0.00001, lfi:0.16, pslq_hits:2 },
+      mission_queue: [
+        {id:'H-0025', topic:'Ramanujan H-series cleanup', gap_pct:0.00001, owner:'FIELD-D', status:'formal proof pending'},
+        {id:'H-0026', topic:'Cross-k residual model', gap_pct:1.12, owner:'FIELD-C', status:'watch'},
+        {id:'Z-001', topic:'z-family symbolic recovery', gap_pct:2.34, owner:'PSLQ-01', status:'investigating'},
+      ],
+      breakthroughs: [
+        {id:'H-0025', title:'Numeric survivor accepted by Judge', note:'Formal proof still pending.'},
+        {id:'H-0026', title:'Residual drift looks O(1/c_k^3)', note:'Cross-k correction model now tracked.'},
+        {id:'Z-001', title:'Candidate z-family packet opened', note:'Needs higher-precision PSLQ rerun.'},
+      ],
+      ctrl_preview: { topic:'preview mission', seed_prompt:'Launch a mission to generate a field-agent brief locally.' },
+      agent_log: []
+    };
+
+    function endpoint(base, path) { return `${base}${path}`; }
+    function makeMissionId(topic) {
+      const stem = String(topic || 'mission').trim().toUpperCase().replace(/[^A-Z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 24) || 'MISSION';
+      const stamp = new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14);
+      return `${stem}-${stamp}`;
+    }
+    function inferDomain(topic, requested) {
+      if (requested && requested !== 'auto') return requested;
+      const text = String(topic || '').toLowerCase();
+      if (text.includes('prime') || text.includes('lucas')) return 'prime-search';
+      if (text.includes('pslq') || text.includes('constant')) return 'symbolic-recovery';
+      if (text.includes('proof') || text.includes('identity')) return 'formal-verification';
+      if (text.includes('physics') || text.includes('bridge')) return 'physics-bridge';
+      return 'general-research';
+    }
+    function buildLocalSeedPrompt(payload) {
+      const missionId = makeMissionId(payload.topic);
+      const domain = inferDomain(payload.topic, payload.domain);
+      const seed = (payload.seed_formula || 'None provided').trim() || 'None provided';
+      return {
+        brief: {
+          mission_id: missionId,
+          topic: payload.topic,
+          domain,
+          validation_mode: 'local_workspace',
+          success_metric: 'low gap, low LFI, stable across 10 seeds, no dry-run contamination',
+        },
+        mode: 'browser_local',
+        seed_prompt: `# FIELD AGENT MISSION BRIEF\n\nMission ID: ${missionId}\nTopic: ${payload.topic}\nDomain: ${domain}\nValidation mode: local_workspace\nSwarm size: ${payload.swarm_size}\nASR threshold: ${payload.asr_threshold}\nSeed formula / starting hypothesis: ${seed}\n\nSuggested paths:\n- siarc.py\n- multi_agent_discussion/controller.py\n- multi_agent_discussion/siarc_adapter.py\n- multi_agent_discussion/gauntlet.py\n- siarc_outputs/agent_D_out.json\n- siarc_outputs/agent_J_out.json\n- breakthroughs/H-0025_Final.md\n- epoch5_state.json\n\nWorkflow: Swarm -> Gauntlet -> ASR -> PSLQ -> Judge -> Report\n\nRed-team requirements:\n- detect dry-run evidence\n- audit any outer-scalar wrapper\n- check 10 seeds / restarts\n- prefer small exact relations over giant rational noise\n\nDeliverable:\nReturn a concise mission log, survivor list, evidence table, and next-step recommendation for CTRL-01.`
+      };
+    }
+    function buildLocalCtrlReply(message) {
+      return `CTRL-01 local workspace mode is active with no API key required. I can still route missions, generate field-agent briefs, and point you to the relevant SIARC files from this browser.`;
+    }
+    function badgeClass(status) {
+      const s = String(status || '').toLowerCase();
+      if (s.includes('online') || s.includes('approved') || s.includes('verified')) return 'good';
+      if (s.includes('watch') || s.includes('pending') || s.includes('warning')) return 'warn';
+      return 'bad';
+    }
+    function fmt(v, d=4) {
+      if (v === null || v === undefined || Number.isNaN(Number(v))) return 'n/a';
+      if (Math.abs(Number(v)) < 0.001 && Number(v) !== 0) return Number(v).toExponential(1);
+      return Number(v).toFixed(d).replace(/\.0+$/,'').replace(/(\.\d*?)0+$/,'$1');
+    }
+
+    async function fetchJson(path, options) {
+      let lastError = null;
+      for (const base of API_CANDIDATES) {
+        try {
+          const res = await fetch(endpoint(base, path), {
+            headers: {'Content-Type':'application/json'},
+            ...options,
+          });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          ACTIVE_API_BASE = base;
+          if (base) localStorage.setItem('siarcApiBase', base);
+          return await res.json();
+        } catch (err) {
+          lastError = err;
+        }
+      }
+      throw lastError || new Error('Local control-center API is unavailable.');
+    }
+
+    function renderRoster(data) {
+      const box = document.getElementById('roster');
+      box.innerHTML = (data.roster || []).map(agent => `
+        <div class="agent-card">
+          <div class="agent-top">
+            <div>
+              <div><span class="dot ${agent.status === 'watch' ? 'warn' : (agent.status === 'blocked' ? 'bad' : '')}"></span> <b>${agent.id}</b></div>
+              <div class="muted small">${agent.role}</div>
+            </div>
+            <span class="badge ${badgeClass(agent.status)}">${agent.badge}</span>
+          </div>
+          <div class="row-between small" style="margin-top:8px;"><span class="muted">${agent.status}</span><span>${fmt(agent.progress,0)}%</span></div>
+          <div class="bar"><div style="width:${Math.max(4, Math.min(100, Number(agent.progress || 0)))}%"></div></div>
+        </div>
+      `).join('');
+    }
+
+    function renderStats(data) {
+      const s = data.stats || {};
+      const labels = [
+        ['Breakthroughs', s.breakthroughs],
+        ['Iterations', s.iterations],
+        ['Best gap', `${fmt(s.best_gap_pct,5)}%`],
+        ['LFI', fmt(s.lfi,3)],
+        ['PSLQ hits', s.pslq_hits],
+      ];
+      document.getElementById('statsStrip').innerHTML = labels.map(([k,v]) => `
+        <div class="stat"><div class="muted small">${k}</div><div class="v">${v ?? 'n/a'}</div></div>
+      `).join('');
+    }
+
+    function renderQueue(data) {
+      const rows = data.mission_queue || [];
+      document.getElementById('missionQueue').innerHTML = `
+        <table><thead><tr><th>ID</th><th>Topic</th><th>Gap</th><th>Owner</th><th>Status</th></tr></thead><tbody>
+        ${rows.map(row => `
+          <tr>
+            <td><code>${row.id}</code></td>
+            <td>${row.topic}</td>
+            <td><code>${fmt(row.gap_pct,5)}%</code></td>
+            <td>${row.owner}</td>
+            <td><span class="badge ${badgeClass(row.status)}">${row.status}</span></td>
+          </tr>
+        `).join('')}
+        </tbody></table>
+      `;
+    }
+
+    function renderBreakthroughs(data) {
+      const rows = data.breakthroughs || [];
+      document.getElementById('breakthroughFeed').innerHTML = rows.map(item => `
+        <div class="callout">
+          <div class="row-between"><b>${item.id}</b><span class="tag live">tracked</span></div>
+          <div style="margin-top:6px">${item.title}</div>
+          <div class="muted small" style="margin-top:4px">${item.note || ''}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderPrompt(data) {
+      const preview = data.ctrl_preview || {};
+      document.getElementById('promptMeta').textContent = preview.topic ? `Mission: ${preview.topic}` : 'No active mission brief';
+      document.getElementById('promptOutput').textContent = preview.seed_prompt || 'Launch a mission to generate a field-agent brief.';
+    }
+
+    function renderLogs(data) {
+      const warnBox = document.getElementById('logWarnings');
+      const warnings = data.warnings || [];
+      warnBox.innerHTML = warnings.map(w => `<div class="callout bad">${w}</div>`).join('');
+      document.getElementById('agentLog').innerHTML = (data.agent_log || []).map(row => `
+        <div class="log-item"><div class="muted">${row.timestamp || ''} · ${row.agent || 'agent'}</div>${row.message || ''}</div>
+      `).join('') || '<div class="muted">No log entries yet.</div>';
+    }
+
+    function showPanel(which) {
+      const chat = which === 'chat';
+      document.getElementById('panelChat').style.display = chat ? 'block' : 'none';
+      document.getElementById('panelLog').style.display = chat ? 'none' : 'block';
+      document.getElementById('tabChat').classList.toggle('active', chat);
+      document.getElementById('tabLog').classList.toggle('active', !chat);
+    }
+
+    function addChatBubble(kind, text) {
+      const box = document.getElementById('chatStream');
+      const div = document.createElement('div');
+      div.className = `bubble ${kind}`;
+      div.textContent = text;
+      box.appendChild(div);
+      box.scrollTop = box.scrollHeight;
+    }
+
+    async function runObligations() {
+      const btn = document.getElementById('runObligationsBtn');
+      if (btn) { btn.disabled = true; btn.textContent = 'Running…'; }
+      try {
+        const data = await fetchJson('/api/run-obligations', { method:'POST' });
+        addChatBubble('ctrl', data?.control_center?.report_status?.obligations_summary || 'Local obligations run completed.');
+        await refreshAll();
+      } catch (err) {
+        addChatBubble('ctrl', `Obligations run failed: ${err.message}`);
+      }
+      if (btn) { btn.disabled = false; btn.textContent = 'Run Obligations'; }
+    }
+
+    async function refreshAll() {
+      let data = fallbackState;
+      try {
+        data = await fetchJson('/api/control-center-state');
+      } catch (_) {
+        // use local preview state
+      }
+      try {
+        localStorage.setItem('siarcControlState', JSON.stringify(data));
+      } catch (_) {}
+      document.getElementById('modeTag').textContent = data.validation_mode || 'preview';
+      document.getElementById('modeTag').className = `tag ${(data.validation_mode || '').includes('live') ? 'live' : 'info'}`;
+      document.getElementById('statusLine').textContent = `Updated ${data.updated_at || 'preview'} · source ${ACTIVE_API_BASE || 'browser-local / same-origin'} · no API key needed`;
+      renderRoster(data);
+      renderStats(data);
+      renderQueue(data);
+      renderBreakthroughs(data);
+      renderPrompt(data);
+      renderLogs(data);
+    }
+
+    function openDeployModal() { document.getElementById('deployModal').style.display = 'flex'; }
+    function closeDeployModal() { document.getElementById('deployModal').style.display = 'none'; }
+
+    async function deployMission() {
+      const payload = {
+        topic: document.getElementById('missionTopic').value,
+        domain: document.getElementById('missionDomain').value,
+        swarm_size: Number(document.getElementById('missionSwarm').value || 8),
+        asr_threshold: Number(document.getElementById('missionAsr').value || 1e-4),
+        seed_formula: document.getElementById('missionSeed').value,
+      };
+      try {
+        const data = await fetchJson('/api/deploy-field-agent', { method:'POST', body: JSON.stringify(payload) });
+        document.getElementById('promptMeta').textContent = `Mission: ${data.brief?.topic || payload.topic} · mode=${data.mode || 'local_workspace'}`;
+        document.getElementById('promptOutput').textContent = data.seed_prompt || 'No prompt generated.';
+        addChatBubble('ctrl', `CTRL-01 prepared ${data.brief?.mission_id || 'a mission'} in ${data.mode || 'local_workspace'} mode.`);
+        closeDeployModal();
+        await refreshAll();
+      } catch (err) {
+        const local = buildLocalSeedPrompt(payload);
+        document.getElementById('promptMeta').textContent = `Mission: ${local.brief.topic} · mode=${local.mode}`;
+        document.getElementById('promptOutput').textContent = local.seed_prompt;
+        addChatBubble('ctrl', `CTRL-01 prepared ${local.brief.mission_id} in browser-local mode. No API key or remote model is required.`);
+        closeDeployModal();
+      }
+    }
+
+    async function sendChat() {
+      const input = document.getElementById('chatInput');
+      const message = input.value.trim();
+      if (!message) return;
+      addChatBubble('user', message);
+      input.value = '';
+      try {
+        const data = await fetchJson('/api/chat-ctrl', { method:'POST', body: JSON.stringify({ message }) });
+        addChatBubble('ctrl', data.reply || 'No reply received.');
+      } catch (err) {
+        addChatBubble('ctrl', buildLocalCtrlReply(message));
+      }
+    }
+
+    document.getElementById('chatInput').addEventListener('keydown', (ev) => {
+      if (ev.key === 'Enter') sendChat();
+    });
+
+    addChatBubble('ctrl', 'CTRL-01 online in local workspace mode. Launch a topic to generate a field-agent brief with suggested repository paths — no API key required.');
+    refreshAll();
+  </script>
+</body>
+</html>

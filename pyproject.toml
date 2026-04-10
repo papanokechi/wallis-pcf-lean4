@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ramanujan-breakthrough-generator"
+version = "2.1.0"
+description = "AI-powered generator of Ramanujan-style mathematical conjectures — polynomial continued fractions, PSLQ matching, evolutionary search, and LLM research-agent integration"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Ramanujan Breakthrough Generator Contributors"},
+]
+keywords = [
+    "research",
+    "mathematics",
+    "ramanujan",
+    "ai-research",
+    "mathematical-discovery",
+    "symbolic-computation",
+    "number-theory",
+    "llm-agent",
+    "continued-fractions",
+    "pslq",
+    "irrationality",
+    "conjecture-generation",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "mpmath>=1.2",
+    "sympy>=1.11",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "numpy>=1.25",
+    "scipy>=1.11",
+    "matplotlib>=3.7",
+]
+notebook = [
+    "jupyter>=1.0",
+    "notebook>=7.0",
+    "ipywidgets>=8.0",
+]
+research = [
+    "gpt-researcher>=0.7",
+]
+
+[project.scripts]
+ramanujan-discover = "ramanujan_breakthrough_generator:main"
+
+[project.urls]
+Homepage = "https://github.com/ramanujan-breakthrough/ramanujan-breakthrough-generator"
+Documentation = "https://github.com/ramanujan-breakthrough/ramanujan-breakthrough-generator#readme"
+Issues = "https://github.com/ramanujan-breakthrough/ramanujan-breakthrough-generator/issues"
+"Ramanujan Machine" = "https://github.com/RamanujanMachine"
+
+[tool.setuptools]
+py-modules = ["ramanujan_breakthrough_generator", "research_integration"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"

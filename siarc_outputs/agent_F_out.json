@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "iteration": 26,
+    "gap_id": "prove_A1_k5",
+    "verdict": "progress",
+    "b_score": 0.109481,
+    "breakthroughs_total": 0,
+    "failures_total": 2
+  },
+  "next_gap": {
+    "id": "bdj_bridge",
+    "description": "Test whether ratio fluctuations converge to Tracy-Widom TW\u2082. Need n=5000-10000, 100k samples, KS statistic.",
+    "source": "paper14/Section 11",
+    "gap_type": "computation",
+    "score": 0.595
+  },
+  "seed": null,
+  "_agent": "F",
+  "_name": "Memory & Report",
+  "_timestamp": "2026-03-31T15:41:34.988503"
+}

@@ -1,0 +1,332 @@
+{
+  "generated_at": "2026-04-04 18:57:56",
+  "script": "ramanujan_agent_v2_fast.py",
+  "target": "zeta3",
+  "llm_mode": "disabled",
+  "lirec_enabled": false,
+  "stats": {
+    "iters": 2,
+    "tested": 256,
+    "discoveries": 7,
+    "novel": 7,
+    "rate_percent": 350.0,
+    "seeds_injected": 35,
+    "llm_calls": 0,
+    "elapsed_human": "0m22s",
+    "elapsed_seconds": 22.35,
+    "gcf_per_sec": 11.454
+  },
+  "environment": {
+    "python": "3.14.3",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.29560-SP0",
+    "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "cpu_count": 8,
+    "mpmath": "1.4.1"
+  },
+  "artifacts": {
+    "discoveries_path": "ramanujan_discoveries.json",
+    "seed_path": "relay_chain_seed_pool.json",
+    "profile_path": null
+  },
+  "pslq": {
+    "tested_targets": 529,
+    "pslq_calls": 1056,
+    "degree2_calls": 527,
+    "prefilter_skips": 0,
+    "neighbour_attempts": 386,
+    "neighbour_skips": 406,
+    "found": 7
+  },
+  "run_config": {
+    "iters": 2,
+    "target": "zeta3",
+    "batch": 128,
+    "effective_batch": 128,
+    "workers": 0,
+    "resolved_workers": 4,
+    "auto_worker_cap": 4,
+    "executor": "process",
+    "prec": 300,
+    "quiet": true,
+    "seed": 123,
+    "llm": false,
+    "lirec": false,
+    "seed_file": null
+  },
+  "discoveries": [
+    {
+      "spec": {
+        "spec_id": "GCF_065982E4",
+        "alpha": [
+          4,
+          -4,
+          1
+        ],
+        "beta": [
+          -6,
+          3,
+          -2
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        5,
+        0,
+        0,
+        31,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "5\u00b7CF\u00b7zeta3 + 31\u00b7zeta3 = 0",
+      "cf_approx": "-6.2",
+      "timestamp": 1775296664.989434,
+      "enrichment": {
+        "closed_form": "-31/5",
+        "closed_form_source": "sympy_relation",
+        "closed_form_kind": "algebraic_root"
+      }
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_CD0637D8",
+        "alpha": [
+          -5,
+          -1,
+          6
+        ],
+        "beta": [
+          -2,
+          -1
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + 2\u00b7zeta3 + -2 = 0",
+      "cf_approx": "-2.0",
+      "timestamp": 1775296666.5532482,
+      "enrichment": {
+        "closed_form": "-2",
+        "closed_form_source": "sympy_relation",
+        "closed_form_kind": "algebraic_root"
+      }
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_42233F67",
+        "alpha": [
+          -3,
+          0,
+          3
+        ],
+        "beta": [
+          1,
+          -6,
+          0
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+      "cf_approx": "1.0",
+      "timestamp": 1775296665.3714967,
+      "enrichment": {
+        "closed_form": "1",
+        "closed_form_source": "sympy_relation",
+        "closed_form_kind": "algebraic_root"
+      }
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_3CCCB09E",
+        "alpha": [
+          1,
+          -4,
+          3
+        ],
+        "beta": [
+          -5,
+          5,
+          5,
+          -6
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        1,
+        -1,
+        0,
+        5,
+        -5,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 79,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 5\u00b7CF + -5\u00b7zeta3 = 0",
+      "cf_approx": "-5.0",
+      "timestamp": 1775296666.0913153,
+      "enrichment": {
+        "closed_form": "-5",
+        "closed_form_source": "sympy_relation",
+        "closed_form_kind": "algebraic_root"
+      }
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_DEE81CB5",
+        "alpha": [
+          4,
+          -4,
+          1,
+          -1
+        ],
+        "beta": [
+          -6,
+          3,
+          -2
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        1,
+        -1,
+        0,
+        6,
+        -6,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 80,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 6\u00b7CF + -6\u00b7zeta3 = 0",
+      "cf_approx": "-6.0",
+      "timestamp": 1775296672.125205,
+      "enrichment": {
+        "closed_form": "-6",
+        "closed_form_source": "sympy_relation",
+        "closed_form_kind": "algebraic_root"
+      }
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_0ADF13E3",
+        "alpha": [
+          4,
+          -4,
+          -4,
+          4
+        ],
+        "beta": [
+          -1,
+          5
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + 1\u00b7zeta3 = 0",
+      "cf_approx": "-1.0",
+      "timestamp": 1775296672.4395242,
+      "enrichment": {
+        "closed_form": "-1",
+        "closed_form_source": "sympy_relation",
+        "closed_form_kind": "algebraic_root"
+      }
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_02437910",
+        "alpha": [
+          -3,
+          1
+        ],
+        "beta": [
+          -4,
+          3,
+          2
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta4",
+      "relation": [
+        9,
+        9,
+        0,
+        56,
+        56,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 79,
+      "conv_digits": 300,
+      "formula": "9\u00b7CF\u00b2 + 9\u00b7CF\u00b7zeta4 + 56\u00b7CF + 56\u00b7zeta4 = 0",
+      "cf_approx": "-6.2222222222222222222222222222222222222222222222222",
+      "timestamp": 1775296672.98138,
+      "enrichment": {
+        "closed_form": "-56/9",
+        "closed_form_source": "sympy_relation",
+        "closed_form_kind": "algebraic_root"
+      }
+    }
+  ]
+}

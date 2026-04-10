@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ramanujan Agent Run Summary</title>
+  <style>
+    :root {
+      --bg:#0b1020; --panel:#121933; --panel2:#0f1530; --text:#e8ecff;
+      --muted:#aab4de; --accent:#7cc7ff; --accent2:#8ef0c3; --border:#263158;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Segoe UI,Arial,sans-serif; background:linear-gradient(180deg,var(--bg),#12182c); color:var(--text); }
+    .wrap { max-width:1200px; margin:0 auto; padding:32px 20px 48px; }
+    .hero, .panel { background:rgba(18,25,51,.92); border:1px solid var(--border); border-radius:18px; box-shadow:0 12px 30px rgba(0,0,0,.24); }
+    .hero { padding:24px; margin-bottom:18px; }
+    h1,h2 { margin:0 0 10px; }
+    .sub { color:var(--muted); margin:4px 0 0; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin:18px 0; }
+    .stat { background:var(--panel2); border:1px solid var(--border); border-radius:14px; padding:14px; }
+    .label { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+    .value { font-size:28px; font-weight:700; margin-top:6px; }
+    .panel { padding:20px; margin-top:18px; }
+    .meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; color:var(--muted); }
+    table { width:100%; border-collapse:collapse; margin-top:12px; }
+    th, td { border-bottom:1px solid var(--border); text-align:left; padding:10px 8px; vertical-align:top; }
+    th { color:#9fd7ff; font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+    code, pre { font-family:Consolas, monospace; background:#0a1124; border-radius:8px; }
+    code { padding:2px 6px; }
+    pre { padding:12px; overflow:auto; color:#dff7ff; }
+    a { color:var(--accent2); }
+    .empty { text-align:center; color:var(--muted); padding:18px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Ramanujan Agent Run Summary</h1>
+      <p class="sub">Target <strong>zeta3</strong> · generated 2026-04-04 08:58:28</p>
+      <div class="grid">
+        <div class="stat"><div class="label">Iterations</div><div class="value">4</div></div>
+        <div class="stat"><div class="label">GCFs tested</div><div class="value">32</div></div>
+        <div class="stat"><div class="label">Novel finds</div><div class="value">3</div></div>
+        <div class="stat"><div class="label">Find rate</div><div class="value">75.00%</div></div>
+        <div class="stat"><div class="label">Seeds injected</div><div class="value">15</div></div>
+        <div class="stat"><div class="label">LLM calls</div><div class="value">0</div></div>
+      </div>
+      <div class="meta">
+        <div><strong>LLM mode:</strong> disabled</div>
+        <div><strong>Elapsed:</strong> 0m06s</div>
+        <div><strong>Discovery file:</strong> <a href="ramanujan_discoveries.json">ramanujan_discoveries.json</a></div>
+        <div><strong>Seed pool:</strong> <a href="relay_chain_seed_pool.json">relay_chain_seed_pool.json</a></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Continue from this run</h2>
+      <pre>python ramanujan_agent.py --seed-file relay_chain_seed_pool.json --target zeta3 --iters 500</pre>
+    </section>
+
+    <section class="panel">
+      <h2>Discoveries</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>Spec ID</th><th>Constant</th><th>Precision</th><th>Conv. digits</th><th>Coefficients</th><th>Formula</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>1</td>
+              <td><code>GCF_C0C79573</code></td>
+              <td>zeta3</td>
+              <td>300</td>
+              <td>300</td>
+              <td><code>[-1, 1]</code><br><code>[1, 2]</code></td>
+              <td>1·CF·zeta3 + -1·zeta3 = 0</td>
+            </tr>
+            
+            <tr>
+              <td>2</td>
+              <td><code>GCF_B9299E8E</code></td>
+              <td>zeta3</td>
+              <td>300</td>
+              <td>300</td>
+              <td><code>[0, -1, 1]</code><br><code>[-2, 4]</code></td>
+              <td>1·CF·zeta3 + -1·CF + 2·zeta3 + -2 = 0</td>
+            </tr>
+            
+            <tr>
+              <td>3</td>
+              <td><code>GCF_C94859A4</code></td>
+              <td>catalan</td>
+              <td>300</td>
+              <td>300</td>
+              <td><code>[-3, 1]</code><br><code>[1, 2]</code></td>
+              <td>7·CF·catalan + -7·CF + -2·catalan + 2 = 0</td>
+            </tr>
+            
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-04-04 18:06:22",
+  "script": "ramanujan_agent_v2_fast.py",
+  "target": "zeta3",
+  "llm_mode": "disabled",
+  "lirec_enabled": false,
+  "stats": {
+    "iters": 3,
+    "tested": 24,
+    "discoveries": 2,
+    "novel": 2,
+    "rate_percent": 66.667,
+    "seeds_injected": 10,
+    "llm_calls": 0,
+    "elapsed_human": "0m01s",
+    "elapsed_seconds": 1.203,
+    "gcf_per_sec": 19.956
+  },
+  "environment": {
+    "python": "3.14.3",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.29560-SP0",
+    "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "cpu_count": 8,
+    "mpmath": "1.4.1"
+  },
+  "artifacts": {
+    "discoveries_path": "ramanujan_discoveries.json",
+    "seed_path": "relay_chain_seed_pool.json",
+    "profile_path": null
+  },
+  "pslq": {
+    "tested_targets": 51,
+    "pslq_calls": 101,
+    "degree2_calls": 50,
+    "prefilter_skips": 1,
+    "neighbour_attempts": 36,
+    "neighbour_skips": 40,
+    "found": 2
+  },
+  "run_config": {
+    "iters": 3,
+    "target": "zeta3",
+    "batch": 8,
+    "effective_batch": 64,
+    "workers": 0,
+    "executor": "process",
+    "prec": 300,
+    "quiet": true,
+    "seed": 123,
+    "llm": false,
+    "lirec": false,
+    "seed_file": null
+  },
+  "discoveries": [
+    {
+      "spec": {
+        "spec_id": "GCF_60BF7838",
+        "alpha": [
+          0,
+          0
+        ],
+        "beta": [
+          1,
+          2
+        ],
+        "target": "zeta3",
+        "n_terms": 200,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+      "timestamp": 1775293581.4371898,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_85A6D7D3",
+        "alpha": [
+          -6,
+          6
+        ],
+        "beta": [
+          2,
+          0,
+          2,
+          -2
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        -1,
+        -2,
+        2
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + -2\u00b7zeta3 + 2 = 0",
+      "timestamp": 1775293582.2378736,
+      "enrichment": {}
+    }
+  ]
+}

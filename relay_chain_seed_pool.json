@@ -1,0 +1,136 @@
+[
+  {
+    "spec_id": "APERY_ZETA3",
+    "alpha": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -5,
+      27,
+      -51,
+      34
+    ],
+    "target": "zeta3",
+    "n_terms": 120,
+    "mode": "ratio",
+    "order": 3
+  },
+  {
+    "spec_id": "EULER_PI_4",
+    "alpha": [
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      2
+    ],
+    "target": "pi",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "BROUNCKER_PI",
+    "alpha": [
+      -1,
+      2,
+      4
+    ],
+    "beta": [
+      2,
+      0
+    ],
+    "target": "pi",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "EULER_E",
+    "alpha": [
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      2
+    ],
+    "target": "e",
+    "n_terms": 200,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "LOG2_EULER",
+    "alpha": [
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      0,
+      1
+    ],
+    "target": "log2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "CATALAN_CF",
+    "alpha": [
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "EULER_ZETA2",
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      0,
+      -2,
+      6,
+      4
+    ],
+    "target": "zeta2",
+    "n_terms": 150,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "RAMANUJAN_PI",
+    "alpha": [
+      -1,
+      0,
+      4
+    ],
+    "beta": [
+      0,
+      6
+    ],
+    "target": "pi",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  }
+]

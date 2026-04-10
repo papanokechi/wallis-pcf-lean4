@@ -1,0 +1,74 @@
+
+\appendix
+\section{Reproducibility}\label{app:repro}
+
+All computations are performed in Python~3.14 with the following libraries:
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Library & Version \\
+\midrule
+\texttt{mpmath} & 1.4.1 \\
+\texttt{python-flint} (Arb) & 0.8.0 \\
+\texttt{sympy} & 1.14.0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{PCF Evaluation}
+
+We adopt the standard forward recurrence with $p_{-1} = 1$, $p_0 = b(0)$,
+$q_{-1} = 0$, $q_0 = 1$, and
+\[
+  p_n = b(n)\,p_{n-1} + a(n)\,p_{n-2}, \quad
+  q_n = b(n)\,q_{n-1} + a(n)\,q_{n-2}
+\]
+for $n = 1, 2, \ldots, N$.
+The convergent $C_N = p_N / q_N$ approximates the infinite continued fraction.
+
+\subsection{Arb Certification}
+
+For rigorous bounds, we evaluate convergents using Arb ball arithmetic
+(\texttt{python-flint}, 8000--10000~bit working precision).
+Since $a(n) < 0$ and $b(n) > 0$ for all $n \ge 1$, the convergents
+$C_N$ alternate around the limit $L$.
+Therefore $L \in [\min(C_N, C_{N-1}),\, \max(C_N, C_{N-1})]$.
+At depth $N = 5000$ with 10000-bit precision, the bracket width is
+smaller than $10^{-1500}$ for all tested cases.
+
+\subsection{PSLQ Verification}
+
+Integer relations are detected using \texttt{mpmath.pslq()} at 500-digit
+precision with \texttt{maxcoeff=10000}.  For each discovery, we test
+the basis vectors $[1, S, \pi]$, $[1, S, \ln 2]$, $[1, S, \pi, \ln 2]$,
+and also the reciprocal $[1, 1/S, \pi]$, $[1, 1/S, \ln 2]$.
+
+\subsection{Running the Verification}
+
+\begin{verbatim}
+# Setup
+python -m venv .venv && .venv\Scripts\activate
+pip install mpmath python-flint sympy
+
+# Phase 1: Discovery
+python run_targeted.py
+
+# Phase 2-3: Generalization
+python run_phase2_sweep.py
+python run_phase3_sweep.py
+
+# Phase 4: Arb certification
+python run_phase4_certification.py
+
+# Phase 5: Convergence + paper
+python run_phase5_proofs.py
+
+# Verification notebook
+jupyter notebook pcf_verification.ipynb
+\end{verbatim}
+
+\noindent All source files, JSON outputs, and the verification notebook
+are available in the accompanying repository.
+Typical runtime for the full pipeline is under 2~hours on a standard
+desktop (Intel i7, 16\,GB RAM).

@@ -1,0 +1,122 @@
+{
+  "generated": 1775630524.457198,
+  "ridges": [
+    {
+      "centroid_a": [
+        0,
+        5,
+        -2
+      ],
+      "centroid_b": [
+        1,
+        3
+      ],
+      "density": 0.1383,
+      "dominant_constant": "S^(2)",
+      "member_count": 13
+    },
+    {
+      "centroid_a": [
+        0,
+        3,
+        -2
+      ],
+      "centroid_b": [
+        1,
+        3
+      ],
+      "density": 0.1277,
+      "dominant_constant": "4/pi",
+      "member_count": 12
+    },
+    {
+      "centroid_a": [
+        1
+      ],
+      "centroid_b": [
+        1
+      ],
+      "density": 0.117,
+      "dominant_constant": "phi",
+      "member_count": 11
+    },
+    {
+      "centroid_a": [
+        0,
+        1,
+        -2
+      ],
+      "centroid_b": [
+        1,
+        3
+      ],
+      "density": 0.1064,
+      "dominant_constant": "S^(2)",
+      "member_count": 10
+    },
+    {
+      "centroid_a": [
+        0,
+        11,
+        -2
+      ],
+      "centroid_b": [
+        1,
+        3
+      ],
+      "density": 0.1064,
+      "dominant_constant": "S^(5)",
+      "member_count": 10
+    },
+    {
+      "centroid_a": [
+        0,
+        9,
+        -2
+      ],
+      "centroid_b": [
+        1,
+        3
+      ],
+      "density": 0.0851,
+      "dominant_constant": "S^(4)",
+      "member_count": 8
+    },
+    {
+      "centroid_a": [
+        0,
+        7,
+        -2
+      ],
+      "centroid_b": [
+        1,
+        3
+      ],
+      "density": 0.0745,
+      "dominant_constant": "S^(3)",
+      "member_count": 7
+    },
+    {
+      "centroid_a": [
+        2
+      ],
+      "centroid_b": [
+        2
+      ],
+      "density": 0.0426,
+      "dominant_constant": "sqrt3+1",
+      "member_count": 4
+    },
+    {
+      "centroid_a": [
+        1
+      ],
+      "centroid_b": [
+        2
+      ],
+      "density": 0.0319,
+      "dominant_constant": "sqrt2+1",
+      "member_count": 3
+    }
+  ]
+}

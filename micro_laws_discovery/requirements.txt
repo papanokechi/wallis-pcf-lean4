@@ -1,0 +1,5 @@
+numpy>=1.21
+scikit-learn>=1.0
+torch>=1.10
+# Optional — requires Julia runtime:
+# pysr>=0.11

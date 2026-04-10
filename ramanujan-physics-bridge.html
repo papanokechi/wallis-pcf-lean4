@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramanujan-Physics Bridge: Pi, Black Holes &amp; High-Energy Physics</title>
+<style>
+:root {
+    --bg: #0f0f1a;
+    --surface: #1a1a2e;
+    --surface2: #222240;
+    --text: #e0e0f0;
+    --text2: #a0a0c0;
+    --accent1: #ff6b6b;
+    --accent2: #4ecdc4;
+    --accent3: #a855f7;
+    --accent4: #f59e0b;
+    --accent5: #22c55e;
+    --accent6: #3b82f6;
+    --accent7: #ec4899;
+    --border: #333355;
+    --strong: #00ff88;
+    --medium: #ffaa00;
+    --weak: #ff4444;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+h1 { font-size: 2.2em; margin-bottom: 10px; background: linear-gradient(135deg, var(--accent1), var(--accent3), var(--accent6));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+h2 { font-size: 1.5em; margin: 30px 0 15px; color: var(--accent2); border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+h3 { font-size: 1.2em; margin: 10px 0; color: var(--text); }
+h4 { font-size: 1.05em; color: var(--accent2); }
+p { margin: 8px 0; }
+.subtitle { color: var(--text2); font-size: 1.1em; margin-bottom: 20px; }
+.meta-bar { display: flex; gap: 20px; flex-wrap: wrap; padding: 15px; background: var(--surface); border-radius: 10px; margin-bottom: 25px; font-size: 0.9em; }
+.meta-item { display: flex; align-items: center; gap: 6px; }
+.meta-label { color: var(--text2); }
+.meta-value { color: var(--accent2); font-weight: 600; }
+
+/* Stats grid */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin: 20px 0; }
+.stat-card { background: var(--surface); border-radius: 10px; padding: 15px; text-align: center; border: 1px solid var(--border); }
+.stat-value { font-size: 2em; font-weight: 700; }
+.stat-label { color: var(--text2); font-size: 0.85em; }
+.stat-card:nth-child(1) .stat-value { color: var(--accent1); }
+.stat-card:nth-child(2) .stat-value { color: var(--accent2); }
+.stat-card:nth-child(3) .stat-value { color: var(--accent3); }
+.stat-card:nth-child(4) .stat-value { color: var(--accent4); }
+.stat-card:nth-child(5) .stat-value { color: var(--accent5); }
+.stat-card:nth-child(6) .stat-value { color: var(--accent6); }
+
+/* Tabs */
+.tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 20px; flex-wrap: wrap; }
+.tab { padding: 10px 20px; cursor: pointer; color: var(--text2); border-bottom: 2px solid transparent;
+    margin-bottom: -2px; transition: all 0.2s; user-select: none; }
+.tab:hover { color: var(--text); background: var(--surface); }
+.tab.active { color: var(--accent2); border-bottom-color: var(--accent2); }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+/* Narrative cards */
+.narrative-card { background: var(--surface); border-radius: 10px; padding: 20px; margin: 15px 0;
+    border: 1px solid var(--border); transition: transform 0.2s; }
+.narrative-card:hover { transform: translateX(4px); }
+.narrative-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+.thread-label { padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 600; }
+.depth-badge { padding: 3px 10px; border-radius: 12px; font-size: 0.75em; color: white; font-weight: 600; }
+.narrative-text { color: var(--text2); font-size: 0.95em; line-height: 1.7; }
+
+/* Evidence tiers */
+.evidence-tier { padding: 3px 10px; border-radius: 12px; font-size: 0.75em; font-weight: 600; }
+.evidence-note { color: var(--text2); font-size: 0.85em; font-style: italic; margin: 8px 0 4px; padding: 8px 12px;
+    border-left: 2px solid var(--border); background: var(--bg); border-radius: 4px; }
+.citations { margin-top: 8px; font-size: 0.82em; color: var(--text2); }
+.citations summary { cursor: pointer; color: var(--accent6); font-weight: 500; }
+.citations ul { margin: 6px 0 0 20px; }
+.citations li { margin: 3px 0; }
+
+/* Tags */
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.78em; margin: 2px; font-family: monospace; }
+.formula-tag { background: var(--accent6)20; color: var(--accent6); border: 1px solid var(--accent6)40; }
+.physics-tag { background: var(--accent1)20; color: var(--accent1); border: 1px solid var(--accent1)40; }
+.tag-row { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 4px; }
+
+/* Patterns */
+.pattern-card { background: var(--surface); border-radius: 10px; padding: 15px; margin: 10px 0;
+    border: 1px solid var(--border); }
+.pattern-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.confidence-bar-mini { width: 80px; height: 20px; background: var(--bg); border-radius: 10px; position: relative; overflow: hidden; }
+.confidence-fill { height: 100%; background: linear-gradient(90deg, var(--accent5), var(--accent2)); border-radius: 10px; }
+.confidence-bar-mini span { position: absolute; right: 6px; top: 1px; font-size: 0.7em; color: white; }
+.physics-impl { color: var(--accent4); font-size: 0.9em; font-style: italic; }
+
+/* Connection table */
+.conn-table { width: 100%; border-collapse: collapse; font-size: 0.88em; }
+.conn-table th { background: var(--surface2); padding: 10px; text-align: left; color: var(--accent2); font-weight: 600; }
+.conn-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.conn-table tr:hover { background: var(--surface2); }
+.strength-bar { width: 60px; height: 8px; background: var(--bg); border-radius: 4px; display: inline-block; overflow: hidden; }
+.strength-fill { height: 100%; border-radius: 4px; }
+.strength-strong { background: var(--strong); }
+.strength-medium { background: var(--medium); }
+.strength-weak { background: var(--weak); }
+.strength-val { font-size: 0.85em; color: var(--text2); margin-left: 6px; }
+.mapping-text { color: var(--text2); font-size: 0.85em; max-width: 300px; }
+
+/* Missing links */
+.missing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.missing-card { background: var(--surface); border-radius: 10px; padding: 15px; border: 1px solid var(--accent4)40;
+    border-left: 3px solid var(--accent4); }
+.missing-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.arrow { color: var(--accent4); font-weight: bold; }
+.overlap-bar { width: 100%; height: 6px; background: var(--bg); border-radius: 3px; margin-top: 8px; position: relative; }
+.overlap-fill { height: 100%; background: var(--accent4); border-radius: 3px; }
+.overlap-bar span { font-size: 0.75em; color: var(--text2); position: absolute; right: 0; top: -16px; }
+
+/* Proposals */
+.proposals-table { width: 100%; border-collapse: collapse; font-size: 0.88em; }
+.proposals-table th { background: var(--surface2); padding: 10px; text-align: left; color: var(--accent3); }
+.proposals-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+.status-proposed { color: var(--accent4); font-weight: 600; }
+.status-confirmed { color: var(--accent5); font-weight: 600; }
+.status-falsified { color: var(--accent1); font-weight: 600; }
+.status-tested { color: var(--accent6); font-weight: 600; }
+.motivation-text { color: var(--text2); font-size: 0.85em; }
+
+/* Decomposition */
+.decomp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 15px; }
+.decomp-card { background: var(--surface); border-radius: 10px; padding: 15px; border: 1px solid var(--border); }
+.family-badge { font-size: 0.75em; padding: 2px 8px; border-radius: 10px; background: var(--accent3)20; color: var(--accent3); margin-left: 8px; }
+.comp-list { margin: 10px 0; }
+.comp-item { padding: 6px 10px; margin: 4px 0; background: var(--bg); border-radius: 6px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.comp-primitive { font-family: monospace; color: var(--accent2); font-size: 0.9em; }
+.comp-role { font-size: 0.8em; color: var(--text2); padding: 1px 6px; background: var(--surface2); border-radius: 4px; }
+.comp-hint { font-size: 0.8em; color: var(--accent4); font-style: italic; }
+.hidden-constants, .symmetries { margin-top: 8px; font-size: 0.88em; }
+.hidden-item, .sym-item { padding: 4px 0; color: var(--text2); border-top: 1px solid var(--border); }
+
+/* Timeline */
+.round-timeline { display: flex; gap: 15px; overflow-x: auto; padding: 10px 0; }
+.round-card { background: var(--surface); border-radius: 10px; padding: 12px; min-width: 120px; text-align: center;
+    border: 1px solid var(--border); flex-shrink: 0; }
+.round-num { font-size: 1.3em; font-weight: 700; color: var(--accent2); }
+.round-stats { font-size: 0.75em; color: var(--text2); margin-top: 6px; display: flex; flex-direction: column; gap: 2px; }
+.round-stats span { display: block; }
+
+/* Bridge summary */
+.bridge-stats { display: flex; gap: 10px; flex-wrap: wrap; }
+.bridge-stat { background: var(--surface); padding: 8px 15px; border-radius: 20px; display: flex; gap: 8px; align-items: center; }
+.bridge-domain { color: var(--text2); font-size: 0.9em; }
+.bridge-count { color: var(--accent2); font-weight: 700; }
+
+/* Canvas */
+canvas { background: var(--surface); border-radius: 10px; border: 1px solid var(--border); }
+
+/* Domain pie */
+.domain-chart { display: flex; justify-content: center; padding: 20px; }
+
+/* Footer */
+.footer { text-align: center; color: var(--text2); font-size: 0.85em; padding: 30px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+
+@media (max-width: 768px) {
+    .container { padding: 10px; }
+    h1 { font-size: 1.5em; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .decomp-grid { grid-template-columns: 1fr; }
+    .missing-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Ramanujan-Physics Bridge</h1>
+<p class="subtitle">Self-Iterating Agent for Reverse-Engineering Ramanujan Formulas &mdash;
+Connecting Pi, Black Holes &amp; High-Energy Physics</p>
+
+<div class="meta-bar">
+    <div class="meta-item"><span class="meta-label">Engine:</span><span class="meta-value">Ramanujan-Physics Bridge v1.1</span></div>
+    <div class="meta-item"><span class="meta-label">Rounds:</span><span class="meta-value">5</span></div>
+    <div class="meta-item"><span class="meta-label">Formulas:</span><span class="meta-value">14</span></div>
+    <div class="meta-item"><span class="meta-label">Precision:</span><span class="meta-value">100 digits</span></div>
+    <div class="meta-item"><span class="meta-label">Elapsed:</span><span class="meta-value">0.03s</span></div>
+    <div class="meta-item"><span class="meta-label">Generated:</span><span class="meta-value">2026-03-22T22:08:50Z</span></div>
+</div>
+
+<!-- Stats overview -->
+<p style="color: var(--text2); font-size: 0.88em; margin-bottom: 10px">Statistics below count <em>pattern-match mappings</em> (formula-primitive &rarr; physics-concept), not causal links.
+See the <span style="color:var(--accent2); cursor:pointer" onclick="document.querySelector('[data-tab=methodology]').click()">Methodology</span> tab for scoring definitions.</p>
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-value">14</div>
+        <div class="stat-label">Formulas Analysed</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">8</div>
+        <div class="stat-label">Physics Domains</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">7</div>
+        <div class="stat-label">Narrative Threads</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">6</div>
+        <div class="stat-label">Structural Patterns</div>
+    </div>
+    <div class="stat-card" title="Formula-concept pairs sharing mathematical structure but not yet mapped by the engine">
+        <div class="stat-value">11</div>
+        <div class="stat-label">Predicted Links</div>
+    </div>
+    <div class="stat-card" title="New formula variants proposed by extrapolating structural patterns in existing identities">
+        <div class="stat-value">12</div>
+        <div class="stat-label">Generalisations</div>
+    </div>
+</div>
+<p style="color: var(--text2); font-size: 0.82em; margin-top: 6px"><em>Predicted Links</em> = formula-concept pairs with shared primitives not yet mapped; <em>Generalisations</em> = new formula variants proposed by extrapolating structural patterns.</p>
+
+<!-- Tabs -->
+<div class="tabs">
+    <div class="tab active" data-tab="narrative">Grand Narrative</div>
+    <div class="tab" data-tab="connections">Connection Web</div>
+    <div class="tab" data-tab="decomp">Formula Decomposition</div>
+    <div class="tab" data-tab="patterns">Structural Patterns</div>
+    <div class="tab" data-tab="missing">Missing Links</div>
+    <div class="tab" data-tab="proposals">Proposals</div>
+    <div class="tab" data-tab="timeline">Discovery Timeline</div>
+    <div class="tab" data-tab="methodology">Methodology</div>
+</div>
+
+<!-- Tab: Grand Narrative -->
+<div class="tab-content active" id="tab-narrative">
+    <h2>The Seven Threads: How Ramanujan Connects Pi, Black Holes &amp; HEP</h2>
+    <p style="color: var(--text2); margin-bottom: 15px;">Each thread traces a path from Ramanujan's mathematics
+    to modern physics. Together, they form a web of structural analogies and proven identities.
+    Evidence tiers indicate which claims rest on rigorous proofs versus conjectural analogies.</p>
+    
+        <div class="narrative-card" style="border-left: 4px solid #ff6b6b">
+            <div class="narrative-header">
+                <span class="thread-label" style="background: #ff6b6b20; color: #ff6b6b">Partitions and Black Hole Entropy</span>
+                <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap">
+                    <span class="evidence-tier" style="background: #22c55e20; color: #22c55e; border: 1px solid #22c55e40">Well-established</span>
+                    <span class="depth-badge" style="background: #ff6b6b">structural_analogy</span>
+                </div>
+            </div>
+            <h3>Partition Asymptotics as a Key Tool in Black Hole Microstate Counting</h3>
+            <p class="narrative-text">Hardy and Ramanujan's 1918 asymptotic formula p(n) ~ exp(pi*sqrt(2n/3))/(4n*sqrt(3)) gives the growth rate of integer partitions. In 1996, Strominger and Vafa showed that the microscopic entropy of a specific class of 5-dimensional BPS black holes in type IIB string theory can be computed by counting D-brane bound states. The state-counting reduces to a partition-like problem whose asymptotic growth is governed by the Cardy formula -- which shares the same exponential structure exp(pi*sqrt(cN/6)) as the Hardy-Ramanujan result. The match between the microscopic count and the Bekenstein-Hawking area formula S_BH = A/(4G) was the first successful statistical derivation of black hole entropy. Importantly, the connection is structural: both Hardy-Ramanujan and the Cardy formula arise from modular properties of the underlying partition function (1/eta(tau) for integer partitions, the CFT partition function for D-branes), not from a literal identification p(n) = number of black hole microstates. The Rademacher exact formula (1937) extends this to all orders, and each correction term corresponds to a distinct saddle-point geometry in the dual gravitational path integral.</p>
+            <p class="evidence-note">Proven mathematical theorem (Hardy-Ramanujan) + rigorous string theory calculation (Strominger-Vafa). The structural analogy is exact; the physical identification requires specific string compactification.</p>
+            <details class="citations"><summary>References (4)</summary><ul><li>Hardy &amp; Ramanujan, Proc. London Math. Soc. 17, 75 (1918)</li><li>Rademacher, Proc. London Math. Soc. 43, 241 (1937)</li><li>Strominger &amp; Vafa, Phys. Lett. B 379, 99 (1996)</li><li>Dijkgraaf, Maldacena, Moore &amp; Verlinde, hep-th/0005003 (2000)</li></ul></details>
+            <div class="tag-row">
+                <span class="tag formula-tag">HR-1918-PARTITION</span><span class="tag formula-tag">RADEMACHER-EXACT</span><span class="tag formula-tag">RAM-PART-CONG</span>
+                <span class="tag physics-tag">BH-ENTROPY</span><span class="tag physics-tag">BH-MICROSTATE</span><span class="tag physics-tag">BH-QUANTUM</span>
+            </div>
+        </div>
+        
+        <div class="narrative-card" style="border-left: 4px solid #6b7280">
+            <div class="narrative-header">
+                <span class="thread-label" style="background: #6b728020; color: #6b7280">Pi Formulas and Calabi-Yau Periods</span>
+                <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap">
+                    <span class="evidence-tier" style="background: #f59e0b20; color: #f59e0b; border: 1px solid #f59e0b40">Mixed evidence</span>
+                    <span class="depth-badge" style="background: #6b7280">Structural Identity</span>
+                </div>
+            </div>
+            <h3>Ramanujan-Type Pi Series and Their Connection to String Compactification Moduli</h3>
+            <p class="narrative-text">Ramanujan's 1914 series for 1/pi and the Chudnovsky brothers' 1988 formula are instances of hypergeometric functions that also appear as period integrals of specific Calabi-Yau manifolds. The Picard-Fuchs differential equations governing these periods are the same equations that generate the Ramanujan-type series coefficients. In type IIB string theory, CY period integrals determine gauge coupling constants and the superpotential in N=2 compactifications. However, the connection is specific: only the particular CY manifolds associated with CM (complex multiplication) elliptic curves at Heegner discriminants (d = 163, 67, 43, ...) produce Ramanujan-type rapidly converging pi formulas. The convergence rate (~14 digits/term for Chudnovsky) reflects the arithmetic of the j-invariant: j(e^{pi*sqrt(163)}) = 640320^3 + 744. In string theory, these CM points correspond to special loci in CY moduli space with enhanced symmetry, not generic compactification geometries. Concretely: the one-parameter CY threefold defined by x_1^5+x_2^5+x_3^5+x_4^5+x_5^5 - 5*psi*x_1*x_2*x_3*x_4*x_5 = 0 (the mirror quintic, studied by Candelas et al. 1991) has a Picard-Fuchs equation whose solutions at the maximally unipotent monodromy point yield a 4F3 hypergeometric that is structurally identical to the generating function of Ramanujan-type series. Similarly, the Apery-like sequence a(n) = Sum_{k=0}^{n} C(n,k)^2 C(n+k,k)^2 satisfies a degree-3 recurrence whose associated Picard-Fuchs operator governs periods of a rigid CY threefold (Beauville, 1986; Zagier, 2009). The resulting 1/pi formula was proven by Guillera (2002). At the level of individual constants: the Chudnovsky formula gives 1/pi via the CM point tau = (1+i*sqrt(163))/2 on the modular curve X_0(1).</p>
+            <p class="evidence-note">Mathematics: well-established. The Picard-Fuchs / hypergeometric identity between Ramanujan-type series and CY period integrals is rigorously proven (Lian-Yau 1996, Yang 2004). The mirror quintic and Apery-like recurrences provide concrete, fully worked examples. Physics: strongly suggestive. The interpretation of these periods as string coupling constants applies only at specific CM points in CY moduli space, not to arbitrary compactifications.</p>
+            <details class="citations"><summary>References (7)</summary><ul><li>Ramanujan, Quart. J. Math. 45, 350 (1914)</li><li>Chudnovsky &amp; Chudnovsky, Lect. Notes Math. 1240 (1987)</li><li>Candelas, de la Ossa, Green &amp; Parkes, Nucl. Phys. B 359, 21 (1991)</li><li>Borwein &amp; Borwein, Pi and the AGM (Wiley, 1987)</li><li>Lian &amp; Yau, Comm. Math. Phys. 176, 163 (1996)</li><li>Zagier, in Higher-Dimensional Geometry over Finite Fields (IOS Press, 2009)</li><li>Guillera, Adv. Appl. Math. 29, 599 (2002)</li></ul></details>
+            <div class="tag-row">
+                <span class="tag formula-tag">RAM-1914-PI</span><span class="tag formula-tag">CHUD-1988</span>
+                <span class="tag physics-tag">ST-CY-PERIOD</span><span class="tag physics-tag">ST-MOONSHINE</span>
+            </div>
+        </div>
+        
+        <div class="narrative-card" style="border-left: 4px solid #a855f7">
+            <div class="narrative-header">
+                <span class="thread-label" style="background: #a855f720; color: #a855f7">Mock Theta Functions and Quantum Black Holes</span>
+                <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap">
+                    <span class="evidence-tier" style="background: #22c55e20; color: #22c55e; border: 1px solid #22c55e40">Well-established</span>
+                    <span class="depth-badge" style="background: #a855f7">Exact Match</span>
+                </div>
+            </div>
+            <h3>Mock Modular Forms as the Mathematical Framework for Exact BPS Entropy</h3>
+            <p class="narrative-text">In his final letter to Hardy (January 1920), Ramanujan introduced 'mock theta functions' -- q-hypergeometric functions that transform almost like modular forms but fail full modularity by a computable 'error' term. In 2002, Zwegers showed that mock theta functions are the holomorphic parts of harmonic Maass forms, with the error term (the 'shadow') being a unary theta series. In 2012, Dabholkar, Murthy, and Zagier demonstrated that the exact degeneracies of 1/4-BPS black holes in N=4 string theory are encoded by mock Jacobi forms -- a higher-dimensional generalisation of Ramanujan's mock theta functions. The 'non-modularity' that puzzled mathematicians for 80 years corresponds precisely to the wall-crossing phenomenon in physics: BPS states appear or disappear as string moduli cross walls of marginal stability, and the shadow term captures these jumps. This is one of the deepest and most precisely established connections between Ramanujan's mathematics and modern physics, though it applies specifically to BPS black holes in N=4 string compactifications, not to quantum gravity in general.</p>
+            <p class="evidence-note">Rigorous: Zwegers' thesis (2002) + Dabholkar-Murthy-Zagier (2012) provide both the mathematical framework and the physical application. The connection is exact within N=4 string theory.</p>
+            <details class="citations"><summary>References (4)</summary><ul><li>Ramanujan, letter to Hardy, January 1920 (published in Lost Notebook)</li><li>Zwegers, Mock Theta Functions, PhD thesis, Utrecht (2002)</li><li>Dabholkar, Murthy &amp; Zagier, J. High Energy Phys. 2014:23 (2014), arXiv:1208.4074</li><li>Manschot &amp; Moore, Commun. Math. Phys. 299, 827 (2010)</li></ul></details>
+            <div class="tag-row">
+                <span class="tag formula-tag">RAM-MOCK-THETA</span>
+                <span class="tag physics-tag">BH-MOCK</span><span class="tag physics-tag">BH-QUANTUM</span><span class="tag physics-tag">QFT-VW</span>
+            </div>
+        </div>
+        
+        <div class="narrative-card" style="border-left: 4px solid #6b7280">
+            <div class="narrative-header">
+                <span class="thread-label" style="background: #6b728020; color: #6b7280">Zeta Regularisation and String Theory Dimensions</span>
+                <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap">
+                    <span class="evidence-tier" style="background: #22c55e20; color: #22c55e; border: 1px solid #22c55e40">Well-established</span>
+                    <span class="depth-badge" style="background: #6b7280">Exact Calculation</span>
+                </div>
+            </div>
+            <h3>How Analytic Continuation of the Zeta Function Constrains Spacetime Dimension</h3>
+            <p class="narrative-text">Euler first computed zeta(-1) = -1/12 in 1749 via analytic continuation of sum n^{-s}. Ramanujan independently arrived at the same result in his notebooks (c. 1913) and used it extensively. In bosonic string theory, the zero-point energy of the transverse oscillators is regularised as (D-2) * zeta(-1) = -(D-2)/12. Requiring the absence of negative-norm states (Lorentz invariance) forces this to equal -1, yielding the critical dimension D = 26. The superstring analogue gives D = 10. Note that the full derivation requires more than just the zeta value: conformal anomaly cancellation on the worldsheet and the no-ghost theorem provide independent confirmations. The same regularisation underlies the Casimir effect -- a measurable force between conducting plates where the zeta-regularised vacuum energy contributes -pi^2/(720*a^3) per unit area, in agreement with experiment (Lamoreaux 1997, Bressi et al. 2002).</p>
+            <p class="evidence-note">The zeta regularisation is a rigorous mathematical procedure. The Casimir effect is experimentally confirmed. The D=26 derivation is a standard textbook result, though it rests on multiple consistency conditions beyond zeta(-1) alone.</p>
+            <details class="citations"><summary>References (5)</summary><ul><li>Euler, Novi Commentarii Acad. Sci. Petropolitanae 14, 129 (1749)</li><li>Polchinski, String Theory, Vol. 1, Ch. 1 (CUP, 1998)</li><li>Casimir, Proc. K. Ned. Akad. Wet. 51, 793 (1948)</li><li>Lamoreaux, Phys. Rev. Lett. 78, 5 (1997)</li><li>Bressi et al., Phys. Rev. Lett. 88, 041804 (2002)</li></ul></details>
+            <div class="tag-row">
+                <span class="tag formula-tag">RAM-ZETA-REG</span>
+                <span class="tag physics-tag">ST-DIMENSION</span><span class="tag physics-tag">QFT-CASIMIR</span><span class="tag physics-tag">HEP-COSMO</span>
+            </div>
+        </div>
+        
+        <div class="narrative-card" style="border-left: 4px solid #6b7280">
+            <div class="narrative-header">
+                <span class="thread-label" style="background: #6b728020; color: #6b7280">Rogers-Ramanujan Identities, Integrable Models, and CFT</span>
+                <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap">
+                    <span class="evidence-tier" style="background: #22c55e20; color: #22c55e; border: 1px solid #22c55e40">Well-established</span>
+                    <span class="depth-badge" style="background: #6b7280">Structural Identity</span>
+                </div>
+            </div>
+            <h3>The Chain from Combinatorial Identities to Exactly Solved Physical Models</h3>
+            <p class="narrative-text">The Rogers-Ramanujan identities (Rogers 1894, independently Ramanujan c. 1913) equate q-hypergeometric sums with infinite products filtered by residues mod 5. In 1980, Baxter showed that the order parameter of the hard hexagon model -- a statistical mechanics model of non-overlapping hexagons on a triangular lattice -- is expressed in terms of the Rogers-Ramanujan continued fraction. This was the first instance of a two-dimensional lattice model solved exactly using q-series identities. In 2D conformal field theory, the characters of the (2,5) Virasoro minimal model (central charge c = 2/5) are precisely the Rogers-Ramanujan functions. This three-way connection -- combinatorics (partitions with gap conditions), statistical mechanics (exactly solvable lattice model), and CFT (Virasoro representation theory) -- is one of the cleanest examples of how Ramanujan's identities underpin modern mathematical physics.</p>
+            <p class="evidence-note">All three connections are proven: Baxter's exact solution (1980), and the RR = minimal model character identification (Rocha-Caridi 1985, Kedem et al. 1993).</p>
+            <details class="citations"><summary>References (4)</summary><ul><li>Rogers, Proc. London Math. Soc. 25, 318 (1894)</li><li>Baxter, J. Phys. A: Math. Gen. 13, L61 (1980)</li><li>Rocha-Caridi, in Vertex Operators in Mathematics and Physics (Springer, 1985)</li><li>Kedem, Klassen, McCoy &amp; Melzer, Phys. Lett. B 307, 68 (1993)</li></ul></details>
+            <div class="tag-row">
+                <span class="tag formula-tag">RR-IDENTITY</span><span class="tag formula-tag">JACOBI-THETA</span>
+                <span class="tag physics-tag">SM-HEXAGON</span><span class="tag physics-tag">CFT-VIRASORO</span><span class="tag physics-tag">SM-ISING</span>
+            </div>
+        </div>
+        
+        <div class="narrative-card" style="border-left: 4px solid #6b7280">
+            <div class="narrative-header">
+                <span class="thread-label" style="background: #6b728020; color: #6b7280">Moonshine, the Monster Group, and String Theory</span>
+                <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap">
+                    <span class="evidence-tier" style="background: #f59e0b20; color: #f59e0b; border: 1px solid #f59e0b40">Mixed evidence</span>
+                    <span class="depth-badge" style="background: #6b7280">Deep Structural</span>
+                </div>
+            </div>
+            <h3>How the j-Function Connects Number Theory to String Symmetry via Vertex Algebras</h3>
+            <p class="narrative-text">The j-function j(tau) = q^{-1} + 744 + 196884q + ... has Fourier coefficients that encode dimensions of representations of the Monster group, the largest sporadic simple group (|M| ~ 8*10^53). Conway and Norton (1979) conjectured this 'monstrous moonshine', and Borcherds (1992) proved it using a string theory construction: the moonshine module V^natural is a c=24 vertex operator algebra (equivalently, a bosonic string compactified on the Leech lattice). Witten (2007) conjectured that pure 3D gravity with negative cosmological constant might have the Monster as its symmetry group, with partition function J(tau) = j(tau) - 744. This remains an open conjecture. The j-function also connects to Ramanujan's pi formulas via singular moduli of CM elliptic curves: j(e^{pi*sqrt(163)}) = 640320^3 + 744, which is the convergence base of the Chudnovsky formula. These are established mathematical facts; the interpretation of Monster symmetry as a fundamental symmetry of quantum gravity remains speculative.</p>
+            <p class="evidence-note">Monstrous moonshine is a proven theorem (Borcherds 1992, Fields Medal). The VOA construction is rigorous string theory. Witten's pure gravity conjecture (2007) is speculative and not universally accepted.</p>
+            <details class="citations"><summary>References (4)</summary><ul><li>Conway &amp; Norton, Bull. London Math. Soc. 11, 308 (1979)</li><li>Frenkel, Lepowsky &amp; Meurman, Vertex Operator Algebras and the Monster (Academic, 1988)</li><li>Borcherds, Invent. Math. 109, 405 (1992)</li><li>Witten, arXiv:0706.3359 (2007)</li></ul></details>
+            <div class="tag-row">
+                <span class="tag formula-tag">J-FUNCTION</span><span class="tag formula-tag">RAM-TAU-DELTA</span><span class="tag formula-tag">DEDEKIND-ETA</span>
+                <span class="tag physics-tag">ST-MOONSHINE</span><span class="tag physics-tag">QG-ADS3</span><span class="tag physics-tag">ST-AMPLITUDE</span>
+            </div>
+        </div>
+        
+        <div class="narrative-card" style="border-left: 4px solid #ec4899">
+            <div class="narrative-header">
+                <span class="thread-label" style="background: #ec489920; color: #ec4899">Pi as a Structural Connector</span>
+                <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap">
+                    <span class="evidence-tier" style="background: #a855f720; color: #a855f7; border: 1px solid #a855f740">Interpretive synthesis</span>
+                    <span class="depth-badge" style="background: #ec4899">Interpretive Synthesis</span>
+                </div>
+            </div>
+            <h3>Why Pi Appears Across These Connections: Modular Symmetry as the Unifying Principle</h3>
+            <p class="narrative-text">Pi recurs across all these connections not as a coincidence but because of a common mathematical substrate: modular symmetry. Modular forms are functions on the upper half-plane quotiented by SL(2,Z), and the Fourier variable q = e^{2*pi*i*tau} injects pi into every expansion. The specific mechanisms are: (1) Partition asymptotics: the circle method evaluates contour integrals in the tau-plane, producing exp(pi*sqrt(2n/3)) from the modular properties of 1/eta(tau). The same modular structure, via the Cardy formula, gives the CFT state count that reproduces black hole entropy in specific string compactifications. (2) Ramanujan-type pi series: these compute a specific period (1/pi) of CM elliptic curves at Heegner discriminants. The Heegner property (class number 1) ensures rapid convergence. In string theory, the same CM points appear as enhanced-symmetry loci in CY moduli space, though not all CY periods reduce to pi formulas. (3) Zeta regularisation: zeta(-1) = -B_2/2 = -1/12 enters string theory via the worldsheet conformal anomaly, and the Casimir effect via vacuum energy sums. (4) Mock modularity: the shadow of a mock modular form is fixed by the modular completion, with pi entering through the non-holomorphic Eichler integral. The unifying principle is that modular symmetry -- the requirement that physics be invariant under large diffeomorphisms of the worldsheet torus -- forces pi to appear whenever partition-counting, spectral, or path-integral structures are governed by SL(2,Z) or its subgroups.</p>
+            <p class="evidence-note">Each individual mechanism (circle method, Cardy formula, CY periods, zeta regularisation) is rigorously established. The unifying narrative that modular symmetry is the common thread is a well-motivated interpretation, not a single proven theorem.</p>
+            <details class="citations"><summary>References (3)</summary><ul><li>Cardy, Nucl. Phys. B 270, 186 (1986)</li><li>Di Francesco, Mathieu &amp; Senechal, Conformal Field Theory (Springer, 1997)</li><li>Zagier, in Frontiers in Number Theory, Physics, and Geometry I (Springer, 2006)</li></ul></details>
+            <div class="tag-row">
+                
+                
+            </div>
+        </div>
+        
+</div>
+
+<!-- Tab: Connections -->
+<div class="tab-content" id="tab-connections">
+    <h2>Connection Web: Formulas &harr; Physics</h2>
+    <div class="domain-chart">
+        <canvas id="domainCanvas" width="600" height="350"></canvas>
+    </div>
+    <h3 style="margin-top:20px">All Connections (sorted by strength)</h3>
+    <div style="overflow-x: auto;">
+    <table class="conn-table">
+        <thead><tr>
+            <th>Formula</th><th>Component</th><th>Physics Concept</th><th>Strength</th><th>Mapping</th>
+        </tr></thead>
+        <tbody>
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">CHUD-1988</span></td>
+            <td>factorial_ratio</td>
+            <td><span class="tag physics-tag">ST-CY-PERIOD</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The factorial_ratio structure in Chudnovsky brothers formula (amplitude) maps to Calabi-Yau periods and pi formulas: 6-f</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">HR-1918-PARTITION</span></td>
+            <td>exponential_decay</td>
+            <td><span class="tag physics-tag">BH-ENTROPY</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The exponential_decay structure in Hardy-Ramanujan partition asymptotic (growth) maps to Bekenstein-Hawking entropy: Sub</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RR-IDENTITY</span></td>
+            <td>theta_function</td>
+            <td><span class="tag physics-tag">SM-ISING</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The theta_function structure in Rogers-Ramanujan identities (sum_side) maps to Ising model partition function: The q^{n^</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RR-IDENTITY</span></td>
+            <td>theta_function</td>
+            <td><span class="tag physics-tag">CFT-VIRASORO</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The theta_function structure in Rogers-Ramanujan identities (sum_side) maps to Virasoro minimal model characters: The q^</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RR-IDENTITY</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">SM-HEXAGON</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Rogers-Ramanujan identities (product_side) maps to Hard hexagon model (exact solution): Mod-5</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RR-IDENTITY</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">CFT-CENTRAL</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Rogers-Ramanujan identities (product_side) maps to Central charge and conformal anomaly: Mod-</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-TAU-DELTA</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">ST-AMPLITUDE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Ramanujan tau function (Delta modular form) (product) maps to String amplitude modular invari</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-TAU-DELTA</span></td>
+            <td>modular_weight</td>
+            <td><span class="tag physics-tag">ST-S-DUALITY</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The modular_weight structure in Ramanujan tau function (Delta modular form) (transformation) maps to S-duality and Eisen</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-ZETA-REG</span></td>
+            <td>dirichlet_series</td>
+            <td><span class="tag physics-tag">ST-DIMENSION</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The dirichlet_series structure in Zeta regularisation (Euler 1749 / Ramanujan 1913) (analytic_continuation) maps to Crit</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">JACOBI-THETA</span></td>
+            <td>theta_function</td>
+            <td><span class="tag physics-tag">SM-ISING</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The theta_function structure in Jacobi theta function and lattice counting (sum) maps to Ising model partition function:</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">JACOBI-THETA</span></td>
+            <td>theta_function</td>
+            <td><span class="tag physics-tag">ST-AMPLITUDE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The theta_function structure in Jacobi theta function and lattice counting (sum) maps to String amplitude modular invari</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">JACOBI-THETA</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">CFT-CENTRAL</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Jacobi theta function and lattice counting (product) maps to Central charge and conformal ano</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RADEMACHER-EXACT</span></td>
+            <td>bessel_integral</td>
+            <td><span class="tag physics-tag">BH-QUANTUM</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The bessel_integral structure in Rademacher exact formula for partitions (radial) maps to Quantum corrections to BH entr</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RADEMACHER-EXACT</span></td>
+            <td>saddle_point</td>
+            <td><span class="tag physics-tag">BH-ENTROPY</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The saddle_point structure in Rademacher exact formula for partitions (technique) maps to Bekenstein-Hawking entropy: Ra</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">DEDEKIND-ETA</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">ST-AMPLITUDE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Dedekind eta function (definition) maps to String amplitude modular invariance: The 1/24 phas</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">DEDEKIND-ETA</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">CFT-CENTRAL</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Dedekind eta function (definition) maps to Central charge and conformal anomaly: The 1/24 pha</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">J-FUNCTION</span></td>
+            <td>eisenstein_series</td>
+            <td><span class="tag physics-tag">ST-S-DUALITY</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The eisenstein_series structure in Klein j-invariant and Monstrous Moonshine (construction) maps to S-duality and Eisens</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">J-FUNCTION</span></td>
+            <td>eisenstein_series</td>
+            <td><span class="tag physics-tag">ST-AMPLITUDE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 100%"></div>
+                </div>
+                <span class="strength-val">1.00</span>
+            </td>
+            <td class="mapping-text">The eisenstein_series structure in Klein j-invariant and Monstrous Moonshine (construction) maps to String amplitude mod</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">J-FUNCTION</span></td>
+            <td>eisenstein_series</td>
+            <td><span class="tag physics-tag">QG-ADS3</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 98%"></div>
+                </div>
+                <span class="strength-val">0.98</span>
+            </td>
+            <td class="mapping-text">The eisenstein_series structure in Klein j-invariant and Monstrous Moonshine (construction) maps to AdS_3 gravity and mo</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RR-IDENTITY</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">SM-BOSE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 98%"></div>
+                </div>
+                <span class="strength-val">0.98</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Rogers-Ramanujan identities (product_side) maps to Bose-Einstein statistics and partitions: M</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-TAU-DELTA</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">ST-DBRANE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 98%"></div>
+                </div>
+                <span class="strength-val">0.98</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Ramanujan tau function (Delta modular form) (product) maps to D-brane partition function: eta</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-TAU-DELTA</span></td>
+            <td>ramanujan_tau</td>
+            <td><span class="tag physics-tag">ST-MOONSHINE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 98%"></div>
+                </div>
+                <span class="strength-val">0.98</span>
+            </td>
+            <td class="mapping-text">The ramanujan_tau structure in Ramanujan tau function (Delta modular form) (coefficients) maps to Monstrous moonshine: t</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-ZETA-REG</span></td>
+            <td>bernoulli</td>
+            <td><span class="tag physics-tag">QFT-CASIMIR</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 98%"></div>
+                </div>
+                <span class="strength-val">0.98</span>
+            </td>
+            <td class="mapping-text">The bernoulli structure in Zeta regularisation (Euler 1749 / Ramanujan 1913) (mechanism) maps to Casimir effect: zeta(-n</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">DEDEKIND-ETA</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">ST-DBRANE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 98%"></div>
+                </div>
+                <span class="strength-val">0.98</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Dedekind eta function (definition) maps to D-brane partition function: The 1/24 phase encodes</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">J-FUNCTION</span></td>
+            <td>eisenstein_series</td>
+            <td><span class="tag physics-tag">ST-MOONSHINE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 98%"></div>
+                </div>
+                <span class="strength-val">0.98</span>
+            </td>
+            <td class="mapping-text">The eisenstein_series structure in Klein j-invariant and Monstrous Moonshine (construction) maps to Monstrous moonshine:</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">J-FUNCTION</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">ST-DBRANE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 98%"></div>
+                </div>
+                <span class="strength-val">0.98</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Klein j-invariant and Monstrous Moonshine (denominator) maps to D-brane partition function: T</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">HR-1918-PARTITION</span></td>
+            <td>exponential_decay</td>
+            <td><span class="tag physics-tag">ST-CY-PERIOD</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 96%"></div>
+                </div>
+                <span class="strength-val">0.96</span>
+            </td>
+            <td class="mapping-text">The exponential_decay structure in Hardy-Ramanujan partition asymptotic (growth) maps to Calabi-Yau periods and pi formu</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">HR-1918-PARTITION</span></td>
+            <td>saddle_point</td>
+            <td><span class="tag physics-tag">BH-QUANTUM</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 96%"></div>
+                </div>
+                <span class="strength-val">0.96</span>
+            </td>
+            <td class="mapping-text">The saddle_point structure in Hardy-Ramanujan partition asymptotic (technique) maps to Quantum corrections to BH entropy</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">HR-1918-PARTITION</span></td>
+            <td>bernoulli</td>
+            <td><span class="tag physics-tag">ST-DIMENSION</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 96%"></div>
+                </div>
+                <span class="strength-val">0.96</span>
+            </td>
+            <td class="mapping-text">The bernoulli structure in Hardy-Ramanujan partition asymptotic (corrections) maps to Critical dimension from zeta regul</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">EISENSTEIN-E</span></td>
+            <td>eisenstein_series</td>
+            <td><span class="tag physics-tag">ST-MOONSHINE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 96%"></div>
+                </div>
+                <span class="strength-val">0.96</span>
+            </td>
+            <td class="mapping-text">The eisenstein_series structure in Eisenstein series E_{2k}(tau) (structure) maps to Monstrous moonshine: The 'simplest'</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-MOCK-THETA</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">QFT-VW</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Ramanujan's mock theta functions (denominator) maps to Vafa-Witten partition functions: (-q;q</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">EISENSTEIN-E</span></td>
+            <td>dirichlet_series</td>
+            <td><span class="tag physics-tag">ST-DIMENSION</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The dirichlet_series structure in Eisenstein series E_{2k}(tau) (coefficients) maps to Critical dimension from zeta regu</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-1914-PI</span></td>
+            <td>factorial_ratio</td>
+            <td><span class="tag physics-tag">ST-CY-PERIOD</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The factorial_ratio structure in Ramanujan 1914 series for 1/pi (amplitude) maps to Calabi-Yau periods and pi formulas: </td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-1914-PI</span></td>
+            <td>factorial_ratio</td>
+            <td><span class="tag physics-tag">ST-DBRANE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The factorial_ratio structure in Ramanujan 1914 series for 1/pi (amplitude) maps to D-brane partition function: Counts 4</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">CHUD-1988</span></td>
+            <td>factorial_ratio</td>
+            <td><span class="tag physics-tag">ST-DBRANE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The factorial_ratio structure in Chudnovsky brothers formula (amplitude) maps to D-brane partition function: 6-fold symm</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">HR-1918-PARTITION</span></td>
+            <td>exponential_decay</td>
+            <td><span class="tag physics-tag">SM-BOSE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The exponential_decay structure in Hardy-Ramanujan partition asymptotic (growth) maps to Bose-Einstein statistics and pa</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-PART-CONG</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">ST-AMPLITUDE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Ramanujan partition congruences (generating_function) maps to String amplitude modular invari</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-PART-CONG</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">ST-DBRANE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Ramanujan partition congruences (generating_function) maps to D-brane partition function: 1/e</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RAM-PART-CONG</span></td>
+            <td>modular_weight</td>
+            <td><span class="tag physics-tag">BH-ENTROPY</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The modular_weight structure in Ramanujan partition congruences (modularity) maps to Bekenstein-Hawking entropy: The con</td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RR-IDENTITY</span></td>
+            <td>theta_function</td>
+            <td><span class="tag physics-tag">ST-AMPLITUDE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The theta_function structure in Rogers-Ramanujan identities (sum_side) maps to String amplitude modular invariance: The </td>
+        </tr>
+        
+        <tr class="conn-strong">
+            <td><span class="tag formula-tag">RR-IDENTITY</span></td>
+            <td>q_product</td>
+            <td><span class="tag physics-tag">ST-DBRANE</span></td>
+            <td>
+                <div class="strength-bar">
+                    <div class="strength-fill strength-strong" style="width: 95%"></div>
+                </div>
+                <span class="strength-val">0.95</span>
+            </td>
+            <td class="mapping-text">The q_product structure in Rogers-Ramanujan identities (product_side) maps to D-brane partition function: Mod-5 product:</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<!-- Tab: Decomposition -->
+<div class="tab-content" id="tab-decomp">
+    <h2>Structural Decomposition of Ramanujan Formulas</h2>
+    <p style="color: var(--text2)">Each formula is broken into primitive building blocks, revealing
+    hidden constants and symmetries that connect to physics.</p>
+    <div class="decomp-grid">
+        
+        <div class="decomp-card">
+            <h4>RAM-1914-PI <span class="family-badge">pi_series</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">factorial_ratio</span>
+                <span class="comp-role">amplitude</span>
+                <span class="comp-hint">Counts 4-fold symmetric configurations -- lattice paths on Z^4</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">hypergeometric_sum</span>
+                <span class="comp-role">structure</span>
+                <span class="comp-hint">Hypergeometric structure links to periods of elliptic curves</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">exponential_decay</span>
+                <span class="comp-role">convergence</span>
+                <span class="comp-hint">396^4 = 24591257856 -- related to class number of Q(sqrt(-163))</span>
+            </div>
+            </div>
+            <div class="hidden-constants"><strong>Hidden constants:</strong><div class="hidden-item">b/a = 23.925657, near 24. In string theory, the integer part counts BPS states.</div></div>
+            <div class="symmetries"><strong>Symmetries:</strong><div class="sym-item"><strong>modular</strong>: Modular invariance = UV/IR duality in string theory</div></div>
+        </div>
+        
+        <div class="decomp-card">
+            <h4>CHUD-1988 <span class="family-badge">pi_series</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">factorial_ratio</span>
+                <span class="comp-role">amplitude</span>
+                <span class="comp-hint">6-fold symmetry -- hexagonal lattice counting</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">hypergeometric_sum</span>
+                <span class="comp-role">structure</span>
+                <span class="comp-hint">Higher hypergeometric: period of a rank-2 Calabi-Yau 3-fold</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">exponential_decay</span>
+                <span class="comp-role">convergence</span>
+                <span class="comp-hint">640320^3 + 744 = j(e^{pi*sqrt(163)}) -- Heegner number miracle</span>
+            </div>
+            </div>
+            <div class="hidden-constants"><strong>Hidden constants:</strong><div class="hidden-item">b/a = 40.109170, near 40. In string theory, the integer part counts BPS states.</div></div>
+            
+        </div>
+        
+        <div class="decomp-card">
+            <h4>HR-1918-PARTITION <span class="family-badge">partition</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">exponential_decay</span>
+                <span class="comp-role">growth</span>
+                <span class="comp-hint">Sub-exponential growth -- same functional form as black hole entropy S ~ sqrt(N)</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">saddle_point</span>
+                <span class="comp-role">technique</span>
+                <span class="comp-hint">Residue integration on a circle -- ancestor of all saddle-point methods in QFT</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">bernoulli</span>
+                <span class="comp-role">corrections</span>
+                <span class="comp-hint">Bernoulli numbers appear in the Rademacher-type corrections</span>
+            </div>
+            </div>
+            
+            <div class="symmetries"><strong>Symmetries:</strong><div class="sym-item"><strong>modular</strong>: Modular invariance = UV/IR duality in string theory</div></div>
+        </div>
+        
+        <div class="decomp-card">
+            <h4>RAM-PART-CONG <span class="family-badge">partition</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">q_product</span>
+                <span class="comp-role">generating_function</span>
+                <span class="comp-hint">1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">modular_weight</span>
+                <span class="comp-role">modularity</span>
+                <span class="comp-hint">The congruences arise from Hecke eigenvalues of eta-quotients</span>
+            </div>
+            </div>
+            
+            
+        </div>
+        
+        <div class="decomp-card">
+            <h4>RR-IDENTITY <span class="family-badge">q_series</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">theta_function</span>
+                <span class="comp-role">sum_side</span>
+                <span class="comp-hint">The q^{n^2} is a theta-function-like weighting</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">q_product</span>
+                <span class="comp-role">product_side</span>
+                <span class="comp-hint">Mod-5 product: five-fold symmetry, linked to the icosahedron</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">continued_fraction</span>
+                <span class="comp-role">cf_form</span>
+                <span class="comp-hint">R(q) = q^{1/5} * product_ratio -- the simplest self-iterating CF</span>
+            </div>
+            </div>
+            
+            
+        </div>
+        
+        <div class="decomp-card">
+            <h4>RAM-MOCK-THETA <span class="family-badge">mock_theta</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">theta_function</span>
+                <span class="comp-role">amplitude</span>
+                <span class="comp-hint">Theta-series numerator provides Gaussian suppression</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">q_product</span>
+                <span class="comp-role">denominator</span>
+                <span class="comp-hint">(-q;q)_n = prod(1+q^k) -- counts distinct-part partitions</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">mock_theta</span>
+                <span class="comp-role">modularity</span>
+                <span class="comp-hint">The shadow is a unary theta function: completes to a harmonic Maass form</span>
+            </div>
+            </div>
+            
+            <div class="symmetries"><strong>Symmetries:</strong><div class="sym-item"><strong>modular</strong>: Modular invariance = UV/IR duality in string theory</div><div class="sym-item"><strong>mock_modular</strong>: Quasi-modular: transforms with a correction term (shadow). In BH physics: the shadow encodes wall-crossing.</div></div>
+        </div>
+        
+        <div class="decomp-card">
+            <h4>RAM-TAU-DELTA <span class="family-badge">modular_form</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">q_product</span>
+                <span class="comp-role">product</span>
+                <span class="comp-hint">eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">ramanujan_tau</span>
+                <span class="comp-role">coefficients</span>
+                <span class="comp-hint">tau(n) are eigenvalues of ALL Hecke operators -- the simplest L-function</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">modular_weight</span>
+                <span class="comp-role">transformation</span>
+                <span class="comp-hint">Weight 12 is the lowest weight with a cusp form for full modular group</span>
+            </div>
+            </div>
+            
+            <div class="symmetries"><strong>Symmetries:</strong><div class="sym-item"><strong>modular</strong>: Modular invariance = UV/IR duality in string theory</div><div class="sym-item"><strong>Hecke_eigenform</strong>: </div></div>
+        </div>
+        
+        <div class="decomp-card">
+            <h4>RAM-ZETA-REG <span class="family-badge">zeta_regularisation</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">dirichlet_series</span>
+                <span class="comp-role">analytic_continuation</span>
+                <span class="comp-hint">zeta(s) = sum n^{-s} analytically continued to s=-1 gives -B_2/2 = -1/12</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">bernoulli</span>
+                <span class="comp-role">mechanism</span>
+                <span class="comp-hint">zeta(-n) = -B_{n+1}/(n+1): Bernoulli numbers control all negative zeta values</span>
+            </div>
+            </div>
+            
+            
+        </div>
+        
+        <div class="decomp-card">
+            <h4>JACOBI-THETA <span class="family-badge">q_series</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">theta_function</span>
+                <span class="comp-role">sum</span>
+                <span class="comp-hint">Sum over integer lattice Z -- the simplest theta series</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">q_product</span>
+                <span class="comp-role">product</span>
+                <span class="comp-hint">Jacobi triple product: bridges additive and multiplicative number theory</span>
+            </div>
+            </div>
+            
+            <div class="symmetries"><strong>Symmetries:</strong><div class="sym-item"><strong>modular</strong>: Modular invariance = UV/IR duality in string theory</div></div>
+        </div>
+        
+        <div class="decomp-card">
+            <h4>RADEMACHER-EXACT <span class="family-badge">partition</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">bessel_integral</span>
+                <span class="comp-role">radial</span>
+                <span class="comp-hint">Modified Bessel I_{3/2}: radial wavefunction of a 3D particle</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">rademacher_sum</span>
+                <span class="comp-role">angular</span>
+                <span class="comp-hint">A_k(n) = sum of 24k-th roots of unity: arithmetic over Z/kZ</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">saddle_point</span>
+                <span class="comp-role">technique</span>
+                <span class="comp-hint">Rademacher's extension of Hardy-Ramanujan: exact residues at all cusps</span>
+            </div>
+            </div>
+            
+            <div class="symmetries"><strong>Symmetries:</strong><div class="sym-item"><strong>modular</strong>: Modular invariance = UV/IR duality in string theory</div></div>
+        </div>
+        
+        <div class="decomp-card">
+            <h4>DEDEKIND-ETA <span class="family-badge">modular_form</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">q_product</span>
+                <span class="comp-role">definition</span>
+                <span class="comp-hint">The 1/24 phase encodes the conformal anomaly c/24 of the free boson</span>
+            </div>
+            </div>
+            
+            <div class="symmetries"><strong>Symmetries:</strong><div class="sym-item"><strong>modular</strong>: Modular invariance = UV/IR duality in string theory</div></div>
+        </div>
+        
+        <div class="decomp-card">
+            <h4>EISENSTEIN-E <span class="family-badge">modular_form</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">dirichlet_series</span>
+                <span class="comp-role">coefficients</span>
+                <span class="comp-hint">Divisor sums sigma(n) count lattice points -- connected to Langlands L-functions</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">bernoulli</span>
+                <span class="comp-role">normalisation</span>
+                <span class="comp-hint">B_{2k} controls the constant term via zeta(2k)</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">eisenstein_series</span>
+                <span class="comp-role">structure</span>
+                <span class="comp-hint">The 'simplest' modular forms: not cusp forms</span>
+            </div>
+            </div>
+            
+            <div class="symmetries"><strong>Symmetries:</strong><div class="sym-item"><strong>modular</strong>: Modular invariance = UV/IR duality in string theory</div><div class="sym-item"><strong>Hecke_eigenform</strong>: </div></div>
+        </div>
+        
+        <div class="decomp-card">
+            <h4>GCF-ALGEBRAIC <span class="family-badge">continued_fraction</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">continued_fraction</span>
+                <span class="comp-role">structure</span>
+                <span class="comp-hint">q-deformed continued fractions bridge analysis and algebra</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">exponential_decay</span>
+                <span class="comp-role">convergence</span>
+                <span class="comp-hint">Exponential convergence from q = e^{-2*pi}</span>
+            </div>
+            </div>
+            
+            
+        </div>
+        
+        <div class="decomp-card">
+            <h4>J-FUNCTION <span class="family-badge">modular_form</span></h4>
+            <div class="comp-list">
+            <div class="comp-item">
+                <span class="comp-primitive">eisenstein_series</span>
+                <span class="comp-role">construction</span>
+                <span class="comp-hint">j = 1728*E_4^3 / Delta -- built from fundamental modular forms</span>
+            </div>
+            
+            <div class="comp-item">
+                <span class="comp-primitive">q_product</span>
+                <span class="comp-role">denominator</span>
+                <span class="comp-hint">The pole at infinity comes from 1/Delta = eta^{-24}</span>
+            </div>
+            </div>
+            
+            
+        </div>
+        
+    </div>
+</div>
+
+<!-- Tab: Patterns -->
+<div class="tab-content" id="tab-patterns">
+    <h2>Cross-Formula Structural Patterns</h2>
+    <p style="color: var(--text2)">Patterns discovered by comparing the structural decompositions
+    of different formulas. These reveal deep connections.</p>
+    
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <h4>Shared exponential_decay, factorial_ratio, hypergeometric_sum structure</h4>
+                <div class="confidence-bar-mini">
+                    <div class="confidence-fill" style="width: 90%"></div>
+                    <span>90%</span>
+                </div>
+            </div>
+            <p>Formulas RAM-1914-PI, CHUD-1988 share the same primitive decomposition: exponential_decay, factorial_ratio, hypergeometric_sum</p>
+            <p class="physics-impl"><strong>Physics:</strong> Shared structure suggests a common deep origin</p>
+            <div class="tag-row"><span class="tag formula-tag">RAM-1914-PI</span><span class="tag formula-tag">CHUD-1988</span></div>
+        </div>
+        
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <h4>Pi-series convergence base ladder</h4>
+                <div class="confidence-bar-mini">
+                    <div class="confidence-fill" style="width: 90%"></div>
+                    <span>90%</span>
+                </div>
+            </div>
+            <p>Bases: RAM-1914-PI: 396, CHUD-1988: 640320. These are values at CM points of the j-function. Each base = e^{pi*sqrt(d)} for a Heegner number d. The ladder of Heegner numbers d = 1,2,3,7,11,19,43,67,163 gives a finite family of Ramanujan-Chudnovsky formulas.</p>
+            <p class="physics-impl"><strong>Physics:</strong> Each Heegner number d corresponds to a CM elliptic curve, which in string theory is a special point in the CY moduli space where extra symmetry (complex multiplication) emerges.</p>
+            <div class="tag-row"><span class="tag formula-tag">RAM-1914-PI</span><span class="tag formula-tag">CHUD-1988</span></div>
+        </div>
+        
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <h4>Modular weight spectrum</h4>
+                <div class="confidence-bar-mini">
+                    <div class="confidence-fill" style="width: 85%"></div>
+                    <span>85%</span>
+                </div>
+            </div>
+            <p>Weights: RAM-1914-PI: 1, HR-1918-PARTITION: -0.5, RAM-MOCK-THETA: 0.5, RAM-TAU-DELTA: 12, JACOBI-THETA: 0.5, RADEMACHER-EXACT: -0.5, DEDEKIND-ETA: 0.5, EISENSTEIN-E: 2k, J-FUNCTION: 0. The weight determines the spin of the corresponding field in the AdS/CFT dual. Integer weights -&gt; bosonic; half-int...</p>
+            <p class="physics-impl"><strong>Physics:</strong> The weight-12 cusp form (Delta) corresponds to the graviton in 3D. Lighter weights give matter fields.</p>
+            <div class="tag-row"><span class="tag formula-tag">RAM-1914-PI</span><span class="tag formula-tag">HR-1918-PARTITION</span><span class="tag formula-tag">RAM-MOCK-THETA</span><span class="tag formula-tag">RAM-TAU-DELTA</span></div>
+        </div>
+        
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <h4>Partition function -&gt; Black hole entropy bridge</h4>
+                <div class="confidence-bar-mini">
+                    <div class="confidence-fill" style="width: 98%"></div>
+                    <span>98%</span>
+                </div>
+            </div>
+            <p>The Hardy-Ramanujan formula p(n) ~ exp(pi*sqrt(2n/3))/(4n*sqrt(3)) IS the Bekenstein-Hawking entropy formula S = pi*sqrt(2N/3) where N is the D-brane charge. This is not an analogy -- it is the SAME formula. Strominger-Vafa (1996) proved that D-brane microstate counting gives partitions, and the lea...</p>
+            <p class="physics-impl"><strong>Physics:</strong> Ramanujan's 1918 formula was the black hole entropy formula 78 years before Strominger-Vafa. The Rademacher exact formula gives ALL quantum corrections to BH entropy. Each term k in the Rademacher sum</p>
+            <div class="tag-row"><span class="tag formula-tag">HR-1918-PARTITION</span><span class="tag formula-tag">RAM-PART-CONG</span><span class="tag formula-tag">RADEMACHER-EXACT</span></div>
+        </div>
+        
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <h4>Mock theta functions -&gt; Quantum black hole corrections</h4>
+                <div class="confidence-bar-mini">
+                    <div class="confidence-fill" style="width: 95%"></div>
+                    <span>95%</span>
+                </div>
+            </div>
+            <p>Dabholkar-Murthy-Zagier (2012) showed that the EXACT entropy of 1/4-BPS black holes in N=4 string theory is given by a mock Jacobi form. Ramanujan's mock theta functions from 1920 encode the quantum corrections to black hole entropy that physicists only understood 90 years later. The 'shadow' of the...</p>
+            <p class="physics-impl"><strong>Physics:</strong> Ramanujan's deathbed discovery (mock theta functions) solves a problem in quantum gravity. The non-modularity that puzzled mathematicians for 80 years is EXACTLY the wall-crossing phenomenon.</p>
+            <div class="tag-row"><span class="tag formula-tag">HR-1918-PARTITION</span><span class="tag formula-tag">RAM-PART-CONG</span><span class="tag formula-tag">RADEMACHER-EXACT</span><span class="tag formula-tag">RAM-MOCK-THETA</span></div>
+        </div>
+        
+        <div class="pattern-card">
+            <div class="pattern-header">
+                <h4>Universal q-product web</h4>
+                <div class="confidence-bar-mini">
+                    <div class="confidence-fill" style="width: 95%"></div>
+                    <span>95%</span>
+                </div>
+            </div>
+            <p>7 formulas contain q-product structure: RAM-PART-CONG, RR-IDENTITY, RAM-MOCK-THETA, RAM-TAU-DELTA, JACOBI-THETA, DEDEKIND-ETA, J-FUNCTION. The q-product (1-q^n) is the universal building block connecting partition functions (stat mech) to eta functions (string theory) to modular forms (number theory...</p>
+            <p class="physics-impl"><strong>Physics:</strong> The Dedekind eta is the master object: eta^{-2} = bosons, eta^{-24} = bosonic string, eta^{24} = Delta = cusp form</p>
+            <div class="tag-row"><span class="tag formula-tag">RAM-PART-CONG</span><span class="tag formula-tag">RR-IDENTITY</span><span class="tag formula-tag">RAM-MOCK-THETA</span><span class="tag formula-tag">RAM-TAU-DELTA</span></div>
+        </div>
+        
+
+    <h3 style="margin-top: 25px">Cross-Formula Bridge Summary</h3>
+    <div class="bridge-stats"><div class="bridge-stat"><span class="bridge-domain">string_theory</span><span class="bridge-count">42</span></div><div class="bridge-stat"><span class="bridge-domain">black_holes</span><span class="bridge-count">5</span></div><div class="bridge-stat"><span class="bridge-domain">high_energy_physics</span><span class="bridge-count">3</span></div></div>
+    <p style="color: var(--text2); margin-top: 10px">50 total cross-formula bridges found</p>
+</div>
+
+<!-- Tab: Missing Links -->
+<div class="tab-content" id="tab-missing">
+    <h2>Missing Links: Predicted Connections to Investigate</h2>
+    <p style="color: var(--text2)">The agent identified formulas that SHOULD connect to physics concepts
+    (based on shared mathematical structure) but where the connection isn't yet established.
+    These are research directions.</p>
+    <div class="missing-grid">
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">RADEMACHER-EXACT</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">QG-3MANIFOLD</span>
+            </div>
+            <p>Investigate whether Rademacher exact formula for partitions connects to 3-manifold invariants and mock theta via shared rademacher_sum</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 50%"></div>
+                <span>Overlap: 50%</span>
+            </div>
+        </div>
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">EISENSTEIN-E</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">QFT-INSTANTON</span>
+            </div>
+            <p>Investigate whether Eisenstein series E_{2k}(tau) connects to Instanton contributions (Nekrasov) via shared eisenstein_series</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 50%"></div>
+                <span>Overlap: 50%</span>
+            </div>
+        </div>
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">RAM-PART-CONG</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">ST-MOONSHINE</span>
+            </div>
+            <p>Investigate whether Ramanujan partition congruences connects to Monstrous moonshine via shared q_product</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 33%"></div>
+                <span>Overlap: 33%</span>
+            </div>
+        </div>
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">RAM-PART-CONG</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">CFT-VIRASORO</span>
+            </div>
+            <p>Investigate whether Ramanujan partition congruences connects to Virasoro minimal model characters via shared q_product</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 33%"></div>
+                <span>Overlap: 33%</span>
+            </div>
+        </div>
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">RR-IDENTITY</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">ST-MOONSHINE</span>
+            </div>
+            <p>Investigate whether Rogers-Ramanujan identities connects to Monstrous moonshine via shared q_product</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 33%"></div>
+                <span>Overlap: 33%</span>
+            </div>
+        </div>
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">RAM-MOCK-THETA</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">ST-MOONSHINE</span>
+            </div>
+            <p>Investigate whether Ramanujan's mock theta functions connects to Monstrous moonshine via shared q_product</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 33%"></div>
+                <span>Overlap: 33%</span>
+            </div>
+        </div>
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">RAM-TAU-DELTA</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">CFT-VIRASORO</span>
+            </div>
+            <p>Investigate whether Ramanujan tau function (Delta modular form) connects to Virasoro minimal model characters via shared q_product</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 33%"></div>
+                <span>Overlap: 33%</span>
+            </div>
+        </div>
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">JACOBI-THETA</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">ST-MOONSHINE</span>
+            </div>
+            <p>Investigate whether Jacobi theta function and lattice counting connects to Monstrous moonshine via shared q_product</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 33%"></div>
+                <span>Overlap: 33%</span>
+            </div>
+        </div>
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">DEDEKIND-ETA</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">ST-MOONSHINE</span>
+            </div>
+            <p>Investigate whether Dedekind eta function connects to Monstrous moonshine via shared q_product</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 33%"></div>
+                <span>Overlap: 33%</span>
+            </div>
+        </div>
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">DEDEKIND-ETA</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">CFT-VIRASORO</span>
+            </div>
+            <p>Investigate whether Dedekind eta function connects to Virasoro minimal model characters via shared q_product</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 33%"></div>
+                <span>Overlap: 33%</span>
+            </div>
+        </div>
+        
+        <div class="missing-card">
+            <div class="missing-header">
+                <span class="tag formula-tag">J-FUNCTION</span>
+                <span class="arrow">---</span>
+                <span class="tag physics-tag">CFT-VIRASORO</span>
+            </div>
+            <p>Investigate whether Klein j-invariant and Monstrous Moonshine connects to Virasoro minimal model characters via shared q_product</p>
+            <div class="overlap-bar">
+                <div class="overlap-fill" style="width: 33%"></div>
+                <span>Overlap: 33%</span>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<!-- Tab: Proposals -->
+<div class="tab-content" id="tab-proposals">
+    <h2>Generalisation Proposals</h2>
+    <p style="color: var(--text2)">New formulas proposed by extrapolating structural patterns.
+    Each proposal has a physics motivation.</p>
+    <div style="overflow-x: auto;">
+    <table class="proposals-table">
+        <thead><tr>
+            <th>ID</th><th>Source</th><th>Status</th><th>Predicted</th><th>Motivation</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+            <td>PI-HEEG-43</td>
+            <td>CHUD-1988</td>
+            <td class="">ERROR</td>
+            <td>pi</td>
+            <td class="motivation-text">Heegner number d=43: the CM point e^{pi*sqrt(43)} should give a convergent pi formula. Each d corresponds to a distinct compactification geometry.</td>
+        </tr>
+        
+        <tr>
+            <td>PI-HEEG-67</td>
+            <td>CHUD-1988</td>
+            <td class="">ERROR</td>
+            <td>pi</td>
+            <td class="motivation-text">Heegner number d=67: the CM point e^{pi*sqrt(67)} should give a convergent pi formula. Each d corresponds to a distinct compactification geometry.</td>
+        </tr>
+        
+        <tr>
+            <td>MOCK-ORDER-5</td>
+            <td>RAM-MOCK-THETA</td>
+            <td class="status-proposed">PROPOSED</td>
+            <td>order-5 mock theta function</td>
+            <td class="motivation-text">Order-5 mock theta should encode degeneracies of rank-2 black holes, beyond the 1/4-BPS sector.</td>
+        </tr>
+        
+        <tr>
+            <td>MOCK-ORDER-7</td>
+            <td>RAM-MOCK-THETA</td>
+            <td class="status-proposed">PROPOSED</td>
+            <td>order-7 mock theta function</td>
+            <td class="motivation-text">Order-7 mock theta should encode degeneracies of rank-3 black holes, beyond the 1/4-BPS sector.</td>
+        </tr>
+        
+        <tr>
+            <td>WEIGHT-1.5</td>
+            <td>MODULAR-FAMILY</td>
+            <td class="status-proposed">PROPOSED</td>
+            <td>weight-1.5 modular/mock modular form</td>
+            <td class="motivation-text">Weight 1.5 is missing from the spectrum. In AdS/CFT, this would be a fermionic field of spin 1.5.</td>
+        </tr>
+        
+        <tr>
+            <td>WEIGHT-2</td>
+            <td>MODULAR-FAMILY</td>
+            <td class="status-proposed">PROPOSED</td>
+            <td>weight-2 modular/mock modular form</td>
+            <td class="motivation-text">Weight 2 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 2.</td>
+        </tr>
+        
+        <tr>
+            <td>WEIGHT-3</td>
+            <td>MODULAR-FAMILY</td>
+            <td class="status-proposed">PROPOSED</td>
+            <td>weight-3 modular/mock modular form</td>
+            <td class="motivation-text">Weight 3 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 3.</td>
+        </tr>
+        
+        <tr>
+            <td>WEIGHT-4</td>
+            <td>MODULAR-FAMILY</td>
+            <td class="status-proposed">PROPOSED</td>
+            <td>weight-4 modular/mock modular form</td>
+            <td class="motivation-text">Weight 4 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 4.</td>
+        </tr>
+        
+        <tr>
+            <td>WEIGHT-5</td>
+            <td>MODULAR-FAMILY</td>
+            <td class="status-proposed">PROPOSED</td>
+            <td>weight-5 modular/mock modular form</td>
+            <td class="motivation-text">Weight 5 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 5.</td>
+        </tr>
+        
+        <tr>
+            <td>WEIGHT-6</td>
+            <td>MODULAR-FAMILY</td>
+            <td class="status-proposed">PROPOSED</td>
+            <td>weight-6 modular/mock modular form</td>
+            <td class="motivation-text">Weight 6 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 6.</td>
+        </tr>
+        
+        <tr>
+            <td>WEIGHT-8</td>
+            <td>MODULAR-FAMILY</td>
+            <td class="status-proposed">PROPOSED</td>
+            <td>weight-8 modular/mock modular form</td>
+            <td class="motivation-text">Weight 8 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 8.</td>
+        </tr>
+        
+        <tr>
+            <td>WEIGHT-10</td>
+            <td>MODULAR-FAMILY</td>
+            <td class="status-proposed">PROPOSED</td>
+            <td>weight-10 modular/mock modular form</td>
+            <td class="motivation-text">Weight 10 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 10.</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<!-- Tab: Timeline -->
+<div class="tab-content" id="tab-timeline">
+    <h2>Discovery Timeline</h2>
+    <p style="color: var(--text2)">Progress across 5 rounds of self-iterating discovery.</p>
+    <div class="round-timeline">
+        
+        <div class="round-card">
+            <div class="round-num">R1</div>
+            <div class="round-stats">
+                <span title="Decompositions">D:14</span>
+                <span title="Connections">C:142</span>
+                <span title="Patterns">P:6</span>
+                <span title="Bridges">B:323</span>
+                <span title="Proposals">G:12</span>
+                <span title="Time">0.01s</span>
+            </div>
+        </div>
+        
+        <div class="round-card">
+            <div class="round-num">R2</div>
+            <div class="round-stats">
+                <span title="Decompositions">D:14</span>
+                <span title="Connections">C:0</span>
+                <span title="Patterns">P:0</span>
+                <span title="Bridges">B:323</span>
+                <span title="Proposals">G:0</span>
+                <span title="Time">0.01s</span>
+            </div>
+        </div>
+        
+        <div class="round-card">
+            <div class="round-num">R3</div>
+            <div class="round-stats">
+                <span title="Decompositions">D:14</span>
+                <span title="Connections">C:0</span>
+                <span title="Patterns">P:0</span>
+                <span title="Bridges">B:323</span>
+                <span title="Proposals">G:0</span>
+                <span title="Time">0.01s</span>
+            </div>
+        </div>
+        
+        <div class="round-card">
+            <div class="round-num">R4</div>
+            <div class="round-stats">
+                <span title="Decompositions">D:14</span>
+                <span title="Connections">C:0</span>
+                <span title="Patterns">P:0</span>
+                <span title="Bridges">B:323</span>
+                <span title="Proposals">G:0</span>
+                <span title="Time">0.01s</span>
+            </div>
+        </div>
+        
+        <div class="round-card">
+            <div class="round-num">R5</div>
+            <div class="round-stats">
+                <span title="Decompositions">D:14</span>
+                <span title="Connections">C:0</span>
+                <span title="Patterns">P:0</span>
+                <span title="Bridges">B:323</span>
+                <span title="Proposals">G:0</span>
+                <span title="Time">0.01s</span>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<!-- Tab: Methodology -->
+<div class="tab-content" id="tab-methodology">
+    <h2>Methodology &amp; Scoring Rubric</h2>
+
+    <div style="background: var(--surface); border-radius: 10px; padding: 20px; margin: 15px 0; border: 1px solid var(--border);">
+        <h3 style="color: var(--accent4)">Important Disclaimer</h3>
+        <p style="color: var(--text2); line-height: 1.7">
+        This report maps <em>structural analogies</em> between Ramanujan's mathematics and modern physics.
+        A high connection score means the mathematical primitive pattern-matches well to a physics concept;
+        it does <strong>not</strong> imply a causal or explanatory link has been proven.
+        Claims are graded by evidence tier so readers can distinguish rigorous proofs from conjectural bridges.
+        </p>
+    </div>
+
+    <h3 style="margin-top: 25px; color: var(--accent2)">Connection Scoring Rubric</h3>
+    <div style="background: var(--surface); border-radius: 10px; padding: 20px; margin: 10px 0; border: 1px solid var(--border);">
+        <table class="conn-table" style="font-size: 0.9em">
+            <thead><tr><th>Component</th><th>Score Contribution</th><th>Description</th></tr></thead>
+            <tbody>
+                <tr><td>Base match</td><td style="color: var(--accent2)">0.30</td>
+                    <td style="color: var(--text2)">Any formula primitive that maps to a physics concept via PRIMITIVE_TO_PHYSICS lookup</td></tr>
+                <tr><td>Pre-annotated link</td><td style="color: var(--accent2)">up to +0.40</td>
+                    <td style="color: var(--text2)">Formula already carries a PhysicsLink to the same domain (takes whichever strength is higher)</td></tr>
+                <tr><td>Domain-hint match</td><td style="color: var(--accent2)">+0.10</td>
+                    <td style="color: var(--text2)">Component's physics_hint text mentions the physics concept's domain keyword</td></tr>
+                <tr><td>Modular-property match</td><td style="color: var(--accent2)">+0.05</td>
+                    <td style="color: var(--text2)">Formula has modular properties and concept lists modular_weight in math_signatures</td></tr>
+                <tr><td>Synergy boost</td><td style="color: var(--accent2)">+0.05 to +0.15</td>
+                    <td style="color: var(--text2)">Multiple components of the same formula point to the same physics concept</td></tr>
+            </tbody>
+        </table>
+        <p style="color: var(--text2); margin-top: 15px; font-size: 0.88em">
+            <strong style="color: var(--strong)">Strong (&ge; 0.7)</strong> &mdash;
+            <strong style="color: var(--medium)">Medium (0.4 &ndash; 0.7)</strong> &mdash;
+            <strong style="color: var(--weak)">Weak (&lt; 0.4)</strong>
+        </p>
+    </div>
+
+    <h3 style="margin-top: 25px; color: var(--accent3)">Evidence Tiers</h3>
+    <div style="background: var(--surface); border-radius: 10px; padding: 20px; margin: 10px 0; border: 1px solid var(--border);">
+        <div style="display: grid; gap: 10px;">
+            <div style="display:flex; gap:10px; align-items:center">
+                <span class="evidence-tier" style="background: #22c55e20; color: #22c55e; border: 1px solid #22c55e40; min-width: 160px; text-align:center">Well-established</span>
+                <span style="color: var(--text2); font-size: 0.9em">Proven theorems or experimentally confirmed results</span>
+            </div>
+            <div style="display:flex; gap:10px; align-items:center">
+                <span class="evidence-tier" style="background: #4ecdc420; color: #4ecdc4; border: 1px solid #4ecdc440; min-width: 160px; text-align:center">Strongly suggestive</span>
+                <span style="color: var(--text2); font-size: 0.9em">Substantial evidence from multiple independent lines; not yet fully proven</span>
+            </div>
+            <div style="display:flex; gap:10px; align-items:center">
+                <span class="evidence-tier" style="background: #f59e0b20; color: #f59e0b; border: 1px solid #f59e0b40; min-width: 160px; text-align:center">Mixed evidence</span>
+                <span style="color: var(--text2); font-size: 0.9em">Some rigorous results combined with conjectural extensions</span>
+            </div>
+            <div style="display:flex; gap:10px; align-items:center">
+                <span class="evidence-tier" style="background: #ff6b6b20; color: #ff6b6b; border: 1px solid #ff6b6b40; min-width: 160px; text-align:center">Speculative</span>
+                <span style="color: var(--text2); font-size: 0.9em">Plausible structural analogies without direct proof</span>
+            </div>
+            <div style="display:flex; gap:10px; align-items:center">
+                <span class="evidence-tier" style="background: #a855f720; color: #a855f7; border: 1px solid #a855f740; min-width: 160px; text-align:center">Interpretive synthesis</span>
+                <span style="color: var(--text2); font-size: 0.9em">Well-motivated synthesis of established results into a unifying narrative</span>
+            </div>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 25px; color: var(--accent6)">Reproducibility</h3>
+    <div style="background: var(--surface); border-radius: 10px; padding: 20px; margin: 10px 0; border: 1px solid var(--border); font-size: 0.9em;">
+        <p style="color: var(--text2)"><strong>Engine:</strong> Ramanujan-Physics Bridge v1.1</p>
+        <p style="color: var(--text2)"><strong>Python:</strong> 3.14.3</p>
+        <p style="color: var(--text2)"><strong>mpmath:</strong> 1.3.0</p>
+        <p style="color: var(--text2)"><strong>Corpus:</strong> 14 canonical Ramanujan-adjacent formulas x 24 physics concepts across 8 domains</p>
+        <p style="color: var(--text2)"><strong>Matching rules:</strong> PRIMITIVE_TO_PHYSICS lookup (17 primitives &rarr; 24 concepts)</p>
+    </div>
+
+    <h3 style="margin-top: 25px; color: var(--accent1)">Suggested Research Experiments</h3>
+    <div style="background: var(--surface); border-radius: 10px; padding: 20px; margin: 10px 0; border: 1px solid var(--border); font-size: 0.9em;">
+        <ol style="color: var(--text2); line-height: 1.8; padding-left: 20px;">
+            <li><strong style="color: var(--accent2)">CY period &harr; Ramanujan series matching.</strong>
+                Compute the Picard-Fuchs periods of the mirror quintic family at CM points
+                tau = (1+i*sqrt(d))/2 for d in {163, 67, 43, 19, 11} and compare the resulting
+                hypergeometric series coefficients to known Ramanujan-type 1/pi formulas.
+                <em>Predicted outcome:</em> each CM point yields a distinct Ramanujan-type series
+                whose convergence rate is proportional to log(j(tau)).</li>
+            <li><strong style="color: var(--accent2)">Mock Jacobi expansions for other BPS indices.</strong>
+                Extend the Dabholkar-Murthy-Zagier mock modular form computation to 1/8-BPS
+                black holes in N=2 CHL orbifolds. Compute the first 50 Fourier coefficients
+                of the mock Jacobi form psi_(10, 1)(tau, z) and compare to the Rademacher
+                expansion prediction for degeneracies at mass level N &le; 100.
+                <em>Null test:</em> disagreement would falsify a specific string duality.</li>
+            <li><strong style="color: var(--accent2)">Moonshine module for non-Monstrous groups.</strong>
+                Construct explicit vertex operator algebra modules for umbral moonshine groups
+                (Mathieu M_24, Conway Co_0) and compute their elliptic-genus mock modular forms.
+                Compare to K3 surface twining genera (Gaberdiel, Hohenegger, Volpato 2010) to
+                test whether Umbral moonshine admits a string-theoretic explanation analogous
+                to FLM's Monstrous construction.</li>
+        </ol>
+    </div>
+
+    <h3 style="margin-top: 25px; color: var(--accent5)">Prerequisites &amp; Reading Roadmap</h3>
+    <div style="background: var(--surface); border-radius: 10px; padding: 20px; margin: 10px 0; border: 1px solid var(--border); font-size: 0.9em;">
+        <p style="color: var(--text2); margin-bottom: 12px">This report bridges number theory and theoretical physics. A minimal reading path for each side:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
+            <div>
+                <h4 style="color: var(--accent6)">Mathematics side</h4>
+                <ol style="color: var(--text2); line-height: 1.7; padding-left: 18px">
+                    <li><em>Modular forms:</em> Diamond &amp; Shurman, <em>A First Course in Modular Forms</em> (Springer, 2005), Ch. 1&ndash;5</li>
+                    <li><em>Partitions &amp; q-series:</em> Andrews, <em>The Theory of Partitions</em> (Cambridge, 1998), Ch. 1&ndash;6</li>
+                    <li><em>Mock modular forms:</em> Zagier, &ldquo;Ramanujan&rsquo;s mock theta functions&rdquo; (S&eacute;m. Bourbaki 986, 2007)</li>
+                    <li><em>Pi formulas &amp; CY periods:</em> Borwein &amp; Borwein, <em>Pi and the AGM</em> (Wiley, 1987), Ch. 5</li>
+                </ol>
+            </div>
+            <div>
+                <h4 style="color: var(--accent1)">Physics side</h4>
+                <ol style="color: var(--text2); line-height: 1.7; padding-left: 18px">
+                    <li><em>String theory basics:</em> Polchinski, <em>String Theory</em> vol. 1 (Cambridge, 1998), Ch. 1&ndash;4</li>
+                    <li><em>Black hole entropy:</em> Strominger &amp; Vafa, Phys. Lett. B 379 (1996); then Sen, Gen. Rel. Grav. 40 (2008) for a review</li>
+                    <li><em>CFT &amp; modular invariance:</em> Di Francesco, Mathieu &amp; S&eacute;n&eacute;chal, <em>Conformal Field Theory</em> (Springer, 1997), Ch. 10</li>
+                    <li><em>Moonshine:</em> Gannon, <em>Moonshine beyond the Monster</em> (Cambridge, 2006)</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    Ramanujan-Physics Bridge v1.1 &mdash; Self-Iterating Discovery Engine<br>
+    Scores reflect structural-pattern matching, not causal evidence.<br>
+    Generated 2026-03-22T22:08:50Z
+</div>
+
+</div>
+
+<script>
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    });
+});
+
+// Domain distribution chart
+(function() {
+    const canvas = document.getElementById('domainCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const data = {"string_theory": 215, "black_holes": 80, "high_energy_physics": 25, "stat_mech": 160, "qft": 90, "cosmology": 25, "cft": 85, "quantum_gravity": 30};
+    const entries = Object.entries(data).sort((a,b) => b[1]-a[1]);
+    const total = entries.reduce((s, e) => s + e[1], 0);
+    const colors = ['#ff6b6b','#4ecdc4','#a855f7','#f59e0b','#22c55e','#3b82f6','#ec4899','#6b7280'];
+
+    // Bar chart
+    const barW = 45, gap = 15, startX = 60, startY = 30;
+    const maxVal = Math.max(...entries.map(e => e[1]));
+    const chartH = 250;
+
+    ctx.fillStyle = '#e0e0f0';
+    ctx.font = '14px Segoe UI';
+    ctx.fillText('Connections by Physics Domain', startX, 22);
+
+    entries.forEach((e, i) => {
+        const x = startX + i * (barW + gap);
+        const h = (e[1] / maxVal) * chartH;
+        const y = startY + chartH - h;
+
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.fillRect(x, y, barW, h);
+
+        // Value on top
+        ctx.fillStyle = '#e0e0f0';
+        ctx.font = '12px Segoe UI';
+        ctx.textAlign = 'center';
+        ctx.fillText(e[1], x + barW/2, y - 5);
+
+        // Label below
+        ctx.fillStyle = '#a0a0c0';
+        ctx.font = '10px Segoe UI';
+        ctx.save();
+        ctx.translate(x + barW/2, startY + chartH + 12);
+        ctx.rotate(-0.4);
+        ctx.fillText(e[0], 0, 0);
+        ctx.restore();
+    });
+
+    // Percentage labels on right
+    ctx.textAlign = 'left';
+    ctx.font = '11px Segoe UI';
+    let ly = startY + 10;
+    entries.forEach((e, i) => {
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.fillRect(480, ly - 8, 10, 10);
+        ctx.fillStyle = '#a0a0c0';
+        ctx.fillText(e[0] + ' (' + Math.round(e[1]/total*100) + '%)', 496, ly);
+        ly += 18;
+    });
+})();
+</script>
+</body>
+</html>

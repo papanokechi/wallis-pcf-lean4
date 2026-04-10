@@ -1,0 +1,639 @@
+{
+  "iterations": [
+    {
+      "generation": 1,
+      "domain_focus": "physics",
+      "serendipity_injection": {
+        "pattern": "Renormalization Group",
+        "stagnant": false
+      },
+      "hypotheses": [
+        {
+          "claim": "The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count N_c, with the susceptibility (variance of gradient norms across batches) diverging as |N - N_c|^{-gamma} where gamma is consistent with the 3D Ising universality class (gamma ≈ 1.237). This predicts that training dynamics are not merely 'sharp' but exhibit measurable critical slowing down and power-law distributed gradient avalanches near N_c.",
+          "mechanism": "The self-attention mechanism creates effective long-range correlations between token representations. At the critical parameter count, the correlation length in representation space diverges — analogous to magnetic domains reaching system size at T_c. The RG flow of gradient statistics under coarse-graining (layer aggregation) should yield fixed-point exponents matching a known universality class.",
+          "testable_prediction": "Train 50+ transformer models logarithmically spaced from 1M to 10B parameters on identical data. Measure chi(N) = Var(||grad||) across minibatches at epoch 1. Plot log(chi) vs log|N - N_c|. The slope should be -1.24 ± 0.15 if Ising-class, distinguishable from mean-field (-1.0) or percolation (-1.80).",
+          "domain": "physics",
+          "domains_touched": [
+            "physics",
+            "computer_science",
+            "mathematics"
+          ],
+          "contradicts_axiom": "The widespread assumption that neural scaling laws are smooth power laws with no phase structure",
+          "plausibility": 0.35,
+          "surprise_if_true": 0.92,
+          "hypothesis_type": "lateral",
+          "scores": {
+            "N": 0.82,
+            "F": 0.85,
+            "E": 0.72,
+            "C": 0.78
+          },
+          "score_justifications": {
+            "N": "Phase transitions in NNs have been discussed (Bahri et al. 2020) but nobody has measured critical EXPONENTS or claimed a specific universality class. The exponent prediction is genuinely new.",
+            "F": "The exponent value gamma=1.237 is specific enough to distinguish from alternatives. A measured gamma of 1.0 or 2.0 would kill the claim.",
+            "E": "Requires training ~50 models at different scales — feasible with public compute (~$5K on cloud GPUs) but non-trivial.",
+            "C": "Would unify neural scaling, grokking transitions, and emergence under a single RG framework. Explains 3+ phenomena."
+          },
+          "falsification": {
+            "logical_attack": "Self-attention creates correlations but these may be fundamentally different from physical spin-spin correlations — the 'magnetization' order parameter is undefined for representations.",
+            "boundary_case": "If the transition is first-order (discontinuous) rather than second-order, no critical exponents exist. The claim requires continuous criticality which may not hold.",
+            "hidden_assumption": "Assumes the loss landscape can be meaningfully mapped to a statistical mechanical partition function with well-defined temperature. The gradient noise may not be thermal.",
+            "survivability": 0.3,
+            "resurrectability": 0.7
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Train GPT-2-style models at 20 parameter counts from 1M to 10B. 2. At epoch 1, record gradient norm variance across 1000 minibatches. 3. Fit chi(N) = A|N-Nc|^{-gamma} with Nc and gamma as free parameters. 4. Test gamma against Ising (1.237), mean-field (1.0), percolation (1.80). 5. Compute Binder cumulant U4 at each N to locate Nc precisely.",
+            "expected_result_if_false": "gamma is not consistent with any known universality class, or chi(N) does not diverge at all — it saturates or grows linearly.",
+            "surprising_result_if_true": "Neural networks satisfy universality — their critical behavior depends only on symmetry/dimensionality, not architecture details. This would be a physics-level law for AI."
+          }
+        },
+        {
+          "claim": "The apparent 'emergent abilities' in large language models are not phase transitions but percolation thresholds: the model's internal knowledge graph achieves a giant connected component at a critical scale, enabling multi-hop reasoning. The fraction of solvable multi-hop tasks should follow the universal percolation curve P(p) ~ (p - p_c)^{beta} with beta ≈ 0.41 (3D percolation) where p is a knowledge density proxy (training tokens / parameter count).",
+          "mechanism": "Each 'fact' encoded in the model occupies a local region in weight space. Multi-hop reasoning requires chains of connected facts. Below the percolation threshold, only isolated clusters exist — the model can recall individual facts but not chain them. At p_c, a spanning cluster first appears, enabling arbitrarily long reasoning chains. The beta=0.41 exponent is predicted by the universality of percolation in high-dimensional spaces.",
+          "testable_prediction": "Measure the fraction of k-hop reasoning benchmarks solved as a function of p = tokens/params for k=2,3,4,5. At the same p_c, all k-hop tasks should turn on. The order parameter (fraction solved) should scale as (p-p_c)^0.41. Additionally, at p_c the distribution of solvable chain lengths should follow a power law P(chain_length) ~ l^{-tau} with tau ≈ 2.18.",
+          "domain": "computer_science",
+          "domains_touched": [
+            "computer_science",
+            "physics",
+            "mathematics"
+          ],
+          "contradicts_axiom": "The emergent abilities debate (Schaeffer et al. vs Wei et al.) treats emergence as either real or measurement artifact — neither side has proposed a specific physical mechanism with quantitative exponents",
+          "plausibility": 0.4,
+          "surprise_if_true": 0.88,
+          "hypothesis_type": "lateral",
+          "scores": {
+            "N": 0.88,
+            "F": 0.8,
+            "E": 0.75,
+            "C": 0.85
+          },
+          "score_justifications": {
+            "N": "Nobody has proposed percolation with a specific exponent for emergence. The closest work (power-law scaling) doesn't invoke a physical mechanism.",
+            "F": "beta=0.41 and tau=2.18 are specific enough to falsify. Mean-field percolation gives beta=1, which is clearly distinguishable.",
+            "E": "Can test with existing public models (Pythia suite, OLMo) + existing multi-hop benchmarks (HotpotQA, MuSiQue). Moderate effort.",
+            "C": "Unifies emergence, multi-hop reasoning, knowledge retrieval, and scaling into one framework. Very high compression."
+          },
+          "falsification": {
+            "logical_attack": "LLM knowledge is distributed holographically across all weights, not localized in clusters. The percolation model assumes local encoding which contradicts superposition findings.",
+            "boundary_case": "If multi-hop tasks of different k turn on at DIFFERENT p_c values (not the same threshold), percolation is ruled out — percolation predicts a single critical point.",
+            "hidden_assumption": "Assumes a meaningful factorization of LLM knowledge into discrete 'nodes' and 'edges'. The continuous nature of distributed representations may prevent this.",
+            "survivability": 0.35,
+            "resurrectability": 0.65
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Use Pythia model suite (70M to 12B, 7 checkpoints during training). 2. Evaluate on HotpotQA (2-hop), MuSiQue (2-4 hop), and custom k-hop chain tasks. 3. Define p = training_tokens / param_count. 4. Fit fraction_solved(p) = A(p-p_c)^beta. 5. Test whether p_c is the same for all k and whether beta = 0.41 ± 0.10.",
+            "expected_result_if_false": "Different k-hop tasks turn on at different p values, or the scaling is linear/logarithmic rather than power-law.",
+            "surprising_result_if_true": "LLM emergence is a literal percolation transition — same mathematics as forest fires, epidemics, and gelation. Would establish AI scaling as a branch of statistical physics."
+          }
+        },
+        {
+          "claim": "The Kolmogorov complexity of a trained neural network's weight vector, when renormalized by layer using an information-theoretic RG procedure, flows to one of a small number of fixed points. These fixed points classify neural architectures into 'universality classes' that predict: (a) optimal learning rate schedules, (b) the number of emergent transitions during training, and (c) final loss as a function of scale. Different architectures (transformers, CNNs, SSMs) that flow to the same fixed point have identical scaling laws.",
+          "mechanism": "Define a coarse-graining map: average weight statistics within each layer, then across groups of layers. The RG transformation maps a detailed weight vector to a coarser representation. If this flow converges to fixed points, the fixed-point structure determines universal macroscopic behavior regardless of microscopic architecture details — exactly as in statistical mechanics.",
+          "testable_prediction": "Compute layer-wise weight entropy for 20+ architectures. Apply hierarchical coarse-graining. If fixed points exist, architectures should cluster into ≤5 groups, and architectures within the same cluster should have the same scaling law exponent alpha in L(N) ~ N^{-alpha}. Specifically: transformers and SSMs may share a fixed point (alpha ≈ 0.076) while CNNs flow to a different one.",
+          "domain": "mathematics",
+          "domains_touched": [
+            "mathematics",
+            "physics",
+            "computer_science"
+          ],
+          "contradicts_axiom": "Chinchilla and subsequent scaling laws are treated as architecture-specific empirical fits, not consequences of a deeper universality principle",
+          "plausibility": 0.25,
+          "surprise_if_true": 0.95,
+          "hypothesis_type": "impossible_sounding",
+          "scores": {
+            "N": 0.9,
+            "F": 0.72,
+            "E": 0.65,
+            "C": 0.92
+          },
+          "score_justifications": {
+            "N": "No one has applied a rigorous RG analysis to neural network weight spaces and predicted universality classes. Completely novel framing.",
+            "F": "The clustering prediction is testable but the 'fixed point' itself is hard to verify directly without a precise definition of the RG map.",
+            "E": "Requires training many architectures to completion and analyzing weight statistics — significant compute but feasible with academic budgets.",
+            "C": "Would explain ALL scaling laws across ALL architectures from a single principle. Maximum compression if true."
+          },
+          "falsification": {
+            "logical_attack": "The RG procedure assumes a well-defined coarse-graining that preserves relevant information. For neural networks, what counts as 'relevant' is task-dependent, undermining universality.",
+            "boundary_case": "If transformer variants (GPT vs BERT vs T5) end up in DIFFERENT universality classes despite shared attention mechanism, the theory is too weak to be useful.",
+            "hidden_assumption": "Assumes that layer-wise statistics are sufficient to define the RG flow. Skip connections, normalization layers, and architectural heterogeneity may prevent clean coarse-graining.",
+            "survivability": 0.2,
+            "resurrectability": 0.8
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Train 25 architectures (5 transformers, 5 CNNs, 5 RNNs, 5 SSMs, 5 MLPs) on identical task at 5 scales each. 2. Record layer-wise weight entropy h_l after convergence. 3. Define RG: average h_l over pairs of adjacent layers, iterate. 4. Plot RG flow in (h_mean, h_var) space. 5. Check for fixed-point convergence and cluster architectures by final flow destination.",
+            "expected_result_if_false": "No clear fixed points — the RG flow diverges or every architecture has a unique trajectory. The clustering is not predictive of scaling exponents.",
+            "surprising_result_if_true": "Architecture search could be replaced by fixed-point classification. We'd know in advance whether a new architecture will scale well, without training it."
+          }
+        },
+        {
+          "claim": "The generalization gap in overparameterized neural networks is governed by a topological invariant of the loss landscape — specifically, the Euler characteristic chi of the sub-level set {w : L(w) ≤ L*} where L* is the training loss. Networks that generalize well have chi ≈ 1 (topologically simple landscape), while networks that memorize have |chi| >> 1 (many holes and handles). This invariant is computable from the Hessian spectrum and predicts generalization better than existing norm-based bounds.",
+          "mechanism": "The Euler characteristic counts the alternating sum of Betti numbers: chi = b_0 - b_1 + b_2 - ... For a convex landscape, chi = 1. Each 'spurious' local minimum adds structure that increases |chi|. A network that generalizes navigates a topologically simple landscape where the global minimum basin dominates. A memorizing network has a landscape riddled with narrow, deep minima — high topological complexity.",
+          "testable_prediction": "For 100 networks trained on CIFAR-10 with varying regularization: compute chi from the Hessian eigenvalue distribution using the Gauss-Bonnet integral. Plot chi vs generalization gap (test_loss - train_loss). If the theory holds, Spearman correlation |rho| > 0.8, outperforming spectral norm, path norm, and PAC-Bayes bounds.",
+          "domain": "mathematics",
+          "domains_touched": [
+            "mathematics",
+            "computer_science"
+          ],
+          "contradicts_axiom": "Current generalization theory focuses on norms and margins (Bartlett 2017, Neyshabur 2018) — topology is completely absent from the standard toolkit",
+          "plausibility": 0.45,
+          "surprise_if_true": 0.8,
+          "hypothesis_type": "incremental",
+          "scores": {
+            "N": 0.78,
+            "F": 0.82,
+            "E": 0.8,
+            "C": 0.72
+          },
+          "score_justifications": {
+            "N": "Topological data analysis of loss landscapes exists (Barannikov et al.) but nobody has connected Euler characteristic specifically to generalization gaps with quantitative predictions.",
+            "F": "The correlation prediction (|rho|>0.8 against specific baselines) is very specific and falsifiable.",
+            "E": "Can be done with 100 ResNet-18 trainings on CIFAR-10 — standard academic compute. Hessian eigenvalues via stochastic Lanczos.",
+            "C": "Provides a topology-based generalization measure that is architecture-independent. Compresses multiple bounds into one invariant."
+          },
+          "falsification": {
+            "logical_attack": "The Euler characteristic of a sub-level set in million-dimensional space is astronomically expensive to compute exactly. Approximations via Hessian may miss the topological structure entirely.",
+            "boundary_case": "In very high dimensions, all sub-level sets may be topologically trivial (contractible) by random matrix arguments, making chi ≈ 1 for ALL networks regardless of generalization.",
+            "hidden_assumption": "Assumes the relevant topological features of the loss landscape are at the scale of the training loss, not at finer or coarser scales.",
+            "survivability": 0.45,
+            "resurrectability": 0.6
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Train 100 ResNet-18 on CIFAR-10 with varying dropout (0-0.8), weight decay (0-0.1), and data augmentation. 2. At convergence, compute top-100 Hessian eigenvalues via stochastic Lanczos. 3. Estimate chi from eigenvalue distribution using Morse theory: chi = sum_{critical points} (-1)^{index}. 4. Compute generalization gap. 5. Rank-correlate chi with gap; compare Spearman rho against spectral norm rho.",
+            "expected_result_if_false": "chi has no significant correlation with generalization gap (|rho| < 0.3), or it's worse than spectral norm as a predictor.",
+            "surprising_result_if_true": "Topology predicts generalization — opening the door to topological regularizers that directly simplify the landscape geometry."
+          }
+        },
+        {
+          "claim": "Large language models encode a compressed representation of the Kolmogorov structure function — the tradeoff between model complexity and data compression — and this structure function has a universal shape that is invariant across training datasets and architectures. Specifically, the in-context learning curve (loss vs number of in-context examples k) follows L(k) = L_inf + A * k^{-alpha} * (1 + B * sin(2*pi*log(k)/log(phi))) where phi = (1+sqrt(5))/2 is the golden ratio, and the log-periodic oscillations arise from discrete scale invariance in the model's internal representation hierarchy.",
+          "mechanism": "The attention layers create a discrete hierarchy of abstraction levels. Each level processes information at a characteristic scale. This discrete (not continuous) hierarchy introduces a preferred scaling ratio — the golden ratio — arising from optimal packing of information across layers with Fibonacci-like connectivity. The resulting structure function has log-periodic oscillations, a signature of discrete scale invariance seen in fracture mechanics and financial crashes.",
+          "testable_prediction": "Measure ICL loss curves for GPT-4, Claude, Llama-3 on 10 different tasks with k = 1 to 100 examples. After subtracting the power-law trend, the residuals should show oscillations with period log(phi) ≈ 0.48 in log(k) space. Fourier transform of log-residuals should show a peak at frequency 1/0.48 ≈ 2.08.",
+          "domain": "computer_science",
+          "domains_touched": [
+            "computer_science",
+            "mathematics",
+            "physics"
+          ],
+          "contradicts_axiom": "ICL curves are assumed to be smooth power laws — no one has looked for internal oscillatory structure",
+          "plausibility": 0.15,
+          "surprise_if_true": 0.98,
+          "hypothesis_type": "impossible_sounding",
+          "scores": {
+            "N": 0.92,
+            "F": 0.88,
+            "E": 0.85,
+            "C": 0.7
+          },
+          "score_justifications": {
+            "N": "Log-periodic oscillations in ICL curves have never been proposed. The golden ratio prediction is extremely specific and novel.",
+            "F": "The oscillation period is precisely predicted (log(phi)). Easy to check: FFT the residuals and look for the peak.",
+            "E": "Can test with existing API access to GPT-4/Claude — just run ICL benchmarks. Very cheap experiment.",
+            "C": "Links ICL to discrete scale invariance, connecting AI to fracture mechanics and financial physics. Moderate compression."
+          },
+          "falsification": {
+            "logical_attack": "The golden ratio prediction is numerologically motivated, not derived from first principles. Why would attention layers prefer Fibonacci connectivity over any other pattern?",
+            "boundary_case": "If oscillations exist but with a different period (not log(phi)), the specific mechanism is wrong even if discrete scale invariance is real.",
+            "hidden_assumption": "Assumes in-context learning uses a fixed hierarchy of abstraction levels, but modern transformers may dynamically reconfigure their hierarchy per-input.",
+            "survivability": 0.15,
+            "resurrectability": 0.5
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Query GPT-4/Claude/Llama-3-70B in ICL mode with k=1..100 few-shot examples on 10 NLP tasks. 2. Record per-k loss. 3. Fit L(k) = L_inf + A*k^{-alpha}. 4. Compute residuals r(k) = L(k) - fit. 5. FFT[r(log(k))] and check for peak at f=2.08. 6. Significance test: compare peak amplitude against 1000 shuffled-residual surrogates.",
+            "expected_result_if_false": "No significant FFT peak at the predicted frequency. Residuals are consistent with noise. ICL curves are smooth power laws.",
+            "surprising_result_if_true": "LLMs have discrete scale invariance — the same mathematics governing earthquakes and stock market crashes governs in-context learning."
+          }
+        }
+      ]
+    },
+    {
+      "generation": 2,
+      "domain_focus": "biology",
+      "serendipity_injection": {
+        "pattern": "Error-Correcting Codes as Universal Motif",
+        "stagnant": false
+      },
+      "hypotheses": [
+        {
+          "claim": "The codon degeneracy of the genetic code is not merely redundancy but an optimal error-correcting code (ECC) in the information-theoretic sense. Specifically, the standard genetic code achieves at least 85% of the theoretical channel capacity for a noisy channel with the observed mutation spectrum. Alternative genetic codes found in mitochondria and certain organisms can be ranked by their ECC efficiency, and this ranking correlates with the organism's effective population size (N_e) — larger N_e organisms have codes closer to the Shannon limit because selection pressure on code optimization is stronger.",
+          "mechanism": "Natural selection optimizes the genetic code itself as an error-correcting scheme. The assignment of codons to amino acids minimizes the phenotypic effect of point mutations — similar codons encode chemically similar amino acids. This is equivalent to maximizing Hamming distance between codewords assigned to dissimilar amino acids. The optimization is stronger when N_e is large (selection is efficient) and weaker when N_e is small (genetic drift dominates).",
+          "testable_prediction": "1. Compute the mutual information I(codon; amino_acid | mutation_channel) for the standard code and all known alternative codes. 2. Compute the Shannon capacity C of each organism's mutation channel from observed mutation spectra. 3. The ratio I/C should correlate positively with log(N_e) across >20 organisms with known alternative codes (Spearman rho > 0.6).",
+          "domain": "biology",
+          "domains_touched": [
+            "biology",
+            "mathematics",
+            "computer_science"
+          ],
+          "contradicts_axiom": "The frozen accident hypothesis (Crick 1968) — that the genetic code is arbitrary and frozen by historical contingency",
+          "plausibility": 0.55,
+          "surprise_if_true": 0.75,
+          "hypothesis_type": "incremental",
+          "scores": {
+            "N": 0.72,
+            "F": 0.78,
+            "E": 0.82,
+            "C": 0.75
+          },
+          "score_justifications": {
+            "N": "Freeland & Hurst (1998) showed the code is optimized, but nobody has computed actual channel capacity ratios across alternative codes or correlated with N_e.",
+            "F": "The correlation with N_e is a specific directional prediction. A negative or null correlation would falsify.",
+            "E": "All data is publicly available: NCBI alternative codes, mutation spectra from COSMIC/gnomAD, N_e estimates from literature. Purely computational.",
+            "C": "Unifies code optimality, mutation spectra, and population genetics under information theory."
+          },
+          "falsification": {
+            "logical_attack": "Alternative genetic codes may arise from neutral drift in small populations, not selection for ECC efficiency. The correlation with N_e could be confounded by codon usage bias.",
+            "boundary_case": "Vertebrate mitochondrial codes are highly derived but vertebrates have moderate N_e — this specific case may break the correlation.",
+            "hidden_assumption": "Assumes the relevant 'noise channel' is single-nucleotide mutations. But insertions, deletions, and recombination are also important and are not captured by simple Hamming metrics.",
+            "survivability": 0.5,
+            "resurrectability": 0.55
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Collect all 33 known genetic code variants from NCBI. 2. For each organism, estimate mutation spectrum from polymorphism data. 3. Model codon-to-amino-acid mapping as a channel. 4. Compute mutual information and channel capacity. 5. Correlate I/C with N_e estimates from Lynch & Conery (2003) and updates.",
+            "expected_result_if_false": "No significant correlation between ECC efficiency and N_e, or the standard code is not near the Shannon limit.",
+            "surprising_result_if_true": "Evolution discovered error-correcting codes 3.8 billion years before Shannon. Population genetics governs code optimality."
+          }
+        },
+        {
+          "claim": "Protein folding times follow a universal scaling law: the folding time tau scales as tau ~ exp(c * N^{2/3}) where N is the chain length and c is a dimensionless constant that depends only on the secondary structure content (fraction helix vs sheet). This stretched-exponential scaling arises because folding is a nucleation process on the protein's contact surface (2D surface of a 3D object), and the nucleation barrier scales with the surface area N^{2/3} rather than the volume N.",
+          "mechanism": "Protein folding proceeds through a nucleation event where a critical patch of native contacts forms on the molecule's surface. The free energy barrier for nucleation scales as the surface area of the critical nucleus. For a 3D polymer of N residues, surface scales as N^{2/3}. This predicts tau ~ exp(sigma * N^{2/3}) where sigma is a surface energy per residue that depends primarily on secondary structure type (helices and sheets have different contact energies).",
+          "testable_prediction": "Re-analyze the Plaxco-Simons-Baker dataset of folding rates (100+ proteins). Plot log(tau) vs N^{2/3}. The data should collapse onto 2-3 parallel lines (one per dominant secondary structure class) with R^2 > 0.85. This should outperform the existing log(tau) vs contact order correlation (R^2 ≈ 0.7).",
+          "domain": "biology",
+          "domains_touched": [
+            "biology",
+            "physics",
+            "chemistry"
+          ],
+          "contradicts_axiom": "Plaxco's contact order theory — folding rates correlate with relative contact order, not chain length directly",
+          "plausibility": 0.4,
+          "surprise_if_true": 0.82,
+          "hypothesis_type": "lateral",
+          "scores": {
+            "N": 0.8,
+            "F": 0.84,
+            "E": 0.88,
+            "C": 0.8
+          },
+          "score_justifications": {
+            "N": "The N^{2/3} scaling exponent from nucleation theory is new. Previous work focused on contact order or topology, not surface-area scaling.",
+            "F": "The exponent 2/3 is very specific and distinguishable from 1/2, 1, or 3/4. R^2 > 0.85 is a concrete threshold.",
+            "E": "The Plaxco-Simons-Baker dataset is public. This is a re-analysis — zero cost, one afternoon of work.",
+            "C": "Unifies folding kinetics with classical nucleation theory from materials physics."
+          },
+          "falsification": {
+            "logical_attack": "Small proteins fold in microseconds without apparent nucleation — two-state folders may not have a surface energy barrier at all.",
+            "boundary_case": "Intrinsically disordered proteins (IDPs) don't fold in the traditional sense. If included, they'd break any chain-length scaling.",
+            "hidden_assumption": "Assumes the protein can be modeled as a compact 3D object even during folding. But the unfolded state is an extended chain, not a sphere.",
+            "survivability": 0.4,
+            "resurrectability": 0.65
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Download Plaxco-Simons-Baker folding rate dataset + PFDB updates (150+ proteins). 2. Classify by DSSP: helix-dominant, sheet-dominant, mixed. 3. Plot ln(k_f) vs N^{2/3} for each class. 4. Fit linear model, compute R^2. 5. Compare to contact order fit R^2 using matched statistical tests.",
+            "expected_result_if_false": "R^2 < 0.5 for the N^{2/3} fit, or contact order remains a better predictor.",
+            "surprising_result_if_true": "Protein folding kinetics are governed by nucleation physics, not topology. Drug design could target nucleation-disrupting mutations."
+          }
+        },
+        {
+          "claim": "The brain's functional connectivity network operates at a self-organized critical point, and this criticality is maintained by a homeostatic feedback loop where inhibitory plasticity tunes the network's branching ratio sigma to exactly 1. Disruption of this feedback (via GABAergic drugs or genetic perturbations) should move sigma away from 1, and the deviation |sigma - 1| should predict cognitive performance deficits on a per-subject basis with higher accuracy than any existing biomarker.",
+          "mechanism": "Neural avalanches in cortex follow power-law distributions when sigma = 1 (critical branching). Inhibitory synaptic plasticity (iSTDP) acts as a slow negative feedback: if activity is too high (sigma > 1, supercritical), inhibition strengthens, reducing sigma. If too low (sigma < 1, subcritical), inhibition weakens. This self-tunes to criticality. Pathological states (schizophrenia, epilepsy, anesthesia) correspond to disrupted feedback and measurable deviations from sigma = 1.",
+          "testable_prediction": "In MEG recordings from 100+ subjects performing a working memory task: 1. Estimate sigma from neural avalanche size distributions. 2. Measure |sigma - 1| per subject. 3. Correlate with working memory accuracy. Predicted: Pearson r > 0.5, outperforming theta/alpha ratio (current best predictor, r ≈ 0.3).",
+          "domain": "neuroscience",
+          "domains_touched": [
+            "neuroscience",
+            "physics",
+            "biology"
+          ],
+          "contradicts_axiom": "Standard neuroscience attributes working memory performance to prefrontal theta oscillation power, not to a global criticality parameter",
+          "plausibility": 0.45,
+          "surprise_if_true": 0.78,
+          "hypothesis_type": "incremental",
+          "scores": {
+            "N": 0.75,
+            "F": 0.8,
+            "E": 0.7,
+            "C": 0.82
+          },
+          "score_justifications": {
+            "N": "Criticality in the brain is established (Beggs & Plenz 2003), but sigma as a cognitive BIOMARKER with quantitative superiority over existing markers is new.",
+            "F": "r > 0.5 vs r ≈ 0.3 for theta/alpha is a specific, testable superiority claim.",
+            "E": "Requires MEG + working memory task — available in public datasets (HCP, Cam-CAN) but needs careful analysis pipeline.",
+            "C": "Unifies criticality, inhibitory plasticity, and cognitive performance under one framework."
+          },
+          "falsification": {
+            "logical_attack": "The branching ratio sigma is difficult to estimate reliably from MEG data due to volume conduction and noise. Measurement uncertainty may swamp the signal.",
+            "boundary_case": "If subjects under anesthesia (sigma << 1) show preserved avalanche statistics suggesting criticality is maintained even unconsciously, the cognitive prediction fails.",
+            "hidden_assumption": "Assumes sigma is a global parameter. Different brain regions may have different sigma values, and working memory may depend on local sigma in PFC, not global sigma.",
+            "survivability": 0.4,
+            "resurrectability": 0.7
+          },
+          "experimental_protocol": {
+            "type": "empirical",
+            "description": "1. Use HCP MEG dataset (100+ subjects with working memory fMRI task). 2. Compute neural avalanche distributions from broadband MEG. 3. Fit branching ratio sigma using maximum likelihood. 4. Correlate |sigma-1| with behavioral accuracy. 5. Compare predictive power (cross-validated R^2) against theta/alpha spectral ratio.",
+            "expected_result_if_false": "No significant correlation between sigma and working memory performance, or theta/alpha remains superior.",
+            "surprising_result_if_true": "A single physics parameter predicts cognition better than decades of conventional neuroscience biomarkers."
+          }
+        },
+        {
+          "claim": "The distribution of evolutionary fitness effects (DFE) of mutations in a gene can be predicted from the gene's position in the protein-protein interaction (PPI) network. Specifically, the shape parameter k of the gamma-distributed DFE scales as k ~ (degree * betweenness)^{-1/2}, meaning that highly connected hub genes with high betweenness centrality have more strongly peaked DFEs (most mutations are more uniformly deleterious) while peripheral genes have flatter DFEs (mutations range from neutral to lethal).",
+          "mechanism": "Hub genes interact with many partners. Each interaction surface constrains the protein's sequence evolution. More constraints mean mutations at any position are more consistently deleterious (peaked DFE). Peripheral genes have fewer constraints, so some positions are deeply conserved (crucial contacts) while others are free to vary (neutral) — creating a broader DFE.",
+          "testable_prediction": "For 500+ yeast genes with experimentally measured DFEs (from deep mutational scanning): compute PPI degree and betweenness from BioGRID. Fit DFE to gamma distribution (shape parameter k). The correlation between log(k) and log(degree * betweenness) should have r < -0.4 (negative correlation, Bonferroni-corrected p < 0.01).",
+          "domain": "biology",
+          "domains_touched": [
+            "biology",
+            "mathematics",
+            "computer_science"
+          ],
+          "contradicts_axiom": "DFE shapes are typically modeled as gene-intrinsic properties (depending on protein structure and function) — the network context is ignored",
+          "plausibility": 0.5,
+          "surprise_if_true": 0.72,
+          "hypothesis_type": "incremental",
+          "scores": {
+            "N": 0.7,
+            "F": 0.82,
+            "E": 0.85,
+            "C": 0.68
+          },
+          "score_justifications": {
+            "N": "Network constraints on evolution are discussed qualitatively (Fraser et al. 2002) but nobody has quantitatively predicted DFE shape from network centrality with a specific formula.",
+            "F": "The correlation direction (negative) and threshold (r < -0.4) are specific and falsifiable.",
+            "E": "Both DFE data (deep mutational scanning) and PPI data (BioGRID) are public. Purely computational, very cheap.",
+            "C": "Links molecular evolution, network biology, and information theory but doesn't unify widely disparate phenomena."
+          },
+          "falsification": {
+            "logical_attack": "PPI degree in BioGRID is heavily biased by study effort — well-studied genes appear to have higher degree. This could confound the analysis.",
+            "boundary_case": "Membrane proteins often have low measured PPI degree but are under very strong constraint due to structural requirements — they would break the scaling.",
+            "hidden_assumption": "Assumes the gamma distribution is an appropriate model for DFEs. Some genes may have bimodal or more complex DFE shapes.",
+            "survivability": 0.45,
+            "resurrectability": 0.5
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Collect deep mutational scanning DFE data for S. cerevisiae genes from MaveDB. 2. Fit gamma distribution to each gene's DFE, extract shape k. 3. Get PPI data from BioGRID, compute degree and betweenness for each gene. 4. Correlate log(k) vs log(degree * betweenness). 5. Control for gene length and expression level.",
+            "expected_result_if_false": "No significant correlation after controlling for confounders, or the correlation is positive (wrong direction).",
+            "surprising_result_if_true": "Network position predicts evolutionary fate — a gene's evolvability depends on its social network."
+          }
+        },
+        {
+          "claim": "The human gut microbiome spontaneously organizes into one of exactly 3 stable community states (enterotypes) that correspond to the 3 stable fixed points of a generalized Lotka-Volterra system with the experimentally measured pairwise interaction matrix. Transitions between enterotypes require crossing a free energy barrier that scales as exp(N_species) where N_species is the number of bacterial species — explaining why dietary interventions temporarily perturb but rarely permanently shift enterotype identity.",
+          "mechanism": "The gut microbiome is a complex ecosystem with competitive and mutualistic interactions. The pairwise interaction matrix A defines a dynamical system dx_i/dt = x_i(r_i + sum A_ij x_j). This system has multiple stable equilibria. The number of equilibria is determined by the spectrum of A. The 3-enterotype structure arises because the interaction matrix has 3 dominant eigenvectors, creating 3 basins of attraction in species-abundance space.",
+          "testable_prediction": "1. Construct A from published bacterial co-occurrence data (HMP, MetaHIT). 2. Simulate the Lotka-Volterra dynamics with random initial conditions (10,000 trials). 3. Count the number of distinct stable fixed points. Should be exactly 3. 4. Compute the basin boundaries and verify they separate the 3 enterotype clusters in real HMP data with classification accuracy > 90%.",
+          "domain": "biology",
+          "domains_touched": [
+            "biology",
+            "physics",
+            "mathematics"
+          ],
+          "contradicts_axiom": "The enterotype concept is debated — some researchers claim the microbiome is a continuous gradient, not discrete states (Knights et al. 2014)",
+          "plausibility": 0.35,
+          "surprise_if_true": 0.8,
+          "hypothesis_type": "lateral",
+          "scores": {
+            "N": 0.76,
+            "F": 0.75,
+            "E": 0.72,
+            "C": 0.78
+          },
+          "score_justifications": {
+            "N": "The Lotka-Volterra derivation of exactly 3 enterotypes from measured interaction matrices is new. Previous enterotype work uses clustering without dynamical justification.",
+            "F": "The prediction of exactly 3 fixed points from the interaction matrix is falsifiable — if the LV system gives 2 or 7, the theory fails.",
+            "E": "HMP and MetaHIT interaction data are public. LV simulation is standard. Moderate effort.",
+            "C": "Unifies enterotypes, community ecology, and dynamical systems theory."
+          },
+          "falsification": {
+            "logical_attack": "Lotka-Volterra assumes pairwise interactions, but the gut microbiome likely has important higher-order (3-body+) interactions that change the fixed point structure.",
+            "boundary_case": "If the interaction matrix is estimated with noise, the number of stable fixed points is sensitive to the noise level — could give 3 as an artifact.",
+            "hidden_assumption": "Assumes the pairwise interaction matrix is constant across individuals and dietary conditions. In reality, diet-dependent metabolites modulate interactions.",
+            "survivability": 0.3,
+            "resurrectability": 0.6
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Download HMP 16S abundance data. 2. Estimate A_ij from co-occurrence (SparCC or similar). 3. Simulate LV dynamics from 10K random initial conditions. 4. Cluster final states — count distinct attractors. 5. Compare attractor centroids to known enterotype centers (Bacteroides, Prevotella, Ruminococcus). 6. Classify HMP samples by nearest attractor — measure accuracy.",
+            "expected_result_if_false": "LV system converges to 1, 2, or >3 attractors, or the attractors don't correspond to the known enterotype clusters.",
+            "surprising_result_if_true": "The microbiome's discrete states are INEVITABLE consequences of the interaction matrix — not contingent on host genetics or diet."
+          }
+        }
+      ]
+    },
+    {
+      "generation": 3,
+      "domain_focus": "economics",
+      "serendipity_injection": {
+        "pattern": "Critical Slowing Down",
+        "stagnant": false
+      },
+      "hypotheses": [
+        {
+          "claim": "Financial market crashes are preceded by measurable critical slowing down in the autocorrelation structure of returns, and the lead time of the early warning signal scales as tau_warning ~ log(market_cap) — larger markets give MORE warning because they have longer correlation lengths and slower dynamics near the critical point. This predicts that cryptocurrency markets (small, fast) should crash with <1 day warning while sovereign bond markets (huge, slow) should give >30 days warning.",
+          "mechanism": "Markets near a crash are near a tipping point (fold bifurcation). Near the bifurcation, the dominant eigenvalue of the return correlation matrix approaches 1, causing autocorrelation to increase and variance to grow — both signatures of critical slowing down. The timescale of these signatures depends on market size: larger markets have more participants, longer price-formation chains, and thus slower pre-critical dynamics.",
+          "testable_prediction": "Analyze 50+ historical market crashes across asset classes. Measure the lead time (days between first detectable increase in AR(1) coefficient and crash date). Plot lead_time vs log(market_cap at crash). Correlation should be r > 0.5. Crypto crashes should cluster at lead_time < 2 days, equity at 5-15 days, sovereign bonds at 15-60 days.",
+          "domain": "economics",
+          "domains_touched": [
+            "economics",
+            "physics",
+            "mathematics"
+          ],
+          "contradicts_axiom": "Efficient Market Hypothesis variants — if crashes were predictable, they'd be arbitraged away",
+          "plausibility": 0.4,
+          "surprise_if_true": 0.82,
+          "hypothesis_type": "lateral",
+          "scores": {
+            "N": 0.78,
+            "F": 0.76,
+            "E": 0.8,
+            "C": 0.74
+          },
+          "score_justifications": {
+            "N": "Critical slowing down before crashes has been discussed (Scheffer et al. 2009, Sornette) but the market_cap scaling of warning time is novel and quantitatively testable.",
+            "F": "The cross-asset-class scaling prediction is specific and falsifiable. If crypto and bond warnings are the same duration, the theory fails.",
+            "E": "Historical price data for all asset classes is free (Yahoo Finance, FRED, CoinGecko). Pure data analysis.",
+            "C": "Unifies crash prediction across asset classes under one scaling law from critical phenomena."
+          },
+          "falsification": {
+            "logical_attack": "Market cap is endogenous — it crashes WITH the market. Using pre-crash market cap introduces look-ahead bias. Need to use 6-month-prior market cap.",
+            "boundary_case": "Flash crashes are not critical-slowing-down events — they're caused by algorithmic feedback loops. These would appear as outliers.",
+            "hidden_assumption": "Assumes all crashes have the same mechanism (approaching a bifurcation). Some crashes are exogenous shocks (COVID, 9/11) with no critical precursor.",
+            "survivability": 0.4,
+            "resurrectability": 0.55
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Compile dataset of 50+ crashes: crypto (BTC, ETH), equity indices (SPX, FTSE, Nikkei), bonds (UST, Bund), commodities (oil, gold). 2. Define crash as >15% drawdown in <20 trading days. 3. For each, compute rolling AR(1) and variance in the 6 months before crash. 4. Detect first significant increase (Kendall tau test, p<0.05). 5. Lead time = crash date - detection date. 6. Correlate with log(market_cap_6mo_prior).",
+            "expected_result_if_false": "No significant correlation between lead time and market cap, or lead times are uniformly distributed.",
+            "surprising_result_if_true": "Market size determines forecastability — small markets crash without warning, large markets announce their own doom weeks in advance."
+          }
+        },
+        {
+          "claim": "Income inequality within nations follows a Tsallis distribution (q-Gaussian) rather than a log-normal or Pareto distribution, and the Tsallis parameter q is NOT a free fit parameter but is determined by the nation's economic network connectivity: q = 1 + 2/(k_mean + 1), where k_mean is the average degree of the inter-firm trade network. This predicts that more economically connected countries have q closer to 1 (more Gaussian, more equal) while fragmented economies have higher q (heavier tails, more extreme inequality).",
+          "mechanism": "Tsallis statistics arise from systems with long-range correlations and non-additive entropy. In an economy, wealth flows through a trade network. If the network is dense (high k_mean), wealth redistributes efficiently — fluctuations average out and the distribution approaches Gaussian. If the network is sparse (low k_mean), wealth concentrates in a few hubs — fat tails and extreme inequality. The exact formula comes from maximum entropy subject to network constraints.",
+          "testable_prediction": "For 30+ countries: 1. Fit household income data to Tsallis distribution, extract q. 2. Estimate k_mean from WIOD inter-industry trade tables or firm-level VAT records. 3. Test q = 1 + 2/(k_mean + 1). The residual should be < 0.05 for 80% of countries.",
+          "domain": "economics",
+          "domains_touched": [
+            "economics",
+            "physics",
+            "mathematics"
+          ],
+          "contradicts_axiom": "Standard economics fits income to log-normal (Gibrat) or Pareto (Vilfredo Pareto) without deriving the distribution from network structure",
+          "plausibility": 0.3,
+          "surprise_if_true": 0.88,
+          "hypothesis_type": "lateral",
+          "scores": {
+            "N": 0.85,
+            "F": 0.78,
+            "E": 0.68,
+            "C": 0.8
+          },
+          "score_justifications": {
+            "N": "Tsallis statistics for income have been observed (Borges 2002) but nobody has derived q from economic network structure with a closed-form formula.",
+            "F": "The specific formula q = 1 + 2/(k+1) gives exact predictions testable against data.",
+            "E": "Requires cross-country income distribution data (LIS, World Bank) + trade network data (WIOD). Moderate effort, some data access restrictions.",
+            "C": "Claims to derive inequality from network topology — very high compression if true."
+          },
+          "falsification": {
+            "logical_attack": "The Tsallis parameter q might absorb non-network effects (taxation, social policy) making the network prediction spurious after controlling for welfare state strength.",
+            "boundary_case": "Oil-rich monarchies (Saudi Arabia) have high inequality despite potentially connected economies. The formula would need to account for resource rents.",
+            "hidden_assumption": "Assumes k_mean is a meaningful single parameter for an entire economy. Different sectors may have very different connectivity, and the effective average is not obvious.",
+            "survivability": 0.25,
+            "resurrectability": 0.7
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Get household income distribution data for 40 countries from LIS/World Bank. 2. Fit Tsallis q-Gaussian via MLE. 3. Get inter-industry trade matrices from WIOD (40 countries, 56 industries). 4. Compute k_mean from binarized network. 5. Plot q vs 1 + 2/(k_mean + 1). 6. Compute RMSE and chi-squared test.",
+            "expected_result_if_false": "No systematic relationship between q and k_mean, or the formula is off by >0.2 for most countries.",
+            "surprising_result_if_true": "Inequality is a network property, not just a policy choice. Changing economic connectivity directly changes the income distribution shape."
+          }
+        },
+        {
+          "claim": "Cities obey an information-theoretic scaling law: the Shannon entropy of the distribution of economic activities across sectors scales as H ~ log(population)^{beta} where beta = D_f/d is the ratio of the city's fractal dimension D_f to the embedding dimension d=2. Larger cities are more informationally complex (higher entropy) but the rate of complexity increase depends on their spatial structure. Compact cities (high D_f) diversify faster than sprawling ones.",
+          "mechanism": "A city's economic diversity is limited by the number of distinct 'niches' that can co-exist. The number of niches scales with the effective dimensionality of the city's information flow network, which is related to its spatial fractal dimension. Compact cities (high D_f, close to 2) have dense interaction networks that support more niche diversity per unit population. Sprawling cities (low D_f, close to 1) have sparser networks and slower diversification.",
+          "testable_prediction": "For 200+ US metro areas: 1. Compute H = -sum p_i log(p_i) where p_i is fraction of employment in NAICS sector i. 2. Estimate D_f from satellite/OSM building footprint data. 3. Fit H = A * log(pop)^{D_f/2}. 4. This should outperform H = A * log(pop)^{beta_const} (constant beta) by AIC > 10.",
+          "domain": "economics",
+          "domains_touched": [
+            "economics",
+            "mathematics",
+            "physics"
+          ],
+          "contradicts_axiom": "Urban scaling laws (Bettencourt 2007) assume universal exponents independent of city morphology",
+          "plausibility": 0.45,
+          "surprise_if_true": 0.78,
+          "hypothesis_type": "incremental",
+          "scores": {
+            "N": 0.74,
+            "F": 0.8,
+            "E": 0.82,
+            "C": 0.72
+          },
+          "score_justifications": {
+            "N": "Urban scaling + fractal dimension have been studied separately. Connecting them with an information-theoretic formula is new.",
+            "F": "AIC > 10 is a standard model selection threshold. Very specific.",
+            "E": "BLS employment data and OSM building data are both free. Straightforward computation.",
+            "C": "Connects three separate literatures (urban scaling, fractals, information theory) but limited to cities."
+          },
+          "falsification": {
+            "logical_attack": "Shannon entropy of sector employment is a very coarse measure — it depends on the granularity of sector classification (2-digit vs 4-digit NAICS gives different H).",
+            "boundary_case": "Company towns (highly specialized, low H) may have high D_f if the single employer builds dense infrastructure. This would break the positive relationship.",
+            "hidden_assumption": "Assumes fractal dimension of physical layout determines information flow topology. But digital/remote work decouples spatial and informational structure.",
+            "survivability": 0.4,
+            "resurrectability": 0.55
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Get NAICS 4-digit employment data for 380 MSAs from BLS. 2. Compute Shannon entropy H for each. 3. Download building footprints from OSM/Microsoft. 4. Estimate D_f via box-counting. 5. Fit models: M1: H ~ log(pop)^b (universal b), M2: H ~ log(pop)^{D_f/2} (morphology-dependent b). 6. Compare by AIC.",
+            "expected_result_if_false": "M2 is not significantly better than M1 (delta_AIC < 2), or D_f has no relationship to the scaling exponent.",
+            "surprising_result_if_true": "City shape determines economic complexity — urban planning literally shapes the information-theoretic capacity of an economy."
+          }
+        },
+        {
+          "claim": "The effectiveness of monetary policy transmission is governed by the spectral gap of the interbank lending network. Specifically, the lag between a central bank rate change and its full transmission to retail lending rates scales as tau_transmission ~ 1/lambda_2, where lambda_2 is the second-smallest eigenvalue of the Laplacian of the interbank network. Countries with well-connected banking systems (large lambda_2) transmit policy fast; countries with fragmented banking systems (small lambda_2) transmit slowly or incompletely.",
+          "mechanism": "Monetary policy propagates through the interbank network via lending rate adjustments. Each bank adjusts its rate based on its neighbors' rates — a diffusion process. The speed of diffusion on a graph is governed by the spectral gap (Fiedler eigenvalue) of the graph Laplacian. Fragmented networks with bottlenecks have small spectral gaps and slow diffusion. Well-connected networks transmit signals rapidly.",
+          "testable_prediction": "For 15+ countries with published interbank network data (ECB, Fed, BoE): 1. Construct the interbank lending graph. 2. Compute lambda_2 of the Laplacian. 3. Measure empirical policy transmission lag (months between central bank rate change and 50% pass-through to mortgage rates). 4. Correlation between tau and 1/lambda_2 should give r > 0.6.",
+          "domain": "economics",
+          "domains_touched": [
+            "economics",
+            "mathematics",
+            "computer_science"
+          ],
+          "contradicts_axiom": "Standard monetary economics models policy transmission through representative-agent models that ignore banking network structure entirely",
+          "plausibility": 0.5,
+          "surprise_if_true": 0.75,
+          "hypothesis_type": "incremental",
+          "scores": {
+            "N": 0.72,
+            "F": 0.76,
+            "E": 0.65,
+            "C": 0.74
+          },
+          "score_justifications": {
+            "N": "Network effects on policy transmission have been discussed qualitatively (Acemoglu et al. 2015) but spectral gap quantification is new.",
+            "F": "The specific spectral gap prediction is falsifiable with existing data.",
+            "E": "Interbank network data has restricted access (central banks). May need to use proxies. Moderate difficulty.",
+            "C": "Connects graph spectral theory to monetary economics. Good compression but limited to one mechanism."
+          },
+          "falsification": {
+            "logical_attack": "Policy transmission involves more than interbank lending — deposit competition, bond markets, and expectations matter. The interbank network may be a minor channel.",
+            "boundary_case": "Japan has a well-connected banking system but notoriously slow monetary transmission (liquidity trap). The spectral gap prediction would fail here.",
+            "hidden_assumption": "Assumes the interbank network is relatively stable over the transmission period. In crises, the network restructures dynamically.",
+            "survivability": 0.4,
+            "resurrectability": 0.55
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Collect interbank lending data for ECB countries (TARGET2 data), US (FedWire), UK (CHAPS). 2. Construct monthly weighted directed graph. 3. Compute lambda_2 of symmetrized Laplacian. 4. Measure mortgage rate pass-through using ECB composite cost of borrowing indicator. 5. Cross-country regression: tau ~ alpha + beta/lambda_2.",
+            "expected_result_if_false": "R^2 < 0.2 in the cross-country regression, or beta is not significantly positive.",
+            "surprising_result_if_true": "Central banks should monitor their banking network's spectral gap as a key policy transmission diagnostic."
+          }
+        },
+        {
+          "claim": "There exists a 'forbidden zone' in the space of economic complexity indices: no country can simultaneously have high product complexity (Hidalgo-Hausmann ECI > 1.5) and low institutional complexity (World Governance Indicators < 30th percentile) for more than 15 years. This constraint is not merely correlational but reflects an information-theoretic impossibility: maintaining a complex export basket requires institutional infrastructure to process the requisite information flows, and the minimum institutional complexity is bounded below by the Shannon entropy of the product space.",
+          "mechanism": "Complex products require coordination among many specialized inputs. This coordination requires information processing — contracts, standards, quality control, logistics. The minimum institutional complexity needed to sustain a product basket with entropy H_products is proportional to H_products (Shannon's source coding theorem applied to economic coordination). Countries that temporarily exceed this bound (e.g., through authoritarian forced industrialization) inevitably either develop institutions or lose product complexity.",
+          "testable_prediction": "Using 60 years of trade data (SITC/HS) for 150+ countries: no country should occupy the ECI > 1.5 AND WGI < 30th percentile cell for > 15 consecutive years. Count violations. There should be < 3 violations in the entire dataset, and those should be countries trending toward institutional growth.",
+          "domain": "economics",
+          "domains_touched": [
+            "economics",
+            "mathematics",
+            "computer_science"
+          ],
+          "contradicts_axiom": "The 'authoritarian growth' thesis — that countries like China can sustain complex economies without liberal institutions indefinitely",
+          "plausibility": 0.55,
+          "surprise_if_true": 0.7,
+          "hypothesis_type": "incremental",
+          "scores": {
+            "N": 0.68,
+            "F": 0.74,
+            "E": 0.8,
+            "C": 0.72
+          },
+          "score_justifications": {
+            "N": "The ECI-institutions correlation is well-known but the information-theoretic lower bound and '15-year timeout' are novel testable claims.",
+            "F": "The 15-year threshold and < 3 violations are specific enough to falsify.",
+            "E": "All data is public (Atlas of Economic Complexity, WGI). Pure data analysis.",
+            "C": "Connects economic complexity to information theory with a quantitative bound."
+          },
+          "falsification": {
+            "logical_attack": "China has maintained high ECI with low WGI for >25 years (depending on measurement). This alone may be a decisive counterexample.",
+            "boundary_case": "Small oil-producing nations may have high ECI due to refining exports but low genuine institutional complexity — measurement artifact.",
+            "hidden_assumption": "Assumes WGI is an adequate proxy for 'institutional complexity needed for economic coordination'. Alternative governance mechanisms (e.g., guanxi networks) may substitute.",
+            "survivability": 0.45,
+            "resurrectability": 0.5
+          },
+          "experimental_protocol": {
+            "type": "computational",
+            "description": "1. Download Atlas of Economic Complexity ECI data (1960-2023). 2. Download WGI data (1996-2023, extrapolate before with Polity V). 3. Create country × year panel. 4. Flag all (country, year_range) where ECI > 1.5 and WGI < 30th percentile for >15 consecutive years. 5. Count violations. 6. For each violation, check if WGI is trending upward.",
+            "expected_result_if_false": "10+ country-decade violations with no institutional convergence trend. China is the obvious test case.",
+            "surprising_result_if_true": "There's a hard thermodynamic-like constraint on economic development — complexity demands institutions as surely as engines demand exhaust."
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "engine": "Claude Opus 4.6 (VS Code Agent)",
+    "generated": "2026-03-27T16:54:07.624141",
+    "mode": "Generic Research — Cross-Domain",
+    "description": "Genuine cross-domain breakthrough hypotheses with adversarial evaluation. Generation 1: Physics/Math/CS. Generation 2: Biology. Generation 3: Economics."
+  }
+}

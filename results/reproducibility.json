@@ -1,0 +1,39 @@
+{
+  "agent_version": "4.6.0",
+  "timestamp_utc": "2026-04-03T09:13:53.706920+00:00",
+  "python_version": "3.14.3",
+  "platform": "Windows-11-10.0.29558-SP0",
+  "mpmath_version": "1.3.0",
+  "sympy_version": "1.14.0",
+  "config": {
+    "max_rounds": 1,
+    "budget_per_agent": 2,
+    "pollinate_every": 1,
+    "meta_learn_every": 1,
+    "persist_path": "results/ramanujan_state.json"
+  },
+  "literature_db_size": 45,
+  "search_families": [
+    "pi_series",
+    "continued_fraction",
+    "nonpoly_cf",
+    "q_series",
+    "pslq",
+    "partition",
+    "tau_function"
+  ],
+  "validation_stages": [
+    "numeric_escalation",
+    "symbolic",
+    "pslq_verify",
+    "convergence",
+    "cf_fixedpoint",
+    "algebraic_detection"
+  ],
+  "novelty_criteria": {
+    "numeric_uniqueness": "ISC-style lookup: 15 constants x 40 multipliers + algebraic transforms",
+    "structural_novelty": "polynomial degree, coefficient magnitude, period length",
+    "algebraic_filter": "minimal polynomial degree <= 8 with small coefficients",
+    "literature_match": "45 known results + periodic CF detection"
+  }
+}

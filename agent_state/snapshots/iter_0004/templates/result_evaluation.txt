@@ -1,0 +1,3 @@
+Evaluate this result as a skeptic. Claim: {claim}
+Evidence: {evidence}
+Score on Novelty, Falsifiability, Empirical support, Compression. Try to find flaws FIRST. Only score high if no flaws found.

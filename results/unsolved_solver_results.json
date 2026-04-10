@@ -1,0 +1,1945 @@
+{
+  "total_time": 507.66,
+  "rounds_completed": 8,
+  "global_stats": {
+    "total_proposed": 965,
+    "total_validated": 79,
+    "total_falsified": 0,
+    "breakthroughs": 8,
+    "total_discoveries": 965,
+    "by_domain": {
+      "collatz": 110,
+      "erdos_straus": 784,
+      "hadamard": 71
+    },
+    "by_category": {
+      "pattern": 45,
+      "invariant": 47,
+      "family": 696,
+      "hypothesis": 28,
+      "proof_sketch": 57,
+      "transfer": 92
+    },
+    "rounds_completed": 8
+  },
+  "domain_reports": {
+    "collatz": {
+      "summary": {
+        "domain": "collatz",
+        "count": 110,
+        "by_category": {
+          "proof_sketch": 17,
+          "transfer": 16,
+          "pattern": 26,
+          "invariant": 39,
+          "hypothesis": 12
+        },
+        "by_status": {
+          "validated": 30,
+          "refined": 32,
+          "proposed": 48
+        },
+        "avg_confidence": 0.4503770145256795,
+        "max_confidence": 0.7,
+        "top_3": [
+          [
+            "D000197",
+            "invariant",
+            0.6
+          ],
+          [
+            "D000334",
+            "invariant",
+            0.6
+          ],
+          [
+            "D000434",
+            "invariant",
+            0.6
+          ]
+        ]
+      },
+      "proof_sketches": [
+        {
+          "id": "D000201",
+          "agent_id": "formalizer_0",
+          "domain": "collatz",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "stopping_time_log_scaling",
+            "lean4_code": "\n-- Stopping time scaling lemma\n-- E[stopping_time(n)] \u223c 9.77 * ln(n)\ntheorem collatz_expected_stopping_time :\n  \u2203 C > 0, \u2200 n > 1,\n    stopping_time(n) \u2264 C * Real.log n := by\n  -- Proof sketch: probabilistic heuristic formalization\n  -- Each step reduces n by factor ~2/3 on average (when odd ratio \u2192 ln2/ln3)\n  -- Expected steps to reach 1: log(n) / log(3/2) \u2248 9.77 * ln(n)\n  sorry\n",
+            "proof_strategy": "probabilistic_bound",
+            "observed_slope": 9.767930693264274,
+            "r_squared": 0.005133075809532706
+          },
+          "confidence": 0.4,
+          "parent_ids": [
+            "D000103"
+          ],
+          "status": "proposed",
+          "priority": 4.0,
+          "reviews": [],
+          "timestamp": 1774172368.8799016
+        },
+        {
+          "id": "D000202",
+          "agent_id": "formalizer_0",
+          "domain": "collatz",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "stopping_time_log_scaling",
+            "lean4_code": "\n-- Stopping time scaling lemma\n-- E[stopping_time(n)] \u223c 13.01 * ln(n)\ntheorem collatz_expected_stopping_time :\n  \u2203 C > 0, \u2200 n > 1,\n    stopping_time(n) \u2264 C * Real.log n := by\n  -- Proof sketch: probabilistic heuristic formalization\n  -- Each step reduces n by factor ~2/3 on average (when odd ratio \u2192 ln2/ln3)\n  -- Expected steps to reach 1: log(n) / log(3/2) \u2248 13.01 * ln(n)\n  sorry\n",
+            "proof_strategy": "probabilistic_bound",
+            "observed_slope": 13.008580099471788,
+            "r_squared": 0.003896773885600946
+          },
+          "confidence": 0.4,
+          "parent_ids": [
+            "D000003"
+          ],
+          "status": "proposed",
+          "priority": 4.0,
+          "reviews": [],
+          "timestamp": 1774172368.8799353
+        },
+        {
+          "id": "D000439",
+          "agent_id": "formalizer_0",
+          "domain": "collatz",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "stopping_time_log_scaling",
+            "lean4_code": "\n-- Stopping time scaling lemma\n-- E[stopping_time(n)] \u223c 12.18 * ln(n)\ntheorem collatz_expected_stopping_time :\n  \u2203 C > 0, \u2200 n > 1,\n    stopping_time(n) \u2264 C * Real.log n := by\n  -- Proof sketch: probabilistic heuristic formalization\n  -- Each step reduces n by factor ~2/3 on average (when odd ratio \u2192 ln2/ln3)\n  -- Expected steps to reach 1: log(n) / log(3/2) \u2248 12.18 * ln(n)\n  sorry\n",
+            "proof_strategy": "probabilistic_bound",
+            "observed_slope": 12.176033566481987,
+            "r_squared": 0.015080750620629413
+          },
+          "confidence": 0.4,
+          "parent_ids": [
+            "D000340"
+          ],
+          "status": "proposed",
+          "priority": 4.0,
+          "reviews": [],
+          "timestamp": 1774172484.054503
+        },
+        {
+          "id": "D000440",
+          "agent_id": "formalizer_0",
+          "domain": "collatz",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "stopping_time_log_scaling",
+            "lean4_code": "\n-- Stopping time scaling lemma\n-- E[stopping_time(n)] \u223c 10.55 * ln(n)\ntheorem collatz_expected_stopping_time :\n  \u2203 C > 0, \u2200 n > 1,\n    stopping_time(n) \u2264 C * Real.log n := by\n  -- Proof sketch: probabilistic heuristic formalization\n  -- Each step reduces n by factor ~2/3 on average (when odd ratio \u2192 ln2/ln3)\n  -- Expected steps to reach 1: log(n) / log(3/2) \u2248 10.55 * ln(n)\n  sorry\n",
+            "proof_strategy": "probabilistic_bound",
+            "observed_slope": 10.553495497014898,
+            "r_squared": 0.008886813127069071
+          },
+          "confidence": 0.4,
+          "parent_ids": [
+            "D000239"
+          ],
+          "status": "proposed",
+          "priority": 4.0,
+          "reviews": [],
+          "timestamp": 1774172484.0545194
+        },
+        {
+          "id": "D000441",
+          "agent_id": "formalizer_0",
+          "domain": "collatz",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "stopping_time_log_scaling",
+            "lean4_code": "\n-- Stopping time scaling lemma\n-- E[stopping_time(n)] \u223c 9.77 * ln(n)\ntheorem collatz_expected_stopping_time :\n  \u2203 C > 0, \u2200 n > 1,\n    stopping_time(n) \u2264 C * Real.log n := by\n  -- Proof sketch: probabilistic heuristic formalization\n  -- Each step reduces n by factor ~2/3 on average (when odd ratio \u2192 ln2/ln3)\n  -- Expected steps to reach 1: log(n) / log(3/2) \u2248 9.77 * ln(n)\n  sorry\n",
+            "proof_strategy": "probabilistic_bound",
+            "observed_slope": 9.767930693264274,
+            "r_squared": 0.005133075809532706
+          },
+          "confidence": 0.4,
+          "parent_ids": [
+            "D000103"
+          ],
+          "status": "proposed",
+          "priority": 4.0,
+          "reviews": [],
+          "timestamp": 1774172484.054531
+        },
+        {
+          "id": "D000442",
+          "agent_id": "formalizer_0",
+          "domain": "collatz",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "stopping_time_log_scaling",
+            "lean4_code": "\n-- Stopping time scaling lemma\n-- E[stopping_time(n)] \u223c 13.01 * ln(n)\ntheorem collatz_expected_stopping_time :\n  \u2203 C > 0, \u2200 n > 1,\n    stopping_time(n) \u2264 C * Real.log n := by\n  -- Proof sketch: probabilistic heuristic formalization\n  -- Each step reduces n by factor ~2/3 on average (when odd ratio \u2192 ln2/ln3)\n  -- Expected steps to reach 1: log(n) / log(3/2) \u2248 13.01 * ln(n)\n  sorry\n",
+            "proof_strategy": "probabilistic_bound",
+            "observed_slope": 13.008580099471788,
+            "r_squared": 0.003896773885600946
+          },
+          "confidence": 0.4,
+          "parent_ids": [
+            "D000003"
+          ],
+          "status": "proposed",
+          "priority": 4.0,
+          "reviews": [],
+          "timestamp": 1774172484.0545416
+        },
+        {
+          "id": "D000682",
+          "agent_id": "formalizer_0",
+          "domain": "collatz",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "stopping_time_log_scaling",
+            "lean4_code": "\n-- Stopping time scaling lemma\n-- E[stopping_time(n)] \u223c 11.66 * ln(n)\ntheorem collatz_expected_stopping_time :\n  \u2203 C > 0, \u2200 n > 1,\n    stopping_time(n) \u2264 C * Real.log n := by\n  -- Proof sketch: probabilistic heuristic formalization\n  -- Each step reduces n by factor ~2/3 on average (when odd ratio \u2192 ln2/ln3)\n  -- Expected steps to reach 1: log(n) / log(3/2) \u2248 11.66 * ln(n)\n  sorry\n",
+            "proof_strategy": "probabilistic_bound",
+            "observed_slope": 11.664911138355674,
+            "r_squared": 0.018351256280814132
+          },
+          "confidence": 0.4,
+          "parent_ids": [
+            "D000583"
+          ],
+          "status": "proposed",
+          "priority": 4.0,
+          "reviews": [],
+          "timestamp": 1774172653.433095
+        },
+        {
+          "id": "D000683",
+          "agent_id": "formalizer_0",
+          "domain": "collatz",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "stopping_time_log_scaling",
+            "lean4_code": "\n-- Stopping time scaling lemma\n-- E[stopping_time(n)] \u223c 12.18 * ln(n)\ntheorem collatz_expected_stopping_time :\n  \u2203 C > 0, \u2200 n > 1,\n    stopping_time(n) \u2264 C * Real.log n := by\n  -- Proof sketch: probabilistic heuristic formalization\n  -- Each step reduces n by factor ~2/3 on average (when odd ratio \u2192 ln2/ln3)\n  -- Expected steps to reach 1: log(n) / log(3/2) \u2248 12.18 * ln(n)\n  sorry\n",
+            "proof_strategy": "probabilistic_bound",
+            "observed_slope": 12.176033566481987,
+            "r_squared": 0.015080750620629413
+          },
+          "confidence": 0.4,
+          "parent_ids": [
+            "D000340"
+          ],
+          "status": "proposed",
+          "priority": 4.0,
+          "reviews": [],
+          "timestamp": 1774172653.4331317
+        },
+        {
+          "id": "D000684",
+          "agent_id": "formalizer_0",
+          "domain": "collatz",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "stopping_time_log_scaling",
+            "lean4_code": "\n-- Stopping time scaling lemma\n-- E[stopping_time(n)] \u223c 11.12 * ln(n)\ntheorem collatz_expected_stopping_time :\n  \u2203 C > 0, \u2200 n > 1,\n    stopping_time(n) \u2264 C * Real.log n := by\n  -- Proof sketch: probabilistic heuristic formalization\n  -- Each step reduces n by factor ~2/3 on average (when odd ratio \u2192 ln2/ln3)\n  -- Expected steps to reach 1: log(n) / log(3/2) \u2248 11.12 * ln(n)\n  sorry\n",
+            "proof_strategy": "probabilistic_bound",
+            "observed_slope": 11.117111414523992,
+            "r_squared": 0.014798286945115424
+          },
+          "confidence": 0.4,
+          "parent_ids": [
+            "D000482"
+          ],
+          "status": "proposed",
+          "priority": 4.0,
+          "reviews": [],
+          "timestamp": 1774172653.433219
+        },
+        {
+          "id": "D000685",
+          "agent_id": "formalizer_0",
+          "domain": "collatz",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "stopping_time_log_scaling",
+            "lean4_code": "\n-- Stopping time scaling lemma\n-- E[stopping_time(n)] \u223c 10.55 * ln(n)\ntheorem collatz_expected_stopping_time :\n  \u2203 C > 0, \u2200 n > 1,\n    stopping_time(n) \u2264 C * Real.log n := by\n  -- Proof sketch: probabilistic heuristic formalization\n  -- Each step reduces n by factor ~2/3 on average (when odd ratio \u2192 ln2/ln3)\n  -- Expected steps to reach 1: log(n) / log(3/2) \u2248 10.55 * ln(n)\n  sorry\n",
+            "proof_strategy": "probabilistic_bound",
+            "observed_slope": 10.553495497014898,
+            "r_squared": 0.008886813127069071
+          },
+          "confidence": 0.4,
+          "parent_ids": [
+            "D000239"
+          ],
+          "status": "proposed",
+          "priority": 4.0,
+          "reviews": [],
+          "timestamp": 1774172653.4332554
+        }
+      ],
+      "breakthroughs": []
+    },
+    "erdos_straus": {
+      "summary": {
+        "domain": "erdos_straus",
+        "count": 784,
+        "by_category": {
+          "proof_sketch": 40,
+          "transfer": 36,
+          "pattern": 8,
+          "family": 696,
+          "hypothesis": 4
+        },
+        "by_status": {
+          "validated": 46,
+          "proposed": 738
+        },
+        "avg_confidence": 0.6297321428571429,
+        "max_confidence": 1.0,
+        "top_3": [
+          [
+            "D000007",
+            "family",
+            0.8
+          ],
+          [
+            "D000008",
+            "family",
+            0.8
+          ],
+          [
+            "D000009",
+            "family",
+            0.8
+          ]
+        ]
+      },
+      "proof_sketches": [
+        {
+          "id": "D000205",
+          "agent_id": "formalizer_0",
+          "domain": "erdos_straus",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "mod4_class2",
+            "lean4_code": "\n-- Erd\u0151s\u2013Straus family for n \u2261 2 (mod 4)\ntheorem erdos_straus_mod4_class2 :\n  \u2200 n : \u2115, n \u2261 2 [MOD 4] \u2192 n \u2265 2 \u2192\n    \u2203 a b c : \u2115, a \u2265 1 \u2227 b \u2265 1 \u2227 c \u2265 1 \u2227\n      4 * a * b * c = n * (b * c + a * c + a * b) := by\n  -- Construction: a \u2248 0.5 * n\n  -- Then solve for b, c from remaining fraction\n  sorry\n",
+            "residue_class": [
+              2,
+              4
+            ],
+            "coverage": 75
+          },
+          "confidence": 0.35,
+          "parent_ids": [
+            "D000007"
+          ],
+          "status": "proposed",
+          "priority": 3.5,
+          "reviews": [],
+          "timestamp": 1774172368.880109
+        },
+        {
+          "id": "D000206",
+          "agent_id": "formalizer_0",
+          "domain": "erdos_straus",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "mod4_class3",
+            "lean4_code": "\n-- Erd\u0151s\u2013Straus family for n \u2261 3 (mod 4)\ntheorem erdos_straus_mod4_class3 :\n  \u2200 n : \u2115, n \u2261 3 [MOD 4] \u2192 n \u2265 2 \u2192\n    \u2203 a b c : \u2115, a \u2265 1 \u2227 b \u2265 1 \u2227 c \u2265 1 \u2227\n      4 * a * b * c = n * (b * c + a * c + a * b) := by\n  -- Construction: a \u2248 0.25450557011788216 * n\n  -- Then solve for b, c from remaining fraction\n  sorry\n",
+            "residue_class": [
+              3,
+              4
+            ],
+            "coverage": 75
+          },
+          "confidence": 0.35,
+          "parent_ids": [
+            "D000008"
+          ],
+          "status": "proposed",
+          "priority": 3.5,
+          "reviews": [],
+          "timestamp": 1774172368.8801334
+        },
+        {
+          "id": "D000207",
+          "agent_id": "formalizer_0",
+          "domain": "erdos_straus",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "mod4_class0",
+            "lean4_code": "\n-- Erd\u0151s\u2013Straus family for n \u2261 0 (mod 4)\ntheorem erdos_straus_mod4_class0 :\n  \u2200 n : \u2115, n \u2261 0 [MOD 4] \u2192 n \u2265 2 \u2192\n    \u2203 a b c : \u2115, a \u2265 1 \u2227 b \u2265 1 \u2227 c \u2265 1 \u2227\n      4 * a * b * c = n * (b * c + a * c + a * b) := by\n  -- Construction: a \u2248 0.26633785210184346 * n\n  -- Then solve for b, c from remaining fraction\n  sorry\n",
+            "residue_class": [
+              0,
+              4
+            ],
+            "coverage": 75
+          },
+          "confidence": 0.35,
+          "parent_ids": [
+            "D000009"
+          ],
+          "status": "proposed",
+          "priority": 3.5,
+          "reviews": [],
+          "timestamp": 1774172368.880152
+        },
+        {
+          "id": "D000208",
+          "agent_id": "formalizer_0",
+          "domain": "erdos_straus",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "mod4_class1",
+            "lean4_code": "\n-- Erd\u0151s\u2013Straus family for n \u2261 1 (mod 4)\ntheorem erdos_straus_mod4_class1 :\n  \u2200 n : \u2115, n \u2261 1 [MOD 4] \u2192 n \u2265 2 \u2192\n    \u2203 a b c : \u2115, a \u2265 1 \u2227 b \u2265 1 \u2227 c \u2265 1 \u2227\n      4 * a * b * c = n * (b * c + a * c + a * b) := by\n  -- Construction: a \u2248 0.26217441339012043 * n\n  -- Then solve for b, c from remaining fraction\n  sorry\n",
+            "residue_class": [
+              1,
+              4
+            ],
+            "coverage": 74
+          },
+          "confidence": 0.35,
+          "parent_ids": [
+            "D000010"
+          ],
+          "status": "proposed",
+          "priority": 3.5,
+          "reviews": [],
+          "timestamp": 1774172368.8801715
+        },
+        {
+          "id": "D000209",
+          "agent_id": "formalizer_0",
+          "domain": "erdos_straus",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "mod6_class3",
+            "lean4_code": "\n-- Erd\u0151s\u2013Straus family for n \u2261 3 (mod 6)\ntheorem erdos_straus_mod6_class3 :\n  \u2200 n : \u2115, n \u2261 3 [MOD 6] \u2192 n \u2265 2 \u2192\n    \u2203 a b c : \u2115, a \u2265 1 \u2227 b \u2265 1 \u2227 c \u2265 1 \u2227\n      4 * a * b * c = n * (b * c + a * c + a * b) := by\n  -- Construction: a \u2248 0.2584919183896701 * n\n  -- Then solve for b, c from remaining fraction\n  sorry\n",
+            "residue_class": [
+              3,
+              6
+            ],
+            "coverage": 50
+          },
+          "confidence": 0.35,
+          "parent_ids": [
+            "D000011"
+          ],
+          "status": "proposed",
+          "priority": 3.5,
+          "reviews": [],
+          "timestamp": 1774172368.880187
+        },
+        {
+          "id": "D000210",
+          "agent_id": "formalizer_0",
+          "domain": "erdos_straus",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "mod6_class5",
+            "lean4_code": "\n-- Erd\u0151s\u2013Straus family for n \u2261 5 (mod 6)\ntheorem erdos_straus_mod6_class5 :\n  \u2200 n : \u2115, n \u2261 5 [MOD 6] \u2192 n \u2265 2 \u2192\n    \u2203 a b c : \u2115, a \u2265 1 \u2227 b \u2265 1 \u2227 c \u2265 1 \u2227\n      4 * a * b * c = n * (b * c + a * c + a * b) := by\n  -- Construction: a \u2248 0.2587245405685782 * n\n  -- Then solve for b, c from remaining fraction\n  sorry\n",
+            "residue_class": [
+              5,
+              6
+            ],
+            "coverage": 50
+          },
+          "confidence": 0.35,
+          "parent_ids": [
+            "D000012"
+          ],
+          "status": "proposed",
+          "priority": 3.5,
+          "reviews": [],
+          "timestamp": 1774172368.8802044
+        },
+        {
+          "id": "D000211",
+          "agent_id": "formalizer_0",
+          "domain": "erdos_straus",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "mod4_class2",
+            "lean4_code": "\n-- Erd\u0151s\u2013Straus family for n \u2261 2 (mod 4)\ntheorem erdos_straus_mod4_class2 :\n  \u2200 n : \u2115, n \u2261 2 [MOD 4] \u2192 n \u2265 2 \u2192\n    \u2203 a b c : \u2115, a \u2265 1 \u2227 b \u2265 1 \u2227 c \u2265 1 \u2227\n      4 * a * b * c = n * (b * c + a * c + a * b) := by\n  -- Construction: a \u2248 0.5 * n\n  -- Then solve for b, c from remaining fraction\n  sorry\n",
+            "residue_class": [
+              2,
+              4
+            ],
+            "coverage": 100
+          },
+          "confidence": 0.35,
+          "parent_ids": [
+            "D000107"
+          ],
+          "status": "proposed",
+          "priority": 3.5,
+          "reviews": [],
+          "timestamp": 1774172368.88022
+        },
+        {
+          "id": "D000212",
+          "agent_id": "formalizer_0",
+          "domain": "erdos_straus",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "mod4_class3",
+            "lean4_code": "\n-- Erd\u0151s\u2013Straus family for n \u2261 3 (mod 4)\ntheorem erdos_straus_mod4_class3 :\n  \u2200 n : \u2115, n \u2261 3 [MOD 4] \u2192 n \u2265 2 \u2192\n    \u2203 a b c : \u2115, a \u2265 1 \u2227 b \u2265 1 \u2227 c \u2265 1 \u2227\n      4 * a * b * c = n * (b * c + a * c + a * b) := by\n  -- Construction: a \u2248 0.2535584575573826 * n\n  -- Then solve for b, c from remaining fraction\n  sorry\n",
+            "residue_class": [
+              3,
+              4
+            ],
+            "coverage": 100
+          },
+          "confidence": 0.35,
+          "parent_ids": [
+            "D000108"
+          ],
+          "status": "proposed",
+          "priority": 3.5,
+          "reviews": [],
+          "timestamp": 1774172368.880235
+        },
+        {
+          "id": "D000213",
+          "agent_id": "formalizer_0",
+          "domain": "erdos_straus",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "mod4_class0",
+            "lean4_code": "\n-- Erd\u0151s\u2013Straus family for n \u2261 0 (mod 4)\ntheorem erdos_straus_mod4_class0 :\n  \u2200 n : \u2115, n \u2261 0 [MOD 4] \u2192 n \u2265 2 \u2192\n    \u2203 a b c : \u2115, a \u2265 1 \u2227 b \u2265 1 \u2227 c \u2265 1 \u2227\n      4 * a * b * c = n * (b * c + a * c + a * b) := by\n  -- Construction: a \u2248 0.26296844379409906 * n\n  -- Then solve for b, c from remaining fraction\n  sorry\n",
+            "residue_class": [
+              0,
+              4
+            ],
+            "coverage": 100
+          },
+          "confidence": 0.35,
+          "parent_ids": [
+            "D000109"
+          ],
+          "status": "proposed",
+          "priority": 3.5,
+          "reviews": [],
+          "timestamp": 1774172368.8802502
+        },
+        {
+          "id": "D000214",
+          "agent_id": "formalizer_0",
+          "domain": "erdos_straus",
+          "category": "proof_sketch",
+          "content": {
+            "based_on": "mod4_class1",
+            "lean4_code": "\n-- Erd\u0151s\u2013Straus family for n \u2261 1 (mod 4)\ntheorem erdos_straus_mod4_class1 :\n  \u2200 n : \u2115, n \u2261 1 [MOD 4] \u2192 n \u2265 2 \u2192\n    \u2203 a b c : \u2115, a \u2265 1 \u2227 b \u2265 1 \u2227 c \u2265 1 \u2227\n      4 * a * b * c = n * (b * c + a * c + a * b) := by\n  -- Construction: a \u2248 0.25970674792740095 * n\n  -- Then solve for b, c from remaining fraction\n  sorry\n",
+            "residue_class": [
+              1,
+              4
+            ],
+            "coverage": 99
+          },
+          "confidence": 0.35,
+          "parent_ids": [
+            "D000110"
+          ],
+          "status": "proposed",
+          "priority": 3.5,
+          "reviews": [],
+          "timestamp": 1774172368.880272
+        }
+      ],
+      "breakthroughs": [
+        {
+          "id": "D000007",
+          "agent_id": "explorer_0",
+          "domain": "erdos_straus",
+          "category": "family",
+          "content": {
+            "modulus": 4,
+            "residue": 2,
+            "count": 75,
+            "a_over_n": 0.5,
+            "a_over_n_var": 0.0,
+            "suggested_a": "ceil(0.5000 * n)",
+            "description": "For n \u2261 2 (mod 4): a \u2248 0.5000\u00b7n"
+          },
+          "confidence": 0.8,
+          "parent_ids": [],
+          "status": "validated",
+          "priority": 4.800000000000001,
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172154.2872202
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172368.8793957
+            }
+          ],
+          "timestamp": 1774172153.5403874
+        },
+        {
+          "id": "D000008",
+          "agent_id": "explorer_0",
+          "domain": "erdos_straus",
+          "category": "family",
+          "content": {
+            "modulus": 4,
+            "residue": 3,
+            "count": 75,
+            "a_over_n": 0.25450557011788216,
+            "a_over_n_var": 0.00011139727576093698,
+            "suggested_a": "ceil(0.2545 * n)",
+            "description": "For n \u2261 3 (mod 4): a \u2248 0.2545\u00b7n"
+          },
+          "confidence": 0.8,
+          "parent_ids": [],
+          "status": "validated",
+          "priority": 4.800000000000001,
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172154.2872214
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172368.8793986
+            }
+          ],
+          "timestamp": 1774172153.540413
+        },
+        {
+          "id": "D000009",
+          "agent_id": "explorer_0",
+          "domain": "erdos_straus",
+          "category": "family",
+          "content": {
+            "modulus": 4,
+            "residue": 0,
+            "count": 75,
+            "a_over_n": 0.26633785210184346,
+            "a_over_n_var": 0.001092815611495037,
+            "suggested_a": "ceil(0.2663 * n)",
+            "description": "For n \u2261 0 (mod 4): a \u2248 0.2663\u00b7n"
+          },
+          "confidence": 0.8,
+          "parent_ids": [],
+          "status": "validated",
+          "priority": 4.800000000000001,
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172154.2872229
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172368.879401
+            }
+          ],
+          "timestamp": 1774172153.540427
+        },
+        {
+          "id": "D000010",
+          "agent_id": "explorer_0",
+          "domain": "erdos_straus",
+          "category": "family",
+          "content": {
+            "modulus": 4,
+            "residue": 1,
+            "count": 74,
+            "a_over_n": 0.26217441339012043,
+            "a_over_n_var": 0.0004373424092275027,
+            "suggested_a": "ceil(0.2622 * n)",
+            "description": "For n \u2261 1 (mod 4): a \u2248 0.2622\u00b7n"
+          },
+          "confidence": 0.8,
+          "parent_ids": [],
+          "status": "validated",
+          "priority": 4.800000000000001,
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172154.2872238
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172368.8794036
+            }
+          ],
+          "timestamp": 1774172153.5404403
+        },
+        {
+          "id": "D000011",
+          "agent_id": "explorer_0",
+          "domain": "erdos_straus",
+          "category": "family",
+          "content": {
+            "modulus": 6,
+            "residue": 3,
+            "count": 50,
+            "a_over_n": 0.2584919183896701,
+            "a_over_n_var": 0.0002723097036240981,
+            "suggested_a": "ceil(0.2585 * n)",
+            "description": "For n \u2261 3 (mod 6): a \u2248 0.2585\u00b7n"
+          },
+          "confidence": 0.8,
+          "parent_ids": [],
+          "status": "validated",
+          "priority": 4.800000000000001,
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172154.2872248
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172368.8794057
+            }
+          ],
+          "timestamp": 1774172153.540453
+        },
+        {
+          "id": "D000012",
+          "agent_id": "explorer_0",
+          "domain": "erdos_straus",
+          "category": "family",
+          "content": {
+            "modulus": 6,
+            "residue": 5,
+            "count": 50,
+            "a_over_n": 0.2587245405685782,
+            "a_over_n_var": 0.0004654803541676352,
+            "suggested_a": "ceil(0.2587 * n)",
+            "description": "For n \u2261 5 (mod 6): a \u2248 0.2587\u00b7n"
+          },
+          "confidence": 0.8,
+          "parent_ids": [],
+          "status": "validated",
+          "priority": 4.800000000000001,
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172154.287226
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172368.8794081
+            }
+          ],
+          "timestamp": 1774172153.540467
+        },
+        {
+          "id": "D000107",
+          "agent_id": "explorer_0",
+          "domain": "erdos_straus",
+          "category": "family",
+          "content": {
+            "modulus": 4,
+            "residue": 2,
+            "count": 100,
+            "a_over_n": 0.5,
+            "a_over_n_var": 0.0,
+            "suggested_a": "ceil(0.5000 * n)",
+            "description": "For n \u2261 2 (mod 4): a \u2248 0.5000\u00b7n"
+          },
+          "confidence": 0.8,
+          "parent_ids": [],
+          "status": "validated",
+          "priority": 4.800000000000001,
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172368.8794107
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172372.472912
+            }
+          ],
+          "timestamp": 1774172366.2325943
+        },
+        {
+          "id": "D000108",
+          "agent_id": "explorer_0",
+          "domain": "erdos_straus",
+          "category": "family",
+          "content": {
+            "modulus": 4,
+            "residue": 3,
+            "count": 100,
+            "a_over_n": 0.2535584575573826,
+            "a_over_n_var": 8.623990590746411e-05,
+            "suggested_a": "ceil(0.2536 * n)",
+            "description": "For n \u2261 3 (mod 4): a \u2248 0.2536\u00b7n"
+          },
+          "confidence": 0.8,
+          "parent_ids": [],
+          "status": "validated",
+          "priority": 4.800000000000001,
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172368.879413
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172372.4729164
+            }
+          ],
+          "timestamp": 1774172366.2326167
+        },
+        {
+          "id": "D000109",
+          "agent_id": "explorer_0",
+          "domain": "erdos_straus",
+          "category": "family",
+          "content": {
+            "modulus": 4,
+            "residue": 0,
+            "count": 100,
+            "a_over_n": 0.26296844379409906,
+            "a_over_n_var": 0.0008536844031748519,
+            "suggested_a": "ceil(0.2630 * n)",
+            "description": "For n \u2261 0 (mod 4): a \u2248 0.2630\u00b7n"
+          },
+          "confidence": 0.8,
+          "parent_ids": [],
+          "status": "validated",
+          "priority": 4.800000000000001,
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172368.879415
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172372.4729187
+            }
+          ],
+          "timestamp": 1774172366.2326288
+        },
+        {
+          "id": "D000110",
+          "agent_id": "explorer_0",
+          "domain": "erdos_straus",
+          "category": "family",
+          "content": {
+            "modulus": 4,
+            "residue": 1,
+            "count": 99,
+            "a_over_n": 0.25970674792740095,
+            "a_over_n_var": 0.00034511156262960675,
+            "suggested_a": "ceil(0.2597 * n)",
+            "description": "For n \u2261 1 (mod 4): a \u2248 0.2597\u00b7n"
+          },
+          "confidence": 0.8,
+          "parent_ids": [],
+          "status": "validated",
+          "priority": 4.800000000000001,
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172368.8794172
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "Adversary review: confidence 0.80 meets threshold",
+              "timestamp": 1774172372.472921
+            }
+          ],
+          "timestamp": 1774172366.232637
+        }
+      ]
+    },
+    "hadamard": {
+      "summary": {
+        "domain": "hadamard",
+        "count": 71,
+        "by_category": {
+          "pattern": 11,
+          "invariant": 8,
+          "transfer": 40,
+          "hypothesis": 12
+        },
+        "by_status": {
+          "validated": 3,
+          "refined": 8,
+          "proposed": 60
+        },
+        "avg_confidence": 0.28169014084507044,
+        "max_confidence": 0.5,
+        "top_3": [
+          [
+            "D000095",
+            "invariant",
+            0.4
+          ],
+          [
+            "D000195",
+            "invariant",
+            0.4
+          ],
+          [
+            "D000332",
+            "invariant",
+            0.4
+          ]
+        ]
+      },
+      "proof_sketches": [],
+      "breakthroughs": []
+    }
+  },
+  "agent_stats": {
+    "explorer_0": {
+      "type": "explorer",
+      "rounds": 24,
+      "discoveries": 762,
+      "time_spent": 19.52
+    },
+    "pattern_miner_0": {
+      "type": "pattern_miner",
+      "rounds": 24,
+      "discoveries": 23,
+      "time_spent": 0.01
+    },
+    "adversary_0": {
+      "type": "adversary",
+      "rounds": 24,
+      "discoveries": 19,
+      "time_spent": 488.07
+    },
+    "refiner_0": {
+      "type": "refiner",
+      "rounds": 24,
+      "discoveries": 0,
+      "time_spent": 0.01
+    },
+    "formalizer_0": {
+      "type": "formalizer",
+      "rounds": 12,
+      "discoveries": 57,
+      "time_spent": 0.0
+    },
+    "meta_learner_0": {
+      "type": "meta_learner",
+      "rounds": 12,
+      "discoveries": 12,
+      "time_spent": 0.01
+    },
+    "pollinator_0": {
+      "type": "pollinator",
+      "rounds": 12,
+      "discoveries": 92,
+      "time_spent": 0.01
+    }
+  },
+  "top_discoveries": [
+    {
+      "id": "D000007",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 4,
+        "residue": 2,
+        "count": 75,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 4): a \u2248 0.5000\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172154.2872202
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172368.8793957
+        }
+      ],
+      "timestamp": 1774172153.5403874
+    },
+    {
+      "id": "D000008",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 4,
+        "residue": 3,
+        "count": 75,
+        "a_over_n": 0.25450557011788216,
+        "a_over_n_var": 0.00011139727576093698,
+        "suggested_a": "ceil(0.2545 * n)",
+        "description": "For n \u2261 3 (mod 4): a \u2248 0.2545\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172154.2872214
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172368.8793986
+        }
+      ],
+      "timestamp": 1774172153.540413
+    },
+    {
+      "id": "D000009",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 4,
+        "residue": 0,
+        "count": 75,
+        "a_over_n": 0.26633785210184346,
+        "a_over_n_var": 0.001092815611495037,
+        "suggested_a": "ceil(0.2663 * n)",
+        "description": "For n \u2261 0 (mod 4): a \u2248 0.2663\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172154.2872229
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172368.879401
+        }
+      ],
+      "timestamp": 1774172153.540427
+    },
+    {
+      "id": "D000010",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 4,
+        "residue": 1,
+        "count": 74,
+        "a_over_n": 0.26217441339012043,
+        "a_over_n_var": 0.0004373424092275027,
+        "suggested_a": "ceil(0.2622 * n)",
+        "description": "For n \u2261 1 (mod 4): a \u2248 0.2622\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172154.2872238
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172368.8794036
+        }
+      ],
+      "timestamp": 1774172153.5404403
+    },
+    {
+      "id": "D000011",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 6,
+        "residue": 3,
+        "count": 50,
+        "a_over_n": 0.2584919183896701,
+        "a_over_n_var": 0.0002723097036240981,
+        "suggested_a": "ceil(0.2585 * n)",
+        "description": "For n \u2261 3 (mod 6): a \u2248 0.2585\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172154.2872248
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172368.8794057
+        }
+      ],
+      "timestamp": 1774172153.540453
+    },
+    {
+      "id": "D000012",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 6,
+        "residue": 5,
+        "count": 50,
+        "a_over_n": 0.2587245405685782,
+        "a_over_n_var": 0.0004654803541676352,
+        "suggested_a": "ceil(0.2587 * n)",
+        "description": "For n \u2261 5 (mod 6): a \u2248 0.2587\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172154.287226
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172368.8794081
+        }
+      ],
+      "timestamp": 1774172153.540467
+    },
+    {
+      "id": "D000107",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 4,
+        "residue": 2,
+        "count": 100,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 4): a \u2248 0.5000\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172368.8794107
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172372.472912
+        }
+      ],
+      "timestamp": 1774172366.2325943
+    },
+    {
+      "id": "D000108",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 4,
+        "residue": 3,
+        "count": 100,
+        "a_over_n": 0.2535584575573826,
+        "a_over_n_var": 8.623990590746411e-05,
+        "suggested_a": "ceil(0.2536 * n)",
+        "description": "For n \u2261 3 (mod 4): a \u2248 0.2536\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172368.879413
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172372.4729164
+        }
+      ],
+      "timestamp": 1774172366.2326167
+    },
+    {
+      "id": "D000109",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 4,
+        "residue": 0,
+        "count": 100,
+        "a_over_n": 0.26296844379409906,
+        "a_over_n_var": 0.0008536844031748519,
+        "suggested_a": "ceil(0.2630 * n)",
+        "description": "For n \u2261 0 (mod 4): a \u2248 0.2630\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172368.879415
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172372.4729187
+        }
+      ],
+      "timestamp": 1774172366.2326288
+    },
+    {
+      "id": "D000110",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 4,
+        "residue": 1,
+        "count": 99,
+        "a_over_n": 0.25970674792740095,
+        "a_over_n_var": 0.00034511156262960675,
+        "suggested_a": "ceil(0.2597 * n)",
+        "description": "For n \u2261 1 (mod 4): a \u2248 0.2597\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172368.8794172
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172372.472921
+        }
+      ],
+      "timestamp": 1774172366.232637
+    },
+    {
+      "id": "D000111",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 6,
+        "residue": 3,
+        "count": 67,
+        "a_over_n": 0.2566904012786878,
+        "a_over_n_var": 0.00021289531338846386,
+        "suggested_a": "ceil(0.2567 * n)",
+        "description": "For n \u2261 3 (mod 6): a \u2248 0.2567\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172372.472923
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172376.5679042
+        }
+      ],
+      "timestamp": 1774172366.232647
+    },
+    {
+      "id": "D000112",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 6,
+        "residue": 5,
+        "count": 66,
+        "a_over_n": 0.25695952035354164,
+        "a_over_n_var": 0.0003625056037932029,
+        "suggested_a": "ceil(0.2570 * n)",
+        "description": "For n \u2261 5 (mod 6): a \u2248 0.2570\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172372.4729252
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172376.5679069
+        }
+      ],
+      "timestamp": 1774172366.2326696
+    },
+    {
+      "id": "D000113",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 6,
+        "residue": 1,
+        "count": 66,
+        "a_over_n": 0.2562004329021988,
+        "a_over_n_var": 9.79045203750512e-05,
+        "suggested_a": "ceil(0.2562 * n)",
+        "description": "For n \u2261 1 (mod 6): a \u2248 0.2562\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172372.472927
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172376.567909
+        }
+      ],
+      "timestamp": 1774172366.232679
+    },
+    {
+      "id": "D000114",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 8,
+        "residue": 2,
+        "count": 50,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 2 (mod 8): a \u2248 0.5000\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172372.4729288
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172376.5679111
+        }
+      ],
+      "timestamp": 1774172366.232687
+    },
+    {
+      "id": "D000115",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 8,
+        "residue": 3,
+        "count": 50,
+        "a_over_n": 0.2541647097959316,
+        "a_over_n_var": 0.0001416733208126541,
+        "suggested_a": "ceil(0.2542 * n)",
+        "description": "For n \u2261 3 (mod 8): a \u2248 0.2542\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172372.472931
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172376.5679133
+        }
+      ],
+      "timestamp": 1774172366.232696
+    },
+    {
+      "id": "D000116",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 8,
+        "residue": 4,
+        "count": 50,
+        "a_over_n": 0.26468887424237453,
+        "a_over_n_var": 0.001320112869466094,
+        "suggested_a": "ceil(0.2647 * n)",
+        "description": "For n \u2261 4 (mod 8): a \u2248 0.2647\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172372.4729326
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172376.5679154
+        }
+      ],
+      "timestamp": 1774172366.2327027
+    },
+    {
+      "id": "D000117",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 8,
+        "residue": 5,
+        "count": 50,
+        "a_over_n": 0.2600635848112999,
+        "a_over_n_var": 0.0004930817488231949,
+        "suggested_a": "ceil(0.2601 * n)",
+        "description": "For n \u2261 5 (mod 8): a \u2248 0.2601\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172376.5679178
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172488.3031862
+        }
+      ],
+      "timestamp": 1774172366.23271
+    },
+    {
+      "id": "D000118",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 8,
+        "residue": 6,
+        "count": 50,
+        "a_over_n": 0.5,
+        "a_over_n_var": 0.0,
+        "suggested_a": "ceil(0.5000 * n)",
+        "description": "For n \u2261 6 (mod 8): a \u2248 0.5000\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172376.5679202
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172488.3031907
+        }
+      ],
+      "timestamp": 1774172366.2327168
+    },
+    {
+      "id": "D000119",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 8,
+        "residue": 7,
+        "count": 50,
+        "a_over_n": 0.2529522053188336,
+        "a_over_n_var": 3.0071407448782803e-05,
+        "suggested_a": "ceil(0.2530 * n)",
+        "description": "For n \u2261 7 (mod 8): a \u2248 0.2530\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172376.5679219
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172488.3031952
+        }
+      ],
+      "timestamp": 1774172366.2327237
+    },
+    {
+      "id": "D000120",
+      "agent_id": "explorer_0",
+      "domain": "erdos_straus",
+      "category": "family",
+      "content": {
+        "modulus": 8,
+        "residue": 0,
+        "count": 50,
+        "a_over_n": 0.2612480133458236,
+        "a_over_n_var": 0.000381336175028903,
+        "suggested_a": "ceil(0.2612 * n)",
+        "description": "For n \u2261 0 (mod 8): a \u2248 0.2612\u00b7n"
+      },
+      "confidence": 0.8,
+      "parent_ids": [],
+      "status": "validated",
+      "priority": 4.800000000000001,
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172376.5679238
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "Adversary review: confidence 0.80 meets threshold",
+          "timestamp": 1774172488.3031993
+        }
+      ],
+      "timestamp": 1774172366.2327316
+    }
+  ],
+  "results_log": [
+    {
+      "round": 1,
+      "discoveries": 100,
+      "time": 212.65998029708862,
+      "stats": {
+        "total_proposed": 100,
+        "total_validated": 0,
+        "total_falsified": 0,
+        "breakthroughs": 1,
+        "total_discoveries": 100,
+        "by_domain": {
+          "collatz": 8,
+          "erdos_straus": 88,
+          "hadamard": 4
+        },
+        "by_category": {
+          "pattern": 6,
+          "invariant": 5,
+          "family": 87,
+          "hypothesis": 2
+        },
+        "rounds_completed": 0
+      }
+    },
+    {
+      "round": 2,
+      "discoveries": 136,
+      "time": 2.7155396938323975,
+      "stats": {
+        "total_proposed": 236,
+        "total_validated": 10,
+        "total_falsified": 0,
+        "breakthroughs": 2,
+        "total_discoveries": 236,
+        "by_domain": {
+          "collatz": 24,
+          "erdos_straus": 194,
+          "hadamard": 18
+        },
+        "by_category": {
+          "pattern": 11,
+          "invariant": 11,
+          "family": 174,
+          "hypothesis": 7,
+          "proof_sketch": 14,
+          "transfer": 19
+        },
+        "rounds_completed": 1
+      }
+    },
+    {
+      "round": 3,
+      "discoveries": 101,
+      "time": 3.588970184326172,
+      "stats": {
+        "total_proposed": 337,
+        "total_validated": 19,
+        "total_falsified": 0,
+        "breakthroughs": 3,
+        "total_discoveries": 337,
+        "by_domain": {
+          "collatz": 34,
+          "erdos_straus": 282,
+          "hadamard": 21
+        },
+        "by_category": {
+          "pattern": 17,
+          "invariant": 17,
+          "family": 261,
+          "hypothesis": 9,
+          "proof_sketch": 14,
+          "transfer": 19
+        },
+        "rounds_completed": 2
+      }
+    },
+    {
+      "round": 4,
+      "discoveries": 142,
+      "time": 111.58127212524414,
+      "stats": {
+        "total_proposed": 479,
+        "total_validated": 33,
+        "total_falsified": 0,
+        "breakthroughs": 4,
+        "total_discoveries": 479,
+        "by_domain": {
+          "collatz": 53,
+          "erdos_straus": 390,
+          "hadamard": 36
+        },
+        "by_category": {
+          "pattern": 23,
+          "invariant": 23,
+          "family": 348,
+          "hypothesis": 14,
+          "proof_sketch": 29,
+          "transfer": 42
+        },
+        "rounds_completed": 3
+      }
+    },
+    {
+      "round": 5,
+      "discoveries": 101,
+      "time": 165.52204275131226,
+      "stats": {
+        "total_proposed": 580,
+        "total_validated": 42,
+        "total_falsified": 0,
+        "breakthroughs": 5,
+        "total_discoveries": 580,
+        "by_domain": {
+          "collatz": 62,
+          "erdos_straus": 478,
+          "hadamard": 40
+        },
+        "by_category": {
+          "pattern": 29,
+          "invariant": 29,
+          "family": 435,
+          "hypothesis": 16,
+          "proof_sketch": 29,
+          "transfer": 42
+        },
+        "rounds_completed": 4
+      }
+    },
+    {
+      "round": 6,
+      "discoveries": 144,
+      "time": 3.8541383743286133,
+      "stats": {
+        "total_proposed": 724,
+        "total_validated": 56,
+        "total_falsified": 0,
+        "breakthroughs": 6,
+        "total_discoveries": 724,
+        "by_domain": {
+          "collatz": 83,
+          "erdos_straus": 587,
+          "hadamard": 54
+        },
+        "by_category": {
+          "pattern": 35,
+          "invariant": 35,
+          "family": 522,
+          "hypothesis": 21,
+          "proof_sketch": 44,
+          "transfer": 67
+        },
+        "rounds_completed": 5
+      }
+    },
+    {
+      "round": 7,
+      "discoveries": 100,
+      "time": 3.7026379108428955,
+      "stats": {
+        "total_proposed": 824,
+        "total_validated": 65,
+        "total_falsified": 0,
+        "breakthroughs": 7,
+        "total_discoveries": 824,
+        "by_domain": {
+          "collatz": 92,
+          "erdos_straus": 675,
+          "hadamard": 57
+        },
+        "by_category": {
+          "pattern": 40,
+          "invariant": 41,
+          "family": 609,
+          "hypothesis": 23,
+          "proof_sketch": 44,
+          "transfer": 67
+        },
+        "rounds_completed": 6
+      }
+    },
+    {
+      "round": 8,
+      "discoveries": 141,
+      "time": 4.006499767303467,
+      "stats": {
+        "total_proposed": 965,
+        "total_validated": 79,
+        "total_falsified": 0,
+        "breakthroughs": 8,
+        "total_discoveries": 965,
+        "by_domain": {
+          "collatz": 110,
+          "erdos_straus": 784,
+          "hadamard": 71
+        },
+        "by_category": {
+          "pattern": 45,
+          "invariant": 47,
+          "family": 696,
+          "hypothesis": 28,
+          "proof_sketch": 57,
+          "transfer": 92
+        },
+        "rounds_completed": 7
+      }
+    }
+  ],
+  "preregistration_hash": "e5300134b50bb23b75d2c52d81369168b47d88c02a00af045f10bd1b0aabc83a",
+  "sat_verification": {
+    "collatz": {
+      "range": [
+        2,
+        10001
+      ],
+      "total": 9999,
+      "verified": 9999,
+      "failed": [],
+      "all_verified": true,
+      "max_stopping_time": 261,
+      "max_orbit_value": 27114424
+    },
+    "erdos_straus": {
+      "range": [
+        2,
+        1001
+      ],
+      "total": 999,
+      "verified": 999,
+      "failed": [],
+      "all_verified": true,
+      "sample_decompositions": {
+        "2": [
+          1,
+          2,
+          2
+        ],
+        "3": [
+          1,
+          6,
+          6
+        ],
+        "4": [
+          2,
+          3,
+          6
+        ],
+        "5": [
+          2,
+          4,
+          20
+        ],
+        "6": [
+          2,
+          8,
+          24
+        ],
+        "7": [
+          2,
+          21,
+          42
+        ],
+        "8": [
+          3,
+          7,
+          42
+        ],
+        "9": [
+          3,
+          12,
+          36
+        ],
+        "10": [
+          3,
+          18,
+          90
+        ],
+        "11": [
+          3,
+          66,
+          66
+        ]
+      }
+    },
+    "hadamard_csp": {
+      "4": true,
+      "8": true,
+      "12": true
+    }
+  },
+  "formal_verification": {
+    "lean4_collatz": "\n-- Auto-generated Lean 4 verification stub\n-- Bounded Collatz verification for n \u2264 10000\n\ndef collatz_step (n : Nat) : Nat :=\n  if n % 2 == 0 then n / 2 else 3 * n + 1\n\ndef collatz_orbit (n : Nat) (max_steps : Nat) : List Nat :=\n  match max_steps with\n  | 0 => [n]\n  | k + 1 => if n \u2264 1 then [n] else n :: collatz_orbit (collatz_step n) k\n\ndef collatz_reaches_one (n : Nat) (max_steps : Nat) : Bool :=\n  (collatz_orbit n max_steps).getLast? == some 1\n\n-- Verification: all n in [2, 10000] reach 1 within 10000 steps\n-- #eval (List.range (10000 - 1)).map (\u00b7 + 2) |>.all (collatz_reaches_one \u00b7 10000)\n",
+    "lean4_erdos_straus": "\n-- Auto-generated Lean 4 verification stub\n-- Erd\u0151s\u2013Straus conjecture verification for n \u2264 1000\n\ndef erdos_straus_check (n : Nat) : Bool :=\n  -- Check if 4/n = 1/a + 1/b + 1/c has a solution\n  -- Equivalent: 4*a*b*c = n*(b*c + a*c + a*b)\n  let a_max := 3 * n / 4 + 1\n  (List.range a_max).any fun a_idx =>\n    let a := a_idx + n / 4\n    if a == 0 then false\n    else\n      let num := 4 * a - n\n      if num \u2264 0 then false\n      else\n        let den := n * a\n        let b_max := 2 * den / num + 1\n        (List.range (b_max - a)).any fun b_offset =>\n          let b := b_offset + a\n          let c_num := num * b - den\n          let c_den := den * b\n          c_num > 0 && c_den % c_num == 0 && c_den / c_num \u2265 b\n\n-- #eval (List.range (1000 - 1)).map (\u00b7 + 2) |>.all erdos_straus_check\n"
+  }
+}

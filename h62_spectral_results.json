@@ -1,0 +1,37 @@
+{
+  "mode": "synthetic_demo",
+  "hidden_dim": 4096,
+  "n_samples": 512,
+  "results": [
+    {
+      "regime": "Strong RM (large \u0394)",
+      "lambda_1": 10.0,
+      "lambda_2": 5.0,
+      "delta": 5.0,
+      "d_crit": 0.00152587890625,
+      "d_actual_simulated": 0.0014538133322584048,
+      "relative_error": 0.04957003240549872,
+      "passed": true
+    },
+    {
+      "regime": "Medium RM (moderate \u0394)",
+      "lambda_1": 10.0,
+      "lambda_2": 8.5,
+      "delta": 1.5,
+      "d_crit": 0.0001373291015625,
+      "d_actual_simulated": 0.0001308450415716658,
+      "relative_error": 0.04955525951117363,
+      "passed": true
+    },
+    {
+      "regime": "Weak RM (small \u0394)",
+      "lambda_1": 10.0,
+      "lambda_2": 9.7,
+      "delta": 0.3000000000000007,
+      "d_crit": 5.493164062500026e-06,
+      "d_actual_simulated": 6.021783776361958e-06,
+      "relative_error": 0.08778457239480883,
+      "passed": true
+    }
+  ]
+}

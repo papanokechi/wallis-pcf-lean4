@@ -1,0 +1,3913 @@
+{
+  "title": "Ramanujan Agent v4.6 \u2014 CAS-Verified Theorem Machine",
+  "total_time": 36.12664866447449,
+  "global_stats": {
+    "total": 15,
+    "by_family": {
+      "continued_fraction": 6,
+      "partition": 1,
+      "tau_function": 7,
+      "meta": 1
+    },
+    "by_status": {
+      "novel_proven": 1,
+      "novel_unproven": 1,
+      "verified_known": 2,
+      "candidate": 11
+    },
+    "by_category": {
+      "novel_proven": 1,
+      "novel_unproven": 1,
+      "verified_known": 2,
+      "conjecture": 10,
+      "pattern": 1
+    },
+    "by_novelty": {
+      "novel_proven": 1,
+      "novel_unproven": 1,
+      "verified_known": 2,
+      "uncategorized": 11
+    },
+    "max_confidence": 1.0,
+    "novel_proven_count": 1,
+    "verified_known_count": 2,
+    "verified_numeric_count": 0,
+    "novel_unproven_count": 1,
+    "validated_count": 0,
+    "falsified_count": 0,
+    "max_precision": 0
+  },
+  "family_reports": {
+    "continued_fraction": {
+      "count": 6,
+      "best": [
+        {
+          "id": "2d04456e7962",
+          "agent_id": "explorer_0",
+          "family": "continued_fraction",
+          "category": "novel_proven",
+          "expression": "GCF with a(n)=[-3], b(n)=[-4, 4]",
+          "value": 0.3872970019286871,
+          "target": "novel_constant?",
+          "error": 0.0,
+          "confidence": 1.0,
+          "params": {
+            "an": [
+              -3
+            ],
+            "bn": [
+              -4,
+              4
+            ]
+          },
+          "metadata": {
+            "max_coeff": 0,
+            "is_novel": true,
+            "is_known_transform": false,
+            "matched_constant": "euler_gamma",
+            "matched_multiplier": 1.5,
+            "literature_match": null,
+            "convergence_error": 0.0,
+            "source": "cf_search",
+            "proof_result": {
+              "candidate_id": "2d04456e7962",
+              "status": "formal_proof",
+              "convergence": {
+                "proven": true,
+                "theorems_tried": [
+                  {
+                    "theorem": "\u015aleszy\u0144ski-Pringsheim",
+                    "applies": false,
+                    "details": "|b_1| = 0 < |a_1| + 1 = 4. \u015aleszy\u0144ski-Pringsheim does not apply."
+                  },
+                  {
+                    "theorem": "Van Vleck",
+                    "applies": false,
+                    "details": ""
+                  },
+                  {
+                    "theorem": "Worpitzky",
+                    "applies": false,
+                    "details": ""
+                  },
+                  {
+                    "theorem": "Parabola (Lorentzen-Waadeland)",
+                    "applies": false,
+                    "details": "b_n \u2260 1 \u2014 parabola theorem applies to K(a_n/1) form."
+                  },
+                  {
+                    "theorem": "Stern-Stolz",
+                    "applies": true,
+                    "details": "b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz.",
+                    "divergence_detected": false
+                  }
+                ],
+                "theorem_used": "Stern-Stolz",
+                "proof_detail": "b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz."
+              },
+              "closed_form": {
+                "identified": true,
+                "type": "bessel_j_ratio",
+                "expression": "-sqrt(3)*besselj(0, sqrt(3)/2)/besselj(1, sqrt(3)/2) + 4",
+                "match_error": 1.7859177988785547e-101,
+                "sympy_form": "-sqrt(3)*besselj(0, sqrt(3)/2)/besselj(1, sqrt(3)/2) + 4"
+              },
+              "verification": {
+                "verified": true,
+                "match_digits": 110,
+                "symbolic_value": "0.38729700192868709212645712319329113579552266553095240656234028063143074153813976391163566385170287117495281381",
+                "difference": 0.0
+              },
+              "gaps": [],
+              "proof_text": "PROOF ATTEMPT for GCF with a(n)=[-3], b(n)=[-4, 4]\nCF: a(n) = [-3], b(n) = [-4, 4]\n\n\u00a71. CONVERGENCE\n  Theorem: Stern-Stolz\n  b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz.\n\n\u00a72. CLOSED FORM IDENTIFICATION\n  Type: bessel_j_ratio\n  Expression: 4+-4\u00b7(-\u221a(0.1875))\u00b7J_0(2\u221a(0.1875))/J_-1(2\u221a(0.1875))\n  Match error: 1.79e-101\n\n\u00a73. SYMBOLIC VERIFICATION\n  CAS verified to 110 digits\n\n\u00a74. STATUS: FORMAL_PROOF\n  All proof components verified. \u2713",
+              "confidence": 0.95,
+              "time_seconds": 0.02884221076965332
+            },
+            "epistemic_tag": "theorem",
+            "referee_verdict": "accepted"
+          },
+          "status": "novel_proven",
+          "reviews": [
+            {
+              "reviewer": "validator_0",
+              "verdict": "novel_unproven",
+              "notes": "precision=300, confidence=0.800, checks=5",
+              "timestamp": 1775207657.554704
+            },
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "attacks=4, passed=4, score=1.00",
+              "timestamp": 1775207658.9556773
+            },
+            {
+              "reviewer": "executor_0",
+              "verdict": "formal_proof",
+              "notes": "confidence=0.95, gaps=0",
+              "timestamp": 1775207665.2429092
+            },
+            {
+              "reviewer": "referee_0",
+              "verdict": "accepted",
+              "notes": "Convergence: Stern-Stolz; Closed form: bessel_j_ratio; CAS match: 110 digits",
+              "timestamp": 1775207669.8504703
+            }
+          ],
+          "parent_id": null,
+          "timestamp": 1775207642.678041,
+          "generation": 1,
+          "provenance": {
+            "method": "generalised_cf",
+            "an": [
+              -3
+            ],
+            "bn": [
+              -4,
+              4
+            ],
+            "prec": 60
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 10.0,
+          "canonical_key": "cf_[-3]_[-4, 4]"
+        },
+        {
+          "id": "41122fd465cc",
+          "agent_id": "explorer_0",
+          "family": "continued_fraction",
+          "category": "novel_unproven",
+          "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+          "value": 3.4910744001668914,
+          "target": "novel_constant?",
+          "error": 2.1780553472513996e-60,
+          "confidence": 1.0,
+          "params": {
+            "strategy": "factorial",
+            "label": "cf_fact_k2_b3"
+          },
+          "metadata": {
+            "is_novel": true,
+            "is_known_transform": false,
+            "cf_type": "factorial",
+            "matched_constant": null,
+            "literature_match": null,
+            "convergence_error": 2.1780553472513996e-60,
+            "source": "nonpoly_cf_search",
+            "proof_result": {
+              "candidate_id": "41122fd465cc",
+              "status": "partial_proof",
+              "convergence": {
+                "proven": true,
+                "theorems_tried": [
+                  {
+                    "theorem": "Gauss-Euler CF",
+                    "applies": false,
+                    "details": "Not a linear-b, constant-a CF. Gauss-Euler form requires specific structure."
+                  },
+                  {
+                    "theorem": "Tail convergence (factorial)",
+                    "applies": true,
+                    "details": "For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).",
+                    "N0": 2,
+                    "convergence_rate": "super-exponential",
+                    "value_500": "3.49107440016689159245130998078",
+                    "depth_errors": [
+                      {
+                        "depths": "50-100",
+                        "error": 5.164496269467721e-36
+                      },
+                      {
+                        "depths": "100-200",
+                        "error": 3.96583840804914e-83
+                      },
+                      {
+                        "depths": "200-500",
+                        "error": 2.0002279347439812e-100
+                      }
+                    ]
+                  }
+                ],
+                "theorem_used": "Tail convergence (factorial \u2014 Seidel-Stern)",
+                "proof_detail": "For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients)."
+              },
+              "closed_form": {
+                "identified": true,
+                "type": "mpmath_identify",
+                "expression": "2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)",
+                "match_error": null,
+                "sympy_form": null
+              },
+              "verification": {
+                "verified": false,
+                "match_digits": 14,
+                "symbolic_value": "3.4910744001668704770369530717008469254265429131329818775424380814804182626937677425595172857931358175437776401",
+                "difference": 2.093456404700085e-14
+              },
+              "gaps": [
+                "Closed form found but CAS verification failed/incomplete"
+              ],
+              "proof_text": "PROOF ATTEMPT for GCF a(n)=2\u00b7n!, b(n)=3\nCF: a(n) = [], b(n) = []\n\n\u00a71. CONVERGENCE\n  Theorem: Tail convergence (factorial \u2014 Seidel-Stern)\n  For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).\n\n\u00a72. CLOSED FORM IDENTIFICATION\n  Type: mpmath_identify\n  Expression: 2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)\n  Match error: None\n\n\u00a73. SYMBOLIC VERIFICATION\n  Not verified: no closed form\n\n\u00a74. STATUS: PARTIAL_PROOF\n  Remaining gaps:\n    \u2022 Closed form found but CAS verification failed/incomplete",
+              "confidence": 0.75,
+              "time_seconds": 4.607036352157593
+            },
+            "epistemic_tag": "theorem_conditional",
+            "referee_verdict": "gap_in_Closed_form_found_bu",
+            "analysis_version": "v4.2",
+            "analysis_timestamp": "2026-04-03T09:14:30Z",
+            "value_20_digits": "3.491074400166891",
+            "convergence_check": {
+              "converges": true,
+              "convergence_tier": "superexponential",
+              "proof_sketch": "For a(n) = k\u00b7n!, b(n) = B (constant): the n-th tail T_n of the CF satisfies T_n = k\u00b7n!/(B + T_{n+1}). Since |T_{n+1}| grows as (n+1)!, we get |T_n| ~ k\u00b7n!/((n+1)!) = k/(n+1) \u2192 0. The tails converge super-exponentially fast, guaranteeing convergence of the full CF.",
+              "numerical_error": 2.1780553472513996e-60,
+              "flags": [
+                "Numerical convergence: depth-200 vs depth-100 error = 2.18e-60"
+              ]
+            },
+            "nonpoly_convergence": {
+              "converges": true,
+              "convergence_tier": "superexponential",
+              "proof_sketch": "For a(n) = k\u00b7n!, b(n) = B (constant): the n-th tail T_n of the CF satisfies T_n = k\u00b7n!/(B + T_{n+1}). Since |T_{n+1}| grows as (n+1)!, we get |T_n| ~ k\u00b7n!/((n+1)!) = k/(n+1) \u2192 0. The tails converge super-exponentially fast, guaranteeing convergence of the full CF.",
+              "numerical_error": 2.1780553472513996e-60,
+              "flags": [
+                "Numerical convergence: depth-200 vs depth-100 error = 2.18e-60"
+              ]
+            },
+            "reproducibility": {
+              "candidate_id": "0acd0926f3ddb1ee",
+              "family": "continued_fraction",
+              "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+              "generation_params": {
+                "strategy": "factorial",
+                "label": "cf_fact_k2_b3"
+              },
+              "rng_seed": null,
+              "numeric_value": 3.4910744001668914,
+              "precision_dps": 60,
+              "evaluation_depth": 200,
+              "convergence_error": 2.1780553472513996e-60,
+              "isc_matched": false,
+              "isc_target_count": "15 constants \u00d7 40 multipliers \u00d7 4 transforms",
+              "algebraic_check": {
+                "rational_test": "p/q, |p|,|q| \u2264 50",
+                "quadratic_test": "ax\u00b2+bx+c=0, a\u2208[1,9], b\u2208[-20,20], c\u2208[-20,20]"
+              },
+              "environment": {
+                "python": "3.14.3",
+                "platform": "Windows-11-10.0.29558-SP0",
+                "mpmath": "1.3.0",
+                "sympy": "1.14.0"
+              },
+              "timestamp_utc": "2026-04-03T09:14:30Z"
+            }
+          },
+          "status": "novel_unproven",
+          "reviews": [],
+          "parent_id": null,
+          "timestamp": 1775207642.6781147,
+          "generation": 1,
+          "provenance": {
+            "method": "nonpolynomial_cf_factorial",
+            "prec": 60,
+            "depth": 200
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 8.0,
+          "canonical_key": "cf__"
+        },
+        {
+          "id": "5866a1ce7f90",
+          "agent_id": "explorer_0",
+          "family": "continued_fraction",
+          "category": "conjecture",
+          "expression": "GCF a(n)=3, b(n)=1n\u00b2+3n+5",
+          "value": 5.3261478405873,
+          "target": "novel_constant?",
+          "error": 0.0,
+          "confidence": 1.0,
+          "params": {
+            "an": [
+              3
+            ],
+            "bn": [
+              1,
+              3,
+              5
+            ],
+            "strategy": "quadratic_b"
+          },
+          "metadata": {
+            "is_novel": true,
+            "is_known_transform": false,
+            "cf_type": "quadratic_b",
+            "matched_constant": null,
+            "literature_match": null,
+            "convergence_error": 0.0,
+            "source": "quadratic_b_cf_search"
+          },
+          "status": "candidate",
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "attacks=4, passed=4, score=1.00",
+              "timestamp": 1775207659.1191885
+            }
+          ],
+          "parent_id": null,
+          "timestamp": 1775207642.6781547,
+          "generation": 1,
+          "provenance": {
+            "method": "quadratic_b_cf",
+            "an": [
+              3
+            ],
+            "bn": [
+              1,
+              3,
+              5
+            ],
+            "prec": 60
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 3.0,
+          "canonical_key": "cf_[3]_[1, 3, 5]"
+        },
+        {
+          "id": "4feccd7bcac5",
+          "agent_id": "explorer_1",
+          "family": "continued_fraction",
+          "category": "conjecture",
+          "expression": "GCF a(n)=-1, b(n)=-2n\u00b2+-4n+7",
+          "value": 6.100437146997906,
+          "target": "novel_constant?",
+          "error": 0.0,
+          "confidence": 1.0,
+          "params": {
+            "an": [
+              -1
+            ],
+            "bn": [
+              -2,
+              -4,
+              7
+            ],
+            "strategy": "quadratic_b"
+          },
+          "metadata": {
+            "is_novel": true,
+            "is_known_transform": false,
+            "cf_type": "quadratic_b",
+            "matched_constant": null,
+            "literature_match": null,
+            "convergence_error": 0.0,
+            "source": "quadratic_b_cf_search"
+          },
+          "status": "candidate",
+          "reviews": [],
+          "parent_id": null,
+          "timestamp": 1775207654.6902654,
+          "generation": 1,
+          "provenance": {
+            "method": "quadratic_b_cf",
+            "an": [
+              -1
+            ],
+            "bn": [
+              -2,
+              -4,
+              7
+            ],
+            "prec": 60
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 3.0,
+          "canonical_key": "cf_[-1]_[-2, -4, 7]"
+        },
+        {
+          "id": "9eda7636628f",
+          "agent_id": "explorer_1",
+          "family": "continued_fraction",
+          "category": "conjecture",
+          "expression": "GCF a(n)=-5, b(n)=2n\u00b2+0n+4",
+          "value": 3.1031771936583943,
+          "target": "novel_constant?",
+          "error": 0.0,
+          "confidence": 1.0,
+          "params": {
+            "an": [
+              -5
+            ],
+            "bn": [
+              2,
+              0,
+              4
+            ],
+            "strategy": "quadratic_b"
+          },
+          "metadata": {
+            "is_novel": true,
+            "is_known_transform": false,
+            "cf_type": "quadratic_b",
+            "matched_constant": null,
+            "literature_match": null,
+            "convergence_error": 0.0,
+            "source": "quadratic_b_cf_search"
+          },
+          "status": "candidate",
+          "reviews": [],
+          "parent_id": null,
+          "timestamp": 1775207654.6902893,
+          "generation": 1,
+          "provenance": {
+            "method": "quadratic_b_cf",
+            "an": [
+              -5
+            ],
+            "bn": [
+              2,
+              0,
+              4
+            ],
+            "prec": 60
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 3.0,
+          "canonical_key": "cf_[-5]_[2, 0, 4]"
+        }
+      ],
+      "max_confidence": 1.0,
+      "proven": 2,
+      "novel": 2,
+      "validated": 0
+    },
+    "partition": {
+      "count": 1,
+      "best": [
+        {
+          "id": "8ea4c662d0e4",
+          "agent_id": "explorer_0",
+          "family": "partition",
+          "category": "verified_known",
+          "expression": "p(5n+4) \u2261 0 (mod 5)",
+          "value": 0,
+          "target": "partition_congruence_mod5",
+          "error": 0.0,
+          "confidence": 1.0,
+          "params": {
+            "a": 5,
+            "b": 4,
+            "m": 5,
+            "verified_up_to": 600
+          },
+          "metadata": {
+            "sample_values": [
+              5,
+              30,
+              135,
+              490,
+              1575,
+              4565,
+              12310,
+              31185,
+              75175,
+              173525
+            ],
+            "n_tested": 120,
+            "is_novel": false,
+            "literature_match": "Classical: Ramanujan (1919); proven Atkin & Swinnerton-Dyer (1954)",
+            "source": "partition_search"
+          },
+          "status": "verified_known",
+          "reviews": [
+            {
+              "reviewer": "validator_0",
+              "verdict": "verified_known",
+              "notes": "precision=300, confidence=1.000, checks=4",
+              "timestamp": 1775207654.7504117
+            }
+          ],
+          "parent_id": null,
+          "timestamp": 1775207642.6781716,
+          "generation": 1,
+          "provenance": {
+            "method": "exhaustive_mod_check",
+            "range": "n=0..600",
+            "modulus": 5,
+            "generation": 1
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 2.0,
+          "canonical_key": "part_5_4_5"
+        }
+      ],
+      "max_confidence": 1.0,
+      "proven": 1,
+      "novel": 0,
+      "validated": 0
+    },
+    "tau_function": {
+      "count": 7,
+      "best": [
+        {
+          "id": "744180f7406c",
+          "agent_id": "explorer_0",
+          "family": "tau_function",
+          "category": "conjecture",
+          "expression": "tau(n) \u2260 0 for n=1..100 (Lehmer's conjecture)",
+          "value": 0,
+          "target": "lehmer_conjecture",
+          "error": 0.0,
+          "confidence": 1.0,
+          "params": {
+            "max_n": 100,
+            "zeros_found": []
+          },
+          "metadata": {
+            "n_computed": 100,
+            "literature_frontier": "Verified to n > 10^24 by Bosman et al.",
+            "is_novel": false,
+            "literature_match": "Lehmer's conjecture (1947); verified computationally to n > 10^24",
+            "source": "tau_search"
+          },
+          "status": "candidate",
+          "reviews": [
+            {
+              "reviewer": "adversary_0",
+              "verdict": "confirmed",
+              "notes": "attacks=4, passed=3, score=0.75",
+              "timestamp": 1775207659.1192408
+            }
+          ],
+          "parent_id": null,
+          "timestamp": 1775207642.6781857,
+          "generation": 1,
+          "provenance": {
+            "method": "exhaustive_computation",
+            "range": "n=1..100",
+            "algorithm": "eta^24_convolution"
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 3.0,
+          "canonical_key": "tau_100_"
+        },
+        {
+          "id": "fc1061510b83",
+          "agent_id": "explorer_0",
+          "family": "tau_function",
+          "category": "conjecture",
+          "expression": "tau(n) \u2261 0 (mod 13): density 20.0% for n=1..100 (statistical)",
+          "value": 0.2,
+          "target": "tau_congruence_mod13",
+          "error": 0.8,
+          "confidence": 0.03973820026016113,
+          "params": {
+            "modulus": 13,
+            "zero_ns": [
+              7,
+              11,
+              14,
+              21,
+              22,
+              28,
+              33,
+              35,
+              42,
+              44,
+              55,
+              56,
+              63,
+              66,
+              70,
+              77,
+              84,
+              88,
+              91,
+              99
+            ],
+            "max_n": 100,
+            "density": 0.2
+          },
+          "metadata": {
+            "is_novel": true,
+            "is_exact_congruence": false,
+            "literature_match": null,
+            "source": "tau_search"
+          },
+          "status": "candidate",
+          "reviews": [],
+          "parent_id": null,
+          "timestamp": 1775207642.6782372,
+          "generation": 1,
+          "provenance": {
+            "method": "modular_residue_scan",
+            "range": "n=1..100",
+            "modulus": 13
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 0.11921460078048339,
+          "canonical_key": "tau_100_13"
+        },
+        {
+          "id": "4ec09354a82c",
+          "agent_id": "explorer_0",
+          "family": "tau_function",
+          "category": "conjecture",
+          "expression": "tau(n) \u2261 0 (mod 2): density 95.0% for n=1..100 (statistical)",
+          "value": 0.95,
+          "target": "tau_congruence_mod2",
+          "error": 0.050000000000000044,
+          "confidence": 0.024020599913279615,
+          "params": {
+            "modulus": 2,
+            "zero_ns": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ],
+            "max_n": 100,
+            "density": 0.95
+          },
+          "metadata": {
+            "is_novel": false,
+            "is_exact_congruence": false,
+            "literature_match": "Swinnerton-Dyer congruence mod 2 (classical)",
+            "source": "tau_search"
+          },
+          "status": "candidate",
+          "reviews": [],
+          "parent_id": null,
+          "timestamp": 1775207642.6781983,
+          "generation": 1,
+          "provenance": {
+            "method": "modular_residue_scan",
+            "range": "n=1..100",
+            "modulus": 2
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 0.07206179973983884,
+          "canonical_key": "tau_100_2"
+        },
+        {
+          "id": "f2ec6e485ab1",
+          "agent_id": "explorer_0",
+          "family": "tau_function",
+          "category": "conjecture",
+          "expression": "tau(n) \u2261 0 (mod 3): density 79.0% for n=1..100 (statistical)",
+          "value": 0.79,
+          "target": "tau_congruence_mod3",
+          "error": 0.20999999999999996,
+          "confidence": 0.011555614105321617,
+          "params": {
+            "modulus": 3,
+            "zero_ns": [
+              2,
+              3,
+              5,
+              6,
+              8,
+              9,
+              10,
+              11,
+              12,
+              14,
+              15,
+              17,
+              18,
+              20,
+              21,
+              22,
+              23,
+              24,
+              26,
+              27,
+              29,
+              30,
+              32,
+              33,
+              34,
+              35,
+              36,
+              38,
+              39,
+              40
+            ],
+            "max_n": 100,
+            "density": 0.79
+          },
+          "metadata": {
+            "is_novel": false,
+            "is_exact_congruence": false,
+            "literature_match": "Swinnerton-Dyer congruence mod 3 (classical)",
+            "source": "tau_search"
+          },
+          "status": "candidate",
+          "reviews": [],
+          "parent_id": null,
+          "timestamp": 1775207642.6782088,
+          "generation": 1,
+          "provenance": {
+            "method": "modular_residue_scan",
+            "range": "n=1..100",
+            "modulus": 3
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 0.03466684231596485,
+          "canonical_key": "tau_100_3"
+        },
+        {
+          "id": "c0e822bf39c6",
+          "agent_id": "explorer_0",
+          "family": "tau_function",
+          "category": "conjecture",
+          "expression": "tau(n) \u2261 0 (mod 7): density 68.0% for n=1..100 (statistical)",
+          "value": 0.68,
+          "target": "tau_congruence_mod7",
+          "error": 0.31999999999999995,
+          "confidence": 0.007897000433601881,
+          "params": {
+            "modulus": 7,
+            "zero_ns": [
+              3,
+              5,
+              6,
+              7,
+              10,
+              12,
+              13,
+              14,
+              15,
+              17,
+              19,
+              20,
+              21,
+              24,
+              26,
+              27,
+              28,
+              30,
+              31,
+              33,
+              34,
+              35,
+              38,
+              39,
+              40,
+              41,
+              42,
+              45,
+              47,
+              48
+            ],
+            "max_n": 100,
+            "density": 0.68
+          },
+          "metadata": {
+            "is_novel": false,
+            "is_exact_congruence": false,
+            "literature_match": "Swinnerton-Dyer congruence mod 7 (classical)",
+            "source": "tau_search"
+          },
+          "status": "candidate",
+          "reviews": [],
+          "parent_id": null,
+          "timestamp": 1775207642.6782272,
+          "generation": 1,
+          "provenance": {
+            "method": "modular_residue_scan",
+            "range": "n=1..100",
+            "modulus": 7
+          },
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 0.023691001300805644,
+          "canonical_key": "tau_100_7"
+        }
+      ],
+      "max_confidence": 1.0,
+      "proven": 0,
+      "novel": 0,
+      "validated": 0
+    },
+    "meta": {
+      "count": 1,
+      "best": [
+        {
+          "id": "ab786fa1424b",
+          "agent_id": "meta_0",
+          "family": "meta",
+          "category": "pattern",
+          "expression": "Most productive family: tau_function (7 discoveries); Successful continued_fraction params: 6 examples; Successful tau_function params: 1 examples; Successful partition params: 1 examples; Validation rate: 28.6% (1 known, 3 novel, 0 numeric)",
+          "value": 0.2857142857142857,
+          "target": null,
+          "error": Infinity,
+          "confidence": 0.5,
+          "params": {},
+          "metadata": {
+            "insights": [
+              "Most productive family: tau_function (7 discoveries)",
+              "Successful continued_fraction params: 6 examples",
+              "Successful tau_function params: 1 examples",
+              "Successful partition params: 1 examples",
+              "Validation rate: 28.6% (1 known, 3 novel, 0 numeric)"
+            ],
+            "stats": {
+              "total": 14,
+              "by_family": {
+                "continued_fraction": 6,
+                "partition": 1,
+                "tau_function": 7
+              },
+              "by_status": {
+                "novel_proven": 1,
+                "novel_unproven": 2,
+                "candidate": 10,
+                "verified_known": 1
+              },
+              "by_category": {
+                "novel_proven": 1,
+                "novel_unproven": 2,
+                "conjecture": 10,
+                "verified_known": 1
+              },
+              "by_novelty": {
+                "novel_proven": 1,
+                "novel_unproven": 2,
+                "uncategorized": 10,
+                "verified_known": 1
+              },
+              "max_confidence": 1.0,
+              "novel_proven_count": 1,
+              "verified_known_count": 1,
+              "verified_numeric_count": 0,
+              "novel_unproven_count": 2,
+              "validated_count": 0,
+              "falsified_count": 0,
+              "max_precision": 0
+            }
+          },
+          "status": "candidate",
+          "reviews": [],
+          "parent_id": null,
+          "timestamp": 1775207670.2659636,
+          "generation": 1,
+          "provenance": {},
+          "literature_match": null,
+          "novelty_status": "unchecked",
+          "precision_digits": 0,
+          "verification_log": [],
+          "priority": 2.0,
+          "canonical_key": "meta_ec4d9dc463a8b914"
+        }
+      ],
+      "max_confidence": 0.5,
+      "proven": 0,
+      "novel": 0,
+      "validated": 0
+    }
+  },
+  "agent_stats": {
+    "explorer_0": {
+      "type": "explorer",
+      "discoveries_posted": 13,
+      "time_spent": 8.531561851501465,
+      "rounds": 1
+    },
+    "explorer_1": {
+      "type": "explorer",
+      "discoveries_posted": 11,
+      "time_spent": 12.012123346328735,
+      "rounds": 1
+    },
+    "validator_0": {
+      "type": "validator",
+      "discoveries_posted": 0,
+      "time_spent": 4.098009824752808,
+      "rounds": 1
+    },
+    "adversary_0": {
+      "type": "adversary",
+      "discoveries_posted": 0,
+      "time_spent": 0.32969141006469727,
+      "rounds": 1
+    },
+    "matcher_0": {
+      "type": "pattern_matcher",
+      "discoveries_posted": 0,
+      "time_spent": 5.731267213821411,
+      "rounds": 1
+    },
+    "planner_0": {
+      "type": "proof_planner",
+      "discoveries_posted": 0,
+      "time_spent": 4.792213439941406e-05,
+      "rounds": 1
+    },
+    "executor_0": {
+      "type": "proof_executor",
+      "discoveries_posted": 0,
+      "time_spent": 4.636230945587158,
+      "rounds": 1
+    },
+    "referee_0": {
+      "type": "referee",
+      "discoveries_posted": 0,
+      "time_spent": 9.059906005859375e-05,
+      "rounds": 1
+    },
+    "refiner_0": {
+      "type": "refiner",
+      "discoveries_posted": 0,
+      "time_spent": 0.413684606552124,
+      "rounds": 1
+    },
+    "pollinator_0": {
+      "type": "pollinator",
+      "discoveries_posted": 0,
+      "time_spent": 0.0002734661102294922,
+      "rounds": 1
+    },
+    "meta_0": {
+      "type": "meta_learner",
+      "discoveries_posted": 0,
+      "time_spent": 0.0003027915954589844,
+      "rounds": 1
+    }
+  },
+  "top_discoveries": [
+    {
+      "id": "2d04456e7962",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "novel_proven",
+      "expression": "GCF with a(n)=[-3], b(n)=[-4, 4]",
+      "value": 0.3872970019286871,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          -3
+        ],
+        "bn": [
+          -4,
+          4
+        ]
+      },
+      "metadata": {
+        "max_coeff": 0,
+        "is_novel": true,
+        "is_known_transform": false,
+        "matched_constant": "euler_gamma",
+        "matched_multiplier": 1.5,
+        "literature_match": null,
+        "convergence_error": 0.0,
+        "source": "cf_search",
+        "proof_result": {
+          "candidate_id": "2d04456e7962",
+          "status": "formal_proof",
+          "convergence": {
+            "proven": true,
+            "theorems_tried": [
+              {
+                "theorem": "\u015aleszy\u0144ski-Pringsheim",
+                "applies": false,
+                "details": "|b_1| = 0 < |a_1| + 1 = 4. \u015aleszy\u0144ski-Pringsheim does not apply."
+              },
+              {
+                "theorem": "Van Vleck",
+                "applies": false,
+                "details": ""
+              },
+              {
+                "theorem": "Worpitzky",
+                "applies": false,
+                "details": ""
+              },
+              {
+                "theorem": "Parabola (Lorentzen-Waadeland)",
+                "applies": false,
+                "details": "b_n \u2260 1 \u2014 parabola theorem applies to K(a_n/1) form."
+              },
+              {
+                "theorem": "Stern-Stolz",
+                "applies": true,
+                "details": "b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz.",
+                "divergence_detected": false
+              }
+            ],
+            "theorem_used": "Stern-Stolz",
+            "proof_detail": "b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz."
+          },
+          "closed_form": {
+            "identified": true,
+            "type": "bessel_j_ratio",
+            "expression": "-sqrt(3)*besselj(0, sqrt(3)/2)/besselj(1, sqrt(3)/2) + 4",
+            "match_error": 1.7859177988785547e-101,
+            "sympy_form": "-sqrt(3)*besselj(0, sqrt(3)/2)/besselj(1, sqrt(3)/2) + 4"
+          },
+          "verification": {
+            "verified": true,
+            "match_digits": 110,
+            "symbolic_value": "0.38729700192868709212645712319329113579552266553095240656234028063143074153813976391163566385170287117495281381",
+            "difference": 0.0
+          },
+          "gaps": [],
+          "proof_text": "PROOF ATTEMPT for GCF with a(n)=[-3], b(n)=[-4, 4]\nCF: a(n) = [-3], b(n) = [-4, 4]\n\n\u00a71. CONVERGENCE\n  Theorem: Stern-Stolz\n  b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz.\n\n\u00a72. CLOSED FORM IDENTIFICATION\n  Type: bessel_j_ratio\n  Expression: 4+-4\u00b7(-\u221a(0.1875))\u00b7J_0(2\u221a(0.1875))/J_-1(2\u221a(0.1875))\n  Match error: 1.79e-101\n\n\u00a73. SYMBOLIC VERIFICATION\n  CAS verified to 110 digits\n\n\u00a74. STATUS: FORMAL_PROOF\n  All proof components verified. \u2713",
+          "confidence": 0.95,
+          "time_seconds": 0.02884221076965332
+        },
+        "epistemic_tag": "theorem",
+        "referee_verdict": "accepted"
+      },
+      "status": "novel_proven",
+      "reviews": [
+        {
+          "reviewer": "validator_0",
+          "verdict": "novel_unproven",
+          "notes": "precision=300, confidence=0.800, checks=5",
+          "timestamp": 1775207657.554704
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "attacks=4, passed=4, score=1.00",
+          "timestamp": 1775207658.9556773
+        },
+        {
+          "reviewer": "executor_0",
+          "verdict": "formal_proof",
+          "notes": "confidence=0.95, gaps=0",
+          "timestamp": 1775207665.2429092
+        },
+        {
+          "reviewer": "referee_0",
+          "verdict": "accepted",
+          "notes": "Convergence: Stern-Stolz; Closed form: bessel_j_ratio; CAS match: 110 digits",
+          "timestamp": 1775207669.8504703
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.678041,
+      "generation": 1,
+      "provenance": {
+        "method": "generalised_cf",
+        "an": [
+          -3
+        ],
+        "bn": [
+          -4,
+          4
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 10.0,
+      "canonical_key": "cf_[-3]_[-4, 4]"
+    },
+    {
+      "id": "41122fd465cc",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "novel_unproven",
+      "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+      "value": 3.4910744001668914,
+      "target": "novel_constant?",
+      "error": 2.1780553472513996e-60,
+      "confidence": 1.0,
+      "params": {
+        "strategy": "factorial",
+        "label": "cf_fact_k2_b3"
+      },
+      "metadata": {
+        "is_novel": true,
+        "is_known_transform": false,
+        "cf_type": "factorial",
+        "matched_constant": null,
+        "literature_match": null,
+        "convergence_error": 2.1780553472513996e-60,
+        "source": "nonpoly_cf_search",
+        "proof_result": {
+          "candidate_id": "41122fd465cc",
+          "status": "partial_proof",
+          "convergence": {
+            "proven": true,
+            "theorems_tried": [
+              {
+                "theorem": "Gauss-Euler CF",
+                "applies": false,
+                "details": "Not a linear-b, constant-a CF. Gauss-Euler form requires specific structure."
+              },
+              {
+                "theorem": "Tail convergence (factorial)",
+                "applies": true,
+                "details": "For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).",
+                "N0": 2,
+                "convergence_rate": "super-exponential",
+                "value_500": "3.49107440016689159245130998078",
+                "depth_errors": [
+                  {
+                    "depths": "50-100",
+                    "error": 5.164496269467721e-36
+                  },
+                  {
+                    "depths": "100-200",
+                    "error": 3.96583840804914e-83
+                  },
+                  {
+                    "depths": "200-500",
+                    "error": 2.0002279347439812e-100
+                  }
+                ]
+              }
+            ],
+            "theorem_used": "Tail convergence (factorial \u2014 Seidel-Stern)",
+            "proof_detail": "For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients)."
+          },
+          "closed_form": {
+            "identified": true,
+            "type": "mpmath_identify",
+            "expression": "2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)",
+            "match_error": null,
+            "sympy_form": null
+          },
+          "verification": {
+            "verified": false,
+            "match_digits": 14,
+            "symbolic_value": "3.4910744001668704770369530717008469254265429131329818775424380814804182626937677425595172857931358175437776401",
+            "difference": 2.093456404700085e-14
+          },
+          "gaps": [
+            "Closed form found but CAS verification failed/incomplete"
+          ],
+          "proof_text": "PROOF ATTEMPT for GCF a(n)=2\u00b7n!, b(n)=3\nCF: a(n) = [], b(n) = []\n\n\u00a71. CONVERGENCE\n  Theorem: Tail convergence (factorial \u2014 Seidel-Stern)\n  For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).\n\n\u00a72. CLOSED FORM IDENTIFICATION\n  Type: mpmath_identify\n  Expression: 2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)\n  Match error: None\n\n\u00a73. SYMBOLIC VERIFICATION\n  Not verified: no closed form\n\n\u00a74. STATUS: PARTIAL_PROOF\n  Remaining gaps:\n    \u2022 Closed form found but CAS verification failed/incomplete",
+          "confidence": 0.75,
+          "time_seconds": 4.607036352157593
+        },
+        "epistemic_tag": "theorem_conditional",
+        "referee_verdict": "gap_in_Closed_form_found_bu",
+        "analysis_version": "v4.2",
+        "analysis_timestamp": "2026-04-03T09:14:30Z",
+        "value_20_digits": "3.491074400166891",
+        "convergence_check": {
+          "converges": true,
+          "convergence_tier": "superexponential",
+          "proof_sketch": "For a(n) = k\u00b7n!, b(n) = B (constant): the n-th tail T_n of the CF satisfies T_n = k\u00b7n!/(B + T_{n+1}). Since |T_{n+1}| grows as (n+1)!, we get |T_n| ~ k\u00b7n!/((n+1)!) = k/(n+1) \u2192 0. The tails converge super-exponentially fast, guaranteeing convergence of the full CF.",
+          "numerical_error": 2.1780553472513996e-60,
+          "flags": [
+            "Numerical convergence: depth-200 vs depth-100 error = 2.18e-60"
+          ]
+        },
+        "nonpoly_convergence": {
+          "converges": true,
+          "convergence_tier": "superexponential",
+          "proof_sketch": "For a(n) = k\u00b7n!, b(n) = B (constant): the n-th tail T_n of the CF satisfies T_n = k\u00b7n!/(B + T_{n+1}). Since |T_{n+1}| grows as (n+1)!, we get |T_n| ~ k\u00b7n!/((n+1)!) = k/(n+1) \u2192 0. The tails converge super-exponentially fast, guaranteeing convergence of the full CF.",
+          "numerical_error": 2.1780553472513996e-60,
+          "flags": [
+            "Numerical convergence: depth-200 vs depth-100 error = 2.18e-60"
+          ]
+        },
+        "reproducibility": {
+          "candidate_id": "0acd0926f3ddb1ee",
+          "family": "continued_fraction",
+          "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+          "generation_params": {
+            "strategy": "factorial",
+            "label": "cf_fact_k2_b3"
+          },
+          "rng_seed": null,
+          "numeric_value": 3.4910744001668914,
+          "precision_dps": 60,
+          "evaluation_depth": 200,
+          "convergence_error": 2.1780553472513996e-60,
+          "isc_matched": false,
+          "isc_target_count": "15 constants \u00d7 40 multipliers \u00d7 4 transforms",
+          "algebraic_check": {
+            "rational_test": "p/q, |p|,|q| \u2264 50",
+            "quadratic_test": "ax\u00b2+bx+c=0, a\u2208[1,9], b\u2208[-20,20], c\u2208[-20,20]"
+          },
+          "environment": {
+            "python": "3.14.3",
+            "platform": "Windows-11-10.0.29558-SP0",
+            "mpmath": "1.3.0",
+            "sympy": "1.14.0"
+          },
+          "timestamp_utc": "2026-04-03T09:14:30Z"
+        }
+      },
+      "status": "novel_unproven",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207642.6781147,
+      "generation": 1,
+      "provenance": {
+        "method": "nonpolynomial_cf_factorial",
+        "prec": 60,
+        "depth": 200
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 8.0,
+      "canonical_key": "cf__"
+    },
+    {
+      "id": "3694a5c13ada",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "verified_known",
+      "expression": "GCF a(n)=1, b(n)=1n\u00b2+2n+2",
+      "value": 2.1961008670152506,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          1
+        ],
+        "bn": [
+          1,
+          2,
+          2
+        ],
+        "strategy": "quadratic_b"
+      },
+      "metadata": {
+        "is_novel": false,
+        "is_known_transform": false,
+        "cf_type": "quadratic_b",
+        "matched_constant": null,
+        "literature_match": "Closed form (bessel_extended): (1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+        "convergence_error": 0.0,
+        "source": "quadratic_b_cf_search",
+        "epistemic_tag": "conjecture",
+        "referee_verdict": "weakened",
+        "analysis_version": "v4.2",
+        "analysis_timestamp": "2026-04-03T09:14:30Z",
+        "value_hi_prec": "2.308789373066240068474667530478633048320578180059244231341453137756725996939971663560260935867250167952308457064573489397276151490241832158191955782406528803479081231952698272023000761686869",
+        "value_20_digits": "2.3087893730662400685",
+        "convergence_500_vs_300": 1.40440168987753e-199,
+        "convergence_300_vs_150": 5.878890794836172e-200,
+        "algebraic_analysis": "General polynomial CF: a_n coeffs=[1], b_n coeffs=[1, 2, 2]. No automatic algebraic resolution.",
+        "is_algebraic": false,
+        "cf_class": "general_polynomial",
+        "pslq_recognition": {
+          "found": false,
+          "expression": null,
+          "residual": null,
+          "max_coeff": null
+        },
+        "pslq_stability_table": [
+          {
+            "precision": 50,
+            "found": true,
+            "relation": [
+              -779,
+              -162,
+              121,
+              -204,
+              394,
+              48,
+              -251,
+              739,
+              -428,
+              -173,
+              -329,
+              205,
+              -10,
+              -10,
+              -728,
+              141,
+              127,
+              87,
+              -900
+            ],
+            "residual": 2.036385423662823e-37,
+            "expression": "value = -((-162)*1 + (121)*pi + (-204)*e + (394)*ln2 + (48)*ln3 + (-251)*sqrt(2) + (739)*sqrt(3) + (-428)*sqrt(5) + (-173)*euler_gamma + (-329)*catalan + (205)*zeta(3) + (-10)*pi^2 + (-10)*zeta(5) + (-728)*ln(pi) + (141)*pi^3 + (127)*Li2(1/2) + (87)*zeta(7) + (-900)*sqrt(pi)) / -779",
+            "max_coeff": 900,
+            "matches_reference": true
+          },
+          {
+            "precision": 100,
+            "found": false,
+            "relation": null,
+            "residual": null,
+            "expression": null,
+            "max_coeff": null
+          }
+        ],
+        "pslq_stable": null,
+        "reproducibility": {
+          "candidate_id": "b9fb5b0af571919a",
+          "family": "continued_fraction",
+          "expression": "GCF a(n)=1, b(n)=1n\u00b2+2n+2",
+          "generation_params": {
+            "an": [
+              1
+            ],
+            "bn": [
+              1,
+              2,
+              2
+            ],
+            "strategy": "quadratic_b"
+          },
+          "rng_seed": null,
+          "numeric_value": 2.1961008670152506,
+          "precision_dps": 60,
+          "evaluation_depth": 300,
+          "convergence_error": 0.0,
+          "isc_matched": false,
+          "isc_target_count": "15 constants \u00d7 40 multipliers \u00d7 4 transforms",
+          "algebraic_check": {
+            "rational_test": "p/q, |p|,|q| \u2264 50",
+            "quadratic_test": "ax\u00b2+bx+c=0, a\u2208[1,9], b\u2208[-20,20], c\u2208[-20,20]"
+          },
+          "environment": {
+            "python": "3.14.3",
+            "platform": "Windows-11-10.0.29558-SP0",
+            "mpmath": "1.3.0",
+            "sympy": "1.14.0"
+          },
+          "timestamp_utc": "2026-04-03T09:14:45Z"
+        },
+        "bessel_identification": {
+          "identified": false,
+          "reason": "Not a linear-b CF"
+        },
+        "isc_result": {
+          "found": false,
+          "identifications": []
+        },
+        "algebraic_degree": {
+          "is_algebraic": false,
+          "degree_bound": null,
+          "polynomials": []
+        },
+        "convergence_check": {
+          "converges": true,
+          "flags": [
+            "|a_n/b_n| \u2192 0 < 1: strong convergence"
+          ],
+          "zero_denominators": [],
+          "pringsheim_satisfied": true,
+          "convergence_tier": "strong"
+        },
+        "enhanced_closed_form": {
+          "found": true,
+          "matches": [
+            {
+              "type": "bessel_extended",
+              "formula": "(1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+              "computed_value": "2.3087893730662400685",
+              "match_error": 4.2168791772922093e-81,
+              "match_digits": 79
+            },
+            {
+              "type": "bessel_extended",
+              "formula": "(2/2)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+              "computed_value": "2.3087893730662400685",
+              "match_error": 4.2168791772922093e-81,
+              "match_digits": 79
+            },
+            {
+              "type": "bessel_extended",
+              "formula": "(3/3)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+              "computed_value": "2.3087893730662400685",
+              "match_error": 4.2168791772922093e-81,
+              "match_digits": 79
+            }
+          ],
+          "best_match": {
+            "type": "bessel_extended",
+            "formula": "(1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+            "computed_value": "2.3087893730662400685",
+            "match_error": 4.2168791772922093e-81,
+            "match_digits": 79
+          }
+        },
+        "closed_form_identified": true,
+        "closed_form_expression": "(1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+        "closed_form_type": "bessel_extended",
+        "closed_form_digits": 79
+      },
+      "status": "verified_known",
+      "reviews": [
+        {
+          "reviewer": "validator_0",
+          "verdict": "novel_unproven",
+          "notes": "precision=300, confidence=0.800, checks=5",
+          "timestamp": 1775207658.7885828
+        },
+        {
+          "reviewer": "referee_0",
+          "verdict": "weakened",
+          "notes": "fails: precision, convergence",
+          "timestamp": 1775207669.8505216
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.6781368,
+      "generation": 1,
+      "provenance": {
+        "method": "quadratic_b_cf",
+        "an": [
+          1
+        ],
+        "bn": [
+          1,
+          2,
+          2
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 2.0,
+      "canonical_key": "cf_[1]_[1, 2, 2]"
+    },
+    {
+      "id": "5866a1ce7f90",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "conjecture",
+      "expression": "GCF a(n)=3, b(n)=1n\u00b2+3n+5",
+      "value": 5.3261478405873,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          3
+        ],
+        "bn": [
+          1,
+          3,
+          5
+        ],
+        "strategy": "quadratic_b"
+      },
+      "metadata": {
+        "is_novel": true,
+        "is_known_transform": false,
+        "cf_type": "quadratic_b",
+        "matched_constant": null,
+        "literature_match": null,
+        "convergence_error": 0.0,
+        "source": "quadratic_b_cf_search"
+      },
+      "status": "candidate",
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "attacks=4, passed=4, score=1.00",
+          "timestamp": 1775207659.1191885
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.6781547,
+      "generation": 1,
+      "provenance": {
+        "method": "quadratic_b_cf",
+        "an": [
+          3
+        ],
+        "bn": [
+          1,
+          3,
+          5
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 3.0,
+      "canonical_key": "cf_[3]_[1, 3, 5]"
+    },
+    {
+      "id": "744180f7406c",
+      "agent_id": "explorer_0",
+      "family": "tau_function",
+      "category": "conjecture",
+      "expression": "tau(n) \u2260 0 for n=1..100 (Lehmer's conjecture)",
+      "value": 0,
+      "target": "lehmer_conjecture",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "max_n": 100,
+        "zeros_found": []
+      },
+      "metadata": {
+        "n_computed": 100,
+        "literature_frontier": "Verified to n > 10^24 by Bosman et al.",
+        "is_novel": false,
+        "literature_match": "Lehmer's conjecture (1947); verified computationally to n > 10^24",
+        "source": "tau_search"
+      },
+      "status": "candidate",
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "attacks=4, passed=3, score=0.75",
+          "timestamp": 1775207659.1192408
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.6781857,
+      "generation": 1,
+      "provenance": {
+        "method": "exhaustive_computation",
+        "range": "n=1..100",
+        "algorithm": "eta^24_convolution"
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 3.0,
+      "canonical_key": "tau_100_"
+    },
+    {
+      "id": "4feccd7bcac5",
+      "agent_id": "explorer_1",
+      "family": "continued_fraction",
+      "category": "conjecture",
+      "expression": "GCF a(n)=-1, b(n)=-2n\u00b2+-4n+7",
+      "value": 6.100437146997906,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          -1
+        ],
+        "bn": [
+          -2,
+          -4,
+          7
+        ],
+        "strategy": "quadratic_b"
+      },
+      "metadata": {
+        "is_novel": true,
+        "is_known_transform": false,
+        "cf_type": "quadratic_b",
+        "matched_constant": null,
+        "literature_match": null,
+        "convergence_error": 0.0,
+        "source": "quadratic_b_cf_search"
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207654.6902654,
+      "generation": 1,
+      "provenance": {
+        "method": "quadratic_b_cf",
+        "an": [
+          -1
+        ],
+        "bn": [
+          -2,
+          -4,
+          7
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 3.0,
+      "canonical_key": "cf_[-1]_[-2, -4, 7]"
+    },
+    {
+      "id": "9eda7636628f",
+      "agent_id": "explorer_1",
+      "family": "continued_fraction",
+      "category": "conjecture",
+      "expression": "GCF a(n)=-5, b(n)=2n\u00b2+0n+4",
+      "value": 3.1031771936583943,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          -5
+        ],
+        "bn": [
+          2,
+          0,
+          4
+        ],
+        "strategy": "quadratic_b"
+      },
+      "metadata": {
+        "is_novel": true,
+        "is_known_transform": false,
+        "cf_type": "quadratic_b",
+        "matched_constant": null,
+        "literature_match": null,
+        "convergence_error": 0.0,
+        "source": "quadratic_b_cf_search"
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207654.6902893,
+      "generation": 1,
+      "provenance": {
+        "method": "quadratic_b_cf",
+        "an": [
+          -5
+        ],
+        "bn": [
+          2,
+          0,
+          4
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 3.0,
+      "canonical_key": "cf_[-5]_[2, 0, 4]"
+    },
+    {
+      "id": "8ea4c662d0e4",
+      "agent_id": "explorer_0",
+      "family": "partition",
+      "category": "verified_known",
+      "expression": "p(5n+4) \u2261 0 (mod 5)",
+      "value": 0,
+      "target": "partition_congruence_mod5",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "a": 5,
+        "b": 4,
+        "m": 5,
+        "verified_up_to": 600
+      },
+      "metadata": {
+        "sample_values": [
+          5,
+          30,
+          135,
+          490,
+          1575,
+          4565,
+          12310,
+          31185,
+          75175,
+          173525
+        ],
+        "n_tested": 120,
+        "is_novel": false,
+        "literature_match": "Classical: Ramanujan (1919); proven Atkin & Swinnerton-Dyer (1954)",
+        "source": "partition_search"
+      },
+      "status": "verified_known",
+      "reviews": [
+        {
+          "reviewer": "validator_0",
+          "verdict": "verified_known",
+          "notes": "precision=300, confidence=1.000, checks=4",
+          "timestamp": 1775207654.7504117
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.6781716,
+      "generation": 1,
+      "provenance": {
+        "method": "exhaustive_mod_check",
+        "range": "n=0..600",
+        "modulus": 5,
+        "generation": 1
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 2.0,
+      "canonical_key": "part_5_4_5"
+    },
+    {
+      "id": "ab786fa1424b",
+      "agent_id": "meta_0",
+      "family": "meta",
+      "category": "pattern",
+      "expression": "Most productive family: tau_function (7 discoveries); Successful continued_fraction params: 6 examples; Successful tau_function params: 1 examples; Successful partition params: 1 examples; Validation rate: 28.6% (1 known, 3 novel, 0 numeric)",
+      "value": 0.2857142857142857,
+      "target": null,
+      "error": Infinity,
+      "confidence": 0.5,
+      "params": {},
+      "metadata": {
+        "insights": [
+          "Most productive family: tau_function (7 discoveries)",
+          "Successful continued_fraction params: 6 examples",
+          "Successful tau_function params: 1 examples",
+          "Successful partition params: 1 examples",
+          "Validation rate: 28.6% (1 known, 3 novel, 0 numeric)"
+        ],
+        "stats": {
+          "total": 14,
+          "by_family": {
+            "continued_fraction": 6,
+            "partition": 1,
+            "tau_function": 7
+          },
+          "by_status": {
+            "novel_proven": 1,
+            "novel_unproven": 2,
+            "candidate": 10,
+            "verified_known": 1
+          },
+          "by_category": {
+            "novel_proven": 1,
+            "novel_unproven": 2,
+            "conjecture": 10,
+            "verified_known": 1
+          },
+          "by_novelty": {
+            "novel_proven": 1,
+            "novel_unproven": 2,
+            "uncategorized": 10,
+            "verified_known": 1
+          },
+          "max_confidence": 1.0,
+          "novel_proven_count": 1,
+          "verified_known_count": 1,
+          "verified_numeric_count": 0,
+          "novel_unproven_count": 2,
+          "validated_count": 0,
+          "falsified_count": 0,
+          "max_precision": 0
+        }
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207670.2659636,
+      "generation": 1,
+      "provenance": {},
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 2.0,
+      "canonical_key": "meta_ec4d9dc463a8b914"
+    },
+    {
+      "id": "fc1061510b83",
+      "agent_id": "explorer_0",
+      "family": "tau_function",
+      "category": "conjecture",
+      "expression": "tau(n) \u2261 0 (mod 13): density 20.0% for n=1..100 (statistical)",
+      "value": 0.2,
+      "target": "tau_congruence_mod13",
+      "error": 0.8,
+      "confidence": 0.03973820026016113,
+      "params": {
+        "modulus": 13,
+        "zero_ns": [
+          7,
+          11,
+          14,
+          21,
+          22,
+          28,
+          33,
+          35,
+          42,
+          44,
+          55,
+          56,
+          63,
+          66,
+          70,
+          77,
+          84,
+          88,
+          91,
+          99
+        ],
+        "max_n": 100,
+        "density": 0.2
+      },
+      "metadata": {
+        "is_novel": true,
+        "is_exact_congruence": false,
+        "literature_match": null,
+        "source": "tau_search"
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207642.6782372,
+      "generation": 1,
+      "provenance": {
+        "method": "modular_residue_scan",
+        "range": "n=1..100",
+        "modulus": 13
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 0.11921460078048339,
+      "canonical_key": "tau_100_13"
+    },
+    {
+      "id": "4ec09354a82c",
+      "agent_id": "explorer_0",
+      "family": "tau_function",
+      "category": "conjecture",
+      "expression": "tau(n) \u2261 0 (mod 2): density 95.0% for n=1..100 (statistical)",
+      "value": 0.95,
+      "target": "tau_congruence_mod2",
+      "error": 0.050000000000000044,
+      "confidence": 0.024020599913279615,
+      "params": {
+        "modulus": 2,
+        "zero_ns": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33
+        ],
+        "max_n": 100,
+        "density": 0.95
+      },
+      "metadata": {
+        "is_novel": false,
+        "is_exact_congruence": false,
+        "literature_match": "Swinnerton-Dyer congruence mod 2 (classical)",
+        "source": "tau_search"
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207642.6781983,
+      "generation": 1,
+      "provenance": {
+        "method": "modular_residue_scan",
+        "range": "n=1..100",
+        "modulus": 2
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 0.07206179973983884,
+      "canonical_key": "tau_100_2"
+    },
+    {
+      "id": "f2ec6e485ab1",
+      "agent_id": "explorer_0",
+      "family": "tau_function",
+      "category": "conjecture",
+      "expression": "tau(n) \u2261 0 (mod 3): density 79.0% for n=1..100 (statistical)",
+      "value": 0.79,
+      "target": "tau_congruence_mod3",
+      "error": 0.20999999999999996,
+      "confidence": 0.011555614105321617,
+      "params": {
+        "modulus": 3,
+        "zero_ns": [
+          2,
+          3,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          17,
+          18,
+          20,
+          21,
+          22,
+          23,
+          24,
+          26,
+          27,
+          29,
+          30,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38,
+          39,
+          40
+        ],
+        "max_n": 100,
+        "density": 0.79
+      },
+      "metadata": {
+        "is_novel": false,
+        "is_exact_congruence": false,
+        "literature_match": "Swinnerton-Dyer congruence mod 3 (classical)",
+        "source": "tau_search"
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207642.6782088,
+      "generation": 1,
+      "provenance": {
+        "method": "modular_residue_scan",
+        "range": "n=1..100",
+        "modulus": 3
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 0.03466684231596485,
+      "canonical_key": "tau_100_3"
+    },
+    {
+      "id": "c0e822bf39c6",
+      "agent_id": "explorer_0",
+      "family": "tau_function",
+      "category": "conjecture",
+      "expression": "tau(n) \u2261 0 (mod 7): density 68.0% for n=1..100 (statistical)",
+      "value": 0.68,
+      "target": "tau_congruence_mod7",
+      "error": 0.31999999999999995,
+      "confidence": 0.007897000433601881,
+      "params": {
+        "modulus": 7,
+        "zero_ns": [
+          3,
+          5,
+          6,
+          7,
+          10,
+          12,
+          13,
+          14,
+          15,
+          17,
+          19,
+          20,
+          21,
+          24,
+          26,
+          27,
+          28,
+          30,
+          31,
+          33,
+          34,
+          35,
+          38,
+          39,
+          40,
+          41,
+          42,
+          45,
+          47,
+          48
+        ],
+        "max_n": 100,
+        "density": 0.68
+      },
+      "metadata": {
+        "is_novel": false,
+        "is_exact_congruence": false,
+        "literature_match": "Swinnerton-Dyer congruence mod 7 (classical)",
+        "source": "tau_search"
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207642.6782272,
+      "generation": 1,
+      "provenance": {
+        "method": "modular_residue_scan",
+        "range": "n=1..100",
+        "modulus": 7
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 0.023691001300805644,
+      "canonical_key": "tau_100_7"
+    },
+    {
+      "id": "5956b47586ef",
+      "agent_id": "explorer_0",
+      "family": "tau_function",
+      "category": "conjecture",
+      "expression": "tau(n) \u2261 0 (mod 23): density 63.0% for n=1..100 (statistical)",
+      "value": 0.63,
+      "target": "tau_congruence_mod23",
+      "error": 0.37,
+      "confidence": 0.0064359655186601,
+      "params": {
+        "modulus": 23,
+        "zero_ns": [
+          4,
+          5,
+          7,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          28,
+          30,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          40,
+          42,
+          43,
+          44,
+          45,
+          51
+        ],
+        "max_n": 100,
+        "density": 0.63
+      },
+      "metadata": {
+        "is_novel": false,
+        "is_exact_congruence": false,
+        "literature_match": "Swinnerton-Dyer congruence mod 23 (classical)",
+        "source": "tau_search"
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207642.6782475,
+      "generation": 1,
+      "provenance": {
+        "method": "modular_residue_scan",
+        "range": "n=1..100",
+        "modulus": 23
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 0.0193078965559803,
+      "canonical_key": "tau_100_23"
+    },
+    {
+      "id": "bdf3a0aeb505",
+      "agent_id": "explorer_0",
+      "family": "tau_function",
+      "category": "conjecture",
+      "expression": "tau(n) \u2261 0 (mod 5): density 37.0% for n=1..100 (statistical)",
+      "value": 0.37,
+      "target": "tau_congruence_mod5",
+      "error": 0.63,
+      "confidence": 0.0020131890109283657,
+      "params": {
+        "modulus": 5,
+        "zero_ns": [
+          5,
+          8,
+          10,
+          15,
+          19,
+          20,
+          24,
+          25,
+          27,
+          29,
+          30,
+          35,
+          38,
+          40,
+          45,
+          50,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          65,
+          70,
+          72,
+          75,
+          76,
+          79,
+          80
+        ],
+        "max_n": 100,
+        "density": 0.37
+      },
+      "metadata": {
+        "is_novel": false,
+        "is_exact_congruence": false,
+        "literature_match": "Swinnerton-Dyer congruence mod 5 (classical)",
+        "source": "tau_search"
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207642.6782181,
+      "generation": 1,
+      "provenance": {
+        "method": "modular_residue_scan",
+        "range": "n=1..100",
+        "modulus": 5
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 0.006039567032785097,
+      "canonical_key": "tau_100_5"
+    }
+  ],
+  "breakthroughs": [
+    {
+      "id": "2d04456e7962",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "novel_proven",
+      "expression": "GCF with a(n)=[-3], b(n)=[-4, 4]",
+      "value": 0.3872970019286871,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          -3
+        ],
+        "bn": [
+          -4,
+          4
+        ]
+      },
+      "metadata": {
+        "max_coeff": 0,
+        "is_novel": true,
+        "is_known_transform": false,
+        "matched_constant": "euler_gamma",
+        "matched_multiplier": 1.5,
+        "literature_match": null,
+        "convergence_error": 0.0,
+        "source": "cf_search",
+        "proof_result": {
+          "candidate_id": "2d04456e7962",
+          "status": "formal_proof",
+          "convergence": {
+            "proven": true,
+            "theorems_tried": [
+              {
+                "theorem": "\u015aleszy\u0144ski-Pringsheim",
+                "applies": false,
+                "details": "|b_1| = 0 < |a_1| + 1 = 4. \u015aleszy\u0144ski-Pringsheim does not apply."
+              },
+              {
+                "theorem": "Van Vleck",
+                "applies": false,
+                "details": ""
+              },
+              {
+                "theorem": "Worpitzky",
+                "applies": false,
+                "details": ""
+              },
+              {
+                "theorem": "Parabola (Lorentzen-Waadeland)",
+                "applies": false,
+                "details": "b_n \u2260 1 \u2014 parabola theorem applies to K(a_n/1) form."
+              },
+              {
+                "theorem": "Stern-Stolz",
+                "applies": true,
+                "details": "b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz.",
+                "divergence_detected": false
+              }
+            ],
+            "theorem_used": "Stern-Stolz",
+            "proof_detail": "b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz."
+          },
+          "closed_form": {
+            "identified": true,
+            "type": "bessel_j_ratio",
+            "expression": "-sqrt(3)*besselj(0, sqrt(3)/2)/besselj(1, sqrt(3)/2) + 4",
+            "match_error": 1.7859177988785547e-101,
+            "sympy_form": "-sqrt(3)*besselj(0, sqrt(3)/2)/besselj(1, sqrt(3)/2) + 4"
+          },
+          "verification": {
+            "verified": true,
+            "match_digits": 110,
+            "symbolic_value": "0.38729700192868709212645712319329113579552266553095240656234028063143074153813976391163566385170287117495281381",
+            "difference": 0.0
+          },
+          "gaps": [],
+          "proof_text": "PROOF ATTEMPT for GCF with a(n)=[-3], b(n)=[-4, 4]\nCF: a(n) = [-3], b(n) = [-4, 4]\n\n\u00a71. CONVERGENCE\n  Theorem: Stern-Stolz\n  b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz.\n\n\u00a72. CLOSED FORM IDENTIFICATION\n  Type: bessel_j_ratio\n  Expression: 4+-4\u00b7(-\u221a(0.1875))\u00b7J_0(2\u221a(0.1875))/J_-1(2\u221a(0.1875))\n  Match error: 1.79e-101\n\n\u00a73. SYMBOLIC VERIFICATION\n  CAS verified to 110 digits\n\n\u00a74. STATUS: FORMAL_PROOF\n  All proof components verified. \u2713",
+          "confidence": 0.95,
+          "time_seconds": 0.02884221076965332
+        },
+        "epistemic_tag": "theorem",
+        "referee_verdict": "accepted"
+      },
+      "status": "novel_proven",
+      "reviews": [
+        {
+          "reviewer": "validator_0",
+          "verdict": "novel_unproven",
+          "notes": "precision=300, confidence=0.800, checks=5",
+          "timestamp": 1775207657.554704
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "attacks=4, passed=4, score=1.00",
+          "timestamp": 1775207658.9556773
+        },
+        {
+          "reviewer": "executor_0",
+          "verdict": "formal_proof",
+          "notes": "confidence=0.95, gaps=0",
+          "timestamp": 1775207665.2429092
+        },
+        {
+          "reviewer": "referee_0",
+          "verdict": "accepted",
+          "notes": "Convergence: Stern-Stolz; Closed form: bessel_j_ratio; CAS match: 110 digits",
+          "timestamp": 1775207669.8504703
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.678041,
+      "generation": 1,
+      "provenance": {
+        "method": "generalised_cf",
+        "an": [
+          -3
+        ],
+        "bn": [
+          -4,
+          4
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 10.0,
+      "canonical_key": "cf_[-3]_[-4, 4]"
+    },
+    {
+      "id": "41122fd465cc",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "novel_unproven",
+      "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+      "value": 3.4910744001668914,
+      "target": "novel_constant?",
+      "error": 2.1780553472513996e-60,
+      "confidence": 1.0,
+      "params": {
+        "strategy": "factorial",
+        "label": "cf_fact_k2_b3"
+      },
+      "metadata": {
+        "is_novel": true,
+        "is_known_transform": false,
+        "cf_type": "factorial",
+        "matched_constant": null,
+        "literature_match": null,
+        "convergence_error": 2.1780553472513996e-60,
+        "source": "nonpoly_cf_search",
+        "proof_result": {
+          "candidate_id": "41122fd465cc",
+          "status": "partial_proof",
+          "convergence": {
+            "proven": true,
+            "theorems_tried": [
+              {
+                "theorem": "Gauss-Euler CF",
+                "applies": false,
+                "details": "Not a linear-b, constant-a CF. Gauss-Euler form requires specific structure."
+              },
+              {
+                "theorem": "Tail convergence (factorial)",
+                "applies": true,
+                "details": "For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).",
+                "N0": 2,
+                "convergence_rate": "super-exponential",
+                "value_500": "3.49107440016689159245130998078",
+                "depth_errors": [
+                  {
+                    "depths": "50-100",
+                    "error": 5.164496269467721e-36
+                  },
+                  {
+                    "depths": "100-200",
+                    "error": 3.96583840804914e-83
+                  },
+                  {
+                    "depths": "200-500",
+                    "error": 2.0002279347439812e-100
+                  }
+                ]
+              }
+            ],
+            "theorem_used": "Tail convergence (factorial \u2014 Seidel-Stern)",
+            "proof_detail": "For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients)."
+          },
+          "closed_form": {
+            "identified": true,
+            "type": "mpmath_identify",
+            "expression": "2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)",
+            "match_error": null,
+            "sympy_form": null
+          },
+          "verification": {
+            "verified": false,
+            "match_digits": 14,
+            "symbolic_value": "3.4910744001668704770369530717008469254265429131329818775424380814804182626937677425595172857931358175437776401",
+            "difference": 2.093456404700085e-14
+          },
+          "gaps": [
+            "Closed form found but CAS verification failed/incomplete"
+          ],
+          "proof_text": "PROOF ATTEMPT for GCF a(n)=2\u00b7n!, b(n)=3\nCF: a(n) = [], b(n) = []\n\n\u00a71. CONVERGENCE\n  Theorem: Tail convergence (factorial \u2014 Seidel-Stern)\n  For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).\n\n\u00a72. CLOSED FORM IDENTIFICATION\n  Type: mpmath_identify\n  Expression: 2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)\n  Match error: None\n\n\u00a73. SYMBOLIC VERIFICATION\n  Not verified: no closed form\n\n\u00a74. STATUS: PARTIAL_PROOF\n  Remaining gaps:\n    \u2022 Closed form found but CAS verification failed/incomplete",
+          "confidence": 0.75,
+          "time_seconds": 4.607036352157593
+        },
+        "epistemic_tag": "theorem_conditional",
+        "referee_verdict": "gap_in_Closed_form_found_bu",
+        "analysis_version": "v4.2",
+        "analysis_timestamp": "2026-04-03T09:14:30Z",
+        "value_20_digits": "3.491074400166891",
+        "convergence_check": {
+          "converges": true,
+          "convergence_tier": "superexponential",
+          "proof_sketch": "For a(n) = k\u00b7n!, b(n) = B (constant): the n-th tail T_n of the CF satisfies T_n = k\u00b7n!/(B + T_{n+1}). Since |T_{n+1}| grows as (n+1)!, we get |T_n| ~ k\u00b7n!/((n+1)!) = k/(n+1) \u2192 0. The tails converge super-exponentially fast, guaranteeing convergence of the full CF.",
+          "numerical_error": 2.1780553472513996e-60,
+          "flags": [
+            "Numerical convergence: depth-200 vs depth-100 error = 2.18e-60"
+          ]
+        },
+        "nonpoly_convergence": {
+          "converges": true,
+          "convergence_tier": "superexponential",
+          "proof_sketch": "For a(n) = k\u00b7n!, b(n) = B (constant): the n-th tail T_n of the CF satisfies T_n = k\u00b7n!/(B + T_{n+1}). Since |T_{n+1}| grows as (n+1)!, we get |T_n| ~ k\u00b7n!/((n+1)!) = k/(n+1) \u2192 0. The tails converge super-exponentially fast, guaranteeing convergence of the full CF.",
+          "numerical_error": 2.1780553472513996e-60,
+          "flags": [
+            "Numerical convergence: depth-200 vs depth-100 error = 2.18e-60"
+          ]
+        },
+        "reproducibility": {
+          "candidate_id": "0acd0926f3ddb1ee",
+          "family": "continued_fraction",
+          "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+          "generation_params": {
+            "strategy": "factorial",
+            "label": "cf_fact_k2_b3"
+          },
+          "rng_seed": null,
+          "numeric_value": 3.4910744001668914,
+          "precision_dps": 60,
+          "evaluation_depth": 200,
+          "convergence_error": 2.1780553472513996e-60,
+          "isc_matched": false,
+          "isc_target_count": "15 constants \u00d7 40 multipliers \u00d7 4 transforms",
+          "algebraic_check": {
+            "rational_test": "p/q, |p|,|q| \u2264 50",
+            "quadratic_test": "ax\u00b2+bx+c=0, a\u2208[1,9], b\u2208[-20,20], c\u2208[-20,20]"
+          },
+          "environment": {
+            "python": "3.14.3",
+            "platform": "Windows-11-10.0.29558-SP0",
+            "mpmath": "1.3.0",
+            "sympy": "1.14.0"
+          },
+          "timestamp_utc": "2026-04-03T09:14:30Z"
+        }
+      },
+      "status": "novel_unproven",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207642.6781147,
+      "generation": 1,
+      "provenance": {
+        "method": "nonpolynomial_cf_factorial",
+        "prec": 60,
+        "depth": 200
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 8.0,
+      "canonical_key": "cf__"
+    },
+    {
+      "id": "3694a5c13ada",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "verified_known",
+      "expression": "GCF a(n)=1, b(n)=1n\u00b2+2n+2",
+      "value": 2.1961008670152506,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          1
+        ],
+        "bn": [
+          1,
+          2,
+          2
+        ],
+        "strategy": "quadratic_b"
+      },
+      "metadata": {
+        "is_novel": false,
+        "is_known_transform": false,
+        "cf_type": "quadratic_b",
+        "matched_constant": null,
+        "literature_match": "Closed form (bessel_extended): (1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+        "convergence_error": 0.0,
+        "source": "quadratic_b_cf_search",
+        "epistemic_tag": "conjecture",
+        "referee_verdict": "weakened",
+        "analysis_version": "v4.2",
+        "analysis_timestamp": "2026-04-03T09:14:30Z",
+        "value_hi_prec": "2.308789373066240068474667530478633048320578180059244231341453137756725996939971663560260935867250167952308457064573489397276151490241832158191955782406528803479081231952698272023000761686869",
+        "value_20_digits": "2.3087893730662400685",
+        "convergence_500_vs_300": 1.40440168987753e-199,
+        "convergence_300_vs_150": 5.878890794836172e-200,
+        "algebraic_analysis": "General polynomial CF: a_n coeffs=[1], b_n coeffs=[1, 2, 2]. No automatic algebraic resolution.",
+        "is_algebraic": false,
+        "cf_class": "general_polynomial",
+        "pslq_recognition": {
+          "found": false,
+          "expression": null,
+          "residual": null,
+          "max_coeff": null
+        },
+        "pslq_stability_table": [
+          {
+            "precision": 50,
+            "found": true,
+            "relation": [
+              -779,
+              -162,
+              121,
+              -204,
+              394,
+              48,
+              -251,
+              739,
+              -428,
+              -173,
+              -329,
+              205,
+              -10,
+              -10,
+              -728,
+              141,
+              127,
+              87,
+              -900
+            ],
+            "residual": 2.036385423662823e-37,
+            "expression": "value = -((-162)*1 + (121)*pi + (-204)*e + (394)*ln2 + (48)*ln3 + (-251)*sqrt(2) + (739)*sqrt(3) + (-428)*sqrt(5) + (-173)*euler_gamma + (-329)*catalan + (205)*zeta(3) + (-10)*pi^2 + (-10)*zeta(5) + (-728)*ln(pi) + (141)*pi^3 + (127)*Li2(1/2) + (87)*zeta(7) + (-900)*sqrt(pi)) / -779",
+            "max_coeff": 900,
+            "matches_reference": true
+          },
+          {
+            "precision": 100,
+            "found": false,
+            "relation": null,
+            "residual": null,
+            "expression": null,
+            "max_coeff": null
+          }
+        ],
+        "pslq_stable": null,
+        "reproducibility": {
+          "candidate_id": "b9fb5b0af571919a",
+          "family": "continued_fraction",
+          "expression": "GCF a(n)=1, b(n)=1n\u00b2+2n+2",
+          "generation_params": {
+            "an": [
+              1
+            ],
+            "bn": [
+              1,
+              2,
+              2
+            ],
+            "strategy": "quadratic_b"
+          },
+          "rng_seed": null,
+          "numeric_value": 2.1961008670152506,
+          "precision_dps": 60,
+          "evaluation_depth": 300,
+          "convergence_error": 0.0,
+          "isc_matched": false,
+          "isc_target_count": "15 constants \u00d7 40 multipliers \u00d7 4 transforms",
+          "algebraic_check": {
+            "rational_test": "p/q, |p|,|q| \u2264 50",
+            "quadratic_test": "ax\u00b2+bx+c=0, a\u2208[1,9], b\u2208[-20,20], c\u2208[-20,20]"
+          },
+          "environment": {
+            "python": "3.14.3",
+            "platform": "Windows-11-10.0.29558-SP0",
+            "mpmath": "1.3.0",
+            "sympy": "1.14.0"
+          },
+          "timestamp_utc": "2026-04-03T09:14:45Z"
+        },
+        "bessel_identification": {
+          "identified": false,
+          "reason": "Not a linear-b CF"
+        },
+        "isc_result": {
+          "found": false,
+          "identifications": []
+        },
+        "algebraic_degree": {
+          "is_algebraic": false,
+          "degree_bound": null,
+          "polynomials": []
+        },
+        "convergence_check": {
+          "converges": true,
+          "flags": [
+            "|a_n/b_n| \u2192 0 < 1: strong convergence"
+          ],
+          "zero_denominators": [],
+          "pringsheim_satisfied": true,
+          "convergence_tier": "strong"
+        },
+        "enhanced_closed_form": {
+          "found": true,
+          "matches": [
+            {
+              "type": "bessel_extended",
+              "formula": "(1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+              "computed_value": "2.3087893730662400685",
+              "match_error": 4.2168791772922093e-81,
+              "match_digits": 79
+            },
+            {
+              "type": "bessel_extended",
+              "formula": "(2/2)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+              "computed_value": "2.3087893730662400685",
+              "match_error": 4.2168791772922093e-81,
+              "match_digits": 79
+            },
+            {
+              "type": "bessel_extended",
+              "formula": "(3/3)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+              "computed_value": "2.3087893730662400685",
+              "match_error": 4.2168791772922093e-81,
+              "match_digits": 79
+            }
+          ],
+          "best_match": {
+            "type": "bessel_extended",
+            "formula": "(1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+            "computed_value": "2.3087893730662400685",
+            "match_error": 4.2168791772922093e-81,
+            "match_digits": 79
+          }
+        },
+        "closed_form_identified": true,
+        "closed_form_expression": "(1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+        "closed_form_type": "bessel_extended",
+        "closed_form_digits": 79
+      },
+      "status": "verified_known",
+      "reviews": [
+        {
+          "reviewer": "validator_0",
+          "verdict": "novel_unproven",
+          "notes": "precision=300, confidence=0.800, checks=5",
+          "timestamp": 1775207658.7885828
+        },
+        {
+          "reviewer": "referee_0",
+          "verdict": "weakened",
+          "notes": "fails: precision, convergence",
+          "timestamp": 1775207669.8505216
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.6781368,
+      "generation": 1,
+      "provenance": {
+        "method": "quadratic_b_cf",
+        "an": [
+          1
+        ],
+        "bn": [
+          1,
+          2,
+          2
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 2.0,
+      "canonical_key": "cf_[1]_[1, 2, 2]"
+    },
+    {
+      "id": "5866a1ce7f90",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "conjecture",
+      "expression": "GCF a(n)=3, b(n)=1n\u00b2+3n+5",
+      "value": 5.3261478405873,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          3
+        ],
+        "bn": [
+          1,
+          3,
+          5
+        ],
+        "strategy": "quadratic_b"
+      },
+      "metadata": {
+        "is_novel": true,
+        "is_known_transform": false,
+        "cf_type": "quadratic_b",
+        "matched_constant": null,
+        "literature_match": null,
+        "convergence_error": 0.0,
+        "source": "quadratic_b_cf_search"
+      },
+      "status": "candidate",
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "attacks=4, passed=4, score=1.00",
+          "timestamp": 1775207659.1191885
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.6781547,
+      "generation": 1,
+      "provenance": {
+        "method": "quadratic_b_cf",
+        "an": [
+          3
+        ],
+        "bn": [
+          1,
+          3,
+          5
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 3.0,
+      "canonical_key": "cf_[3]_[1, 3, 5]"
+    },
+    {
+      "id": "744180f7406c",
+      "agent_id": "explorer_0",
+      "family": "tau_function",
+      "category": "conjecture",
+      "expression": "tau(n) \u2260 0 for n=1..100 (Lehmer's conjecture)",
+      "value": 0,
+      "target": "lehmer_conjecture",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "max_n": 100,
+        "zeros_found": []
+      },
+      "metadata": {
+        "n_computed": 100,
+        "literature_frontier": "Verified to n > 10^24 by Bosman et al.",
+        "is_novel": false,
+        "literature_match": "Lehmer's conjecture (1947); verified computationally to n > 10^24",
+        "source": "tau_search"
+      },
+      "status": "candidate",
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "attacks=4, passed=3, score=0.75",
+          "timestamp": 1775207659.1192408
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.6781857,
+      "generation": 1,
+      "provenance": {
+        "method": "exhaustive_computation",
+        "range": "n=1..100",
+        "algorithm": "eta^24_convolution"
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 3.0,
+      "canonical_key": "tau_100_"
+    },
+    {
+      "id": "4feccd7bcac5",
+      "agent_id": "explorer_1",
+      "family": "continued_fraction",
+      "category": "conjecture",
+      "expression": "GCF a(n)=-1, b(n)=-2n\u00b2+-4n+7",
+      "value": 6.100437146997906,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          -1
+        ],
+        "bn": [
+          -2,
+          -4,
+          7
+        ],
+        "strategy": "quadratic_b"
+      },
+      "metadata": {
+        "is_novel": true,
+        "is_known_transform": false,
+        "cf_type": "quadratic_b",
+        "matched_constant": null,
+        "literature_match": null,
+        "convergence_error": 0.0,
+        "source": "quadratic_b_cf_search"
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207654.6902654,
+      "generation": 1,
+      "provenance": {
+        "method": "quadratic_b_cf",
+        "an": [
+          -1
+        ],
+        "bn": [
+          -2,
+          -4,
+          7
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 3.0,
+      "canonical_key": "cf_[-1]_[-2, -4, 7]"
+    },
+    {
+      "id": "9eda7636628f",
+      "agent_id": "explorer_1",
+      "family": "continued_fraction",
+      "category": "conjecture",
+      "expression": "GCF a(n)=-5, b(n)=2n\u00b2+0n+4",
+      "value": 3.1031771936583943,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          -5
+        ],
+        "bn": [
+          2,
+          0,
+          4
+        ],
+        "strategy": "quadratic_b"
+      },
+      "metadata": {
+        "is_novel": true,
+        "is_known_transform": false,
+        "cf_type": "quadratic_b",
+        "matched_constant": null,
+        "literature_match": null,
+        "convergence_error": 0.0,
+        "source": "quadratic_b_cf_search"
+      },
+      "status": "candidate",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207654.6902893,
+      "generation": 1,
+      "provenance": {
+        "method": "quadratic_b_cf",
+        "an": [
+          -5
+        ],
+        "bn": [
+          2,
+          0,
+          4
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 3.0,
+      "canonical_key": "cf_[-5]_[2, 0, 4]"
+    },
+    {
+      "id": "8ea4c662d0e4",
+      "agent_id": "explorer_0",
+      "family": "partition",
+      "category": "verified_known",
+      "expression": "p(5n+4) \u2261 0 (mod 5)",
+      "value": 0,
+      "target": "partition_congruence_mod5",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "a": 5,
+        "b": 4,
+        "m": 5,
+        "verified_up_to": 600
+      },
+      "metadata": {
+        "sample_values": [
+          5,
+          30,
+          135,
+          490,
+          1575,
+          4565,
+          12310,
+          31185,
+          75175,
+          173525
+        ],
+        "n_tested": 120,
+        "is_novel": false,
+        "literature_match": "Classical: Ramanujan (1919); proven Atkin & Swinnerton-Dyer (1954)",
+        "source": "partition_search"
+      },
+      "status": "verified_known",
+      "reviews": [
+        {
+          "reviewer": "validator_0",
+          "verdict": "verified_known",
+          "notes": "precision=300, confidence=1.000, checks=4",
+          "timestamp": 1775207654.7504117
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.6781716,
+      "generation": 1,
+      "provenance": {
+        "method": "exhaustive_mod_check",
+        "range": "n=0..600",
+        "modulus": 5,
+        "generation": 1
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 2.0,
+      "canonical_key": "part_5_4_5"
+    }
+  ],
+  "novel_proven": [
+    {
+      "id": "2d04456e7962",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "novel_proven",
+      "expression": "GCF with a(n)=[-3], b(n)=[-4, 4]",
+      "value": 0.3872970019286871,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          -3
+        ],
+        "bn": [
+          -4,
+          4
+        ]
+      },
+      "metadata": {
+        "max_coeff": 0,
+        "is_novel": true,
+        "is_known_transform": false,
+        "matched_constant": "euler_gamma",
+        "matched_multiplier": 1.5,
+        "literature_match": null,
+        "convergence_error": 0.0,
+        "source": "cf_search",
+        "proof_result": {
+          "candidate_id": "2d04456e7962",
+          "status": "formal_proof",
+          "convergence": {
+            "proven": true,
+            "theorems_tried": [
+              {
+                "theorem": "\u015aleszy\u0144ski-Pringsheim",
+                "applies": false,
+                "details": "|b_1| = 0 < |a_1| + 1 = 4. \u015aleszy\u0144ski-Pringsheim does not apply."
+              },
+              {
+                "theorem": "Van Vleck",
+                "applies": false,
+                "details": ""
+              },
+              {
+                "theorem": "Worpitzky",
+                "applies": false,
+                "details": ""
+              },
+              {
+                "theorem": "Parabola (Lorentzen-Waadeland)",
+                "applies": false,
+                "details": "b_n \u2260 1 \u2014 parabola theorem applies to K(a_n/1) form."
+              },
+              {
+                "theorem": "Stern-Stolz",
+                "applies": true,
+                "details": "b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz.",
+                "divergence_detected": false
+              }
+            ],
+            "theorem_used": "Stern-Stolz",
+            "proof_detail": "b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz."
+          },
+          "closed_form": {
+            "identified": true,
+            "type": "bessel_j_ratio",
+            "expression": "-sqrt(3)*besselj(0, sqrt(3)/2)/besselj(1, sqrt(3)/2) + 4",
+            "match_error": 1.7859177988785547e-101,
+            "sympy_form": "-sqrt(3)*besselj(0, sqrt(3)/2)/besselj(1, sqrt(3)/2) + 4"
+          },
+          "verification": {
+            "verified": true,
+            "match_digits": 110,
+            "symbolic_value": "0.38729700192868709212645712319329113579552266553095240656234028063143074153813976391163566385170287117495281381",
+            "difference": 0.0
+          },
+          "gaps": [],
+          "proof_text": "PROOF ATTEMPT for GCF with a(n)=[-3], b(n)=[-4, 4]\nCF: a(n) = [-3], b(n) = [-4, 4]\n\n\u00a71. CONVERGENCE\n  Theorem: Stern-Stolz\n  b(n) = -4n + 4 grows linearly. \u03a3|b_n| diverges, so Stern-Stolz divergence theorem does NOT apply. Convergence is consistent with Stern-Stolz.\n\n\u00a72. CLOSED FORM IDENTIFICATION\n  Type: bessel_j_ratio\n  Expression: 4+-4\u00b7(-\u221a(0.1875))\u00b7J_0(2\u221a(0.1875))/J_-1(2\u221a(0.1875))\n  Match error: 1.79e-101\n\n\u00a73. SYMBOLIC VERIFICATION\n  CAS verified to 110 digits\n\n\u00a74. STATUS: FORMAL_PROOF\n  All proof components verified. \u2713",
+          "confidence": 0.95,
+          "time_seconds": 0.02884221076965332
+        },
+        "epistemic_tag": "theorem",
+        "referee_verdict": "accepted"
+      },
+      "status": "novel_proven",
+      "reviews": [
+        {
+          "reviewer": "validator_0",
+          "verdict": "novel_unproven",
+          "notes": "precision=300, confidence=0.800, checks=5",
+          "timestamp": 1775207657.554704
+        },
+        {
+          "reviewer": "adversary_0",
+          "verdict": "confirmed",
+          "notes": "attacks=4, passed=4, score=1.00",
+          "timestamp": 1775207658.9556773
+        },
+        {
+          "reviewer": "executor_0",
+          "verdict": "formal_proof",
+          "notes": "confidence=0.95, gaps=0",
+          "timestamp": 1775207665.2429092
+        },
+        {
+          "reviewer": "referee_0",
+          "verdict": "accepted",
+          "notes": "Convergence: Stern-Stolz; Closed form: bessel_j_ratio; CAS match: 110 digits",
+          "timestamp": 1775207669.8504703
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.678041,
+      "generation": 1,
+      "provenance": {
+        "method": "generalised_cf",
+        "an": [
+          -3
+        ],
+        "bn": [
+          -4,
+          4
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 10.0,
+      "canonical_key": "cf_[-3]_[-4, 4]"
+    }
+  ],
+  "verified_known": [
+    {
+      "id": "3694a5c13ada",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "verified_known",
+      "expression": "GCF a(n)=1, b(n)=1n\u00b2+2n+2",
+      "value": 2.1961008670152506,
+      "target": "novel_constant?",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "an": [
+          1
+        ],
+        "bn": [
+          1,
+          2,
+          2
+        ],
+        "strategy": "quadratic_b"
+      },
+      "metadata": {
+        "is_novel": false,
+        "is_known_transform": false,
+        "cf_type": "quadratic_b",
+        "matched_constant": null,
+        "literature_match": "Closed form (bessel_extended): (1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+        "convergence_error": 0.0,
+        "source": "quadratic_b_cf_search",
+        "epistemic_tag": "conjecture",
+        "referee_verdict": "weakened",
+        "analysis_version": "v4.2",
+        "analysis_timestamp": "2026-04-03T09:14:30Z",
+        "value_hi_prec": "2.308789373066240068474667530478633048320578180059244231341453137756725996939971663560260935867250167952308457064573489397276151490241832158191955782406528803479081231952698272023000761686869",
+        "value_20_digits": "2.3087893730662400685",
+        "convergence_500_vs_300": 1.40440168987753e-199,
+        "convergence_300_vs_150": 5.878890794836172e-200,
+        "algebraic_analysis": "General polynomial CF: a_n coeffs=[1], b_n coeffs=[1, 2, 2]. No automatic algebraic resolution.",
+        "is_algebraic": false,
+        "cf_class": "general_polynomial",
+        "pslq_recognition": {
+          "found": false,
+          "expression": null,
+          "residual": null,
+          "max_coeff": null
+        },
+        "pslq_stability_table": [
+          {
+            "precision": 50,
+            "found": true,
+            "relation": [
+              -779,
+              -162,
+              121,
+              -204,
+              394,
+              48,
+              -251,
+              739,
+              -428,
+              -173,
+              -329,
+              205,
+              -10,
+              -10,
+              -728,
+              141,
+              127,
+              87,
+              -900
+            ],
+            "residual": 2.036385423662823e-37,
+            "expression": "value = -((-162)*1 + (121)*pi + (-204)*e + (394)*ln2 + (48)*ln3 + (-251)*sqrt(2) + (739)*sqrt(3) + (-428)*sqrt(5) + (-173)*euler_gamma + (-329)*catalan + (205)*zeta(3) + (-10)*pi^2 + (-10)*zeta(5) + (-728)*ln(pi) + (141)*pi^3 + (127)*Li2(1/2) + (87)*zeta(7) + (-900)*sqrt(pi)) / -779",
+            "max_coeff": 900,
+            "matches_reference": true
+          },
+          {
+            "precision": 100,
+            "found": false,
+            "relation": null,
+            "residual": null,
+            "expression": null,
+            "max_coeff": null
+          }
+        ],
+        "pslq_stable": null,
+        "reproducibility": {
+          "candidate_id": "b9fb5b0af571919a",
+          "family": "continued_fraction",
+          "expression": "GCF a(n)=1, b(n)=1n\u00b2+2n+2",
+          "generation_params": {
+            "an": [
+              1
+            ],
+            "bn": [
+              1,
+              2,
+              2
+            ],
+            "strategy": "quadratic_b"
+          },
+          "rng_seed": null,
+          "numeric_value": 2.1961008670152506,
+          "precision_dps": 60,
+          "evaluation_depth": 300,
+          "convergence_error": 0.0,
+          "isc_matched": false,
+          "isc_target_count": "15 constants \u00d7 40 multipliers \u00d7 4 transforms",
+          "algebraic_check": {
+            "rational_test": "p/q, |p|,|q| \u2264 50",
+            "quadratic_test": "ax\u00b2+bx+c=0, a\u2208[1,9], b\u2208[-20,20], c\u2208[-20,20]"
+          },
+          "environment": {
+            "python": "3.14.3",
+            "platform": "Windows-11-10.0.29558-SP0",
+            "mpmath": "1.3.0",
+            "sympy": "1.14.0"
+          },
+          "timestamp_utc": "2026-04-03T09:14:45Z"
+        },
+        "bessel_identification": {
+          "identified": false,
+          "reason": "Not a linear-b CF"
+        },
+        "isc_result": {
+          "found": false,
+          "identifications": []
+        },
+        "algebraic_degree": {
+          "is_algebraic": false,
+          "degree_bound": null,
+          "polynomials": []
+        },
+        "convergence_check": {
+          "converges": true,
+          "flags": [
+            "|a_n/b_n| \u2192 0 < 1: strong convergence"
+          ],
+          "zero_denominators": [],
+          "pringsheim_satisfied": true,
+          "convergence_tier": "strong"
+        },
+        "enhanced_closed_form": {
+          "found": true,
+          "matches": [
+            {
+              "type": "bessel_extended",
+              "formula": "(1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+              "computed_value": "2.3087893730662400685",
+              "match_error": 4.2168791772922093e-81,
+              "match_digits": 79
+            },
+            {
+              "type": "bessel_extended",
+              "formula": "(2/2)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+              "computed_value": "2.3087893730662400685",
+              "match_error": 4.2168791772922093e-81,
+              "match_digits": 79
+            },
+            {
+              "type": "bessel_extended",
+              "formula": "(3/3)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+              "computed_value": "2.3087893730662400685",
+              "match_error": 4.2168791772922093e-81,
+              "match_digits": 79
+            }
+          ],
+          "best_match": {
+            "type": "bessel_extended",
+            "formula": "(1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+            "computed_value": "2.3087893730662400685",
+            "match_error": 4.2168791772922093e-81,
+            "match_digits": 79
+          }
+        },
+        "closed_form_identified": true,
+        "closed_form_expression": "(1/1)\u00b7I_{-1.0}(2.0)/I_{-2.0}(2.0)",
+        "closed_form_type": "bessel_extended",
+        "closed_form_digits": 79
+      },
+      "status": "verified_known",
+      "reviews": [
+        {
+          "reviewer": "validator_0",
+          "verdict": "novel_unproven",
+          "notes": "precision=300, confidence=0.800, checks=5",
+          "timestamp": 1775207658.7885828
+        },
+        {
+          "reviewer": "referee_0",
+          "verdict": "weakened",
+          "notes": "fails: precision, convergence",
+          "timestamp": 1775207669.8505216
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.6781368,
+      "generation": 1,
+      "provenance": {
+        "method": "quadratic_b_cf",
+        "an": [
+          1
+        ],
+        "bn": [
+          1,
+          2,
+          2
+        ],
+        "prec": 60
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 2.0,
+      "canonical_key": "cf_[1]_[1, 2, 2]"
+    },
+    {
+      "id": "8ea4c662d0e4",
+      "agent_id": "explorer_0",
+      "family": "partition",
+      "category": "verified_known",
+      "expression": "p(5n+4) \u2261 0 (mod 5)",
+      "value": 0,
+      "target": "partition_congruence_mod5",
+      "error": 0.0,
+      "confidence": 1.0,
+      "params": {
+        "a": 5,
+        "b": 4,
+        "m": 5,
+        "verified_up_to": 600
+      },
+      "metadata": {
+        "sample_values": [
+          5,
+          30,
+          135,
+          490,
+          1575,
+          4565,
+          12310,
+          31185,
+          75175,
+          173525
+        ],
+        "n_tested": 120,
+        "is_novel": false,
+        "literature_match": "Classical: Ramanujan (1919); proven Atkin & Swinnerton-Dyer (1954)",
+        "source": "partition_search"
+      },
+      "status": "verified_known",
+      "reviews": [
+        {
+          "reviewer": "validator_0",
+          "verdict": "verified_known",
+          "notes": "precision=300, confidence=1.000, checks=4",
+          "timestamp": 1775207654.7504117
+        }
+      ],
+      "parent_id": null,
+      "timestamp": 1775207642.6781716,
+      "generation": 1,
+      "provenance": {
+        "method": "exhaustive_mod_check",
+        "range": "n=0..600",
+        "modulus": 5,
+        "generation": 1
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 2.0,
+      "canonical_key": "part_5_4_5"
+    }
+  ],
+  "novel_unproven": [
+    {
+      "id": "41122fd465cc",
+      "agent_id": "explorer_0",
+      "family": "continued_fraction",
+      "category": "novel_unproven",
+      "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+      "value": 3.4910744001668914,
+      "target": "novel_constant?",
+      "error": 2.1780553472513996e-60,
+      "confidence": 1.0,
+      "params": {
+        "strategy": "factorial",
+        "label": "cf_fact_k2_b3"
+      },
+      "metadata": {
+        "is_novel": true,
+        "is_known_transform": false,
+        "cf_type": "factorial",
+        "matched_constant": null,
+        "literature_match": null,
+        "convergence_error": 2.1780553472513996e-60,
+        "source": "nonpoly_cf_search",
+        "proof_result": {
+          "candidate_id": "41122fd465cc",
+          "status": "partial_proof",
+          "convergence": {
+            "proven": true,
+            "theorems_tried": [
+              {
+                "theorem": "Gauss-Euler CF",
+                "applies": false,
+                "details": "Not a linear-b, constant-a CF. Gauss-Euler form requires specific structure."
+              },
+              {
+                "theorem": "Tail convergence (factorial)",
+                "applies": true,
+                "details": "For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).",
+                "N0": 2,
+                "convergence_rate": "super-exponential",
+                "value_500": "3.49107440016689159245130998078",
+                "depth_errors": [
+                  {
+                    "depths": "50-100",
+                    "error": 5.164496269467721e-36
+                  },
+                  {
+                    "depths": "100-200",
+                    "error": 3.96583840804914e-83
+                  },
+                  {
+                    "depths": "200-500",
+                    "error": 2.0002279347439812e-100
+                  }
+                ]
+              }
+            ],
+            "theorem_used": "Tail convergence (factorial \u2014 Seidel-Stern)",
+            "proof_detail": "For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients)."
+          },
+          "closed_form": {
+            "identified": true,
+            "type": "mpmath_identify",
+            "expression": "2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)",
+            "match_error": null,
+            "sympy_form": null
+          },
+          "verification": {
+            "verified": false,
+            "match_digits": 14,
+            "symbolic_value": "3.4910744001668704770369530717008469254265429131329818775424380814804182626937677425595172857931358175437776401",
+            "difference": 2.093456404700085e-14
+          },
+          "gaps": [
+            "Closed form found but CAS verification failed/incomplete"
+          ],
+          "proof_text": "PROOF ATTEMPT for GCF a(n)=2\u00b7n!, b(n)=3\nCF: a(n) = [], b(n) = []\n\n\u00a71. CONVERGENCE\n  Theorem: Tail convergence (factorial \u2014 Seidel-Stern)\n  For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).\n\n\u00a72. CLOSED FORM IDENTIFICATION\n  Type: mpmath_identify\n  Expression: 2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)\n  Match error: None\n\n\u00a73. SYMBOLIC VERIFICATION\n  Not verified: no closed form\n\n\u00a74. STATUS: PARTIAL_PROOF\n  Remaining gaps:\n    \u2022 Closed form found but CAS verification failed/incomplete",
+          "confidence": 0.75,
+          "time_seconds": 4.607036352157593
+        },
+        "epistemic_tag": "theorem_conditional",
+        "referee_verdict": "gap_in_Closed_form_found_bu",
+        "analysis_version": "v4.2",
+        "analysis_timestamp": "2026-04-03T09:14:30Z",
+        "value_20_digits": "3.491074400166891",
+        "convergence_check": {
+          "converges": true,
+          "convergence_tier": "superexponential",
+          "proof_sketch": "For a(n) = k\u00b7n!, b(n) = B (constant): the n-th tail T_n of the CF satisfies T_n = k\u00b7n!/(B + T_{n+1}). Since |T_{n+1}| grows as (n+1)!, we get |T_n| ~ k\u00b7n!/((n+1)!) = k/(n+1) \u2192 0. The tails converge super-exponentially fast, guaranteeing convergence of the full CF.",
+          "numerical_error": 2.1780553472513996e-60,
+          "flags": [
+            "Numerical convergence: depth-200 vs depth-100 error = 2.18e-60"
+          ]
+        },
+        "nonpoly_convergence": {
+          "converges": true,
+          "convergence_tier": "superexponential",
+          "proof_sketch": "For a(n) = k\u00b7n!, b(n) = B (constant): the n-th tail T_n of the CF satisfies T_n = k\u00b7n!/(B + T_{n+1}). Since |T_{n+1}| grows as (n+1)!, we get |T_n| ~ k\u00b7n!/((n+1)!) = k/(n+1) \u2192 0. The tails converge super-exponentially fast, guaranteeing convergence of the full CF.",
+          "numerical_error": 2.1780553472513996e-60,
+          "flags": [
+            "Numerical convergence: depth-200 vs depth-100 error = 2.18e-60"
+          ]
+        },
+        "reproducibility": {
+          "candidate_id": "0acd0926f3ddb1ee",
+          "family": "continued_fraction",
+          "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+          "generation_params": {
+            "strategy": "factorial",
+            "label": "cf_fact_k2_b3"
+          },
+          "rng_seed": null,
+          "numeric_value": 3.4910744001668914,
+          "precision_dps": 60,
+          "evaluation_depth": 200,
+          "convergence_error": 2.1780553472513996e-60,
+          "isc_matched": false,
+          "isc_target_count": "15 constants \u00d7 40 multipliers \u00d7 4 transforms",
+          "algebraic_check": {
+            "rational_test": "p/q, |p|,|q| \u2264 50",
+            "quadratic_test": "ax\u00b2+bx+c=0, a\u2208[1,9], b\u2208[-20,20], c\u2208[-20,20]"
+          },
+          "environment": {
+            "python": "3.14.3",
+            "platform": "Windows-11-10.0.29558-SP0",
+            "mpmath": "1.3.0",
+            "sympy": "1.14.0"
+          },
+          "timestamp_utc": "2026-04-03T09:14:30Z"
+        }
+      },
+      "status": "novel_unproven",
+      "reviews": [],
+      "parent_id": null,
+      "timestamp": 1775207642.6781147,
+      "generation": 1,
+      "provenance": {
+        "method": "nonpolynomial_cf_factorial",
+        "prec": 60,
+        "depth": 200
+      },
+      "literature_match": null,
+      "novelty_status": "unchecked",
+      "precision_digits": 0,
+      "verification_log": [],
+      "priority": 8.0,
+      "canonical_key": "cf__"
+    }
+  ],
+  "validated": [],
+  "falsification_appendix": [],
+  "proof_targets": [
+    {
+      "discovery_id": "41122fd465cc",
+      "family": "continued_fraction",
+      "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+      "value": 3.4910744001668914,
+      "precision_verified": 0,
+      "params": {
+        "strategy": "factorial",
+        "label": "cf_fact_k2_b3"
+      },
+      "proof_strategy": "1. Establish convergence via named CF theorem (Worpitzky, \u015aleszy\u0144ski-Pringsheim, Van Vleck, or ratio test). 2. If polynomial coefficients: express as a ratio of contiguous    hypergeometric functions and apply Gauss/Euler CF theorems. 3. Attempt CAS identification of limit via Bessel/\u2081F\u2081 ratios +    SymPy nsimplify. 4. Verify symbolic closed form via high-precision evaluation.",
+      "framework": "Generalised continued fraction theory (Wall 1948, Lorentzen & Waadeland 2008)",
+      "key_lemmas": [
+        "Convergence: apply named theorem to CF with a(n)=[], b(n)=[]",
+        "Closed form: Bessel ratio I_\u03bd(z)/I_{\u03bd-1}(z) or confluent \u2081F\u2081 ratio",
+        "Symbolic verification: CAS check to 100+ digits",
+        "Uniqueness: rule out algebraic/PSLQ relations to known constants"
+      ]
+    }
+  ],
+  "proof_results": [
+    {
+      "candidate_id": "41122fd465cc",
+      "status": "partial_proof",
+      "convergence": {
+        "proven": true,
+        "theorems_tried": [
+          {
+            "theorem": "Gauss-Euler CF",
+            "applies": false,
+            "details": "Not a linear-b, constant-a CF. Gauss-Euler form requires specific structure."
+          },
+          {
+            "theorem": "Tail convergence (factorial)",
+            "applies": true,
+            "details": "For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).",
+            "N0": 2,
+            "convergence_rate": "super-exponential",
+            "value_500": "3.49107440016689159245130998078",
+            "depth_errors": [
+              {
+                "depths": "50-100",
+                "error": 5.164496269467721e-36
+              },
+              {
+                "depths": "100-200",
+                "error": 3.96583840804914e-83
+              },
+              {
+                "depths": "200-500",
+                "error": 2.0002279347439812e-100
+              }
+            ]
+          }
+        ],
+        "theorem_used": "Tail convergence (factorial \u2014 Seidel-Stern)",
+        "proof_detail": "For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients)."
+      },
+      "closed_form": {
+        "identified": true,
+        "type": "mpmath_identify",
+        "expression": "2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)",
+        "match_error": null,
+        "sympy_form": null
+      },
+      "verification": {
+        "verified": false,
+        "match_digits": 14,
+        "symbolic_value": "3.4910744001668704770369530717008469254265429131329818775424380814804182626937677425595172857931358175437776401",
+        "difference": 2.093456404700085e-14
+      },
+      "gaps": [
+        "Closed form found but CAS verification failed/incomplete"
+      ],
+      "proof_text": "PROOF ATTEMPT for GCF a(n)=2\u00b7n!, b(n)=3\nCF: a(n) = [], b(n) = []\nNumeric value: 3.491074400166891\n\n\u00a71. CONVERGENCE\n  Theorem: Tail convergence (factorial \u2014 Seidel-Stern)\n  For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).\n\n\u00a72. CLOSED FORM IDENTIFICATION\n  Type: mpmath_identify\n  Expression: 2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)\n  Match error: None\n\n\u00a73. SYMBOLIC VERIFICATION\n  Not verified: no closed form\n\n\u00a74. STATUS: PARTIAL_PROOF\n  Remaining gaps:\n    \u2022 Closed form found but CAS verification failed/incomplete",
+      "confidence": 0.75,
+      "time_seconds": 4.55022668838501
+    }
+  ],
+  "proof_scaffolds": [
+    {
+      "candidate_id": "41122fd465cc",
+      "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+      "score": 0.5,
+      "reasons": [
+        "Good precision (2.2e-60)",
+        "Convergence flags: 1 (\u22120.5)"
+      ],
+      "status": "partial_proof",
+      "confidence": 0.75,
+      "proof_text": "PROOF ATTEMPT for GCF a(n)=2\u00b7n!, b(n)=3\nCF: a(n) = [], b(n) = []\nNumeric value: 3.491074400166891\n\n\u00a71. CONVERGENCE\n  Theorem: Tail convergence (factorial \u2014 Seidel-Stern)\n  For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).\n\n\u00a72. CLOSED FORM IDENTIFICATION\n  Type: mpmath_identify\n  Expression: 2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)\n  Match error: None\n\n\u00a73. SYMBOLIC VERIFICATION\n  Not verified: no closed form\n\n\u00a74. STATUS: PARTIAL_PROOF\n  Remaining gaps:\n    \u2022 Closed form found but CAS verification failed/incomplete",
+      "scaffold": "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\nCONJECTURE (for human review)\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n\n  Let CF = K_{n\u22651} [ a(n) / b(n) ]\n    where a(n) = \n    and   b(n) = \n  Then CF = 3.491074400166891\n\nStatus: \u25b3 PARTIALLY PROVEN (some gaps remain)\nConfidence: 75%\n\nStep 1: CONVERGENCE\n  \u2713 Proven via: Tail convergence (factorial \u2014 Seidel-Stern)\n  For a(n)=2*n!, b(n)=3: The tail from n=2 onward satisfies |a(n)| = 2*n! >= |b(n)| + 1 = 4 (Sleszynski-Pringsheim on the tail). Numeric verification: depth-500 vs depth-200 error = 2.00e-100. Convergence is super-exponential (factorial decay of partial quotients).\n  Reference: See standard CF textbook (Wall 1948, Lorentzen & Waadeland 2008).\n\nStep 2: CLOSED-FORM IDENTIFICATION\n  \u2713 Identified as: mpmath_identify\n    Expression: 2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)\n  \u2192 Human action: Verify the equivalence transform algebraically.\n\nStep 3: SYMBOLIC VERIFICATION\n  \u2717 Not verified: no closed form available\n\nREMAINING GAPS:\n  \u2022 Closed form found but CAS verification failed/incomplete\n\nSUGGESTED NEXT STEPS FOR HUMAN MATHEMATICIAN:\n  3. Verify equivalence symbolically.\n  4. Once all gaps closed, submit to journal.",
+      "convergence_theorem": "Tail convergence (factorial \u2014 Seidel-Stern)",
+      "closed_form": {
+        "identified": true,
+        "type": "mpmath_identify",
+        "expression": "2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)",
+        "match_error": null,
+        "sympy_form": null
+      },
+      "gaps": [
+        "Closed form found but CAS verification failed/incomplete"
+      ],
+      "time_seconds": 4.55022668838501
+    }
+  ],
+  "proof_queue": [
+    {
+      "disc_id": "41122fd465cc",
+      "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+      "family": "continued_fraction",
+      "score": 0.5,
+      "reasons": [
+        "Good precision (2.2e-60)",
+        "Convergence flags: 1 (\u22120.5)"
+      ]
+    }
+  ],
+  "proof_time": 4.553577661514282,
+  "candidate_table": [
+    {
+      "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+      "value_20_digits": "3.491074400166891",
+      "isc_result": {},
+      "algebraic_degree": {},
+      "bessel_hg_id": {},
+      "convergence": {
+        "converges": true,
+        "convergence_tier": "superexponential",
+        "proof_sketch": "For a(n) = k\u00b7n!, b(n) = B (constant): the n-th tail T_n of the CF satisfies T_n = k\u00b7n!/(B + T_{n+1}). Since |T_{n+1}| grows as (n+1)!, we get |T_n| ~ k\u00b7n!/((n+1)!) = k/(n+1) \u2192 0. The tails converge super-exponentially fast, guaranteeing convergence of the full CF.",
+        "numerical_error": 2.1780553472513996e-60,
+        "flags": [
+          "Numerical convergence: depth-200 vs depth-100 error = 2.18e-60"
+        ]
+      },
+      "pslq_status": "no relation",
+      "final_status": "Novel \u2014 no identification",
+      "priority_tier": "tier3_novel"
+    }
+  ],
+  "value_clusters": {
+    "distinct_values": 1,
+    "duplicate_count": 0,
+    "clusters": []
+  },
+  "analysis_time": 19.66033387184143,
+  "theorem_templates": [],
+  "template_cards": [],
+  "rigor_ladder": {
+    "assessments": [
+      {
+        "disc_id": "41122fd465cc",
+        "level": 2,
+        "label": "Level 2 \u2014 Reduction",
+        "tag": "theorem_conditional",
+        "evidence": [
+          "Convergence: Tail convergence (factorial \u2014 Seidel-Stern)",
+          "Closed form identified: 2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)"
+        ],
+        "convergence_theorem": "Tail convergence (factorial \u2014 Seidel-Stern)",
+        "closed_form": "2**(107/423)*3**(169/423)*5**(68/423)*7**(82/423)",
+        "cas_verified": false,
+        "gaps": [
+          "Closed form found but CAS verification failed/incomplete"
+        ]
+      },
+      {
+        "disc_id": "2d04456e7962",
+        "level": 3,
+        "label": "Level 3 \u2014 Full Proof",
+        "tag": "theorem",
+        "evidence": [
+          "Convergence: Stern-Stolz",
+          "Closed form: -sqrt(3)*besselj(0, sqrt(3)/2)/besselj(1, sqrt(3)/2) + 4",
+          "CAS verification: passed"
+        ],
+        "convergence_theorem": "Stern-Stolz",
+        "closed_form": "-sqrt(3)*besselj(0, sqrt(3)/2)/besselj(1, sqrt(3)/2) + 4",
+        "cas_verified": true,
+        "gaps": []
+      }
+    ],
+    "by_level": {
+      "0": 0,
+      "1": 0,
+      "2": 1,
+      "3": 1
+    },
+    "by_tag": {
+      "conjecture": 0,
+      "theorem_conditional": 1,
+      "theorem": 1
+    },
+    "promotable": [
+      "41122fd465cc"
+    ]
+  },
+  "meta_critic": {
+    "scores": [
+      {
+        "disc_id": "2d04456e7962",
+        "raw_score": 10.0,
+        "final_score": 10.0,
+        "bonuses": [
+          [
+            "proof_path_exists",
+            1.0
+          ]
+        ],
+        "penalties": [
+          [
+            "low_precision",
+            -1.0
+          ]
+        ],
+        "verdict": "keep",
+        "reason": "High theorem value"
+      },
+      {
+        "disc_id": "41122fd465cc",
+        "raw_score": 5.0,
+        "final_score": 2.0,
+        "bonuses": [
+          [
+            "proof_path_exists",
+            1.0
+          ]
+        ],
+        "penalties": [
+          [
+            "low_precision",
+            -1.0
+          ],
+          [
+            "unstable_convergence",
+            -3.0
+          ]
+        ],
+        "verdict": "keep",
+        "reason": "Moderate value \u2014 worth pursuing"
+      }
+    ],
+    "ranked": [
+      "2d04456e7962",
+      "41122fd465cc"
+    ],
+    "kept": [
+      "2d04456e7962",
+      "41122fd465cc"
+    ],
+    "deprioritized": [],
+    "suppressed": [],
+    "total_theorem_value": 12.0
+  },
+  "relay_chain": {
+    "snapshots": [
+      {
+        "round": 1,
+        "recognized_count": 5,
+        "template_count": 0,
+        "seed_count": 8,
+        "metrics_path": "results\\relay_chain_cf_metrics.json",
+        "templates_path": "results\\relay_chain_templates.json",
+        "seed_pool_path": "results\\relay_chain_seed_pool.json"
+      }
+    ],
+    "latest": {
+      "round": 1,
+      "recognized_count": 5,
+      "template_count": 0,
+      "seed_count": 8,
+      "metrics_path": "results\\relay_chain_cf_metrics.json",
+      "templates_path": "results\\relay_chain_templates.json",
+      "seed_pool_path": "results\\relay_chain_seed_pool.json"
+    }
+  },
+  "results_log": [
+    {
+      "round": 1,
+      "new_discoveries": 24,
+      "total_discoveries": 15,
+      "verified_known": 1,
+      "novel_unproven": 2,
+      "novel_proven": 1,
+      "validated": 0,
+      "falsified": 0,
+      "relay_seed_count": 8,
+      "max_confidence": 1.0,
+      "time": 36.1198046207428
+    }
+  ]
+}

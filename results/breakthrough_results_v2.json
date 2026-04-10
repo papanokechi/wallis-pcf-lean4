@@ -1,0 +1,983 @@
+{
+  "version": "v2_post_review",
+  "timestamp": "2026-03-21 19:37:37",
+  "elapsed_seconds": 40.04135203361511,
+  "dataset_sizes": {
+    "exoplanet": {
+      "train": 240,
+      "test": 60
+    },
+    "materials": {
+      "train": 160,
+      "test": 40
+    },
+    "critical_transitions": {
+      "train": 240,
+      "test": 60
+    }
+  },
+  "blackboard_summary": {
+    "total_discoveries": 33,
+    "by_status": {
+      "proposed": 33,
+      "under_review": 0,
+      "validated": 0,
+      "falsified": 0,
+      "promoted": 0
+    },
+    "by_domain": {
+      "exoplanet": {
+        "total_discoveries": 11,
+        "validated": 0,
+        "best_accuracy": 0.7185446928290469,
+        "min_complexity": 3,
+        "breakthrough_count": 0
+      },
+      "materials": {
+        "total_discoveries": 10,
+        "validated": 0,
+        "best_accuracy": 0.5324154943614652,
+        "min_complexity": 3,
+        "breakthrough_count": 0
+      },
+      "critical_transitions": {
+        "total_discoveries": 12,
+        "validated": 0,
+        "best_accuracy": 0.9989803471781664,
+        "min_complexity": 3,
+        "breakthrough_count": 5
+      }
+    },
+    "total_analogies": 0,
+    "untested_analogies": 0,
+    "meta_insights": 0,
+    "iteration": 0
+  },
+  "best_per_domain": {
+    "exoplanet": {
+      "expression": "-0.661*delta_Hill_01^1 + 0.5854*delta_Hill_01^1.5 + -0.09101*delta_Hill_01^2",
+      "r_squared": 0.7185446928290469,
+      "complexity": 9
+    },
+    "materials": {
+      "expression": "2.107 * r_X^-0.667",
+      "r_squared": 0.5324154943614652,
+      "complexity": 3
+    },
+    "critical_transitions": {
+      "expression": "0.1497 * control_param^3",
+      "r_squared": 0.9989803471781664,
+      "complexity": 3
+    }
+  },
+  "all_laws": {
+    "exoplanet": [
+      {
+        "expression": "-0.661*delta_Hill_01^1 + 0.5854*delta_Hill_01^1.5 + -0.09101*delta_Hill_01^2",
+        "r_squared": 0.7185446928290469,
+        "complexity": 9
+      },
+      {
+        "expression": "-0.1025*delta_Hill_01^1.5 + 0.0843*delta_Hill_01^2",
+        "r_squared": 0.6965596541711716,
+        "complexity": 6
+      },
+      {
+        "expression": "0.03667 * delta_Hill_01^2",
+        "r_squared": 0.6681743173702921,
+        "complexity": 3
+      },
+      {
+        "expression": "0.03667*delta_Hill_01^2",
+        "r_squared": 0.6681743173702916,
+        "complexity": 3
+      },
+      {
+        "expression": "0.007575 * delta_Hill_01^3",
+        "r_squared": 0.6640128248890622,
+        "complexity": 3
+      },
+      {
+        "expression": "0.003327 * delta_Hill_01^3.5",
+        "r_squared": 0.6208930360450031,
+        "complexity": 3
+      },
+      {
+        "expression": "0.07685 * delta_Hill_01^1.5",
+        "r_squared": 0.6086504557193302,
+        "complexity": 3
+      },
+      {
+        "expression": "0.1271 * P_ratio_01^3.5",
+        "r_squared": 0.4960611659585442,
+        "complexity": 3
+      },
+      {
+        "expression": "0.153 * delta_Hill_01^1",
+        "r_squared": 0.4885519783376122,
+        "complexity": 3
+      },
+      {
+        "expression": "0.1603 * P_ratio_01^3",
+        "r_squared": 0.46698904474264114,
+        "complexity": 3
+      }
+    ],
+    "materials": [
+      {
+        "expression": "2.107 * r_X^-0.667",
+        "r_squared": 0.5324154943614652,
+        "complexity": 3
+      },
+      {
+        "expression": "2.292 * EN_B^-0.667",
+        "r_squared": 0.5173048474732562,
+        "complexity": 3
+      },
+      {
+        "expression": "0.4663 * EN_X^1",
+        "r_squared": 0.5101739073075829,
+        "complexity": 3
+      },
+      {
+        "expression": "1.951 * r_X^-0.5",
+        "r_squared": 0.4956428794028258,
+        "complexity": 3
+      },
+      {
+        "expression": "2.078 * EN_B^-0.5",
+        "r_squared": 0.48571735252212034,
+        "complexity": 3
+      },
+      {
+        "expression": "0.6948 * EN_X^0.667",
+        "r_squared": 0.4509629841172875,
+        "complexity": 3
+      },
+      {
+        "expression": "2.438 * r_X^-1",
+        "r_squared": 0.42957191793567695,
+        "complexity": 3
+      },
+      {
+        "expression": "1.465 * delta_EN^-0.333",
+        "r_squared": 0.41353973195467975,
+        "complexity": 3
+      },
+      {
+        "expression": "1.8 * r_X^-0.333",
+        "r_squared": 0.3957920266924211,
+        "complexity": 3
+      },
+      {
+        "expression": "0.2537 * EN_X^1.5",
+        "r_squared": 0.3949539970701921,
+        "complexity": 3
+      }
+    ],
+    "critical_transitions": [
+      {
+        "expression": "0.1497 * control_param^3",
+        "r_squared": 0.9989803471781664,
+        "complexity": 3
+      },
+      {
+        "expression": "0.1497 * control_sq^1.5",
+        "r_squared": 0.9989803471781664,
+        "complexity": 3
+      },
+      {
+        "expression": "0.1497 * control_cube^1",
+        "r_squared": 0.9989803471781664,
+        "complexity": 3
+      },
+      {
+        "expression": "0.06587 * control_param^3.5",
+        "r_squared": 0.9907795920805934,
+        "complexity": 3
+      },
+      {
+        "expression": "0.02864 * control_sq^2",
+        "r_squared": 0.9690626989622025,
+        "complexity": 3
+      },
+      {
+        "expression": "0.7293 * control_param^2",
+        "r_squared": 0.94085634443687,
+        "complexity": 3
+      },
+      {
+        "expression": "0.7293 * control_sq^1",
+        "r_squared": 0.94085634443687,
+        "complexity": 3
+      },
+      {
+        "expression": "0.7293 * control_cube^0.667",
+        "r_squared": 0.94085634443687,
+        "complexity": 3
+      },
+      {
+        "expression": "0.01234 * control_cube^1.5",
+        "r_squared": 0.9388467670737398,
+        "complexity": 3
+      },
+      {
+        "expression": "1.534 * control_param^1.5",
+        "r_squared": 0.8466197960861455,
+        "complexity": 3
+      }
+    ]
+  },
+  "validated_counts": {
+    "exoplanet": 5,
+    "materials": 5,
+    "critical_transitions": 5
+  },
+  "statistical_correction": {
+    "method": "Benjamini-Hochberg",
+    "alpha": 0.05,
+    "total_tests": 30,
+    "significant": 20,
+    "significant_laws": [
+      {
+        "domain": "exoplanet",
+        "expression": "-0.661*delta_Hill_01^1 + 0.5854*delta_Hill_01^1.5 + -0.09101*delta_Hill_01^2",
+        "r2": 0.7185446928290469,
+        "p_value": 7.463193396617385e-10,
+        "bh_significant": true
+      },
+      {
+        "domain": "exoplanet",
+        "expression": "-0.1025*delta_Hill_01^1.5 + 0.0843*delta_Hill_01^2",
+        "r2": 0.6965596541711716,
+        "p_value": 3.978201656984481e-09,
+        "bh_significant": true
+      },
+      {
+        "domain": "exoplanet",
+        "expression": "0.03667 * delta_Hill_01^2",
+        "r2": 0.6681743173702921,
+        "p_value": 2.853782343770206e-08,
+        "bh_significant": true
+      },
+      {
+        "domain": "exoplanet",
+        "expression": "0.03667*delta_Hill_01^2",
+        "r2": 0.6681743173702916,
+        "p_value": 2.853782343770206e-08,
+        "bh_significant": true
+      },
+      {
+        "domain": "exoplanet",
+        "expression": "0.007575 * delta_Hill_01^3",
+        "r2": 0.6640128248890622,
+        "p_value": 3.7487046244955025e-08,
+        "bh_significant": true
+      },
+      {
+        "domain": "exoplanet",
+        "expression": "0.003327 * delta_Hill_01^3.5",
+        "r2": 0.6208930360450031,
+        "p_value": 5.125949428252952e-07,
+        "bh_significant": true
+      },
+      {
+        "domain": "exoplanet",
+        "expression": "0.07685 * delta_Hill_01^1.5",
+        "r2": 0.6086504557193302,
+        "p_value": 1.01111072658977e-06,
+        "bh_significant": true
+      },
+      {
+        "domain": "exoplanet",
+        "expression": "0.1271 * P_ratio_01^3.5",
+        "r2": 0.4960611659585442,
+        "p_value": 0.00018697860669880662,
+        "bh_significant": true
+      },
+      {
+        "domain": "exoplanet",
+        "expression": "0.153 * delta_Hill_01^1",
+        "r2": 0.4885519783376122,
+        "p_value": 0.0002504866636703351,
+        "bh_significant": true
+      },
+      {
+        "domain": "exoplanet",
+        "expression": "0.1603 * P_ratio_01^3",
+        "r2": 0.46698904474264114,
+        "p_value": 0.0005611385660678758,
+        "bh_significant": true
+      },
+      {
+        "domain": "critical_transitions",
+        "expression": "0.1497 * control_param^3",
+        "r2": 0.9989803471781664,
+        "p_value": 0.0,
+        "bh_significant": true
+      },
+      {
+        "domain": "critical_transitions",
+        "expression": "0.1497 * control_sq^1.5",
+        "r2": 0.9989803471781664,
+        "p_value": 0.0,
+        "bh_significant": true
+      },
+      {
+        "domain": "critical_transitions",
+        "expression": "0.1497 * control_cube^1",
+        "r2": 0.9989803471781664,
+        "p_value": 0.0,
+        "bh_significant": true
+      },
+      {
+        "domain": "critical_transitions",
+        "expression": "0.06587 * control_param^3.5",
+        "r2": 0.9907795920805934,
+        "p_value": 0.0,
+        "bh_significant": true
+      },
+      {
+        "domain": "critical_transitions",
+        "expression": "0.02864 * control_sq^2",
+        "r2": 0.9690626989622025,
+        "p_value": 0.0,
+        "bh_significant": true
+      },
+      {
+        "domain": "critical_transitions",
+        "expression": "0.7293 * control_param^2",
+        "r2": 0.94085634443687,
+        "p_value": 0.0,
+        "bh_significant": true
+      },
+      {
+        "domain": "critical_transitions",
+        "expression": "0.7293 * control_sq^1",
+        "r2": 0.94085634443687,
+        "p_value": 0.0,
+        "bh_significant": true
+      },
+      {
+        "domain": "critical_transitions",
+        "expression": "0.7293 * control_cube^0.667",
+        "r2": 0.94085634443687,
+        "p_value": 0.0,
+        "bh_significant": true
+      },
+      {
+        "domain": "critical_transitions",
+        "expression": "0.01234 * control_cube^1.5",
+        "r2": 0.9388467670737398,
+        "p_value": 0.0,
+        "bh_significant": true
+      },
+      {
+        "domain": "critical_transitions",
+        "expression": "1.534 * control_param^1.5",
+        "r2": 0.8466197960861455,
+        "p_value": 6.661338147750939e-16,
+        "bh_significant": true
+      }
+    ]
+  },
+  "transfers": [
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "materials",
+      "source_expression": "-0.661*delta_Hill_01^1 + 0.5854*delta_Hill_01^1.5 + -0.09101*delta_Hill_01^2",
+      "translated_expression": "-0.661*delta_Hill_01^1 + 0.5854*delta_Hill_01^1.5 + -0.09101*delta_Hill_01^2",
+      "r2_direct": null,
+      "r2_refit": null,
+      "variables_mapped": 0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "variable_mismatch"
+        ],
+        "details": {
+          "mapped_vars": {}
+        }
+      }
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "materials",
+      "source_expression": "-0.1025*delta_Hill_01^1.5 + 0.0843*delta_Hill_01^2",
+      "translated_expression": "-0.1025*delta_Hill_01^1.5 + 0.0843*delta_Hill_01^2",
+      "r2_direct": null,
+      "r2_refit": null,
+      "variables_mapped": 0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "variable_mismatch"
+        ],
+        "details": {
+          "mapped_vars": {}
+        }
+      }
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "materials",
+      "source_expression": "0.03667 * delta_Hill_01^2",
+      "translated_expression": "0.03667 * delta_Hill_01^2",
+      "r2_direct": null,
+      "r2_refit": null,
+      "variables_mapped": 0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "variable_mismatch"
+        ],
+        "details": {
+          "mapped_vars": {}
+        }
+      }
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "critical_transitions",
+      "source_expression": "-0.661*delta_Hill_01^1 + 0.5854*delta_Hill_01^1.5 + -0.09101*delta_Hill_01^2",
+      "translated_expression": "-0.661*control_param^1 + 0.5854*control_param^1.5 + -0.09101*control_param^2",
+      "r2_direct": -0.6914149679020611,
+      "r2_refit": -0.6914149679020611,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "delta_Hill_01": "control_param"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "domain_support_mismatch"
+        ],
+        "details": {
+          "scale_ratio": 0.05353834906021334,
+          "support_overlap": 0.032150112793996447
+        }
+      }
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "critical_transitions",
+      "source_expression": "-0.1025*delta_Hill_01^1.5 + 0.0843*delta_Hill_01^2",
+      "translated_expression": "-0.1025*control_param^1.5 + 0.0843*control_param^2",
+      "r2_direct": -0.6877148647454507,
+      "r2_refit": -0.6877148647454507,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "delta_Hill_01": "control_param"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "domain_support_mismatch"
+        ],
+        "details": {
+          "scale_ratio": 0.05033068998528884,
+          "support_overlap": 0.032150112793996447
+        }
+      }
+    },
+    {
+      "source_domain": "exoplanet",
+      "target_domain": "critical_transitions",
+      "source_expression": "0.03667 * delta_Hill_01^2",
+      "translated_expression": "0.03667 * control_param^2",
+      "r2_direct": -0.6946014764668902,
+      "r2_refit": -0.6946014764668902,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "delta_Hill_01": "control_param"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "domain_support_mismatch"
+        ],
+        "details": {
+          "scale_ratio": 0.04276930808905808,
+          "support_overlap": 0.032150112793996447
+        }
+      }
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "exoplanet",
+      "source_expression": "2.107 * r_X^-0.667",
+      "translated_expression": "2.107 * hill_mutual_01^-0.667",
+      "r2_direct": null,
+      "r2_refit": null,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "r_X": "hill_mutual_01"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "numerical_instability"
+        ],
+        "details": {
+          "reason": "Expression evaluation returned None"
+        }
+      }
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "exoplanet",
+      "source_expression": "2.292 * EN_B^-0.667",
+      "translated_expression": "2.292 * e_1^-0.667",
+      "r2_direct": -2180.3849613725324,
+      "r2_refit": -2180.3849613725324,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "EN_B": "e_1"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "domain_support_mismatch"
+        ],
+        "details": {
+          "scale_ratio": 38.255228207564606,
+          "support_overlap": 0.0966363800341
+        }
+      }
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "exoplanet",
+      "source_expression": "0.4663 * EN_X^1",
+      "translated_expression": "0.4663 * e_0^1",
+      "r2_direct": -0.5680241645890352,
+      "r2_refit": -0.16152699871651488,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "EN_X": "e_0"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "domain_support_mismatch"
+        ],
+        "details": {
+          "scale_ratio": 0.08163627825865682,
+          "support_overlap": 0.0966363800341
+        }
+      }
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "critical_transitions",
+      "source_expression": "2.107 * r_X^-0.667",
+      "translated_expression": "2.107 * correlation_length^-0.667",
+      "r2_direct": -0.3177825439680593,
+      "r2_refit": 0.25742031186507885,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "r_X": "correlation_length"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": null
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "critical_transitions",
+      "source_expression": "2.292 * EN_B^-0.667",
+      "translated_expression": "2.292 * control_param^-0.667",
+      "r2_direct": -0.7156458701487365,
+      "r2_refit": -0.7156458701487365,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "EN_B": "control_param"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "domain_support_mismatch"
+        ],
+        "details": {
+          "scale_ratio": 0.07642944793899493,
+          "support_overlap": 0.048263093715146616
+        }
+      }
+    },
+    {
+      "source_domain": "materials",
+      "target_domain": "critical_transitions",
+      "source_expression": "0.4663 * EN_X^1",
+      "translated_expression": "0.4663 * control_param^1",
+      "r2_direct": -0.43342613175877487,
+      "r2_refit": 0.7998687802527227,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "EN_X": "control_param"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": null
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "exoplanet",
+      "source_expression": "0.1497 * control_param^3",
+      "translated_expression": "0.1497 * delta_Hill_01^3",
+      "r2_direct": -515.7102866804066,
+      "r2_refit": null,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "control_param": "delta_Hill_01"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "domain_support_mismatch"
+        ],
+        "details": {
+          "scale_ratio": 16.0200128931628,
+          "support_overlap": 0.032150112793996447
+        }
+      }
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "exoplanet",
+      "source_expression": "0.1497 * control_sq^1.5",
+      "translated_expression": "0.1497 * delta_Hill_01^1.5",
+      "r2_direct": -0.6597808621524963,
+      "r2_refit": null,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "control_sq": "delta_Hill_01"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "domain_support_mismatch"
+        ],
+        "details": {
+          "scale_ratio": 1.1072920408377391,
+          "support_overlap": 0.032150112793996447
+        }
+      }
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "exoplanet",
+      "source_expression": "0.1497 * control_cube^1",
+      "translated_expression": "0.1497 * delta_Hill_01^1",
+      "r2_direct": 0.48718809994649204,
+      "r2_refit": null,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "control_cube": "delta_Hill_01"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": null
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "materials",
+      "source_expression": "0.1497 * control_param^3",
+      "translated_expression": "0.1497 * t_factor^3",
+      "r2_direct": -24.390589240516647,
+      "r2_refit": -20.827469354588498,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "control_param": "t_factor"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "domain_support_mismatch"
+        ],
+        "details": {
+          "scale_ratio": 0.16963928577892665,
+          "support_overlap": 0.048263093715146616
+        }
+      }
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "materials",
+      "source_expression": "0.1497 * control_sq^1.5",
+      "translated_expression": "0.1497 * control_sq^1.5",
+      "r2_direct": null,
+      "r2_refit": null,
+      "variables_mapped": 0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "variable_mismatch"
+        ],
+        "details": {
+          "mapped_vars": {}
+        }
+      }
+    },
+    {
+      "source_domain": "critical_transitions",
+      "target_domain": "materials",
+      "source_expression": "0.1497 * control_cube^1",
+      "translated_expression": "0.1497 * t_factor^1",
+      "r2_direct": -23.905684583469903,
+      "r2_refit": -12.023263967939666,
+      "variables_mapped": 1,
+      "mapped_variables": {
+        "control_cube": "t_factor"
+      },
+      "structural_sim": 1.0,
+      "failure_diagnosis": {
+        "failure_modes": [
+          "domain_support_mismatch"
+        ],
+        "details": {
+          "scale_ratio": 0.06123645160028045,
+          "support_overlap": 0.048263093715146616
+        }
+      }
+    }
+  ],
+  "transfer_summary": {
+    "total": 18,
+    "successful": 1,
+    "failure_mode_counts": {
+      "variable_mismatch": 4,
+      "domain_support_mismatch": 10,
+      "numerical_instability": 1
+    }
+  },
+  "universal_insights": [
+    {
+      "type": "universal_exponent",
+      "description": "Cubic exponent (\u22483) found in exoplanet: 4 laws",
+      "evidence": {
+        "domain": "exoplanet",
+        "exponents": [
+          1.0,
+          1.5,
+          2.0,
+          1.5,
+          2.0,
+          2.0,
+          2.0,
+          3.0,
+          3.5,
+          1.5,
+          3.5,
+          1.0,
+          3.0
+        ],
+        "cubic_count": 4
+      }
+    },
+    {
+      "type": "universal_exponent",
+      "description": "Cubic exponent (\u22483) found in critical_transitions: 2 laws",
+      "evidence": {
+        "domain": "critical_transitions",
+        "exponents": [
+          3.0,
+          1.5,
+          1.0,
+          3.5,
+          2.0,
+          2.0,
+          1.0,
+          0.667,
+          1.5,
+          1.5
+        ],
+        "cubic_count": 2
+      }
+    },
+    {
+      "type": "UNIVERSAL_CUBIC_LAW",
+      "description": "Cubic power-law exponent appears in 2/3 domains \u2014 consistent with universal scaling near critical boundaries.",
+      "evidence": {
+        "exoplanet": [
+          1.0,
+          1.5,
+          2.0,
+          1.5,
+          2.0,
+          2.0,
+          2.0,
+          3.0,
+          3.5,
+          1.5,
+          3.5,
+          1.0,
+          3.0
+        ],
+        "materials": [
+          -0.667,
+          -0.667,
+          1.0,
+          -0.5,
+          -0.5,
+          0.667,
+          -1.0,
+          -0.333,
+          -0.333,
+          1.5
+        ],
+        "critical_transitions": [
+          3.0,
+          1.5,
+          1.0,
+          3.5,
+          2.0,
+          2.0,
+          1.0,
+          0.667,
+          1.5,
+          1.5
+        ]
+      },
+      "caveat": "Strongest evidence from critical_transitions domain (synthetic). Exoplanet support is weaker. Materials domain shows different exponent class. This result requires independent replication with real datasets."
+    },
+    {
+      "type": "universal_operators",
+      "description": "Operators common to ALL domains: {'*'}",
+      "evidence": {
+        "exoplanet": [
+          [
+            "*",
+            8
+          ],
+          [
+            "-",
+            3
+          ],
+          [
+            "+",
+            3
+          ]
+        ],
+        "materials": [
+          [
+            "*",
+            5
+          ],
+          [
+            "-",
+            4
+          ]
+        ],
+        "critical_transitions": [
+          [
+            "*",
+            5
+          ]
+        ]
+      }
+    }
+  ],
+  "mechanistic_validation": [
+    {
+      "domain": "critical_transitions",
+      "quadratic_coeff": -0.012259778512561001,
+      "cubic_coeff": 0.15209338733555758,
+      "quad_to_cubic_ratio": 0.08060691347160769,
+      "quadratic_vanishes": "True",
+      "r2_pure_quadratic": 0.9711428728667771,
+      "r2_pure_cubic": 0.9989817205220944,
+      "cubic_dominance": true,
+      "verdict": "CUBIC DOMINATES"
+    },
+    {
+      "domain": "exoplanet",
+      "quadratic_coeff": 0.020152209717395887,
+      "cubic_coeff": 0.0034685316428131247,
+      "quad_to_cubic_ratio": 5.810011783848568,
+      "quadratic_vanishes": "False",
+      "r2_pure_quadratic": 0.7059884233983569,
+      "r2_pure_cubic": 0.6639766866478782,
+      "cubic_dominance": false,
+      "verdict": "MIXED"
+    },
+    {
+      "domain": "materials",
+      "r2_rx_inv2": 0.5236011563480061,
+      "r2_rx_inv3": 0.5100648995484416,
+      "r2_rx_inv0.667": 0.5327831868891977,
+      "best_exponent": "\u22122/3",
+      "cubic_dominance": false,
+      "verdict": "DIFFERENT EXPONENT CLASS"
+    }
+  ],
+  "noise_recovery": [
+    {
+      "noise": 0.01,
+      "best_r2": 0.9997009989182789,
+      "best_expression": "0.1493 * control_param^3",
+      "cubic_recovered": true,
+      "recovered_exponent": 3.0
+    },
+    {
+      "noise": 0.05,
+      "best_r2": 0.9990258598359847,
+      "best_expression": "0.1496 * control_param^3",
+      "cubic_recovered": true,
+      "recovered_exponent": 3.0
+    },
+    {
+      "noise": 0.1,
+      "best_r2": 0.9967859187098567,
+      "best_expression": "0.15 * control_param^3",
+      "cubic_recovered": true,
+      "recovered_exponent": 3.0
+    },
+    {
+      "noise": 0.2,
+      "best_r2": 0.9877236925892942,
+      "best_expression": "0.1507 * control_param^3",
+      "cubic_recovered": true,
+      "recovered_exponent": 3.0
+    },
+    {
+      "noise": 0.5,
+      "best_r2": 0.9273799321239955,
+      "best_expression": "0.1529 * control_param^3",
+      "cubic_recovered": true,
+      "recovered_exponent": 3.0
+    }
+  ],
+  "ablation": {
+    "full_pipeline": {
+      "aggregate_score": 0.7999585258753721,
+      "mean_best_r2": 0.749958525875372,
+      "n_validated": 15,
+      "n_total_laws": 30,
+      "successful_transfers": 0,
+      "total_transfers": 8
+    },
+    "no_adversary": {
+      "aggregate_score": 0.7999838121838827,
+      "mean_best_r2": 0.7499838121838827,
+      "n_validated": 15,
+      "n_total_laws": 30,
+      "successful_transfers": 0,
+      "total_transfers": 8
+    },
+    "no_pollinator": {
+      "aggregate_score": 0.8000655213272702,
+      "mean_best_r2": 0.7500655213272701,
+      "n_validated": 15,
+      "n_total_laws": 30,
+      "successful_transfers": 0,
+      "total_transfers": 0
+    },
+    "explorer_only": {
+      "aggregate_score": 0.8000331386936367,
+      "mean_best_r2": 0.7500331386936366,
+      "n_validated": 15,
+      "n_total_laws": 30,
+      "successful_transfers": 0,
+      "total_transfers": 0
+    },
+    "marginal_contributions": {
+      "adversary": -2.5286308510619193e-05,
+      "pollinator": -0.00010699545189807314,
+      "both_removed": -7.461281826459665e-05
+    }
+  },
+  "breakthrough_detected": true
+}

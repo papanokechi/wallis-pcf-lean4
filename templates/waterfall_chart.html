@@ -1,0 +1,119 @@
+{# waterfall_chart.html — Canvas-based score waterfall visualization #}
+{# Usage: {% include 'waterfall_chart.html' with context %} #}
+{# Required vars: hypotheses (list of {id, label, N, F, E, C, color}), canvas_id, caption #}
+
+<section class="card">
+  <p>{{ description | default('The waterfall shows how each dimension contributes to (or penalizes) the final B-score. Red annotations show where the sigmoid attenuation "taxes" scores below threshold.') }}</p>
+  <div class="canvas-container">
+    <canvas id="{{ canvas_id }}" width="{{ width | default(720) }}" height="{{ height | default(360) }}"></canvas>
+    <div class="canvas-label">{{ caption }}</div>
+  </div>
+</section>
+
+<script>
+(function() {
+  const c = document.getElementById('{{ canvas_id }}');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  const W = c.width, H = c.height;
+  const pad = {l:60, r:30, t:30, b:50};
+  const pw = W - pad.l - pad.r, ph = H - pad.t - pad.b;
+
+  ctx.fillStyle = '#0f172a';
+  ctx.fillRect(0, 0, W, H);
+
+  const data = {{ hypotheses | tojson }};
+  const dims = ['N', 'F', 'E', 'C'];
+  const dimColors = {'N': '#a78bfa', 'F': '#ef4444', 'E': '#2dd4bf', 'C': '#f59e0b'};
+  const k = {{ sigmoid_k | default(20) }}, x0 = {{ sigmoid_x0 | default(0.75) }};
+  function sig(e) { return 1 / (1 + Math.exp(-k * (e - x0))); }
+
+  const groupW = pw / data.length;
+  const barW = 40;
+  const gapBetweenBars = 12;
+
+  // Y-axis
+  ctx.strokeStyle = '#334155'; ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(pad.l, pad.t); ctx.lineTo(pad.l, H - pad.b);
+  ctx.lineTo(W - pad.r, H - pad.b);
+  ctx.stroke();
+
+  ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter'; ctx.textAlign = 'right';
+  for (let v = 0; v <= 1.0; v += 0.2) {
+    const y = H - pad.b - v * ph;
+    ctx.fillText(v.toFixed(1), pad.l - 8, y + 4);
+    ctx.strokeStyle = '#1e293b'; ctx.beginPath();
+    ctx.moveTo(pad.l, y); ctx.lineTo(W - pad.r, y); ctx.stroke();
+  }
+
+  data.forEach((d, gi) => {
+    const cx = pad.l + gi * groupW + groupW / 2;
+    ctx.fillStyle = d.color; ctx.font = 'bold 12px Inter'; ctx.textAlign = 'center';
+    ctx.fillText(d.label, cx, H - pad.b + 18);
+
+    let cumRaw = 1.0, cumSoft = 1.0;
+    const segments = [];
+    for (const dim of dims) {
+      const v = d[dim];
+      const prevRaw = cumRaw, prevSoft = cumSoft;
+      cumRaw *= v;
+      const s = sig(v);
+      cumSoft *= v * s;
+      segments.push({dim, v, prevRaw, cumRaw, prevSoft, cumSoft, sigma: s});
+    }
+
+    const rawX = cx - barW - gapBetweenBars / 2;
+    const softX = cx + gapBetweenBars / 2;
+    ctx.fillStyle = '#64748b'; ctx.font = '9px Inter';
+    ctx.fillText('Raw B', rawX + barW / 2, H - pad.b + 32);
+    ctx.fillText('B_soft', softX + barW / 2, H - pad.b + 32);
+
+    for (const seg of segments) {
+      const ry1 = H - pad.b - seg.prevRaw * ph;
+      const ry2 = H - pad.b - seg.cumRaw * ph;
+      ctx.fillStyle = dimColors[seg.dim]; ctx.globalAlpha = 0.7;
+      ctx.fillRect(rawX, ry2, barW, ry1 - ry2);
+      ctx.globalAlpha = 1.0;
+      if (ry1 - ry2 > 10) {
+        ctx.fillStyle = '#fff'; ctx.font = '9px JetBrains Mono'; ctx.textAlign = 'center';
+        ctx.fillText(seg.dim + '=' + seg.v.toFixed(2), rawX + barW / 2, (ry1 + ry2) / 2 + 3);
+      }
+      const sy1 = H - pad.b - seg.prevSoft * ph;
+      const sy2 = H - pad.b - seg.cumSoft * ph;
+      ctx.fillStyle = dimColors[seg.dim]; ctx.globalAlpha = 0.7;
+      ctx.fillRect(softX, sy2, barW, sy1 - sy2);
+      ctx.globalAlpha = 1.0;
+      if (seg.sigma < 0.9 && sy1 - sy2 > 0) {
+        const lostH = (ry1 - ry2) - (sy1 - sy2);
+        if (lostH > 2) {
+          ctx.fillStyle = 'rgba(239,68,68,0.3)';
+          ctx.fillRect(softX, sy2 - lostH, barW, lostH);
+          ctx.fillStyle = '#ef4444'; ctx.font = '8px Inter'; ctx.textAlign = 'center';
+          ctx.fillText('\u03C3=' + seg.sigma.toFixed(2), softX + barW / 2, sy2 - lostH / 2 + 3);
+        }
+      }
+    }
+    ctx.font = 'bold 11px JetBrains Mono'; ctx.textAlign = 'center';
+    ctx.fillStyle = d.color;
+    ctx.fillText('B=' + cumRaw.toFixed(3), rawX + barW / 2, H - pad.b - cumRaw * ph - 8);
+    ctx.fillText('B=' + cumSoft.toFixed(3), softX + barW / 2, H - pad.b - cumSoft * ph - 8);
+  });
+
+  // Legend
+  const legY = pad.t + 5;
+  ctx.font = '10px Inter'; ctx.textAlign = 'left';
+  let lx = pad.l + 10;
+  for (const dim of dims) {
+    ctx.fillStyle = dimColors[dim]; ctx.globalAlpha = 0.7;
+    ctx.fillRect(lx, legY, 12, 12); ctx.globalAlpha = 1.0;
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText(dim, lx + 16, legY + 10);
+    lx += 45;
+  }
+  ctx.fillStyle = 'rgba(239,68,68,0.3)';
+  ctx.fillRect(lx, legY, 12, 12);
+  ctx.fillStyle = '#94a3b8';
+  ctx.fillText('Sigmoid tax', lx + 16, legY + 10);
+})();
+</script>

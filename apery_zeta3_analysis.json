@@ -1,0 +1,47 @@
+{
+  "minimum_degrees": {
+    "deg_alpha": 6,
+    "deg_beta": 3
+  },
+  "apery_pcf": {
+    "alpha_coeffs": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta_coeffs": [
+      5,
+      27,
+      51,
+      34
+    ],
+    "cf_value": "6/zeta(3)",
+    "factorization": "beta(n) = (2n+1)(17n^2+17n+5)"
+  },
+  "zagier_search": {
+    "total_tested": 50000,
+    "zeta3_hits": 0,
+    "unique_to_apery": true
+  },
+  "search_spec": {
+    "alpha": "[0,0,0,0,0,0,-C]",
+    "beta": "[B, A+2B, 3A, 2A]",
+    "A_range": [
+      1,
+      100
+    ],
+    "B_range": [
+      1,
+      100
+    ],
+    "C_range": [
+      1,
+      5
+    ],
+    "candidates": 50000
+  }
+}

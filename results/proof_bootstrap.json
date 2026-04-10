@@ -1,0 +1,1009 @@
+[
+  {
+    "an": [
+      -4
+    ],
+    "bn": [
+      4,
+      2
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-4], b(n)=[4, 2]"
+  },
+  {
+    "an": [
+      -1
+    ],
+    "bn": [
+      2,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-1], b(n)=[2, 5]"
+  },
+  {
+    "an": [
+      1
+    ],
+    "bn": [
+      5,
+      3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[1], b(n)=[5, 3]"
+  },
+  {
+    "an": [
+      -1
+    ],
+    "bn": [
+      4,
+      3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-1], b(n)=[4, 3]"
+  },
+  {
+    "an": [
+      -1,
+      -3
+    ],
+    "bn": [
+      5,
+      1
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-1, -3], b(n)=[5, 1]"
+  },
+  {
+    "an": [
+      2
+    ],
+    "bn": [
+      5,
+      -3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[2], b(n)=[5, -3]"
+  },
+  {
+    "an": [
+      -5
+    ],
+    "bn": [
+      2,
+      -3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-5], b(n)=[2, -3]"
+  },
+  {
+    "an": [
+      -3
+    ],
+    "bn": [
+      -3,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-3], b(n)=[-3, 5]"
+  },
+  {
+    "an": [
+      -1,
+      -2
+    ],
+    "bn": [
+      5,
+      4
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-1, -2], b(n)=[5, 4]"
+  },
+  {
+    "an": [
+      2,
+      -5
+    ],
+    "bn": [
+      2,
+      3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[2, -5], b(n)=[2, 3]"
+  },
+  {
+    "an": [
+      -3
+    ],
+    "bn": [
+      5,
+      4
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-3], b(n)=[5, 4]"
+  },
+  {
+    "an": [
+      -5
+    ],
+    "bn": [
+      -2,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-5], b(n)=[-2, 5]"
+  },
+  {
+    "an": [
+      -5
+    ],
+    "bn": [
+      -3,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-5], b(n)=[-3, 5]"
+  },
+  {
+    "an": [
+      -4,
+      -1
+    ],
+    "bn": [
+      -3,
+      -2
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-4, -1], b(n)=[-3, -2]"
+  },
+  {
+    "an": [
+      5,
+      -2
+    ],
+    "bn": [
+      1,
+      3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Van Vleck",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[5, -2], b(n)=[1, 3]"
+  },
+  {
+    "an": [
+      -2
+    ],
+    "bn": [
+      -1,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-2], b(n)=[-1, 5]"
+  },
+  {
+    "an": [
+      3,
+      3
+    ],
+    "bn": [
+      1,
+      1
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Van Vleck",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[3, 3], b(n)=[1, 1]"
+  },
+  {
+    "an": [
+      5,
+      5
+    ],
+    "bn": [
+      4,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Van Vleck",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[5, 5], b(n)=[4, 5]"
+  },
+  {
+    "an": [
+      -6
+    ],
+    "bn": [
+      8,
+      7
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-6], b(n)=[8, 7]"
+  },
+  {
+    "an": [
+      -9
+    ],
+    "bn": [
+      -7,
+      8
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-9], b(n)=[-7, 8]"
+  },
+  {
+    "an": [
+      -2
+    ],
+    "bn": [
+      -1,
+      -5,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-2, b(n)=-1n\u00b2+-5n+5"
+  },
+  {
+    "an": [
+      -2
+    ],
+    "bn": [
+      -2,
+      -4,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-2, b(n)=-2n\u00b2+-4n+5"
+  },
+  {
+    "an": [
+      -3
+    ],
+    "bn": [
+      -1,
+      -4,
+      3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-3, b(n)=-1n\u00b2+-4n+3"
+  },
+  {
+    "an": [
+      -1
+    ],
+    "bn": [
+      -2,
+      -2,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-1, b(n)=-2n\u00b2+-2n+5"
+  },
+  {
+    "an": [
+      -1
+    ],
+    "bn": [
+      2,
+      0,
+      3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-1, b(n)=2n\u00b2+0n+3"
+  },
+  {
+    "an": [
+      -5
+    ],
+    "bn": [
+      -2,
+      0,
+      8
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-5, b(n)=-2n\u00b2+0n+8"
+  },
+  {
+    "an": [
+      -5
+    ],
+    "bn": [
+      1,
+      0,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-5, b(n)=1n\u00b2+0n+5"
+  },
+  {
+    "an": [
+      -1
+    ],
+    "bn": [
+      1,
+      -2,
+      2
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-1, b(n)=1n\u00b2+-2n+2"
+  },
+  {
+    "an": [
+      -2
+    ],
+    "bn": [
+      -1,
+      3,
+      3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-2, b(n)=-1n\u00b2+3n+3"
+  },
+  {
+    "an": [
+      -9
+    ],
+    "bn": [
+      3,
+      -7
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-9], b(n)=[3, -7]"
+  },
+  {
+    "an": [
+      -4
+    ],
+    "bn": [
+      3,
+      1
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-4], b(n)=[3, 1]"
+  },
+  {
+    "an": [
+      -5,
+      -7
+    ],
+    "bn": [
+      -7,
+      7
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": "sympy_nsimplify",
+    "confidence": 0.75,
+    "expression": "GCF with a(n)=[-5, -7], b(n)=[-7, 7]"
+  },
+  {
+    "an": [
+      2
+    ],
+    "bn": [
+      -1,
+      2,
+      8
+    ],
+    "status": "formal_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": "sympy_nsimplify",
+    "confidence": 0.95,
+    "expression": "GCF a(n)=2, b(n)=-1n\u00b2+2n+8"
+  },
+  {
+    "an": [
+      -3
+    ],
+    "bn": [
+      3,
+      3,
+      6
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-3, b(n)=3n\u00b2+3n+6"
+  },
+  {
+    "an": [
+      -3
+    ],
+    "bn": [
+      2,
+      5,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": "sympy_nsimplify",
+    "confidence": 0.75,
+    "expression": "GCF a(n)=-3, b(n)=2n\u00b2+5n+5"
+  },
+  {
+    "an": [
+      -1
+    ],
+    "bn": [
+      2,
+      -3,
+      1
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": "sympy_nsimplify",
+    "confidence": 0.75,
+    "expression": "GCF a(n)=-1, b(n)=2n\u00b2+-3n+1"
+  },
+  {
+    "an": [
+      -5
+    ],
+    "bn": [
+      2,
+      2,
+      2
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": "sympy_nsimplify",
+    "confidence": 0.75,
+    "expression": "GCF a(n)=-5, b(n)=2n\u00b2+2n+2"
+  },
+  {
+    "an": [
+      5
+    ],
+    "bn": [
+      -1,
+      5,
+      4
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=5, b(n)=-1n\u00b2+5n+4"
+  },
+  {
+    "an": [
+      3
+    ],
+    "bn": [
+      -1,
+      1,
+      4
+    ],
+    "status": "formal_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": "sympy_nsimplify",
+    "confidence": 0.95,
+    "expression": "GCF a(n)=3, b(n)=-1n\u00b2+1n+4"
+  },
+  {
+    "an": [
+      -2
+    ],
+    "bn": [
+      1,
+      -4,
+      7
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-2, b(n)=1n\u00b2+-4n+7"
+  },
+  {
+    "an": [
+      4
+    ],
+    "bn": [
+      9,
+      -8
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": "sympy_nsimplify",
+    "confidence": 0.75,
+    "expression": "GCF with a(n)=[4], b(n)=[9, -8]"
+  },
+  {
+    "an": [
+      -2
+    ],
+    "bn": [
+      -2,
+      2
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": "bessel_j_ratio",
+    "confidence": 0.75,
+    "expression": "GCF with a(n)=[-2], b(n)=[-2, 2]"
+  },
+  {
+    "an": [
+      10
+    ],
+    "bn": [
+      8,
+      7
+    ],
+    "status": "formal_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": "bessel_ratio",
+    "confidence": 0.95,
+    "expression": "GCF with a(n)=[10], b(n)=[8, 7]"
+  },
+  {
+    "an": [
+      -3
+    ],
+    "bn": [
+      -1,
+      -1,
+      7
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-3, b(n)=-1n\u00b2+-1n+7"
+  },
+  {
+    "an": [
+      5
+    ],
+    "bn": [
+      3,
+      -2,
+      6
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=5, b(n)=3n\u00b2+-2n+6"
+  },
+  {
+    "an": [
+      -5
+    ],
+    "bn": [
+      1,
+      3,
+      2
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-5, b(n)=1n\u00b2+3n+2"
+  },
+  {
+    "an": [
+      -1
+    ],
+    "bn": [
+      2,
+      3,
+      8
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-1, b(n)=2n\u00b2+3n+8"
+  },
+  {
+    "an": [
+      -5
+    ],
+    "bn": [
+      -2,
+      -2,
+      2
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-5, b(n)=-2n\u00b2+-2n+2"
+  },
+  {
+    "an": [
+      -3
+    ],
+    "bn": [
+      -6,
+      6
+    ],
+    "status": "formal_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": "bessel_j_ratio",
+    "confidence": 0.95,
+    "expression": "GCF with a(n)=[-3], b(n)=[-6, 6]"
+  },
+  {
+    "an": [
+      -7
+    ],
+    "bn": [
+      -4,
+      6
+    ],
+    "status": "formal_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": "bessel_j_ratio",
+    "confidence": 0.95,
+    "expression": "GCF with a(n)=[-7], b(n)=[-4, 6]"
+  },
+  {
+    "an": [
+      -2
+    ],
+    "bn": [
+      2,
+      9
+    ],
+    "status": "formal_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": "bessel_j_ratio",
+    "confidence": 0.95,
+    "expression": "GCF with a(n)=[-2], b(n)=[2, 9]"
+  },
+  {
+    "an": [
+      -4,
+      3
+    ],
+    "bn": [
+      6,
+      6
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-4, 3], b(n)=[6, 6]"
+  },
+  {
+    "an": [
+      -2,
+      -3
+    ],
+    "bn": [
+      8,
+      7
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[-2, -3], b(n)=[8, 7]"
+  },
+  {
+    "an": [
+      0,
+      7
+    ],
+    "bn": [
+      5,
+      -7
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[0, 7], b(n)=[5, -7]"
+  },
+  {
+    "an": [
+      2,
+      -3
+    ],
+    "bn": [
+      -8
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF with a(n)=[2, -3], b(n)=[-8]"
+  },
+  {
+    "an": [
+      -2
+    ],
+    "bn": [
+      -2,
+      -2,
+      1
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-2, b(n)=-2n\u00b2+-2n+1"
+  },
+  {
+    "an": [
+      1
+    ],
+    "bn": [
+      3,
+      1,
+      1
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=1, b(n)=3n\u00b2+1n+1"
+  },
+  {
+    "an": [
+      5
+    ],
+    "bn": [
+      3,
+      3,
+      2
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=5, b(n)=3n\u00b2+3n+2"
+  },
+  {
+    "an": [
+      -2
+    ],
+    "bn": [
+      2,
+      1,
+      2
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-2, b(n)=2n\u00b2+1n+2"
+  },
+  {
+    "an": [
+      3
+    ],
+    "bn": [
+      3,
+      4,
+      5
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=3, b(n)=3n\u00b2+4n+5"
+  },
+  {
+    "an": [
+      -5
+    ],
+    "bn": [
+      1,
+      5,
+      1
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-5, b(n)=1n\u00b2+5n+1"
+  },
+  {
+    "an": [
+      1
+    ],
+    "bn": [
+      -1,
+      -5,
+      7
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=1, b(n)=-1n\u00b2+-5n+7"
+  },
+  {
+    "an": [
+      3
+    ],
+    "bn": [
+      2,
+      2,
+      1
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=3, b(n)=2n\u00b2+2n+1"
+  },
+  {
+    "an": [
+      5
+    ],
+    "bn": [
+      2,
+      5,
+      3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=5, b(n)=2n\u00b2+5n+3"
+  },
+  {
+    "an": [
+      2
+    ],
+    "bn": [
+      3,
+      3,
+      3
+    ],
+    "status": "partial_proof",
+    "theorem_used": "\u015aleszy\u0144ski-Pringsheim",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=2, b(n)=3n\u00b2+3n+3"
+  },
+  {
+    "an": [
+      1
+    ],
+    "bn": [
+      -2,
+      5,
+      1
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=1, b(n)=-2n\u00b2+5n+1"
+  },
+  {
+    "an": [
+      3
+    ],
+    "bn": [
+      -2,
+      3,
+      7
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=3, b(n)=-2n\u00b2+3n+7"
+  },
+  {
+    "an": [
+      -3
+    ],
+    "bn": [
+      -2,
+      3,
+      6
+    ],
+    "status": "partial_proof",
+    "theorem_used": "Stern-Stolz",
+    "sf_type": null,
+    "confidence": 0.5,
+    "expression": "GCF a(n)=-3, b(n)=-2n\u00b2+3n+6"
+  },
+  {
+    "an": [],
+    "bn": [],
+    "status": "partial_proof",
+    "theorem_used": "Tail convergence (factorial \u2014 Seidel-Stern)",
+    "sf_type": "mpmath_identify",
+    "confidence": 0.75,
+    "expression": "GCF a(n)=2\u00b7n!, b(n)=3"
+  }
+]

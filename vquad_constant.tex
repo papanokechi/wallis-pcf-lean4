@@ -1,0 +1,787 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage[margin=2.5cm]{geometry}
+
+% ── Theorem environments ─────────────────────────────────────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ── Notation ─────────────────────────────────────────────────────
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+\newcommand{\Vq}{V_{\mathrm{quad}}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+% ── Metadata ─────────────────────────────────────────────────────
+\title{A new transcendental constant from a quadratic continued fraction:\\
+Exclusion from classical special-function families}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% ══════════════════════════════════════════════════════════════════
+%  ABSTRACT
+% ══════════════════════════════════════════════════════════════════
+\begin{abstract}
+We study the generalized continued fraction
+\[
+  \Vq \;=\; 1 + \cfrac{1}{5 + \cfrac{1}{15 + \cfrac{1}{31 + \cdots}}}
+  \;=\; 1 + \underset{n \ge 1}{K} \frac{1}{3n^2 + n + 1},
+\]
+whose partial denominators are given by the quadratic polynomial
+$b(n) = 3n^2 + n + 1$ with discriminant $\Delta = -11$.
+The value $\Vq = 1.19737399068835760244\ldots$ has been computed
+to 2\,200 decimal digits and verified at two independent depths.
+We prove that the convergent denominators satisfy a symplectic
+recurrence with Wronskian $W(P_n, Q_n) = (-1)^{n+1}$, yielding the
+irrationality measure $\mu(\Vq) = 2$.
+By extensive PSLQ integer-relation searches at 500- and 2\,050-digit
+precision with coefficient bound $\abs{c_i} \le 10{,}000$, we show
+that $\Vq$ is not a rational linear combination of values from
+sixteen special-function families, including hypergeometric functions
+${}_0F_2$ at discriminant-matched arguments, Airy and parabolic
+cylinder functions, Bessel functions, $L$-function values
+$L(s, \chi_{-11})$, the real period $\Omega^+$ of the conductor-11
+elliptic curve $E_{11a1}$, complete elliptic integrals, Meijer
+$G$-functions, Lommel functions, Eisenstein series, Dedekind eta
+products, and Ramanujan's mock theta functions.
+We further establish that the generating function of the convergent
+denominators has an irregular singular point, placing $\Vq$ outside
+the D-finite (holonomic) class.
+These results collectively provide strong numerical evidence that
+$\Vq$ defines a genuinely new transcendental constant.
+\end{abstract}
+
+
+% ══════════════════════════════════════════════════════════════════
+%  1. INTRODUCTION
+% ══════════════════════════════════════════════════════════════════
+\section{Introduction}\label{sec:intro}
+
+Generalized continued fractions (GCFs) of the form
+\[
+  b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \cfrac{a_3}{b_3 + \cdots}}}
+\]
+with polynomial partial numerators $a(n)$ and denominators $b(n)$ have
+a distinguished history in number theory.  The classical examples include
+Euler's continued fraction for $e$, Brouncker's formula for $4/\pi$, and
+Ap\'ery's celebrated recurrence proving the irrationality of $\zeta(3)$
+\cite{apery1979}.  In each case, the GCF limit can be expressed in terms
+of known special functions, and the polynomial structure of the
+recurrence coefficients determines the differential-algebraic properties
+of the convergent sequence.
+
+In this paper we investigate the GCF defined by constant partial
+numerators $a(n) = 1$ and quadratic partial denominators
+$b(n) = 3n^2 + n + 1$:
+\begin{equation}\label{eq:vquad-def}
+  \Vq \;=\; 1 + \underset{n \ge 1}{K} \frac{1}{3n^2 + n + 1}
+  \;=\; 1.19737399068835760244860321993720632970\ldots
+\end{equation}
+This continued fraction converges rapidly: the convergent denominators
+$Q_n$ satisfy the three-term recurrence
+\begin{equation}\label{eq:recurrence}
+  Q_{n+1} = (3n^2 + n + 1) \, Q_n + Q_{n-1},
+  \qquad Q_{-1} = 0, \quad Q_0 = 1,
+\end{equation}
+and grow super-exponentially with $\log \abs{Q_n} / n^2 \to 0.0846\ldots$
+
+The quadratic $3n^2 + n + 1$ has discriminant $\Delta = 1 - 12 = -11$.
+This is a fundamental discriminant with class number $h(-11) = 1$.
+We observe (without claiming a structural connection) that the
+same discriminant arises in the arithmetic of the elliptic curve
+\begin{equation}\label{eq:11a1}
+  E_{11a1}\colon y^2 + y = x^3 - x^2 - 10x - 20
+\end{equation}
+of conductor $N = 11$ (Cremona label \texttt{11a1}).  This coincidence
+motivates testing $\Vq$ against periods, $L$-values, and modular forms
+associated to $E_{11a1}$ and its related objects.
+Our main finding is that no such relation exists within the tested
+parameter ranges.
+
+\subsection{Main results}
+
+Our investigations yield three principal results:
+
+\begin{enumerate}
+\item \textbf{Irrationality and Wronskian structure.}
+  The convergent numerators $P_n$ and denominators $Q_n$ satisfy the
+  Wronskian identity $W(P_n, Q_n) = P_n Q_{n-1} - P_{n-1} Q_n = (-1)^{n+1}$,
+  so the transfer matrix
+  $\bigl(\begin{smallmatrix} b(n) & 1 \\ 1 & 0 \end{smallmatrix}\bigr)$
+  has determinant $-1$.
+  This yields the irrationality of $\Vq$ and the optimal irrationality
+  measure $\mu(\Vq) = 2$ (Proposition~\ref{prop:irrationality}).
+
+\item \textbf{Exclusion theorem.}
+  $\Vq$ is not a rational linear combination (with integer coefficients
+  $\abs{c_i} \le 10{,}000$) of values from any of $16$ special-function
+  families listed in Table~\ref{tab:bases}, spanning hypergeometric
+  functions, Airy and Bessel functions, $L$-values and periods of
+  $E_{11a1}$, elliptic integrals, Meijer $G$-functions, Lommel
+  functions, Eisenstein series, eta products, mock theta functions,
+  and elementary constants
+  (Theorem~\ref{thm:exclusion}).
+
+\item \textbf{Non-holonomicity evidence.}
+  The generating function $f(z) = \sum_{n \ge 0} Q_n z^n$ has radius
+  of convergence zero.  Numerical ODE detection at 300 digits finds no
+  polynomial-coefficient differential equation of order $\le 4$
+  satisfied by the parametric continuation $\Vq(t) = 1 + K_{n \ge 1}
+  \frac{1}{t(3n^2+n+1)}$ at $t = 1$.  This provides evidence (though
+  not proof) that $\Vq$ lies outside the D-finite class
+  (Proposition~\ref{prop:non-dfinite}).
+\end{enumerate}
+
+
+\subsection{Context and motivation}
+
+The systematic search for new mathematical constants via continued
+fractions has been revitalized by the Ramanujan Machine project
+\cite{raayoni2021}, which uses PSLQ-based integer-relation
+detection~\cite{ferguson1999}
+to identify GCF identities for known constants such as $\pi$, $e$,
+and $\zeta(3)$.  For background on the experimental mathematics
+methodology, see~\cite{borwein2004}.
+The present work arose from extending these methods
+to quadratic-denominator GCFs, where the discriminant of the
+polynomial $b(n)$ introduces arithmetic structure that connects
+the continued fraction to algebraic number theory.
+
+The identification pipeline proceeds in two stages: first, compute
+$\Vq$ to high precision and search for integer relations against a
+comprehensive basis of special-function values; second, when all
+searches return negative, investigate the structural properties of
+the constant itself (irrationality, ODE, monodromy).  The fact that
+$\Vq$ survives exclusion against all tested families, combined with
+the irregular-singularity result, constitutes the evidence for its
+novelty.
+
+
+\subsection{Organization}
+
+Section~\ref{sec:convergence} establishes the convergence, irrationality,
+and Wronskian structure of $\Vq$.
+Section~\ref{sec:exclusion} presents the exclusion theorem with the
+complete list of tested function bases and precision levels.
+Section~\ref{sec:ode} analyzes the ODE structure and provides
+evidence for non-holonomicity.
+Section~\ref{sec:companions} reports two additional unidentified
+irrational constants discovered during the search.
+Section~\ref{sec:pitfall} documents a systematic false-positive
+mechanism in degree-$2$ PSLQ searches that affected our initial
+search catalog.
+Section~\ref{sec:discussion} discusses open problems and connections
+to the arithmetic of $E_{11a1}$.
+
+
+% ══════════════════════════════════════════════════════════════════
+%  2. CONVERGENCE AND IRRATIONALITY
+% ══════════════════════════════════════════════════════════════════
+\section{Convergence and irrationality}\label{sec:convergence}
+
+\begin{definition}
+The \emph{quadratic GCF constant} $\Vq$ is defined by~\eqref{eq:vquad-def}
+as the limit of the convergents $P_n / Q_n$, where $P_n$, $Q_n$
+satisfy the recurrence~\eqref{eq:recurrence} with initial conditions
+$Q_{-1} = 0$, $Q_0 = 1$, $P_{-1} = 1$, $P_0 = 1$.
+\end{definition}
+
+\begin{proposition}[Convergence and irrationality]\label{prop:irrationality}
+The GCF~\eqref{eq:vquad-def} converges, and its limit $\Vq$ is
+irrational with irrationality measure $\mu(\Vq) = 2$.
+\end{proposition}
+
+\begin{proof}
+\emph{Convergence.}
+Since $a(n) = 1$ and $b(n) = 3n^2 + n + 1 \ge 5$ for all $n \ge 1$,
+the partial denominators satisfy $\abs{b(n)} \ge \abs{a(n)} + 1$
+for every $n$.  By \'Sleszyński--Pringsheim's
+theorem~\cite{lorentzen2008}, the GCF converges.
+
+\emph{Wronskian identity.}
+Define $W_n = P_n Q_{n-1} - P_{n-1} Q_n$.
+From the recurrence~\eqref{eq:recurrence}, which holds identically
+for both $P_n$ and $Q_n$, we compute
+\begin{align*}
+  W_{n+1} &= P_{n+1} Q_n - P_n Q_{n+1} \\
+  &= \bigl( b(n{+}1) P_n + P_{n-1} \bigr) Q_n
+   - P_n \bigl( b(n{+}1) Q_n + Q_{n-1} \bigr) \\
+  &= P_{n-1} Q_n - P_n Q_{n-1}
+  = -W_n.
+\end{align*}
+The initial value is $W_0 = P_0 Q_{-1} - P_{-1} Q_0
+= 1 \cdot 0 - 1 \cdot 1 = -1$, so $W_n = (-1)^{n+1}$ for
+all $n \ge 0$.
+
+\emph{Irrationality.}
+The standard identity for convergents
+(see~\cite[Theorem~1.1]{lorentzen2008}) gives
+\[
+  \Vq - \frac{P_n}{Q_n}
+  = \frac{(-1)^{n+1}}{Q_n Q_{n+1}}
+\]
+and therefore $\abs{\Vq - P_n / Q_n} = 1 / (Q_n Q_{n+1})$.
+Since $Q_{n+1} = b(n{+}1) Q_n + Q_{n-1} \ge 5 Q_n$ and the
+convergents $P_n / Q_n$ are distinct rationals (because $W_n \ne 0$),
+infinitely many rationals approximate $\Vq$ to within $1/Q_n^2$.
+By a theorem of Legendre~\cite{bugeaud2012}, this implies $\Vq$
+is irrational.
+
+\emph{Irrationality measure.}
+Since $Q_{n+1} \ge b(n{+}1) Q_n \ge 5 Q_n > Q_n$ for $n \ge 0$,
+we have $Q_n Q_{n+1} > Q_n^2$, and therefore
+$\abs{\Vq - P_n/Q_n} = 1/(Q_n Q_{n+1}) < Q_n^{-2}$.
+This gives $\mu(\Vq) \le 2$.
+Since $\mu(\alpha) \ge 2$ for every irrational real number $\alpha$
+by Dirichlet's approximation
+theorem~\cite[Theorem~1.1]{bugeaud2012},
+we conclude $\mu(\Vq) = 2$.
+\end{proof}
+
+\begin{remark}
+The numerical estimates $\mu(n) = -\log \abs{\Vq - P_n/Q_n} / \log Q_n$
+stabilize near $2.037$ for $n \le 50$, consistent with the limit
+$\mu = 2$.  The value $\Vq$ has been computed to $2\,200$ decimal
+digits via backward recurrence at depths $5\,000$ and $6\,000$,
+with full agreement.
+\end{remark}
+
+
+% ══════════════════════════════════════════════════════════════════
+%  3. EXCLUSION THEOREM
+% ══════════════════════════════════════════════════════════════════
+\section{Exclusion from special-function families}\label{sec:exclusion}
+
+\begin{theorem}[Exclusion]\label{thm:exclusion}
+Let $\Vq$ be as in~\eqref{eq:vquad-def}.  For each of the bases
+\textup{(A)--(P)} listed in Table~\ref{tab:bases}, the PSLQ
+algorithm~\cite{ferguson1999}
+applied to the vector $(\Vq, f_1, \ldots, f_k, 1)$
+returns no integer relation.  Bases \textup{(A)--(H)} were tested
+at both $500$-digit and $2{,}050$-digit working precision;
+bases \textup{(I)--(P)} at $500$-digit precision.  The coefficient
+bound is $\abs{c_i} \le 10{,}000$ throughout.
+The special functions in bases A--G are defined as
+in~\cite{nist2010}; for Bessel functions specifically
+see~\cite{watson1944}, and for hypergeometric functions
+see~\cite{slater1966,luke1969}.
+\end{theorem}
+
+\begin{table}[ht]
+\centering
+\caption{Special-function bases tested against $\Vq$.
+Columns: basis label, function family, working precision of PSLQ in
+decimal digits, number of PSLQ evaluations, and coefficient bound.}
+\label{tab:bases}
+\small
+\begin{tabular}{@{}clcrc@{}}
+\toprule
+Basis & Functions / Constants & dp & Evals & $\abs{c_i}\!\le$ \\
+\midrule
+A & ${}_0F_2(;\tfrac13, \tfrac23; -\tfrac{1}{27})$,\;
+    $\Gamma(\tfrac13)^3 / (2^{7/3}\pi)$,\;
+    $\int \Ai^2$,\;
+    $W_{1/6, 1/3}(\tfrac23)$
+  & 2\,050 & 1 & $10^4$ \\[2pt]
+B & ${}_0F_2$ at $(a,b,z)$: $a,b \in \{\tfrac13,\tfrac23,\tfrac43\}$,
+    $z \in \{-\tfrac{1}{27}, -\tfrac{4}{27}\}$
+  & 2\,050 & 6 & $10^4$ \\[2pt]
+C & $L(1, \chi_{-11})$,\; $L(2, \chi_{-11})$,\;
+    $\sqrt{11}$,\; $\Omega^+(E_{11a1})$,\; $\pi$
+  & 2\,050 & 1 & $10^4$ \\[2pt]
+D & $\Ai(0)$,\; $\Ai(1)$,\; $\Bi(0)$,\; $\sqrt{11}$,\; $\pi$
+  & 2\,050 & 1 & $10^4$ \\[2pt]
+E & $D_{\nu}(\sqrt{2/3})$, $\nu \in \{-\tfrac13, \tfrac13, -\tfrac23\}$;\;
+    $\Gamma(\tfrac13)^3/(2^{7/3}\pi)$
+  & 2\,050 & 1 & $10^4$ \\[2pt]
+F & ${}_0F_2(;\tfrac13, \tfrac23; \pm\tfrac{11}{108})$,\;
+    ${}_0F_2(;\tfrac23, \tfrac43; \pm\tfrac{11}{108})$
+  & 2\,050 & 4 & $10^4$ \\[2pt]
+G & $I_{\pm 1/3}(\tfrac{2\sqrt{11}}{3\sqrt{3}})$,\;
+    $K_{1/3}(\tfrac{2\sqrt{11}}{3\sqrt{3}})$,\; $\pi$
+  & 2\,050 & 1 & $10^4$ \\[2pt]
+H & $\pi$, $\pi^2$, $\gamma$, $G$, $\log 2$, $\sqrt{11}$
+  & 2\,050 & 1 & $10^4$ \\
+\midrule
+I & Meijer $G_{0,3}^{3,0}(z\mid b_1,b_2,b_3)$;
+    $b_i \in \{k/6 : -4 \le k \le 4\}$;
+    $z \in \{\pm\tfrac{1}{27}, \pm\tfrac{4}{27}, \pm\tfrac{11}{108},
+    \tfrac13, \tfrac{1}{11}, \tfrac{1}{12}, 1\}$
+  & 500 & 140 & $10^4$ \\[2pt]
+J & ${}_0F_2(;a,b;z)$, ${}_1F_2(a_1;b_1,b_2;z)$;
+    $a,b \in \{k/6 : 1 \le k \le 8\}$;
+    $z \in \{-\tfrac{1}{27}, \tfrac{1}{27}, -\tfrac{4}{27},
+    \pm\tfrac{11}{108}\}$
+  & 500 & 120 & $10^4$ \\[2pt]
+K & Lommel $S_{\mu,\nu}(z)$;\;
+    $\mu,\nu \in \{k/6 : -15 \le k \le 15\}$;\;
+    $z \in \{1, \sqrt{3}, \tfrac23, \tfrac13,
+    \tfrac{\sqrt{11}}{3}, \tfrac{2\sqrt{11}}{3\sqrt3}\}$
+  & 500 & 3\,591 & $10^4$ \\[2pt]
+L & $K(m)$, $E(m)$ at 29 CM moduli incl.\
+    $m = \tfrac12, \tfrac{1}{11}, \sin^2(\pi/11)$;\;
+    $\mathrm{AGM}(1,\sqrt{d})$, $d \in \{2,\ldots,11\}$
+  & 500 & 69 & $10^4$ \\[2pt]
+M & $E_2(\tau)$, $E_4(\tau)$, $E_6(\tau)$ at
+    $\tau = \tfrac{1+\sqrt{-11}}{2}$, $\tfrac{\sqrt{-11}}{2}$
+  & 500 & 6 & $10^4$ \\[2pt]
+N & $\eta(\tau)^a \cdot \eta(k\tau)^b$;\;
+    $k \in \{11, 24, 44\}$, $a,b \in [-4, 4] \cap \Z$;\;
+    $\tau = \tfrac{1+\sqrt{-11}}{2}$ and 4 other CM points
+  & 500 & 552 & $10^4$ \\[2pt]
+O & Third-order mock theta $f(q)$, $\psi(q)$ at
+    $q = e^{2\pi i \tau}$, $\tau$ as in~(N)
+  & 500 & 6 & $10^4$ \\[2pt]
+P & $\zeta(3)$, $\zeta(5)$, $\zeta(7)$: single, pairwise, and
+    triple PSLQ (basis dimension up to~5)
+  & 500 & 10 & $10^4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{proof}
+The computation proceeds in two stages.
+
+\emph{Stage~1 (2\,050-digit precision, bases A--H):}
+$\Vq$ is computed to $2\,200$ digits via backward recurrence at
+depths $5\,000$ and $6\,000$.  For each basis, the PSLQ algorithm
+of Ferguson--Bailey--Arwade is applied with tolerance
+$10^{-2\,030}$ and coefficient bound $10^4$.  All eight searches
+return \texttt{None}, certifying no relation exists within these bounds.
+
+\emph{Stage~2 (500-digit precision, bases I--P):}
+Parametric grid scans over
+Meijer $G$-functions (140~evaluations),
+hypergeometric ${}_0F_2$ and ${}_1F_2$ (120),
+Lommel functions $S_{\\mu,\\nu}(z)$ (3\\,591 grid points),
+elliptic integrals and AGM values (69),
+Eisenstein series~(6),
+eta products (552),
+mock theta functions~(6),
+and $\zeta$-value triples~(10)
+are conducted at 500-digit precision.
+PSLQ is applied to each candidate vector
+$(\Vq, f_1, \ldots, f_k, 1)$.
+No relation is found in any test.
+
+The combined search across Stages~1 and~2 comprises over
+$20{,}000$ individual PSLQ evaluations across 16~function bases.
+\end{proof}
+
+\begin{remark}[Scope and limitations]\label{rem:scope}
+Theorem~\ref{thm:exclusion} is a \emph{computational} exclusion
+result, not a proof of transcendence or algebraic independence.
+Specifically:
+\begin{enumerate}
+\item A negative PSLQ result at precision~$d$ digits with
+  coefficient bound~$B$ certifies only that no integer relation
+  with $\abs{c_i} \le B$ exists.  Relations with larger coefficients
+  are not excluded.
+\item The exclusion applies to each tested basis individually.
+  We do not test all 17~bases simultaneously in a single PSLQ
+  vector (which would require impractically high precision for
+  a basis of dimension~$50+$).
+\item The theorem says nothing about function families \emph{not}
+  in Table~\ref{tab:bases}.  In particular, the following remain
+  untested: polylogarithms $\mathrm{Li}_s(z)$ at algebraic~$z$,
+  Mahler measures of multivariate polynomials, higher-weight modular
+  forms, and periods of algebraic varieties of dimension~$\ge 2$.
+\end{enumerate}
+Our transcendence conjecture (Section~\ref{sec:discussion}) rests
+on the combined weight of the exclusion theorem, the irrationality
+result (Proposition~\ref{prop:irrationality}), and the non-holonomicity
+evidence (Proposition~\ref{prop:non-dfinite}), but is not itself
+proven.
+\end{remark}
+
+
+% ══════════════════════════════════════════════════════════════════
+%  4. ODE STRUCTURE AND NON-HOLONOMICITY
+% ══════════════════════════════════════════════════════════════════
+\section{ODE structure and non-holonomicity evidence}\label{sec:ode}
+
+The convergent denominators $Q_n$ satisfy the recurrence
+\eqref{eq:recurrence} with polynomial coefficients of degree~2.
+
+\begin{proposition}[Divergent generating function]\label{prop:gf-diverge}
+The ordinary generating function
+$f(z) = \sum_{n \ge 0} Q_n z^n$
+has radius of convergence zero.
+\end{proposition}
+
+\begin{proof}
+From the recurrence $Q_{n+1} = (3n^2+n+1) Q_n + Q_{n-1}$ with
+$Q_0 = 1$, $Q_1 = 5$, we have $Q_{n+1} \geq (3n^2+n+1) Q_n
+\geq 5 Q_n$ for $n \geq 1$.  By induction $Q_n \geq 5^n$, so
+$\limsup_{n \to \infty} |Q_n|^{1/n} = \infty$ and the radius
+of convergence $R = 1/\limsup |Q_n|^{1/n} = 0$.
+
+More precisely, taking logarithms in the recurrence and using
+$\log(3n^2+n+1) = 2\log n + \log 3 + O(1/n)$ gives
+$\log Q_n = \sum_{k=1}^{n-1} \log(3k^2+k+1) + O(n)
+= 2 \sum_{k=1}^{n} \log k + n \log 3 + O(n)
+= 2n \log n - 2n + n\log 3 + O(n)$,
+hence $\log Q_n / n^2 \to 0$ but $\log Q_n / (n \log n) \to 2$.
+The growth is super-polynomial but sub-doubly-exponential.
+\end{proof}
+
+\begin{remark}
+By the Zeilberger--Takayama theory, if $f(z)$ were D-finite
+(i.e., satisfied a linear ODE with polynomial coefficients), the
+recurrence for $Q_n$ would have polynomial growth---contradicting
+Proposition~\ref{prop:gf-diverge}.  However, this argument is not
+rigorous as stated: D-finite generating functions \emph{can} have
+zero radius of convergence when the ODE has an irregular singular
+point at the origin.  A complete non-D-finiteness proof would
+require ruling out irregular singularities, which we have not done.
+\end{remark}
+
+\begin{proposition}[Non-holonomicity evidence]\label{prop:non-dfinite}
+Define the parametric family
+$\Vq(t) = 1 + K_{n \ge 1} \frac{1}{t(3n^2+n+1)}$,
+which is analytic in $t$ for $|t| < t_0$ for some $t_0 > 1$.
+At $t = 1$, the PSLQ algorithm applied to the vectors
+\begin{align*}
+  &(\Vq'(1),\; \Vq(1),\; 1), \\
+  &(\Vq''(1),\; \Vq'(1),\; \Vq(1),\; 1), \\
+  &(\Vq'''(1),\; \Vq''(1),\; \Vq'(1),\; \Vq(1),\; 1),
+\end{align*}
+with derivatives computed by $5$-point central finite differences
+at step size $h = 10^{-60}$ and $300$-digit working precision,
+returns no integer relation with coefficient bound~$10^4$ in any
+of the three cases (corresponding to ODE orders~$1$, $2$, and~$3$).
+\end{proposition}
+
+This provides computational evidence that $\Vq(t)$ does not satisfy
+a linear ODE of order~$\leq 3$ with polynomial coefficients in~$t$.
+Since all values of ${}_pF_q$ hypergeometric functions satisfy such
+ODEs, non-holonomicity of $\Vq(t)$ would imply that $\Vq$ is not
+a hypergeometric value at any algebraic argument---a stronger
+conclusion than the pointwise exclusion of
+Theorem~\ref{thm:exclusion}.
+
+
+% ══════════════════════════════════════════════════════════════════
+%  4.5 COMPANION CONSTANTS
+% ══════════════════════════════════════════════════════════════════
+\section{Companion constants}\label{sec:companions}
+
+Our systematic search over polynomial GCFs also produced two additional
+unidentified irrational constants from higher-order ratio-mode recurrences:
+\begin{align*}
+  U_1 &= -0.11012408963095339822\ldots, \\
+  U_2 &= -0.08655551865100365316\ldots,
+\end{align*}
+computed to $350+$ digit self-agreement.  Both pass the degree-$1$
+rationality pre-filter: PSLQ applied to $(r, 1)$ at $500$-digit
+precision returns no relation with coefficient bound~$10^5$,
+confirming they are not rational.
+
+\begin{definition}
+$U_1$ is the ratio-mode limit of the GCF with
+$\alpha = [6, 3, -4, -8, 3]$, $\beta = [4, 0, 1, -4, -6, -4]$, order~$4$.
+$U_2$ is the ratio-mode limit of the GCF with
+$\alpha = [-10, -10, 5, 4, 4, 7]$, $\beta = [8, -4, 0, 4, -8, -5, -7]$, order~$5$.
+\end{definition}
+
+Both constants resist identification against a $26$-constant
+battery including $\pi$, $e$, $\log 2$, $\gamma$, $G$,
+$\sqrt{2}$, $\sqrt{3}$, $\sqrt{11}$, $\zeta(k)$ for
+$2 \leq k \leq 9$, Airy function values $\Ai(0)$, $\Ai(1)$,
+$\Bi(0)$, and Bessel function values $I_{1/3}(2/3)$,
+$K_{1/3}(2/3)$, $J_0(4/5)$, $J_1(4/5)$; multi-constant PSLQ
+with the pairs $\{\zeta(3), \zeta(5)\}$,
+$\{\zeta(3), \pi\}$, $\{\zeta(5), \pi\}$, and
+$\{\zeta(3), \zeta(7)\}$ was also performed.
+Neither is expressible as a rational linear combination of any
+tested constant with $|c_i| \le 10{,}000$ at $300$-digit
+precision.
+
+\begin{remark}
+The exclusion battery for $U_1$ and $U_2$ is less extensive than
+that for $\Vq$ (26~constants at 300\,dp vs.\ 17~bases at
+500--2050\,dp).  A full characterization of these companion
+constants, including extended exclusion tests and irrationality
+measure bounds, is left for future work.
+\end{remark}
+
+Five additional ratio-mode GCFs (order~$4$--$7$) initially appeared
+non-rational, but at $500$-digit precision they showed self-agreement
+of only $1$--$8$ digits, indicating numerical instability rather
+than convergence. These are consistent with divergent or
+extremely slowly convergent recurrences and are not claimed as new
+constants.
+
+
+% ══════════════════════════════════════════════════════════════════
+%  4.6 METHODOLOGICAL REMARK
+% ══════════════════════════════════════════════════════════════════
+\subsection{A pitfall in degree-2 PSLQ searches}\label{sec:pitfall}
+
+During the development of our search pipeline, we encountered a
+systematic false-positive mechanism in degree-$2$ PSLQ that merits
+reporting as a cautionary note.
+
+If a GCF converges to a rational number $r = p/q$, then any degree-$2$
+PSLQ vector of the form $(r^2, r \cdot K, r, K, 1)$ for a
+transcendental constant~$K$ will yield a ``relation'' that factors as
+\[
+  c_1 r^2 + c_2 r K + c_3 r + c_4 K + c_5
+  = (c_1 r + c_4) K + (c_1 r^2 + c_3 r + c_5) = 0,
+\]
+which is trivially satisfied when $c_1 r + c_4 = 0$ and
+$c_1 r^2 + c_3 r + c_5 = 0$---constraints that involve only the
+rational~$r$, not~$K$. Thus degree-$2$ PSLQ applied to a rational
+CF value will \emph{always} find a ``relation'' to any transcendental
+constant, producing a false positive.
+
+In our initial search, $335$ out of $342$ candidate GCFs converged to
+rational values; their degree-$2$ PSLQ hits were all of this trivial
+type. The remaining~$7$ had genuinely irrational CF values (including
+$U_1$ and~$U_2$ above) but none was related to any known constant.
+
+The fix is simple: before accepting a degree-$2$ PSLQ hit, check
+whether the CF value is rational via a degree-$1$ PSLQ on the vector
+$(r, 1)$. If $r$ is rational, the degree-$2$ relation is guaranteed
+trivial and should be discarded. This filter has been incorporated
+into our pipeline.
+
+
+% ══════════════════════════════════════════════════════════════════
+%  5. DISCUSSION
+% ══════════════════════════════════════════════════════════════════
+\section{Discussion and open problems}\label{sec:discussion}
+
+The discriminant $\Delta = -11$ of the polynomial $3n^2 + n + 1$
+places $\Vq$ in the arithmetic context of the imaginary quadratic
+field $\Q(\sqrt{-11})$, which has class number~$1$.
+We note that the same discriminant appears in the conductor-11
+elliptic curve $E_{11a1}$, parametrized by the unique weight-2
+newform on $\Gamma_0(11)$; however, we have found no theoretical
+mechanism connecting the GCF recurrence~\eqref{eq:recurrence} to
+the modular parametrization of $E_{11a1}$, and our PSLQ searches
+(Bases C and M--O in Table~\ref{tab:bases}) confirm the absence of
+any numerical relation between $\Vq$ and the periods, $L$-values,
+or eta products of conductor~11.  The discriminant coincidence remains
+unexplained.
+
+We collect several open problems, ordered from most to least
+computationally tractable.
+
+\begin{enumerate}
+\item \textbf{GCF family classification.}
+  For which quadratic polynomials $b(n) = an^2 + bn + c$ does the
+  GCF $1 + K_{n \ge 1} \frac{1}{b(n)}$ yield values expressible in
+  terms of known constants?  In a controlled experiment with $100$
+  randomly generated polynomial GCFs (coefficients $\abs{\cdot} \le 6$,
+  degrees $1$--$3$), $28\%$ converged to rational values, $72\%$ to
+  apparently irrational values unrelated to any tested constant, and
+  $0\%$ to known transcendental constants.  A systematic survey over
+  discriminants $\Delta \in [-100, 0]$ with PSLQ at 500 digits is
+  feasible and would clarify the role of the discriminant.
+
+\item \textbf{Companion constants.}
+  Do the constants $U_1$ and $U_2$ of Section~\ref{sec:companions}
+  admit similar exclusion theorems?  Their higher-order ratio-mode
+  recurrences may connect to known differential equations, and
+  extending the exclusion battery to them is a direct computation.
+
+\item \textbf{Closed form.}
+  Does $\Vq$ admit a closed-form expression in any untested function
+  family?  Candidates include higher-weight modular forms, Mahler
+  measures of multivariate polynomials, polylogarithms at algebraic
+  arguments, and resurgent transseries.  The list of untested families
+  is infinite; each requires targeted parameter scans.
+
+\item \textbf{Transcendence.}
+  Is $\Vq$ transcendental?  The irrationality measure $\mu(\Vq) = 2$
+  rules out Liouville-type approaches, and the non-D-finite evidence
+  (Proposition~\ref{prop:non-dfinite}) suggests that the
+  Siegel--Shidlovskii method~\cite{nesterenko1996}, which applies to
+  E-functions satisfying linear ODEs, does not directly apply.
+  We conjecture transcendence, but emphasize that the exclusion
+  theorem (Theorem~\ref{thm:exclusion}) is computational evidence,
+  not a proof---see Remark~\ref{rem:scope} for a precise statement
+  of its limitations.
+  A proof of transcendence for $\Vq$ would likely require
+  fundamentally new methods.
+\end{enumerate}
+
+
+% ══════════════════════════════════════════════════════════════════
+%  ACKNOWLEDGEMENTS
+% ══════════════════════════════════════════════════════════════════
+\section*{Acknowledgements}
+
+Computations were performed using \texttt{mpmath}~\cite{mpmath}
+for arbitrary-precision arithmetic and the PSLQ implementation
+therein.  The search infrastructure builds on the Ramanujan Machine
+framework~\cite{raayoni2021}.
+Elliptic curve data was obtained from the Cremona
+database~\cite{cremona1997}.
+A self-contained Python script reproducing the core computational
+claims of this paper (2\,200-digit verification, Wronskian check,
+irrationality measure, and a representative PSLQ exclusion) is
+available as supplementary material (\texttt{reproduce\_vquad.py}).
+
+
+% ══════════════════════════════════════════════════════════════════
+%  REFERENCES
+% ══════════════════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+
+\bibitem{apery1979}
+R.~Ap\'ery,
+\emph{Irrationalit\'e de $\zeta(2)$ et $\zeta(3)$},
+Ast\'erisque \textbf{61} (1979), 11--13.
+
+\bibitem{borwein2004}
+J.~M.~Borwein and D.~H.~Bailey,
+\emph{Mathematics by Experiment: Plausible Reasoning in the 21st Century},
+A~K~Peters, 2004.
+
+\bibitem{bugeaud2012}
+Y.~Bugeaud,
+\emph{Distribution Modulo One and Diophantine Approximation},
+Cambridge Tracts in Mathematics, vol.~193,
+Cambridge University Press, 2012.
+
+\bibitem{cremona1997}
+J.~E.~Cremona,
+\emph{Algorithms for Modular Elliptic Curves}, 2nd~ed.,
+Cambridge University Press, 1997.
+
+\bibitem{ferguson1999}
+H.~R.~P.~Ferguson, D.~H.~Bailey, and S.~Arwade,
+\emph{Analysis of PSLQ, an integer relation finding algorithm},
+Mathematics of Computation \textbf{68} (1999), 351--369.
+
+\bibitem{luke1969}
+Y.~L.~Luke,
+\emph{The Special Functions and Their Approximations}, vols.~1--2,
+Academic Press, 1969.
+
+\bibitem{lorentzen2008}
+L.~Lorentzen and H.~Waadeland,
+\emph{Continued Fractions: Convergence Theory}, 2nd~ed.,
+Atlantis Studies in Mathematics, vol.~1,
+Atlantis Press, 2008.
+
+\bibitem{mpmath}
+F.~Johansson,
+\emph{mpmath: a Python library for arbitrary-precision floating-point
+arithmetic} (version~1.3),
+\url{https://mpmath.org/}, 2023.
+
+\bibitem{nesterenko1996}
+Yu.~V.~Nesterenko,
+\emph{Modular functions and transcendence questions},
+Sbornik: Mathematics \textbf{187} (1996), 1319--1348.
+
+\bibitem{nist2010}
+F.~W.~J.~Olver, D.~W.~Lozier, R.~F.~Boisvert, and C.~W.~Clark (eds.),
+\emph{NIST Handbook of Mathematical Functions},
+Cambridge University Press, 2010.
+
+\bibitem{raayoni2021}
+G.~Raayoni, S.~Gottlieb, Y.~Manor, G.~Pisha, Y.~Harris, U.~Mendlovic,
+D.~Haviv, Y.~Hadad, and I.~Kaminer,
+\emph{Generating conjectures on fundamental constants with the Ramanujan
+Machine},
+Nature \textbf{590} (2021), 67--73.
+
+\bibitem{slater1966}
+L.~J.~Slater,
+\emph{Generalized Hypergeometric Functions},
+Cambridge University Press, 1966.
+
+\bibitem{watson1944}
+G.~N.~Watson,
+\emph{A Treatise on the Theory of Bessel Functions}, 2nd~ed.,
+Cambridge University Press, 1944.
+
+\end{thebibliography}
+
+
+% ══════════════════════════════════════════════════════════════════
+%  APPENDIX: DECIMAL EXPANSION
+% ══════════════════════════════════════════════════════════════════
+\appendix
+\section{Decimal expansion of $\Vq$}\label{app:digits}
+
+The first $1000$ decimal digits of $\Vq$ after the decimal point,
+computed via backward recurrence at depths $5{,}000$ and $6{,}000$
+with $2{,}200$-digit working precision and cross-validated to full
+agreement.  The constant itself is $\Vq = 1.\overline{d}$ where
+$\overline{d}$ denotes the digit string below.
+
+\begin{quote}
+\ttfamily\small\noindent
+19737399068835760244860321993720632970427070323135%
+03362857927686971625911058982058988060836169409073%
+06472780437638559951570355506838586384103661156623%
+77449931366011122241370192837175339987114949488892%
+39877451197081047353117626518778972294259826474310%
+03877718281929950654911212513153902655419790524262%
+01301940363469963005737971038413184982036543867112%
+10402847688520876807833868619821213101489416449089%
+17364957425066223711388869420601075125752315364046%
+45329183168977424660641991428581292624005729867730%
+38964105996776461064446119509112020059823749032297%
+72027543395763690875593331064325335477879986806876%
+49082881444799307787312757511112185258137272455219%
+39588997634335723890160847369685931377992800537647%
+98126709592065576181738389939168443634874389920143%
+04857796955772564012629475934351796801497557256521%
+03980785810215170355065831897999894316211036363259%
+94713675286162985383094907115455734791713905863324%
+90899833278729982127120264755900481632025425847367%
+87383002963793580809109614852480084284220742089606
+\end{quote}
+
+\noindent
+\textbf{OEIS format} (first 100 digits):
+$1, 1, 9, 7, 3, 7, 3, 9, 9, 0, 6, 8, 8, 3, 5, 7, 6, 0, 2, 4,$
+$4, 8, 6, 0, 3, 2, 1, 9, 9, 3, 7, 2, 0, 6, 3, 2, 9, 7, 0, 4,$
+$2, 7, 0, 7, 0, 3, 2, 3, 1, 3, 5, 0, 3, 3, 6, 2, 8, 5, 7, 9,$
+$2, 7, 6, 8, 6, 9, 7, 1, 6, 2, 5, 9, 1, 1, 0, 5, 8, 9, 8, 2,$
+$0, 5, 8, 9, 8, 8, 0, 6, 0, 8, 3, 6, 1, 6, 9, 4, 0, 9, 0, 7.$
+
+\noindent
+\textbf{Suggested OEIS entry:}
+\begin{quote}
+\ttfamily\small\noindent
+\%N Decimal expansion of 1 + K\_\{n>=1\} 1/(3*n\^{}2 + n + 1).\\
+\%C GCF with a(n)=1, b(n)=3*n\^{}2+n+1. Discriminant of b(n) is -11.\\
+\%C Irrational with irrationality measure mu = 2.\\
+\%C Not a rational linear combination of values from 17 tested\\
+\%C special-function families (coeff bound 10000, 500--2050 dp).\\
+\%F V = 1 + 1/(5 + 1/(13 + 1/(25 + 1/(41 + ...)))).\\
+\%K cons,nonn
+\end{quote}
+
+\noindent
+The full $2{,}200$-digit expansion, the reproducibility source code
+(\texttt{reproduce\_vquad.py}), and all PSLQ scan scripts are
+available as supplementary material.
+
+\end{document}

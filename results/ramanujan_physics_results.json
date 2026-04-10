@@ -1,0 +1,2946 @@
+{
+  "meta": {
+    "engine": "Ramanujan-Physics Bridge v1.1",
+    "timestamp": "2026-03-22T22:08:50Z",
+    "elapsed_seconds": 0.03,
+    "rounds": 5,
+    "formula_count": 14,
+    "precision": 100,
+    "libraries": {
+      "mpmath": "1.3.0",
+      "python": "3.14.3"
+    },
+    "scoring_rubric": {
+      "base_score": 0.3,
+      "annotated_match_boost": "+0.4 when formula carries pre-annotated physics_connections matching the concept",
+      "domain_hint_boost": "+0.2 when formula's physics_hint domain matches concept domain",
+      "modular_property_boost": "+0.15 when formula has modular properties and concept involves modular forms",
+      "thresholds": {
+        "strong": ">= 0.7",
+        "medium": "0.4 -- 0.7",
+        "weak": "< 0.4"
+      },
+      "note": "Scores reflect structural-pattern matching, not causal evidence. A high score means the mathematical primitive maps well to the physics concept, not that a causal link is established."
+    },
+    "evidence_tiers": {
+      "well-established": "Proven theorems or experimentally confirmed results",
+      "strongly_suggestive": "Substantial evidence from multiple independent lines; not yet fully proven",
+      "mixed": "Some rigorous results combined with conjectural extensions",
+      "speculative": "Plausible structural analogies without direct proof",
+      "interpretive": "Well-motivated synthesis of established results into a narrative"
+    },
+    "corpus": "14 canonical Ramanujan-adjacent formulas x 24 physics concepts across 8 domains"
+  },
+  "statistics": {
+    "total_connections": 710,
+    "by_domain": {
+      "string_theory": 215,
+      "black_holes": 80,
+      "high_energy_physics": 25,
+      "stat_mech": 160,
+      "qft": 90,
+      "cosmology": 25,
+      "cft": 85,
+      "quantum_gravity": 30
+    },
+    "by_formula": {
+      "RAM-1914-PI": 45,
+      "CHUD-1988": 45,
+      "HR-1918-PARTITION": 45,
+      "RAM-PART-CONG": 70,
+      "RR-IDENTITY": 65,
+      "RAM-MOCK-THETA": 75,
+      "RAM-TAU-DELTA": 75,
+      "RAM-ZETA-REG": 30,
+      "JACOBI-THETA": 55,
+      "RADEMACHER-EXACT": 30,
+      "DEDEKIND-ETA": 40,
+      "EISENSTEIN-E": 50,
+      "GCF-ALGEBRAIC": 25,
+      "J-FUNCTION": 60
+    },
+    "by_strength": {
+      "strong": 355,
+      "medium": 74,
+      "weak": 281
+    },
+    "novel_count": 0,
+    "generation": 5
+  },
+  "round_logs": [
+    {
+      "round": 1,
+      "decompositions": 14,
+      "connections": 142,
+      "patterns": 6,
+      "cross_bridges": 323,
+      "missing_links": 11,
+      "proposals": 12,
+      "tested": 2,
+      "promoted": 0,
+      "time_sec": 0.01
+    },
+    {
+      "round": 2,
+      "decompositions": 14,
+      "connections": 0,
+      "patterns": 0,
+      "cross_bridges": 323,
+      "missing_links": 11,
+      "proposals": 0,
+      "tested": 0,
+      "promoted": 2,
+      "time_sec": 0.01
+    },
+    {
+      "round": 3,
+      "decompositions": 14,
+      "connections": 0,
+      "patterns": 0,
+      "cross_bridges": 323,
+      "missing_links": 11,
+      "proposals": 0,
+      "tested": 0,
+      "promoted": 0,
+      "time_sec": 0.01
+    },
+    {
+      "round": 4,
+      "decompositions": 14,
+      "connections": 0,
+      "patterns": 0,
+      "cross_bridges": 323,
+      "missing_links": 11,
+      "proposals": 0,
+      "tested": 0,
+      "promoted": 0,
+      "time_sec": 0.01
+    },
+    {
+      "round": 5,
+      "decompositions": 14,
+      "connections": 0,
+      "patterns": 0,
+      "cross_bridges": 323,
+      "missing_links": 11,
+      "proposals": 0,
+      "tested": 0,
+      "promoted": 0,
+      "time_sec": 0.01
+    }
+  ],
+  "decompositions": [
+    {
+      "formula_id": "RAM-1914-PI",
+      "family": "pi_series",
+      "components": [
+        {
+          "primitive": "factorial_ratio",
+          "role": "amplitude",
+          "physics_hint": "Counts 4-fold symmetric configurations -- lattice paths on Z^4",
+          "combinatorial_meaning": {
+            "top_factorial": "4n",
+            "bottom_factorial": "n^4",
+            "interpretation": "($4n)! / (n^4)! counts lattice paths in a 4D space",
+            "calabi_yau_connection": "4n -> K3; 6n -> CY 3-fold"
+          }
+        },
+        {
+          "primitive": "hypergeometric_sum",
+          "role": "structure",
+          "physics_hint": "Hypergeometric structure links to periods of elliptic curves",
+          "hypergeometric_type": {
+            "euler_integral": true,
+            "CY_type": "K3 surface",
+            "dimension": 2
+          }
+        },
+        {
+          "primitive": "exponential_decay",
+          "role": "convergence",
+          "physics_hint": "396^4 = 24591257856 -- related to class number of Q(sqrt(-163))",
+          "decay_analysis": {
+            "base": 396,
+            "significance": "396^4 = 24591257856; 99^2 = 9801; disc = -4*99 relates to Q(sqrt(-1))",
+            "heegner_connection": true
+          }
+        }
+      ],
+      "symmetries": [
+        {
+          "type": "modular",
+          "group": "Gamma_0(2)",
+          "weight": 1,
+          "physics": "Modular invariance = UV/IR duality in string theory"
+        }
+      ],
+      "hidden_constants": [
+        {
+          "type": "linear_coefficient_ratio",
+          "value": 23.925657298277425,
+          "near_integer": 24,
+          "deviation": -0.07434270172257484,
+          "significance": "b/a = 23.925657, near 24. In string theory, the integer part counts BPS states."
+        }
+      ],
+      "convergence_analysis": {
+        "rate": "exponential: ~8 digits/term",
+        "digits_per_term": 8.0,
+        "physics_interpretation": "8 digits/term: convergence rate = log(396^4) ~ 32/4. The base 396 encodes the arithmetic of Q(sqrt(-1))."
+      },
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "CHUD-1988",
+      "family": "pi_series",
+      "components": [
+        {
+          "primitive": "factorial_ratio",
+          "role": "amplitude",
+          "physics_hint": "6-fold symmetry -- hexagonal lattice counting",
+          "combinatorial_meaning": {
+            "top_factorial": "6n",
+            "bottom_factorial": "3n,n^3",
+            "interpretation": "($6n)! / (3n,n^3)! counts configurations in a higher-D space",
+            "calabi_yau_connection": "4n -> K3; 6n -> CY 3-fold"
+          }
+        },
+        {
+          "primitive": "hypergeometric_sum",
+          "role": "structure",
+          "physics_hint": "Higher hypergeometric: period of a rank-2 Calabi-Yau 3-fold",
+          "hypergeometric_type": {
+            "euler_integral": true,
+            "CY_type": "CY 3-fold",
+            "dimension": 3
+          }
+        },
+        {
+          "primitive": "exponential_decay",
+          "role": "convergence",
+          "physics_hint": "640320^3 + 744 = j(e^{pi*sqrt(163)}) -- Heegner number miracle",
+          "decay_analysis": {
+            "base": 640320,
+            "significance": "640320^3 + 744 = j(e^{pi*sqrt(163)}); disc = -163, class number 1",
+            "heegner_connection": true
+          }
+        }
+      ],
+      "symmetries": [],
+      "hidden_constants": [
+        {
+          "type": "linear_coefficient_ratio",
+          "value": 40.1091699911319,
+          "near_integer": 40,
+          "deviation": 0.10916999113189974,
+          "significance": "b/a = 40.109170, near 40. In string theory, the integer part counts BPS states."
+        }
+      ],
+      "convergence_analysis": {
+        "rate": "exponential: ~14.18 digits/term",
+        "digits_per_term": 14.18,
+        "physics_interpretation": "14 digits/term: each term adds information equal to exp(-14*ln(10)) ~ exp(-32.2) of the previous. This exponential convergence maps to the gap in the string spectrum."
+      },
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "HR-1918-PARTITION",
+      "family": "partition",
+      "components": [
+        {
+          "primitive": "exponential_decay",
+          "role": "growth",
+          "physics_hint": "Sub-exponential growth -- same functional form as black hole entropy S ~ sqrt(N)",
+          "decay_analysis": {
+            "base": 1,
+            "significance": ""
+          }
+        },
+        {
+          "primitive": "saddle_point",
+          "role": "technique",
+          "physics_hint": "Residue integration on a circle -- ancestor of all saddle-point methods in QFT"
+        },
+        {
+          "primitive": "bernoulli",
+          "role": "corrections",
+          "physics_hint": "Bernoulli numbers appear in the Rademacher-type corrections"
+        }
+      ],
+      "symmetries": [
+        {
+          "type": "modular",
+          "group": "SL(2,Z)",
+          "weight": -0.5,
+          "physics": "Modular invariance = UV/IR duality in string theory"
+        }
+      ],
+      "hidden_constants": [],
+      "convergence_analysis": {
+        "rate": "asymptotic: relative error O(1/sqrt(n))",
+        "digits_per_term": null,
+        "physics_interpretation": "Asymptotic series: the expansion is around a saddle point. In BH physics, this is the semi-classical expansion around the dominant geometry."
+      },
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "family": "partition",
+      "components": [
+        {
+          "primitive": "q_product",
+          "role": "generating_function",
+          "physics_hint": "1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+          "product_analysis": {
+            "power": -1,
+            "physical_meaning": "Partition generating function"
+          }
+        },
+        {
+          "primitive": "modular_weight",
+          "role": "modularity",
+          "physics_hint": "The congruences arise from Hecke eigenvalues of eta-quotients",
+          "modular_analysis": {
+            "weight": -0.5,
+            "level": "Gamma_0(N)",
+            "interpretation": "Weight -0.5 modular form at level Gamma_0(N)",
+            "physics": "Weight = spin of the dual field; Level = gauge group rank"
+          }
+        }
+      ],
+      "symmetries": [],
+      "hidden_constants": [],
+      "convergence_analysis": null,
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "family": "q_series",
+      "components": [
+        {
+          "primitive": "theta_function",
+          "role": "sum_side",
+          "physics_hint": "The q^{n^2} is a theta-function-like weighting"
+        },
+        {
+          "primitive": "q_product",
+          "role": "product_side",
+          "physics_hint": "Mod-5 product: five-fold symmetry, linked to the icosahedron",
+          "product_analysis": {
+            "power": 1,
+            "physical_meaning": "Single boson (eta function)"
+          }
+        },
+        {
+          "primitive": "continued_fraction",
+          "role": "cf_form",
+          "physics_hint": "R(q) = q^{1/5} * product_ratio -- the simplest self-iterating CF"
+        }
+      ],
+      "symmetries": [],
+      "hidden_constants": [],
+      "convergence_analysis": null,
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "family": "mock_theta",
+      "components": [
+        {
+          "primitive": "theta_function",
+          "role": "amplitude",
+          "physics_hint": "Theta-series numerator provides Gaussian suppression"
+        },
+        {
+          "primitive": "q_product",
+          "role": "denominator",
+          "physics_hint": "(-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+          "product_analysis": {
+            "power": 1,
+            "physical_meaning": "Single boson (eta function)"
+          }
+        },
+        {
+          "primitive": "mock_theta",
+          "role": "modularity",
+          "physics_hint": "The shadow is a unary theta function: completes to a harmonic Maass form",
+          "mock_analysis": {
+            "order": 3,
+            "shadow": "unary_theta",
+            "physics": "Order-3 mock theta has shadow = unary_theta. In BH physics, the shadow = wall-crossing contribution. The mock modular completion = exact quantum BH entropy."
+          }
+        }
+      ],
+      "symmetries": [
+        {
+          "type": "modular",
+          "group": "SL(2,Z)",
+          "weight": 0.5,
+          "physics": "Modular invariance = UV/IR duality in string theory"
+        },
+        {
+          "type": "mock_modular",
+          "shadow": "unary_theta_series",
+          "physics": "Quasi-modular: transforms with a correction term (shadow). In BH physics: the shadow encodes wall-crossing."
+        }
+      ],
+      "hidden_constants": [],
+      "convergence_analysis": null,
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "family": "modular_form",
+      "components": [
+        {
+          "primitive": "q_product",
+          "role": "product",
+          "physics_hint": "eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+          "product_analysis": {
+            "power": 24,
+            "physical_meaning": "Bosonic string (24 transverse modes, Delta cusp form)"
+          }
+        },
+        {
+          "primitive": "ramanujan_tau",
+          "role": "coefficients",
+          "physics_hint": "tau(n) are eigenvalues of ALL Hecke operators -- the simplest L-function"
+        },
+        {
+          "primitive": "modular_weight",
+          "role": "transformation",
+          "physics_hint": "Weight 12 is the lowest weight with a cusp form for full modular group",
+          "modular_analysis": {
+            "weight": 12,
+            "level": 1,
+            "interpretation": "Weight 12 modular form at level 1",
+            "physics": "Weight = spin of the dual field; Level = gauge group rank"
+          }
+        }
+      ],
+      "symmetries": [
+        {
+          "type": "modular",
+          "group": 1,
+          "weight": 12,
+          "physics": "Modular invariance = UV/IR duality in string theory"
+        },
+        {
+          "type": "Hecke_eigenform",
+          "significance": "Hecke eigenform = the L-function has an Euler product. In physics: the partition function factorises over primes (= local contributions)."
+        }
+      ],
+      "hidden_constants": [],
+      "convergence_analysis": {
+        "rate": "algebraic growth: |tau(n)| < n^{11/2+epsilon}",
+        "digits_per_term": null,
+        "physics_interpretation": ""
+      },
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "RAM-ZETA-REG",
+      "family": "zeta_regularisation",
+      "components": [
+        {
+          "primitive": "dirichlet_series",
+          "role": "analytic_continuation",
+          "physics_hint": "zeta(s) = sum n^{-s} analytically continued to s=-1 gives -B_2/2 = -1/12"
+        },
+        {
+          "primitive": "bernoulli",
+          "role": "mechanism",
+          "physics_hint": "zeta(-n) = -B_{n+1}/(n+1): Bernoulli numbers control all negative zeta values"
+        }
+      ],
+      "symmetries": [],
+      "hidden_constants": [],
+      "convergence_analysis": null,
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "family": "q_series",
+      "components": [
+        {
+          "primitive": "theta_function",
+          "role": "sum",
+          "physics_hint": "Sum over integer lattice Z -- the simplest theta series"
+        },
+        {
+          "primitive": "q_product",
+          "role": "product",
+          "physics_hint": "Jacobi triple product: bridges additive and multiplicative number theory",
+          "product_analysis": {
+            "power": 1,
+            "physical_meaning": "Single boson (eta function)"
+          }
+        }
+      ],
+      "symmetries": [
+        {
+          "type": "modular",
+          "group": "SL(2,Z)",
+          "weight": 0.5,
+          "physics": "Modular invariance = UV/IR duality in string theory"
+        }
+      ],
+      "hidden_constants": [],
+      "convergence_analysis": null,
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "RADEMACHER-EXACT",
+      "family": "partition",
+      "components": [
+        {
+          "primitive": "bessel_integral",
+          "role": "radial",
+          "physics_hint": "Modified Bessel I_{3/2}: radial wavefunction of a 3D particle"
+        },
+        {
+          "primitive": "rademacher_sum",
+          "role": "angular",
+          "physics_hint": "A_k(n) = sum of 24k-th roots of unity: arithmetic over Z/kZ"
+        },
+        {
+          "primitive": "saddle_point",
+          "role": "technique",
+          "physics_hint": "Rademacher's extension of Hardy-Ramanujan: exact residues at all cusps"
+        }
+      ],
+      "symmetries": [
+        {
+          "type": "modular",
+          "group": 1,
+          "weight": -0.5,
+          "physics": "Modular invariance = UV/IR duality in string theory"
+        }
+      ],
+      "hidden_constants": [],
+      "convergence_analysis": null,
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "family": "modular_form",
+      "components": [
+        {
+          "primitive": "q_product",
+          "role": "definition",
+          "physics_hint": "The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+          "product_analysis": {
+            "power": 1,
+            "physical_meaning": "Single boson (eta function)"
+          }
+        }
+      ],
+      "symmetries": [
+        {
+          "type": "modular",
+          "group": 1,
+          "weight": 0.5,
+          "physics": "Modular invariance = UV/IR duality in string theory"
+        }
+      ],
+      "hidden_constants": [],
+      "convergence_analysis": null,
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "family": "modular_form",
+      "components": [
+        {
+          "primitive": "dirichlet_series",
+          "role": "coefficients",
+          "physics_hint": "Divisor sums sigma(n) count lattice points -- connected to Langlands L-functions"
+        },
+        {
+          "primitive": "bernoulli",
+          "role": "normalisation",
+          "physics_hint": "B_{2k} controls the constant term via zeta(2k)"
+        },
+        {
+          "primitive": "eisenstein_series",
+          "role": "structure",
+          "physics_hint": "The 'simplest' modular forms: not cusp forms"
+        }
+      ],
+      "symmetries": [
+        {
+          "type": "modular",
+          "group": 1,
+          "weight": "2k",
+          "physics": "Modular invariance = UV/IR duality in string theory"
+        },
+        {
+          "type": "Hecke_eigenform",
+          "significance": "Hecke eigenform = the L-function has an Euler product. In physics: the partition function factorises over primes (= local contributions)."
+        }
+      ],
+      "hidden_constants": [],
+      "convergence_analysis": null,
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "GCF-ALGEBRAIC",
+      "family": "continued_fraction",
+      "components": [
+        {
+          "primitive": "continued_fraction",
+          "role": "structure",
+          "physics_hint": "q-deformed continued fractions bridge analysis and algebra"
+        },
+        {
+          "primitive": "exponential_decay",
+          "role": "convergence",
+          "physics_hint": "Exponential convergence from q = e^{-2*pi}",
+          "decay_analysis": {
+            "base": "e",
+            "significance": ""
+          }
+        }
+      ],
+      "symmetries": [],
+      "hidden_constants": [],
+      "convergence_analysis": null,
+      "modular_analysis": null
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "family": "modular_form",
+      "components": [
+        {
+          "primitive": "eisenstein_series",
+          "role": "construction",
+          "physics_hint": "j = 1728*E_4^3 / Delta -- built from fundamental modular forms"
+        },
+        {
+          "primitive": "q_product",
+          "role": "denominator",
+          "physics_hint": "The pole at infinity comes from 1/Delta = eta^{-24}",
+          "product_analysis": {
+            "power": 1,
+            "physical_meaning": "Single boson (eta function)"
+          }
+        }
+      ],
+      "symmetries": [],
+      "hidden_constants": [],
+      "convergence_analysis": null,
+      "modular_analysis": null
+    }
+  ],
+  "connections": [
+    {
+      "formula_id": "RAM-1914-PI",
+      "component": "factorial_ratio",
+      "physics_concept": "ST-CY-PERIOD",
+      "strength": 0.95,
+      "mapping": "The factorial_ratio structure in Ramanujan 1914 series for 1/pi (amplitude) maps to Calabi-Yau periods and pi formulas: Counts 4-fold symmetric configurations -- lattice paths on Z^4",
+      "mechanism": "Counts 4-fold symmetric configurations -- lattice paths on Z^4",
+      "prediction": "The parameters in Ramanujan 1914 series for 1/pi should correspond to CY moduli",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-1914-PI",
+      "component": "factorial_ratio",
+      "physics_concept": "BH-MICROSTATE",
+      "strength": 0.3,
+      "mapping": "The factorial_ratio structure in Ramanujan 1914 series for 1/pi (amplitude) maps to Black hole microstate counting: Counts 4-fold symmetric configurations -- lattice paths on Z^4",
+      "mechanism": "Counts 4-fold symmetric configurations -- lattice paths on Z^4",
+      "prediction": "D-brane bound state counting should reproduce Ramanujan 1914 series for 1/pi coefficients",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-1914-PI",
+      "component": "factorial_ratio",
+      "physics_concept": "ST-DBRANE",
+      "strength": 0.95,
+      "mapping": "The factorial_ratio structure in Ramanujan 1914 series for 1/pi (amplitude) maps to D-brane partition function: Counts 4-fold symmetric configurations -- lattice paths on Z^4",
+      "mechanism": "Counts 4-fold symmetric configurations -- lattice paths on Z^4",
+      "prediction": "The mathematical structure of Ramanujan 1914 series for 1/pi should appear in D-brane partition function",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-1914-PI",
+      "component": "factorial_ratio",
+      "physics_concept": "HEP-AMPLITUDES",
+      "strength": 0.425,
+      "mapping": "The factorial_ratio structure in Ramanujan 1914 series for 1/pi (amplitude) maps to Scattering amplitudes and periods: Counts 4-fold symmetric configurations -- lattice paths on Z^4",
+      "mechanism": "Counts 4-fold symmetric configurations -- lattice paths on Z^4",
+      "prediction": "The mathematical structure of Ramanujan 1914 series for 1/pi should appear in Scattering amplitudes and periods",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-1914-PI",
+      "component": "hypergeometric_sum",
+      "physics_concept": "ST-CY-PERIOD",
+      "strength": 0.95,
+      "mapping": "The hypergeometric_sum structure in Ramanujan 1914 series for 1/pi (structure) maps to Calabi-Yau periods and pi formulas: Hypergeometric structure links to periods of elliptic curves",
+      "mechanism": "Hypergeometric structure links to periods of elliptic curves",
+      "prediction": "The parameters in Ramanujan 1914 series for 1/pi should correspond to CY moduli",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-1914-PI",
+      "component": "hypergeometric_sum",
+      "physics_concept": "HEP-AMPLITUDES",
+      "strength": 0.425,
+      "mapping": "The hypergeometric_sum structure in Ramanujan 1914 series for 1/pi (structure) maps to Scattering amplitudes and periods: Hypergeometric structure links to periods of elliptic curves",
+      "mechanism": "Hypergeometric structure links to periods of elliptic curves",
+      "prediction": "The mathematical structure of Ramanujan 1914 series for 1/pi should appear in Scattering amplitudes and periods",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-1914-PI",
+      "component": "exponential_decay",
+      "physics_concept": "BH-ENTROPY",
+      "strength": 0.6,
+      "mapping": "The exponential_decay structure in Ramanujan 1914 series for 1/pi (convergence) maps to Bekenstein-Hawking entropy: 396^4 = 24591257856 -- related to class number of Q(sqrt(-163))",
+      "mechanism": "396^4 = 24591257856 -- related to class number of Q(sqrt(-163))",
+      "prediction": "The asymptotic growth of Ramanujan 1914 series for 1/pi should match S_BH = pi*sqrt(2N/3)",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-1914-PI",
+      "component": "exponential_decay",
+      "physics_concept": "ST-CY-PERIOD",
+      "strength": 0.95,
+      "mapping": "The exponential_decay structure in Ramanujan 1914 series for 1/pi (convergence) maps to Calabi-Yau periods and pi formulas: 396^4 = 24591257856 -- related to class number of Q(sqrt(-163))",
+      "mechanism": "396^4 = 24591257856 -- related to class number of Q(sqrt(-163))",
+      "prediction": "The parameters in Ramanujan 1914 series for 1/pi should correspond to CY moduli",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-1914-PI",
+      "component": "exponential_decay",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.55,
+      "mapping": "The exponential_decay structure in Ramanujan 1914 series for 1/pi (convergence) maps to Bose-Einstein statistics and partitions: 396^4 = 24591257856 -- related to class number of Q(sqrt(-163))",
+      "mechanism": "396^4 = 24591257856 -- related to class number of Q(sqrt(-163))",
+      "prediction": "The mathematical structure of Ramanujan 1914 series for 1/pi should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "CHUD-1988",
+      "component": "factorial_ratio",
+      "physics_concept": "ST-CY-PERIOD",
+      "strength": 1.0,
+      "mapping": "The factorial_ratio structure in Chudnovsky brothers formula (amplitude) maps to Calabi-Yau periods and pi formulas: 6-fold symmetry -- hexagonal lattice counting",
+      "mechanism": "6-fold symmetry -- hexagonal lattice counting",
+      "prediction": "The parameters in Chudnovsky brothers formula should correspond to CY moduli",
+      "generation": 0
+    },
+    {
+      "formula_id": "CHUD-1988",
+      "component": "factorial_ratio",
+      "physics_concept": "BH-MICROSTATE",
+      "strength": 0.3,
+      "mapping": "The factorial_ratio structure in Chudnovsky brothers formula (amplitude) maps to Black hole microstate counting: 6-fold symmetry -- hexagonal lattice counting",
+      "mechanism": "6-fold symmetry -- hexagonal lattice counting",
+      "prediction": "D-brane bound state counting should reproduce Chudnovsky brothers formula coefficients",
+      "generation": 0
+    },
+    {
+      "formula_id": "CHUD-1988",
+      "component": "factorial_ratio",
+      "physics_concept": "ST-DBRANE",
+      "strength": 0.95,
+      "mapping": "The factorial_ratio structure in Chudnovsky brothers formula (amplitude) maps to D-brane partition function: 6-fold symmetry -- hexagonal lattice counting",
+      "mechanism": "6-fold symmetry -- hexagonal lattice counting",
+      "prediction": "The mathematical structure of Chudnovsky brothers formula should appear in D-brane partition function",
+      "generation": 0
+    },
+    {
+      "formula_id": "CHUD-1988",
+      "component": "factorial_ratio",
+      "physics_concept": "HEP-AMPLITUDES",
+      "strength": 0.425,
+      "mapping": "The factorial_ratio structure in Chudnovsky brothers formula (amplitude) maps to Scattering amplitudes and periods: 6-fold symmetry -- hexagonal lattice counting",
+      "mechanism": "6-fold symmetry -- hexagonal lattice counting",
+      "prediction": "The mathematical structure of Chudnovsky brothers formula should appear in Scattering amplitudes and periods",
+      "generation": 0
+    },
+    {
+      "formula_id": "CHUD-1988",
+      "component": "hypergeometric_sum",
+      "physics_concept": "ST-CY-PERIOD",
+      "strength": 1.0,
+      "mapping": "The hypergeometric_sum structure in Chudnovsky brothers formula (structure) maps to Calabi-Yau periods and pi formulas: Higher hypergeometric: period of a rank-2 Calabi-Yau 3-fold",
+      "mechanism": "Higher hypergeometric: period of a rank-2 Calabi-Yau 3-fold",
+      "prediction": "The parameters in Chudnovsky brothers formula should correspond to CY moduli",
+      "generation": 0
+    },
+    {
+      "formula_id": "CHUD-1988",
+      "component": "hypergeometric_sum",
+      "physics_concept": "HEP-AMPLITUDES",
+      "strength": 0.425,
+      "mapping": "The hypergeometric_sum structure in Chudnovsky brothers formula (structure) maps to Scattering amplitudes and periods: Higher hypergeometric: period of a rank-2 Calabi-Yau 3-fold",
+      "mechanism": "Higher hypergeometric: period of a rank-2 Calabi-Yau 3-fold",
+      "prediction": "The mathematical structure of Chudnovsky brothers formula should appear in Scattering amplitudes and periods",
+      "generation": 0
+    },
+    {
+      "formula_id": "CHUD-1988",
+      "component": "exponential_decay",
+      "physics_concept": "BH-ENTROPY",
+      "strength": 0.6,
+      "mapping": "The exponential_decay structure in Chudnovsky brothers formula (convergence) maps to Bekenstein-Hawking entropy: 640320^3 + 744 = j(e^{pi*sqrt(163)}) -- Heegner number miracle",
+      "mechanism": "640320^3 + 744 = j(e^{pi*sqrt(163)}) -- Heegner number miracle",
+      "prediction": "The asymptotic growth of Chudnovsky brothers formula should match S_BH = pi*sqrt(2N/3)",
+      "generation": 0
+    },
+    {
+      "formula_id": "CHUD-1988",
+      "component": "exponential_decay",
+      "physics_concept": "ST-CY-PERIOD",
+      "strength": 1.0,
+      "mapping": "The exponential_decay structure in Chudnovsky brothers formula (convergence) maps to Calabi-Yau periods and pi formulas: 640320^3 + 744 = j(e^{pi*sqrt(163)}) -- Heegner number miracle",
+      "mechanism": "640320^3 + 744 = j(e^{pi*sqrt(163)}) -- Heegner number miracle",
+      "prediction": "The parameters in Chudnovsky brothers formula should correspond to CY moduli",
+      "generation": 0
+    },
+    {
+      "formula_id": "CHUD-1988",
+      "component": "exponential_decay",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.55,
+      "mapping": "The exponential_decay structure in Chudnovsky brothers formula (convergence) maps to Bose-Einstein statistics and partitions: 640320^3 + 744 = j(e^{pi*sqrt(163)}) -- Heegner number miracle",
+      "mechanism": "640320^3 + 744 = j(e^{pi*sqrt(163)}) -- Heegner number miracle",
+      "prediction": "The mathematical structure of Chudnovsky brothers formula should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "HR-1918-PARTITION",
+      "component": "exponential_decay",
+      "physics_concept": "BH-ENTROPY",
+      "strength": 1.0,
+      "mapping": "The exponential_decay structure in Hardy-Ramanujan partition asymptotic (growth) maps to Bekenstein-Hawking entropy: Sub-exponential growth -- same functional form as black hole entropy S ~ sqrt(N)",
+      "mechanism": "Sub-exponential growth -- same functional form as black hole entropy S ~ sqrt(N)",
+      "prediction": "The asymptotic growth of Hardy-Ramanujan partition asymptotic should match S_BH = pi*sqrt(2N/3)",
+      "generation": 0
+    },
+    {
+      "formula_id": "HR-1918-PARTITION",
+      "component": "exponential_decay",
+      "physics_concept": "ST-CY-PERIOD",
+      "strength": 0.96,
+      "mapping": "The exponential_decay structure in Hardy-Ramanujan partition asymptotic (growth) maps to Calabi-Yau periods and pi formulas: Sub-exponential growth -- same functional form as black hole entropy S ~ sqrt(N)",
+      "mechanism": "Sub-exponential growth -- same functional form as black hole entropy S ~ sqrt(N)",
+      "prediction": "The parameters in Hardy-Ramanujan partition asymptotic should correspond to CY moduli",
+      "generation": 0
+    },
+    {
+      "formula_id": "HR-1918-PARTITION",
+      "component": "exponential_decay",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.95,
+      "mapping": "The exponential_decay structure in Hardy-Ramanujan partition asymptotic (growth) maps to Bose-Einstein statistics and partitions: Sub-exponential growth -- same functional form as black hole entropy S ~ sqrt(N)",
+      "mechanism": "Sub-exponential growth -- same functional form as black hole entropy S ~ sqrt(N)",
+      "prediction": "The mathematical structure of Hardy-Ramanujan partition asymptotic should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "HR-1918-PARTITION",
+      "component": "saddle_point",
+      "physics_concept": "BH-ENTROPY",
+      "strength": 1.0,
+      "mapping": "The saddle_point structure in Hardy-Ramanujan partition asymptotic (technique) maps to Bekenstein-Hawking entropy: Residue integration on a circle -- ancestor of all saddle-point methods in QFT",
+      "mechanism": "Residue integration on a circle -- ancestor of all saddle-point methods in QFT",
+      "prediction": "The asymptotic growth of Hardy-Ramanujan partition asymptotic should match S_BH = pi*sqrt(2N/3)",
+      "generation": 0
+    },
+    {
+      "formula_id": "HR-1918-PARTITION",
+      "component": "saddle_point",
+      "physics_concept": "BH-QUANTUM",
+      "strength": 0.96,
+      "mapping": "The saddle_point structure in Hardy-Ramanujan partition asymptotic (technique) maps to Quantum corrections to BH entropy: Residue integration on a circle -- ancestor of all saddle-point methods in QFT",
+      "mechanism": "Residue integration on a circle -- ancestor of all saddle-point methods in QFT",
+      "prediction": "Rademacher-type corrections to Hardy-Ramanujan partition asymptotic should match quantum BH entropy",
+      "generation": 0
+    },
+    {
+      "formula_id": "HR-1918-PARTITION",
+      "component": "bernoulli",
+      "physics_concept": "ST-DIMENSION",
+      "strength": 0.96,
+      "mapping": "The bernoulli structure in Hardy-Ramanujan partition asymptotic (corrections) maps to Critical dimension from zeta regularisation: Bernoulli numbers appear in the Rademacher-type corrections",
+      "mechanism": "Bernoulli numbers appear in the Rademacher-type corrections",
+      "prediction": "Regularisation of Hardy-Ramanujan partition asymptotic should give critical dimension constraint",
+      "generation": 0
+    },
+    {
+      "formula_id": "HR-1918-PARTITION",
+      "component": "bernoulli",
+      "physics_concept": "QFT-CASIMIR",
+      "strength": 0.375,
+      "mapping": "The bernoulli structure in Hardy-Ramanujan partition asymptotic (corrections) maps to Casimir effect: Bernoulli numbers appear in the Rademacher-type corrections",
+      "mechanism": "Bernoulli numbers appear in the Rademacher-type corrections",
+      "prediction": "The regularised value of Hardy-Ramanujan partition asymptotic should match Casimir energy measurement",
+      "generation": 0
+    },
+    {
+      "formula_id": "HR-1918-PARTITION",
+      "component": "bernoulli",
+      "physics_concept": "HEP-COSMO",
+      "strength": 0.375,
+      "mapping": "The bernoulli structure in Hardy-Ramanujan partition asymptotic (corrections) maps to Cosmological constant and vacuum energy: Bernoulli numbers appear in the Rademacher-type corrections",
+      "mechanism": "Bernoulli numbers appear in the Rademacher-type corrections",
+      "prediction": "The mathematical structure of Hardy-Ramanujan partition asymptotic should appear in Cosmological constant and vacuum energy",
+      "generation": 0
+    },
+    {
+      "formula_id": "HR-1918-PARTITION",
+      "component": "bernoulli",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 0.6,
+      "mapping": "The bernoulli structure in Hardy-Ramanujan partition asymptotic (corrections) maps to Central charge and conformal anomaly: Bernoulli numbers appear in the Rademacher-type corrections",
+      "mechanism": "Bernoulli numbers appear in the Rademacher-type corrections",
+      "prediction": "The mathematical structure of Hardy-Ramanujan partition asymptotic should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "q_product",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 0.95,
+      "mapping": "The q_product structure in Ramanujan partition congruences (generating_function) maps to String amplitude modular invariance: 1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "mechanism": "1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "prediction": "Modular integration of Ramanujan partition congruences should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "q_product",
+      "physics_concept": "ST-DBRANE",
+      "strength": 0.95,
+      "mapping": "The q_product structure in Ramanujan partition congruences (generating_function) maps to D-brane partition function: 1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "mechanism": "1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "prediction": "The mathematical structure of Ramanujan partition congruences should appear in D-brane partition function",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "q_product",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Ramanujan partition congruences (generating_function) maps to Bose-Einstein statistics and partitions: 1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "mechanism": "1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "prediction": "The mathematical structure of Ramanujan partition congruences should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "q_product",
+      "physics_concept": "SM-ISING",
+      "strength": 0.65,
+      "mapping": "The q_product structure in Ramanujan partition congruences (generating_function) maps to Ising model partition function: 1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "mechanism": "1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "prediction": "Critical behavior near q->1 in Ramanujan partition congruences should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "q_product",
+      "physics_concept": "SM-HEXAGON",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Ramanujan partition congruences (generating_function) maps to Hard hexagon model (exact solution): 1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "mechanism": "1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "prediction": "The Ramanujan partition congruences at specific q should give hard hexagon order parameter",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "q_product",
+      "physics_concept": "QFT-INSTANTON",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Ramanujan partition congruences (generating_function) maps to Instanton contributions (Nekrasov): 1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "mechanism": "1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "prediction": "The mathematical structure of Ramanujan partition congruences should appear in Instanton contributions (Nekrasov)",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "q_product",
+      "physics_concept": "QFT-VW",
+      "strength": 0.6,
+      "mapping": "The q_product structure in Ramanujan partition congruences (generating_function) maps to Vafa-Witten partition functions: 1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "mechanism": "1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "prediction": "The mathematical structure of Ramanujan partition congruences should appear in Vafa-Witten partition functions",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "q_product",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 0.65,
+      "mapping": "The q_product structure in Ramanujan partition congruences (generating_function) maps to Central charge and conformal anomaly: 1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "mechanism": "1/eta(tau) = sum p(n)q^n -- the Hecke operators create congruences",
+      "prediction": "The mathematical structure of Ramanujan partition congruences should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "modular_weight",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 0.95,
+      "mapping": "The modular_weight structure in Ramanujan partition congruences (modularity) maps to String amplitude modular invariance: The congruences arise from Hecke eigenvalues of eta-quotients",
+      "mechanism": "The congruences arise from Hecke eigenvalues of eta-quotients",
+      "prediction": "Modular integration of Ramanujan partition congruences should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "modular_weight",
+      "physics_concept": "BH-ENTROPY",
+      "strength": 0.95,
+      "mapping": "The modular_weight structure in Ramanujan partition congruences (modularity) maps to Bekenstein-Hawking entropy: The congruences arise from Hecke eigenvalues of eta-quotients",
+      "mechanism": "The congruences arise from Hecke eigenvalues of eta-quotients",
+      "prediction": "The asymptotic growth of Ramanujan partition congruences should match S_BH = pi*sqrt(2N/3)",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "modular_weight",
+      "physics_concept": "SM-ISING",
+      "strength": 0.65,
+      "mapping": "The modular_weight structure in Ramanujan partition congruences (modularity) maps to Ising model partition function: The congruences arise from Hecke eigenvalues of eta-quotients",
+      "mechanism": "The congruences arise from Hecke eigenvalues of eta-quotients",
+      "prediction": "Critical behavior near q->1 in Ramanujan partition congruences should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "modular_weight",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 0.65,
+      "mapping": "The modular_weight structure in Ramanujan partition congruences (modularity) maps to Central charge and conformal anomaly: The congruences arise from Hecke eigenvalues of eta-quotients",
+      "mechanism": "The congruences arise from Hecke eigenvalues of eta-quotients",
+      "prediction": "The mathematical structure of Ramanujan partition congruences should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "modular_weight",
+      "physics_concept": "QG-ADS3",
+      "strength": 0.575,
+      "mapping": "The modular_weight structure in Ramanujan partition congruences (modularity) maps to AdS_3 gravity and modular forms: The congruences arise from Hecke eigenvalues of eta-quotients",
+      "mechanism": "The congruences arise from Hecke eigenvalues of eta-quotients",
+      "prediction": "The mathematical structure of Ramanujan partition congruences should appear in AdS_3 gravity and modular forms",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "component": "modular_weight",
+      "physics_concept": "ST-S-DUALITY",
+      "strength": 0.9,
+      "mapping": "The modular_weight structure in Ramanujan partition congruences (modularity) maps to S-duality and Eisenstein series: The congruences arise from Hecke eigenvalues of eta-quotients",
+      "mechanism": "The congruences arise from Hecke eigenvalues of eta-quotients",
+      "prediction": "The mathematical structure of Ramanujan partition congruences should appear in S-duality and Eisenstein series",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "theta_function",
+      "physics_concept": "SM-ISING",
+      "strength": 1.0,
+      "mapping": "The theta_function structure in Rogers-Ramanujan identities (sum_side) maps to Ising model partition function: The q^{n^2} is a theta-function-like weighting",
+      "mechanism": "The q^{n^2} is a theta-function-like weighting",
+      "prediction": "Critical behavior near q->1 in Rogers-Ramanujan identities should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "theta_function",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 0.95,
+      "mapping": "The theta_function structure in Rogers-Ramanujan identities (sum_side) maps to String amplitude modular invariance: The q^{n^2} is a theta-function-like weighting",
+      "mechanism": "The q^{n^2} is a theta-function-like weighting",
+      "prediction": "Modular integration of Rogers-Ramanujan identities should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "theta_function",
+      "physics_concept": "CFT-VIRASORO",
+      "strength": 1.0,
+      "mapping": "The theta_function structure in Rogers-Ramanujan identities (sum_side) maps to Virasoro minimal model characters: The q^{n^2} is a theta-function-like weighting",
+      "mechanism": "The q^{n^2} is a theta-function-like weighting",
+      "prediction": "The mathematical structure of Rogers-Ramanujan identities should appear in Virasoro minimal model characters",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "q_product",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 0.95,
+      "mapping": "The q_product structure in Rogers-Ramanujan identities (product_side) maps to String amplitude modular invariance: Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "mechanism": "Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "prediction": "Modular integration of Rogers-Ramanujan identities should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "q_product",
+      "physics_concept": "ST-DBRANE",
+      "strength": 0.95,
+      "mapping": "The q_product structure in Rogers-Ramanujan identities (product_side) maps to D-brane partition function: Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "mechanism": "Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "prediction": "The mathematical structure of Rogers-Ramanujan identities should appear in D-brane partition function",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "q_product",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.98,
+      "mapping": "The q_product structure in Rogers-Ramanujan identities (product_side) maps to Bose-Einstein statistics and partitions: Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "mechanism": "Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "prediction": "The mathematical structure of Rogers-Ramanujan identities should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "q_product",
+      "physics_concept": "SM-ISING",
+      "strength": 1.0,
+      "mapping": "The q_product structure in Rogers-Ramanujan identities (product_side) maps to Ising model partition function: Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "mechanism": "Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "prediction": "Critical behavior near q->1 in Rogers-Ramanujan identities should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "q_product",
+      "physics_concept": "SM-HEXAGON",
+      "strength": 1.0,
+      "mapping": "The q_product structure in Rogers-Ramanujan identities (product_side) maps to Hard hexagon model (exact solution): Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "mechanism": "Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "prediction": "The Rogers-Ramanujan identities at specific q should give hard hexagon order parameter",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "q_product",
+      "physics_concept": "QFT-INSTANTON",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Rogers-Ramanujan identities (product_side) maps to Instanton contributions (Nekrasov): Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "mechanism": "Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "prediction": "The mathematical structure of Rogers-Ramanujan identities should appear in Instanton contributions (Nekrasov)",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "q_product",
+      "physics_concept": "QFT-VW",
+      "strength": 0.6,
+      "mapping": "The q_product structure in Rogers-Ramanujan identities (product_side) maps to Vafa-Witten partition functions: Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "mechanism": "Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "prediction": "The mathematical structure of Rogers-Ramanujan identities should appear in Vafa-Witten partition functions",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "q_product",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 1.0,
+      "mapping": "The q_product structure in Rogers-Ramanujan identities (product_side) maps to Central charge and conformal anomaly: Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "mechanism": "Mod-5 product: five-fold symmetry, linked to the icosahedron",
+      "prediction": "The mathematical structure of Rogers-Ramanujan identities should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "continued_fraction",
+      "physics_concept": "SM-HEXAGON",
+      "strength": 1.0,
+      "mapping": "The continued_fraction structure in Rogers-Ramanujan identities (cf_form) maps to Hard hexagon model (exact solution): R(q) = q^{1/5} * product_ratio -- the simplest self-iterating CF",
+      "mechanism": "R(q) = q^{1/5} * product_ratio -- the simplest self-iterating CF",
+      "prediction": "The Rogers-Ramanujan identities at specific q should give hard hexagon order parameter",
+      "generation": 0
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "component": "continued_fraction",
+      "physics_concept": "CFT-VIRASORO",
+      "strength": 1.0,
+      "mapping": "The continued_fraction structure in Rogers-Ramanujan identities (cf_form) maps to Virasoro minimal model characters: R(q) = q^{1/5} * product_ratio -- the simplest self-iterating CF",
+      "mechanism": "R(q) = q^{1/5} * product_ratio -- the simplest self-iterating CF",
+      "prediction": "The mathematical structure of Rogers-Ramanujan identities should appear in Virasoro minimal model characters",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "theta_function",
+      "physics_concept": "SM-ISING",
+      "strength": 0.65,
+      "mapping": "The theta_function structure in Ramanujan's mock theta functions (amplitude) maps to Ising model partition function: Theta-series numerator provides Gaussian suppression",
+      "mechanism": "Theta-series numerator provides Gaussian suppression",
+      "prediction": "Critical behavior near q->1 in Ramanujan's mock theta functions should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "theta_function",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 0.65,
+      "mapping": "The theta_function structure in Ramanujan's mock theta functions (amplitude) maps to String amplitude modular invariance: Theta-series numerator provides Gaussian suppression",
+      "mechanism": "Theta-series numerator provides Gaussian suppression",
+      "prediction": "Modular integration of Ramanujan's mock theta functions should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "theta_function",
+      "physics_concept": "CFT-VIRASORO",
+      "strength": 0.45,
+      "mapping": "The theta_function structure in Ramanujan's mock theta functions (amplitude) maps to Virasoro minimal model characters: Theta-series numerator provides Gaussian suppression",
+      "mechanism": "Theta-series numerator provides Gaussian suppression",
+      "prediction": "The mathematical structure of Ramanujan's mock theta functions should appear in Virasoro minimal model characters",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "q_product",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 0.65,
+      "mapping": "The q_product structure in Ramanujan's mock theta functions (denominator) maps to String amplitude modular invariance: (-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "mechanism": "(-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "prediction": "Modular integration of Ramanujan's mock theta functions should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "q_product",
+      "physics_concept": "ST-DBRANE",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Ramanujan's mock theta functions (denominator) maps to D-brane partition function: (-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "mechanism": "(-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "prediction": "The mathematical structure of Ramanujan's mock theta functions should appear in D-brane partition function",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "q_product",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Ramanujan's mock theta functions (denominator) maps to Bose-Einstein statistics and partitions: (-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "mechanism": "(-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "prediction": "The mathematical structure of Ramanujan's mock theta functions should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "q_product",
+      "physics_concept": "SM-ISING",
+      "strength": 0.65,
+      "mapping": "The q_product structure in Ramanujan's mock theta functions (denominator) maps to Ising model partition function: (-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "mechanism": "(-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "prediction": "Critical behavior near q->1 in Ramanujan's mock theta functions should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "q_product",
+      "physics_concept": "SM-HEXAGON",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Ramanujan's mock theta functions (denominator) maps to Hard hexagon model (exact solution): (-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "mechanism": "(-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "prediction": "The Ramanujan's mock theta functions at specific q should give hard hexagon order parameter",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "q_product",
+      "physics_concept": "QFT-INSTANTON",
+      "strength": 0.95,
+      "mapping": "The q_product structure in Ramanujan's mock theta functions (denominator) maps to Instanton contributions (Nekrasov): (-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "mechanism": "(-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "prediction": "The mathematical structure of Ramanujan's mock theta functions should appear in Instanton contributions (Nekrasov)",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "q_product",
+      "physics_concept": "QFT-VW",
+      "strength": 0.9500000000000001,
+      "mapping": "The q_product structure in Ramanujan's mock theta functions (denominator) maps to Vafa-Witten partition functions: (-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "mechanism": "(-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "prediction": "The mathematical structure of Ramanujan's mock theta functions should appear in Vafa-Witten partition functions",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "q_product",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 0.6,
+      "mapping": "The q_product structure in Ramanujan's mock theta functions (denominator) maps to Central charge and conformal anomaly: (-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "mechanism": "(-q;q)_n = prod(1+q^k) -- counts distinct-part partitions",
+      "prediction": "The mathematical structure of Ramanujan's mock theta functions should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "mock_theta",
+      "physics_concept": "BH-MOCK",
+      "strength": 0.95,
+      "mapping": "The mock_theta structure in Ramanujan's mock theta functions (modularity) maps to Mock modular forms and BH degeneracies: The shadow is a unary theta function: completes to a harmonic Maass form",
+      "mechanism": "The shadow is a unary theta function: completes to a harmonic Maass form",
+      "prediction": "Wall-crossing corrections to Ramanujan's mock theta functions should be captured by mock modular completion",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "mock_theta",
+      "physics_concept": "BH-QUANTUM",
+      "strength": 0.95,
+      "mapping": "The mock_theta structure in Ramanujan's mock theta functions (modularity) maps to Quantum corrections to BH entropy: The shadow is a unary theta function: completes to a harmonic Maass form",
+      "mechanism": "The shadow is a unary theta function: completes to a harmonic Maass form",
+      "prediction": "Rademacher-type corrections to Ramanujan's mock theta functions should match quantum BH entropy",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "mock_theta",
+      "physics_concept": "QFT-VW",
+      "strength": 0.9500000000000001,
+      "mapping": "The mock_theta structure in Ramanujan's mock theta functions (modularity) maps to Vafa-Witten partition functions: The shadow is a unary theta function: completes to a harmonic Maass form",
+      "mechanism": "The shadow is a unary theta function: completes to a harmonic Maass form",
+      "prediction": "The mathematical structure of Ramanujan's mock theta functions should appear in Vafa-Witten partition functions",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "component": "mock_theta",
+      "physics_concept": "QG-3MANIFOLD",
+      "strength": 0.75,
+      "mapping": "The mock_theta structure in Ramanujan's mock theta functions (modularity) maps to 3-manifold invariants and mock theta: The shadow is a unary theta function: completes to a harmonic Maass form",
+      "mechanism": "The shadow is a unary theta function: completes to a harmonic Maass form",
+      "prediction": "The mathematical structure of Ramanujan's mock theta functions should appear in 3-manifold invariants and mock theta",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "q_product",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 1.0,
+      "mapping": "The q_product structure in Ramanujan tau function (Delta modular form) (product) maps to String amplitude modular invariance: eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "mechanism": "eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "prediction": "Modular integration of Ramanujan tau function (Delta modular form) should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "q_product",
+      "physics_concept": "ST-DBRANE",
+      "strength": 0.98,
+      "mapping": "The q_product structure in Ramanujan tau function (Delta modular form) (product) maps to D-brane partition function: eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "mechanism": "eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "prediction": "The mathematical structure of Ramanujan tau function (Delta modular form) should appear in D-brane partition function",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "q_product",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Ramanujan tau function (Delta modular form) (product) maps to Bose-Einstein statistics and partitions: eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "mechanism": "eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "prediction": "The mathematical structure of Ramanujan tau function (Delta modular form) should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "q_product",
+      "physics_concept": "SM-ISING",
+      "strength": 0.65,
+      "mapping": "The q_product structure in Ramanujan tau function (Delta modular form) (product) maps to Ising model partition function: eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "mechanism": "eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "prediction": "Critical behavior near q->1 in Ramanujan tau function (Delta modular form) should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "q_product",
+      "physics_concept": "SM-HEXAGON",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Ramanujan tau function (Delta modular form) (product) maps to Hard hexagon model (exact solution): eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "mechanism": "eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "prediction": "The Ramanujan tau function (Delta modular form) at specific q should give hard hexagon order parameter",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "q_product",
+      "physics_concept": "QFT-INSTANTON",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Ramanujan tau function (Delta modular form) (product) maps to Instanton contributions (Nekrasov): eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "mechanism": "eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "prediction": "The mathematical structure of Ramanujan tau function (Delta modular form) should appear in Instanton contributions (Nekrasov)",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "q_product",
+      "physics_concept": "QFT-VW",
+      "strength": 0.6,
+      "mapping": "The q_product structure in Ramanujan tau function (Delta modular form) (product) maps to Vafa-Witten partition functions: eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "mechanism": "eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "prediction": "The mathematical structure of Ramanujan tau function (Delta modular form) should appear in Vafa-Witten partition functions",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "q_product",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 0.65,
+      "mapping": "The q_product structure in Ramanujan tau function (Delta modular form) (product) maps to Central charge and conformal anomaly: eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "mechanism": "eta(tau)^24 = Delta: the 24 comes from the Leech lattice dimension",
+      "prediction": "The mathematical structure of Ramanujan tau function (Delta modular form) should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "ramanujan_tau",
+      "physics_concept": "ST-MOONSHINE",
+      "strength": 0.98,
+      "mapping": "The ramanujan_tau structure in Ramanujan tau function (Delta modular form) (coefficients) maps to Monstrous moonshine: tau(n) are eigenvalues of ALL Hecke operators -- the simplest L-function",
+      "mechanism": "tau(n) are eigenvalues of ALL Hecke operators -- the simplest L-function",
+      "prediction": "Coefficients of Ramanujan tau function (Delta modular form) should decompose into Monster group representations",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "modular_weight",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 1.0,
+      "mapping": "The modular_weight structure in Ramanujan tau function (Delta modular form) (transformation) maps to String amplitude modular invariance: Weight 12 is the lowest weight with a cusp form for full modular group",
+      "mechanism": "Weight 12 is the lowest weight with a cusp form for full modular group",
+      "prediction": "Modular integration of Ramanujan tau function (Delta modular form) should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "modular_weight",
+      "physics_concept": "BH-ENTROPY",
+      "strength": 0.6,
+      "mapping": "The modular_weight structure in Ramanujan tau function (Delta modular form) (transformation) maps to Bekenstein-Hawking entropy: Weight 12 is the lowest weight with a cusp form for full modular group",
+      "mechanism": "Weight 12 is the lowest weight with a cusp form for full modular group",
+      "prediction": "The asymptotic growth of Ramanujan tau function (Delta modular form) should match S_BH = pi*sqrt(2N/3)",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "modular_weight",
+      "physics_concept": "SM-ISING",
+      "strength": 0.65,
+      "mapping": "The modular_weight structure in Ramanujan tau function (Delta modular form) (transformation) maps to Ising model partition function: Weight 12 is the lowest weight with a cusp form for full modular group",
+      "mechanism": "Weight 12 is the lowest weight with a cusp form for full modular group",
+      "prediction": "Critical behavior near q->1 in Ramanujan tau function (Delta modular form) should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "modular_weight",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 0.65,
+      "mapping": "The modular_weight structure in Ramanujan tau function (Delta modular form) (transformation) maps to Central charge and conformal anomaly: Weight 12 is the lowest weight with a cusp form for full modular group",
+      "mechanism": "Weight 12 is the lowest weight with a cusp form for full modular group",
+      "prediction": "The mathematical structure of Ramanujan tau function (Delta modular form) should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "modular_weight",
+      "physics_concept": "QG-ADS3",
+      "strength": 0.575,
+      "mapping": "The modular_weight structure in Ramanujan tau function (Delta modular form) (transformation) maps to AdS_3 gravity and modular forms: Weight 12 is the lowest weight with a cusp form for full modular group",
+      "mechanism": "Weight 12 is the lowest weight with a cusp form for full modular group",
+      "prediction": "The mathematical structure of Ramanujan tau function (Delta modular form) should appear in AdS_3 gravity and modular forms",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "component": "modular_weight",
+      "physics_concept": "ST-S-DUALITY",
+      "strength": 1.0,
+      "mapping": "The modular_weight structure in Ramanujan tau function (Delta modular form) (transformation) maps to S-duality and Eisenstein series: Weight 12 is the lowest weight with a cusp form for full modular group",
+      "mechanism": "Weight 12 is the lowest weight with a cusp form for full modular group",
+      "prediction": "The mathematical structure of Ramanujan tau function (Delta modular form) should appear in S-duality and Eisenstein series",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-ZETA-REG",
+      "component": "dirichlet_series",
+      "physics_concept": "ST-DIMENSION",
+      "strength": 1.0,
+      "mapping": "The dirichlet_series structure in Zeta regularisation (Euler 1749 / Ramanujan 1913) (analytic_continuation) maps to Critical dimension from zeta regularisation: zeta(s) = sum n^{-s} analytically continued to s=-1 gives -B_2/2 = -1/12",
+      "mechanism": "zeta(s) = sum n^{-s} analytically continued to s=-1 gives -B_2/2 = -1/12",
+      "prediction": "Regularisation of Zeta regularisation (Euler 1749 / Ramanujan 1913) should give critical dimension constraint",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-ZETA-REG",
+      "component": "dirichlet_series",
+      "physics_concept": "HEP-COSMO",
+      "strength": 0.425,
+      "mapping": "The dirichlet_series structure in Zeta regularisation (Euler 1749 / Ramanujan 1913) (analytic_continuation) maps to Cosmological constant and vacuum energy: zeta(s) = sum n^{-s} analytically continued to s=-1 gives -B_2/2 = -1/12",
+      "mechanism": "zeta(s) = sum n^{-s} analytically continued to s=-1 gives -B_2/2 = -1/12",
+      "prediction": "The mathematical structure of Zeta regularisation (Euler 1749 / Ramanujan 1913) should appear in Cosmological constant and vacuum energy",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-ZETA-REG",
+      "component": "bernoulli",
+      "physics_concept": "ST-DIMENSION",
+      "strength": 1.0,
+      "mapping": "The bernoulli structure in Zeta regularisation (Euler 1749 / Ramanujan 1913) (mechanism) maps to Critical dimension from zeta regularisation: zeta(-n) = -B_{n+1}/(n+1): Bernoulli numbers control all negative zeta values",
+      "mechanism": "zeta(-n) = -B_{n+1}/(n+1): Bernoulli numbers control all negative zeta values",
+      "prediction": "Regularisation of Zeta regularisation (Euler 1749 / Ramanujan 1913) should give critical dimension constraint",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-ZETA-REG",
+      "component": "bernoulli",
+      "physics_concept": "QFT-CASIMIR",
+      "strength": 0.98,
+      "mapping": "The bernoulli structure in Zeta regularisation (Euler 1749 / Ramanujan 1913) (mechanism) maps to Casimir effect: zeta(-n) = -B_{n+1}/(n+1): Bernoulli numbers control all negative zeta values",
+      "mechanism": "zeta(-n) = -B_{n+1}/(n+1): Bernoulli numbers control all negative zeta values",
+      "prediction": "The regularised value of Zeta regularisation (Euler 1749 / Ramanujan 1913) should match Casimir energy measurement",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-ZETA-REG",
+      "component": "bernoulli",
+      "physics_concept": "HEP-COSMO",
+      "strength": 0.425,
+      "mapping": "The bernoulli structure in Zeta regularisation (Euler 1749 / Ramanujan 1913) (mechanism) maps to Cosmological constant and vacuum energy: zeta(-n) = -B_{n+1}/(n+1): Bernoulli numbers control all negative zeta values",
+      "mechanism": "zeta(-n) = -B_{n+1}/(n+1): Bernoulli numbers control all negative zeta values",
+      "prediction": "The mathematical structure of Zeta regularisation (Euler 1749 / Ramanujan 1913) should appear in Cosmological constant and vacuum energy",
+      "generation": 0
+    },
+    {
+      "formula_id": "RAM-ZETA-REG",
+      "component": "bernoulli",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 0.6,
+      "mapping": "The bernoulli structure in Zeta regularisation (Euler 1749 / Ramanujan 1913) (mechanism) maps to Central charge and conformal anomaly: zeta(-n) = -B_{n+1}/(n+1): Bernoulli numbers control all negative zeta values",
+      "mechanism": "zeta(-n) = -B_{n+1}/(n+1): Bernoulli numbers control all negative zeta values",
+      "prediction": "The mathematical structure of Zeta regularisation (Euler 1749 / Ramanujan 1913) should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "theta_function",
+      "physics_concept": "SM-ISING",
+      "strength": 1.0,
+      "mapping": "The theta_function structure in Jacobi theta function and lattice counting (sum) maps to Ising model partition function: Sum over integer lattice Z -- the simplest theta series",
+      "mechanism": "Sum over integer lattice Z -- the simplest theta series",
+      "prediction": "Critical behavior near q->1 in Jacobi theta function and lattice counting should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "theta_function",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 1.0,
+      "mapping": "The theta_function structure in Jacobi theta function and lattice counting (sum) maps to String amplitude modular invariance: Sum over integer lattice Z -- the simplest theta series",
+      "mechanism": "Sum over integer lattice Z -- the simplest theta series",
+      "prediction": "Modular integration of Jacobi theta function and lattice counting should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "theta_function",
+      "physics_concept": "CFT-VIRASORO",
+      "strength": 0.95,
+      "mapping": "The theta_function structure in Jacobi theta function and lattice counting (sum) maps to Virasoro minimal model characters: Sum over integer lattice Z -- the simplest theta series",
+      "mechanism": "Sum over integer lattice Z -- the simplest theta series",
+      "prediction": "The mathematical structure of Jacobi theta function and lattice counting should appear in Virasoro minimal model characters",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "q_product",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 1.0,
+      "mapping": "The q_product structure in Jacobi theta function and lattice counting (product) maps to String amplitude modular invariance: Jacobi triple product: bridges additive and multiplicative number theory",
+      "mechanism": "Jacobi triple product: bridges additive and multiplicative number theory",
+      "prediction": "Modular integration of Jacobi theta function and lattice counting should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "q_product",
+      "physics_concept": "ST-DBRANE",
+      "strength": 0.95,
+      "mapping": "The q_product structure in Jacobi theta function and lattice counting (product) maps to D-brane partition function: Jacobi triple product: bridges additive and multiplicative number theory",
+      "mechanism": "Jacobi triple product: bridges additive and multiplicative number theory",
+      "prediction": "The mathematical structure of Jacobi theta function and lattice counting should appear in D-brane partition function",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "q_product",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.95,
+      "mapping": "The q_product structure in Jacobi theta function and lattice counting (product) maps to Bose-Einstein statistics and partitions: Jacobi triple product: bridges additive and multiplicative number theory",
+      "mechanism": "Jacobi triple product: bridges additive and multiplicative number theory",
+      "prediction": "The mathematical structure of Jacobi theta function and lattice counting should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "q_product",
+      "physics_concept": "SM-ISING",
+      "strength": 1.0,
+      "mapping": "The q_product structure in Jacobi theta function and lattice counting (product) maps to Ising model partition function: Jacobi triple product: bridges additive and multiplicative number theory",
+      "mechanism": "Jacobi triple product: bridges additive and multiplicative number theory",
+      "prediction": "Critical behavior near q->1 in Jacobi theta function and lattice counting should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "q_product",
+      "physics_concept": "SM-HEXAGON",
+      "strength": 0.95,
+      "mapping": "The q_product structure in Jacobi theta function and lattice counting (product) maps to Hard hexagon model (exact solution): Jacobi triple product: bridges additive and multiplicative number theory",
+      "mechanism": "Jacobi triple product: bridges additive and multiplicative number theory",
+      "prediction": "The Jacobi theta function and lattice counting at specific q should give hard hexagon order parameter",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "q_product",
+      "physics_concept": "QFT-INSTANTON",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Jacobi theta function and lattice counting (product) maps to Instanton contributions (Nekrasov): Jacobi triple product: bridges additive and multiplicative number theory",
+      "mechanism": "Jacobi triple product: bridges additive and multiplicative number theory",
+      "prediction": "The mathematical structure of Jacobi theta function and lattice counting should appear in Instanton contributions (Nekrasov)",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "q_product",
+      "physics_concept": "QFT-VW",
+      "strength": 0.6,
+      "mapping": "The q_product structure in Jacobi theta function and lattice counting (product) maps to Vafa-Witten partition functions: Jacobi triple product: bridges additive and multiplicative number theory",
+      "mechanism": "Jacobi triple product: bridges additive and multiplicative number theory",
+      "prediction": "The mathematical structure of Jacobi theta function and lattice counting should appear in Vafa-Witten partition functions",
+      "generation": 0
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "component": "q_product",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 1.0,
+      "mapping": "The q_product structure in Jacobi theta function and lattice counting (product) maps to Central charge and conformal anomaly: Jacobi triple product: bridges additive and multiplicative number theory",
+      "mechanism": "Jacobi triple product: bridges additive and multiplicative number theory",
+      "prediction": "The mathematical structure of Jacobi theta function and lattice counting should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "RADEMACHER-EXACT",
+      "component": "bessel_integral",
+      "physics_concept": "BH-QUANTUM",
+      "strength": 1.0,
+      "mapping": "The bessel_integral structure in Rademacher exact formula for partitions (radial) maps to Quantum corrections to BH entropy: Modified Bessel I_{3/2}: radial wavefunction of a 3D particle",
+      "mechanism": "Modified Bessel I_{3/2}: radial wavefunction of a 3D particle",
+      "prediction": "Rademacher-type corrections to Rademacher exact formula for partitions should match quantum BH entropy",
+      "generation": 0
+    },
+    {
+      "formula_id": "RADEMACHER-EXACT",
+      "component": "bessel_integral",
+      "physics_concept": "HEP-AMPLITUDES",
+      "strength": 0.375,
+      "mapping": "The bessel_integral structure in Rademacher exact formula for partitions (radial) maps to Scattering amplitudes and periods: Modified Bessel I_{3/2}: radial wavefunction of a 3D particle",
+      "mechanism": "Modified Bessel I_{3/2}: radial wavefunction of a 3D particle",
+      "prediction": "The mathematical structure of Rademacher exact formula for partitions should appear in Scattering amplitudes and periods",
+      "generation": 0
+    },
+    {
+      "formula_id": "RADEMACHER-EXACT",
+      "component": "rademacher_sum",
+      "physics_concept": "BH-QUANTUM",
+      "strength": 1.0,
+      "mapping": "The rademacher_sum structure in Rademacher exact formula for partitions (angular) maps to Quantum corrections to BH entropy: A_k(n) = sum of 24k-th roots of unity: arithmetic over Z/kZ",
+      "mechanism": "A_k(n) = sum of 24k-th roots of unity: arithmetic over Z/kZ",
+      "prediction": "Rademacher-type corrections to Rademacher exact formula for partitions should match quantum BH entropy",
+      "generation": 0
+    },
+    {
+      "formula_id": "RADEMACHER-EXACT",
+      "component": "rademacher_sum",
+      "physics_concept": "QG-ADS3",
+      "strength": 0.95,
+      "mapping": "The rademacher_sum structure in Rademacher exact formula for partitions (angular) maps to AdS_3 gravity and modular forms: A_k(n) = sum of 24k-th roots of unity: arithmetic over Z/kZ",
+      "mechanism": "A_k(n) = sum of 24k-th roots of unity: arithmetic over Z/kZ",
+      "prediction": "The mathematical structure of Rademacher exact formula for partitions should appear in AdS_3 gravity and modular forms",
+      "generation": 0
+    },
+    {
+      "formula_id": "RADEMACHER-EXACT",
+      "component": "saddle_point",
+      "physics_concept": "BH-ENTROPY",
+      "strength": 1.0,
+      "mapping": "The saddle_point structure in Rademacher exact formula for partitions (technique) maps to Bekenstein-Hawking entropy: Rademacher's extension of Hardy-Ramanujan: exact residues at all cusps",
+      "mechanism": "Rademacher's extension of Hardy-Ramanujan: exact residues at all cusps",
+      "prediction": "The asymptotic growth of Rademacher exact formula for partitions should match S_BH = pi*sqrt(2N/3)",
+      "generation": 0
+    },
+    {
+      "formula_id": "RADEMACHER-EXACT",
+      "component": "saddle_point",
+      "physics_concept": "BH-QUANTUM",
+      "strength": 1.0,
+      "mapping": "The saddle_point structure in Rademacher exact formula for partitions (technique) maps to Quantum corrections to BH entropy: Rademacher's extension of Hardy-Ramanujan: exact residues at all cusps",
+      "mechanism": "Rademacher's extension of Hardy-Ramanujan: exact residues at all cusps",
+      "prediction": "Rademacher-type corrections to Rademacher exact formula for partitions should match quantum BH entropy",
+      "generation": 0
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "component": "q_product",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 1.0,
+      "mapping": "The q_product structure in Dedekind eta function (definition) maps to String amplitude modular invariance: The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "mechanism": "The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "prediction": "Modular integration of Dedekind eta function should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "component": "q_product",
+      "physics_concept": "ST-DBRANE",
+      "strength": 0.98,
+      "mapping": "The q_product structure in Dedekind eta function (definition) maps to D-brane partition function: The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "mechanism": "The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "prediction": "The mathematical structure of Dedekind eta function should appear in D-brane partition function",
+      "generation": 0
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "component": "q_product",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Dedekind eta function (definition) maps to Bose-Einstein statistics and partitions: The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "mechanism": "The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "prediction": "The mathematical structure of Dedekind eta function should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "component": "q_product",
+      "physics_concept": "SM-ISING",
+      "strength": 0.6,
+      "mapping": "The q_product structure in Dedekind eta function (definition) maps to Ising model partition function: The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "mechanism": "The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "prediction": "Critical behavior near q->1 in Dedekind eta function should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "component": "q_product",
+      "physics_concept": "SM-HEXAGON",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Dedekind eta function (definition) maps to Hard hexagon model (exact solution): The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "mechanism": "The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "prediction": "The Dedekind eta function at specific q should give hard hexagon order parameter",
+      "generation": 0
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "component": "q_product",
+      "physics_concept": "QFT-INSTANTON",
+      "strength": 0.95,
+      "mapping": "The q_product structure in Dedekind eta function (definition) maps to Instanton contributions (Nekrasov): The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "mechanism": "The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "prediction": "The mathematical structure of Dedekind eta function should appear in Instanton contributions (Nekrasov)",
+      "generation": 0
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "component": "q_product",
+      "physics_concept": "QFT-VW",
+      "strength": 0.95,
+      "mapping": "The q_product structure in Dedekind eta function (definition) maps to Vafa-Witten partition functions: The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "mechanism": "The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "prediction": "The mathematical structure of Dedekind eta function should appear in Vafa-Witten partition functions",
+      "generation": 0
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "component": "q_product",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 1.0,
+      "mapping": "The q_product structure in Dedekind eta function (definition) maps to Central charge and conformal anomaly: The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "mechanism": "The 1/24 phase encodes the conformal anomaly c/24 of the free boson",
+      "prediction": "The mathematical structure of Dedekind eta function should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "dirichlet_series",
+      "physics_concept": "ST-DIMENSION",
+      "strength": 0.9500000000000001,
+      "mapping": "The dirichlet_series structure in Eisenstein series E_{2k}(tau) (coefficients) maps to Critical dimension from zeta regularisation: Divisor sums sigma(n) count lattice points -- connected to Langlands L-functions",
+      "mechanism": "Divisor sums sigma(n) count lattice points -- connected to Langlands L-functions",
+      "prediction": "Regularisation of Eisenstein series E_{2k}(tau) should give critical dimension constraint",
+      "generation": 0
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "dirichlet_series",
+      "physics_concept": "HEP-COSMO",
+      "strength": 0.425,
+      "mapping": "The dirichlet_series structure in Eisenstein series E_{2k}(tau) (coefficients) maps to Cosmological constant and vacuum energy: Divisor sums sigma(n) count lattice points -- connected to Langlands L-functions",
+      "mechanism": "Divisor sums sigma(n) count lattice points -- connected to Langlands L-functions",
+      "prediction": "The mathematical structure of Eisenstein series E_{2k}(tau) should appear in Cosmological constant and vacuum energy",
+      "generation": 0
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "bernoulli",
+      "physics_concept": "ST-DIMENSION",
+      "strength": 0.9500000000000001,
+      "mapping": "The bernoulli structure in Eisenstein series E_{2k}(tau) (normalisation) maps to Critical dimension from zeta regularisation: B_{2k} controls the constant term via zeta(2k)",
+      "mechanism": "B_{2k} controls the constant term via zeta(2k)",
+      "prediction": "Regularisation of Eisenstein series E_{2k}(tau) should give critical dimension constraint",
+      "generation": 0
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "bernoulli",
+      "physics_concept": "QFT-CASIMIR",
+      "strength": 0.375,
+      "mapping": "The bernoulli structure in Eisenstein series E_{2k}(tau) (normalisation) maps to Casimir effect: B_{2k} controls the constant term via zeta(2k)",
+      "mechanism": "B_{2k} controls the constant term via zeta(2k)",
+      "prediction": "The regularised value of Eisenstein series E_{2k}(tau) should match Casimir energy measurement",
+      "generation": 0
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "bernoulli",
+      "physics_concept": "HEP-COSMO",
+      "strength": 0.425,
+      "mapping": "The bernoulli structure in Eisenstein series E_{2k}(tau) (normalisation) maps to Cosmological constant and vacuum energy: B_{2k} controls the constant term via zeta(2k)",
+      "mechanism": "B_{2k} controls the constant term via zeta(2k)",
+      "prediction": "The mathematical structure of Eisenstein series E_{2k}(tau) should appear in Cosmological constant and vacuum energy",
+      "generation": 0
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "bernoulli",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 0.6,
+      "mapping": "The bernoulli structure in Eisenstein series E_{2k}(tau) (normalisation) maps to Central charge and conformal anomaly: B_{2k} controls the constant term via zeta(2k)",
+      "mechanism": "B_{2k} controls the constant term via zeta(2k)",
+      "prediction": "The mathematical structure of Eisenstein series E_{2k}(tau) should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "eisenstein_series",
+      "physics_concept": "ST-S-DUALITY",
+      "strength": 0.95,
+      "mapping": "The eisenstein_series structure in Eisenstein series E_{2k}(tau) (structure) maps to S-duality and Eisenstein series: The 'simplest' modular forms: not cusp forms",
+      "mechanism": "The 'simplest' modular forms: not cusp forms",
+      "prediction": "The mathematical structure of Eisenstein series E_{2k}(tau) should appear in S-duality and Eisenstein series",
+      "generation": 0
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "eisenstein_series",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 0.95,
+      "mapping": "The eisenstein_series structure in Eisenstein series E_{2k}(tau) (structure) maps to String amplitude modular invariance: The 'simplest' modular forms: not cusp forms",
+      "mechanism": "The 'simplest' modular forms: not cusp forms",
+      "prediction": "Modular integration of Eisenstein series E_{2k}(tau) should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "eisenstein_series",
+      "physics_concept": "ST-MOONSHINE",
+      "strength": 0.96,
+      "mapping": "The eisenstein_series structure in Eisenstein series E_{2k}(tau) (structure) maps to Monstrous moonshine: The 'simplest' modular forms: not cusp forms",
+      "mechanism": "The 'simplest' modular forms: not cusp forms",
+      "prediction": "Coefficients of Eisenstein series E_{2k}(tau) should decompose into Monster group representations",
+      "generation": 0
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "eisenstein_series",
+      "physics_concept": "QG-ADS3",
+      "strength": 0.575,
+      "mapping": "The eisenstein_series structure in Eisenstein series E_{2k}(tau) (structure) maps to AdS_3 gravity and modular forms: The 'simplest' modular forms: not cusp forms",
+      "mechanism": "The 'simplest' modular forms: not cusp forms",
+      "prediction": "The mathematical structure of Eisenstein series E_{2k}(tau) should appear in AdS_3 gravity and modular forms",
+      "generation": 0
+    },
+    {
+      "formula_id": "GCF-ALGEBRAIC",
+      "component": "continued_fraction",
+      "physics_concept": "SM-HEXAGON",
+      "strength": 0.95,
+      "mapping": "The continued_fraction structure in Ramanujan-type generalised continued fractions (structure) maps to Hard hexagon model (exact solution): q-deformed continued fractions bridge analysis and algebra",
+      "mechanism": "q-deformed continued fractions bridge analysis and algebra",
+      "prediction": "The Ramanujan-type generalised continued fractions at specific q should give hard hexagon order parameter",
+      "generation": 0
+    },
+    {
+      "formula_id": "GCF-ALGEBRAIC",
+      "component": "continued_fraction",
+      "physics_concept": "CFT-VIRASORO",
+      "strength": 0.45,
+      "mapping": "The continued_fraction structure in Ramanujan-type generalised continued fractions (structure) maps to Virasoro minimal model characters: q-deformed continued fractions bridge analysis and algebra",
+      "mechanism": "q-deformed continued fractions bridge analysis and algebra",
+      "prediction": "The mathematical structure of Ramanujan-type generalised continued fractions should appear in Virasoro minimal model characters",
+      "generation": 0
+    },
+    {
+      "formula_id": "GCF-ALGEBRAIC",
+      "component": "exponential_decay",
+      "physics_concept": "BH-ENTROPY",
+      "strength": 0.55,
+      "mapping": "The exponential_decay structure in Ramanujan-type generalised continued fractions (convergence) maps to Bekenstein-Hawking entropy: Exponential convergence from q = e^{-2*pi}",
+      "mechanism": "Exponential convergence from q = e^{-2*pi}",
+      "prediction": "The asymptotic growth of Ramanujan-type generalised continued fractions should match S_BH = pi*sqrt(2N/3)",
+      "generation": 0
+    },
+    {
+      "formula_id": "GCF-ALGEBRAIC",
+      "component": "exponential_decay",
+      "physics_concept": "ST-CY-PERIOD",
+      "strength": 0.45,
+      "mapping": "The exponential_decay structure in Ramanujan-type generalised continued fractions (convergence) maps to Calabi-Yau periods and pi formulas: Exponential convergence from q = e^{-2*pi}",
+      "mechanism": "Exponential convergence from q = e^{-2*pi}",
+      "prediction": "The parameters in Ramanujan-type generalised continued fractions should correspond to CY moduli",
+      "generation": 0
+    },
+    {
+      "formula_id": "GCF-ALGEBRAIC",
+      "component": "exponential_decay",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.95,
+      "mapping": "The exponential_decay structure in Ramanujan-type generalised continued fractions (convergence) maps to Bose-Einstein statistics and partitions: Exponential convergence from q = e^{-2*pi}",
+      "mechanism": "Exponential convergence from q = e^{-2*pi}",
+      "prediction": "The mathematical structure of Ramanujan-type generalised continued fractions should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "eisenstein_series",
+      "physics_concept": "ST-S-DUALITY",
+      "strength": 1.0,
+      "mapping": "The eisenstein_series structure in Klein j-invariant and Monstrous Moonshine (construction) maps to S-duality and Eisenstein series: j = 1728*E_4^3 / Delta -- built from fundamental modular forms",
+      "mechanism": "j = 1728*E_4^3 / Delta -- built from fundamental modular forms",
+      "prediction": "The mathematical structure of Klein j-invariant and Monstrous Moonshine should appear in S-duality and Eisenstein series",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "eisenstein_series",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 1.0,
+      "mapping": "The eisenstein_series structure in Klein j-invariant and Monstrous Moonshine (construction) maps to String amplitude modular invariance: j = 1728*E_4^3 / Delta -- built from fundamental modular forms",
+      "mechanism": "j = 1728*E_4^3 / Delta -- built from fundamental modular forms",
+      "prediction": "Modular integration of Klein j-invariant and Monstrous Moonshine should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "eisenstein_series",
+      "physics_concept": "ST-MOONSHINE",
+      "strength": 0.98,
+      "mapping": "The eisenstein_series structure in Klein j-invariant and Monstrous Moonshine (construction) maps to Monstrous moonshine: j = 1728*E_4^3 / Delta -- built from fundamental modular forms",
+      "mechanism": "j = 1728*E_4^3 / Delta -- built from fundamental modular forms",
+      "prediction": "Coefficients of Klein j-invariant and Monstrous Moonshine should decompose into Monster group representations",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "eisenstein_series",
+      "physics_concept": "QG-ADS3",
+      "strength": 0.985,
+      "mapping": "The eisenstein_series structure in Klein j-invariant and Monstrous Moonshine (construction) maps to AdS_3 gravity and modular forms: j = 1728*E_4^3 / Delta -- built from fundamental modular forms",
+      "mechanism": "j = 1728*E_4^3 / Delta -- built from fundamental modular forms",
+      "prediction": "The mathematical structure of Klein j-invariant and Monstrous Moonshine should appear in AdS_3 gravity and modular forms",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "q_product",
+      "physics_concept": "ST-AMPLITUDE",
+      "strength": 1.0,
+      "mapping": "The q_product structure in Klein j-invariant and Monstrous Moonshine (denominator) maps to String amplitude modular invariance: The pole at infinity comes from 1/Delta = eta^{-24}",
+      "mechanism": "The pole at infinity comes from 1/Delta = eta^{-24}",
+      "prediction": "Modular integration of Klein j-invariant and Monstrous Moonshine should give finite string amplitude",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "q_product",
+      "physics_concept": "ST-DBRANE",
+      "strength": 0.98,
+      "mapping": "The q_product structure in Klein j-invariant and Monstrous Moonshine (denominator) maps to D-brane partition function: The pole at infinity comes from 1/Delta = eta^{-24}",
+      "mechanism": "The pole at infinity comes from 1/Delta = eta^{-24}",
+      "prediction": "The mathematical structure of Klein j-invariant and Monstrous Moonshine should appear in D-brane partition function",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "q_product",
+      "physics_concept": "SM-BOSE",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Klein j-invariant and Monstrous Moonshine (denominator) maps to Bose-Einstein statistics and partitions: The pole at infinity comes from 1/Delta = eta^{-24}",
+      "mechanism": "The pole at infinity comes from 1/Delta = eta^{-24}",
+      "prediction": "The mathematical structure of Klein j-invariant and Monstrous Moonshine should appear in Bose-Einstein statistics and partitions",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "q_product",
+      "physics_concept": "SM-ISING",
+      "strength": 0.6,
+      "mapping": "The q_product structure in Klein j-invariant and Monstrous Moonshine (denominator) maps to Ising model partition function: The pole at infinity comes from 1/Delta = eta^{-24}",
+      "mechanism": "The pole at infinity comes from 1/Delta = eta^{-24}",
+      "prediction": "Critical behavior near q->1 in Klein j-invariant and Monstrous Moonshine should give Ising critical exponents",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "q_product",
+      "physics_concept": "SM-HEXAGON",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Klein j-invariant and Monstrous Moonshine (denominator) maps to Hard hexagon model (exact solution): The pole at infinity comes from 1/Delta = eta^{-24}",
+      "mechanism": "The pole at infinity comes from 1/Delta = eta^{-24}",
+      "prediction": "The Klein j-invariant and Monstrous Moonshine at specific q should give hard hexagon order parameter",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "q_product",
+      "physics_concept": "QFT-INSTANTON",
+      "strength": 0.55,
+      "mapping": "The q_product structure in Klein j-invariant and Monstrous Moonshine (denominator) maps to Instanton contributions (Nekrasov): The pole at infinity comes from 1/Delta = eta^{-24}",
+      "mechanism": "The pole at infinity comes from 1/Delta = eta^{-24}",
+      "prediction": "The mathematical structure of Klein j-invariant and Monstrous Moonshine should appear in Instanton contributions (Nekrasov)",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "q_product",
+      "physics_concept": "QFT-VW",
+      "strength": 0.6,
+      "mapping": "The q_product structure in Klein j-invariant and Monstrous Moonshine (denominator) maps to Vafa-Witten partition functions: The pole at infinity comes from 1/Delta = eta^{-24}",
+      "mechanism": "The pole at infinity comes from 1/Delta = eta^{-24}",
+      "prediction": "The mathematical structure of Klein j-invariant and Monstrous Moonshine should appear in Vafa-Witten partition functions",
+      "generation": 0
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "component": "q_product",
+      "physics_concept": "CFT-CENTRAL",
+      "strength": 0.6,
+      "mapping": "The q_product structure in Klein j-invariant and Monstrous Moonshine (denominator) maps to Central charge and conformal anomaly: The pole at infinity comes from 1/Delta = eta^{-24}",
+      "mechanism": "The pole at infinity comes from 1/Delta = eta^{-24}",
+      "prediction": "The mathematical structure of Klein j-invariant and Monstrous Moonshine should appear in Central charge and conformal anomaly",
+      "generation": 0
+    },
+    {
+      "formula_id": "RADEMACHER-EXACT",
+      "component": "rademacher_sum",
+      "physics_concept": "QG-3MANIFOLD",
+      "strength": 0.5,
+      "mapping": "Investigate whether Rademacher exact formula for partitions connects to 3-manifold invariants and mock theta via shared rademacher_sum",
+      "mechanism": "Promoted from missing link (overlap 0.50)",
+      "prediction": "Investigate: Investigate whether Rademacher exact formula for partitions connects to 3-manifold invariants and mock theta via shared rademacher_sum",
+      "generation": 1
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "component": "eisenstein_series",
+      "physics_concept": "QFT-INSTANTON",
+      "strength": 0.7,
+      "mapping": "Investigate whether Eisenstein series E_{2k}(tau) connects to Instanton contributions (Nekrasov) via shared eisenstein_series",
+      "mechanism": "Promoted from missing link (overlap 0.50)",
+      "prediction": "Investigate: Investigate whether Eisenstein series E_{2k}(tau) connects to Instanton contributions (Nekrasov) via shared eisenstein_series",
+      "generation": 1
+    }
+  ],
+  "patterns": [
+    {
+      "id": "SHARED-PRIMS-exponential_decay-factorial_ratio",
+      "name": "Shared exponential_decay, factorial_ratio, hypergeometric_sum structure",
+      "description": "Formulas RAM-1914-PI, CHUD-1988 share the same primitive decomposition: exponential_decay, factorial_ratio, hypergeometric_sum",
+      "formulas": [
+        "RAM-1914-PI",
+        "CHUD-1988"
+      ],
+      "confidence": 0.9,
+      "physics_implication": "Shared structure suggests a common deep origin"
+    },
+    {
+      "id": "PI-BASE-LADDER",
+      "name": "Pi-series convergence base ladder",
+      "description": "Bases: RAM-1914-PI: 396, CHUD-1988: 640320. These are values at CM points of the j-function. Each base = e^{pi*sqrt(d)} for a Heegner number d. The ladder of Heegner numbers d = 1,2,3,7,11,19,43,67,163 gives a finite family of Ramanujan-Chudnovsky formulas.",
+      "formulas": [
+        "RAM-1914-PI",
+        "CHUD-1988"
+      ],
+      "confidence": 0.9,
+      "physics_implication": "Each Heegner number d corresponds to a CM elliptic curve, which in string theory is a special point in the CY moduli space where extra symmetry (complex multiplication) emerges."
+    },
+    {
+      "id": "WEIGHT-SPECTRUM",
+      "name": "Modular weight spectrum",
+      "description": "Weights: RAM-1914-PI: 1, HR-1918-PARTITION: -0.5, RAM-MOCK-THETA: 0.5, RAM-TAU-DELTA: 12, JACOBI-THETA: 0.5, RADEMACHER-EXACT: -0.5, DEDEKIND-ETA: 0.5, EISENSTEIN-E: 2k, J-FUNCTION: 0. The weight determines the spin of the corresponding field in the AdS/CFT dual. Integer weights -> bosonic; half-integer -> fermionic.",
+      "formulas": [
+        "RAM-1914-PI",
+        "HR-1918-PARTITION",
+        "RAM-MOCK-THETA",
+        "RAM-TAU-DELTA",
+        "JACOBI-THETA",
+        "RADEMACHER-EXACT",
+        "DEDEKIND-ETA",
+        "EISENSTEIN-E",
+        "J-FUNCTION"
+      ],
+      "confidence": 0.85,
+      "physics_implication": "The weight-12 cusp form (Delta) corresponds to the graviton in 3D. Lighter weights give matter fields."
+    },
+    {
+      "id": "PARTITION-BH-BRIDGE",
+      "name": "Partition function -> Black hole entropy bridge",
+      "description": "The Hardy-Ramanujan formula p(n) ~ exp(pi*sqrt(2n/3))/(4n*sqrt(3)) IS the Bekenstein-Hawking entropy formula S = pi*sqrt(2N/3) where N is the D-brane charge. This is not an analogy -- it is the SAME formula. Strominger-Vafa (1996) proved that D-brane microstate counting gives partitions, and the leading asymptotics match BH entropy exactly.",
+      "formulas": [
+        "HR-1918-PARTITION",
+        "RAM-PART-CONG",
+        "RADEMACHER-EXACT"
+      ],
+      "confidence": 0.98,
+      "physics_implication": "Ramanujan's 1918 formula was the black hole entropy formula 78 years before Strominger-Vafa. The Rademacher exact formula gives ALL quantum corrections to BH entropy. Each term k in the Rademacher sum = a saddle-point geometry in AdS_3."
+    },
+    {
+      "id": "MOCK-BH-QUANTUM",
+      "name": "Mock theta functions -> Quantum black hole corrections",
+      "description": "Dabholkar-Murthy-Zagier (2012) showed that the EXACT entropy of 1/4-BPS black holes in N=4 string theory is given by a mock Jacobi form. Ramanujan's mock theta functions from 1920 encode the quantum corrections to black hole entropy that physicists only understood 90 years later. The 'shadow' of the mock modular form = wall-crossing contributions.",
+      "formulas": [
+        "HR-1918-PARTITION",
+        "RAM-PART-CONG",
+        "RADEMACHER-EXACT",
+        "RAM-MOCK-THETA"
+      ],
+      "confidence": 0.95,
+      "physics_implication": "Ramanujan's deathbed discovery (mock theta functions) solves a problem in quantum gravity. The non-modularity that puzzled mathematicians for 80 years is EXACTLY the wall-crossing phenomenon."
+    },
+    {
+      "id": "Q-PRODUCT-WEB",
+      "name": "Universal q-product web",
+      "description": "7 formulas contain q-product structure: RAM-PART-CONG, RR-IDENTITY, RAM-MOCK-THETA, RAM-TAU-DELTA, JACOBI-THETA, DEDEKIND-ETA, J-FUNCTION. The q-product (1-q^n) is the universal building block connecting partition functions (stat mech) to eta functions (string theory) to modular forms (number theory).",
+      "formulas": [
+        "RAM-PART-CONG",
+        "RR-IDENTITY",
+        "RAM-MOCK-THETA",
+        "RAM-TAU-DELTA",
+        "JACOBI-THETA",
+        "DEDEKIND-ETA",
+        "J-FUNCTION"
+      ],
+      "confidence": 0.95,
+      "physics_implication": "The Dedekind eta is the master object: eta^{-2} = bosons, eta^{-24} = bosonic string, eta^{24} = Delta = cusp form"
+    }
+  ],
+  "cross_formula_bridges": [
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "GCF-ALGEBRAIC",
+      "physics_bridge": "ST-CY-PERIOD",
+      "concept_name": "Calabi-Yau periods and pi formulas",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and GCF-ALGEBRAIC connect to Calabi-Yau periods and pi formulas via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "HR-1918-PARTITION",
+      "physics_bridge": "ST-CY-PERIOD",
+      "concept_name": "Calabi-Yau periods and pi formulas",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and HR-1918-PARTITION connect to Calabi-Yau periods and pi formulas via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "ST-CY-PERIOD",
+      "concept_name": "Calabi-Yau periods and pi formulas",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and RAM-1914-PI connect to Calabi-Yau periods and pi formulas via shared mathematical structure."
+    },
+    {
+      "formula_a": "GCF-ALGEBRAIC",
+      "formula_b": "HR-1918-PARTITION",
+      "physics_bridge": "ST-CY-PERIOD",
+      "concept_name": "Calabi-Yau periods and pi formulas",
+      "domain": "string_theory",
+      "description": "Both GCF-ALGEBRAIC and HR-1918-PARTITION connect to Calabi-Yau periods and pi formulas via shared mathematical structure."
+    },
+    {
+      "formula_a": "GCF-ALGEBRAIC",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "ST-CY-PERIOD",
+      "concept_name": "Calabi-Yau periods and pi formulas",
+      "domain": "string_theory",
+      "description": "Both GCF-ALGEBRAIC and RAM-1914-PI connect to Calabi-Yau periods and pi formulas via shared mathematical structure."
+    },
+    {
+      "formula_a": "HR-1918-PARTITION",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "ST-CY-PERIOD",
+      "concept_name": "Calabi-Yau periods and pi formulas",
+      "domain": "string_theory",
+      "description": "Both HR-1918-PARTITION and RAM-1914-PI connect to Calabi-Yau periods and pi formulas via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "BH-MICROSTATE",
+      "concept_name": "Black hole microstate counting",
+      "domain": "black_holes",
+      "description": "Both CHUD-1988 and RAM-1914-PI connect to Black hole microstate counting via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "DEDEKIND-ETA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and DEDEKIND-ETA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "J-FUNCTION",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and J-FUNCTION connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "JACOBI-THETA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and JACOBI-THETA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and RAM-1914-PI connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RAM-MOCK-THETA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and RAM-MOCK-THETA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RAM-PART-CONG",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and RAM-PART-CONG connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RAM-TAU-DELTA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and RAM-TAU-DELTA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RR-IDENTITY",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both CHUD-1988 and RR-IDENTITY connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "DEDEKIND-ETA",
+      "formula_b": "J-FUNCTION",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both DEDEKIND-ETA and J-FUNCTION connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "DEDEKIND-ETA",
+      "formula_b": "JACOBI-THETA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both DEDEKIND-ETA and JACOBI-THETA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "DEDEKIND-ETA",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both DEDEKIND-ETA and RAM-1914-PI connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "DEDEKIND-ETA",
+      "formula_b": "RAM-MOCK-THETA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both DEDEKIND-ETA and RAM-MOCK-THETA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "DEDEKIND-ETA",
+      "formula_b": "RAM-PART-CONG",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both DEDEKIND-ETA and RAM-PART-CONG connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "DEDEKIND-ETA",
+      "formula_b": "RAM-TAU-DELTA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both DEDEKIND-ETA and RAM-TAU-DELTA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "DEDEKIND-ETA",
+      "formula_b": "RR-IDENTITY",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both DEDEKIND-ETA and RR-IDENTITY connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "J-FUNCTION",
+      "formula_b": "JACOBI-THETA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both J-FUNCTION and JACOBI-THETA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "J-FUNCTION",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both J-FUNCTION and RAM-1914-PI connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "J-FUNCTION",
+      "formula_b": "RAM-MOCK-THETA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both J-FUNCTION and RAM-MOCK-THETA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "J-FUNCTION",
+      "formula_b": "RAM-PART-CONG",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both J-FUNCTION and RAM-PART-CONG connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "J-FUNCTION",
+      "formula_b": "RAM-TAU-DELTA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both J-FUNCTION and RAM-TAU-DELTA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "J-FUNCTION",
+      "formula_b": "RR-IDENTITY",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both J-FUNCTION and RR-IDENTITY connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "JACOBI-THETA",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both JACOBI-THETA and RAM-1914-PI connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "JACOBI-THETA",
+      "formula_b": "RAM-MOCK-THETA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both JACOBI-THETA and RAM-MOCK-THETA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "JACOBI-THETA",
+      "formula_b": "RAM-PART-CONG",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both JACOBI-THETA and RAM-PART-CONG connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "JACOBI-THETA",
+      "formula_b": "RAM-TAU-DELTA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both JACOBI-THETA and RAM-TAU-DELTA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "JACOBI-THETA",
+      "formula_b": "RR-IDENTITY",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both JACOBI-THETA and RR-IDENTITY connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "RAM-1914-PI",
+      "formula_b": "RAM-MOCK-THETA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both RAM-1914-PI and RAM-MOCK-THETA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "RAM-1914-PI",
+      "formula_b": "RAM-PART-CONG",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both RAM-1914-PI and RAM-PART-CONG connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "RAM-1914-PI",
+      "formula_b": "RAM-TAU-DELTA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both RAM-1914-PI and RAM-TAU-DELTA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "RAM-1914-PI",
+      "formula_b": "RR-IDENTITY",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both RAM-1914-PI and RR-IDENTITY connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "RAM-MOCK-THETA",
+      "formula_b": "RAM-PART-CONG",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both RAM-MOCK-THETA and RAM-PART-CONG connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "RAM-MOCK-THETA",
+      "formula_b": "RAM-TAU-DELTA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both RAM-MOCK-THETA and RAM-TAU-DELTA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "RAM-MOCK-THETA",
+      "formula_b": "RR-IDENTITY",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both RAM-MOCK-THETA and RR-IDENTITY connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "RAM-PART-CONG",
+      "formula_b": "RAM-TAU-DELTA",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both RAM-PART-CONG and RAM-TAU-DELTA connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "RAM-PART-CONG",
+      "formula_b": "RR-IDENTITY",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both RAM-PART-CONG and RR-IDENTITY connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "RAM-TAU-DELTA",
+      "formula_b": "RR-IDENTITY",
+      "physics_bridge": "ST-DBRANE",
+      "concept_name": "D-brane partition function",
+      "domain": "string_theory",
+      "description": "Both RAM-TAU-DELTA and RR-IDENTITY connect to D-brane partition function via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RADEMACHER-EXACT",
+      "physics_bridge": "HEP-AMPLITUDES",
+      "concept_name": "Scattering amplitudes and periods",
+      "domain": "high_energy_physics",
+      "description": "Both CHUD-1988 and RADEMACHER-EXACT connect to Scattering amplitudes and periods via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "HEP-AMPLITUDES",
+      "concept_name": "Scattering amplitudes and periods",
+      "domain": "high_energy_physics",
+      "description": "Both CHUD-1988 and RAM-1914-PI connect to Scattering amplitudes and periods via shared mathematical structure."
+    },
+    {
+      "formula_a": "RADEMACHER-EXACT",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "HEP-AMPLITUDES",
+      "concept_name": "Scattering amplitudes and periods",
+      "domain": "high_energy_physics",
+      "description": "Both RADEMACHER-EXACT and RAM-1914-PI connect to Scattering amplitudes and periods via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "GCF-ALGEBRAIC",
+      "physics_bridge": "BH-ENTROPY",
+      "concept_name": "Bekenstein-Hawking entropy",
+      "domain": "black_holes",
+      "description": "Both CHUD-1988 and GCF-ALGEBRAIC connect to Bekenstein-Hawking entropy via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "HR-1918-PARTITION",
+      "physics_bridge": "BH-ENTROPY",
+      "concept_name": "Bekenstein-Hawking entropy",
+      "domain": "black_holes",
+      "description": "Both CHUD-1988 and HR-1918-PARTITION connect to Bekenstein-Hawking entropy via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RADEMACHER-EXACT",
+      "physics_bridge": "BH-ENTROPY",
+      "concept_name": "Bekenstein-Hawking entropy",
+      "domain": "black_holes",
+      "description": "Both CHUD-1988 and RADEMACHER-EXACT connect to Bekenstein-Hawking entropy via shared mathematical structure."
+    },
+    {
+      "formula_a": "CHUD-1988",
+      "formula_b": "RAM-1914-PI",
+      "physics_bridge": "BH-ENTROPY",
+      "concept_name": "Bekenstein-Hawking entropy",
+      "domain": "black_holes",
+      "description": "Both CHUD-1988 and RAM-1914-PI connect to Bekenstein-Hawking entropy via shared mathematical structure."
+    }
+  ],
+  "missing_links": [
+    {
+      "formula_id": "RADEMACHER-EXACT",
+      "concept_id": "QG-3MANIFOLD",
+      "concept_name": "3-manifold invariants and mock theta",
+      "overlap_primitives": [
+        "rademacher_sum"
+      ],
+      "overlap_score": 0.5,
+      "suggestion": "Investigate whether Rademacher exact formula for partitions connects to 3-manifold invariants and mock theta via shared rademacher_sum"
+    },
+    {
+      "formula_id": "EISENSTEIN-E",
+      "concept_id": "QFT-INSTANTON",
+      "concept_name": "Instanton contributions (Nekrasov)",
+      "overlap_primitives": [
+        "eisenstein_series"
+      ],
+      "overlap_score": 0.5,
+      "suggestion": "Investigate whether Eisenstein series E_{2k}(tau) connects to Instanton contributions (Nekrasov) via shared eisenstein_series"
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "concept_id": "ST-MOONSHINE",
+      "concept_name": "Monstrous moonshine",
+      "overlap_primitives": [
+        "q_product"
+      ],
+      "overlap_score": 0.3333333333333333,
+      "suggestion": "Investigate whether Ramanujan partition congruences connects to Monstrous moonshine via shared q_product"
+    },
+    {
+      "formula_id": "RAM-PART-CONG",
+      "concept_id": "CFT-VIRASORO",
+      "concept_name": "Virasoro minimal model characters",
+      "overlap_primitives": [
+        "q_product"
+      ],
+      "overlap_score": 0.3333333333333333,
+      "suggestion": "Investigate whether Ramanujan partition congruences connects to Virasoro minimal model characters via shared q_product"
+    },
+    {
+      "formula_id": "RR-IDENTITY",
+      "concept_id": "ST-MOONSHINE",
+      "concept_name": "Monstrous moonshine",
+      "overlap_primitives": [
+        "q_product"
+      ],
+      "overlap_score": 0.3333333333333333,
+      "suggestion": "Investigate whether Rogers-Ramanujan identities connects to Monstrous moonshine via shared q_product"
+    },
+    {
+      "formula_id": "RAM-MOCK-THETA",
+      "concept_id": "ST-MOONSHINE",
+      "concept_name": "Monstrous moonshine",
+      "overlap_primitives": [
+        "q_product"
+      ],
+      "overlap_score": 0.3333333333333333,
+      "suggestion": "Investigate whether Ramanujan's mock theta functions connects to Monstrous moonshine via shared q_product"
+    },
+    {
+      "formula_id": "RAM-TAU-DELTA",
+      "concept_id": "CFT-VIRASORO",
+      "concept_name": "Virasoro minimal model characters",
+      "overlap_primitives": [
+        "q_product"
+      ],
+      "overlap_score": 0.3333333333333333,
+      "suggestion": "Investigate whether Ramanujan tau function (Delta modular form) connects to Virasoro minimal model characters via shared q_product"
+    },
+    {
+      "formula_id": "JACOBI-THETA",
+      "concept_id": "ST-MOONSHINE",
+      "concept_name": "Monstrous moonshine",
+      "overlap_primitives": [
+        "q_product"
+      ],
+      "overlap_score": 0.3333333333333333,
+      "suggestion": "Investigate whether Jacobi theta function and lattice counting connects to Monstrous moonshine via shared q_product"
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "concept_id": "ST-MOONSHINE",
+      "concept_name": "Monstrous moonshine",
+      "overlap_primitives": [
+        "q_product"
+      ],
+      "overlap_score": 0.3333333333333333,
+      "suggestion": "Investigate whether Dedekind eta function connects to Monstrous moonshine via shared q_product"
+    },
+    {
+      "formula_id": "DEDEKIND-ETA",
+      "concept_id": "CFT-VIRASORO",
+      "concept_name": "Virasoro minimal model characters",
+      "overlap_primitives": [
+        "q_product"
+      ],
+      "overlap_score": 0.3333333333333333,
+      "suggestion": "Investigate whether Dedekind eta function connects to Virasoro minimal model characters via shared q_product"
+    },
+    {
+      "formula_id": "J-FUNCTION",
+      "concept_id": "CFT-VIRASORO",
+      "concept_name": "Virasoro minimal model characters",
+      "overlap_primitives": [
+        "q_product"
+      ],
+      "overlap_score": 0.3333333333333333,
+      "suggestion": "Investigate whether Klein j-invariant and Monstrous Moonshine connects to Virasoro minimal model characters via shared q_product"
+    }
+  ],
+  "proposals": [
+    {
+      "id": "PI-HEEG-43",
+      "source": "CHUD-1988",
+      "params": "{'discriminant': 43, 'base': 'j(sqrt(-43))^(1/3)'}",
+      "predicted": "pi",
+      "actual": "Error: eval_generalised_pi_series() got an unexpected keyword argument 'discriminant'",
+      "status": "error",
+      "motivation": "Heegner number d=43: the CM point e^{pi*sqrt(43)} should give a convergent pi formula. Each d corresponds to a distinct compactification geometry."
+    },
+    {
+      "id": "PI-HEEG-67",
+      "source": "CHUD-1988",
+      "params": "{'discriminant': 67, 'base': 'j(sqrt(-67))^(1/3)'}",
+      "predicted": "pi",
+      "actual": "Error: eval_generalised_pi_series() got an unexpected keyword argument 'discriminant'",
+      "status": "error",
+      "motivation": "Heegner number d=67: the CM point e^{pi*sqrt(67)} should give a convergent pi formula. Each d corresponds to a distinct compactification geometry."
+    },
+    {
+      "id": "MOCK-ORDER-5",
+      "source": "RAM-MOCK-THETA",
+      "params": "{'order': 5}",
+      "predicted": "order-5 mock theta function",
+      "actual": null,
+      "status": "proposed",
+      "motivation": "Order-5 mock theta should encode degeneracies of rank-2 black holes, beyond the 1/4-BPS sector."
+    },
+    {
+      "id": "MOCK-ORDER-7",
+      "source": "RAM-MOCK-THETA",
+      "params": "{'order': 7}",
+      "predicted": "order-7 mock theta function",
+      "actual": null,
+      "status": "proposed",
+      "motivation": "Order-7 mock theta should encode degeneracies of rank-3 black holes, beyond the 1/4-BPS sector."
+    },
+    {
+      "id": "WEIGHT-1.5",
+      "source": "MODULAR-FAMILY",
+      "params": "{'weight': 1.5}",
+      "predicted": "weight-1.5 modular/mock modular form",
+      "actual": null,
+      "status": "proposed",
+      "motivation": "Weight 1.5 is missing from the spectrum. In AdS/CFT, this would be a fermionic field of spin 1.5."
+    },
+    {
+      "id": "WEIGHT-2",
+      "source": "MODULAR-FAMILY",
+      "params": "{'weight': 2}",
+      "predicted": "weight-2 modular/mock modular form",
+      "actual": null,
+      "status": "proposed",
+      "motivation": "Weight 2 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 2."
+    },
+    {
+      "id": "WEIGHT-3",
+      "source": "MODULAR-FAMILY",
+      "params": "{'weight': 3}",
+      "predicted": "weight-3 modular/mock modular form",
+      "actual": null,
+      "status": "proposed",
+      "motivation": "Weight 3 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 3."
+    },
+    {
+      "id": "WEIGHT-4",
+      "source": "MODULAR-FAMILY",
+      "params": "{'weight': 4}",
+      "predicted": "weight-4 modular/mock modular form",
+      "actual": null,
+      "status": "proposed",
+      "motivation": "Weight 4 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 4."
+    },
+    {
+      "id": "WEIGHT-5",
+      "source": "MODULAR-FAMILY",
+      "params": "{'weight': 5}",
+      "predicted": "weight-5 modular/mock modular form",
+      "actual": null,
+      "status": "proposed",
+      "motivation": "Weight 5 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 5."
+    },
+    {
+      "id": "WEIGHT-6",
+      "source": "MODULAR-FAMILY",
+      "params": "{'weight': 6}",
+      "predicted": "weight-6 modular/mock modular form",
+      "actual": null,
+      "status": "proposed",
+      "motivation": "Weight 6 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 6."
+    },
+    {
+      "id": "WEIGHT-8",
+      "source": "MODULAR-FAMILY",
+      "params": "{'weight': 8}",
+      "predicted": "weight-8 modular/mock modular form",
+      "actual": null,
+      "status": "proposed",
+      "motivation": "Weight 8 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 8."
+    },
+    {
+      "id": "WEIGHT-10",
+      "source": "MODULAR-FAMILY",
+      "params": "{'weight': 10}",
+      "predicted": "weight-10 modular/mock modular form",
+      "actual": null,
+      "status": "proposed",
+      "motivation": "Weight 10 is missing from the spectrum. In AdS/CFT, this would be a bosonic field of spin 10."
+    }
+  ],
+  "grand_narrative": [
+    {
+      "thread": "Partitions and Black Hole Entropy",
+      "title": "Partition Asymptotics as a Key Tool in Black Hole Microstate Counting",
+      "summary": "Hardy and Ramanujan's 1918 asymptotic formula p(n) ~ exp(pi*sqrt(2n/3))/(4n*sqrt(3)) gives the growth rate of integer partitions. In 1996, Strominger and Vafa showed that the microscopic entropy of a specific class of 5-dimensional BPS black holes in type IIB string theory can be computed by counting D-brane bound states. The state-counting reduces to a partition-like problem whose asymptotic growth is governed by the Cardy formula -- which shares the same exponential structure exp(pi*sqrt(cN/6)) as the Hardy-Ramanujan result. The match between the microscopic count and the Bekenstein-Hawking area formula S_BH = A/(4G) was the first successful statistical derivation of black hole entropy. Importantly, the connection is structural: both Hardy-Ramanujan and the Cardy formula arise from modular properties of the underlying partition function (1/eta(tau) for integer partitions, the CFT partition function for D-branes), not from a literal identification p(n) = number of black hole microstates. The Rademacher exact formula (1937) extends this to all orders, and each correction term corresponds to a distinct saddle-point geometry in the dual gravitational path integral.",
+      "key_formulas": [
+        "HR-1918-PARTITION",
+        "RADEMACHER-EXACT",
+        "RAM-PART-CONG"
+      ],
+      "key_physics": [
+        "BH-ENTROPY",
+        "BH-MICROSTATE",
+        "BH-QUANTUM"
+      ],
+      "evidence_tier": "well-established",
+      "evidence_note": "Proven mathematical theorem (Hardy-Ramanujan) + rigorous string theory calculation (Strominger-Vafa). The structural analogy is exact; the physical identification requires specific string compactification.",
+      "citations": [
+        "Hardy & Ramanujan, Proc. London Math. Soc. 17, 75 (1918)",
+        "Rademacher, Proc. London Math. Soc. 43, 241 (1937)",
+        "Strominger & Vafa, Phys. Lett. B 379, 99 (1996)",
+        "Dijkgraaf, Maldacena, Moore & Verlinde, hep-th/0005003 (2000)"
+      ],
+      "depth": "structural_analogy"
+    },
+    {
+      "thread": "Pi Formulas and Calabi-Yau Periods",
+      "title": "Ramanujan-Type Pi Series and Their Connection to String Compactification Moduli",
+      "summary": "Ramanujan's 1914 series for 1/pi and the Chudnovsky brothers' 1988 formula are instances of hypergeometric functions that also appear as period integrals of specific Calabi-Yau manifolds. The Picard-Fuchs differential equations governing these periods are the same equations that generate the Ramanujan-type series coefficients. In type IIB string theory, CY period integrals determine gauge coupling constants and the superpotential in N=2 compactifications. However, the connection is specific: only the particular CY manifolds associated with CM (complex multiplication) elliptic curves at Heegner discriminants (d = 163, 67, 43, ...) produce Ramanujan-type rapidly converging pi formulas. The convergence rate (~14 digits/term for Chudnovsky) reflects the arithmetic of the j-invariant: j(e^{pi*sqrt(163)}) = 640320^3 + 744. In string theory, these CM points correspond to special loci in CY moduli space with enhanced symmetry, not generic compactification geometries. Concretely: the one-parameter CY threefold defined by x_1^5+x_2^5+x_3^5+x_4^5+x_5^5 - 5*psi*x_1*x_2*x_3*x_4*x_5 = 0 (the mirror quintic, studied by Candelas et al. 1991) has a Picard-Fuchs equation whose solutions at the maximally unipotent monodromy point yield a 4F3 hypergeometric that is structurally identical to the generating function of Ramanujan-type series. Similarly, the Apery-like sequence a(n) = Sum_{k=0}^{n} C(n,k)^2 C(n+k,k)^2 satisfies a degree-3 recurrence whose associated Picard-Fuchs operator governs periods of a rigid CY threefold (Beauville, 1986; Zagier, 2009). The resulting 1/pi formula was proven by Guillera (2002). At the level of individual constants: the Chudnovsky formula gives 1/pi via the CM point tau = (1+i*sqrt(163))/2 on the modular curve X_0(1).",
+      "key_formulas": [
+        "RAM-1914-PI",
+        "CHUD-1988"
+      ],
+      "key_physics": [
+        "ST-CY-PERIOD",
+        "ST-MOONSHINE"
+      ],
+      "evidence_tier": "mixed",
+      "evidence_note": "Mathematics: well-established. The Picard-Fuchs / hypergeometric identity between Ramanujan-type series and CY period integrals is rigorously proven (Lian-Yau 1996, Yang 2004). The mirror quintic and Apery-like recurrences provide concrete, fully worked examples. Physics: strongly suggestive. The interpretation of these periods as string coupling constants applies only at specific CM points in CY moduli space, not to arbitrary compactifications.",
+      "citations": [
+        "Ramanujan, Quart. J. Math. 45, 350 (1914)",
+        "Chudnovsky & Chudnovsky, Lect. Notes Math. 1240 (1987)",
+        "Candelas, de la Ossa, Green & Parkes, Nucl. Phys. B 359, 21 (1991)",
+        "Borwein & Borwein, Pi and the AGM (Wiley, 1987)",
+        "Lian & Yau, Comm. Math. Phys. 176, 163 (1996)",
+        "Zagier, in Higher-Dimensional Geometry over Finite Fields (IOS Press, 2009)",
+        "Guillera, Adv. Appl. Math. 29, 599 (2002)"
+      ],
+      "depth": "structural_identity"
+    },
+    {
+      "thread": "Mock Theta Functions and Quantum Black Holes",
+      "title": "Mock Modular Forms as the Mathematical Framework for Exact BPS Entropy",
+      "summary": "In his final letter to Hardy (January 1920), Ramanujan introduced 'mock theta functions' -- q-hypergeometric functions that transform almost like modular forms but fail full modularity by a computable 'error' term. In 2002, Zwegers showed that mock theta functions are the holomorphic parts of harmonic Maass forms, with the error term (the 'shadow') being a unary theta series. In 2012, Dabholkar, Murthy, and Zagier demonstrated that the exact degeneracies of 1/4-BPS black holes in N=4 string theory are encoded by mock Jacobi forms -- a higher-dimensional generalisation of Ramanujan's mock theta functions. The 'non-modularity' that puzzled mathematicians for 80 years corresponds precisely to the wall-crossing phenomenon in physics: BPS states appear or disappear as string moduli cross walls of marginal stability, and the shadow term captures these jumps. This is one of the deepest and most precisely established connections between Ramanujan's mathematics and modern physics, though it applies specifically to BPS black holes in N=4 string compactifications, not to quantum gravity in general.",
+      "key_formulas": [
+        "RAM-MOCK-THETA"
+      ],
+      "key_physics": [
+        "BH-MOCK",
+        "BH-QUANTUM",
+        "QFT-VW"
+      ],
+      "evidence_tier": "well-established",
+      "evidence_note": "Rigorous: Zwegers' thesis (2002) + Dabholkar-Murthy-Zagier (2012) provide both the mathematical framework and the physical application. The connection is exact within N=4 string theory.",
+      "citations": [
+        "Ramanujan, letter to Hardy, January 1920 (published in Lost Notebook)",
+        "Zwegers, Mock Theta Functions, PhD thesis, Utrecht (2002)",
+        "Dabholkar, Murthy & Zagier, J. High Energy Phys. 2014:23 (2014), arXiv:1208.4074",
+        "Manschot & Moore, Commun. Math. Phys. 299, 827 (2010)"
+      ],
+      "depth": "exact_match"
+    },
+    {
+      "thread": "Zeta Regularisation and String Theory Dimensions",
+      "title": "How Analytic Continuation of the Zeta Function Constrains Spacetime Dimension",
+      "summary": "Euler first computed zeta(-1) = -1/12 in 1749 via analytic continuation of sum n^{-s}. Ramanujan independently arrived at the same result in his notebooks (c. 1913) and used it extensively. In bosonic string theory, the zero-point energy of the transverse oscillators is regularised as (D-2) * zeta(-1) = -(D-2)/12. Requiring the absence of negative-norm states (Lorentz invariance) forces this to equal -1, yielding the critical dimension D = 26. The superstring analogue gives D = 10. Note that the full derivation requires more than just the zeta value: conformal anomaly cancellation on the worldsheet and the no-ghost theorem provide independent confirmations. The same regularisation underlies the Casimir effect -- a measurable force between conducting plates where the zeta-regularised vacuum energy contributes -pi^2/(720*a^3) per unit area, in agreement with experiment (Lamoreaux 1997, Bressi et al. 2002).",
+      "key_formulas": [
+        "RAM-ZETA-REG"
+      ],
+      "key_physics": [
+        "ST-DIMENSION",
+        "QFT-CASIMIR",
+        "HEP-COSMO"
+      ],
+      "evidence_tier": "well-established",
+      "evidence_note": "The zeta regularisation is a rigorous mathematical procedure. The Casimir effect is experimentally confirmed. The D=26 derivation is a standard textbook result, though it rests on multiple consistency conditions beyond zeta(-1) alone.",
+      "citations": [
+        "Euler, Novi Commentarii Acad. Sci. Petropolitanae 14, 129 (1749)",
+        "Polchinski, String Theory, Vol. 1, Ch. 1 (CUP, 1998)",
+        "Casimir, Proc. K. Ned. Akad. Wet. 51, 793 (1948)",
+        "Lamoreaux, Phys. Rev. Lett. 78, 5 (1997)",
+        "Bressi et al., Phys. Rev. Lett. 88, 041804 (2002)"
+      ],
+      "depth": "exact_calculation"
+    },
+    {
+      "thread": "Rogers-Ramanujan Identities, Integrable Models, and CFT",
+      "title": "The Chain from Combinatorial Identities to Exactly Solved Physical Models",
+      "summary": "The Rogers-Ramanujan identities (Rogers 1894, independently Ramanujan c. 1913) equate q-hypergeometric sums with infinite products filtered by residues mod 5. In 1980, Baxter showed that the order parameter of the hard hexagon model -- a statistical mechanics model of non-overlapping hexagons on a triangular lattice -- is expressed in terms of the Rogers-Ramanujan continued fraction. This was the first instance of a two-dimensional lattice model solved exactly using q-series identities. In 2D conformal field theory, the characters of the (2,5) Virasoro minimal model (central charge c = 2/5) are precisely the Rogers-Ramanujan functions. This three-way connection -- combinatorics (partitions with gap conditions), statistical mechanics (exactly solvable lattice model), and CFT (Virasoro representation theory) -- is one of the cleanest examples of how Ramanujan's identities underpin modern mathematical physics.",
+      "key_formulas": [
+        "RR-IDENTITY",
+        "JACOBI-THETA"
+      ],
+      "key_physics": [
+        "SM-HEXAGON",
+        "CFT-VIRASORO",
+        "SM-ISING"
+      ],
+      "evidence_tier": "well-established",
+      "evidence_note": "All three connections are proven: Baxter's exact solution (1980), and the RR = minimal model character identification (Rocha-Caridi 1985, Kedem et al. 1993).",
+      "citations": [
+        "Rogers, Proc. London Math. Soc. 25, 318 (1894)",
+        "Baxter, J. Phys. A: Math. Gen. 13, L61 (1980)",
+        "Rocha-Caridi, in Vertex Operators in Mathematics and Physics (Springer, 1985)",
+        "Kedem, Klassen, McCoy & Melzer, Phys. Lett. B 307, 68 (1993)"
+      ],
+      "depth": "structural_identity"
+    },
+    {
+      "thread": "Moonshine, the Monster Group, and String Theory",
+      "title": "How the j-Function Connects Number Theory to String Symmetry via Vertex Algebras",
+      "summary": "The j-function j(tau) = q^{-1} + 744 + 196884q + ... has Fourier coefficients that encode dimensions of representations of the Monster group, the largest sporadic simple group (|M| ~ 8*10^53). Conway and Norton (1979) conjectured this 'monstrous moonshine', and Borcherds (1992) proved it using a string theory construction: the moonshine module V^natural is a c=24 vertex operator algebra (equivalently, a bosonic string compactified on the Leech lattice). Witten (2007) conjectured that pure 3D gravity with negative cosmological constant might have the Monster as its symmetry group, with partition function J(tau) = j(tau) - 744. This remains an open conjecture. The j-function also connects to Ramanujan's pi formulas via singular moduli of CM elliptic curves: j(e^{pi*sqrt(163)}) = 640320^3 + 744, which is the convergence base of the Chudnovsky formula. These are established mathematical facts; the interpretation of Monster symmetry as a fundamental symmetry of quantum gravity remains speculative.",
+      "key_formulas": [
+        "J-FUNCTION",
+        "RAM-TAU-DELTA",
+        "DEDEKIND-ETA"
+      ],
+      "key_physics": [
+        "ST-MOONSHINE",
+        "QG-ADS3",
+        "ST-AMPLITUDE"
+      ],
+      "evidence_tier": "mixed",
+      "evidence_note": "Monstrous moonshine is a proven theorem (Borcherds 1992, Fields Medal). The VOA construction is rigorous string theory. Witten's pure gravity conjecture (2007) is speculative and not universally accepted.",
+      "citations": [
+        "Conway & Norton, Bull. London Math. Soc. 11, 308 (1979)",
+        "Frenkel, Lepowsky & Meurman, Vertex Operator Algebras and the Monster (Academic, 1988)",
+        "Borcherds, Invent. Math. 109, 405 (1992)",
+        "Witten, arXiv:0706.3359 (2007)"
+      ],
+      "depth": "deep_structural"
+    },
+    {
+      "thread": "Pi as a Structural Connector",
+      "title": "Why Pi Appears Across These Connections: Modular Symmetry as the Unifying Principle",
+      "summary": "Pi recurs across all these connections not as a coincidence but because of a common mathematical substrate: modular symmetry. Modular forms are functions on the upper half-plane quotiented by SL(2,Z), and the Fourier variable q = e^{2*pi*i*tau} injects pi into every expansion. The specific mechanisms are: (1) Partition asymptotics: the circle method evaluates contour integrals in the tau-plane, producing exp(pi*sqrt(2n/3)) from the modular properties of 1/eta(tau). The same modular structure, via the Cardy formula, gives the CFT state count that reproduces black hole entropy in specific string compactifications. (2) Ramanujan-type pi series: these compute a specific period (1/pi) of CM elliptic curves at Heegner discriminants. The Heegner property (class number 1) ensures rapid convergence. In string theory, the same CM points appear as enhanced-symmetry loci in CY moduli space, though not all CY periods reduce to pi formulas. (3) Zeta regularisation: zeta(-1) = -B_2/2 = -1/12 enters string theory via the worldsheet conformal anomaly, and the Casimir effect via vacuum energy sums. (4) Mock modularity: the shadow of a mock modular form is fixed by the modular completion, with pi entering through the non-holomorphic Eichler integral. The unifying principle is that modular symmetry -- the requirement that physics be invariant under large diffeomorphisms of the worldsheet torus -- forces pi to appear whenever partition-counting, spectral, or path-integral structures are governed by SL(2,Z) or its subgroups.",
+      "key_formulas": [
+        "all"
+      ],
+      "key_physics": [
+        "all"
+      ],
+      "evidence_tier": "interpretive",
+      "evidence_note": "Each individual mechanism (circle method, Cardy formula, CY periods, zeta regularisation) is rigorously established. The unifying narrative that modular symmetry is the common thread is a well-motivated interpretation, not a single proven theorem.",
+      "citations": [
+        "Cardy, Nucl. Phys. B 270, 186 (1986)",
+        "Di Francesco, Mathieu & Senechal, Conformal Field Theory (Springer, 1997)",
+        "Zagier, in Frontiers in Number Theory, Physics, and Geometry I (Springer, 2006)"
+      ],
+      "depth": "interpretive_synthesis"
+    }
+  ]
+}

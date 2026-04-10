@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-04-07T09:27:15.641953",
+  "tasks": {
+    "A": {
+      "name": "Cubic Shift Search for zeta(3)",
+      "status": "complete",
+      "time_s": 288.0,
+      "data": {
+        "strategy": [
+          "apery_denom: tested 10 templates",
+          "systematic_cubic: 576 tested, 0 hits",
+          "special_families: 0 hits"
+        ],
+        "hits": [
+          {
+            "strategy": "apery_cf_verification",
+            "match": "zeta3",
+            "digits": 5,
+            "note": "Known Apery CF reproduced"
+          }
+        ]
+      }
+    }
+  }
+}

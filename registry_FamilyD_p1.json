@@ -1,0 +1,17 @@
+{
+  "conjectures": [],
+  "meta": {
+    "family": "D",
+    "k": null,
+    "mode": "dr",
+    "deg_alpha": 3,
+    "deg_beta": 3,
+    "coeff_range": 30,
+    "budget": 4000,
+    "precision": 120,
+    "no_ai": true,
+    "beta_patch": "binom_sq",
+    "alpha_constraints": [],
+    "label": "FamilyD_p1"
+  }
+}

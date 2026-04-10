@@ -1,0 +1,19 @@
+{
+  "conjectures": [],
+  "meta": {
+    "family": "B",
+    "k": 5,
+    "mode": "mitm",
+    "deg_alpha": 3,
+    "deg_beta": 2,
+    "coeff_range": 45,
+    "budget": 15000,
+    "precision": 100,
+    "no_ai": true,
+    "beta_patch": "n2_nk5",
+    "alpha_constraints": [
+      "no_constant"
+    ],
+    "label": "FamilyB_k5"
+  }
+}

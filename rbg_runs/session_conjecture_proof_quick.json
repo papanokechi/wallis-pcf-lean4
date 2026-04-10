@@ -1,0 +1,44 @@
+{
+  "session": {
+    "start": "2026-04-07T07:17:42.559934",
+    "searches": 0,
+    "api_calls": 0,
+    "duration_s": 4
+  },
+  "conjectures": [
+    {
+      "conjecture_id": "CF-20260407-0001",
+      "target_constant": "\u221a2",
+      "formula": "\u221a2 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = 1,  b\u2099 = 2",
+      "pcf_alpha": "1",
+      "pcf_beta": "2",
+      "alpha_coeffs": [
+        1,
+        0,
+        0
+      ],
+      "beta_coeffs": [
+        2,
+        0,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 50,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "CMF Navigator",
+      "timestamp": "2026-04-07T07:05:49.330807",
+      "numerical_value": "2.4142135623730950488016887242096980785696718753769480731766",
+      "error_at_depth": "0.0"
+    }
+  ],
+  "log": [
+    {
+      "ts": "07:17:42",
+      "level": "ok",
+      "msg": "Loaded 1 conjectures from registry"
+    }
+  ]
+}

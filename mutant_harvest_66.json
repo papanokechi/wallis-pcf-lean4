@@ -1,0 +1,238 @@
+{
+  "harvest": "66_deep",
+  "deep_count": 61,
+  "by_target": {
+    "zeta5": 20,
+    "zeta7": 20,
+    "zeta3": 21
+  },
+  "clusters": [
+    {
+      "cluster_id": 0,
+      "size": 4,
+      "members": [
+        "GCF_185E1450",
+        "GCF_1D8A13E7",
+        "GCF_724CA6CC",
+        "GCF_1D8A13E7"
+      ],
+      "mean_sim": 0.9704,
+      "target": "zeta3",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 1,
+      "size": 14,
+      "members": [
+        "GCF_9C0163F8",
+        "GCF_B3FF0A44",
+        "GCF_F164DCB7",
+        "GCF_06A97391",
+        "GCF_45B8CBE2",
+        "GCF_82A0028D",
+        "GCF_91236E76",
+        "GCF_06A97391",
+        "GCF_E306BD95",
+        "GCF_86B84061",
+        "GCF_4E410E1B",
+        "GCF_02316506",
+        "GCF_82A0028D",
+        "GCF_F0E9F4E2"
+      ],
+      "mean_sim": 0.8509,
+      "target": "zeta7",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 2,
+      "size": 1,
+      "members": [
+        "GCF_0811870E"
+      ],
+      "mean_sim": 1.0,
+      "target": "zeta5",
+      "mode": "ratio"
+    },
+    {
+      "cluster_id": 3,
+      "size": 13,
+      "members": [
+        "GCF_B0A31C5B",
+        "GCF_D67EB2C7",
+        "GCF_8B7574E3",
+        "GCF_8F98E965",
+        "GCF_6B67C72E",
+        "GCF_8F98E965",
+        "GCF_D67EB2C7",
+        "GCF_3A18D7A9",
+        "GCF_E328ED86",
+        "GCF_6DC1599C",
+        "GCF_8B7574E3",
+        "GCF_C93B93FB",
+        "GCF_8F98E965"
+      ],
+      "mean_sim": 0.8705,
+      "target": "zeta3",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 4,
+      "size": 7,
+      "members": [
+        "GCF_5E9B7E51",
+        "GCF_76D2BB0A",
+        "GCF_D9C240E7",
+        "GCF_76D2BB0A",
+        "GCF_D2109885",
+        "GCF_E4CFEF59",
+        "GCF_FAE5D021"
+      ],
+      "mean_sim": 0.9856,
+      "target": "zeta3",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 5,
+      "size": 5,
+      "members": [
+        "GCF_5379793E",
+        "GCF_E07847B0",
+        "GCF_35F4E88D",
+        "GCF_B1D28C28",
+        "GCF_5379793E"
+      ],
+      "mean_sim": 0.8624,
+      "target": "zeta5",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 6,
+      "size": 3,
+      "members": [
+        "GCF_04F0B9EE",
+        "GCF_781C3304",
+        "GCF_DA113EC9"
+      ],
+      "mean_sim": 0.796,
+      "target": "zeta5",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 7,
+      "size": 1,
+      "members": [
+        "GCF_1C3A7805"
+      ],
+      "mean_sim": 1.0,
+      "target": "zeta5",
+      "mode": "ratio"
+    },
+    {
+      "cluster_id": 8,
+      "size": 1,
+      "members": [
+        "GCF_90C7E9BF"
+      ],
+      "mean_sim": 1.0,
+      "target": "zeta5",
+      "mode": "ratio"
+    },
+    {
+      "cluster_id": 9,
+      "size": 1,
+      "members": [
+        "GCF_0845FAC1"
+      ],
+      "mean_sim": 1.0,
+      "target": "zeta5",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 10,
+      "size": 1,
+      "members": [
+        "GCF_C58222D0"
+      ],
+      "mean_sim": 1.0,
+      "target": "zeta5",
+      "mode": "ratio"
+    },
+    {
+      "cluster_id": 11,
+      "size": 1,
+      "members": [
+        "GCF_C7207BE8"
+      ],
+      "mean_sim": 1.0,
+      "target": "zeta5",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 12,
+      "size": 3,
+      "members": [
+        "GCF_429D7A95",
+        "GCF_9E1B43C6",
+        "GCF_619D608B"
+      ],
+      "mean_sim": 0.995,
+      "target": "zeta3",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 13,
+      "size": 1,
+      "members": [
+        "GCF_A7EAC5A6"
+      ],
+      "mean_sim": 1.0,
+      "target": "zeta7",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 14,
+      "size": 1,
+      "members": [
+        "GCF_D523E51B"
+      ],
+      "mean_sim": 1.0,
+      "target": "zeta7",
+      "mode": "ratio"
+    },
+    {
+      "cluster_id": 15,
+      "size": 2,
+      "members": [
+        "GCF_794658B8",
+        "GCF_F156082E"
+      ],
+      "mean_sim": 0.9859,
+      "target": "zeta7",
+      "mode": "backward"
+    },
+    {
+      "cluster_id": 16,
+      "size": 1,
+      "members": [
+        "GCF_ECAE0649"
+      ],
+      "mean_sim": 1.0,
+      "target": "zeta3",
+      "mode": "ratio"
+    },
+    {
+      "cluster_id": 17,
+      "size": 1,
+      "members": [
+        "GCF_E2198BBE"
+      ],
+      "mean_sim": 1.0,
+      "target": "zeta3",
+      "mode": "backward"
+    }
+  ],
+  "super_seeds_v2_count": 18,
+  "combined_pool_size": 23,
+  "wall_seconds": 0.134,
+  "generated_at": "2026-04-05 12:23:14"
+}

@@ -1,0 +1,50 @@
+{
+  "zeta2": {
+    "k": 2,
+    "hits": 0,
+    "details": [],
+    "elapsed_s": 3717.4
+  },
+  "zeta3": {
+    "k": 3,
+    "hits": 0,
+    "details": [],
+    "elapsed_s": 3501.7
+  },
+  "zeta4": {
+    "k": 4,
+    "hits": 0,
+    "details": [],
+    "elapsed_s": 4017.6
+  },
+  "zeta5": {
+    "k": 5,
+    "hits": 0,
+    "details": [],
+    "elapsed_s": 3912.2
+  },
+  "zeta6": {
+    "k": 6,
+    "hits": 0,
+    "details": [],
+    "elapsed_s": 2907.1
+  },
+  "zeta7": {
+    "k": 7,
+    "hits": 0,
+    "details": [],
+    "elapsed_s": 4872.5
+  },
+  "zeta8": {
+    "k": 8,
+    "hits": 0,
+    "details": [],
+    "elapsed_s": 3241.7
+  },
+  "zeta9": {
+    "k": 9,
+    "hits": 0,
+    "details": [],
+    "elapsed_s": 2220.2
+  }
+}
