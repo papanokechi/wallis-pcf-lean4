@@ -1,4 +1,4 @@
-# Wallis Formal Verification — Submission Bundle
+# A One-Parameter Family of Wallis-Type Polynomial Continued Fractions: Discovery and Formal Verification
 
 This repository includes the reproducibility materials for the manuscript `tex/wallis_formal_verification_submission.tex`, which proves the one-parameter family
 
