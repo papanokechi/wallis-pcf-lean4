@@ -1,0 +1,76 @@
+{
+  "sweep": "deep_sweep",
+  "targets": [
+    "zeta5"
+  ],
+  "prec": 500,
+  "deep_mode": true,
+  "iters": 2,
+  "batch": 16,
+  "total_discoveries": 6,
+  "total_novel": 6,
+  "wall_seconds": 5.771,
+  "generated_at": "2026-04-05 09:35:28",
+  "results": [
+    {
+      "target": "zeta5",
+      "seed": 42,
+      "prec": 500,
+      "deep_mode": true,
+      "discovery_count": 6,
+      "novel_count": 6,
+      "high_value_count": 6,
+      "elapsed_seconds": 5.231,
+      "high_value": [
+        {
+          "constant": "zeta5+zeta3",
+          "precision": 500,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF + -1 = 0",
+          "is_multi_constant": true
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta5 + 3\u00b7CF + -8\u00b7zeta5 + 8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta5 + -2\u00b7CF + 3\u00b7zeta5 + -3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta5 + 2\u00b7zeta5 + -4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b2 + 2\u00b7CF\u00b7zeta5 + 2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaRappa-Style Rap Battle</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; user-select: none; }
+  body {
+    background: #1a0a2e; overflow: hidden; font-family: 'Bangers', 'Segoe UI', sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 100vh; color: #fff;
+  }
+
+  /* ── GAME CONTAINER ── */
+  #gameContainer {
+    width: 900px; height: 640px; position: relative;
+    background: linear-gradient(180deg, #2d1b69 0%, #1a0a2e 100%);
+    border-radius: 16px; border: 3px solid #6c3483;
+    overflow: hidden; box-shadow: 0 0 60px rgba(108,52,131,.5);
+  }
+
+  /* ── STAGE BACKGROUND ── */
+  #stageBg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 80%, #3d1f7a 0%, #1a0a2e 70%);
+  }
+  .stage-light {
+    position: absolute; width: 200px; height: 400px;
+    background: radial-gradient(ellipse, rgba(255,255,100,.08) 0%, transparent 70%);
+    top: 0; animation: lightSway 3s ease-in-out infinite alternate;
+  }
+  .stage-light:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .stage-light:nth-child(2) { left: 40%; animation-delay: 1s; }
+  .stage-light:nth-child(3) { left: 70%; animation-delay: 0.5s; }
+  @keyframes lightSway { from { transform: rotate(-5deg); } to { transform: rotate(5deg); } }
+
+  /* ── FLOOR ── */
+  #stageFloor {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 140px;
+    background: linear-gradient(0deg, #0d0520 0%, #1e0e45 100%);
+    border-top: 2px solid #6c3483;
+  }
+  .floor-tile {
+    position: absolute; bottom: 0; height: 100%; width: 25%;
+    border-right: 1px solid rgba(108,52,131,.3);
+  }
+
+  /* ── CHARACTERS ── */
+  .character {
+    position: absolute; bottom: 140px; width: 120px; text-align: center;
+    transition: transform 0.1s;
+  }
+  .character.bounce { animation: charBounce 0.3s ease; }
+  @keyframes charBounce { 0%{transform:translateY(0)} 50%{transform:translateY(-15px)} 100%{transform:translateY(0)} }
+  .char-body {
+    width: 80px; height: 100px; margin: 0 auto; border-radius: 40px 40px 20px 20px;
+    position: relative;
+  }
+  .char-head {
+    width: 60px; height: 60px; border-radius: 50%; margin: 0 auto;
+    position: relative; top: -10px; border: 3px solid rgba(0,0,0,.2);
+  }
+  .char-hat {
+    position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+    width: 50px; height: 25px; border-radius: 25px 25px 0 0;
+  }
+  .char-eyes { position: absolute; top: 22px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; }
+  .char-eye { width: 8px; height: 10px; background: #111; border-radius: 50%; }
+  .char-mouth { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 20px; height: 8px; background: #c0392b; border-radius: 0 0 10px 10px; }
+  .char-mouth.open { height: 14px; border-radius: 50%; }
+  .char-name {
+    font-family: 'Press Start 2P', monospace; font-size: 9px;
+    color: #f1c40f; text-shadow: 1px 1px 0 #000; margin-top: 4px;
+  }
+
+  /* Teacher (left) */
+  #teacher { left: 100px; }
+  #teacher .char-body { background: linear-gradient(180deg, #e74c3c, #c0392b); }
+  #teacher .char-head { background: linear-gradient(180deg, #f5b041, #e67e22); }
+  #teacher .char-hat { background: #2c3e50; }
+
+  /* Player (right) */
+  #player { right: 100px; }
+  #player .char-body { background: linear-gradient(180deg, #f39c12, #e67e22); }
+  #player .char-head { background: linear-gradient(180deg, #fad7a0, #f0c27f); }
+  #player .char-hat { background: #e74c3c; border-radius: 6px 6px 25px 25px; height: 20px; }
+
+  /* ── SPEECH BUBBLES ── */
+  .speech-bubble {
+    position: absolute; bottom: 260px; padding: 10px 16px;
+    background: #fff; color: #222; border-radius: 16px;
+    font-size: 14px; font-family: 'Bangers', sans-serif; letter-spacing: 1px;
+    max-width: 200px; text-align: center;
+    opacity: 0; transition: opacity 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,.3);
+  }
+  .speech-bubble::after {
+    content: ''; position: absolute; bottom: -10px;
+    border: 10px solid transparent; border-top-color: #fff;
+  }
+  #teacherBubble { left: 80px; }
+  #teacherBubble::after { left: 30px; }
+  #playerBubble { right: 80px; }
+  #playerBubble::after { right: 30px; }
+  .speech-bubble.show { opacity: 1; }
+
+  /* ── MUSIC BAR (mbar) ── */
+  #mbar {
+    position: absolute; top: 20px; left: 30px; right: 30px; height: 80px;
+    background: rgba(0,0,0,.6); border-radius: 12px;
+    border: 2px solid #6c3483; overflow: hidden;
+  }
+  #mbarInner { position: relative; width: 100%; height: 100%; }
+
+  /* Hit line */
+  #hitLine {
+    position: absolute; left: 120px; top: 0; bottom: 0; width: 3px;
+    background: linear-gradient(180deg, #f1c40f, #e67e22);
+    box-shadow: 0 0 10px rgba(241,196,15,.5);
+    z-index: 5;
+  }
+  #hitZone {
+    position: absolute; left: 80px; top: 0; bottom: 0; width: 80px;
+    background: rgba(241,196,15,.08); border-radius: 4px;
+    border: 1px solid rgba(241,196,15,.15); z-index: 1;
+  }
+
+  /* Note lanes */
+  .lane-label {
+    position: absolute; left: 10px; width: 50px; height: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Press Start 2P', monospace; font-size: 8px;
+    border-radius: 4px; z-index: 3; font-weight: bold;
+  }
+  .lane-label.lane0 { top: 2px; background: #e74c3c; color: #fff; }
+  .lane-label.lane1 { top: 22px; background: #3498db; color: #fff; }
+  .lane-label.lane2 { top: 42px; background: #2ecc71; color: #fff; }
+  .lane-label.lane3 { top: 62px; background: #9b59b6; color: #fff; }
+
+  /* Notes */
+  .note {
+    position: absolute; width: 28px; height: 16px; border-radius: 8px;
+    z-index: 4; display: flex; align-items: center; justify-content: center;
+    font-family: 'Press Start 2P', monospace; font-size: 7px; color: #fff;
+    font-weight: bold; transition: opacity 0.1s;
+    box-shadow: 0 2px 8px rgba(0,0,0,.4);
+  }
+  .note.lane0 { background: linear-gradient(135deg, #e74c3c, #c0392b); top: 3px; }
+  .note.lane1 { background: linear-gradient(135deg, #3498db, #2980b9); top: 23px; }
+  .note.lane2 { background: linear-gradient(135deg, #2ecc71, #27ae60); top: 43px; }
+  .note.lane3 { background: linear-gradient(135deg, #9b59b6, #8e44ad); top: 63px; }
+  .note.hit { transform: scale(1.5); opacity: 0; }
+  .note.miss { opacity: 0.3; }
+
+  /* ── RANK METER ── */
+  #rankArea {
+    position: absolute; top: 110px; right: 30px; width: 180px;
+    text-align: center;
+  }
+  #rankLabel {
+    font-family: 'Bangers', sans-serif; font-size: 36px;
+    text-shadow: 0 0 20px currentColor, 2px 2px 0 #000;
+    transition: all 0.3s;
+  }
+  #rankMeter {
+    width: 100%; height: 16px; background: #222; border-radius: 8px;
+    overflow: hidden; margin-top: 6px; border: 1px solid #444;
+  }
+  #rankFill {
+    height: 100%; border-radius: 8px; transition: width 0.3s, background 0.3s;
+    background: linear-gradient(90deg, #e74c3c, #f39c12);
+  }
+
+  /* ── SCORE ── */
+  #scoreArea {
+    position: absolute; top: 110px; left: 30px;
+    font-family: 'Press Start 2P', monospace;
+  }
+  #scoreLabel { font-size: 10px; color: #aaa; }
+  #scoreValue { font-size: 22px; color: #f1c40f; text-shadow: 2px 2px 0 #000; }
+  #comboArea { margin-top: 8px; }
+  #comboLabel { font-size: 8px; color: #aaa; }
+  #comboValue { font-size: 16px; color: #e74c3c; text-shadow: 1px 1px 0 #000; }
+
+  /* ── HIT FEEDBACK (Niko) ── */
+  #nikoFeedback {
+    position: absolute; top: 170px; left: 50%; transform: translateX(-50%);
+    font-family: 'Bangers', sans-serif; font-size: 32px;
+    text-shadow: 0 0 20px currentColor, 2px 2px 0 #000;
+    opacity: 0; transition: opacity 0.15s, transform 0.15s;
+    z-index: 20;
+  }
+  #nikoFeedback.show {
+    opacity: 1; transform: translateX(-50%) scale(1.2);
+  }
+
+  /* ── STAGE INFO ── */
+  #stageInfo {
+    position: absolute; top: 110px; left: 50%; transform: translateX(-50%);
+    text-align: center;
+  }
+  #stageName {
+    font-family: 'Bangers', sans-serif; font-size: 18px; color: #e8daef;
+    text-shadow: 1px 1px 0 #000; letter-spacing: 2px;
+  }
+  #phaseLabel {
+    font-family: 'Press Start 2P', monospace; font-size: 8px; color: #f39c12;
+    margin-top: 4px;
+  }
+
+  /* ── BUTTON PROMPTS ── */
+  #buttonPrompts {
+    position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 16px;
+  }
+  .btn-prompt {
+    width: 56px; height: 56px; border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    font-family: 'Press Start 2P', monospace; font-size: 10px; color: #fff;
+    border: 3px solid rgba(255,255,255,.3); opacity: 0.6;
+    transition: all 0.1s; position: relative;
+  }
+  .btn-prompt.pressed {
+    transform: scale(0.9); opacity: 1;
+    box-shadow: 0 0 20px currentColor;
+  }
+  .btn-prompt .key-hint {
+    position: absolute; bottom: -16px; font-size: 7px; color: #999;
+  }
+  .btn0 { background: rgba(231,76,60,.4); border-color: #e74c3c; }
+  .btn1 { background: rgba(52,152,219,.4); border-color: #3498db; }
+  .btn2 { background: rgba(46,204,113,.4); border-color: #2ecc71; }
+  .btn3 { background: rgba(155,89,182,.4); border-color: #9b59b6; }
+
+  /* ── RAP TEXT ── */
+  #rapText {
+    position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%);
+    font-family: 'Bangers', sans-serif; font-size: 20px; color: #fff;
+    text-shadow: 2px 2px 4px #000; text-align: center;
+    width: 80%; letter-spacing: 1px;
+  }
+  .rap-word { display: inline-block; margin: 0 3px; transition: all 0.15s; }
+  .rap-word.hit { color: #2ecc71; transform: scale(1.15); }
+  .rap-word.miss { color: #e74c3c; opacity: 0.5; }
+  .rap-word.current { color: #f1c40f; text-decoration: underline; }
+
+  /* ── OVERLAY SCREENS ── */
+  .overlay {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; z-index: 100;
+    background: rgba(0,0,0,.85); backdrop-filter: blur(6px);
+    border-radius: 16px;
+  }
+  .overlay h1 {
+    font-family: 'Bangers', sans-serif; font-size: 52px; color: #f1c40f;
+    text-shadow: 0 0 30px rgba(241,196,15,.4), 3px 3px 0 #e67e22;
+    letter-spacing: 4px;
+  }
+  .overlay h2 {
+    font-family: 'Bangers', sans-serif; font-size: 28px; margin-top: 8px;
+    letter-spacing: 2px;
+  }
+  .overlay p {
+    color: #ccc; font-size: 16px; margin-top: 16px; max-width: 500px;
+    text-align: center; line-height: 1.6;
+  }
+  .overlay button {
+    margin-top: 24px; padding: 14px 40px; font-family: 'Bangers', sans-serif;
+    font-size: 22px; border: none; border-radius: 10px; cursor: pointer;
+    background: linear-gradient(135deg, #f1c40f, #e67e22); color: #1a0a2e;
+    letter-spacing: 2px; transition: transform 0.15s;
+    box-shadow: 0 4px 16px rgba(241,196,15,.3);
+  }
+  .overlay button:hover { transform: scale(1.05); }
+  .overlay .controls {
+    color: #888; font-size: 13px; margin-top: 20px; line-height: 1.8;
+    text-align: center; font-family: 'Segoe UI', sans-serif;
+  }
+
+  /* ── STAGE CLEAR ── */
+  #clearScreen .grade {
+    font-size: 72px; margin-top: 12px;
+  }
+  #clearScreen .stats {
+    display: flex; gap: 24px; margin-top: 20px;
+    font-family: 'Press Start 2P', monospace; font-size: 11px;
+  }
+  .stat-box {
+    text-align: center; padding: 12px 20px;
+    background: rgba(255,255,255,.05); border-radius: 8px;
+  }
+  .stat-box .val { font-size: 22px; color: #f1c40f; margin-top: 4px; }
+
+  /* ── PARTICLES ── */
+  .particle {
+    position: absolute; width: 6px; height: 6px; border-radius: 50%;
+    pointer-events: none; z-index: 15;
+    animation: particleFly 0.6s ease-out forwards;
+  }
+  @keyframes particleFly {
+    0% { opacity: 1; transform: translate(0,0) scale(1); }
+    100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0); }
+  }
+
+  /* ── BPM PULSE ── */
+  .bpm-pulse {
+    position: absolute; bottom: 140px; left: 50%; transform: translateX(-50%);
+    width: 400px; height: 4px; background: rgba(241,196,15,.1); border-radius: 2px;
+  }
+  .bpm-pulse-inner {
+    height: 100%; width: 0%; background: rgba(241,196,15,.4); border-radius: 2px;
+    transition: width 0.1s linear;
+  }
+
+  /* Hidden state */
+  .hidden { display: none !important; }
+
+  /* ── Volume Control ── */
+  #volumeCtrl {
+    position: absolute; bottom: 74px; right: 20px; z-index: 20;
+    display: flex; align-items: center; gap: 6px;
+  }
+  #muteBtn {
+    background: none; border: 1px solid rgba(255,255,255,.2);
+    color: #ccc; font-size: 16px; width: 30px; height: 30px;
+    border-radius: 50%; cursor: pointer; display: flex;
+    align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  #muteBtn:hover { border-color: #f1c40f; color: #f1c40f; }
+  #muteBtn.muted { color: #e74c3c; border-color: #e74c3c; }
+  #volSlider {
+    -webkit-appearance: none; appearance: none;
+    width: 70px; height: 4px; background: #444;
+    border-radius: 2px; outline: none;
+  }
+  #volSlider::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #f1c40f; cursor: pointer;
+  }
+
+  /* ── Music Visualizer ── */
+  #musicViz {
+    position: absolute; bottom: 144px; left: 0; right: 0; height: 20px;
+    display: flex; align-items: flex-end; justify-content: center; gap: 2px;
+    pointer-events: none; z-index: 1; opacity: 0.5;
+  }
+  .viz-bar {
+    width: 4px; background: #6c3483; border-radius: 2px 2px 0 0;
+    transition: height 0.08s ease;
+  }
+</style>
+</head>
+<body>
+
+<div id="gameContainer">
+  <!-- Stage Background -->
+  <div id="stageBg">
+    <div class="stage-light"></div>
+    <div class="stage-light"></div>
+    <div class="stage-light"></div>
+  </div>
+  <div id="stageFloor">
+    <div class="floor-tile" style="left:0"></div>
+    <div class="floor-tile" style="left:25%"></div>
+    <div class="floor-tile" style="left:50%"></div>
+    <div class="floor-tile" style="left:75%"></div>
+  </div>
+
+  <!-- Music Bar (mbar from PaRappa source) -->
+  <div id="mbar">
+    <div id="hitZone"></div>
+    <div id="hitLine"></div>
+    <div class="lane-label lane0">D</div>
+    <div class="lane-label lane1">F</div>
+    <div class="lane-label lane2">J</div>
+    <div class="lane-label lane3">K</div>
+    <div id="mbarInner"></div>
+  </div>
+
+  <!-- Score -->
+  <div id="scoreArea">
+    <div id="scoreLabel">SCORE</div>
+    <div id="scoreValue">0</div>
+    <div id="comboArea">
+      <div id="comboLabel">COMBO</div>
+      <div id="comboValue">0</div>
+    </div>
+  </div>
+
+  <!-- Stage Info -->
+  <div id="stageInfo">
+    <div id="stageName">STAGE 1</div>
+    <div id="phaseLabel">WATCH THE TEACHER!</div>
+  </div>
+
+  <!-- Rank Meter -->
+  <div id="rankArea">
+    <div id="rankLabel" style="color:#e74c3c">BAD</div>
+    <div id="rankMeter"><div id="rankFill" style="width:30%"></div></div>
+  </div>
+
+  <!-- Niko Hit Feedback -->
+  <div id="nikoFeedback"></div>
+
+  <!-- Characters -->
+  <div id="teacher" class="character">
+    <div class="char-head">
+      <div class="char-hat"></div>
+      <div class="char-eyes"><div class="char-eye"></div><div class="char-eye"></div></div>
+      <div class="char-mouth" id="teacherMouth"></div>
+    </div>
+    <div class="char-body"></div>
+    <div class="char-name" id="teacherName">TEACHER</div>
+  </div>
+
+  <div id="player" class="character">
+    <div class="char-head">
+      <div class="char-hat"></div>
+      <div class="char-eyes"><div class="char-eye"></div><div class="char-eye"></div></div>
+      <div class="char-mouth" id="playerMouth"></div>
+    </div>
+    <div class="char-body"></div>
+    <div class="char-name">PARAPPA</div>
+  </div>
+
+  <!-- Speech Bubbles -->
+  <div id="teacherBubble" class="speech-bubble"></div>
+  <div id="playerBubble" class="speech-bubble"></div>
+
+  <!-- Rap Text -->
+  <div id="rapText"></div>
+
+  <!-- BPM Pulse -->
+  <div class="bpm-pulse"><div class="bpm-pulse-inner" id="bpmPulse"></div></div>
+
+  <!-- Music Visualizer -->
+  <div id="musicViz"></div>
+
+  <!-- Volume Control -->
+  <div id="volumeCtrl">
+    <button id="muteBtn" onclick="toggleMute()">&#9834;</button>
+    <input type="range" id="volSlider" min="0" max="100" value="70" oninput="setVolume(this.value)">
+  </div>
+
+  <!-- Button Prompts -->
+  <div id="buttonPrompts">
+    <div class="btn-prompt btn0" id="btn0">&#9651;<span class="key-hint">D</span></div>
+    <div class="btn-prompt btn1" id="btn1">&#9675;<span class="key-hint">F</span></div>
+    <div class="btn-prompt btn2" id="btn2">&#10005;<span class="key-hint">J</span></div>
+    <div class="btn-prompt btn3" id="btn3">&#9633;<span class="key-hint">K</span></div>
+  </div>
+
+  <!-- Start Screen -->
+  <div id="startScreen" class="overlay">
+    <h1>RAP BATTLE!</h1>
+    <h2 style="color:#e8daef">I Gotta Believe!</h2>
+    <p>Watch the teacher's pattern on the music bar, then repeat it with perfect timing! Chain combos to climb from AWFUL to COOL rank!</p>
+    <button onclick="startGame()">START RAPPING!</button>
+    <div class="controls">
+      D / F / J / K &mdash; Hit notes<br>
+      Match the pattern &bull; Stay on beat &bull; Reach COOL rank!
+    </div>
+  </div>
+
+  <!-- Stage Clear Screen -->
+  <div id="clearScreen" class="overlay hidden">
+    <h1>STAGE CLEAR!</h1>
+    <h2 id="clearRank"></h2>
+    <div id="clearGrade" class="grade"></div>
+    <div class="stats">
+      <div class="stat-box"><div>COOL</div><div class="val" id="statCool">0</div></div>
+      <div class="stat-box"><div>GOOD</div><div class="val" id="statGood">0</div></div>
+      <div class="stat-box"><div>BAD</div><div class="val" id="statBad">0</div></div>
+      <div class="stat-box"><div>MISS</div><div class="val" id="statMiss">0</div></div>
+    </div>
+    <div class="stats">
+      <div class="stat-box"><div>SCORE</div><div class="val" id="statScore">0</div></div>
+      <div class="stat-box"><div>MAX COMBO</div><div class="val" id="statCombo">0</div></div>
+    </div>
+    <button id="clearBtn">NEXT STAGE</button>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="gameOverScreen" class="overlay hidden">
+    <h1 style="color:#e74c3c">GAME OVER</h1>
+    <h2 style="color:#aaa">You fell to AWFUL rank...</h2>
+    <p>Keep practicing! You gotta believe!</p>
+    <button onclick="restartStage()">TRY AGAIN</button>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// PaRappa-Style Rap Battle Game
+// Inspired by PaRappaSource & parappa2 decompilation
+// ═══════════════════════════════════════════════
+
+// ══════════════════════════════════════════════════
+// ── Audio Context & Full Music Engine ──
+// ══════════════════════════════════════════════════
+let audioCtx = null;
+let masterGain = null;
+let musicScheduler = null;
+
+function initAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.value = 0.7;
+    masterGain.connect(audioCtx.destination);
+  }
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+}
+
+function playTone(freq, duration, type = 'square', vol = 0.08) {
+  if (!audioCtx) return;
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = type;
+  osc.frequency.value = freq;
+  gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+  osc.connect(gain);
+  gain.connect(masterGain);
+  osc.start();
+  osc.stop(audioCtx.currentTime + duration);
+}
+
+// ── Drum Synthesis ──
+function playKick(time, vol = 0.35) {
+  if (!audioCtx) return;
+  const osc = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(150, time);
+  osc.frequency.exponentialRampToValueAtTime(30, time + 0.12);
+  g.gain.setValueAtTime(vol, time);
+  g.gain.exponentialRampToValueAtTime(0.001, time + 0.25);
+  osc.connect(g); g.connect(masterGain);
+  osc.start(time); osc.stop(time + 0.25);
+}
+
+function playSnare(time, vol = 0.18) {
+  if (!audioCtx) return;
+  // Noise burst
+  const bufSize = audioCtx.sampleRate * 0.1;
+  const buf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
+  const noise = audioCtx.createBufferSource();
+  noise.buffer = buf;
+  const noiseG = audioCtx.createGain();
+  noiseG.gain.setValueAtTime(vol, time);
+  noiseG.gain.exponentialRampToValueAtTime(0.001, time + 0.1);
+  // Bandpass for snare tone
+  const filt = audioCtx.createBiquadFilter();
+  filt.type = 'bandpass'; filt.frequency.value = 3000; filt.Q.value = 0.7;
+  noise.connect(filt); filt.connect(noiseG); noiseG.connect(masterGain);
+  noise.start(time); noise.stop(time + 0.1);
+  // Body tone
+  const osc = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  osc.type = 'triangle';
+  osc.frequency.setValueAtTime(200, time);
+  osc.frequency.exponentialRampToValueAtTime(100, time + 0.05);
+  g.gain.setValueAtTime(vol * 0.6, time);
+  g.gain.exponentialRampToValueAtTime(0.001, time + 0.08);
+  osc.connect(g); g.connect(masterGain);
+  osc.start(time); osc.stop(time + 0.08);
+}
+
+function playHiHat(time, open = false, vol = 0.08) {
+  if (!audioCtx) return;
+  const bufSize = audioCtx.sampleRate * (open ? 0.12 : 0.04);
+  const buf = audioCtx.createBuffer(1, bufSize, audioCtx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
+  const src = audioCtx.createBufferSource();
+  src.buffer = buf;
+  const g = audioCtx.createGain();
+  const dur = open ? 0.12 : 0.04;
+  g.gain.setValueAtTime(vol, time);
+  g.gain.exponentialRampToValueAtTime(0.001, time + dur);
+  const hp = audioCtx.createBiquadFilter();
+  hp.type = 'highpass'; hp.frequency.value = 7000;
+  src.connect(hp); hp.connect(g); g.connect(masterGain);
+  src.start(time); src.stop(time + dur);
+}
+
+function playBassNote(time, freq, dur = 0.2, vol = 0.15) {
+  if (!audioCtx) return;
+  const osc = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  osc.type = 'sawtooth';
+  osc.frequency.value = freq;
+  // Low pass for warm bass
+  const lp = audioCtx.createBiquadFilter();
+  lp.type = 'lowpass'; lp.frequency.value = 400; lp.Q.value = 2;
+  g.gain.setValueAtTime(vol, time);
+  g.gain.setValueAtTime(vol, time + dur * 0.7);
+  g.gain.exponentialRampToValueAtTime(0.001, time + dur);
+  osc.connect(lp); lp.connect(g); g.connect(masterGain);
+  osc.start(time); osc.stop(time + dur);
+}
+
+function playChord(time, freqs, dur = 0.3, vol = 0.04) {
+  if (!audioCtx) return;
+  freqs.forEach(f => {
+    const osc = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = f;
+    g.gain.setValueAtTime(vol, time);
+    g.gain.setValueAtTime(vol * 0.8, time + dur * 0.6);
+    g.gain.exponentialRampToValueAtTime(0.001, time + dur);
+    osc.connect(g); g.connect(masterGain);
+    osc.start(time); osc.stop(time + dur);
+  });
+}
+
+function playScratch(time, vol = 0.06) {
+  if (!audioCtx) return;
+  const osc = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  osc.type = 'sawtooth';
+  osc.frequency.setValueAtTime(800, time);
+  osc.frequency.exponentialRampToValueAtTime(200, time + 0.06);
+  osc.frequency.exponentialRampToValueAtTime(600, time + 0.1);
+  g.gain.setValueAtTime(vol, time);
+  g.gain.exponentialRampToValueAtTime(0.001, time + 0.12);
+  const bp = audioCtx.createBiquadFilter();
+  bp.type = 'bandpass'; bp.frequency.value = 1500; bp.Q.value = 3;
+  osc.connect(bp); bp.connect(g); g.connect(masterGain);
+  osc.start(time); osc.stop(time + 0.12);
+}
+
+// ── Per-Stage Music Definitions ──
+// Each stage has: key (root note Hz), chords, bassPattern, drumPattern, extras
+// drumPattern: array of 16 steps (16th notes in a bar), each step is a string: K=kick S=snare H=hihat O=open-hat
+// bassPattern: array of 16 steps, each is a scale degree (0=root) or null
+const MUSIC_DEFS = [
+  { // Stage 1 — Master Onion: funky martial arts groove, C minor
+    key: 65.41, // C2
+    scale: [0, 3, 5, 7, 10], // minor pentatonic
+    chords: [[261.6, 311.1, 392.0], [233.1, 293.7, 349.2]], // Cm, Bb
+    drumPattern: 'K...S...K.K.S...',
+    bassPattern: [0,null,0,null, 3,null,null,null, 5,null,3,null, 0,null,null,null],
+    hatPattern:  'H.H.H.H.H.H.HOH.',
+    hasScratch: false,
+    padVol: 0.03,
+  },
+  { // Stage 2 — Mooselini: driving funk, Eb
+    key: 77.78, // Eb2
+    scale: [0, 3, 5, 7, 10],
+    chords: [[311.1, 370.0, 466.2], [349.2, 415.3, 523.3]], // Eb, F
+    drumPattern: 'K..KS...K..KS.S.',
+    bassPattern: [0,null,null,0, null,null,3,null, 5,null,null,3, null,null,0,null],
+    hatPattern:  'H.HHH.HHH.HHH.HH',
+    hasScratch: false,
+    padVol: 0.025,
+  },
+  { // Stage 3 — Fleaswallow: laid-back reggae/dub, A minor
+    key: 55.0, // A1
+    scale: [0, 3, 5, 7, 10],
+    chords: [[220.0, 261.6, 329.6], [196.0, 246.9, 293.7]], // Am, G
+    drumPattern: 'K.....S.....K.S.',
+    bassPattern: [0,null,null,null, null,null,null,3, 5,null,null,null, 3,null,0,null],
+    hatPattern:  '..H...H...H...H.',
+    hasScratch: false,
+    padVol: 0.04,
+  },
+  { // Stage 4 — Cheap Cheap: upbeat pop, F major
+    key: 87.31, // F2
+    scale: [0, 2, 4, 5, 7, 9, 11],
+    chords: [[349.2, 440.0, 523.3], [293.7, 370.0, 440.0]], // F, Dm
+    drumPattern: 'K...S...K.K.S...',
+    bassPattern: [0,null,0,null, 4,null,null,null, 7,null,4,null, 0,null,null,null],
+    hatPattern:  'HHHHHHHHHHHHHHHH',
+    hasScratch: false,
+    padVol: 0.03,
+  },
+  { // Stage 5 — MC King Kong: aggressive hip-hop, D minor
+    key: 73.42, // D2
+    scale: [0, 3, 5, 7, 10],
+    chords: [[293.7, 349.2, 440.0], [261.6, 329.6, 392.0]], // Dm, C
+    drumPattern: 'K..KS..KK..KS.S.',
+    bassPattern: [0,null,0,null, null,3,null,null, 5,null,7,null, 5,null,3,null],
+    hatPattern:  'H.HHH.HHH.HHH.HH',
+    hasScratch: true,
+    padVol: 0.025,
+  },
+  { // Stage 6 — DJ PaRappa: full party mode, G minor
+    key: 49.0, // G1
+    scale: [0, 3, 5, 7, 10],
+    chords: [[196.0, 233.1, 293.7], [174.6, 220.0, 261.6], [164.8, 196.0, 246.9]], // Gm, F, Eb
+    drumPattern: 'K.KKS.K.K.KKS.SK',
+    bassPattern: [0,null,0,3, null,null,5,null, 7,null,5,3, null,null,0,null],
+    hatPattern:  'HOHHHOHHHOHHHOHH',
+    hasScratch: true,
+    padVol: 0.03,
+  }
+];
+
+// ── Beat Scheduler (lookahead scheduling for tight timing) ──
+const SCHEDULE_AHEAD = 0.1;  // seconds to schedule ahead
+const SCHEDULE_INTERVAL = 25; // ms between scheduler calls
+
+let nextStepTime = 0;      // when the next 16th note is due (audioCtx time)
+let currentStep = 0;        // which 16th note (0-15)
+let schedulerTimerId = null;
+
+function startMusic() {
+  if (!audioCtx) return;
+  currentStep = 0;
+  nextStepTime = audioCtx.currentTime + 0.05;
+  schedulerTimerId = setInterval(scheduleNotes, SCHEDULE_INTERVAL);
+}
+
+function stopMusic() {
+  if (schedulerTimerId) { clearInterval(schedulerTimerId); schedulerTimerId = null; }
+}
+
+function scheduleNotes() {
+  if (!audioCtx || !state.running) return;
+  const music = MUSIC_DEFS[state.stage] || MUSIC_DEFS[0];
+  const stepDur = (60 / state.bpm) / 4; // duration of one 16th note
+
+  while (nextStepTime < audioCtx.currentTime + SCHEDULE_AHEAD) {
+    const t = nextStepTime;
+    const step = currentStep % 16;
+    const bar = Math.floor(currentStep / 16);
+
+    // ── Drums ──
+    const drumChar = music.drumPattern[step];
+    if (drumChar === 'K') playKick(t);
+    if (drumChar === 'S') playSnare(t);
+
+    // ── Hi-Hat ──
+    if (music.hatPattern && step < music.hatPattern.length) {
+      const hc = music.hatPattern[step];
+      if (hc === 'H') playHiHat(t, false);
+      if (hc === 'O') playHiHat(t, true, 0.1);
+    }
+
+    // ── Bass ──
+    if (music.bassPattern[step] !== null && music.bassPattern[step] !== undefined) {
+      const degree = music.bassPattern[step];
+      const semitones = music.scale[degree % music.scale.length] || 0;
+      const freq = music.key * Math.pow(2, semitones / 12);
+      playBassNote(t, freq, stepDur * 1.8, 0.13);
+    }
+
+    // ── Chords (play on beat 1 and beat 3 of each bar) ──
+    if (step === 0 || step === 8) {
+      const chordIdx = (step === 0) ? 0 : 1 % music.chords.length;
+      const chord = music.chords[chordIdx < music.chords.length ? chordIdx : 0];
+      playChord(t, chord, stepDur * 6, music.padVol || 0.03);
+    }
+
+    // ── Scratch on certain stages ──
+    if (music.hasScratch && step === 12 && bar % 2 === 1) {
+      playScratch(t);
+    }
+
+    // Advance
+    currentStep++;
+    nextStepTime += stepDur;
+  }
+}
+
+// Note sounds per lane (pentatonic-ish)
+const LANE_FREQS = [261.6, 329.6, 392.0, 523.3]; // C4, E4, G4, C5
+const HIT_SOUNDS = {
+  cool: () => { playTone(880, 0.15, 'sine', 0.1); playTone(1108, 0.12, 'sine', 0.08); },
+  good: () => { playTone(660, 0.12, 'sine', 0.08); },
+  bad:  () => { playTone(200, 0.15, 'sawtooth', 0.06); },
+  miss: () => { playTone(120, 0.2, 'sawtooth', 0.05); }
+};
+
+// Beat sound (metronome - now softer since real drums are playing)
+function playBeat(accent) {
+  // Drums handle the beat now, just a subtle click for visual sync
+}
+
+// ── Constants (from PaRappa source scrctrl.h / mbar.c) ──
+const RANK_AWFUL = 0, RANK_BAD = 1, RANK_GOOD = 2, RANK_COOL = 3;
+const RANK_NAMES = ['AWFUL', 'BAD', 'GOOD', 'COOL'];
+const RANK_COLORS = ['#95a5a6', '#e74c3c', '#f39c12', '#2ecc71'];
+
+// Timing windows (ms) — inspired by PaRappa tap check system
+const WINDOW_COOL = 45;   // NIKO_MARU - perfect
+const WINDOW_GOOD = 100;  // NIKO_HALF
+const WINDOW_BAD  = 160;  // NIKO_KAGE
+
+// Scoring (inspired by PaRappa2 scrctrl score logic)
+const SCORE_COOL = 300;
+const SCORE_GOOD = 100;
+const SCORE_BAD  = 10;
+
+// Rank thresholds (meter 0-100)
+const RANK_THRESHOLDS = [0, 25, 55, 80];
+
+// ── Game State ──
+const state = {
+  running: false,
+  stage: 0,
+  bpm: 120,
+  beatInterval: 500, // ms per beat
+  score: 0,
+  combo: 0,
+  maxCombo: 0,
+  rankMeter: 30, // start in BAD range
+  rank: RANK_BAD,
+  phase: 'watch',  // 'watch' or 'play'
+  currentPattern: [],
+  patternIndex: 0,
+  lineIndex: 0,
+  notes: [],        // active note objects
+  noteIdCounter: 0,
+  stats: { cool: 0, good: 0, bad: 0, miss: 0 },
+  lastBeatTime: 0,
+  beatCount: 0,
+  gameTime: 0,
+  teacherPlaying: false,
+  patternQueue: [],
+  coolModeTimer: 0
+};
+
+// ── STAGES (rap lines + patterns inspired by PaRappa games) ──
+const STAGES = [
+  {
+    name: "STAGE 1: Chop Chop Master Onion",
+    teacher: "MASTER ONION",
+    teacherColors: { body: ['#f5b041','#e67e22'], head: ['#f9e79f','#f7dc6f'], hat: '#795548' },
+    bpm: 110,
+    lines: [
+      { text: "Kick! Punch! It's all in the mind!", pattern: [0,1,0,1, 2,3,2,3] },
+      { text: "If you wanna test me, I'm sure you'll find", pattern: [0,0,1,1, 2,2,3,3] },
+      { text: "The things I teach ya are sure to beat ya", pattern: [1,0,3,2, 1,0,3,2] },
+      { text: "But nevertheless you'll get a lesson from teacher!", pattern: [0,1,2,3, 3,2,1,0] },
+      { text: "Now kick! Kick! Kick punch kick!", pattern: [0,0,0,1, 0,0,0,1] },
+      { text: "Chop! Punch! Block! Turn and pose!", pattern: [2,1,3,0, 2,1,3,0] },
+    ]
+  },
+  {
+    name: "STAGE 2: Instructor Mooselini",
+    teacher: "MOOSELINI",
+    teacherColors: { body: ['#5dade2','#2e86c1'], head: ['#d5f5e3','#abebc6'], hat: '#1a5276' },
+    bpm: 120,
+    lines: [
+      { text: "Step on the gas! Step on the brakes!", pattern: [0,2,0,2, 1,3,1,3] },
+      { text: "Don't you know that's what it takes?", pattern: [3,2,1,0, 3,2,1,0] },
+      { text: "Left turn! Right turn! Signal check!", pattern: [0,0,1,1, 2,2,3,3] },
+      { text: "Keep on driving don't be a wreck!", pattern: [2,3,0,1, 2,3,0,1] },
+      { text: "Mirrors check! Seatbelt on! Ready?", pattern: [1,1,2,2, 3,3,0,0] },
+      { text: "Now floor it! Go go go!", pattern: [0,1,2,3, 0,1,2,3] },
+    ]
+  },
+  {
+    name: "STAGE 3: Prince Fleaswallow",
+    teacher: "FLEASWALLOW",
+    teacherColors: { body: ['#af7ac5','#8e44ad'], head: ['#f5cba7','#f0b27a'], hat: '#6c3483' },
+    bpm: 100,
+    lines: [
+      { text: "In the rain or in the snow", pattern: [0,3,0,3, 1,2,1,2] },
+      { text: "Got the funky funky flow", pattern: [2,2,3,3, 0,0,1,1] },
+      { text: "All you ever need is to be nice and friendly", pattern: [0,1,0,1, 2,3,2,3] },
+      { text: "Money money money is all you need", pattern: [3,3,3,1, 0,0,0,2] },
+      { text: "Seafood cake is my specialty!", pattern: [1,0,2,3, 1,0,2,3] },
+      { text: "Come inside the flea market, yeah!", pattern: [0,2,1,3, 3,1,2,0] },
+    ]
+  },
+  {
+    name: "STAGE 4: Cheap Cheap the Cooking Chicken",
+    teacher: "CHEAP CHEAP",
+    teacherColors: { body: ['#f1948a','#e74c3c'], head: ['#fdebd0','#fad7a0'], hat: '#f4f6f7' },
+    bpm: 130,
+    lines: [
+      { text: "Crack crack crack the egg into the bowl!", pattern: [0,0,0,1, 2,3,2,1] },
+      { text: "Mix mix mix the flour and the water!", pattern: [1,1,1,2, 3,0,3,2] },
+      { text: "Cooking need be simple when you do it right!", pattern: [2,0,3,1, 2,0,3,1] },
+      { text: "Put it in the oven let it bake all night!", pattern: [3,2,1,0, 0,1,2,3] },
+      { text: "Seafood cake! Seafood cake!", pattern: [0,1,0,1, 2,3,2,3] },
+      { text: "Now heat it up! Heat heat heat!", pattern: [3,3,0,0, 1,1,2,2] },
+    ]
+  },
+  {
+    name: "STAGE 5: MC King Kong Mushi",
+    teacher: "MC KING KONG",
+    teacherColors: { body: ['#2ecc71','#27ae60'], head: ['#82e0aa','#58d68d'], hat: '#1e8449' },
+    bpm: 140,
+    lines: [
+      { text: "I am the king! The king of the mic!", pattern: [0,1,2,3, 0,1,2,3] },
+      { text: "Everything I do is gonna turn out right!", pattern: [3,2,1,0, 3,2,1,0] },
+      { text: "Rappin' cool rappin' with the beat!", pattern: [0,0,2,2, 1,1,3,3] },
+      { text: "Can't stop me now I'm on my feet!", pattern: [2,3,0,1, 2,3,0,1] },
+      { text: "Bust it! Bust it! It's all in the mind!", pattern: [1,0,1,0, 3,2,3,2] },
+      { text: "Left right left right move in time!", pattern: [0,1,0,1, 2,3,2,3] },
+      { text: "I gotta believe! Yeah! Uh huh!", pattern: [0,2,1,3, 0,2,1,3] },
+      { text: "Everybody say HO! Say HO HO!", pattern: [3,1,2,0, 3,1,2,0] },
+    ]
+  },
+  {
+    name: "STAGE 6: DJ PaRappa (Freestyle!)",
+    teacher: "DJ PARAPPA",
+    teacherColors: { body: ['#f39c12','#e67e22'], head: ['#fad7a0','#f0c27f'], hat: '#e74c3c' },
+    bpm: 145,
+    lines: [
+      { text: "I gotta believe!", pattern: [0,1,2,3, 3,2,1,0] },
+      { text: "Kick punch chop block!", pattern: [0,1,2,3, 0,1,2,3] },
+      { text: "Turn turn turn it around!", pattern: [2,2,2,0, 3,3,3,1] },
+      { text: "PaRappa's in the house tonight!", pattern: [1,3,0,2, 1,3,0,2] },
+      { text: "Everybody get up and move your feet!", pattern: [0,0,1,1, 2,2,3,3] },
+      { text: "Can't stop won't stop the funky beat!", pattern: [3,1,0,2, 3,1,0,2] },
+      { text: "I gotta do what? I gotta believe!", pattern: [0,2,0,2, 1,3,1,3] },
+      { text: "Yeah yeah yeah! Final stage!", pattern: [0,1,2,3, 0,1,2,3] },
+      { text: "RAP RAP RAP to the finish!", pattern: [0,0,0,1, 2,2,2,3] },
+      { text: "Now everybody scream! YEAH!", pattern: [3,2,1,0, 0,1,2,3] },
+    ]
+  }
+];
+
+// ── DOM Elements ──
+const $mbarInner  = document.getElementById('mbarInner');
+const $scoreVal   = document.getElementById('scoreValue');
+const $comboVal   = document.getElementById('comboValue');
+const $rankLabel  = document.getElementById('rankLabel');
+const $rankFill   = document.getElementById('rankFill');
+const $rapText    = document.getElementById('rapText');
+const $niko       = document.getElementById('nikoFeedback');
+const $stageName  = document.getElementById('stageName');
+const $phaseLabel = document.getElementById('phaseLabel');
+const $teacherBubble = document.getElementById('teacherBubble');
+const $playerBubble  = document.getElementById('playerBubble');
+const $teacherMouth  = document.getElementById('teacherMouth');
+const $playerMouth   = document.getElementById('playerMouth');
+const $teacherChar   = document.getElementById('teacher');
+const $playerChar    = document.getElementById('player');
+const $teacherName   = document.getElementById('teacherName');
+const $bpmPulse      = document.getElementById('bpmPulse');
+const $startScreen   = document.getElementById('startScreen');
+const $clearScreen   = document.getElementById('clearScreen');
+const $gameOverScreen = document.getElementById('gameOverScreen');
+const $gameContainer = document.getElementById('gameContainer');
+
+// ── Button mapping ──
+const KEY_MAP = { 'd': 0, 'f': 1, 'j': 2, 'k': 3 };
+const LANE_SYMBOLS = ['\u25B3', '\u25CB', '\u2715', '\u25A1']; // △ ○ ✕ □
+const keysDown = {};
+
+// ── Initialize Game ──
+function startGame() {
+  initAudio();
+  $startScreen.classList.add('hidden');
+  state.stage = 0;
+  state.score = 0;
+  state.combo = 0;
+  state.maxCombo = 0;
+  state.stats = { cool: 0, good: 0, bad: 0, miss: 0 };
+  loadStage(state.stage);
+}
+
+function loadStage(idx) {
+  const stage = STAGES[idx];
+  if (!stage) { showVictory(); return; }
+
+  $clearScreen.classList.add('hidden');
+  $gameOverScreen.classList.add('hidden');
+
+  state.running = true;
+  state.bpm = stage.bpm;
+  state.beatInterval = 60000 / stage.bpm;
+  state.lineIndex = 0;
+  state.phase = 'watch';
+  state.rankMeter = 30;
+  state.rank = RANK_BAD;
+  state.notes = [];
+  state.beatCount = 0;
+  state.lastBeatTime = 0;
+  state.patternQueue = [];
+  state.coolModeTimer = 0;
+  state.noteIdCounter = 0;
+
+  // Clear mbar
+  $mbarInner.innerHTML = '';
+
+  // Set stage info
+  $stageName.textContent = stage.name;
+  $teacherName.textContent = stage.teacher;
+
+  // Set teacher colors
+  const tc = stage.teacherColors;
+  const teacherBody = $teacherChar.querySelector('.char-body');
+  const teacherHead = $teacherChar.querySelector('.char-head');
+  const teacherHat  = $teacherChar.querySelector('.char-hat');
+  teacherBody.style.background = `linear-gradient(180deg, ${tc.body[0]}, ${tc.body[1]})`;
+  teacherHead.style.background = `linear-gradient(180deg, ${tc.head[0]}, ${tc.head[1]})`;
+  teacherHat.style.background = tc.hat;
+
+  updateRankDisplay();
+  updateScore();
+
+  // Start the music!
+  stopMusic();
+  startMusic();
+
+  // Start first line after a short delay
+  setTimeout(() => startLine(), 1000);
+
+  if (!state.loopStarted) {
+    state.loopStarted = true;
+    state.gameTime = performance.now();
+    requestAnimationFrame(gameLoop);
+  }
+  state.gameTime = performance.now();
+}
+
+// ── Line Management ──
+function startLine() {
+  if (!state.running) return;
+  const stage = STAGES[state.stage];
+  const line = stage.lines[state.lineIndex];
+  if (!line) { endStage(); return; }
+
+  // Phase 1: Teacher demonstrates
+  state.phase = 'watch';
+  $phaseLabel.textContent = "WATCH THE TEACHER!";
+  $phaseLabel.style.color = '#f39c12';
+  showRapText(line.text, false);
+  $teacherBubble.textContent = line.text;
+  $teacherBubble.classList.add('show');
+  $playerBubble.classList.remove('show');
+
+  // Spawn teacher notes (visual only, not hittable)
+  state.currentPattern = [...line.pattern];
+  spawnTeacherNotes(line.pattern);
+
+  // After teacher notes finish, switch to play phase
+  const teacherDuration = line.pattern.length * (state.beatInterval / 2) + 500;
+  setTimeout(() => {
+    if (!state.running) return;
+    state.phase = 'play';
+    $phaseLabel.textContent = "YOUR TURN! RAP!";
+    $phaseLabel.style.color = '#2ecc71';
+    $teacherBubble.classList.remove('show');
+    $playerBubble.textContent = "I gotta believe!";
+    $playerBubble.classList.add('show');
+    showRapText(line.text, true);
+
+    // Spawn player notes (hittable)
+    spawnPlayerNotes(line.pattern);
+
+    // After player phase ends, go to next line
+    const playerDuration = line.pattern.length * (state.beatInterval / 2) + 800;
+    setTimeout(() => {
+      if (!state.running) return;
+      $playerBubble.classList.remove('show');
+      state.lineIndex++;
+      startLine();
+    }, playerDuration);
+  }, teacherDuration);
+}
+
+// ── Note Spawning (mbar system) ──
+const MBAR_WIDTH = 840; // inner width
+const HIT_X = 120;      // hit line position
+const NOTE_SPEED = 0.35; // px per ms
+
+function spawnTeacherNotes(pattern) {
+  const interval = state.beatInterval / 2;
+  pattern.forEach((lane, i) => {
+    setTimeout(() => {
+      if (!state.running || state.phase !== 'watch') return;
+      createNoteElement(lane, true);
+      playTone(LANE_FREQS[lane], 0.12, 'sine', 0.06);
+      bounceChar($teacherChar);
+      $teacherMouth.classList.add('open');
+      setTimeout(() => $teacherMouth.classList.remove('open'), 100);
+    }, i * interval);
+  });
+}
+
+function spawnPlayerNotes(pattern) {
+  const interval = state.beatInterval / 2;
+  const startX = MBAR_WIDTH + 30;
+
+  pattern.forEach((lane, i) => {
+    const note = {
+      id: state.noteIdCounter++,
+      lane: lane,
+      spawnTime: performance.now() + i * interval,
+      targetTime: performance.now() + i * interval + (startX - HIT_X) / NOTE_SPEED,
+      hit: false,
+      missed: false,
+      el: null
+    };
+
+    // Create DOM element
+    const el = document.createElement('div');
+    el.className = `note lane${lane}`;
+    el.textContent = LANE_SYMBOLS[lane];
+    el.style.left = startX + 'px';
+    el.dataset.noteId = note.id;
+    $mbarInner.appendChild(el);
+    note.el = el;
+
+    state.notes.push(note);
+  });
+}
+
+function createNoteElement(lane, isTeacher) {
+  const el = document.createElement('div');
+  el.className = `note lane${lane}`;
+  el.textContent = LANE_SYMBOLS[lane];
+  el.style.left = (MBAR_WIDTH + 30) + 'px';
+  el.style.opacity = isTeacher ? '0.5' : '1';
+  $mbarInner.appendChild(el);
+
+  // Animate across
+  const startX = MBAR_WIDTH + 30;
+  const startTime = performance.now();
+  function animTeacher() {
+    const elapsed = performance.now() - startTime;
+    const x = startX - elapsed * NOTE_SPEED;
+    if (x < -30) { el.remove(); return; }
+    el.style.left = x + 'px';
+    requestAnimationFrame(animTeacher);
+  }
+  requestAnimationFrame(animTeacher);
+}
+
+// ── Rap Text Display ──
+function showRapText(text, interactive) {
+  const words = text.split(' ');
+  $rapText.innerHTML = words.map((w, i) =>
+    `<span class="rap-word" data-idx="${i}">${w}</span>`
+  ).join(' ');
+}
+
+// ── Game Loop ──
+function gameLoop(now) {
+  if (!state.running) { requestAnimationFrame(gameLoop); return; }
+
+  const dt = now - state.gameTime;
+  state.gameTime = now;
+
+  // Update notes
+  updateNotes(now);
+
+  // Beat pulse
+  const beatPos = (now % state.beatInterval) / state.beatInterval;
+  $bpmPulse.style.width = (beatPos * 100) + '%';
+
+  // Beat tick
+  const beatNum = Math.floor(now / state.beatInterval);
+  if (beatNum !== state.lastBeatTime) {
+    state.lastBeatTime = beatNum;
+    state.beatCount++;
+    playBeat(state.beatCount % 4 === 0);
+  }
+
+  // Cool mode sparkle
+  if (state.rank === RANK_COOL) {
+    state.coolModeTimer += dt;
+    if (state.coolModeTimer > 200) {
+      state.coolModeTimer = 0;
+      spawnParticle(
+        Math.random() * 900, Math.random() * 640,
+        '#f1c40f'
+      );
+    }
+  }
+
+  requestAnimationFrame(gameLoop);
+}
+
+function updateNotes(now) {
+  for (let i = state.notes.length - 1; i >= 0; i--) {
+    const note = state.notes[i];
+    if (note.hit || note.missed) continue;
+
+    // Move note
+    const elapsed = now - note.spawnTime;
+    const x = (MBAR_WIDTH + 30) - elapsed * NOTE_SPEED;
+    if (note.el) note.el.style.left = x + 'px';
+
+    // Check if note passed the window
+    const timeDiff = now - note.targetTime;
+    if (timeDiff > WINDOW_BAD) {
+      // Missed!
+      note.missed = true;
+      if (note.el) note.el.classList.add('miss');
+      onMiss(note);
+      // Remove after fade
+      setTimeout(() => { if (note.el) note.el.remove(); }, 300);
+    }
+
+    // Clean up old notes
+    if (x < -50) {
+      if (note.el) note.el.remove();
+      state.notes.splice(i, 1);
+    }
+  }
+}
+
+// ── Input Handling ──
+document.addEventListener('keydown', (e) => {
+  const lane = KEY_MAP[e.key.toLowerCase()];
+  if (lane === undefined || keysDown[e.key.toLowerCase()]) return;
+  keysDown[e.key.toLowerCase()] = true;
+
+  // Visual feedback
+  const btnEl = document.getElementById('btn' + lane);
+  if (btnEl) btnEl.classList.add('pressed');
+
+  if (!state.running || state.phase !== 'play') return;
+
+  // Play lane sound
+  playTone(LANE_FREQS[lane], 0.1, 'square', 0.05);
+  bounceChar($playerChar);
+  $playerMouth.classList.add('open');
+  setTimeout(() => $playerMouth.classList.remove('open'), 100);
+
+  // Find closest note in this lane
+  const now = performance.now();
+  let bestNote = null;
+  let bestDiff = Infinity;
+
+  for (const note of state.notes) {
+    if (note.hit || note.missed || note.lane !== lane) continue;
+    const diff = Math.abs(now - note.targetTime);
+    if (diff < bestDiff && diff <= WINDOW_BAD) {
+      bestDiff = diff;
+      bestNote = note;
+    }
+  }
+
+  if (bestNote) {
+    bestNote.hit = true;
+    if (bestNote.el) {
+      bestNote.el.classList.add('hit');
+      setTimeout(() => { if (bestNote.el) bestNote.el.remove(); }, 200);
+    }
+
+    // Grade the hit (Niko system from PaRappa)
+    if (bestDiff <= WINDOW_COOL) {
+      onHit('cool', bestNote);
+    } else if (bestDiff <= WINDOW_GOOD) {
+      onHit('good', bestNote);
+    } else {
+      onHit('bad', bestNote);
+    }
+  }
+});
+
+document.addEventListener('keyup', (e) => {
+  const lane = KEY_MAP[e.key.toLowerCase()];
+  if (lane === undefined) return;
+  keysDown[e.key.toLowerCase()] = false;
+  const btnEl = document.getElementById('btn' + lane);
+  if (btnEl) btnEl.classList.remove('pressed');
+});
+
+// ── Hit/Miss Handlers ──
+function onHit(grade, note) {
+  let points = 0;
+  let meterChange = 0;
+  let color = '';
+  let text = '';
+
+  switch (grade) {
+    case 'cool':
+      points = SCORE_COOL * (1 + state.combo * 0.1);
+      meterChange = 5;
+      color = '#2ecc71';
+      text = 'COOL!';
+      state.stats.cool++;
+      break;
+    case 'good':
+      points = SCORE_GOOD * (1 + state.combo * 0.05);
+      meterChange = 2;
+      color = '#f39c12';
+      text = 'GOOD';
+      state.stats.good++;
+      break;
+    case 'bad':
+      points = SCORE_BAD;
+      meterChange = -2;
+      color = '#e74c3c';
+      text = 'BAD';
+      state.stats.bad++;
+      break;
+  }
+
+  state.score += Math.floor(points);
+  state.combo++;
+  if (state.combo > state.maxCombo) state.maxCombo = state.combo;
+  state.rankMeter = Math.max(0, Math.min(100, state.rankMeter + meterChange));
+
+  HIT_SOUNDS[grade]();
+  showNiko(text, color);
+  spawnHitParticles(note.lane, color);
+  highlightRapWord(true);
+  updateRank();
+  updateScore();
+}
+
+function onMiss(note) {
+  state.combo = 0;
+  state.rankMeter = Math.max(0, state.rankMeter - 5);
+  state.stats.miss++;
+
+  HIT_SOUNDS.miss();
+  showNiko('MISS', '#95a5a6');
+  highlightRapWord(false);
+  updateRank();
+  updateScore();
+}
+
+// Word highlighting
+let rapWordIdx = 0;
+function highlightRapWord(success) {
+  const words = $rapText.querySelectorAll('.rap-word');
+  if (rapWordIdx < words.length) {
+    words[rapWordIdx].classList.add(success ? 'hit' : 'miss');
+    rapWordIdx++;
+    if (rapWordIdx < words.length) {
+      words[rapWordIdx].classList.add('current');
+    }
+  }
+}
+
+// ── Niko Feedback Display (from PaRappa's NIKO_ENUM system) ──
+let nikoTimer = null;
+function showNiko(text, color) {
+  $niko.textContent = text;
+  $niko.style.color = color;
+  $niko.classList.add('show');
+  clearTimeout(nikoTimer);
+  nikoTimer = setTimeout(() => $niko.classList.remove('show'), 400);
+}
+
+// ── Rank System (from PaRappa's rank_level in scrctrl) ──
+function updateRank() {
+  let newRank = RANK_AWFUL;
+  if (state.rankMeter >= RANK_THRESHOLDS[3]) newRank = RANK_COOL;
+  else if (state.rankMeter >= RANK_THRESHOLDS[2]) newRank = RANK_GOOD;
+  else if (state.rankMeter >= RANK_THRESHOLDS[1]) newRank = RANK_BAD;
+
+  if (newRank !== state.rank) {
+    state.rank = newRank;
+    // In PaRappa, falling to AWFUL = game over after staying too long
+    if (state.rank === RANK_AWFUL) {
+      setTimeout(() => {
+        if (state.rank === RANK_AWFUL && state.running) {
+          gameOver();
+        }
+      }, 5000);
+    }
+  }
+  updateRankDisplay();
+}
+
+function updateRankDisplay() {
+  $rankLabel.textContent = RANK_NAMES[state.rank];
+  $rankLabel.style.color = RANK_COLORS[state.rank];
+  $rankFill.style.width = state.rankMeter + '%';
+
+  // Color the meter based on rank
+  const gradients = [
+    'linear-gradient(90deg, #95a5a6, #7f8c8d)',
+    'linear-gradient(90deg, #e74c3c, #c0392b)',
+    'linear-gradient(90deg, #f39c12, #e67e22)',
+    'linear-gradient(90deg, #2ecc71, #27ae60)'
+  ];
+  $rankFill.style.background = gradients[state.rank];
+}
+
+function updateScore() {
+  $scoreVal.textContent = state.score.toLocaleString();
+  $comboVal.textContent = state.combo;
+  $comboVal.style.color = state.combo >= 10 ? '#f1c40f' : state.combo >= 5 ? '#e67e22' : '#e74c3c';
+}
+
+// ── Particles ──
+function spawnParticle(x, y, color) {
+  const el = document.createElement('div');
+  el.className = 'particle';
+  el.style.left = x + 'px';
+  el.style.top = y + 'px';
+  el.style.background = color;
+  el.style.setProperty('--dx', (Math.random() * 80 - 40) + 'px');
+  el.style.setProperty('--dy', (Math.random() * -60 - 20) + 'px');
+  $gameContainer.appendChild(el);
+  setTimeout(() => el.remove(), 600);
+}
+
+function spawnHitParticles(lane, color) {
+  const y = 30 + lane * 20;
+  for (let i = 0; i < 6; i++) {
+    spawnParticle(HIT_X + Math.random() * 20, y + Math.random() * 10, color);
+  }
+}
+
+// ── Character Animation ──
+function bounceChar(charEl) {
+  charEl.classList.remove('bounce');
+  void charEl.offsetWidth; // trigger reflow
+  charEl.classList.add('bounce');
+}
+
+// ── Stage End ──
+function endStage() {
+  state.running = false;
+  stopMusic();
+  $playerBubble.classList.remove('show');
+  $teacherBubble.classList.remove('show');
+
+  // Calculate grade
+  const total = state.stats.cool + state.stats.good + state.stats.bad + state.stats.miss;
+  const pct = total > 0 ? (state.stats.cool + state.stats.good * 0.5) / total : 0;
+
+  let grade, gradeColor;
+  if (pct >= 0.95) { grade = 'S'; gradeColor = '#f1c40f'; }
+  else if (pct >= 0.85) { grade = 'A'; gradeColor = '#2ecc71'; }
+  else if (pct >= 0.70) { grade = 'B'; gradeColor = '#3498db'; }
+  else if (pct >= 0.50) { grade = 'C'; gradeColor = '#f39c12'; }
+  else { grade = 'D'; gradeColor = '#e74c3c'; }
+
+  $clearScreen.classList.remove('hidden');
+  document.getElementById('clearRank').textContent = RANK_NAMES[state.rank] + ' RANK';
+  document.getElementById('clearRank').style.color = RANK_COLORS[state.rank];
+  document.getElementById('clearGrade').textContent = grade;
+  document.getElementById('clearGrade').style.color = gradeColor;
+  document.getElementById('statCool').textContent = state.stats.cool;
+  document.getElementById('statGood').textContent = state.stats.good;
+  document.getElementById('statBad').textContent = state.stats.bad;
+  document.getElementById('statMiss').textContent = state.stats.miss;
+  document.getElementById('statScore').textContent = state.score.toLocaleString();
+  document.getElementById('statCombo').textContent = state.maxCombo;
+
+  const clearBtn = document.getElementById('clearBtn');
+  if (state.stage < STAGES.length - 1) {
+    clearBtn.textContent = 'NEXT STAGE';
+    clearBtn.onclick = () => {
+      state.stage++;
+      rapWordIdx = 0;
+      state.stats = { cool: 0, good: 0, bad: 0, miss: 0 };
+      loadStage(state.stage);
+    };
+  } else {
+    clearBtn.textContent = 'YOU DID IT!';
+    clearBtn.onclick = () => {
+      state.stage = 0;
+      state.score = 0;
+      state.maxCombo = 0;
+      rapWordIdx = 0;
+      state.stats = { cool: 0, good: 0, bad: 0, miss: 0 };
+      loadStage(0);
+    };
+  }
+}
+
+function gameOver() {
+  state.running = false;
+  stopMusic();
+  $playerBubble.classList.remove('show');
+  $teacherBubble.classList.remove('show');
+  $gameOverScreen.classList.remove('hidden');
+}
+
+function restartStage() {
+  $gameOverScreen.classList.add('hidden');
+  rapWordIdx = 0;
+  state.stats = { cool: 0, good: 0, bad: 0, miss: 0 };
+  state.score = Math.max(0, state.score - 1000);
+  loadStage(state.stage);
+}
+
+function showVictory() {
+  endStage();
+}
+
+// ── Keyboard focus ──
+window.addEventListener('click', () => initAudio());
+
+// ── Volume & Mute ──
+let isMuted = false;
+function toggleMute() {
+  isMuted = !isMuted;
+  if (masterGain) masterGain.gain.value = isMuted ? 0 : document.getElementById('volSlider').value / 100;
+  document.getElementById('muteBtn').classList.toggle('muted', isMuted);
+  document.getElementById('muteBtn').innerHTML = isMuted ? '&#10006;' : '&#9834;';
+}
+function setVolume(val) {
+  if (masterGain && !isMuted) masterGain.gain.value = val / 100;
+}
+
+// ── Music Visualizer ──
+const $viz = document.getElementById('musicViz');
+const VIZ_BARS = 32;
+const vizBars = [];
+for (let i = 0; i < VIZ_BARS; i++) {
+  const bar = document.createElement('div');
+  bar.className = 'viz-bar';
+  bar.style.height = '2px';
+  $viz.appendChild(bar);
+  vizBars.push(bar);
+}
+
+function updateVisualizer() {
+  if (!state.running) {
+    vizBars.forEach(b => b.style.height = '2px');
+    return;
+  }
+  const now = performance.now();
+  const beatPos = (now % state.beatInterval) / state.beatInterval;
+  const subBeat = (now % (state.beatInterval / 4)) / (state.beatInterval / 4);
+
+  for (let i = 0; i < VIZ_BARS; i++) {
+    const wave = Math.sin((i / VIZ_BARS) * Math.PI * 4 + now * 0.005) * 0.5 + 0.5;
+    const beatPulse = Math.max(0, 1 - subBeat * 2);
+    const center = Math.abs(i - VIZ_BARS / 2) / (VIZ_BARS / 2);
+    const h = Math.max(2, (wave * 12 + beatPulse * 8) * (1 - center * 0.5));
+    vizBars[i].style.height = h + 'px';
+
+    // Color based on rank
+    const colors = ['#95a5a6', '#e74c3c', '#f39c12', '#2ecc71'];
+    vizBars[i].style.background = colors[state.rank] || '#6c3483';
+  }
+  requestAnimationFrame(updateVisualizer);
+}
+requestAnimationFrame(updateVisualizer);
+</script>
+</body>
+</html>

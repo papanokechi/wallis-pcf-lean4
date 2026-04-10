@@ -1,0 +1,405 @@
+[
+  {
+    "id": "2d04456e7962",
+    "target": "novel_constant?",
+    "target_neighborhood": [
+      "pi",
+      "pi^2",
+      "zeta3",
+      "catalan",
+      "ln2"
+    ],
+    "confidence": 1.0,
+    "structural_motifs": [
+      "Ap\u00e9ry-style acceleration",
+      "Ramanujan modular reweighting",
+      "Bessel / hypergeometric ratio",
+      "bessel_j_ratio"
+    ],
+    "index_transform_hints": [
+      "n->n+1",
+      "n->2n",
+      "n->2n+1",
+      "n->n-1"
+    ],
+    "response_schema": {
+      "type": "object",
+      "required": [
+        "hypothesis",
+        "transformations",
+        "suggested_targets",
+        "search_space"
+      ]
+    },
+    "related_results": [
+      {
+        "label": "Conjectures for Catalan\u2019s constant",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2020/06/catalan.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi^2\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2021/08/Zeta2_Results.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_0101_060418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_4521_050418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_5411_220318.pdf"
+        ],
+        "link_texts": [
+          "PDF #1",
+          "PDF #2",
+          "PDF #3"
+        ]
+      }
+    ],
+    "lirec_identify_snippet": "import mpmath as mp; from LIReC.db.access import db; mp.mp.dps = 150; db.identify(['Pi', 'Pi^2'], degree=2, order=1, isolate=True, wide_search=[1, 2], verbose=False)",
+    "prompt": "You are an Euler-Ramanujan mathematical intuition engine. First summarize the structural fingerprint of the continued fraction, then propose the most promising semantic transforms. Analyze the family with shape `constant_a / linear_b` and coefficients a(n)=-3, b(n)=-4*n + 4. The current target is `novel_constant?`. Use the motifs Ap\u00e9ry-style acceleration, Ramanujan modular reweighting, Bessel / hypergeometric ratio, bessel_j_ratio and explicitly compare the index transforms n->n+1, n->2n, n->2n+1, n->n-1. Think in terms of Ap\u00e9ry/Ramanujan acceleration, Bessel-hypergeometric ratio identities, and factorial/binomial reweightings. Also test the nearby constants pi, pi^2, zeta3, catalan, ln2 and rank which target/transform pair should be tried first. Return strict JSON with keys `hypothesis`, `transformations`, `suggested_targets`, and `search_space`."
+  },
+  {
+    "id": "3694a5c13ada",
+    "target": "novel_constant?",
+    "target_neighborhood": [
+      "pi",
+      "pi^2",
+      "zeta3",
+      "catalan",
+      "ln2"
+    ],
+    "confidence": 1.0,
+    "structural_motifs": [
+      "Ap\u00e9ry-style acceleration",
+      "Ramanujan modular reweighting",
+      "quadratic-denominator special-function scan"
+    ],
+    "index_transform_hints": [
+      "n->n+1",
+      "n->2n",
+      "n->2n+1",
+      "n->n-1"
+    ],
+    "response_schema": {
+      "type": "object",
+      "required": [
+        "hypothesis",
+        "transformations",
+        "suggested_targets",
+        "search_space"
+      ]
+    },
+    "related_results": [
+      {
+        "label": "Conjectures for Catalan\u2019s constant",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2020/06/catalan.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi^2\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2021/08/Zeta2_Results.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_0101_060418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_4521_050418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_5411_220318.pdf"
+        ],
+        "link_texts": [
+          "PDF #1",
+          "PDF #2",
+          "PDF #3"
+        ]
+      }
+    ],
+    "lirec_identify_snippet": "import mpmath as mp; from LIReC.db.access import db; mp.mp.dps = 150; db.identify(['Pi', 'Pi^2'], degree=2, order=1, isolate=True, wide_search=[1, 2], verbose=False)",
+    "prompt": "You are an Euler-Ramanujan mathematical intuition engine. First summarize the structural fingerprint of the continued fraction, then propose the most promising semantic transforms. Analyze the family with shape `constant_a / quadratic_b` and coefficients a(n)=1, b(n)=n^2 + 2*n + 2. The current target is `novel_constant?`. Use the motifs Ap\u00e9ry-style acceleration, Ramanujan modular reweighting, quadratic-denominator special-function scan and explicitly compare the index transforms n->n+1, n->2n, n->2n+1, n->n-1. Think in terms of Ap\u00e9ry/Ramanujan acceleration, Bessel-hypergeometric ratio identities, and factorial/binomial reweightings. Also test the nearby constants pi, pi^2, zeta3, catalan, ln2 and rank which target/transform pair should be tried first. Return strict JSON with keys `hypothesis`, `transformations`, `suggested_targets`, and `search_space`."
+  },
+  {
+    "id": "4feccd7bcac5",
+    "target": "novel_constant?",
+    "target_neighborhood": [
+      "pi",
+      "pi^2",
+      "zeta3",
+      "catalan",
+      "ln2"
+    ],
+    "confidence": 1.0,
+    "structural_motifs": [
+      "Ap\u00e9ry-style acceleration",
+      "Ramanujan modular reweighting",
+      "quadratic-denominator special-function scan"
+    ],
+    "index_transform_hints": [
+      "n->n+1",
+      "n->2n",
+      "n->2n+1",
+      "n->n-1"
+    ],
+    "response_schema": {
+      "type": "object",
+      "required": [
+        "hypothesis",
+        "transformations",
+        "suggested_targets",
+        "search_space"
+      ]
+    },
+    "related_results": [
+      {
+        "label": "Conjectures for Catalan\u2019s constant",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2020/06/catalan.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi^2\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2021/08/Zeta2_Results.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_0101_060418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_4521_050418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_5411_220318.pdf"
+        ],
+        "link_texts": [
+          "PDF #1",
+          "PDF #2",
+          "PDF #3"
+        ]
+      }
+    ],
+    "lirec_identify_snippet": "import mpmath as mp; from LIReC.db.access import db; mp.mp.dps = 150; db.identify(['Pi', 'Pi^2'], degree=2, order=1, isolate=True, wide_search=[1, 2], verbose=False)",
+    "prompt": "You are an Euler-Ramanujan mathematical intuition engine. First summarize the structural fingerprint of the continued fraction, then propose the most promising semantic transforms. Analyze the family with shape `constant_a / quadratic_b` and coefficients a(n)=-1, b(n)=-2*n^2 - 4*n + 7. The current target is `novel_constant?`. Use the motifs Ap\u00e9ry-style acceleration, Ramanujan modular reweighting, quadratic-denominator special-function scan and explicitly compare the index transforms n->n+1, n->2n, n->2n+1, n->n-1. Think in terms of Ap\u00e9ry/Ramanujan acceleration, Bessel-hypergeometric ratio identities, and factorial/binomial reweightings. Also test the nearby constants pi, pi^2, zeta3, catalan, ln2 and rank which target/transform pair should be tried first. Return strict JSON with keys `hypothesis`, `transformations`, `suggested_targets`, and `search_space`."
+  },
+  {
+    "id": "5866a1ce7f90",
+    "target": "novel_constant?",
+    "target_neighborhood": [
+      "pi",
+      "pi^2",
+      "zeta3",
+      "catalan",
+      "ln2"
+    ],
+    "confidence": 1.0,
+    "structural_motifs": [
+      "Ap\u00e9ry-style acceleration",
+      "Ramanujan modular reweighting",
+      "quadratic-denominator special-function scan"
+    ],
+    "index_transform_hints": [
+      "n->n+1",
+      "n->2n",
+      "n->2n+1",
+      "n->n-1"
+    ],
+    "response_schema": {
+      "type": "object",
+      "required": [
+        "hypothesis",
+        "transformations",
+        "suggested_targets",
+        "search_space"
+      ]
+    },
+    "related_results": [
+      {
+        "label": "Conjectures for Catalan\u2019s constant",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2020/06/catalan.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi^2\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2021/08/Zeta2_Results.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_0101_060418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_4521_050418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_5411_220318.pdf"
+        ],
+        "link_texts": [
+          "PDF #1",
+          "PDF #2",
+          "PDF #3"
+        ]
+      }
+    ],
+    "lirec_identify_snippet": "import mpmath as mp; from LIReC.db.access import db; mp.mp.dps = 150; db.identify(['Pi', 'Pi^2'], degree=2, order=1, isolate=True, wide_search=[1, 2], verbose=False)",
+    "prompt": "You are an Euler-Ramanujan mathematical intuition engine. First summarize the structural fingerprint of the continued fraction, then propose the most promising semantic transforms. Analyze the family with shape `constant_a / quadratic_b` and coefficients a(n)=3, b(n)=n^2 + 3*n + 5. The current target is `novel_constant?`. Use the motifs Ap\u00e9ry-style acceleration, Ramanujan modular reweighting, quadratic-denominator special-function scan and explicitly compare the index transforms n->n+1, n->2n, n->2n+1, n->n-1. Think in terms of Ap\u00e9ry/Ramanujan acceleration, Bessel-hypergeometric ratio identities, and factorial/binomial reweightings. Also test the nearby constants pi, pi^2, zeta3, catalan, ln2 and rank which target/transform pair should be tried first. Return strict JSON with keys `hypothesis`, `transformations`, `suggested_targets`, and `search_space`."
+  },
+  {
+    "id": "9eda7636628f",
+    "target": "novel_constant?",
+    "target_neighborhood": [
+      "pi",
+      "pi^2",
+      "zeta3",
+      "catalan",
+      "ln2"
+    ],
+    "confidence": 1.0,
+    "structural_motifs": [
+      "Ap\u00e9ry-style acceleration",
+      "Ramanujan modular reweighting",
+      "quadratic-denominator special-function scan"
+    ],
+    "index_transform_hints": [
+      "n->n+1",
+      "n->2n",
+      "n->2n+1",
+      "n->n-1"
+    ],
+    "response_schema": {
+      "type": "object",
+      "required": [
+        "hypothesis",
+        "transformations",
+        "suggested_targets",
+        "search_space"
+      ]
+    },
+    "related_results": [
+      {
+        "label": "Conjectures for Catalan\u2019s constant",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2020/06/catalan.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi^2\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2021/08/Zeta2_Results.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_0101_060418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_4521_050418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_5411_220318.pdf"
+        ],
+        "link_texts": [
+          "PDF #1",
+          "PDF #2",
+          "PDF #3"
+        ]
+      }
+    ],
+    "lirec_identify_snippet": "import mpmath as mp; from LIReC.db.access import db; mp.mp.dps = 150; db.identify(['Pi', 'Pi^2'], degree=2, order=1, isolate=True, wide_search=[1, 2], verbose=False)",
+    "prompt": "You are an Euler-Ramanujan mathematical intuition engine. First summarize the structural fingerprint of the continued fraction, then propose the most promising semantic transforms. Analyze the family with shape `constant_a / quadratic_b` and coefficients a(n)=-5, b(n)=2*n^2 + 4. The current target is `novel_constant?`. Use the motifs Ap\u00e9ry-style acceleration, Ramanujan modular reweighting, quadratic-denominator special-function scan and explicitly compare the index transforms n->n+1, n->2n, n->2n+1, n->n-1. Think in terms of Ap\u00e9ry/Ramanujan acceleration, Bessel-hypergeometric ratio identities, and factorial/binomial reweightings. Also test the nearby constants pi, pi^2, zeta3, catalan, ln2 and rank which target/transform pair should be tried first. Return strict JSON with keys `hypothesis`, `transformations`, `suggested_targets`, and `search_space`."
+  },
+  {
+    "id": "lirec_demo_1",
+    "target": "pi",
+    "target_neighborhood": [
+      "pi^2",
+      "ln2",
+      "golden_ratio",
+      "catalan",
+      "zeta3"
+    ],
+    "confidence": 0.88,
+    "structural_motifs": [
+      "Ap\u00e9ry-style acceleration",
+      "Ramanujan modular reweighting",
+      "Bessel / hypergeometric ratio"
+    ],
+    "index_transform_hints": [
+      "n->n+1",
+      "n->2n",
+      "n->2n+1",
+      "n->n-1"
+    ],
+    "response_schema": {
+      "type": "object",
+      "required": [
+        "hypothesis",
+        "transformations",
+        "suggested_targets",
+        "search_space"
+      ]
+    },
+    "related_results": [
+      {
+        "label": "Conjectures for Catalan\u2019s constant",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2020/06/catalan.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi^2\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2021/08/Zeta2_Results.pdf"
+        ],
+        "link_texts": [
+          "here"
+        ]
+      },
+      {
+        "label": "Conjectures for \\(\\pi\\)",
+        "pdf_links": [
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_0101_060418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_4521_050418.pdf",
+          "http://www.ramanujanmachine.com/wp-content/uploads/2019/06/results_pi_5411_220318.pdf"
+        ],
+        "link_texts": [
+          "PDF #1",
+          "PDF #2",
+          "PDF #3"
+        ]
+      }
+    ],
+    "lirec_identify_snippet": "import mpmath as mp; from LIReC.db.access import db; mp.mp.dps = 150; db.identify(['Pi', 'Pi^2', 'Log2'], degree=2, order=1, isolate=True, wide_search=[1, 2], verbose=False)",
+    "prompt": "You are an Euler-Ramanujan mathematical intuition engine. First summarize the structural fingerprint of the continued fraction, then propose the most promising semantic transforms. Analyze the family with shape `constant_a / linear_b` and coefficients a(n)=2, b(n)=3*n + 1. The current target is `pi`. Use the motifs Ap\u00e9ry-style acceleration, Ramanujan modular reweighting, Bessel / hypergeometric ratio and explicitly compare the index transforms n->n+1, n->2n, n->2n+1, n->n-1. Think in terms of Ap\u00e9ry/Ramanujan acceleration, Bessel-hypergeometric ratio identities, and factorial/binomial reweightings. Also test the nearby constants pi^2, ln2, golden_ratio, catalan, zeta3 and rank which target/transform pair should be tried first. Return strict JSON with keys `hypothesis`, `transformations`, `suggested_targets`, and `search_space`."
+  }
+]

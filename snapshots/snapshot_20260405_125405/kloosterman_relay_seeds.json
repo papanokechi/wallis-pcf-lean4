@@ -1,0 +1,2762 @@
+[
+  {
+    "spec_id": "EULER_PI_4",
+    "alpha": [
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      2
+    ],
+    "target": "pi",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "EULER_E",
+    "alpha": [
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      2
+    ],
+    "target": "e",
+    "n_terms": 200,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "LOG2_EULER",
+    "alpha": [
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      0,
+      1
+    ],
+    "target": "log2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "CATALAN_CF",
+    "alpha": [
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "EULER_ZETA2",
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      0,
+      -2,
+      6,
+      4
+    ],
+    "target": "zeta2",
+    "n_terms": 150,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "RAMANUJAN_PI",
+    "alpha": [
+      -1,
+      0,
+      4
+    ],
+    "beta": [
+      0,
+      6
+    ],
+    "target": "pi",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_29526C91",
+    "alpha": [
+      -8,
+      2,
+      1,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_A7A7EA37",
+    "alpha": [
+      -3,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_CD86AB7E",
+    "alpha": [
+      8,
+      -2,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_FDCB6918",
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 120,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_A11F3355",
+    "alpha": [
+      3,
+      -1,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      6
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_86CEE6DE",
+    "alpha": [
+      -4,
+      2
+    ],
+    "beta": [
+      -2,
+      -4
+    ],
+    "target": "zeta3",
+    "n_terms": 200,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_3496E0B8",
+    "alpha": [
+      -5,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_9BE7FF88",
+    "alpha": [
+      -5,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      -3
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_CD0D573B",
+    "alpha": [
+      -6,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_D8D04576",
+    "alpha": [
+      3,
+      -1
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_2C8C2D3C",
+    "alpha": [
+      -8,
+      2,
+      1,
+      0
+    ],
+    "beta": [
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_049F07CD",
+    "alpha": [
+      -5,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_716008B3",
+    "alpha": [
+      2,
+      -1,
+      2,
+      -1
+    ],
+    "beta": [
+      1,
+      2
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_E65A8EA4",
+    "alpha": [
+      -6,
+      -1,
+      -5,
+      2
+    ],
+    "beta": [
+      -2,
+      -3,
+      4,
+      3
+    ],
+    "target": "zeta3",
+    "n_terms": 120,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_2F6804B9",
+    "alpha": [
+      -3,
+      -1,
+      4
+    ],
+    "beta": [
+      -6,
+      -3
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_32B73668",
+    "alpha": [
+      -6,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_DCFFFCD1",
+    "alpha": [
+      -3,
+      1,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_9A716210",
+    "alpha": [
+      -4,
+      -3,
+      1
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_8352971D",
+    "alpha": [
+      -5,
+      -1,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_8C3B63BB",
+    "alpha": [
+      0,
+      -4,
+      1
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_E77A9292",
+    "alpha": [
+      2,
+      -1
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_7BAE5F83",
+    "alpha": [
+      -6,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_D944C49B",
+    "alpha": [
+      4,
+      -4,
+      1,
+      2,
+      -1
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_ABB88981",
+    "alpha": [
+      8,
+      -2,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_AD67F506",
+    "alpha": [
+      -1,
+      -2,
+      1
+    ],
+    "beta": [
+      -2,
+      -2,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_C5B6C2EE",
+    "alpha": [
+      -3,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      -3
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_DC026271",
+    "alpha": [
+      -3,
+      1
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_E97C3F37",
+    "alpha": [
+      8,
+      -2,
+      -1
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_2F2E7317",
+    "alpha": [
+      -6,
+      -1,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_739339E7",
+    "alpha": [
+      0,
+      -3,
+      1
+    ],
+    "beta": [
+      1,
+      2
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_E019F365",
+    "alpha": [
+      -6,
+      1
+    ],
+    "beta": [
+      4,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 200,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_B61F5049",
+    "alpha": [
+      -2,
+      -6,
+      6,
+      2
+    ],
+    "beta": [
+      6,
+      -2
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0F1326A9",
+    "alpha": [
+      8,
+      -4,
+      0
+    ],
+    "beta": [
+      -5,
+      2
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_28FEA755",
+    "alpha": [
+      -4,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_51DBD275",
+    "alpha": [
+      -4,
+      -1,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_BD904F55",
+    "alpha": [
+      6,
+      4,
+      -2
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_B5505CA9",
+    "alpha": [
+      6,
+      -3
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_23FE5600",
+    "alpha": [
+      -4,
+      2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_62059853",
+    "alpha": [
+      0,
+      -5,
+      1
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_4F1F28AF",
+    "alpha": [
+      6,
+      -3,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_E6EA9728",
+    "alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      15,
+      -27,
+      22
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "ratio",
+    "order": 3
+  },
+  {
+    "spec_id": "GCF_6593A61C",
+    "alpha": [
+      1,
+      -2,
+      1
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_F9E82A7E",
+    "alpha": [
+      4,
+      -1
+    ],
+    "beta": [
+      1,
+      2
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_00DF91D6",
+    "alpha": [
+      2,
+      -1,
+      2,
+      -1
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_2D797469",
+    "alpha": [
+      -3,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_A815ED78",
+    "alpha": [
+      4,
+      -4,
+      1,
+      0,
+      -1
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_34B6D21B",
+    "alpha": [
+      -7,
+      -1,
+      6,
+      -1,
+      3
+    ],
+    "beta": [
+      1,
+      2,
+      -1,
+      7,
+      -6,
+      -4,
+      3
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 4
+  },
+  {
+    "spec_id": "GCF_1A54342D",
+    "alpha": [
+      4,
+      -1,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5D4A99AD",
+    "alpha": [
+      -3,
+      1,
+      0,
+      0,
+      2
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_47FC0A8C",
+    "alpha": [
+      4,
+      -4,
+      1,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_36147C1E",
+    "alpha": [
+      4,
+      -4,
+      1
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_BE6E45A4",
+    "alpha": [
+      -3,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5E749725",
+    "alpha": [
+      -6,
+      -1,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_9C1FE86C",
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_B8EC78EB",
+    "alpha": [
+      8,
+      -4,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_9FB77715",
+    "alpha": [
+      -4,
+      0,
+      -1,
+      1
+    ],
+    "beta": [
+      -5,
+      -5
+    ],
+    "target": "zeta5",
+    "n_terms": 120,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_E6D36BB2",
+    "alpha": [
+      -8,
+      2,
+      1,
+      0
+    ],
+    "beta": [
+      8,
+      6
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_CB5FA994",
+    "alpha": [
+      -6,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      -1
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_3EFC24F8",
+    "alpha": [
+      2,
+      -1,
+      2,
+      -1
+    ],
+    "beta": [
+      5,
+      0,
+      0
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_9C5F84CE",
+    "alpha": [
+      -6,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_38A82B1E",
+    "alpha": [
+      -4,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_EABC6107",
+    "alpha": [
+      -6,
+      -3,
+      3
+    ],
+    "beta": [
+      -3,
+      -3,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "n_terms": 120,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_61104159",
+    "alpha": [
+      6,
+      -3
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_186D9BB2",
+    "alpha": [
+      4,
+      -4,
+      1
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_189D9778",
+    "alpha": [
+      0,
+      -1,
+      2,
+      -1
+    ],
+    "beta": [
+      -40,
+      129,
+      -136,
+      48
+    ],
+    "target": "zeta3",
+    "n_terms": 200,
+    "mode": "ratio",
+    "order": 3
+  },
+  {
+    "spec_id": "GCF_5E259469",
+    "alpha": [
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5E259469",
+    "alpha": [
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta4",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5E259469",
+    "alpha": [
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5E259469",
+    "alpha": [
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "pi2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5E259469",
+    "alpha": [
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_EB7C53D8",
+    "alpha": [
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      8
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_7B92A0F2",
+    "alpha": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5
+  },
+  {
+    "spec_id": "GCF_24EDEC76",
+    "alpha": [
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      8
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5E259469",
+    "alpha": [
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_DED80901",
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1,
+      3
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "target": "zeta2",
+    "n_terms": 120,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_DED80901",
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1,
+      3
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "target": "zeta4",
+    "n_terms": 120,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_DED80901",
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1,
+      3
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "target": "catalan",
+    "n_terms": 120,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_DED80901",
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1,
+      3
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "target": "pi2",
+    "n_terms": 120,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_DED80901",
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1,
+      3
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "target": "zeta5",
+    "n_terms": 120,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_39379518",
+    "alpha": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5
+  },
+  {
+    "spec_id": "GCF_5E259469",
+    "alpha": [
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_DED80901",
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1,
+      3
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 120,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_F8A68CD0",
+    "alpha": [
+      1,
+      -1
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_F8A68CD0",
+    "alpha": [
+      1,
+      -1
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta4",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_F8A68CD0",
+    "alpha": [
+      1,
+      -1
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_F8A68CD0",
+    "alpha": [
+      1,
+      -1
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "pi2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_F8A68CD0",
+    "alpha": [
+      1,
+      -1
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_821D4BFB",
+    "alpha": [
+      0,
+      1,
+      0,
+      1,
+      -2,
+      0
+    ],
+    "beta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5
+  },
+  {
+    "spec_id": "GCF_8E56E293",
+    "alpha": [
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      2,
+      4,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_F8A68CD0",
+    "alpha": [
+      1,
+      -1
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_3F4C8F1A",
+    "alpha": [
+      -5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_3F4C8F1A",
+    "alpha": [
+      -5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta4",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_3F4C8F1A",
+    "alpha": [
+      -5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_3F4C8F1A",
+    "alpha": [
+      -5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "pi2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_3F4C8F1A",
+    "alpha": [
+      -5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_D4DEC814",
+    "alpha": [
+      -5,
+      2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_B533709A",
+    "alpha": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "beta": [
+      0,
+      0,
+      0,
+      -1,
+      0,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5
+  },
+  {
+    "spec_id": "GCF_1B8FF471",
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1,
+      3,
+      0
+    ],
+    "beta": [
+      3,
+      1,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_3F4C8F1A",
+    "alpha": [
+      -5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0F6F8162",
+    "alpha": [
+      -5,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0F6F8162",
+    "alpha": [
+      -5,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta4",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0F6F8162",
+    "alpha": [
+      -5,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0F6F8162",
+    "alpha": [
+      -5,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "pi2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0F6F8162",
+    "alpha": [
+      -5,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_BA94F94F",
+    "alpha": [
+      -5,
+      -2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      2
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_A548AEB3",
+    "alpha": [
+      0,
+      2,
+      0,
+      3,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      2,
+      0,
+      0,
+      0,
+      3
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5
+  },
+  {
+    "spec_id": "GCF_F8A68CD0",
+    "alpha": [
+      1,
+      -1
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0F6F8162",
+    "alpha": [
+      -5,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_A284CE55",
+    "alpha": [
+      -2,
+      1,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_A284CE55",
+    "alpha": [
+      -2,
+      1,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta4",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_A284CE55",
+    "alpha": [
+      -2,
+      1,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_A284CE55",
+    "alpha": [
+      -2,
+      1,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "pi2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_A284CE55",
+    "alpha": [
+      -2,
+      1,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_72F5941E",
+    "alpha": [
+      -2,
+      2,
+      0
+    ],
+    "beta": [
+      -2,
+      8
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_98C56738",
+    "alpha": [
+      0,
+      0,
+      0,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5
+  },
+  {
+    "spec_id": "GCF_A579B361",
+    "alpha": [
+      -5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -5,
+      0
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_A284CE55",
+    "alpha": [
+      -2,
+      1,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0C968A18",
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0C968A18",
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta4",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0C968A18",
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0C968A18",
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "pi2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0C968A18",
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_CA8031EA",
+    "alpha": [
+      -4,
+      2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -2
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_37F3E5FA",
+    "alpha": [
+      -5,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -2,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_0C968A18",
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_B220AF13",
+    "alpha": [
+      6,
+      -2
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "target": "zeta2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_B220AF13",
+    "alpha": [
+      6,
+      -2
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "target": "zeta4",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_B220AF13",
+    "alpha": [
+      6,
+      -2
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_B220AF13",
+    "alpha": [
+      6,
+      -2
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "target": "pi2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_B220AF13",
+    "alpha": [
+      6,
+      -2
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_7CF1C48E",
+    "alpha": [
+      6,
+      -4
+    ],
+    "beta": [
+      -4,
+      -12
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_E64374FD",
+    "alpha": [
+      0,
+      0,
+      0,
+      3
+    ],
+    "beta": [
+      -1,
+      15,
+      -25,
+      19
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "ratio",
+    "order": 3
+  },
+  {
+    "spec_id": "GCF_2F05539A",
+    "alpha": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      2,
+      0,
+      -2,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5
+  },
+  {
+    "spec_id": "GCF_1E0C27AA",
+    "alpha": [
+      -2,
+      1,
+      0,
+      -1
+    ],
+    "beta": [
+      2,
+      4,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_B220AF13",
+    "alpha": [
+      6,
+      -2
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5FC74795",
+    "alpha": [
+      0,
+      -5,
+      1,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5FC74795",
+    "alpha": [
+      0,
+      -5,
+      1,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta4",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5FC74795",
+    "alpha": [
+      0,
+      -5,
+      1,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5FC74795",
+    "alpha": [
+      0,
+      -5,
+      1,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "pi2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5FC74795",
+    "alpha": [
+      0,
+      -5,
+      1,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_128AA323",
+    "alpha": [
+      0,
+      -10,
+      4,
+      0
+    ],
+    "beta": [
+      -3,
+      -2
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_4F92A675",
+    "alpha": [
+      0,
+      0,
+      0,
+      3,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5
+  },
+  {
+    "spec_id": "GCF_0C968A18",
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5FC74795",
+    "alpha": [
+      0,
+      -5,
+      1,
+      0
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_948F6505",
+    "alpha": [
+      6,
+      -3,
+      0,
+      -3
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_948F6505",
+    "alpha": [
+      6,
+      -3,
+      0,
+      -3
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta4",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_948F6505",
+    "alpha": [
+      6,
+      -3,
+      0,
+      -3
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "catalan",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_948F6505",
+    "alpha": [
+      6,
+      -3,
+      0,
+      -3
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "pi2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_948F6505",
+    "alpha": [
+      6,
+      -3,
+      0,
+      -3
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta5",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_526BD9A7",
+    "alpha": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "beta": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      3
+    ],
+    "target": "zeta3",
+    "n_terms": 500,
+    "mode": "ratio",
+    "order": 5
+  },
+  {
+    "spec_id": "GCF_CC10DB99",
+    "alpha": [
+      6,
+      -2
+    ],
+    "beta": [
+      4,
+      -6
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_948F6505",
+    "alpha": [
+      6,
+      -3,
+      0,
+      -3
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "target": "zeta3",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5E59A7FF",
+    "alpha": [
+      -1,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta2",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  },
+  {
+    "spec_id": "GCF_5E59A7FF",
+    "alpha": [
+      -1,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "target": "zeta4",
+    "n_terms": 300,
+    "mode": "backward",
+    "order": 0
+  }
+]

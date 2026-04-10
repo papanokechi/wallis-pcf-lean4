@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ramanujan Agent Run Summary</title>
+  <style>
+    :root {
+      --bg:#0b1020; --panel:#121933; --panel2:#0f1530; --text:#e8ecff;
+      --muted:#aab4de; --accent:#7cc7ff; --accent2:#8ef0c3; --border:#263158;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Segoe UI,Arial,sans-serif; background:linear-gradient(180deg,var(--bg),#12182c); color:var(--text); }
+    .wrap { max-width:1200px; margin:0 auto; padding:32px 20px 48px; }
+    .hero, .panel { background:rgba(18,25,51,.92); border:1px solid var(--border); border-radius:18px; box-shadow:0 12px 30px rgba(0,0,0,.24); }
+    .hero { padding:24px; margin-bottom:18px; }
+    h1,h2 { margin:0 0 10px; }
+    .sub { color:var(--muted); margin:4px 0 0; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin:18px 0; }
+    .stat { background:var(--panel2); border:1px solid var(--border); border-radius:14px; padding:14px; }
+    .label { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+    .value { font-size:28px; font-weight:700; margin-top:6px; }
+    .panel { padding:20px; margin-top:18px; }
+    .meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; color:var(--muted); }
+    table { width:100%; border-collapse:collapse; margin-top:12px; }
+    th, td { border-bottom:1px solid var(--border); text-align:left; padding:10px 8px; vertical-align:top; }
+    th { color:#9fd7ff; font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+    code, pre { font-family:Consolas, monospace; background:#0a1124; border-radius:8px; }
+    code { padding:2px 6px; }
+    pre { padding:12px; overflow:auto; color:#dff7ff; }
+    a { color:var(--accent2); }
+    .empty { text-align:center; color:var(--muted); padding:18px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Ramanujan Agent Run Summary</h1>
+      <p class="sub">Target <strong>zeta3</strong> · generated 2026-04-04 18:57:57</p>
+      <div class="grid">
+        <div class="stat"><div class="label">Iterations</div><div class="value">2</div></div>
+        <div class="stat"><div class="label">GCFs tested</div><div class="value">256</div></div>
+        <div class="stat"><div class="label">Novel finds</div><div class="value">7</div></div>
+        <div class="stat"><div class="label">Find rate</div><div class="value">350.00%</div></div>
+        <div class="stat"><div class="label">Seeds injected</div><div class="value">35</div></div>
+        <div class="stat"><div class="label">GCFs / sec</div><div class="value">11.11</div></div>
+        <div class="stat"><div class="label">LLM calls</div><div class="value">0</div></div>
+      </div>
+      <div class="meta">
+        <div><strong>LLM mode:</strong> disabled</div>
+        <div><strong>Elapsed:</strong> 0m23s (23.053s)</div>
+        <div><strong>Python:</strong> 3.14.3 · mpmath 1.4.1</div>
+        <div><strong>Platform:</strong> Windows-11-10.0.29560-SP0</div>
+        <div><strong>CPU count:</strong> 8</div>
+        <div><strong>Discovery file:</strong> <a href="ramanujan_discoveries.json">ramanujan_discoveries.json</a></div>
+        <div><strong>Seed pool:</strong> <a href="relay_chain_seed_pool.json">relay_chain_seed_pool.json</a></div>
+        <div><strong>Profile:</strong> not captured</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Continue from this run</h2>
+      <pre>python ramanujan_agent_v2_fast.py --seed-file relay_chain_seed_pool.json --target zeta3 --iters 500</pre>
+    </section>
+
+    <section class="panel">
+      <h2>Discoveries</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>Spec ID</th><th>Constant</th><th>Precision</th><th>Conv. digits</th><th>Coefficients</th><th>Formula</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>1</td>
+              <td><code>GCF_065982E4</code></td>
+              <td>zeta3</td>
+              <td>300</td>
+              <td>300</td>
+              <td><code>[4, -4, 1]</code><br><code>[-6, 3, -2]</code></td>
+              <td>5·CF·zeta3 + 31·zeta3 = 0<div><strong>Closed form:</strong> <code>-31/5</code></div><div><strong>Approx:</strong> <code>-6.2</code></div></td>
+            </tr>
+            
+            <tr>
+              <td>2</td>
+              <td><code>GCF_CD0637D8</code></td>
+              <td>zeta3</td>
+              <td>300</td>
+              <td>300</td>
+              <td><code>[-5, -1, 6]</code><br><code>[-2, -1]</code></td>
+              <td>1·CF·zeta3 + -1·CF + 2·zeta3 + -2 = 0<div><strong>Closed form:</strong> <code>-2</code></div><div><strong>Approx:</strong> <code>-2.0</code></div></td>
+            </tr>
+            
+            <tr>
+              <td>3</td>
+              <td><code>GCF_42233F67</code></td>
+              <td>zeta3</td>
+              <td>300</td>
+              <td>300</td>
+              <td><code>[-3, 0, 3]</code><br><code>[1, -6, 0]</code></td>
+              <td>1·CF·zeta3 + -1·zeta3 = 0<div><strong>Closed form:</strong> <code>1</code></div><div><strong>Approx:</strong> <code>1.0</code></div></td>
+            </tr>
+            
+            <tr>
+              <td>4</td>
+              <td><code>GCF_3CCCB09E</code></td>
+              <td>zeta3</td>
+              <td>79</td>
+              <td>300</td>
+              <td><code>[1, -4, 3]</code><br><code>[-5, 5, 5, -6]</code></td>
+              <td>1·CF² + -1·CF·zeta3 + 5·CF + -5·zeta3 = 0<div><strong>Closed form:</strong> <code>-5</code></div><div><strong>Approx:</strong> <code>-5.0</code></div></td>
+            </tr>
+            
+            <tr>
+              <td>5</td>
+              <td><code>GCF_DEE81CB5</code></td>
+              <td>zeta3</td>
+              <td>80</td>
+              <td>300</td>
+              <td><code>[4, -4, 1, -1]</code><br><code>[-6, 3, -2]</code></td>
+              <td>1·CF² + -1·CF·zeta3 + 6·CF + -6·zeta3 = 0<div><strong>Closed form:</strong> <code>-6</code></div><div><strong>Approx:</strong> <code>-6.0</code></div></td>
+            </tr>
+            
+            <tr>
+              <td>6</td>
+              <td><code>GCF_0ADF13E3</code></td>
+              <td>zeta3</td>
+              <td>300</td>
+              <td>300</td>
+              <td><code>[4, -4, -4, 4]</code><br><code>[-1, 5]</code></td>
+              <td>1·CF·zeta3 + 1·zeta3 = 0<div><strong>Closed form:</strong> <code>-1</code></div><div><strong>Approx:</strong> <code>-1.0</code></div></td>
+            </tr>
+            
+            <tr>
+              <td>7</td>
+              <td><code>GCF_02437910</code></td>
+              <td>zeta4</td>
+              <td>79</td>
+              <td>300</td>
+              <td><code>[-3, 1]</code><br><code>[-4, 3, 2]</code></td>
+              <td>9·CF² + 9·CF·zeta4 + 56·CF + 56·zeta4 = 0<div><strong>Closed form:</strong> <code>-56/9</code></div><div><strong>Approx:</strong> <code>-6.22222222222222222222222</code></div></td>
+            </tr>
+            
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

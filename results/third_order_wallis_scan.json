@@ -1,0 +1,226 @@
+{
+  "timestamp": "2026-04-09 06:10:04",
+  "protocol": {
+    "families": [
+      "falling",
+      "power"
+    ],
+    "coefficient_box": [
+      -3,
+      3
+    ],
+    "depth": 250,
+    "tail_window": 18,
+    "workers": 8,
+    "acceleration": "numba-njit",
+    "multivariate_wallis_check": "Tail Gram/SVD isolation of the two least-growing modes; ratio f1_n/f2_n checked for stabilization and acceleration."
+  },
+  "family_reports": [
+    {
+      "family": "falling",
+      "elapsed_seconds": 174.71123552322388,
+      "candidate_count": 2,
+      "top_candidates": [
+        {
+          "family": "falling",
+          "alpha": -1,
+          "beta": -1,
+          "gamma": -1,
+          "delta": 1,
+          "ratio_estimate": -2.3068353076220296,
+          "best_match": "(-9/2)*K((3-sqrt(5))/8)/pi",
+          "match_digits": 4.52790448031848,
+          "stability_digits": 4.0333793907638125,
+          "dominant_digits": 10.174361110076596,
+          "acceleration_gain": -6.140981719312784,
+          "score": 8.066758781527625,
+          "verify_depths": null,
+          "verified_digits": null,
+          "verified_match": null,
+          "ratio_depth_values": null
+        },
+        {
+          "family": "falling",
+          "alpha": 1,
+          "beta": 1,
+          "gamma": -1,
+          "delta": -1,
+          "ratio_estimate": 2.3068353076220296,
+          "best_match": "(9/2)*K((3-sqrt(5))/8)/pi",
+          "match_digits": 4.52790448031848,
+          "stability_digits": 4.0333793907638125,
+          "dominant_digits": 10.174361110076596,
+          "acceleration_gain": -6.140981719312784,
+          "score": 8.066758781527625,
+          "verify_depths": null,
+          "verified_digits": null,
+          "verified_match": null,
+          "ratio_depth_values": null
+        }
+      ]
+    },
+    {
+      "family": "power",
+      "elapsed_seconds": 31.086300373077393,
+      "candidate_count": 2,
+      "top_candidates": [
+        {
+          "family": "power",
+          "alpha": -1,
+          "beta": -3,
+          "gamma": -1,
+          "delta": 1,
+          "ratio_estimate": -0.11170311214022155,
+          "best_match": "(-2/11)*K(1/11)/K(10/11)",
+          "match_digits": 3.674184875544885,
+          "stability_digits": 4.606291689468047,
+          "dominant_digits": 11.167669217880597,
+          "acceleration_gain": -6.56137752841255,
+          "score": 7.34836975108977,
+          "verify_depths": null,
+          "verified_digits": null,
+          "verified_match": null,
+          "ratio_depth_values": null
+        },
+        {
+          "family": "power",
+          "alpha": 1,
+          "beta": 3,
+          "gamma": -1,
+          "delta": -1,
+          "ratio_estimate": 0.11170311214022155,
+          "best_match": "(2/11)*K(1/11)/K(10/11)",
+          "match_digits": 3.674184875544885,
+          "stability_digits": 4.606291689468047,
+          "dominant_digits": 11.167669217880597,
+          "acceleration_gain": -6.56137752841255,
+          "score": 7.34836975108977,
+          "verify_depths": null,
+          "verified_digits": null,
+          "verified_match": null,
+          "ratio_depth_values": null
+        }
+      ]
+    }
+  ],
+  "verified_top_candidates": [
+    {
+      "family": "falling",
+      "alpha": -1,
+      "beta": -1,
+      "gamma": -1,
+      "delta": 1,
+      "ratio_estimate": -2.3068353076220296,
+      "best_match": "(-9/2)*K((3-sqrt(5))/8)/pi",
+      "match_digits": 4.52790448031848,
+      "stability_digits": 4.0333793907638125,
+      "dominant_digits": 10.174361110076596,
+      "acceleration_gain": -6.140981719312784,
+      "score": 8.066758781527625,
+      "verify_depths": [
+        90,
+        110,
+        140,
+        180,
+        250
+      ],
+      "verified_digits": 0.0,
+      "verified_match": "(-9/2)*K((3-sqrt(5))/8)/pi",
+      "ratio_depth_values": [
+        "-0.0002834632724325522",
+        "-0.0001631274807606579",
+        "7.865485655065681",
+        "-2.30683530762203"
+      ]
+    },
+    {
+      "family": "falling",
+      "alpha": 1,
+      "beta": 1,
+      "gamma": -1,
+      "delta": -1,
+      "ratio_estimate": 2.3068353076220296,
+      "best_match": "(9/2)*K((3-sqrt(5))/8)/pi",
+      "match_digits": 4.52790448031848,
+      "stability_digits": 4.0333793907638125,
+      "dominant_digits": 10.174361110076596,
+      "acceleration_gain": -6.140981719312784,
+      "score": 8.066758781527625,
+      "verify_depths": [
+        90,
+        110,
+        140,
+        180,
+        250
+      ],
+      "verified_digits": 0.0,
+      "verified_match": "(9/2)*K((3-sqrt(5))/8)/pi",
+      "ratio_depth_values": [
+        "0.0002834632724325522",
+        "0.0001631274807606579",
+        "-7.865485655065681",
+        "2.30683530762203"
+      ]
+    },
+    {
+      "family": "power",
+      "alpha": -1,
+      "beta": -3,
+      "gamma": -1,
+      "delta": 1,
+      "ratio_estimate": -0.11170311214022155,
+      "best_match": "(-2/11)*K(1/11)/K(10/11)",
+      "match_digits": 3.674184875544885,
+      "stability_digits": 4.606291689468047,
+      "dominant_digits": 11.167669217880597,
+      "acceleration_gain": -6.56137752841255,
+      "score": 7.34836975108977,
+      "verify_depths": [
+        90,
+        110,
+        140,
+        180,
+        250
+      ],
+      "verified_digits": 0.0,
+      "verified_match": "(-5/12)*K((3-sqrt(5))/8)/pi",
+      "ratio_depth_values": [
+        "-0.003106735014736833",
+        "0.0003498914088645216",
+        "-0.2137346407521885",
+        "2.084190513691133",
+        "-0.1117031121402215"
+      ]
+    },
+    {
+      "family": "power",
+      "alpha": 1,
+      "beta": 3,
+      "gamma": -1,
+      "delta": -1,
+      "ratio_estimate": 0.11170311214022155,
+      "best_match": "(2/11)*K(1/11)/K(10/11)",
+      "match_digits": 3.674184875544885,
+      "stability_digits": 4.606291689468047,
+      "dominant_digits": 11.167669217880597,
+      "acceleration_gain": -6.56137752841255,
+      "score": 7.34836975108977,
+      "verify_depths": [
+        90,
+        110,
+        140,
+        180,
+        250
+      ],
+      "verified_digits": 0.0,
+      "verified_match": "(5/12)*K((3-sqrt(5))/8)/pi",
+      "ratio_depth_values": [
+        "0.003106735014736833",
+        "-0.0003498914088645216",
+        "0.2137346407521885",
+        "-2.084190513691133",
+        "0.1117031121402215"
+      ]
+    }
+  ]
+}

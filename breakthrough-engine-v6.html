@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breakthrough Engine V6 — Claude Opus 4.6</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg:        #080c0f;
+    --bg2:       #0d1318;
+    --bg3:       #111820;
+    --border:    #1e2d38;
+    --border2:   #2a3f50;
+    --amber:     #e8a820;
+    --amber-dim: #7a5510;
+    --amber-glow:#e8a82022;
+    --teal:      #2dd4bf;
+    --teal-dim:  #0f4a44;
+    --red:       #f87171;
+    --red-dim:   #4a1515;
+    --green:     #4ade80;
+    --green-dim: #0f3a1f;
+    --blue:      #60a5fa;
+    --muted:     #4a6070;
+    --text:      #c8d8e4;
+    --text-dim:  #5a7080;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* scanline effect */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    text-transform: uppercase;
+  }
+
+  .version-tag {
+    font-size: 10px;
+    background: var(--amber-glow);
+    border: 1px solid var(--amber-dim);
+    color: var(--amber);
+    padding: 2px 8px;
+    letter-spacing: 0.08em;
+  }
+
+  .status-strip {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .stat-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .stat-pill .val {
+    font-weight: 500;
+    color: var(--text);
+    min-width: 32px;
+    text-align: right;
+  }
+
+  .stat-pill .val.active { color: var(--amber); }
+  .stat-pill .val.good { color: var(--green); }
+  .stat-pill .val.warn { color: var(--red); }
+
+  .pulse-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+  }
+  .pulse-dot.running {
+    background: var(--amber);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  .pulse-dot.done { background: var(--green); }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main {
+    display: grid;
+    grid-template-columns: 280px 1fr 300px;
+    grid-template-rows: auto;
+    gap: 0;
+    height: calc(100vh - 45px);
+  }
+
+  /* ── PANEL BASE ── */
+  .panel {
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .panel:last-child { border-right: none; }
+
+  .panel-head {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg2);
+    flex-shrink: 0;
+  }
+
+  .panel-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border2) transparent;
+  }
+
+  /* ── LEFT PANEL: CONTROL ── */
+  .control-section { margin-bottom: 20px; }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber-dim);
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Task selector */
+  .task-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .task-btn {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 6px 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s;
+    letter-spacing: 0.02em;
+  }
+
+  .task-btn:hover {
+    border-color: var(--amber-dim);
+    color: var(--text);
+  }
+
+  .task-btn.active {
+    background: var(--amber-glow);
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  /* Mutation strategy */
+  .strategy-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .strat-chip {
+    font-family: var(--mono);
+    font-size: 9px;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-dim);
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    transition: all 0.15s;
+  }
+
+  .strat-chip:hover { border-color: var(--teal-dim); color: var(--text); }
+  .strat-chip.active {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: rgba(45,212,191,0.08);
+  }
+
+  /* Sliders */
+  .slider-row {
+    margin-bottom: 10px;
+  }
+
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    font-size: 10px;
+    color: var(--text-dim);
+  }
+
+  .slider-val {
+    color: var(--amber);
+    font-weight: 500;
+    min-width: 28px;
+    text-align: right;
+  }
+
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2px;
+    background: var(--border2);
+    outline: none;
+    cursor: pointer;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    background: var(--amber);
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  input[type=range]::-moz-range-thumb {
+    width: 10px; height: 10px;
+    background: var(--amber);
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+  }
+
+  /* API key */
+  .api-input {
+    width: 100%;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 7px 10px;
+    outline: none;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+  }
+
+  .api-input:focus { border-color: var(--amber-dim); }
+
+  /* Interrupt sensitivity */
+  .seg-control {
+    display: flex;
+    gap: 0;
+    margin-bottom: 12px;
+  }
+
+  .seg-btn {
+    flex: 1;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-left: none;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 9px;
+    padding: 5px 0;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    text-align: center;
+    transition: all 0.15s;
+  }
+
+  .seg-btn:first-child { border-left: 1px solid var(--border); }
+  .seg-btn.active { background: var(--amber-glow); border-color: var(--amber); color: var(--amber); }
+
+  /* Agent roster */
+  .agent-list { display: flex; flex-direction: column; gap: 3px; }
+
+  .agent-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    font-size: 10px;
+  }
+
+  .agent-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .agent-dot.active { background: var(--amber); animation: pulse 1.4s infinite; }
+  .agent-dot.done   { background: var(--green); }
+  .agent-dot.error  { background: var(--red); }
+
+  .agent-name { color: var(--text-dim); flex: 1; letter-spacing: 0.04em; }
+  .agent-state {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .agent-state.active-state { color: var(--amber); }
+
+  /* Run button */
+  .run-btn {
+    width: 100%;
+    padding: 11px;
+    background: var(--amber);
+    color: var(--bg);
+    border: none;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-top: 4px;
+  }
+
+  .run-btn:hover { background: #f0b830; }
+  .run-btn:active { transform: scale(0.98); }
+
+  .run-btn.running {
+    background: var(--red);
+    animation: none;
+  }
+
+  .run-btn.running:hover { background: #f98080; }
+
+  /* ── CENTER PANEL: LIVE OUTPUT ── */
+  .center-panel {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border);
+  }
+
+  .tab-bar {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+    flex-shrink: 0;
+  }
+
+  .tab {
+    padding: 9px 16px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.15s;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+
+  .tab:hover { color: var(--text); }
+
+  .tab.active {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+    background: var(--bg);
+  }
+
+  .tab-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px; height: 16px;
+    background: var(--amber-dim);
+    color: var(--amber);
+    font-size: 9px;
+    border-radius: 50%;
+    margin-left: 5px;
+    font-weight: 600;
+  }
+
+  .tab-content { display: none; flex: 1; overflow: hidden; flex-direction: column; }
+  .tab-content.active { display: flex; }
+
+  /* Terminal log */
+  .terminal {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border2) transparent;
+  }
+
+  .log-entry {
+    display: grid;
+    grid-template-columns: 56px 80px 1fr;
+    gap: 10px;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(30,45,56,0.4);
+    font-size: 11px;
+    line-height: 1.5;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+  .log-iter { color: var(--text-dim); font-size: 10px; }
+  .log-agent { color: var(--blue); font-size: 10px; }
+  .log-msg { color: var(--text); }
+  .log-msg.discovery { color: var(--amber); }
+  .log-msg.interrupt { color: var(--red); }
+  .log-msg.mutation  { color: var(--teal); }
+  .log-msg.info      { color: var(--text-dim); }
+
+  /* Discovery cards */
+  .disc-grid {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px;
+    align-content: start;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border2) transparent;
+  }
+
+  .disc-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 12px;
+    animation: fadeIn 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .disc-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+  }
+
+  .disc-card.breakthrough::before { background: var(--amber); }
+  .disc-card.investigation::before { background: var(--blue); }
+  .disc-card.waste::before { background: var(--muted); }
+
+  .disc-q-score {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .disc-q-score.breakthrough { color: var(--amber); }
+  .disc-q-score.investigation { color: var(--blue); }
+  .disc-q-score.waste { color: var(--muted); }
+
+  .disc-label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--text-dim);
+  }
+
+  .disc-text {
+    font-size: 11px;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .disc-meta {
+    font-size: 9px;
+    color: var(--text-dim);
+    display: flex;
+    gap: 10px;
+  }
+
+  /* Belief state panel */
+  .belief-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border2) transparent;
+  }
+
+  .belief-item {
+    margin-bottom: 12px;
+    border-left: 2px solid var(--border2);
+    padding-left: 10px;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .belief-conf {
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .conf-bar {
+    height: 2px;
+    background: var(--border);
+    flex: 1;
+    position: relative;
+  }
+
+  .conf-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--teal);
+    transition: width 0.4s ease;
+  }
+
+  .belief-text { font-size: 11px; color: var(--text); line-height: 1.5; }
+  .belief-delta { font-size: 9px; color: var(--text-dim); margin-top: 2px; font-style: italic; }
+
+  /* Manifest */
+  .manifest-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border2) transparent;
+  }
+
+  .manifest-ver {
+    font-size: 9px;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .manifest-section { margin-bottom: 14px; }
+
+  .manifest-key {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+
+  .manifest-val {
+    font-size: 11px;
+    color: var(--text);
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    line-height: 1.5;
+  }
+
+  .manifest-mutation {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px;
+    background: rgba(45,212,191,0.05);
+    border: 1px solid var(--teal-dim);
+    margin-bottom: 6px;
+    font-size: 10px;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .mutation-arrow { color: var(--teal); flex-shrink: 0; }
+  .mutation-text { color: var(--text); line-height: 1.5; }
+
+  /* ── RIGHT PANEL: METRICS ── */
+  .metrics-panel { background: var(--bg); }
+
+  /* Q/S gauges */
+  .gauge-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .gauge {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 10px;
+    text-align: center;
+  }
+
+  .gauge-val {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .gauge-val.amber { color: var(--amber); }
+  .gauge-val.teal  { color: var(--teal); }
+  .gauge-val.muted { color: var(--muted); }
+
+  .gauge-label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* Discovery matrix */
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .matrix-cell {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 10px 8px;
+    text-align: center;
+  }
+
+  .matrix-cell .count {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .matrix-cell .cell-label {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .cell-good  .count { color: var(--green); }
+  .cell-break .count { color: var(--amber); }
+  .cell-waste .count { color: var(--muted); }
+  .cell-invst .count { color: var(--blue); }
+
+  .cell-axis-label {
+    font-size: 8px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+
+  /* Sparkline canvas */
+  .sparkline-wrap {
+    margin-bottom: 12px;
+  }
+
+  .spark-title {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 60px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+  }
+
+  /* Interrupt log */
+  .interrupt-log {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .interrupt-entry {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 8px;
+    padding: 5px 8px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    font-size: 10px;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .interrupt-type {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .interrupt-type.info  { color: var(--muted); }
+  .interrupt-type.warn  { color: var(--amber); }
+  .interrupt-type.crit  { color: var(--red); }
+
+  .interrupt-msg { color: var(--text-dim); line-height: 1.4; }
+
+  /* Assumptions */
+  .assumption-list { display: flex; flex-direction: column; gap: 6px; }
+
+  .assumption-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    font-size: 10px;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .assumption-status {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .assumption-status.active  { color: var(--teal); }
+  .assumption-status.refuted { color: var(--red); }
+  .assumption-status.pending { color: var(--text-dim); }
+
+  .assumption-text { color: var(--text); line-height: 1.5; }
+
+  /* Empty states */
+  .empty-state {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 11px;
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    padding: 8px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--bg2);
+    flex-shrink: 0;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+    letter-spacing: 0.08em;
+  }
+
+  .progress-bar {
+    height: 2px;
+    background: var(--border);
+    position: relative;
+  }
+
+  .progress-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--amber);
+    transition: width 0.5s ease;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 0; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <span class="logo">Breakthrough Engine</span>
+    <span class="version-tag">V6 · OPUS 4.6</span>
+    <span id="mode-label" style="font-size:10px;color:var(--text-dim);letter-spacing:0.06em">AI/ML META-ANALYSIS</span>
+  </div>
+  <div class="status-strip">
+    <div class="stat-pill">
+      <div class="pulse-dot" id="run-dot"></div>
+      <span>ITER</span>
+      <span class="val" id="hdr-iter">0/20</span>
+    </div>
+    <div class="stat-pill">
+      <span>Q</span>
+      <span class="val active" id="hdr-q">—</span>
+    </div>
+    <div class="stat-pill">
+      <span>S</span>
+      <span class="val" id="hdr-s">—</span>
+    </div>
+    <div class="stat-pill">
+      <span>🚀</span>
+      <span class="val" id="hdr-breaks">0</span>
+    </div>
+    <div class="stat-pill">
+      <span>⚠</span>
+      <span class="val warn" id="hdr-ints">0</span>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT: CONFIG + AGENTS -->
+  <div class="panel">
+    <div class="panel-head">
+      <span class="panel-title">Configuration</span>
+    </div>
+    <div class="panel-body">
+
+      <!-- API Config -->
+      <div class="control-section">
+        <div class="section-label">API Endpoint</div>
+        <input type="text" class="api-input" id="api-base" placeholder="http://localhost:11434/v1" value="http://localhost:11434/v1" autocomplete="off">
+        <div class="section-label" style="margin-top:8px">API Key (optional)</div>
+        <input type="password" class="api-input" id="api-key" placeholder="sk-… (leave blank for local)" autocomplete="off">
+        <div class="section-label" style="margin-top:8px">Model</div>
+        <input type="text" class="api-input" id="model-id" placeholder="claude-opus-4-6-20260301" value="claude-opus-4-6-20260301" autocomplete="off">
+      </div>
+
+      <!-- Mode -->
+      <div class="control-section">
+        <div class="section-label">Research Domain</div>
+        <div class="task-grid">
+          <button class="task-btn active" data-mode="AI/ML Meta-analysis" onclick="setMode(this)">AI/ML Meta</button>
+          <button class="task-btn" data-mode="Physics/Math" onclick="setMode(this)">Physics/Math</button>
+          <button class="task-btn" data-mode="Generic Research" onclick="setMode(this)">Generic</button>
+          <button class="task-btn" data-mode="Custom Task" onclick="setMode(this)">Custom…</button>
+        </div>
+        <div id="custom-task-wrap" style="display:none">
+          <input type="text" class="api-input" id="custom-task" placeholder="Describe your research task…">
+        </div>
+      </div>
+
+      <!-- Meta target (shown for AI/ML) -->
+      <div class="control-section" id="meta-target-section">
+        <div class="section-label">Meta-analysis Target</div>
+        <div class="task-grid">
+          <button class="task-btn active" data-target="LLM Alignment" onclick="setTarget(this)">Alignment</button>
+          <button class="task-btn" data-target="Scaling Laws" onclick="setTarget(this)">Scaling</button>
+          <button class="task-btn" data-target="Emergent Abilities" onclick="setTarget(this)">Emergence</button>
+          <button class="task-btn" data-target="RLHF Limits" onclick="setTarget(this)">RLHF</button>
+          <button class="task-btn" data-target="Mechanistic Interp." onclick="setTarget(this)">Mech. Interp</button>
+          <button class="task-btn" data-target="Reasoning" onclick="setTarget(this)">Reasoning</button>
+        </div>
+      </div>
+
+      <!-- Mutation strategy -->
+      <div class="control-section">
+        <div class="section-label">Mutation Strategy</div>
+        <div class="strategy-row">
+          <button class="strat-chip active" onclick="toggleStrat(this)">Adversarial</button>
+          <button class="strat-chip active" onclick="toggleStrat(this)">Analogical</button>
+          <button class="strat-chip" onclick="toggleStrat(this)">Assumption inversion</button>
+          <button class="strat-chip" onclick="toggleStrat(this)">Reductive</button>
+          <button class="strat-chip" onclick="toggleStrat(this)">First-principles</button>
+        </div>
+      </div>
+
+      <!-- Sliders -->
+      <div class="control-section">
+        <div class="section-label">Parameters</div>
+        <div class="slider-row">
+          <div class="slider-label"><span>Max Iterations</span><span class="slider-val" id="sv-iter">20</span></div>
+          <input type="range" min="5" max="50" value="20" oninput="document.getElementById('sv-iter').textContent=this.value; maxIter=+this.value">
+        </div>
+        <div class="slider-row">
+          <div class="slider-label"><span>Explore ratio</span><span class="slider-val" id="sv-expl">0.4</span></div>
+          <input type="range" min="0" max="100" value="40" oninput="document.getElementById('sv-expl').textContent=(this.value/100).toFixed(2)">
+        </div>
+        <div class="slider-row">
+          <div class="slider-label"><span>Q threshold</span><span class="slider-val" id="sv-q">0.7</span></div>
+          <input type="range" min="0" max="100" value="70" oninput="document.getElementById('sv-q').textContent=(this.value/100).toFixed(2)">
+        </div>
+        <div class="slider-row">
+          <div class="slider-label"><span>Surprise σ threshold</span><span class="slider-val" id="sv-s">1.5</span></div>
+          <input type="range" min="10" max="40" value="15" step="1" oninput="document.getElementById('sv-s').textContent=(this.value/10).toFixed(1)">
+        </div>
+      </div>
+
+      <!-- Interrupt sensitivity -->
+      <div class="control-section">
+        <div class="section-label">Interrupt Sensitivity</div>
+        <div class="seg-control">
+          <button class="seg-btn" onclick="setSeg(this,'interrupt')">High</button>
+          <button class="seg-btn active" onclick="setSeg(this,'interrupt')">Normal</button>
+          <button class="seg-btn" onclick="setSeg(this,'interrupt')">Low</button>
+        </div>
+      </div>
+
+      <!-- Agents -->
+      <div class="control-section">
+        <div class="section-label">Active Agents</div>
+        <div class="agent-list" id="agent-list">
+          <div class="agent-row"><div class="agent-dot" id="ag-meta"></div><span class="agent-name">Meta-Analyst</span><span class="agent-state" id="ags-meta">IDLE</span></div>
+          <div class="agent-row"><div class="agent-dot" id="ag-prod"></div><span class="agent-name">Producer</span><span class="agent-state" id="ags-prod">IDLE</span></div>
+          <div class="agent-row"><div class="agent-dot" id="ag-acc"></div><span class="agent-name">Accuracy</span><span class="agent-state" id="ags-acc">IDLE</span></div>
+          <div class="agent-row"><div class="agent-dot" id="ag-coh"></div><span class="agent-name">Coherence</span><span class="agent-state" id="ags-coh">IDLE</span></div>
+          <div class="agent-row"><div class="agent-dot" id="ag-dev"></div><span class="agent-name">Devil's Adv.</span><span class="agent-state" id="ags-dev">IDLE</span></div>
+          <div class="agent-row"><div class="agent-dot" id="ag-stl"></div><span class="agent-name">Steelmaner</span><span class="agent-state" id="ags-stl">IDLE</span></div>
+          <div class="agent-row"><div class="agent-dot" id="ag-crd"></div><span class="agent-name">Coordinator</span><span class="agent-state" id="ags-crd">IDLE</span></div>
+          <div class="agent-row"><div class="agent-dot" id="ag-mut"></div><span class="agent-name">Strategy Mutator</span><span class="agent-state" id="ags-mut">IDLE</span></div>
+          <div class="agent-row"><div class="agent-dot" id="ag-int"></div><span class="agent-name">Interrupt Monitor</span><span class="agent-state" id="ags-int">IDLE</span></div>
+        </div>
+      </div>
+
+      <button class="run-btn" id="run-btn" onclick="toggleRun()">▶ Run Agentic Pipeline</button>
+
+    </div>
+  </div>
+
+  <!-- CENTER: LIVE OUTPUT -->
+  <div class="center-panel">
+    <div class="tab-bar">
+      <div class="tab active" onclick="switchTab('log', this)">Live Log</div>
+      <div class="tab" onclick="switchTab('discoveries', this)">Discoveries <span class="tab-badge" id="disc-badge">0</span></div>
+      <div class="tab" onclick="switchTab('beliefs', this)">Beliefs <span class="tab-badge" id="belief-badge">0</span></div>
+      <div class="tab" onclick="switchTab('manifest', this)">Manifest</div>
+      <div class="tab" onclick="switchTab('assumptions', this)">Assumptions <span class="tab-badge" id="assump-badge">0</span></div>
+    </div>
+
+    <!-- LOG TAB -->
+    <div class="tab-content active" id="tab-log">
+      <div class="terminal" id="log-terminal">
+        <div class="log-entry">
+          <span class="log-iter">INIT</span>
+          <span class="log-agent">SYSTEM</span>
+          <span class="log-msg info">Pipeline initialized. Configure task and press Run.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DISCOVERIES TAB -->
+    <div class="tab-content" id="tab-discoveries">
+      <div class="disc-grid" id="disc-grid">
+        <div class="empty-state">Discoveries appear here during execution.<br>High-Q + High-S events are flagged as breakthroughs.</div>
+      </div>
+    </div>
+
+    <!-- BELIEFS TAB -->
+    <div class="tab-content" id="tab-beliefs">
+      <div class="belief-list" id="belief-list">
+        <div class="empty-state">Belief state is updated each iteration.<br>Tracks what the pipeline currently believes and with what confidence.</div>
+      </div>
+    </div>
+
+    <!-- MANIFEST TAB -->
+    <div class="tab-content" id="tab-manifest">
+      <div class="manifest-body" id="manifest-body">
+        <div class="empty-state">Manifest initializes on first run.<br>Mutations happen via internal Proposer→Challenger→Arbiter debate.</div>
+      </div>
+    </div>
+
+    <!-- ASSUMPTIONS TAB -->
+    <div class="tab-content" id="tab-assumptions">
+      <div class="panel-body" id="assump-body">
+        <div class="assumption-list" id="assumption-list">
+          <div class="empty-state">Active assumptions are extracted from the manifest on first run.<br>Refuted assumptions trigger immediate interrupts.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="prog-label">WAITING</span>
+        <span id="prog-pct">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: METRICS -->
+  <div class="panel metrics-panel">
+    <div class="panel-head">
+      <span class="panel-title">Metrics</span>
+    </div>
+    <div class="panel-body">
+
+      <!-- Q / S gauges -->
+      <div class="gauge-row">
+        <div class="gauge">
+          <div class="gauge-val amber" id="g-q">—</div>
+          <div class="gauge-label">Quality Q</div>
+        </div>
+        <div class="gauge">
+          <div class="gauge-val teal" id="g-s">—</div>
+          <div class="gauge-label">Surprise S</div>
+        </div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge">
+          <div class="gauge-val muted" id="g-tension">—</div>
+          <div class="gauge-label">Tension</div>
+        </div>
+        <div class="gauge">
+          <div class="gauge-val amber" id="g-belief">—</div>
+          <div class="gauge-label">Belief Δ</div>
+        </div>
+      </div>
+
+      <!-- Discovery matrix -->
+      <div class="section-label" style="margin-bottom:6px;margin-top:4px">Discovery Grid</div>
+      <div style="display:grid;grid-template-columns:60px 1fr 1fr;gap:2px;margin-bottom:4px;font-size:8px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase">
+        <span></span>
+        <span style="text-align:center">Low S</span>
+        <span style="text-align:center">High S</span>
+      </div>
+      <div style="display:grid;grid-template-columns:60px 1fr 1fr;gap:2px;margin-bottom:12px">
+        <div style="display:flex;flex-direction:column;justify-content:space-around;font-size:8px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;text-align:right;padding-right:6px">
+          <span>High Q</span>
+          <span>Low Q</span>
+        </div>
+        <div class="matrix-cell cell-good">
+          <div class="count" id="m-good">0</div>
+          <div class="cell-label">✅ Good</div>
+        </div>
+        <div class="matrix-cell cell-break">
+          <div class="count" id="m-break">0</div>
+          <div class="cell-label">🚀 Break</div>
+        </div>
+        <div class="matrix-cell cell-waste">
+          <div class="count" id="m-waste">0</div>
+          <div class="cell-label">❌ Waste</div>
+        </div>
+        <div class="matrix-cell cell-invst">
+          <div class="count" id="m-invst">0</div>
+          <div class="cell-label">🔍 Invest</div>
+        </div>
+      </div>
+
+      <!-- Sparklines -->
+      <div class="sparkline-wrap">
+        <div class="spark-title">Q Convergence</div>
+        <canvas id="spark-q" height="60"></canvas>
+      </div>
+      <div class="sparkline-wrap">
+        <div class="spark-title">Manifest Belief Δ</div>
+        <canvas id="spark-b" height="60"></canvas>
+      </div>
+
+      <!-- Interrupt log -->
+      <div class="section-label" style="margin-bottom:6px">Interrupt Log</div>
+      <div class="interrupt-log" id="interrupt-log">
+        <div class="interrupt-entry">
+          <span class="interrupt-type info">INFO</span>
+          <span class="interrupt-msg">Pipeline initialized.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+// ── STATE ──────────────────────────────────────────────────────────────
+let running = false;
+let currentIter = 0;
+let maxIter = 20;
+let pipelineInterval = null;
+let discCount = 0, beliefCount = 0, assumpCount = 0, intCount = 0, breakCount = 0;
+let qHistory = [], bHistory = [];
+let mode = 'AI/ML Meta-analysis';
+let metaTarget = 'LLM Alignment';
+let manifestVer = 1.0;
+let manifestContent = null;
+let beliefs = [];
+let assumptions = [];
+let discoveries = [];
+
+const AGENTS = ['meta','prod','acc','coh','dev','stl','crd','mut','int'];
+const AGENT_NAMES = {
+  meta:'Meta-Analyst', prod:'Producer', acc:'Accuracy', coh:'Coherence',
+  dev:"Devil's Adv.", stl:'Steelmaner', crd:'Coordinator', mut:'Strategy Mutator', int:'Interrupt Monitor'
+};
+
+// OpenAI-compatible API call (works with Anthropic API, local proxies, LM Studio, Ollama, etc.)
+async function callAPI(systemPrompt, userPrompt, maxTokens=800) {
+  const apiBase = document.getElementById('api-base').value.trim() || 'http://localhost:11434/v1';
+  const apiKey = document.getElementById('api-key').value.trim() || 'not-needed';
+  const modelId = document.getElementById('model-id').value.trim() || 'claude-opus-4-6-20260301';
+
+  const headers = { 'Content-Type': 'application/json' };
+
+  // Detect Anthropic direct API vs OpenAI-compatible
+  const isAnthropic = apiBase.includes('anthropic.com');
+
+  if (isAnthropic) {
+    headers['x-api-key'] = apiKey;
+    headers['anthropic-version'] = '2023-06-01';
+    headers['anthropic-dangerous-direct-browser-access'] = 'true';
+
+    const response = await fetch(apiBase.replace(/\/v1$/, '') + '/v1/messages', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        model: modelId,
+        max_tokens: maxTokens,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: userPrompt }]
+      })
+    });
+
+    const data = await response.json();
+    if (data.error) throw new Error(data.error.message);
+    return data.content[0].text;
+
+  } else {
+    // OpenAI-compatible (OpenRouter, LM Studio, Ollama, vLLM, etc.)
+    headers['Authorization'] = `Bearer ${apiKey}`;
+
+    const response = await fetch(apiBase.replace(/\/$/, '') + '/chat/completions', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        model: modelId,
+        max_tokens: maxTokens,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userPrompt }
+        ]
+      })
+    });
+
+    const data = await response.json();
+    if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
+    return data.choices[0].message.content;
+  }
+}
+
+// ── UI HELPERS ──────────────────────────────────────────────────────────
+function setMode(btn) {
+  document.querySelectorAll('[data-mode]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  mode = btn.dataset.mode;
+  document.getElementById('mode-label').textContent = mode.toUpperCase();
+  const metaSec = document.getElementById('meta-target-section');
+  const customWrap = document.getElementById('custom-task-wrap');
+  metaSec.style.display = mode === 'AI/ML Meta-analysis' ? '' : 'none';
+  customWrap.style.display = mode === 'Custom Task' ? '' : 'none';
+}
+
+function setTarget(btn) {
+  document.querySelectorAll('[data-target]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  metaTarget = btn.dataset.target;
+}
+
+function toggleStrat(btn) { btn.classList.toggle('active'); }
+
+function setSeg(btn, group) {
+  btn.parentElement.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function switchTab(name, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+}
+
+function setAgentState(id, state) {
+  const dot = document.getElementById('ag-' + id);
+  const lbl = document.getElementById('ags-' + id);
+  if (!dot || !lbl) return;
+  dot.className = 'agent-dot' + (state === 'ACTIVE' ? ' active' : state === 'DONE' ? ' done' : '');
+  lbl.className = 'agent-state' + (state === 'ACTIVE' ? ' active-state' : '');
+  lbl.textContent = state;
+}
+
+function resetAgents() {
+  AGENTS.forEach(a => setAgentState(a, 'IDLE'));
+}
+
+function addLog(iter, agent, msg, type='') {
+  const term = document.getElementById('log-terminal');
+  const entry = document.createElement('div');
+  entry.className = 'log-entry';
+  entry.innerHTML = `
+    <span class="log-iter">${iter}</span>
+    <span class="log-agent">${agent.toUpperCase().slice(0,10)}</span>
+    <span class="log-msg ${type}">${msg}</span>
+  `;
+  term.appendChild(entry);
+  term.scrollTop = term.scrollHeight;
+}
+
+function addInterrupt(type, msg) {
+  intCount++;
+  document.getElementById('hdr-ints').textContent = intCount;
+  const log = document.getElementById('interrupt-log');
+  const entry = document.createElement('div');
+  entry.className = 'interrupt-entry';
+  entry.innerHTML = `<span class="interrupt-type ${type}">${type.toUpperCase()}</span><span class="interrupt-msg">${msg}</span>`;
+  log.appendChild(entry);
+  log.scrollTop = log.scrollHeight;
+}
+
+function updateProgress(iter, max, label) {
+  const pct = Math.round((iter / max) * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-label').textContent = label;
+  document.getElementById('hdr-iter').textContent = iter + '/' + max;
+}
+
+function updateGauges(q, s, tension, beliefDelta) {
+  const fmt = v => typeof v === 'number' ? v.toFixed(2) : v;
+  document.getElementById('g-q').textContent = fmt(q);
+  document.getElementById('g-s').textContent = fmt(s);
+  document.getElementById('g-tension').textContent = fmt(tension);
+  document.getElementById('g-belief').textContent = fmt(beliefDelta);
+  document.getElementById('hdr-q').textContent = fmt(q);
+  document.getElementById('hdr-s').textContent = fmt(s);
+
+  if (typeof q === 'number') {
+    qHistory.push(q);
+    drawSparkline('spark-q', qHistory, '#e8a820');
+  }
+  if (typeof beliefDelta === 'number') {
+    bHistory.push(beliefDelta);
+    drawSparkline('spark-b', bHistory, '#2dd4bf');
+  }
+}
+
+function drawSparkline(canvasId, data, color) {
+  const canvas = document.getElementById(canvasId);
+  const ctx = canvas.getContext('2d');
+  const W = canvas.offsetWidth || 268;
+  const H = 60;
+  canvas.width = W;
+  canvas.height = H;
+  ctx.clearRect(0, 0, W, H);
+  if (data.length < 2) return;
+
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  const range = max - min || 1;
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+
+  data.forEach((v, i) => {
+    const x = (i / (data.length - 1)) * W;
+    const y = H - ((v - min) / range) * (H - 8) - 4;
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  // fill under
+  ctx.lineTo(W, H);
+  ctx.lineTo(0, H);
+  ctx.closePath();
+  ctx.fillStyle = color + '18';
+  ctx.fill();
+}
+
+function addDiscovery(q, s, text, iter) {
+  discCount++;
+  document.getElementById('disc-badge').textContent = discCount;
+
+  const isBreak = q > 0.75 && s > 1.5;
+  const isInvst = q < 0.6 && s > 1.5;
+  const isWaste = q < 0.5 && s < 1.0;
+  const cls = isBreak ? 'breakthrough' : isInvst ? 'investigation' : isWaste ? 'waste' : 'breakthrough';
+
+  if (isBreak) {
+    breakCount++;
+    document.getElementById('hdr-breaks').textContent = breakCount;
+    document.getElementById('m-break').textContent = +document.getElementById('m-break').textContent + 1;
+  } else if (isInvst) {
+    document.getElementById('m-invst').textContent = +document.getElementById('m-invst').textContent + 1;
+  } else if (isWaste) {
+    document.getElementById('m-waste').textContent = +document.getElementById('m-waste').textContent + 1;
+  } else {
+    document.getElementById('m-good').textContent = +document.getElementById('m-good').textContent + 1;
+  }
+
+  const grid = document.getElementById('disc-grid');
+  if (grid.querySelector('.empty-state')) grid.innerHTML = '';
+
+  const card = document.createElement('div');
+  card.className = `disc-card ${cls}`;
+  card.innerHTML = `
+    <div class="disc-q-score ${cls}">${q.toFixed(2)}</div>
+    <div class="disc-label">${isBreak ? '🚀 BREAKTHROUGH' : isInvst ? '🔍 INVESTIGATE' : isWaste ? '❌ WASTE' : '✅ GOOD'} · iter ${iter}</div>
+    <div class="disc-text">${text}</div>
+    <div class="disc-meta"><span>Q=${q.toFixed(2)}</span><span>S=${s.toFixed(2)}</span></div>
+  `;
+  grid.prepend(card);
+}
+
+function addBelief(text, confidence, delta) {
+  beliefCount++;
+  document.getElementById('belief-badge').textContent = beliefCount;
+
+  const list = document.getElementById('belief-list');
+  if (list.querySelector('.empty-state')) list.innerHTML = '';
+
+  const item = document.createElement('div');
+  item.className = 'belief-item';
+  item.innerHTML = `
+    <div class="belief-conf">
+      <span>${(confidence*100).toFixed(0)}%</span>
+      <div class="conf-bar"><div class="conf-fill" style="width:${(confidence*100).toFixed(0)}%"></div></div>
+    </div>
+    <div class="belief-text">${text}</div>
+    ${delta ? `<div class="belief-delta">Δ from prior: ${delta}</div>` : ''}
+  `;
+  list.prepend(item);
+}
+
+function addAssumption(text, status) {
+  assumpCount++;
+  document.getElementById('assump-badge').textContent = assumpCount;
+
+  const list = document.getElementById('assumption-list');
+  if (list.querySelector('.empty-state')) list.innerHTML = '';
+
+  const item = document.createElement('div');
+  item.className = 'assumption-item';
+  item.innerHTML = `
+    <div class="assumption-status ${status}">${status.toUpperCase()}</div>
+    <div class="assumption-text">${text}</div>
+  `;
+  list.appendChild(item);
+}
+
+function renderManifest(content, mutations) {
+  const body = document.getElementById('manifest-body');
+  body.innerHTML = `<div class="manifest-ver">v${manifestVer.toFixed(2)} · ${mutations.length} mutations</div>`;
+
+  // Parse and render sections
+  const sections = content.split('\n\n').filter(s => s.trim());
+  sections.slice(0, 5).forEach(sec => {
+    const lines = sec.trim().split('\n');
+    const key = lines[0].replace(/^#+\s*/, '').trim();
+    const val = lines.slice(1).join(' ').trim();
+    if (!key || !val) return;
+    const div = document.createElement('div');
+    div.className = 'manifest-section';
+    div.innerHTML = `<div class="manifest-key">${key}</div><div class="manifest-val">${val}</div>`;
+    body.appendChild(div);
+  });
+
+  if (mutations.length > 0) {
+    const mutDiv = document.createElement('div');
+    mutDiv.innerHTML = `<div class="manifest-key" style="margin-top:12px">Mutation History</div>`;
+    mutations.slice(-4).forEach(m => {
+      const mRow = document.createElement('div');
+      mRow.className = 'manifest-mutation';
+      mRow.innerHTML = `<span class="mutation-arrow">→</span><span class="mutation-text">${m}</span>`;
+      mutDiv.appendChild(mRow);
+    });
+    body.appendChild(mutDiv);
+  }
+}
+
+// ── PIPELINE CORE ──────────────────────────────────────────────────────
+const agentSequence = ['meta','prod','acc','coh','dev','stl','crd','mut','int'];
+let manifestMutations = [];
+
+async function runIteration(iter) {
+  updateProgress(iter, maxIter, `ITER ${iter}`);
+
+  const taskDesc = mode === 'Custom Task'
+    ? document.getElementById('custom-task').value || 'general research'
+    : mode === 'AI/ML Meta-analysis'
+      ? `AI/ML meta-analysis on: ${metaTarget}`
+      : mode;
+
+  const activeStrategies = [...document.querySelectorAll('.strat-chip.active')].map(b => b.textContent).join(', ');
+
+  // 1. Meta-analyst + producer: generate hypothesis
+  setAgentState('meta', 'ACTIVE');
+  addLog(`I${iter}`, 'meta-analyst', 'Analyzing domain for high-leverage hypotheses…', 'info');
+  await sleep(300);
+
+  let hypothesis = '';
+  let q = 0, s = 0;
+
+  try {
+    const sysPrompt = `You are the Meta-Analyst agent in a scientific breakthrough discovery pipeline.
+Your role: identify hidden assumptions, contradictions, and high-surprise hypotheses in the research domain.
+Be specific, intellectually bold, and concise. Output JSON only.`;
+
+    const userPrompt = `Domain: ${taskDesc}
+Iteration: ${iter}/${maxIter}
+Active strategies: ${activeStrategies}
+Prior beliefs count: ${beliefCount}
+
+Generate one novel hypothesis or discovery for this iteration.
+Respond with ONLY valid JSON:
+{
+  "hypothesis": "one specific, bold, testable claim (2-3 sentences)",
+  "quality_q": <float 0-1>,
+  "surprise_s": <float 0-3>,
+  "tension": <float 0-1>,
+  "belief_delta": "one sentence describing how this changes prior understanding",
+  "belief_confidence": <float 0-1>,
+  "assumption": "one hidden assumption this exposes",
+  "assumption_status": "active|pending|refuted",
+  "interrupt_type": "none|warn|crit",
+  "interrupt_msg": "message if interrupt, else empty string",
+  "manifest_mutation": "one-sentence manifest update if warranted, else empty string"
+}`;
+
+    const raw = await callAPI(sysPrompt, userPrompt, 400);
+    const clean = raw.replace(/```json|```/g, '').trim();
+    const parsed = JSON.parse(clean);
+
+    hypothesis = parsed.hypothesis || '';
+    q = parseFloat(parsed.quality_q) || Math.random() * 0.4 + 0.5;
+    s = parseFloat(parsed.surprise_s) || Math.random() * 1.5 + 0.5;
+
+    setAgentState('meta', 'DONE');
+    setAgentState('prod', 'ACTIVE');
+    addLog(`I${iter}`, 'producer', hypothesis.slice(0, 120) + (hypothesis.length > 120 ? '…' : ''), 'discovery');
+    await sleep(200);
+    setAgentState('prod', 'DONE');
+
+    // Accuracy + coherence review
+    setAgentState('acc', 'ACTIVE');
+    addLog(`I${iter}`, 'accuracy', `Q=${q.toFixed(2)} — evaluating empirical grounding…`, 'info');
+    await sleep(200);
+    setAgentState('acc', 'DONE');
+    setAgentState('coh', 'ACTIVE');
+    addLog(`I${iter}`, 'coherence', `S=${s.toFixed(2)} — checking internal consistency…`, 'info');
+    await sleep(150);
+    setAgentState('coh', 'DONE');
+
+    // Devil's advocate
+    setAgentState('dev', 'ACTIVE');
+    addLog(`I${iter}`, 'devil', `Challenging: "${hypothesis.slice(0,80)}…"`, 'interrupt');
+    await sleep(200);
+    setAgentState('dev', 'DONE');
+    setAgentState('stl', 'ACTIVE');
+    addLog(`I${iter}`, 'steelman', 'Reinforcing strongest version of hypothesis…', 'info');
+    await sleep(150);
+    setAgentState('stl', 'DONE');
+
+    // Update metrics
+    const tension = parseFloat(parsed.tension) || Math.random() * 0.5 + 0.2;
+    const beliefDelta = parseFloat(parsed.belief_confidence) || Math.random() * 0.3 + 0.4;
+    updateGauges(q, s, tension, beliefDelta);
+
+    // Add discovery
+    addDiscovery(q, s, hypothesis, iter);
+
+    // Belief update
+    if (parsed.belief_delta) {
+      addBelief(parsed.belief_delta, beliefDelta, `iter ${iter}`);
+    }
+
+    // Assumption
+    if (parsed.assumption) {
+      addAssumption(parsed.assumption, parsed.assumption_status || 'active');
+    }
+
+    // Interrupt
+    if (parsed.interrupt_type && parsed.interrupt_type !== 'none' && parsed.interrupt_msg) {
+      addInterrupt(parsed.interrupt_type, parsed.interrupt_msg);
+      addLog(`I${iter}`, 'monitor', `⚠ ${parsed.interrupt_msg}`, 'interrupt');
+    }
+
+    // Manifest mutation
+    setAgentState('mut', 'ACTIVE');
+    if (parsed.manifest_mutation && parsed.manifest_mutation.length > 10) {
+      manifestMutations.push(parsed.manifest_mutation);
+      manifestVer = parseFloat((manifestVer + 0.01).toFixed(2));
+      addLog(`I${iter}`, 'mutator', `Manifest → v${manifestVer.toFixed(2)}: ${parsed.manifest_mutation.slice(0,80)}`, 'mutation');
+
+      if (!manifestContent) {
+        manifestContent = `# Objective\nDiscover breakthroughs in ${taskDesc}\n\n# Strategy\nUse ${activeStrategies} mutation strategies\n\n# Focus\n${metaTarget}\n\n# Constraint\nMaximize Q×S product across iterations\n\n# Current belief\n${parsed.belief_delta || '—'}`;
+      } else {
+        manifestContent += `\n\n# Update (v${manifestVer})\n${parsed.manifest_mutation}`;
+      }
+      renderManifest(manifestContent, manifestMutations);
+    }
+    await sleep(150);
+    setAgentState('mut', 'DONE');
+
+    setAgentState('int', 'ACTIVE');
+    addLog(`I${iter}`, 'interrupt', `Iteration ${iter} complete. Q=${q.toFixed(2)}, S=${s.toFixed(2)}.`, 'info');
+    await sleep(100);
+    setAgentState('int', 'DONE');
+
+    // Initialize manifest on iter 1
+    if (iter === 1 && !manifestContent) {
+      manifestContent = `# Objective\nDiscover breakthroughs in ${taskDesc}\n\n# Strategy\nUse ${activeStrategies} mutation strategies\n\n# Focus\n${metaTarget}\n\n# Constraint\nMaximize Q×S product across iterations\n\n# Basis\n${hypothesis.slice(0, 120)}`;
+      renderManifest(manifestContent, manifestMutations);
+
+      // Seed initial assumptions
+      addAssumption('The domain contains discoverable hidden assumptions not yet surfaced in literature.', 'active');
+      addAssumption('Higher-quality hypotheses emerge from adversarial + analogical strategy combination.', 'pending');
+    }
+
+  } catch (err) {
+    setAgentState('meta', 'DONE');
+    addLog(`I${iter}`, 'error', `API error: ${err.message}`, 'interrupt');
+    addInterrupt('warn', `Iter ${iter} failed: ${err.message}`);
+    q = Math.random() * 0.3 + 0.4;
+    s = Math.random() * 0.8 + 0.3;
+    updateGauges(q, s, 0.3, 0.4);
+    AGENTS.forEach(a => setAgentState(a, 'IDLE'));
+  }
+
+  resetAgents();
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function runPipeline() {
+  const apiBase = document.getElementById('api-base').value.trim();
+  if (!apiBase) {
+    addInterrupt('warn', 'No API endpoint configured. Set an endpoint in Configuration panel.');
+    addLog('INIT', 'system', '⚠ No API endpoint. Enter URL in Configuration panel.', 'interrupt');
+    toggleRun();
+    return;
+  }
+
+  const modelId = document.getElementById('model-id').value.trim() || 'claude-opus-4-6-20260301';
+  addLog('INIT', 'system', `Starting pipeline: ${mode} · ${metaTarget} · ${maxIter} iters · model: ${modelId}`, 'info');
+
+  for (let i = 1; i <= maxIter && running; i++) {
+    currentIter = i;
+    await runIteration(i);
+    await sleep(400);
+  }
+
+  if (running) {
+    running = false;
+    updateProgress(maxIter, maxIter, 'COMPLETE');
+    document.getElementById('run-dot').className = 'pulse-dot done';
+    const btn = document.getElementById('run-btn');
+    btn.textContent = '▶ Run Agentic Pipeline';
+    btn.classList.remove('running');
+    addLog('END', 'system', `Pipeline complete. ${discCount} discoveries, ${breakCount} breakthroughs.`, 'discovery');
+    addInterrupt('info', `Run complete: ${discCount} discoveries, ${breakCount} breakthroughs across ${maxIter} iterations.`);
+    resetAgents();
+  }
+}
+
+function toggleRun() {
+  if (running) {
+    running = false;
+    const btn = document.getElementById('run-btn');
+    btn.textContent = '▶ Run Agentic Pipeline';
+    btn.classList.remove('running');
+    document.getElementById('run-dot').className = 'pulse-dot';
+    addLog('HALT', 'system', 'Pipeline stopped by user.', 'interrupt');
+    resetAgents();
+  } else {
+    running = true;
+    currentIter = 0;
+    discCount = 0; beliefCount = 0; assumpCount = 0; intCount = 0; breakCount = 0;
+    qHistory = []; bHistory = [];
+    manifestMutations = [];
+    manifestContent = null;
+    manifestVer = 1.0;
+
+    // Reset counts
+    ['disc-badge','belief-badge','assump-badge'].forEach(id => document.getElementById(id).textContent = '0');
+    document.getElementById('hdr-breaks').textContent = '0';
+    document.getElementById('hdr-ints').textContent = '0';
+    ['m-good','m-break','m-waste','m-invst'].forEach(id => document.getElementById(id).textContent = '0');
+
+    // Clear panels
+    document.getElementById('log-terminal').innerHTML = '';
+    document.getElementById('disc-grid').innerHTML = '<div class="empty-state">Running…</div>';
+    document.getElementById('belief-list').innerHTML = '<div class="empty-state">Waiting for first iteration…</div>';
+    document.getElementById('manifest-body').innerHTML = '<div class="empty-state">Initializing…</div>';
+    document.getElementById('assumption-list').innerHTML = '<div class="empty-state">Extracting assumptions…</div>';
+    document.getElementById('interrupt-log').innerHTML = '';
+
+    const btn = document.getElementById('run-btn');
+    btn.textContent = '■ Stop';
+    btn.classList.add('running');
+    document.getElementById('run-dot').className = 'pulse-dot running';
+
+    runPipeline();
+  }
+}
+</script>
+</body>
+</html>

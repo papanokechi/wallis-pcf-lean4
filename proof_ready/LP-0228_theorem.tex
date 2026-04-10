@@ -1,0 +1,13 @@
+% Auto-generated theorem box for LP-0228
+\begin{theorem}[LP-0228]
+The polynomial continued fraction with
+$a(n) = -4.0*n**2$ and $b(n) = 5.0*(1.0*n + 0.8)$
+converges to $1/ln(4/3)$.
+\end{theorem}
+\begin{proof}
+Closed forms: $p_n = (n+1)! * 4.0^{n+1}$, $q_n = (n+1)! * sum_{j=0}^n 4.0^{n-j}/(j+1)$. Verified by induction against the recurrence. Limit: sum x^j/(j+1) = -ln(1-x)/x.
+\end{proof}
+\begin{corollary}[Arb Certification]
+At depth $N$, the bracket width is $< [+/- 1.05e-1923]$,
+certifying the identity to $1923$ decimal digits.
+\end{corollary}

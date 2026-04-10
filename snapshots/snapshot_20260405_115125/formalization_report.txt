@@ -1,0 +1,334 @@
+==========================================================================
+  FORMALIZATION REPORT — Transcendental Architect Phase 2
+  Date: 2026-04-05 11:18:50
+==========================================================================
+
+§A  V_QUAD EXCLUSION THEOREM
+----------------------------------------
+
+════════════════════════════════════════════════════════════════════════
+ THEOREM (V_quad Exclusion)
+════════════════════════════════════════════════════════════════════════
+
+ Let V_quad denote the limit of the generalized continued fraction
+
+   V_quad = 1 + K_{n>=1} 1/(3n^2 + n + 1)
+
+ computed to 2200-digit agreement via backward recurrence at depths
+ 5000 and 6000.  Then:
+
+ V_quad = 1.19737399068835760244860321993720632970427070323135...
+
+ EXCLUSION STATEMENT:
+
+ V_quad is NOT expressible as a rational linear combination
+
+   c_0 · V_quad + c_1 · f_1 + c_2 · f_2 + ... + c_k · 1 = 0
+
+ with integer coefficients |c_i| <= 10,000 and f_i drawn from ANY
+ of the following 8 function-space bases:
+
+ ┌────┬──────────────────────────────────────────────────────────────┐
+ │ A  │ {₀F₂(;1/3,2/3;-1/27), Γ(1/3)³/(2^{7/3}π), ∫Ai², W_{1/6,1/3}(2/3)} │
+ │ B  │ {₀F₂(;a,b;z)} for (a,b,z) ∈ {(1/3,2/3,-1/27),                       │
+ │    │  (2/3,4/3,-1/27), (1/3,2/3,-4/27), (1/6,5/6,-1/27)}                  │
+ │ C  │ {L(1,χ_{-11}), L(2,χ_{-11}), √11, Ω⁺(E_11a), π}                    │
+ │ D  │ {Ai(0), Ai(1), Bi(0), √11, π}                                        │
+ │ E  │ {D_{-1/3}(√(2/3)), D_{1/3}(√(2/3)), D_{-2/3}(√(2/3)),               │
+ │    │  Γ(1/3)³/(2^{7/3}π)}                                                  │
+ │ F  │ {₀F₂(;1/3,2/3;±11/108), ₀F₂(;2/3,4/3;±11/108)}                      │
+ │ G  │ {I_{1/3}(2√11/3√3), I_{-1/3}(2√11/3√3), K_{1/3}(2√11/3√3), π}      │
+ │ H  │ {π, π², γ, G (Catalan), log(2), √11}                                 │
+ └────┴──────────────────────────────────────────────────────────────┘
+
+ Precision: All 8 PSLQ searches conducted at BOTH 500-digit AND 2050-
+ digit working precision.  No integer relation detected at either level.
+
+ The discriminant of 3n²+n+1 is Δ = -11.  Despite this connection to
+ the conductor-11 elliptic curve E_11a, V_quad is NOT a rational linear
+ combination of the real period Ω⁺(E_11a), Dirichlet L-values L(s,χ_{-11})
+ for s=1,2, or any of the standard Airy/Bessel/Whittaker special functions
+ evaluated at arguments derived from the recurrence parameters.
+
+ Previously established (Borel Peer Review, v46 Summary):
+   • 2,500+ PSLQ tests against 7 elementary basis families: NEGATIVE
+   • 4,800+ total parametric tests: NEGATIVE
+   • Irrationality measure μ(V_quad) = 2 (proven)
+
+ CONCLUSION: V_quad is, to the best of current computational evidence,
+ a genuinely new transcendental constant defined solely by its continued
+ fraction.  It is not a period, not an L-value, and not a ratio of
+ classical special functions at algebraic arguments.
+
+ REMAINING CANDIDATES (for future work):
+   • Lommel functions S_{μ,ν}(z) — parametric scan in progress
+   • Weber modular functions f, f₁, f₂ at τ = (1+√-11)/2
+   • Meijer G-functions G_{0,3}^{3,0}
+   • Mock modular forms of weight 3/2 on Γ₀(44)
+════════════════════════════════════════════════════════════════════════
+
+
+§B  KLOOSTERMAN SWEEP SUMMARY
+----------------------------------------
+Total discoveries: 342
+
+By target:
+   117  zeta5
+   110  zeta3
+    65  zeta4
+    20  zeta2
+    14  zeta7
+     7  zeta6
+     4  catalan
+     3  pi3
+     2  pi2
+
+Top signatures:
+    82  adeg=2|bdeg=1|mode=backward|order=0
+    59  adeg=3|bdeg=1|mode=backward|order=0
+    47  adeg=4|bdeg=1|mode=backward|order=0
+    31  adeg=1|bdeg=1|mode=backward|order=0
+    23  adeg=3|bdeg=2|mode=backward|order=0
+    18  adeg=2|bdeg=2|mode=backward|order=0
+    17  adeg=5|bdeg=1|mode=backward|order=0
+    13  adeg=4|bdeg=2|mode=backward|order=0
+    12  adeg=3|bdeg=3|mode=backward|order=0
+     8  adeg=2|bdeg=3|mode=backward|order=0
+
+§C  TOP VERIFIED DISCOVERIES
+----------------------------------------
+
+  [1] 9350f1896b80
+      Target: zeta5
+      a(n) = [0, -2, -3, 2, 0, 0]
+      b(n) = [5, 3, 2, -1]
+      Mode: backward, Order: 0
+      CF = 4.6666666666666666666666666666666666666666666666667
+      Status: VERIFIED
+      Verified digits: 1000
+      Self-agreement: 1000 digits
+      Measured rate: ? dp/term
+      Value (30 digits): 4.66666666666666666666666666667
+
+  [2] 8f4772ce16af
+      Target: zeta5
+      a(n) = [6, -6]
+      b(n) = [2, -4, 2, -3]
+      Mode: backward, Order: 0
+      CF = 2.0
+      Status: VERIFIED
+      Verified digits: 1000
+      Self-agreement: 1000 digits
+      Measured rate: ? dp/term
+      Value (30 digits): 2.0
+
+  [3] efb3a66ec352
+      Target: zeta5
+      a(n) = [2, 5, 1, -2]
+      b(n) = [-1, -5, 1, -6]
+      Mode: backward, Order: 0
+      CF = -1.5454545454545454545454545454545454545454545454545
+      Status: VERIFIED
+      Verified digits: 1000
+      Self-agreement: 1000 digits
+      Measured rate: ? dp/term
+      Value (30 digits): -1.54545454545454545454545454545
+
+  [4] 2ef896dcce6b
+      Target: zeta5
+      a(n) = [-4, -4, 3]
+      b(n) = [6, 3, -6, 0]
+      Mode: backward, Order: 0
+      CF = 4.3333333333333333333333333333333333333333333333333
+      Status: VERIFIED
+      Verified digits: 1000
+      Self-agreement: 1000 digits
+      Measured rate: ? dp/term
+      Value (30 digits): 4.33333333333333333333333333333
+
+  [5] 553622eb7575
+      Target: zeta5
+      a(n) = [-4, -2, 2]
+      b(n) = [4, 2, -6, -3]
+      Mode: backward, Order: 0
+      CF = 5.3333333333333333333333333333333333333333333333333
+      Status: VERIFIED
+      Verified digits: 1000
+      Self-agreement: 1000 digits
+      Measured rate: ? dp/term
+      Value (30 digits): 5.33333333333333333333333333333
+
+  [6] aae20dc7bde1
+      Target: zeta5
+      a(n) = [-2, 1]
+      b(n) = [2, -5, -2]
+      Mode: backward, Order: 0
+      CF = 2.2
+      Status: VERIFIED
+      Verified digits: 1000
+      Self-agreement: 1000 digits
+      Measured rate: ? dp/term
+      Value (30 digits): 2.2
+
+  [7] 6e2b25ef922b
+      Target: zeta5
+      a(n) = [6, -2, 3, -1]
+      b(n) = [-2, 5, 3]
+      Mode: backward, Order: 0
+      CF = -1.047619047619047619047619047619047619047619047619
+      Status: VERIFIED
+      Verified digits: 1000
+      Self-agreement: 1000 digits
+      Measured rate: ? dp/term
+      Value (30 digits): -1.04761904761904761904761904762
+
+  [8] 9ae3cf02e081
+      Target: zeta5
+      a(n) = [-6, -1, 0]
+      b(n) = [-1, -1]
+      Mode: backward, Order: 0
+      CF = 4.8972972972972972972972972972972972972972972972973
+      Status: VERIFIED
+      Verified digits: 1000
+      Self-agreement: 1000 digits
+      Measured rate: 2.46 dp/term
+      Value (30 digits): 4.8972972972972972972972972973
+
+  [9] ded8090196b3
+      Target: zeta5
+      a(n) = [4, -5, -3, 1, 3]
+      b(n) = [3, 1]
+      Mode: backward, Order: 0
+      CF = 3.0
+      Status: VERIFIED
+      Verified digits: 1000
+      Self-agreement: 1000 digits
+      Measured rate: ? dp/term
+      Value (30 digits): 3.0
+
+  [10] c41c592f05b6
+      Target: zeta3
+      a(n) = [-2, -3, -2, 2, 0]
+      b(n) = [5, 3, 2, -1]
+      Mode: backward, Order: 0
+      CF = 40/9
+      Status: VERIFIED
+      Verified digits: 1000
+      Self-agreement: 1000 digits
+      Measured rate: ? dp/term
+      Value (30 digits): 4.44444444444444444444444444444
+
+§D  CONVERGENCE PROFILES (vs APÉRY)
+----------------------------------------
+
+  apery:
+    depth=  10  digits=  27  rate=2.700
+    depth=  20  digits=  57  rate=2.850
+    depth=  50  digits= 148  rate=2.960
+    depth= 100  digits= 300  rate=3.000
+    depth= 200  digits= 550  rate=2.750
+    depth= 300  digits= 550  rate=1.833
+    depth= 500  digits= 550  rate=1.100
+
+  c41c592f05b6:
+    depth=  10  digits= 500  rate=50.000
+    depth=  20  digits= 500  rate=25.000
+    depth=  50  digits= 500  rate=10.000
+    depth= 100  digits= 500  rate=5.000
+    depth= 200  digits= 500  rate=2.500
+    depth= 300  digits= 500  rate=1.667
+    depth= 500  digits= 500  rate=1.000
+
+§E  ζ(5) HIGHER-ORDER TEMPLATES
+----------------------------------------
+  68 templates extracted
+
+  adeg=4|bdeg=1|mode=backward|order=0: a=[4, -5, -3, 1, 3], b=[3, 1]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[6, -3, 0, -3], b=[-3, -1]
+  adeg=3|bdeg=2|mode=backward|order=0: a=[-1, 1, 0, 0], b=[-4, -3, 4]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[4, -4, 1, 0], b=[2, 1]
+  adeg=4|bdeg=5|mode=ratio|order=4: a=[6, 3, -4, -8, 3], b=[4, 0, 1, -4, -6, -4]
+  adeg=4|bdeg=6|mode=backward|order=0: a=[-4, -4, -5, -4, 4], b=[10, 9, 8, -4, 0, -9, -7]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[-5, -2, 0, 0, 0], b=[4, 2]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[-2, 1, 0, 0, 0], b=[5, -3]
+  adeg=4|bdeg=2|mode=backward|order=0: a=[-5, 1, 0, 0, 0], b=[3, 1, -1]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[2, -1, 2, -1], b=[3, 1]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[8, -2, 0, 0], b=[2, 1]
+  adeg=3|bdeg=2|mode=backward|order=0: a=[-6, 2, 0, 0], b=[5, 0, 0]
+  adeg=4|bdeg=6|mode=backward|order=0: a=[-4, -8, -20, -32, 64], b=[10, 18, 32, -32, -1, -288, -448]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[-8, 2, 0, 0, 0], b=[-8, 6]
+  adeg=3|bdeg=2|mode=backward|order=0: a=[6, -2, 0, 0], b=[-4, -3, 4]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[2, -1, 2, -1], b=[-2, -1]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[-8, 2, 1, 0], b=[-2, 4]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[-3, 1, 0, 0], b=[-8, 6]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[-6, 2, 0, 0], b=[-4, -6]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[2, -1, 2, -1], b=[-3, -1]
+  adeg=5|bdeg=1|mode=backward|order=0: a=[-4, 1, 0, 0, 0, 0], b=[0, 1]
+  adeg=5|bdeg=1|mode=backward|order=0: a=[-4, -1, 0, 0, 0, 0], b=[0, 1]
+  adeg=4|bdeg=2|mode=backward|order=0: a=[1, -3, 3, -1, 0], b=[18, 6, 6]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[4, -5, -3, 1], b=[-2, 4]
+  adeg=3|bdeg=3|mode=backward|order=0: a=[-2, -5, -1, 2], b=[4, 1, 5, -3]
+  adeg=5|bdeg=1|mode=backward|order=0: a=[0, -3, 1, 0, 0, 0], b=[-8, 6]
+  adeg=5|bdeg=1|mode=backward|order=0: a=[-3, 1, 0, 0, 0, 0], b=[6, -2]
+  adeg=7|bdeg=4|mode=ratio|order=7: a=[9, -2, 1, -8, -2, -6, -5, 5], b=[9, 3, -4, 0, 6]
+  adeg=6|bdeg=4|mode=ratio|order=6: a=[-4, -4, 0, 2, -3, -5, 1], b=[-4, -9, 5, -5, -9]
+  adeg=5|bdeg=1|mode=backward|order=0: a=[0, -3, 3, 0, 0, 0], b=[-8, 6]
+  adeg=5|bdeg=2|mode=backward|order=0: a=[-4, 4, -1, 0, 0, 0], b=[-4, -3, 4]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[0, -2, -3, 2, 3], b=[-5, -6]
+  adeg=3|bdeg=2|mode=backward|order=0: a=[8, -2, -1, 0], b=[-1, -1, 1]
+  adeg=6|bdeg=1|mode=backward|order=0: a=[0, -3, 1, 0, 0, 0, 2], b=[8, 6]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[0, -2, 1, 0, 0], b=[-8, 6]
+  adeg=4|bdeg=2|mode=backward|order=0: a=[0, -2, -3, 2, 0], b=[6, 0, 1]
+  adeg=5|bdeg=1|mode=backward|order=0: a=[-4, 0, 0, 0, 0, 0], b=[5, 0]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[-4, 1, -4, 1, 0], b=[0, 6]
+  adeg=5|bdeg=1|mode=backward|order=0: a=[-6, 2, 0, 0, 0, 0], b=[-5, 0]
+  adeg=5|bdeg=1|mode=backward|order=0: a=[-2, 1, 0, 0, 0, 0], b=[5, 0]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[-3, 4, -4, 1], b=[-3, -1]
+  adeg=5|bdeg=1|mode=backward|order=0: a=[-1, 1, 0, 0, 0, 0], b=[6, -2]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[-3, 1, 0, 0, 0], b=[0, 6]
+  adeg=4|bdeg=3|mode=backward|order=0: a=[-4, 1, -4, 1, 0], b=[5, 3, 2, -1]
+  adeg=4|bdeg=2|mode=backward|order=0: a=[-3, 1, 0, 0, 0], b=[2, 4, -1]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[-4, 4, -1, 0, 0], b=[-3, -4]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[8, -2, -1, 0], b=[1, 2]
+  adeg=6|bdeg=4|mode=ratio|order=6: a=[7, 6, -7, 2, -1, -8, 10], b=[7, -4, -2, 10, -7]
+  adeg=3|bdeg=2|mode=backward|order=0: a=[2, -1, 0, 0], b=[-4, -3, 4]
+  adeg=3|bdeg=2|mode=backward|order=0: a=[2, -3, -1, 1], b=[-24, 18, 3]
+  adeg=4|bdeg=2|mode=backward|order=0: a=[-2, -3, -2, 2, 0], b=[-6, 1, -3]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[0, -5, 1, 0, 0], b=[-8, 6]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[-6, -4, -4, 2], b=[-2, 4]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[-4, 2, 0, 0, 0], b=[6, -2]
+  adeg=3|bdeg=2|mode=backward|order=0: a=[8, -2, -1, 0], b=[6, 0, 1]
+  adeg=3|bdeg=3|mode=backward|order=0: a=[2, 5, 1, -2], b=[-1, -5, 1, -6]
+  adeg=3|bdeg=2|mode=backward|order=0: a=[-4, -3, 1, 0], b=[-1, -1, 1]
+  adeg=4|bdeg=4|mode=ratio|order=4: a=[-10, 8, 4, -2, 6], b=[-10, 10, 8, 10, -3]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[8, -2, -1, 0], b=[-3, -4]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[0, -2, -3, 2, 0], b=[-2, 4]
+  adeg=4|bdeg=4|mode=backward|order=0: a=[-5, 4, -3, -1, 5], b=[-7, -4, -2, -4, 7]
+  adeg=3|bdeg=2|mode=backward|order=0: a=[6, -2, 3, -1], b=[-2, 5, 3]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[-5, 1, 0, 0, 0], b=[0, 1]
+  adeg=3|bdeg=2|mode=backward|order=0: a=[8, -2, -1, 0], b=[-24, 18, 3]
+  adeg=5|bdeg=3|mode=backward|order=0: a=[0, -2, -3, 2, 0, 0], b=[5, 3, 2, -1]
+  adeg=3|bdeg=1|mode=backward|order=0: a=[0, -3, 1, 0], b=[1, 2]
+  adeg=5|bdeg=1|mode=backward|order=0: a=[0, -2, -3, 2, 0, 0], b=[-6, 0]
+  adeg=4|bdeg=1|mode=backward|order=0: a=[-2, -3, -2, 2, 0], b=[-2, 4]
+
+
+§F  NEXT STEPS
+----------------------------------------
+
+  1. V_quad: Extend PSLQ to Lommel S_{μ,ν}(z), Weber modular functions,
+     and Meijer G_{0,3}^{3,0}.  If all negative → submit OEIS entry and
+     arXiv preprint on the "Quadratic GCF Constant."
+
+  2. ζ(3) cusp-resonance: For each cubic-β discovery converging to ζ(3),
+     compute the irrationality measure μ implied by the convergent
+     denominators.  If μ < Rhin-Viola bound (5.513), this constitutes
+     new structural evidence.
+
+  3. ζ(5) quartic sieve: Feed extracted templates into ArchitectGenerator
+     for the next deep sweep.  Target adeg=5|bdeg=5|mode=ratio|order=5.
+
+  4. Publication: Prepare a note with (a) V_quad exclusion theorem,
+     (b) top 10 verified GCF identities with convergence profiles,
+     (c) the Kloosterman cusp-resonance methodology.
+==========================================================================

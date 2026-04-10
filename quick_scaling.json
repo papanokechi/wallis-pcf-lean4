@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-04-04 18:58:37",
+  "script": "C:\\Users\\shkub\\OneDrive\\Documents\\archive\\admin\\VSCode\\claude-chat\\ramanujan_agent_v2_fast.py",
+  "python": "3.14.3",
+  "platform": "Windows-11-10.0.29560-SP0",
+  "worker_values": [
+    1,
+    2
+  ],
+  "results": [
+    {
+      "label": "zeta3 | 1 iters | batch 16 | 300dp",
+      "workers": 1,
+      "executor": "process",
+      "trials": 1,
+      "successful_trials": 1,
+      "wall_seconds_mean": 4.386,
+      "wall_seconds_std": 0.0,
+      "gcf_per_sec_mean": 9.187,
+      "novel_finds_mean": 0,
+      "speedup_vs_seq": 1.0,
+      "efficiency_pct": 100.0,
+      "trial_details": [
+        {
+          "case": {
+            "target": "zeta3",
+            "iters": 1,
+            "batch": 16,
+            "prec": 300
+          },
+          "label": "zeta3 | 1 iters | batch 16 | 300dp",
+          "returncode": 0,
+          "wall_seconds": 4.386,
+          "elapsed_seconds": 1.741,
+          "gcf_per_sec": 9.187,
+          "novel_finds": 0,
+          "discoveries": 0,
+          "stdout_tail": "  PSLQ calls:    84  (deg2=42)\n  Screen skips:  0  |  neighbour tries=28 skips=28\n  Elapsed:       0m01s\n\n  Saved \u2192 ramanujan_discoveries.json\n  Seeds \u2192 relay_chain_seed_pool.json  (8 specs)\n  Summary JSON -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench_cxl2iz9d\\summary.json\n  Summary page -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench_cxl2iz9d\\summary.html",
+          "stderr": "",
+          "trial": 1,
+          "workers": 1
+        }
+      ]
+    },
+    {
+      "label": "zeta3 | 1 iters | batch 16 | 300dp",
+      "workers": 2,
+      "executor": "process",
+      "trials": 1,
+      "successful_trials": 1,
+      "wall_seconds_mean": 3.744,
+      "wall_seconds_std": 0.0,
+      "gcf_per_sec_mean": 10.24,
+      "novel_finds_mean": 0,
+      "speedup_vs_seq": 1.115,
+      "efficiency_pct": 55.7,
+      "trial_details": [
+        {
+          "case": {
+            "target": "zeta3",
+            "iters": 1,
+            "batch": 16,
+            "prec": 300
+          },
+          "label": "zeta3 | 1 iters | batch 16 | 300dp",
+          "returncode": 0,
+          "wall_seconds": 3.744,
+          "elapsed_seconds": 1.562,
+          "gcf_per_sec": 10.24,
+          "novel_finds": 0,
+          "discoveries": 0,
+          "stdout_tail": "  PSLQ calls:    84  (deg2=42)\n  Screen skips:  0  |  neighbour tries=28 skips=28\n  Elapsed:       0m01s\n\n  Saved \u2192 ramanujan_discoveries.json\n  Seeds \u2192 relay_chain_seed_pool.json  (8 specs)\n  Summary JSON -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench_z_o057j7\\summary.json\n  Summary page -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench_z_o057j7\\summary.html",
+          "stderr": "",
+          "trial": 1,
+          "workers": 2
+        }
+      ]
+    }
+  ]
+}

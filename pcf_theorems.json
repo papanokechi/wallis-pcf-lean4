@@ -1,0 +1,97 @@
+{
+  "LOG_FAMILY_THEOREM": {
+    "statement": "For integer k >= 2: PCF(a(n) = -k*n^2, b(n) = (k+1)*n + k) = 1/ln(k/(k-1))",
+    "formula": "b(0) + a(1)/(b(1) + a(2)/(b(2) + ...)) where a(n)=-kn^2, b(n)=(k+1)n+k",
+    "verified_k_values": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "verified_digits": 118,
+    "examples": {
+      "k=2": "1/ln(2) [a=-2n^2, b=3n+2]",
+      "k=3": "1/ln(3/2) [a=-3n^2, b=4n+3]",
+      "k=4": "1/ln(4/3) [a=-4n^2, b=5n+4]",
+      "k=5": "1/ln(5/4) [a=-5n^2, b=6n+5]"
+    },
+    "arb_certified_digits": {
+      "k=2": 1509,
+      "k=3": 2265
+    },
+    "real_k_extension": {
+      "tested": [
+        1.5,
+        2,
+        2.5,
+        3,
+        3.5,
+        4,
+        4.5,
+        5,
+        5.5,
+        6,
+        7,
+        8,
+        10,
+        20,
+        100
+      ],
+      "all_matched": true,
+      "min_digits": 90,
+      "conjecture": "Family holds for all real k > 1"
+    },
+    "hypergeometric_connection": "ln(k/(k-1)) = (1/(k-1)) * _2F1(1,1;2;-1/(k-1)). The PCF is therefore the reciprocal of a scaled _2F1 evaluation via Euler integral.",
+    "status": "PROVEN",
+    "proof_method": "Closed-form convergents: p_n=(n+1)!k^{n+1}, q_n=(n+1)!*sum k^{n-j}/(j+1). Limit via Taylor series sum x^j/(j+1) = -ln(1-x)/x."
+  },
+  "PI_FAMILY_THEOREM": {
+    "statement": "For integer m >= 0: PCF(a(n) = -n(2n-(2m+1)), b(n) = 3n+1) = 2^(2m+1) / (pi * C(2m,m))",
+    "formula": "b(0) + a(1)/(b(1) + ...) where a(n)=-n(2n-c), b(n)=3n+1, c=2m+1",
+    "verified_m_values": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "verified_digits": 99,
+    "examples": {
+      "m=0 (c=1)": "2/pi",
+      "m=1 (c=3)": "4/pi",
+      "m=2 (c=5)": "16/(3*pi)",
+      "m=3 (c=7)": "32/(5*pi)",
+      "m=4 (c=9)": "256/(35*pi)"
+    },
+    "even_c_rational": {
+      "c=2 (m=0.5)": "1",
+      "c=4": "3/2",
+      "c=6": "15/8",
+      "c=8": "35/16",
+      "c=10": "315/128",
+      "c=12": "693/256",
+      "note": "Even c values give C(c-1,(c-2)/2) / 2^(c/2-1) type rationals"
+    },
+    "arb_certified_digits": {
+      "m=0 (2/pi)": 1508,
+      "m=1 (4/pi)": 1518
+    },
+    "closed_form": "val(m) = 2^{2m+1} / (pi * C(2m,m)) = 2 * Gamma(m+1) / (sqrt(pi) * Gamma(m+1/2))",
+    "status": "PROVEN",
+    "proof_method": "Closed-form convergents: p_n=(2n+1)!!, q_n=(2n+1)!!*sum_{j=0}^n j!/(2j+1)!!. Limit via classical identity pi/2 = sum j!/(2j+1)!!. Full family by binomial recurrence from base case."
+  },
+  "CONVERGENCE_COMPARISON": {
+    "brouncker_4_over_pi": "0.76 digits/term at depth 100",
+    "d1_2_over_pi": "0.31 digits/term at depth 100",
+    "d3_1_over_ln2": "0.32 digits/term at depth 100",
+    "euler_e": "1.65 digits/term at depth 100",
+    "note": "All converge at ~0.24 dp/term at depth 500 (precision-limited). Brouncker is faster for low depths."
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "session": {
+    "start": "2026-04-07T07:34:48.891694",
+    "searches": 1,
+    "api_calls": 0,
+    "duration_s": 16
+  },
+  "conjectures": [
+    {
+      "conjecture_id": "CF-20260407-0001",
+      "target_constant": "\u221a2",
+      "formula": "\u221a2 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = 1,  b\u2099 = 2",
+      "pcf_alpha": "1",
+      "pcf_beta": "2",
+      "alpha_coeffs": [
+        1,
+        0,
+        0
+      ],
+      "beta_coeffs": [
+        2,
+        0,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 50,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "CMF Navigator",
+      "timestamp": "2026-04-07T07:05:49.330807",
+      "numerical_value": "2.4142135623730950488016887242096980785696718753769480731766",
+      "error_at_depth": "0.0"
+    },
+    {
+      "conjecture_id": "CF-20260407-0001",
+      "target_constant": "\u03c0",
+      "formula": "\u03c0 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n^2,  b\u2099 = 1 + 2n",
+      "pcf_alpha": "n^2",
+      "pcf_beta": "1 + 2n",
+      "alpha_coeffs": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "beta_coeffs": [
+        1,
+        2,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 100,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "CMF Navigator",
+      "timestamp": "2026-04-07T07:24:26.600579",
+      "numerical_value": "1.2732395447351626861510701069801148962756771659236515899813",
+      "error_at_depth": "6.762435511073536948"
+    },
+    {
+      "conjecture_id": "CF-20260407-0002",
+      "target_constant": "\u03c0",
+      "formula": "\u03c0 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n^2,  b\u2099 = -1 - 2n",
+      "pcf_alpha": "n^2",
+      "pcf_beta": "-1 - 2n",
+      "alpha_coeffs": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "beta_coeffs": [
+        -1,
+        -2,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 100,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "CMF Navigator",
+      "timestamp": "2026-04-07T07:24:26.701738",
+      "numerical_value": "-1.273239544735162686151070106980114896275677165923651589981",
+      "error_at_depth": "6.762435511073536948"
+    },
+    {
+      "conjecture_id": "CF-20260407-0001",
+      "target_constant": "\u03c0",
+      "formula": "\u03c0 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n^2,  b\u2099 = 1 + 2n",
+      "pcf_alpha": "n^2",
+      "pcf_beta": "1 + 2n",
+      "alpha_coeffs": [
+        0,
+        0,
+        1
+      ],
+      "beta_coeffs": [
+        1,
+        2,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 80,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "Hybrid CMF\u2192D&R",
+      "timestamp": "2026-04-07T07:27:05.035127",
+      "numerical_value": "1.2732395447351626861510701069801148962756771659236515899813",
+      "error_at_depth": "1.663265562503183874"
+    },
+    {
+      "conjecture_id": "CF-20260407-0002",
+      "target_constant": "\u03c0",
+      "formula": "\u03c0 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n^2,  b\u2099 = -1 - 2n",
+      "pcf_alpha": "n^2",
+      "pcf_beta": "-1 - 2n",
+      "alpha_coeffs": [
+        0,
+        0,
+        1
+      ],
+      "beta_coeffs": [
+        -1,
+        -2,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 80,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "Hybrid CMF\u2192D&R",
+      "timestamp": "2026-04-07T07:27:05.139214",
+      "numerical_value": "-1.273239544735162686151070106980114896275677165923651589981",
+      "error_at_depth": "1.663265562503183874"
+    }
+  ],
+  "log": [
+    {
+      "ts": "07:34:48",
+      "level": "ok",
+      "msg": "Loaded 5 conjectures from registry"
+    },
+    {
+      "ts": "07:34:48",
+      "level": "info",
+      "msg": "Target: ln 2  Algorithm: Descent & Repel"
+    },
+    {
+      "ts": "07:34:48",
+      "level": "info",
+      "msg": "\u03b1-degree=2  \u03b2-degree=2  coeff\u2208[-12,12]"
+    },
+    {
+      "ts": "07:34:48",
+      "level": "info",
+      "msg": "Depth=250  Precision=80 digits  Budget=1500"
+    },
+    {
+      "ts": "07:34:48",
+      "level": "info",
+      "msg": "Starting numerical PCF enumeration..."
+    },
+    {
+      "ts": "07:34:48",
+      "level": "info",
+      "msg": "D&R: initializing 20 starting points in R^6"
+    },
+    {
+      "ts": "07:34:49",
+      "level": "info",
+      "msg": "  D&R start 1/20: 3 iters, best_score=1.97e-04"
+    },
+    {
+      "ts": "07:34:50",
+      "level": "info",
+      "msg": "  D&R start 2/20: 2 iters, best_score=1.85e-03"
+    },
+    {
+      "ts": "07:34:51",
+      "level": "info",
+      "msg": "  D&R start 3/20: 3 iters, best_score=2.19e-03"
+    },
+    {
+      "ts": "07:34:52",
+      "level": "info",
+      "msg": "  D&R start 4/20: 3 iters, best_score=5.33e-04"
+    },
+    {
+      "ts": "07:34:52",
+      "level": "info",
+      "msg": "  D&R start 5/20: 2 iters, best_score=3.36e-03"
+    },
+    {
+      "ts": "07:34:53",
+      "level": "info",
+      "msg": "  D&R start 6/20: 4 iters, best_score=5.08e-04"
+    },
+    {
+      "ts": "07:34:54",
+      "level": "info",
+      "msg": "  D&R start 7/20: 3 iters, best_score=2.86e-04"
+    },
+    {
+      "ts": "07:34:55",
+      "level": "info",
+      "msg": "  D&R start 8/20: 3 iters, best_score=6.96e-03"
+    },
+    {
+      "ts": "07:34:56",
+      "level": "info",
+      "msg": "  D&R start 9/20: 2 iters, best_score=5.49e-03"
+    },
+    {
+      "ts": "07:34:57",
+      "level": "info",
+      "msg": "  D&R start 10/20: 5 iters, best_score=1.14e-03"
+    },
+    {
+      "ts": "07:34:57",
+      "level": "info",
+      "msg": "  D&R start 11/20: 2 iters, best_score=6.24e-03"
+    },
+    {
+      "ts": "07:34:58",
+      "level": "info",
+      "msg": "  D&R start 12/20: 2 iters, best_score=6.32e-03"
+    },
+    {
+      "ts": "07:34:59",
+      "level": "info",
+      "msg": "  D&R start 13/20: 2 iters, best_score=7.28e-03"
+    },
+    {
+      "ts": "07:34:59",
+      "level": "info",
+      "msg": "  D&R start 14/20: 2 iters, best_score=7.81e-05"
+    },
+    {
+      "ts": "07:35:00",
+      "level": "info",
+      "msg": "  D&R start 15/20: 3 iters, best_score=2.79e-03"
+    },
+    {
+      "ts": "07:35:01",
+      "level": "info",
+      "msg": "  D&R start 16/20: 3 iters, best_score=1.32e-02"
+    },
+    {
+      "ts": "07:35:02",
+      "level": "info",
+      "msg": "  D&R start 17/20: 2 iters, best_score=7.28e-03"
+    },
+    {
+      "ts": "07:35:02",
+      "level": "info",
+      "msg": "  D&R start 18/20: 3 iters, best_score=2.55e-03"
+    },
+    {
+      "ts": "07:35:03",
+      "level": "info",
+      "msg": "  D&R start 19/20: 3 iters, best_score=3.45e-03"
+    },
+    {
+      "ts": "07:35:04",
+      "level": "info",
+      "msg": "  D&R start 20/20: 4 iters, best_score=9.80e-03"
+    },
+    {
+      "ts": "07:35:04",
+      "level": "info",
+      "msg": "D&R: 20 starts, 56 total iters, 1280 PCF evals, best_global=7.81e-05, 0 hits, 16.07s"
+    },
+    {
+      "ts": "07:35:04",
+      "level": "info",
+      "msg": "D&R near-misses (5 total, top 3):"
+    },
+    {
+      "ts": "07:35:04",
+      "level": "info",
+      "msg": "  score=7.81e-05  \u03b1=[-12, -4, -2]  \u03b2=[-2, -6, -5]"
+    },
+    {
+      "ts": "07:35:04",
+      "level": "info",
+      "msg": "  score=1.97e-04  \u03b1=[1, 2, 8]  \u03b2=[11, 1, -12]"
+    },
+    {
+      "ts": "07:35:04",
+      "level": "info",
+      "msg": "  score=2.86e-04  \u03b1=[-4, -11, 8]  \u03b2=[-12, -2, -1]"
+    },
+    {
+      "ts": "07:35:04",
+      "level": "ok",
+      "msg": "Numerical search complete in 16.1s \u2014 0 hit(s)"
+    },
+    {
+      "ts": "07:35:04",
+      "level": "ok",
+      "msg": "Registry saved \u2192 ramanujan_registry.json"
+    }
+  ]
+}

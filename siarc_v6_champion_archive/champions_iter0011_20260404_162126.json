@@ -1,0 +1,758 @@
+{
+  "reason": "iter_11_breakthrough",
+  "saved_at": "2026-04-04 16:21:26",
+  "iter": 11,
+  "runtime_seconds": 3.225,
+  "stats": {
+    "iters": 11,
+    "breakthroughs": 22,
+    "fertilized_born": 0,
+    "teleports": 0,
+    "ramanujan_relays": 8,
+    "cross_track_seeds": 13,
+    "adaptive_mutations": 9,
+    "radical_resets": 0,
+    "post_closure_mutations": 9,
+    "cascade_injections": 3,
+    "lemma_k_proven": 8,
+    "double_borel_proven": 2,
+    "vquad_proven": 1,
+    "gaps_resolved": 8
+  },
+  "champions": [
+    {
+      "id": "GT-283823",
+      "hyp_id": "GT-283823",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -(k\u00b7c_k)/48 \u2212 (k+1)(k+3)/(8\u00b7c_k)  [gap-target: SELECTION_RULE_HIGHER_D]",
+      "description": "Gap-targeted: Selection rule mechanism for higher d values",
+      "paper": "P3",
+      "birth_mode": "gap_target",
+      "parent_ids": [],
+      "k_values": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 11,
+      "plateau_count": 10,
+      "gradient_score": 60.0,
+      "gradient_history": [
+        1072.85,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {},
+      "created_at": 1775287283.8235185,
+      "last_updated": 1775287286.5154858
+    },
+    {
+      "id": "X-283822",
+      "hyp_id": "X-283822",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: double-Borel kernel bridge; lemma_k\u00d7double_borel]",
+      "description": "Cross-track seed from LemmaKAgent + factorial_sq",
+      "paper": "P3\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "LemmaKAgent",
+        "factorial_sq"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 11,
+      "plateau_count": 10,
+      "gradient_score": 60.0,
+      "gradient_history": [
+        353.05,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "double_borel",
+            "lemma_k"
+          ],
+          "sources": [
+            "LemmaKAgent",
+            "factorial_sq"
+          ],
+          "strength": 5.85
+        }
+      },
+      "created_at": 1775287283.8230011,
+      "last_updated": 1775287286.4216697
+    },
+    {
+      "id": "X-284047",
+      "hyp_id": "X-284047",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: Laplace transcendence bridge; analytic\u00d7vquad]",
+      "description": "Cross-track seed from X-283822 + VQuadTranscendenceAgent",
+      "paper": "P3\u00d7P1\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "X-283822",
+        "VQuadTranscendenceAgent"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 10,
+      "plateau_count": 9,
+      "gradient_score": 89.305,
+      "gradient_history": [
+        353.05,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "analytic",
+            "vquad"
+          ],
+          "sources": [
+            "X-283822",
+            "VQuadTranscendenceAgent"
+          ],
+          "strength": 40.805
+        }
+      },
+      "created_at": 1775287284.0473368,
+      "last_updated": 1775287286.5169399
+    },
+    {
+      "id": "X-284047",
+      "hyp_id": "X-284047",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: double-Borel kernel bridge; analytic\u00d7double_borel]",
+      "description": "Cross-track seed from X-283822 + factorial_sq",
+      "paper": "P3\u00d7P1\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "X-283822",
+        "factorial_sq"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 10,
+      "plateau_count": 9,
+      "gradient_score": 89.305,
+      "gradient_history": [
+        353.05,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "analytic",
+            "double_borel"
+          ],
+          "sources": [
+            "X-283822",
+            "factorial_sq"
+          ],
+          "strength": 40.355
+        }
+      },
+      "created_at": 1775287284.047451,
+      "last_updated": 1775287286.5174935
+    },
+    {
+      "id": "X-284294",
+      "hyp_id": "X-284294",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: Laplace transcendence bridge; analytic\u00d7borel]",
+      "description": "Cross-track seed from X-283822 + X-283823",
+      "paper": "P3\u00d7P1\u00d7P1\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "X-283822",
+        "X-283823"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 9,
+      "plateau_count": 8,
+      "gradient_score": 92.561,
+      "gradient_history": [
+        353.05,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "analytic",
+            "borel"
+          ],
+          "sources": [
+            "X-283822",
+            "X-283823"
+          ],
+          "strength": 40.055
+        }
+      },
+      "created_at": 1775287284.2944314,
+      "last_updated": 1775287286.5184696
+    },
+    {
+      "id": "X-284772",
+      "hyp_id": "X-284772",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: Laplace/Bessel bridge; analytic\u00d7lemma_k]",
+      "description": "Cross-track seed from X-283822 + LemmaKAgent",
+      "paper": "P3\u00d7P1\u00d7P3",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "X-283822",
+        "LemmaKAgent"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 7,
+      "plateau_count": 6,
+      "gradient_score": 101.864,
+      "gradient_history": [
+        353.05,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "analytic",
+            "lemma_k"
+          ],
+          "sources": [
+            "X-283822",
+            "LemmaKAgent"
+          ],
+          "strength": 41.105
+        }
+      },
+      "created_at": 1775287284.772675,
+      "last_updated": 1775287286.5216272
+    },
+    {
+      "id": "X-285502",
+      "hyp_id": "X-285502",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: Laplace transcendence bridge; lemma_k\u00d7vquad]",
+      "description": "Cross-track seed from LemmaKAgent + VQuadTranscendenceAgent",
+      "paper": "P3\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "LemmaKAgent",
+        "VQuadTranscendenceAgent"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 4,
+      "plateau_count": 3,
+      "gradient_score": 133.262,
+      "gradient_history": [
+        353.05,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "lemma_k",
+            "vquad"
+          ],
+          "sources": [
+            "LemmaKAgent",
+            "VQuadTranscendenceAgent"
+          ],
+          "strength": 6.3
+        }
+      },
+      "created_at": 1775287285.5028214,
+      "last_updated": 1775287286.5255919
+    },
+    {
+      "id": "X-286301",
+      "hyp_id": "X-286301",
+      "formula": "A\u2081\u207d\u1d4f\u207e = -1/48\u00b7(k\u00b7c_k) \u2212 (k+1)(k+3)/(8\u00b7c_k) + \u03a9_bridge/c_k\u00b2  [cross-track: Laplace transcendence bridge; lemma_k\u00d7borel]",
+      "description": "Cross-track seed from LemmaKAgent + X-283823",
+      "paper": "P3\u00d7P1\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "LemmaKAgent",
+        "X-283823"
+      ],
+      "k_values": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "alpha": -0.020833333333333332,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.01,
+      "gap_pct": 0.0,
+      "proof_progress": 100.0,
+      "gates_passed": 6,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 1,
+      "plateau_count": 0,
+      "gradient_score": 353.05,
+      "gradient_history": [
+        353.05
+      ],
+      "sig_history": [
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "borel",
+            "lemma_k"
+          ],
+          "sources": [
+            "LemmaKAgent",
+            "X-283823"
+          ],
+          "strength": 5.55
+        }
+      },
+      "created_at": 1775287286.301642,
+      "last_updated": 1775287286.6228044
+    },
+    {
+      "id": "BOREL-L1",
+      "hyp_id": "BOREL-L1",
+      "formula": "V\u2081(k) = k \u00b7 e^k \u00b7 E\u2081(k)",
+      "description": "Lemma 1 fully proven. V_quad irrationality via Stern-Stolz.",
+      "paper": "P1",
+      "birth_mode": "seed",
+      "parent_ids": [],
+      "k_values": [],
+      "alpha": null,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.05,
+      "gap_pct": 0.0,
+      "proof_progress": 83.3,
+      "gates_passed": 5,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 11,
+      "plateau_count": 10,
+      "gradient_score": 0.0,
+      "gradient_history": [
+        46.45000000000003,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 0,
+      "breakthrough_iters": [],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {},
+      "created_at": 1775287283.3994944,
+      "last_updated": 1775287286.418239
+    },
+    {
+      "id": "X-283823",
+      "hyp_id": "X-283823",
+      "formula": "V\u2081(k) = k \u00b7 e^k \u00b7 E\u2081(k)  [cross-track seed via Bessel/Laplace bridge]",
+      "description": "Cross-track seed from VQuadTranscendenceAgent + factorial_sq",
+      "paper": "P1\u00d7P1",
+      "birth_mode": "cross_seed",
+      "parent_ids": [
+        "VQuadTranscendenceAgent",
+        "factorial_sq"
+      ],
+      "k_values": [],
+      "alpha": null,
+      "beta": null,
+      "conductor": null,
+      "conjecture_ref": null,
+      "sig": 99.0,
+      "lfi": 0.05,
+      "gap_pct": 0.0,
+      "proof_progress": 83.3,
+      "gates_passed": 5,
+      "gates_total": 6,
+      "status": "champion",
+      "iteration": 11,
+      "plateau_count": 10,
+      "gradient_score": 0.0,
+      "gradient_history": [
+        292.45000000000005,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14,
+        2.842170943040401e-14
+      ],
+      "sig_history": [
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0,
+        99.0
+      ],
+      "breakthrough_count": 1,
+      "breakthrough_iters": [
+        1
+      ],
+      "blocked_by": [],
+      "cascade_lanes": [],
+      "cascade_results": {
+        "cross_track_seed": {
+          "tracks": [
+            "double_borel",
+            "vquad"
+          ],
+          "sources": [
+            "VQuadTranscendenceAgent",
+            "factorial_sq"
+          ],
+          "strength": 5.55
+        }
+      },
+      "created_at": 1775287283.8231864,
+      "last_updated": 1775287286.5146785
+    }
+  ]
+}

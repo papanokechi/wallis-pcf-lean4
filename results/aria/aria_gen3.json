@@ -1,0 +1,51 @@
+{
+  "generation": 3,
+  "timestamp": 1774315032.855491,
+  "conjectures_generated": 22,
+  "conjectures_verified": 14,
+  "conjectures_falsified": 8,
+  "new_axioms": 14,
+  "lost_notebook_additions": 0,
+  "synthesis_results": 14,
+  "seed_conjectures": 3,
+  "axiom_bank_size": 14,
+  "lost_notebook_size": 0,
+  "top_findings": [
+    {
+      "statement": "Analogy chain: mock_theta \u2192 black_hole_entropy \u2192 mock_theta. Via: Ramanujan mock theta functions \u2194 black hole microstate counting; Ramanujan mock theta functions \u2194 black hole microstate counting. Conj",
+      "family": "analogy",
+      "confidence": 1.0,
+      "verdict": "verified_full",
+      "cf_depth": 2
+    },
+    {
+      "statement": "Analogy chain: black_hole_entropy \u2192 mock_theta \u2192 black_hole_entropy. Via: Ramanujan mock theta functions \u2194 black hole microstate counting; Ramanujan mock theta functions \u2194 black hole microstate counti",
+      "family": "analogy",
+      "confidence": 1.0,
+      "verdict": "verified_full",
+      "cf_depth": 2
+    },
+    {
+      "statement": "Analogy chain: catalan_numbers \u2192 binary_trees \u2192 catalan_numbers. Via: Catalan numbers \u2194 full binary tree count; Catalan numbers \u2194 full binary tree count. Conjecture: There exists a direct structural c",
+      "family": "analogy",
+      "confidence": 1.0,
+      "verdict": "verified_full",
+      "cf_depth": 2
+    },
+    {
+      "statement": "Analogy chain: binary_trees \u2192 catalan_numbers \u2192 binary_trees. Via: Catalan numbers \u2194 full binary tree count; Catalan numbers \u2194 full binary tree count. Conjecture: There exists a direct structural conn",
+      "family": "analogy",
+      "confidence": 1.0,
+      "verdict": "verified_full",
+      "cf_depth": 2
+    },
+    {
+      "statement": "Analogy chain: bell_numbers \u2192 set_partitions \u2192 bell_numbers. Via: Bell numbers \u2194 set partition count; Bell numbers \u2194 set partition count. Conjecture: There exists a direct structural connection betwee",
+      "family": "analogy",
+      "confidence": 1.0,
+      "verdict": "verified_full",
+      "cf_depth": 2
+    }
+  ],
+  "experiment_specs_count": 0
+}

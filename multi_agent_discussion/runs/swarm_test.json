@@ -1,0 +1,76 @@
+﻿{
+  "swarm_id": "S-H-0024-G1",
+  "parent_hypothesis_id": "H-0024",
+  "gap_id": "prove_A1_k5",
+  "generation": 1,
+  "mutation_rate": 0.18,
+  "base_formula": "-5*c5/48 - 6*8/(8*c5)",
+  "candidates": [
+    {
+      "id": "H-0024-m1",
+      "formula": "-5*c5/48 - 6*8/(8*c5)",
+      "parent": "H-0024",
+      "gap_id": "prove_A1_k5",
+      "mutation_kind": "baseline",
+      "rationale": "Keep one safe baseline candidate as the control.",
+      "tool_strategy": "Sandbox",
+      "complexity_score": 0.635,
+      "diversity_tag": "safe"
+    },
+    {
+      "id": "H-0024-m2",
+      "formula": "-4.842*c5/48 - 6*8/(8*c5)",
+      "parent": "H-0024",
+      "gap_id": "prove_A1_k5",
+      "mutation_kind": "coefficient_perturbation",
+      "rationale": "Perturb the leading coefficient slightly to test local sensitivity.",
+      "tool_strategy": "Sandbox",
+      "complexity_score": 0.66,
+      "diversity_tag": "safe"
+    },
+    {
+      "id": "H-0024-m3",
+      "formula": "-5*c5/49.007 - 6*8/(8*c5)",
+      "parent": "H-0024",
+      "gap_id": "prove_A1_k5",
+      "mutation_kind": "denominator_shift",
+      "rationale": "Shift the dominant denominator to probe nearby rational structure.",
+      "tool_strategy": "SymbolicVerify",
+      "complexity_score": 0.635,
+      "diversity_tag": "safe"
+    },
+    {
+      "id": "H-0024-m4",
+      "formula": "5*c5/48",
+      "parent": "H-0024",
+      "gap_id": "prove_A1_k5",
+      "mutation_kind": "structure_reset",
+      "rationale": "Drop the inverse-c5 pole term to test whether the structural mismatch is the real failure mode.",
+      "tool_strategy": "SymbolicVerify",
+      "complexity_score": 0.305,
+      "diversity_tag": "radical"
+    },
+    {
+      "id": "H-0024-m5",
+      "formula": "-(5*c5)/48 - sqrt(2)/12",
+      "parent": "H-0024",
+      "gap_id": "prove_A1_k5",
+      "mutation_kind": "dimension_safe",
+      "rationale": "Keep a simple linear term and replace the pole with a dimensionally safer constant offset.",
+      "tool_strategy": "PSLQ",
+      "complexity_score": 0.66,
+      "diversity_tag": "radical"
+    },
+    {
+      "id": "H-0024-m6",
+      "formula": "(-5*c5/48 - 6*8/(8*c5)) + e/12",
+      "parent": "H-0024",
+      "gap_id": "prove_A1_k5",
+      "mutation_kind": "constant_injection",
+      "rationale": "Inject a transcendental correction term to test whether the residual behaves like a known constant.",
+      "tool_strategy": "PSLQ",
+      "complexity_score": 0.845,
+      "diversity_tag": "radical"
+    }
+  ]
+}

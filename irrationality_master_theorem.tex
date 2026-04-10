@@ -1,0 +1,423 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{A Master Theorem for Irrationality of\\
+Quadratic-Denominator Generalized Continued Fractions}
+\author{Papanokechi}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We establish a unified irrationality framework for the class of
+generalized continued fractions $V(A,B,C) = 1 + \mathbf{K}_{n \ge 1}\;
+1/(An^2+Bn+C)$ with integer parameters satisfying $A \ge 1$, $C \ge 1$,
+and $An^2+Bn+C > 0$ for all $n \ge 1$.
+Under these three sufficient conditions, we prove every such $V(A,B,C)$
+is irrational with irrationality measure $\mu = 2$
+(the Roth bound).
+The proof is constructive: the convergent sequences $\{P_n\}$, $\{Q_n\}$
+satisfy a universal Wronskian identity $|P_n Q_{n-1} - P_{n-1} Q_n| = 1$
+and $Q_n$ grows super-exponentially ($\log Q_n \sim An\log n$),
+so the Legendre criterion is automatically satisfied.
+We classify the 482-constant catalogue from~\cite{pcf_vquad} by
+discriminant, growth class, and Borel kernel type, and identify the
+exact ``failure boundary'' in parameter space where the proof methodology breaks down.
+\end{abstract}
+
+\noindent
+\textbf{2020 Mathematics Subject Classification:} 11A55, 11J70, 11J82, 11Y60.
+
+\noindent
+\textbf{Keywords:} irrationality measure, generalized continued fractions,
+Wronskian criterion, Legendre criterion, quadratic denominators, Borel regularization.
+
+% ═══════════════════════════════════════════════════════════════════════════
+\section{Introduction}\label{sec:intro}
+% ═══════════════════════════════════════════════════════════════════════════
+
+A \emph{unit-numerator generalized continued fraction} (GCF) with
+quadratic denominators is
+\begin{equation}\label{eq:VABC}
+  V(A,B,C) \;=\; 1 + \cfrac{1}{(A{+}B{+}C) +
+    \cfrac{1}{(4A{+}2B{+}C) +
+      \cfrac{1}{(9A{+}3B{+}C) + \cdots}}}
+  \;=\; 1 + \mathop{\mathbf{K}}_{n=1}^{\infty}\;\frac{1}{An^2+Bn+C}.
+\end{equation}
+In~\cite{pcf_vquad}, a systematic computational search identified 482
+distinct irrational constants of this form, each verified to 300-digit
+precision and shown by PSLQ to satisfy no algebraic relation of degree
+$\le 8$ with any of 15 standard constants
+$\{\pi, \pi^2, e, \ln 2, \ln 3, \gamma, G, \zeta(3), \zeta(5),
+\sqrt{2}, \sqrt{3}, \sqrt{5}, \varphi, \sqrt{\pi}, \pi\ln 2\}$.
+
+The purpose of this paper is to provide a \emph{unified proof framework}
+--- a ``Master Theorem'' --- under which every constant in the 482-set
+(and infinitely many others) can be proved irrational without any
+case-by-case analysis.  Our main result:
+
+\begin{theorem}[Master Theorem]\label{thm:master}
+Let $A, B, C \in \mathbb{Z}$ with $A \ge 1$, $C \ge 1$, and
+$\beta(n) := An^2 + Bn + C > 0$ for all integers $n \ge 1$.
+Then $V(A,B,C)$ is irrational, with irrationality measure
+$\mu(V(A,B,C)) = 2$.
+\end{theorem}
+
+The three hypotheses $(A \ge 1,\; C \ge 1,\; \beta(n)>0\;\forall\, n\ge 1)$
+are the \emph{sufficient conditions} of our toolkit.
+We call the surface where the third condition transitions from true to
+false the \emph{failure boundary}:
+\begin{equation}\label{eq:boundary}
+  B_{\mathrm{crit}}(A,C) = \begin{cases}
+    -(A+C) & \text{if } A + B + C > 0 \text{ and } B \ge -2A,\\
+    -2\sqrt{AC} & \text{if } B < -2A \;\text{(positive-definite boundary)}.
+  \end{cases}
+\end{equation}
+
+
+% ═══════════════════════════════════════════════════════════════════════════
+\section{Convergent Sequences and the Wronskian}\label{sec:wronskian}
+% ═══════════════════════════════════════════════════════════════════════════
+
+\begin{definition}[Convergent sequences]
+Define integer sequences $\{P_n\}_{n \ge -1}$ and $\{Q_n\}_{n \ge -1}$ by
+\begin{equation}\label{eq:recurrence}
+\begin{aligned}
+  P_{-1} &= 1, \quad P_0 = 1, \quad &P_n &= \beta(n)\,P_{n-1} + P_{n-2}
+    \quad(n \ge 1),\\
+  Q_{-1} &= 0, \quad Q_0 = 1, \quad &Q_n &= \beta(n)\,Q_{n-1} + Q_{n-2}
+    \quad(n \ge 1),
+\end{aligned}
+\end{equation}
+where $\beta(n) = An^2 + Bn + C$.
+The $n$-th convergent of~\eqref{eq:VABC} is $P_n/Q_n$.
+\end{definition}
+
+\begin{lemma}[Wronskian identity]\label{lem:wronskian}
+For all $n \ge 0$,
+\begin{equation}\label{eq:wronskian}
+  W_n \;:=\; P_n\,Q_{n-1} - P_{n-1}\,Q_n \;=\; (-1)^n.
+\end{equation}
+In particular, $|W_n| = 1$ for all $n$ (the ``universal stability floor'').
+\end{lemma}
+
+\begin{proof}
+By induction.  The base case $n = 0$:
+$W_0 = P_0 Q_{-1} - P_{-1} Q_0 = 1 \cdot 0 - 1 \cdot 1 = -1 = (-1)^0 \cdot (-1)$.
+
+Correction: with the standard convention $W_n = P_n Q_{n-1} - P_{n-1} Q_n$,
+$W_0 = 1\cdot 0 - 1\cdot 1 = -1 = (-1)^1$.
+For $n \ge 1$, substituting the recurrence~\eqref{eq:recurrence}:
+\begin{align*}
+  W_n &= (\beta(n)\,P_{n-1} + P_{n-2})\,Q_{n-1}
+       - P_{n-1}\,(\beta(n)\,Q_{n-1} + Q_{n-2})\\
+      &= P_{n-2}\,Q_{n-1} - P_{n-1}\,Q_{n-2}\\
+      &= -(P_{n-1}\,Q_{n-2} - P_{n-2}\,Q_{n-1})\\
+      &= -W_{n-1}.
+\end{align*}
+Hence $W_n = (-1)^n W_0 = (-1)^{n+1}$, so $|W_n| = 1$.
+\end{proof}
+
+\begin{remark}
+For a general GCF $\mathbf{K}\;\alpha(n)/\beta(n)$ with non-unit
+numerators, the Wronskian satisfies
+$W_n = (-1)^n \prod_{k=1}^{n} \alpha(k)$.
+The factorization $\alpha(n) = 1$ in our setting is what guarantees
+$|W_n| = 1$ \emph{universally}, independent of $(A,B,C)$.
+This is the structural reason the proof framework applies to all 482
+identities simultaneously.
+\end{remark}
+
+
+% ═══════════════════════════════════════════════════════════════════════════
+\section{Denominator Growth}\label{sec:growth}
+% ═══════════════════════════════════════════════════════════════════════════
+
+\begin{lemma}[Super-exponential growth]\label{lem:growth}
+Under the hypotheses of Theorem~\ref{thm:master},
+\begin{equation}\label{eq:growth}
+  \log Q_n \;\sim\; A\,n\,\log n \quad\text{as } n \to \infty.
+\end{equation}
+More precisely, $Q_n \ge \prod_{k=1}^{n} \beta(k)$ and
+$\prod_{k=1}^{n}(Ak^2) = A^n (n!)^2$, so
+$\log Q_n \ge n\log A + 2\log(n!) \sim 2n\log n$.
+\end{lemma}
+
+\begin{proof}
+From the recurrence $Q_n = \beta(n)\,Q_{n-1} + Q_{n-2} \ge \beta(n)\,Q_{n-1}$,
+we get $Q_n \ge Q_0 \prod_{k=1}^{n} \beta(k) = \prod_{k=1}^{n}(Ak^2+Bk+C)$.
+For $k$ large, $\beta(k) \sim Ak^2$, so
+$\log Q_n \ge \sum_{k=1}^{n} \log(Ak^2+Bk+C)
+\sim \sum_{k=1}^{n}(2\log k + \log A)
+= 2\log(n!) + n\log A \sim 2n\log n$.
+\end{proof}
+
+
+% ═══════════════════════════════════════════════════════════════════════════
+\section{Proof of the Master Theorem}\label{sec:proof}
+% ═══════════════════════════════════════════════════════════════════════════
+
+\begin{proof}[Proof of Theorem~\ref{thm:master}]
+From Lemma~\ref{lem:wronskian}, the error in the $n$-th convergent is
+\begin{equation}\label{eq:error}
+  V(A,B,C) - \frac{P_n}{Q_n}
+  = \frac{(-1)^{n+1}}{Q_n\,Q_{n+1}}
+  \cdot\bigl(1 + O(1/Q_{n+2})\bigr).
+\end{equation}
+Rearranging:
+\begin{equation}\label{eq:legendre}
+  \bigl|Q_n\,V(A,B,C) - P_n\bigr| = \frac{1}{Q_{n+1}} + O(1/Q_{n+1}^2).
+\end{equation}
+Since $P_n, Q_n \in \mathbb{Z}$ and $Q_n \to \infty$ by
+Lemma~\ref{lem:growth}, we have
+$0 < |Q_n V - P_n| < 1$ for all sufficiently large~$n$.
+By the Legendre irrationality criterion, $V(A,B,C) \notin \mathbb{Q}$.
+
+\medskip
+\noindent\textbf{Irrationality measure.}
+Suppose $|V - p/q| < q^{-\mu}$ for infinitely many coprime $p/q$.
+If $p/q = P_n/Q_n$, then $|V - p/q| = 1/(Q_n Q_{n+1})$.
+Since $\log Q_{n+1}/\log Q_n \to 1$ (both $\sim 2n\log n$), we get
+$Q_{n+1} \approx Q_n^{1+o(1)}$, hence
+$1/(Q_n Q_{n+1}) \approx 1/Q_n^{2+o(1)}$.
+Setting $q = Q_n$: $|V - p/q| \approx q^{-(2+o(1))}$, so $\mu \le 2 + o(1)$.
+Since $\mu \ge 2$ for all irrationals (Dirichlet), we conclude $\mu(V) = 2$.
+\end{proof}
+
+
+% ═══════════════════════════════════════════════════════════════════════════
+\section{The Borel Bridge}\label{sec:borel}
+% ═══════════════════════════════════════════════════════════════════════════
+
+The Borel regularization formula connects factorial-numerator GCFs to
+exponential integrals.  For the constant-denominator case
+$\beta(n) = k$, $\alpha(n) = -n!$, the regularized value is
+\begin{equation}\label{eq:borel}
+  \mathcal{V}(k) = k e^k E_1(k)
+  = \int_0^{\infty} \frac{k\,e^{-t}}{k+t}\,dt.
+\end{equation}
+
+For our quadratic class, we define the \emph{Borel growth mapping}:
+
+\begin{definition}[Growth class mapping]\label{def:borel_map}
+The mapping $f\colon \{(A,B,C) \in \mathbb{Z}^3 : A \ge 1,\;
+\beta(n)>0\;\forall n\} \to \{\text{Asymptotic Growth Classes}\}$
+is defined by the asymptotic behavior of $\log Q_n$:
+\[
+  f(A,B,C) = \begin{cases}
+    \text{Super-exponential} & \text{if } \log Q_n \sim c\,n\log n
+      \quad\text{(quadratic $\beta$)},\\
+    \text{Exponential} & \text{if } \log Q_n \sim c\,n
+      \quad\text{(linear $\beta$, Bessel kernel)},\\
+    \text{Polynomial} & \text{if } \log Q_n \sim c\log n
+      \quad\text{(constant $\beta$, Stieltjes kernel)}.
+  \end{cases}
+\]
+\end{definition}
+
+\begin{table}[h]
+\centering
+\caption{Borel kernel classification by denominator degree}
+\begin{tabular}{llll}
+\toprule
+$\deg(\beta)$ & Growth & Kernel & Special Function \\
+\midrule
+0 (constant) & Polynomial & Stieltjes & $E_1(k)$ \\
+1 (linear)   & Exponential & Bessel & $I_{\nu-1}/I_\nu$ \\
+2 (quadratic)& Super-exp.\ & Airy-type & Open \\
+$\ge 3$      & Hyper-super & Hyper-Airy & Open \\
+\bottomrule
+\end{tabular}\label{tab:borel}
+\end{table}
+
+All 482 constants in~\cite{pcf_vquad} fall into the ``super-exponential / Airy-type''
+class. The corresponding Borel kernel $K(t; A,B,C)$ satisfying
+\[
+  V(A,B,C) = \int_0^\infty K(t;\,A,B,C)\,dt
+\]
+remains an open problem---no closed-form expression in terms of classical
+special functions is known for any $(A,B,C)$ with $A \ge 1$.
+
+
+% ═══════════════════════════════════════════════════════════════════════════
+\section{The Irrationality Diagnostic Engine}\label{sec:engine}
+% ═══════════════════════════════════════════════════════════════════════════
+
+We describe the algorithm implemented in \texttt{irrationality\_toolkit.py}.
+
+\begin{enumerate}[label=\textbf{Stage \arabic*.},leftmargin=3em]
+  \item \textbf{Classify.}
+    Compute $D = B^2 - 4AC$.  Identify the quadratic field
+    $\mathbb{Q}(\sqrt{D})$ and its class number $h(D)$ when known.
+    Flag Heegner discriminants ($D \in \{-3,-4,-7,-8,-11,-19,-43,-67,-163\}$).
+
+  \item \textbf{Check positive-definiteness.}
+    Verify $\beta(n) > 0$ for all $n \ge 1$.
+    If $B \ge -2A$: check $\beta(1) = A+B+C > 0$.
+    If $B < -2A$: check $B^2 < 4AC$ (positive-definite).
+    If the check fails, report the smallest $n_0$ with $\beta(n_0) \le 0$.
+
+  \item \textbf{Wronskian verification.}
+    Compute $P_n, Q_n$ for $n = 1, \ldots, N$ and verify
+    $P_n Q_{n-1} - P_{n-1} Q_n = (-1)^n$ at each step.
+    This is the ``stability floor'' check.
+
+  \item \textbf{Growth classification.}
+    Fit $\log Q_n$ against models $c\,n\log n$, $c\,n$, and $c\log n$.
+    Assign the best-fit growth class via least-squares residual.
+
+  \item \textbf{Borel mapping.}
+    Assign kernel type from Table~\ref{tab:borel}.
+
+  \item \textbf{Legendre criterion synthesis.}
+    Verify $Q_n \to \infty$ and $|W_n| = 1$, then output the formal
+    proof: ``$0 < |Q_n V - P_n| = 1/Q_{n+1} \to 0$, hence $V \notin \mathbb{Q}$.''
+
+  \item \textbf{Irrationality measure.}
+    Compute $\mu(V) = 2 + \varepsilon$ where
+    $\varepsilon = \limsup_{n \to \infty}
+    \frac{\log Q_{n+1}}{\log Q_n} - 1 = 0$ for quadratic~$\beta$.
+
+  \item \textbf{PSLQ screening.}
+    Test $V$ against 15 standard constants $\{T_1, \ldots, T_{15}\}$:
+    search for integer $\mathbf{m} = (m_0, m_1, \ldots, m_{15})$ with
+    $m_0 V + \sum m_i T_i = 0$, $|\mathbf{m}| \le 500$.
+    Report ``match'' or ``new transcendental candidate.''
+\end{enumerate}
+
+
+% ═══════════════════════════════════════════════════════════════════════════
+\section{The Failure Boundary}\label{sec:boundary}
+% ═══════════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Failure boundary]\label{prop:boundary}
+The Master Theorem (Theorem~\ref{thm:master}) applies if and only if
+$\beta(n) > 0$ for all $n \ge 1$.  The critical surface in
+$(A,B,C)$-space is:
+\begin{enumerate}
+  \item If $B \ge 0$: always satisfied (since $A \ge 1$, $C \ge 1$).
+  \item If $-2A \le B < 0$: satisfied iff $A + B + C > 0$,
+    i.e., $C > -A - B$.
+  \item If $B < -2A$: the minimum of $\beta$ on $[1,\infty)$ occurs at
+    $n^* = -B/(2A) > 1$, and $\beta(n^*) = C - B^2/(4A) > 0$ iff
+    $B^2 < 4AC$.
+\end{enumerate}
+This gives the failure boundary
+$B_{\mathrm{crit}} = -2\sqrt{AC}$ on the ``positive-definite side.''
+\end{proposition}
+
+The failure boundary is the \emph{most valuable output} of the toolkit:
+it tells researchers exactly where the limits of the current proof
+technique lie, and where new methods (e.g., Pad\'{e} approximants,
+hypergeometric transformations, or modular techniques) are needed.
+
+
+% ═══════════════════════════════════════════════════════════════════════════
+\section{Discriminant Taxonomy}\label{sec:taxonomy}
+% ═══════════════════════════════════════════════════════════════════════════
+
+Among the 482 constants, several discriminant families emerge:
+
+\begin{table}[h]
+\centering
+\caption{Discriminant families in the 482-constant catalogue}
+\begin{tabular}{rclc}
+\toprule
+$D$ & Field & Class number & Count \\
+\midrule
+$-11$ & $\mathbb{Q}(\sqrt{-11})$ & $h=1$ (Heegner) & 67 \\
+$-7$  & $\mathbb{Q}(\sqrt{-7})$ & $h=1$ (Heegner) & 41 \\
+$-3$  & $\mathbb{Q}(\sqrt{-3})$ & $h=1$ (Heegner) & 35 \\
+$-4$  & $\mathbb{Q}(i)$          & $h=1$ (Heegner) & 28 \\
+$-19$ & $\mathbb{Q}(\sqrt{-19})$ & $h=1$ (Heegner) & 22 \\
+$-8$  & $\mathbb{Q}(\sqrt{-2})$ & $h=1$ (Heegner) & 19 \\
+$-15$ & $\mathbb{Q}(\sqrt{-15})$ & $h=2$ & 18 \\
+\multicolumn{3}{l}{(other discriminants, $|D| \le 100$)} & 252 \\
+\bottomrule
+\end{tabular}\label{tab:disc}
+\end{table}
+
+The concentration of identities at Heegner discriminants (class number~1)
+is notable and may reflect deeper number-theoretic structure connecting
+these GCF constants to singular moduli.  We leave this as an open question.
+
+
+% ═══════════════════════════════════════════════════════════════════════════
+\section{Conclusion}\label{sec:conclusion}
+% ═══════════════════════════════════════════════════════════════════════════
+
+The Master Theorem provides a \emph{fully automated} irrationality proof
+for every quadratic-denominator GCF satisfying three simple conditions.
+The key ingredients are:
+\begin{itemize}
+  \item The universal Wronskian identity $|W_n| = 1$
+    (Section~\ref{sec:wronskian}),
+  \item Super-exponential denominator growth $\log Q_n \sim 2n\log n$
+    (Section~\ref{sec:growth}),
+  \item The Legendre criterion applied to the convergent sequences
+    (Section~\ref{sec:proof}).
+\end{itemize}
+The ``failure boundary'' (Section~\ref{sec:boundary}) is the toolkit's
+most novel output: it delineates exactly where current methods succeed
+and where new techniques are needed, guiding future research.
+
+The Borel bridge (Section~\ref{sec:borel}) connecting the quadratic
+class to Airy-type kernels remains open.  Finding a closed-form integral
+representation for \emph{any} $V(A,B,C)$ with $A \ge 1$ would be a
+significant advance, potentially connecting these constants to the theory
+of $E$-functions and Siegel--Shidlovsky transcendence.
+
+\begin{thebibliography}{9}
+
+\bibitem{pcf_vquad}
+Papanokechi,
+\textit{Polynomial Continued Fractions: Proved Families, Parity Phenomena,
+and New Irrational Constants},
+2026.
+
+\bibitem{raayoni2021}
+G.~Raayoni et al.,
+\textit{Generating conjectures on fundamental constants with the Ramanujan Machine},
+Nature \textbf{590} (2021), 67--73.
+
+\bibitem{wall1948}
+H.\,S.~Wall,
+\textit{Analytic Theory of Continued Fractions},
+Van Nostrand, 1948.
+
+\bibitem{lorentzen2008}
+L.~Lorentzen and H.~Waadeland,
+\textit{Continued Fractions with Applications},
+2nd ed., Atlantis Press, 2008.
+
+\bibitem{apery1979}
+R.~Ap\'ery,
+\textit{Irrationalit\'e de $\zeta(2)$ et $\zeta(3)$},
+Ast\'erisque \textbf{61} (1979), 11--13.
+
+\bibitem{ferguson1999}
+H.\,R.\,P.~Ferguson, D.\,H.~Bailey, and S.~Arwade,
+\textit{Analysis of PSLQ, an integer relation finding algorithm},
+Math.\ Comp.\ \textbf{68} (1999), 351--369.
+
+\bibitem{roth1955}
+K.\,F.~Roth,
+\textit{Rational approximations to algebraic numbers},
+Mathematika \textbf{2} (1955), 1--20.
+
+\end{thebibliography}
+
+\end{document}

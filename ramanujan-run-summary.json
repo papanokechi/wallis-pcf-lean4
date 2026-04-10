@@ -1,0 +1,76 @@
+{
+  "generated_at": "2026-04-04 15:05:37",
+  "script": "ramanujan_agent_v2_fast.py",
+  "target": "zeta3",
+  "llm_mode": "disabled",
+  "lirec_enabled": false,
+  "stats": {
+    "iters": 3,
+    "tested": 24,
+    "discoveries": 1,
+    "novel": 1,
+    "rate_percent": 33.333,
+    "seeds_injected": 5,
+    "llm_calls": 0,
+    "elapsed_human": "0m03s",
+    "elapsed_seconds": 3.929,
+    "gcf_per_sec": 6.108
+  },
+  "environment": {
+    "python": "3.14.3",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.29560-SP0",
+    "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "cpu_count": 8,
+    "mpmath": "1.4.1"
+  },
+  "artifacts": {
+    "discoveries_path": "ramanujan_discoveries.json",
+    "seed_path": "relay_chain_seed_pool.json",
+    "profile_path": "ramanujan_agent_profile.prof"
+  },
+  "run_config": {
+    "iters": 3,
+    "target": "zeta3",
+    "batch": 8,
+    "prec": 300,
+    "quiet": true,
+    "llm": false,
+    "lirec": false,
+    "seed_file": null
+  },
+  "discoveries": [
+    {
+      "spec": {
+        "spec_id": "GCF_60BF7838",
+        "alpha": [
+          0,
+          0
+        ],
+        "beta": [
+          1,
+          2
+        ],
+        "target": "zeta3",
+        "n_terms": 200,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+      "timestamp": 1775282734.0348241,
+      "enrichment": {}
+    }
+  ]
+}

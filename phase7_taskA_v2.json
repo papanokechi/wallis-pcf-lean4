@@ -1,0 +1,17 @@
+{
+  "strategy": [
+    "apery_denom: tested 10 templates",
+    "systematic_cubic: 576 tested, 0 hits",
+    "special_families: 0 hits",
+    "zoom_in: 36504 phase1, 364 polished, 0 hits"
+  ],
+  "hits": [
+    {
+      "strategy": "apery_cf_verification",
+      "match": "zeta3",
+      "digits": 150,
+      "note": "Known Apery CF reproduced"
+    }
+  ],
+  "elapsed_s": 639.0
+}

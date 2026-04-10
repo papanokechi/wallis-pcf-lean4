@@ -1,0 +1,36 @@
+{
+  "pilot": "77_superseed_v2",
+  "targets": [
+    "zeta7",
+    "zeta5"
+  ],
+  "prec": 1000,
+  "super_seeds_used": 23,
+  "escalated_seeds": 276,
+  "total_tested": 1280,
+  "total_novel": 137,
+  "total_deep7": 11,
+  "overall_hit_rate_pct": 10.703,
+  "hit_rate_threshold_pct": 2.0,
+  "green_light_full_77": true,
+  "per_target": [
+    {
+      "target": "zeta7",
+      "tested": 640,
+      "novel": 66,
+      "deep7_hits": 7,
+      "hit_rate_pct": 10.312,
+      "elapsed_seconds": 104.867
+    },
+    {
+      "target": "zeta5",
+      "tested": 640,
+      "novel": 71,
+      "deep7_hits": 4,
+      "hit_rate_pct": 11.094,
+      "elapsed_seconds": 113.995
+    }
+  ],
+  "wall_seconds": 219.326,
+  "generated_at": "2026-04-05 12:27:42"
+}

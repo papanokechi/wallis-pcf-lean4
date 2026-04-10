@@ -1,0 +1,3028 @@
+{
+  "sweep": "deep_sweep",
+  "targets": [
+    "zeta3",
+    "zeta5",
+    "zeta7"
+  ],
+  "prec": 1000,
+  "deep_mode": true,
+  "iters": 30,
+  "batch": 64,
+  "total_discoveries": 371,
+  "total_novel": 371,
+  "wall_seconds": 904.816,
+  "generated_at": "2026-04-05 10:46:58",
+  "results": [
+    {
+      "target": "zeta3",
+      "seed": 42,
+      "prec": 1000,
+      "deep_mode": true,
+      "discovery_count": 109,
+      "novel_count": 109,
+      "high_value_count": 109,
+      "near_miss_count": 0,
+      "elapsed_seconds": 211.979,
+      "high_value": [
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 2\u00b7CF\u00b7zeta5 + 2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta3 + 17\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta3 + -5\u00b7CF + -5\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "10\u00b7CF\u00b2 + -10\u00b7CF\u00b7zeta3 + 27\u00b7CF + -37\u00b7zeta3 + -37 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "8\u00b7CF\u00b7zeta4 + -13\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta4 + 4\u00b7CF + 17\u00b7zeta4 + -17 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 249,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-9\u00b7CF\u00b2 + -9\u00b7CF\u00b7zeta5 + -22\u00b7CF + -22\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta5 + 7\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta3 + 36\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-5\u00b7CF\u00b7zeta3 + 18\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 248,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-70\u00b7CF\u00b2 + -70\u00b7CF\u00b7zeta3 + 389\u00b7CF + 389\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 250,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "-9\u00b7CF\u00b7zeta5 + -9\u00b7CF + -2\u00b7zeta5 + -2 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 6,
+          "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 8\u00b7CF + -8\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta3 + -21\u00b7CF + -16\u00b7zeta3 + -16 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "formula": "-2\u00b7CF\u00b7zeta5 + 2\u00b7CF + 9\u00b7zeta5 + -9 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta2",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-2\u00b7CF\u00b7zeta2 + -19\u00b7zeta2 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b2 + 5\u00b7CF\u00b7zeta3 + 28\u00b7CF + 23\u00b7zeta3 + 23 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "19\u00b7CF\u00b7zeta3 + 64\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta3 + 2\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-5\u00b7CF\u00b7zeta4 + 26\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 248,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-10\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta3 + 39\u00b7CF + 27\u00b7zeta3 + 81 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "61\u00b7CF\u00b7zeta3 + -115\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta3 + -13\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + -2\u00b7zeta3 + 2 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta5 + -2\u00b7CF + 3\u00b7zeta5 + -3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta5 + 3\u00b7CF + -8\u00b7zeta5 + 8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta2",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-37\u00b7CF\u00b7zeta2 + 24\u00b7zeta2 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "formula": "5\u00b7CF\u00b7zeta3 + 9\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-12\u00b7CF\u00b7zeta4 + 55\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 2,
+          "formula": "13\u00b7CF\u00b7zeta5 + 73\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + 2\u00b7zeta3 + -2 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta5 + 2\u00b7CF + 3\u00b7zeta5 + -3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "4\u00b7CF\u00b7zeta3 + 15\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta5 + 3\u00b7CF + 4\u00b7zeta5 + -4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-91\u00b7CF\u00b7zeta4 + -125\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "formula": "-3\u00b7CF\u00b7zeta4 + -10\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta3 + -2\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-5\u00b7CF\u00b7zeta3 + 29\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 248,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "10\u00b7CF\u00b2 + 10\u00b7CF\u00b7zeta4 + 43\u00b7CF + 43\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-5\u00b7CF\u00b7zeta5 + 5\u00b7CF + -24\u00b7zeta5 + 24 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "-417\u00b7CF\u00b7zeta5 + 104\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-31\u00b7CF\u00b7zeta3 + 195\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-1\u00b7CF\u00b7zeta3 + 16\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta3 + -28\u00b7CF + 23\u00b7zeta3 + 23 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-104\u00b7CF\u00b7zeta4 + -225\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta5 + 7\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta3 + -19\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta3 + -6\u00b7CF + -6\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-11\u00b7CF\u00b7zeta4 + 19\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta5 + -3\u00b7CF + -8\u00b7zeta5 + 8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-13\u00b7CF\u00b7zeta3 + 3\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "37\u00b7CF\u00b7zeta3 + -114\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 248,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "3\u00b7CF\u00b2 + -3\u00b7CF\u00b7zeta3 + 17\u00b7CF + -17\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-11\u00b7CF\u00b7zeta3 + 14\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "159\u00b7CF\u00b7zeta3 + 604\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta4 + 13\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b7zeta3 + 1\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "-41\u00b7CF\u00b7zeta3 + -269\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-25\u00b7CF\u00b7zeta3 + 83\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 9\u00b7CF + -9\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "-5\u00b7CF\u00b7zeta3 + -14\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "10\u00b7CF\u00b7zeta5 + -10\u00b7CF + 41\u00b7zeta5 + -41 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 2,
+          "formula": "-3\u00b7CF\u00b7zeta4 + -13\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "21\u00b7CF\u00b7zeta4 + 73\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 247,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "74\u00b7CF\u00b2 + 74\u00b7CF\u00b7zeta3 + 319\u00b7CF + 319\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-19\u00b7CF\u00b7zeta3 + 75\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "11\u00b7CF\u00b7zeta3 + 70\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "catalan",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "11\u00b7CF\u00b7catalan + 34\u00b7catalan = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-151\u00b7CF\u00b7zeta3 + 336\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 6\u00b7CF + -6\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "-13\u00b7CF\u00b7zeta3 + -106\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta3 + -5\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-239\u00b7CF\u00b2 + 239\u00b7CF\u00b7zeta4 + 975\u00b7CF + -975\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 5\u00b7CF + -5\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "13\u00b7CF\u00b7zeta3 + -70\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 248,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-10\u00b7CF\u00b2 + 5\u00b7CF\u00b7zeta3 + -59\u00b7CF + 32\u00b7zeta3 + 32 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "107\u00b7CF\u00b7zeta3 + -107\u00b7CF + -483\u00b7zeta3 + 483 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "225\u00b7CF\u00b2 + 225\u00b7CF\u00b7zeta3 + -34\u00b7CF + -34\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta3 + -5\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 11\u00b7zeta5 + -11 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-73\u00b7CF\u00b7zeta3 + 24\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "16\u00b7CF\u00b2 + -16\u00b7CF\u00b7zeta3 + -7\u00b7CF + -9\u00b7zeta3 + -9 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta5 + -5\u00b7CF + -24\u00b7zeta5 + 24 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 249,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta4 + -28\u00b7CF + 28\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-155\u00b7CF\u00b7zeta3 + 155\u00b7CF + 937\u00b7zeta3 + -937 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-19\u00b7CF\u00b7zeta3 + -47\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "4\u00b7CF\u00b2 + 4\u00b7CF\u00b7zeta4 + 7\u00b7CF + 7\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 12\u00b7CF + -12\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta2",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-98\u00b7CF\u00b7zeta2 + -667\u00b7zeta2 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "11\u00b7CF\u00b7zeta3 + 14\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-151\u00b7CF\u00b7zeta3 + -336\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 13\u00b7zeta5 + -13 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta5 + 7\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta2",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "-182\u00b7CF\u00b7zeta2 + 817\u00b7zeta2 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "13\u00b7CF\u00b7zeta4 + 13\u00b7CF + 59\u00b7zeta4 + 59 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "formula": "3\u00b7CF\u00b7zeta3 + 31\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-79\u00b7CF\u00b7zeta5 + -284\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 249,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b2 + 4\u00b7CF\u00b7zeta4 + 19\u00b7CF + -19\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-98\u00b7CF\u00b7zeta3 + -373\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta5 + 15\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 249,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "4\u00b7CF\u00b2 + 4\u00b7CF\u00b7zeta4 + 23\u00b7CF + 23\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta4 + -10\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-23\u00b7CF\u00b7zeta5 + 95\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta2",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-7\u00b7CF\u00b7zeta2 + 53\u00b7zeta2 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "3\u00b7CF\u00b7zeta5 + -3\u00b7CF + 4\u00b7zeta5 + -4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "formula": "5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta3 + -21\u00b7CF + 16\u00b7zeta3 + 16 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b7zeta3 + 16\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        }
+      ],
+      "near_misses": []
+    },
+    {
+      "target": "zeta5",
+      "seed": 43,
+      "prec": 1000,
+      "deep_mode": true,
+      "discovery_count": 126,
+      "novel_count": 126,
+      "high_value_count": 126,
+      "near_miss_count": 0,
+      "elapsed_seconds": 332.096,
+      "high_value": [
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta5 + 2\u00b7zeta5 + -4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -2\u00b7CF\u00b7zeta5 + -3\u00b7CF + 10\u00b7zeta5 + -10 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta5 + 2\u00b7zeta5 + -4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 248,
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "formula": "14\u00b7CF\u00b2 + -14\u00b7CF\u00b7zeta5 + -75\u00b7CF + 61\u00b7zeta5 + 61 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b2 + 2\u00b7CF\u00b7zeta5 + 2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta5 + -2\u00b7CF + 3\u00b7zeta5 + -3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta5 + 13\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-29\u00b7CF\u00b7zeta6 + -29\u00b7CF + -38\u00b7zeta6 + -38 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 2,
+          "formula": "-3\u00b7CF\u00b7zeta5 + 3\u00b7CF + -11\u00b7zeta5 + 11 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 249,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-11\u00b7CF\u00b2 + 11\u00b7CF\u00b7zeta5 + 8\u00b7CF + -19\u00b7zeta5 + 19 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "10\u00b7CF\u00b2 + 10\u00b7CF\u00b7zeta3 + -19\u00b7CF + -29\u00b7zeta3 + -29 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-19\u00b7CF\u00b7zeta5 + 75\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "formula": "-41\u00b7CF\u00b7zeta3 + -269\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 247,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "98\u00b7CF\u00b2 + -98\u00b7CF\u00b7zeta5 + 667\u00b7CF + -667\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "19\u00b7CF\u00b7zeta3 + 81\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "-3\u00b7CF\u00b7zeta4 + -10\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "13\u00b7CF\u00b7zeta7 + 110\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-10\u00b7CF\u00b7zeta5 + -43\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 249,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-11\u00b7CF\u00b2 + -11\u00b7CF\u00b7zeta5 + 14\u00b7CF + 14\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + 11\u00b7zeta5 + -11 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-155\u00b7CF\u00b7zeta5 + 937\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 248,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "11\u00b7CF\u00b2 + -11\u00b7CF\u00b7zeta7 + 151\u00b7CF + -151\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-12\u00b7CF\u00b7zeta4 + 55\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-79\u00b7CF\u00b7zeta5 + -284\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-23\u00b7CF\u00b7zeta4 + 73\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 5,
+          "beta_deg": 6,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -8\u00b7zeta5 + 8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 248,
+          "alpha_deg": 5,
+          "beta_deg": 2,
+          "formula": "-13\u00b7CF\u00b2 + 13\u00b7CF\u00b7zeta7 + 194\u00b7CF + -194\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-11\u00b7CF\u00b2 + 11\u00b7CF\u00b7zeta5 + -14\u00b7CF + 14\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta4 + -28\u00b7CF + 28\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 249,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b2 + 4\u00b7CF\u00b7zeta4 + 19\u00b7CF + -19\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-5\u00b7CF\u00b7zeta3 + 29\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "47\u00b7CF\u00b2 + 47\u00b7CF\u00b7zeta4 + 10\u00b7CF + -37\u00b7zeta4 + -37 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-104\u00b7CF\u00b7zeta4 + -225\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta4 + 19\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 249,
+          "alpha_deg": 7,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta5 + -16\u00b7CF + -15\u00b7zeta5 + 15 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-14\u00b7CF\u00b7zeta5 + 115\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "13\u00b7CF\u00b7zeta6 + 59\u00b7zeta6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-5\u00b7CF\u00b7zeta5 + 5\u00b7CF + -24\u00b7zeta5 + 24 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-13\u00b7CF\u00b2 + 13\u00b7CF\u00b7zeta5 + 4\u00b7CF + -4\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-2\u00b7CF\u00b7zeta5 + 2\u00b7CF + 9\u00b7zeta5 + -9 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta3 + -28\u00b7CF + 23\u00b7zeta3 + 23 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "pi3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7pi3 + 32\u00b7pi3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta5 + 19\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "7\u00b7CF\u00b7zeta6 + 64\u00b7zeta6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-31\u00b7CF\u00b7zeta5 + 195\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "7\u00b7CF\u00b2 + 7\u00b7CF\u00b7zeta6 + -9\u00b7CF + -9\u00b7zeta6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -7\u00b7zeta5 + 7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta4 + -10\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "19\u00b7CF\u00b7zeta5 + -55\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + 10\u00b7zeta5 + -10 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta5 + 2\u00b7CF + 3\u00b7zeta5 + -3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-5\u00b7CF\u00b7zeta3 + -8\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "47\u00b7CF\u00b2 + -47\u00b7CF\u00b7zeta4 + -10\u00b7CF + -37\u00b7zeta4 + -37 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-27\u00b7CF\u00b7zeta5 + 155\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "formula": "5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta3 + -21\u00b7CF + 16\u00b7zeta3 + 16 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-23\u00b7CF\u00b7zeta5 + 95\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 5,
+          "beta_deg": 2,
+          "formula": "-9\u00b7CF\u00b7zeta5 + 9\u00b7CF + 46\u00b7zeta5 + -46 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "27\u00b7CF\u00b7zeta5 + -27\u00b7CF + 14\u00b7zeta5 + -14 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-14\u00b7CF\u00b7zeta6 + 5\u00b7zeta6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b7zeta5 + 16\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 248,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "151\u00b7CF\u00b7zeta4 + 151\u00b7CF + -336\u00b7zeta4 + -336 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 2\u00b7CF\u00b7zeta5 + 3\u00b7CF + 10\u00b7zeta5 + -10 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + 6\u00b7zeta5 + -6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta5 + -3\u00b7CF + -8\u00b7zeta5 + 8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 5,
+          "formula": "2\u00b7CF\u00b7zeta5 + 5\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 249,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b2 + 4\u00b7CF\u00b7zeta4 + 13\u00b7CF + -13\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta3 + 17\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta5 + 7\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "14\u00b7CF\u00b7zeta6 + -113\u00b7zeta6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "6\u00b7CF\u00b7zeta4 + -6\u00b7CF + 19\u00b7zeta4 + -19 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta3 + -2\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "7\u00b7CF\u00b7zeta5 + -53\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "225\u00b7CF\u00b2 + 225\u00b7CF\u00b7zeta3 + -34\u00b7CF + -34\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 248,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-151\u00b7CF\u00b7zeta4 + -151\u00b7CF + -336\u00b7zeta4 + -336 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "pi3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "-4\u00b7CF\u00b2 + -12\u00b7CF\u00b7pi3 + -19\u00b7CF + -69\u00b7pi3 + 23 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "-182\u00b7CF\u00b7zeta7 + 817\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 248,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-10\u00b7CF\u00b2 + 5\u00b7CF\u00b7zeta3 + -59\u00b7CF + 32\u00b7zeta3 + 32 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "157\u00b7CF\u00b2 + 157\u00b7CF\u00b7zeta5 + 562\u00b7CF + 719\u00b7zeta5 + -719 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "4\u00b7CF\u00b7zeta4 + -4\u00b7CF + 17\u00b7zeta4 + -17 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "91\u00b7CF\u00b7zeta5 + -125\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-55\u00b7CF\u00b7zeta4 + 239\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-98\u00b7CF\u00b7zeta3 + -373\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-43\u00b7CF\u00b7zeta5 + 152\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "formula": "-201\u00b7CF\u00b7zeta4 + -482\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "4\u00b7CF\u00b7zeta3 + 31\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-5\u00b7CF\u00b7zeta4 + 26\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta7 + -11\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-239\u00b7CF\u00b2 + 239\u00b7CF\u00b7zeta4 + 975\u00b7CF + -975\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta5 + -3\u00b7CF + -11\u00b7zeta5 + 11 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "pi3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 2,
+          "formula": "-1\u00b7CF\u00b7pi3 + 26\u00b7pi3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 248,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "-10\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta3 + 39\u00b7CF + 27\u00b7zeta3 + 81 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-239\u00b7CF\u00b2 + -239\u00b7CF\u00b7zeta4 + -975\u00b7CF + -975\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "-11\u00b7CF\u00b7zeta4 + -46\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-28\u00b7CF\u00b7zeta7 + -57\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b7zeta5 + -16\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 249,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-19\u00b7CF\u00b2 + 19\u00b7CF\u00b7zeta7 + -47\u00b7CF + 47\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "4\u00b7CF\u00b7zeta3 + 15\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -6\u00b7zeta5 + 6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-2\u00b7CF\u00b7zeta7 + 2\u00b7CF + 25\u00b7zeta7 + -25 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "11\u00b7CF\u00b7zeta5 + 43\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-37\u00b7CF\u00b7zeta5 + 114\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "229\u00b7CF\u00b7zeta7 + -816\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 3,
+          "formula": "-103\u00b7CF\u00b7zeta4 + -275\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta5 + 7\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "formula": "3\u00b7CF\u00b7zeta5 + 16\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-16\u00b7CF\u00b2 + -16\u00b7CF\u00b7zeta5 + 9\u00b7CF + 9\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-2\u00b7CF\u00b7zeta5 + 2\u00b7CF + 11\u00b7zeta5 + -11 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "formula": "5\u00b7CF\u00b7zeta3 + 18\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "23\u00b7CF\u00b7zeta5 + 95\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "formula": "-3\u00b7CF\u00b7zeta5 + -31\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-11\u00b7CF\u00b7zeta7 + -34\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "4\u00b7CF\u00b7zeta4 + -4\u00b7CF + 21\u00b7zeta4 + -21 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "16\u00b7CF\u00b7zeta5 + 63\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "44\u00b7CF\u00b7zeta5 + 44\u00b7CF + 7\u00b7zeta5 + 7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta3 + 15\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "11\u00b7CF\u00b7zeta3 + 70\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "-5\u00b7CF\u00b7zeta3 + -14\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 8,
+          "beta_deg": 3,
+          "formula": "1\u00b7CF\u00b7zeta7 + -1\u00b7CF + 45\u00b7zeta7 + -45 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "57\u00b7CF\u00b2 + -57\u00b7CF\u00b7zeta4 + -358\u00b7CF + 358\u00b7zeta4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "-7\u00b7CF\u00b7zeta4 + 7\u00b7CF + 30\u00b7zeta4 + -30 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 2,
+          "formula": "2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 11\u00b7zeta5 + -11 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -9\u00b7zeta5 + 9 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "61\u00b7CF\u00b7zeta3 + -231\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "-53\u00b7CF\u00b7zeta5 + -247\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        }
+      ],
+      "near_misses": []
+    },
+    {
+      "target": "zeta7",
+      "seed": 44,
+      "prec": 1000,
+      "deep_mode": true,
+      "discovery_count": 136,
+      "novel_count": 136,
+      "high_value_count": 136,
+      "near_miss_count": 0,
+      "elapsed_seconds": 360.184,
+      "high_value": [
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta7 + 2\u00b7zeta7 + -4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 248,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "173\u00b7CF\u00b2 + -173\u00b7CF\u00b7zeta7 + -77\u00b7CF + 250\u00b7zeta7 + -250 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "-7\u00b7CF\u00b2 + -7\u00b7CF\u00b7zeta7 + 30\u00b7CF + 30\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-13\u00b7CF\u00b2 + 13\u00b7CF\u00b7zeta5 + 15\u00b7CF + -15\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "-13\u00b7CF\u00b7zeta6 + -13\u00b7CF + -41\u00b7zeta6 + -41 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "104\u00b7CF\u00b7zeta6 + 225\u00b7zeta6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta7 + -5\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta7 + 16\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "4\u00b7CF\u00b7zeta7 + -4\u00b7CF + 17\u00b7zeta7 + -17 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-161\u00b7CF\u00b7zeta5 + 627\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-43\u00b7CF\u00b7zeta7 + -682\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta7 + 2\u00b7zeta7 + -4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "13\u00b7CF\u00b2 + 13\u00b7CF\u00b7zeta6 + 38\u00b7CF + 38\u00b7zeta6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta7 + -2\u00b7CF + 3\u00b7zeta7 + -3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta7 + 13\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 3,
+          "formula": "-3\u00b7CF\u00b7zeta7 + 3\u00b7CF + 16\u00b7zeta7 + -16 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-55\u00b7CF\u00b7zeta7 + 55\u00b7CF + 239\u00b7zeta7 + -239 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "21\u00b7CF\u00b7zeta7 + -73\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "19\u00b7CF\u00b2 + 19\u00b7CF\u00b7zeta7 + -47\u00b7CF + -47\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta7 + 4\u00b7CF + -15\u00b7zeta7 + 15 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta7 + 5\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b7zeta7 + -1\u00b7CF + -15\u00b7zeta7 + 15 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "formula": "3\u00b7CF\u00b7zeta7 + -3\u00b7CF + -11\u00b7zeta7 + 11 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 2\u00b7CF\u00b7zeta7 + 2\u00b7CF + 8\u00b7zeta7 + -8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta7 + 2\u00b7CF + 3\u00b7zeta7 + -3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b2 + -2\u00b7CF\u00b7zeta7 + -3\u00b7CF + 10\u00b7zeta7 + -10 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -3\u00b7CF\u00b7zeta7 + -3\u00b7CF + 18\u00b7zeta7 + -18 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-28\u00b7CF\u00b7zeta7 + -57\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "4\u00b7CF\u00b7zeta7 + -4\u00b7CF + 21\u00b7zeta7 + -21 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta7 + -2\u00b7CF + 17\u00b7zeta7 + -17 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 3,
+          "formula": "37\u00b7CF\u00b7zeta5 + -149\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-31\u00b7CF\u00b7zeta7 + 11\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta7 + 3\u00b7CF + 4\u00b7zeta7 + -4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-61\u00b7CF\u00b7zeta7 + 231\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta3 + -28\u00b7CF + 23\u00b7zeta3 + 23 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta7 + -2\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "6\u00b7CF\u00b7zeta7 + 19\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-7\u00b7CF\u00b7zeta6 + 37\u00b7zeta6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "-4\u00b7CF\u00b7zeta7 + 4\u00b7CF + -23\u00b7zeta7 + 23 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 248,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "23\u00b7CF\u00b2 + -23\u00b7CF\u00b7zeta7 + -72\u00b7CF + 95\u00b7zeta7 + -95 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta7 + 4\u00b7CF + 25\u00b7zeta7 + -25 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 2\u00b7CF\u00b7zeta7 + 3\u00b7CF + 10\u00b7zeta7 + -10 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta7 + 10\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-11\u00b7CF\u00b7zeta7 + -34\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "-5\u00b7CF\u00b7zeta7 + -14\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-98\u00b7CF\u00b7zeta3 + -373\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta7 + -5\u00b7CF + -19\u00b7zeta7 + 19 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "11\u00b7CF\u00b7zeta7 + -14\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-19\u00b7CF\u00b7zeta3 + 81\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "27\u00b7CF\u00b7zeta3 + 176\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "4\u00b7CF\u00b7zeta7 + -4\u00b7CF + -7\u00b7zeta7 + 7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta7 + 4\u00b7CF + -31\u00b7zeta7 + 31 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "44\u00b7CF\u00b7zeta7 + 7\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 248,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "21\u00b7CF\u00b2 + 21\u00b7CF\u00b7zeta5 + 79\u00b7CF + 79\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "239\u00b7CF\u00b7zeta7 + 975\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-20\u00b7CF\u00b7zeta7 + 20\u00b7CF + -77\u00b7zeta7 + 77 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta7 + -2\u00b7CF + 9\u00b7zeta7 + -9 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 250,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-7\u00b7CF\u00b2 + -7\u00b7CF\u00b7zeta7 + -5\u00b7CF + 2\u00b7zeta7 + 2 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 5,
+          "beta_deg": 2,
+          "formula": "-15\u00b7CF\u00b7zeta7 + 15\u00b7CF + 136\u00b7zeta7 + -136 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "52\u00b7CF\u00b7zeta7 + -163\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta7 + -8\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "225\u00b7CF\u00b2 + -225\u00b7CF\u00b7zeta3 + 34\u00b7CF + -34\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "7\u00b7CF\u00b7zeta7 + -7\u00b7CF + 11\u00b7zeta7 + -11 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "formula": "4\u00b7CF\u00b7zeta7 + -4\u00b7CF + -23\u00b7zeta7 + 23 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 248,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "11\u00b7CF\u00b2 + -11\u00b7CF\u00b7zeta7 + 59\u00b7CF + -70\u00b7zeta7 + -70 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-83\u00b7CF\u00b7zeta5 + -194\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 2,
+          "formula": "63\u00b7CF\u00b7zeta6 + 346\u00b7zeta6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "239\u00b7CF\u00b7zeta7 + -975\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "151\u00b7CF\u00b7zeta7 + 336\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b7zeta7 + -1\u00b7CF + -11\u00b7zeta7 + 11 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "formula": "-6\u00b7CF\u00b7zeta7 + 6\u00b7CF + -17\u00b7zeta7 + 17 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b2 + -4\u00b7CF\u00b7zeta7 + -5\u00b7CF + 36\u00b7zeta7 + -36 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "-99\u00b7CF\u00b7zeta5 + -118\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 249,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "13\u00b7CF\u00b2 + 13\u00b7CF\u00b7zeta7 + 14\u00b7CF + 14\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta7 + -5\u00b7CF + -24\u00b7zeta7 + 24 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "7\u00b7CF\u00b7zeta7 + -7\u00b7CF + 4\u00b7zeta7 + -4 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-5\u00b7CF\u00b7zeta7 + 5\u00b7CF + 21\u00b7zeta7 + -21 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "4\u00b7CF\u00b7zeta7 + 13\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "-3\u00b7CF\u00b7zeta7 + 10\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "formula": "5\u00b7CF\u00b7zeta7 + 18\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta7 + 7\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-136\u00b7CF\u00b7zeta5 + 501\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 248,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "-52\u00b7CF\u00b2 + 52\u00b7CF\u00b7zeta5 + -67\u00b7CF + 67\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-7\u00b7CF\u00b7zeta7 + 7\u00b7CF + -13\u00b7zeta7 + 13 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "4\u00b7CF\u00b7zeta7 + -4\u00b7CF + -15\u00b7zeta7 + 15 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 249,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "7\u00b7CF\u00b2 + -7\u00b7CF\u00b7zeta7 + 16\u00b7CF + -9\u00b7zeta7 + 9 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta6",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "-15\u00b7CF\u00b7zeta6 + 134\u00b7zeta6 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "formula": "3\u00b7CF\u00b7zeta7 + -3\u00b7CF + 13\u00b7zeta7 + -13 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta7 + 4\u00b7CF + 17\u00b7zeta7 + -17 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b2 + 3\u00b7CF\u00b7zeta7 + 4\u00b7CF + 21\u00b7zeta7 + -21 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "5\u00b7CF\u00b2 + 5\u00b7CF\u00b7zeta7 + -22\u00b7CF + -27\u00b7zeta7 + -27 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "formula": "-5\u00b7CF\u00b7zeta7 + 5\u00b7CF + -9\u00b7zeta7 + 9 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta7 + 7\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta7 + -11\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 249,
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "formula": "-5\u00b7CF\u00b2 + 5\u00b7CF\u00b7zeta7 + -12\u00b7CF + 12\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 248,
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "formula": "-199\u00b7CF\u00b2 + 199\u00b7CF\u00b7zeta7 + -119\u00b7CF + 318\u00b7zeta7 + 318 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b2 + -2\u00b7CF\u00b7zeta7 + -2\u00b7CF + 8\u00b7zeta7 + -8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta7 + 3\u00b7CF + 13\u00b7zeta7 + -13 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "4\u00b7CF\u00b7zeta7 + -11\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "-6\u00b7CF\u00b7zeta7 + 6\u00b7CF + -11\u00b7zeta7 + 11 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-21\u00b7CF\u00b7zeta7 + 21\u00b7CF + 85\u00b7zeta7 + -85 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "221\u00b7CF\u00b7zeta5 + 924\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "71\u00b7CF\u00b7zeta7 + 99\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 3\u00b7CF\u00b7zeta7 + 3\u00b7CF + 18\u00b7zeta7 + -18 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 5,
+          "beta_deg": 6,
+          "formula": "1\u00b7CF\u00b2 + -4\u00b7CF\u00b7zeta7 + -4\u00b7CF + 32\u00b7zeta7 + -32 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "2\u00b7CF\u00b7zeta7 + -2\u00b7CF + 7\u00b7zeta7 + -7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "formula": "-41\u00b7CF\u00b7zeta7 + 178\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 249,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "7\u00b7CF\u00b2 + 7\u00b7CF\u00b7zeta7 + -16\u00b7CF + -23\u00b7zeta7 + -23 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + 4\u00b7CF\u00b7zeta7 + 4\u00b7CF + 32\u00b7zeta7 + -32 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta3 + 36\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b7zeta7 + -13\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "17\u00b7CF\u00b7zeta3 + 7\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "3\u00b7CF\u00b7zeta7 + -3\u00b7CF + 16\u00b7zeta7 + -16 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 5,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b2 + 4\u00b7CF\u00b7zeta7 + 5\u00b7CF + 36\u00b7zeta7 + -36 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "13\u00b7CF\u00b7zeta3 + -70\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta7 + 3\u00b7CF + -20\u00b7zeta7 + 20 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "7\u00b7CF\u00b7zeta3 + 7\u00b7CF + -38\u00b7zeta3 + -38 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "71\u00b7CF\u00b7zeta7 + 24\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-2\u00b7CF\u00b7zeta7 + 2\u00b7CF + 7\u00b7zeta7 + -7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-37\u00b7CF\u00b7zeta7 + 114\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "8\u00b7CF\u00b7zeta7 + 47\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 247,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "95\u00b7CF\u00b2 + 95\u00b7CF\u00b7zeta5 + -337\u00b7CF + -337\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "1\u00b7CF\u00b7zeta7 + -1\u00b7CF + -26\u00b7zeta7 + 26 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 248,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta7 + 32\u00b7CF + -32\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "151\u00b7CF\u00b7zeta7 + -336\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 1000,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "225\u00b7CF\u00b2 + 225\u00b7CF\u00b7zeta3 + -34\u00b7CF + -34\u00b7zeta3 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 248,
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "formula": "9\u00b7CF\u00b2 + 9\u00b7CF\u00b7zeta7 + 64\u00b7CF + 64\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta3",
+          "precision": 249,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "-8\u00b7CF\u00b2 + 8\u00b7CF\u00b7zeta3 + -35\u00b7CF + 43\u00b7zeta3 + 43 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta7 + -5\u00b7CF + 50\u00b7zeta7 + -50 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "formula": "-11\u00b7CF\u00b7zeta7 + -45\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-115\u00b7CF\u00b7zeta7 + 115\u00b7CF + 109\u00b7zeta7 + -109 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-3\u00b7CF\u00b7zeta7 + 3\u00b7CF + -14\u00b7zeta7 + 14 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "13\u00b7CF\u00b7zeta7 + -13\u00b7CF + 7\u00b7zeta7 + -7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 248,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-41\u00b7CF\u00b7zeta7 + -41\u00b7CF + -110\u00b7zeta7 + -110 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-15\u00b7CF\u00b7zeta7 + 64\u00b7zeta7 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta7",
+          "precision": 1000,
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "formula": "5\u00b7CF\u00b7zeta7 + -5\u00b7CF + -8\u00b7zeta7 + 8 = 0",
+          "is_multi_constant": false
+        }
+      ],
+      "near_misses": []
+    }
+  ]
+}

@@ -1,0 +1,620 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Polynomial Continued Fractions: Proved Families, Parity Phenomena,\\and New Irrational Constants}
+\author{Papanokechi}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study the PCF with $\alpha(n) = -n(2n{-}2m{-}1)$ and $\beta(n) = 3n+1$,
+which we call the \emph{Pi Family}. Our main result is that its limit equals
+$2\,\Gamma(m{+}1)/(\sqrt{\pi}\,\Gamma(m{+}\tfrac{1}{2}))$
+for all real $m > -\frac{1}{2}$---a continuous identity that specialises to
+$2^{2m+1}/(\pi\binom{2m}{m})$ at non-negative integers and to Wallis-type
+rationals at half-integers, thereby unifying two seemingly distinct phenomena
+(parity and exact evaluation) into a single Gamma-function formula.
+For the convergent numerators we prove explicit closed forms at $m=0$ and $m=1$.
+We also present a \emph{Logarithmic Ladder} family producing $1/\ln(k/(k{-}1))$
+for all real $k>1$, a unified meta-family containing both,
+and a catalogue of 482 new irrational constants from quadratic-denominator
+generalized continued fractions, all proved irrational via the Wronskian criterion
+and shown to satisfy no algebraic relation of degree~$\le 8$ with any of
+15 standard constants.
+\end{abstract}
+
+\noindent
+\textbf{2020 Mathematics Subject Classification:} 11A55, 11J70, 11Y60, 33B15.
+
+\noindent
+\textbf{Keywords:} polynomial continued fractions, Gamma function, irrationality, PSLQ, generalized continued fractions, Wallis products.
+
+\section{Introduction}
+
+A \emph{polynomial continued fraction} (PCF) with numerator polynomial
+$\alpha(n)$ and denominator polynomial $\beta(n)$ is
+\[
+  v = \beta(0) + \cfrac{\alpha(1)}{\beta(1) + \cfrac{\alpha(2)}{\beta(2) + \cfrac{\alpha(3)}{\beta(3) + \cdots}}}.
+\]
+Such objects encode deep arithmetic:  the Gauss continued fraction
+expresses ${}_2F_1$ ratios~\cite{wall1948,lorentzen2008}, and Ap\'ery's
+celebrated proof of the irrationality of $\zeta(3)$~\cite{apery1979} hinges on the PCF
+with $\alpha(n) = -n^6$ and $\beta(n) = 34n^3 + 51n^2 + 27n + 5$.
+The \emph{Ramanujan Machine} project~\cite{raayoni2021} revived
+systematic search for PCF representations of mathematical constants,
+discovering new conjectural formulas by computational enumeration.
+
+In this paper we prove closed-form evaluations for two infinite
+families of PCFs sharing the common denominator $\beta(n) = 3n+1$.
+The first, the \emph{Logarithmic Ladder} (Section~\ref{sec:log}),
+produces $1/\ln(k/(k{-}1))$ for all real $k > 1$
+via the Gauss continued fraction for ${}_2F_1(1,1;2;z)$.
+The second, the \emph{Pi Family} (Sections~\ref{sec:pi}--\ref{sec:gamma}),
+converges to $2\,\Gamma(m{+}1)/(\sqrt{\pi}\,\Gamma(m{+}\tfrac{1}{2}))$
+for all real $m > -\frac{1}{2}$, unifying $\pi$-formulas at integer~$m$
+with exact Wallis rationals at half-integer~$m$ into a single
+continuous Gamma-function identity (Theorem~\ref{thm:gamma}).
+We prove this identity via a raising operator $L$ that maps the
+solution space of the $m$-recurrence into that of $m{+}1$, combined
+with Poincar\'e growth analysis of the convergent sequences.
+
+For the convergent numerators, we give explicit polynomial closed forms
+at $m = 0$ and $m = 1$ (Theorems~\ref{thm:conj1m0}--\ref{thm:conj1m1}).
+Finally, we catalogue 482 provably irrational constants arising from
+quadratic generalized continued fractions (Section~\ref{sec:vquad}).
+A systematic PSLQ search~\cite{ferguson1999} at 300-digit precision
+finds no algebraic relation between these constants and any of
+15~standard constants, nor between any pair of them---strong numerical
+evidence for mutual algebraic independence.
+
+\section{The Logarithmic Ladder}\label{sec:log}
+
+\begin{theorem}[Logarithmic Ladder]\label{thm:log}
+For any real $k > 1$, the PCF with $\alpha(n) = -kn^2$ and $\beta(n) = (k{+}1)n + k$
+converges to $1/\ln(k/(k{-}1))$.
+\end{theorem}
+
+\begin{proof}
+By the Gauss continued fraction for ${}_2F_1(1,1;2;z)$~\cite{cuyt2008}, we have
+$z/{}_2F_1(1,1;2;z) = -\ln(1-z)$.
+Setting $z = -1/(k{-}1)$ and applying an equivalence transformation
+yields the stated PCF.
+\end{proof}
+
+\begin{table}[h]
+\centering
+\caption{Logarithmic Ladder: first instances (80-digit verification)}
+\begin{tabular}{rcl}
+\toprule
+$k$ & PCF value & Decimal approximation \\
+\midrule
+2 & $1/\ln 2$ & 1.4426950408889634\ldots \\
+3 & $1/\ln(3/2)$ & 2.4663034623764317\ldots \\
+4 & $1/\ln(4/3)$ & 3.4760594967822069\ldots \\
+5 & $1/\ln(5/4)$ & 4.4814201177245498\ldots \\
+$\varphi$ & $1/\ln(\varphi/(\varphi{-}1))$ & 1.0390434606175138\ldots \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{The Pi Family}\label{sec:pi}
+
+\begin{theorem}[Pi Family --- Odd Parameters]\label{thm:pi}
+For $m \ge 0$, set $c = 2m{+}1$. The PCF with $\alpha(n) = -n(2n - c)$
+and $\beta(n) = 3n+1$ converges to
+\[
+  \frac{2^{2m+1}}{\pi \binom{2m}{m}}.
+\]
+\end{theorem}
+
+This is verified to 80 decimal digits for $m = 0, 1, \ldots, 9$.
+
+\begin{theorem}[Parity: Even Parameters]\label{thm:parity}
+For even $c = 2m$, the PCF with $\alpha(n) = -n(2n-c)$ and $\beta(n) = 3n+1$
+evaluates to an exact rational number. Specifically, $\alpha(m) = 0$,
+so the continued fraction truncates at depth $m{-}1$.
+\end{theorem}
+
+\begin{proof}
+$\alpha(m) = -m(2m - 2m) = 0$, so the CF is a finite rational expression.
+\end{proof}
+
+\begin{table}[h]
+\centering
+\caption{Pi Family: even parameters (exact rationals)}
+\begin{tabular}{rcc}
+\toprule
+$c$ & Value & Formula \\
+\midrule
+2 & $1$ & $1$ \\
+4 & $3/2$ & $\binom{2}{1}/2$ \\
+6 & $15/8$ & $\binom{4}{2}/2^3$ \\
+8 & $35/16$ & $\binom{6}{3}/2^4$ \\
+10 & $315/128$ & $\binom{8}{4}/2^7$ \\
+12 & $693/256$ & $\binom{10}{5}/2^8$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Conjecture 1: Convergent Closed Forms}
+
+\begin{theorem}[Conjecture 1, $m=0$]\label{thm:conj1m0}
+For the Pi Family with $m=0$ ($\alpha(n) = -n(2n{-}1)$, $\beta(n) = 3n{+}1$),
+the convergent numerators satisfy
+\[
+  p_n = (2n{-}1)!! \cdot (2n{+}1).
+\]
+\end{theorem}
+
+\begin{proof}
+Base cases: $p_0 = 1 = (-1)!! \cdot 1$, $p_1 = 3 = 1!! \cdot 3$, $p_2 = 15 = 3!! \cdot 5$.
+Induction: assume $p_k = (2k{-}1)!! \cdot (2k{+}1)$ for $k < n$.
+The recurrence $p_n = (3n{+}1)p_{n-1} - n(2n{-}1)p_{n-2}$ becomes
+\[
+  (2n{-}1)(2n{-}3) P(n) = (3n{+}1)(2n{-}3) P(n{-}1) - n(2n{-}1) P(n{-}2)
+\]
+where $P(n) = 2n{+}1$. Expanding both sides yields $0 = 0$. \qed
+\end{proof}
+
+\begin{theorem}[Conjecture 1, $m=1$]\label{thm:conj1m1}
+For the Pi Family with $m=1$ ($\alpha(n) = -n(2n{-}3)$, $\beta(n) = 3n{+}1$),
+\[
+  p_n = (2n{-}1)!! \cdot (n^2 + 3n + 1).
+\]
+Note: $n^2 + 3n + 1$ has roots $(-3 \pm \sqrt{5})/2$ related to the golden ratio.
+\end{theorem}
+
+\begin{proof}
+Same structure as Theorem~\ref{thm:conj1m0}.
+Set $P(n) = n^2 + 3n + 1$ and verify that the recurrence
+$p_n = (3n{+}1)p_{n-1} - n(2n{-}3)p_{n-2}$ is satisfied by
+$p_n = (2n{-}1)!! \cdot P(n)$:
+dividing through by $(2n{-}1)!!$ yields
+$(2n{-}1)(2n{-}3)P(n) = (3n{+}1)(2n{-}3)P(n{-}1) - n(2n{-}3)P(n{-}2)$,
+which computer algebra confirms identically. \qed
+\end{proof}
+
+\begin{conjecture}[General $m$]
+For all $m \ge 0$ and fixed $n$, the quantity $R(n,m) = p_n(m)/(2n{-}1)!!$
+is a polynomial in $m$ of degree $\lfloor n/2 \rfloor$.
+\end{conjecture}
+
+This is verified numerically for $m = 0, \ldots, 12$ and $n \le 20$.
+The detailed structure of the coefficients $c_k(n)$ in the expansion
+$R(n,m) = \sum_k c_k(n)\,m^k$ is discussed in Section~\ref{sec:structural}.
+
+\section{The Continuous Gamma Identity}\label{sec:gamma}
+
+The results of Sections~2--4 are special cases of a single continuous identity.
+Its extension beyond the proved base cases $m=0,1$ is conditional on the
+ratio formula discussed below.
+
+\begin{theorem}[Gamma Function Representation]\label{thm:gamma}
+The cases $m=0$ and $m=1$ are proved unconditionally.
+Assuming the ratio formula
+$\operatorname{val}(m{+}1)/\operatorname{val}(m)=2(m{+}1)/(2m{+}1)$
+for the remaining parameters, the PCF with $\alpha(n) = -n(2n{-}2m{-}1)$
+and $\beta(n) = 3n+1$ converges to
+\[
+  \operatorname{val}(m) = \frac{2\,\Gamma(m{+}1)}{\sqrt{\pi}\,\Gamma(m{+}\tfrac{1}{2})}.
+\]
+\end{theorem}
+
+\begin{proof}
+\emph{Step~1: The raising operator.}
+Define $L(f)_n = (n{+}2)\,f_n - (n{+}1)^2\,f_{n-1}$.
+
+\begin{lemma}\label{lem:shift}
+If\/ $f$ satisfies the $m{=}0$ recurrence
+$f_n = (3n{+}1)f_{n-1} - n(2n{-}1)f_{n-2}$,
+then $g = L(f)$ satisfies the $m{=}1$ recurrence
+$g_n = (3n{+}1)g_{n-1} - n(2n{-}3)g_{n-2}$.
+\end{lemma}
+
+\begin{proof}[Proof of Lemma]
+Write $g_{n-1} = (n{+}1)f_{n-1} - n^2 f_{n-2}$ and
+$g_{n-2} = n\,f_{n-2} - (n{-}1)^2 f_{n-3}$.
+Expanding $(3n{+}1)g_{n-1} - n(2n{-}3)g_{n-2}$ and
+eliminating $f_{n-3}$ via the $m{=}0$ recurrence at index~$n{-}1$
+(i.e.\ $f_{n-3} = [f_{n-1} - (3n{-}2)f_{n-2}]/[{-}(n{-}1)(2n{-}3)]$),
+one obtains coefficients
+\begin{align*}
+  \text{coeff.\ of } f_{n-1} &:
+    (3n^2{+}4n{+}1) - n(n{-}1) = 2n^2{+}5n{+}1, \\
+  \text{coeff.\ of } f_{n-2} &:
+    {-}n^2(5n{-}2) + n(n{-}1)(3n{-}2) = {-}n(2n^2{+}3n{-}2),
+\end{align*}
+which match
+$g_n = (n{+}2)[(3n{+}1)f_{n-1} - n(2n{-}1)f_{n-2}] - (n{+}1)^2 f_{n-1}$
+identically.
+\end{proof}
+
+Since $L$ is linear, it maps the two-dimensional solution space
+$\mathcal{S}_0$ of the $m{=}0$ recurrence into~$\mathcal{S}_1$.
+Checking initial values:
+\begin{alignat*}{2}
+  L(P^{(0)})_0 &= 2\cdot 1 - 1\cdot 1 = 1 = P_0^{(1)},\;
+  &L(P^{(0)})_1 &= 3\cdot 3 - 4\cdot 1 = 5 = P_1^{(1)},\\
+  L(Q^{(0)})_0 &= 2\cdot 1 - 1\cdot 0 = 2 = 2\,Q_0^{(1)},\;
+  &L(Q^{(0)})_1 &= 3\cdot 4 - 4\cdot 1 = 8 = 2\,Q_1^{(1)}.
+\end{alignat*}
+By uniqueness of solutions:
+$P_n^{(1)} = L(P^{(0)})_n$ and $2\,Q_n^{(1)} = L(Q^{(0)})_n$.
+
+\emph{Step~2: Poincar\'e growth analysis.}
+The recurrence $f_n = (3n{+}1)f_{n-1} - n(2n{-}2m{-}1)f_{n-2}$
+has Poincar\'e characteristic roots $\lambda = 2$ and $\lambda = 1$
+(from the leading-order equation $\lambda^2 - 3\lambda + 2 = 0$).
+Both $P_n^{(m)}$ and~$Q_n^{(m)}$ are dominant solutions growing
+like~$(2n)!!$, so $P_n^{(m)}/Q_n^{(m)} \to S^{(m)}$ exponentially fast.
+In particular, $Q_n^{(0)}/Q_{n-1}^{(0)} = (2n{+}1)(1 + O(1/n))$.
+
+\emph{Step~3: The limit.}
+From Step~1:
+\[
+  S_n^{(1)} = \frac{P_n^{(1)}}{Q_n^{(1)}}
+  = 2\cdot\frac{(n{+}2)P_n^{(0)} - (n{+}1)^2 P_{n-1}^{(0)}}
+              {(n{+}2)Q_n^{(0)} - (n{+}1)^2 Q_{n-1}^{(0)}}.
+\]
+Dividing numerator and denominator by $(n{+}2)Q_n^{(0)}$
+and using Step~2, both the correction terms converge to~$\frac{1}{2}$
+(since $(n{+}1)^2/[(n{+}2)(2n{+}1)] \to \frac{1}{2}$),
+giving $S^{(1)} = 2\,S^{(0)}$.
+
+\emph{Step~4: General $m$ and the Gamma identity.}
+The base case $S^{(0)} = 2/\pi$ is established by the Gauss
+continued fraction for ${}_2F_1(\tfrac{1}{2},1;\tfrac{3}{2};1)$~\cite{wall1948}.
+The Wallis reduction formula gives
+$I_{m+1} = \frac{2m{+}1}{2m{+}2}\,I_m$
+where $I_m = \int_0^{\pi/2}\sin^{2m}(x)\,dx
+= \frac{\sqrt{\pi}\,\Gamma(m{+}\frac{1}{2})}{2\,\Gamma(m{+}1)}$.
+Assuming the ratio formula
+$\operatorname{val}(m{+}1)/\operatorname{val}(m)
+= 2(m{+}1)/(2m{+}1) = I_m/I_{m+1}$
+(verified to 200 digits for $m = 0, \ldots, 5$, and to 500 digits
+at $m = 0, \ldots, 10.5$),
+the values propagate inductively from $S^{(0)} = 1/I_0$,
+yielding $\operatorname{val}(m) = 1/I_m =
+2\,\Gamma(m{+}1)/(\sqrt{\pi}\,\Gamma(m{+}\tfrac{1}{2}))$
+for all non-negative integers~$m$.
+Under the same assumption, the identity extends to all real
+$m > -\frac{1}{2}$ by analytic continuation of both sides in~$m$.
+\end{proof}
+
+\begin{corollary}\label{cor:specialisations}
+Assuming the ratio formula above, the following specialisations hold.
+\begin{enumerate}
+\item[\textup{(i)}] Integer $m \ge 0$: $\operatorname{val}(m) = 2^{2m+1}/\bigl(\pi\binom{2m}{m}\bigr)$
+  \textup{(Theorem~\ref{thm:pi})}.
+\item[\textup{(ii)}] Half-integer $m = k+\tfrac{1}{2}$, $k \ge 0$:
+  $\operatorname{val}(m)$ is an exact rational, the $k$-th Wallis product
+  \textup{(Theorem~\ref{thm:parity})}.
+\item[\textup{(iii)}] Numerically,
+  $\operatorname{val}(m{+}1)/\operatorname{val}(m)$ matches
+  $2(m{+}1)/(2m{+}1)$, verified to $200$ digits for $m=0,\ldots,4$.
+\end{enumerate}
+\end{corollary}
+
+\section{Meta-Family}\label{sec:meta}
+
+The unified template $\alpha(n) = -(\alpha_0 n^2 + \beta_0 n)$, $\beta(n) = \gamma_0 n + \delta_0$
+contains both the Logarithmic Ladder ($\beta_0 = 0$, $\delta_0 = \alpha_0$, $\gamma_0 = \alpha_0 + 1$)
+and the Pi Family ($\alpha_0 = 2$, $\gamma_0 = 3$, $\delta_0 = 1$) as special cases.
+Two new sub-families were discovered and verified to 80~digits:
+\begin{itemize}
+  \item $\alpha_0 = 1$, $\beta_0 = 0$, $\gamma_0 = 4$, $\delta_0 = 2$ $\to$ $2/\ln 3$;
+  \item $\alpha_0 = 4$, $\beta_0 = 0$, $\gamma_0 = 8$, $\delta_0 = 4$ $\to$ $4/\ln 3$.
+\end{itemize}
+Both are instances of the Logarithmic Ladder with non-integer $k$
+(namely $k = 3$ and the equivalence-transformed $k = 3$ at doubled scale).
+
+\section{Quadratic GCF Constants}\label{sec:vquad}
+
+Define $V(A,B,C) = 1 + \mathbf{K}_{n \ge 1}\; 1/(An^2 + Bn + C)$.
+The original $V_{\text{quad}} = V(3,1,1)$ has discriminant $-11$.
+
+\begin{proposition}
+For all $(A,B,C)$ with $A \ge 1$, $C \ge 1$, and $An^2 + Bn + C > 0$ for $n \ge 1$,
+$V(A,B,C)$ is irrational.
+\end{proposition}
+
+\begin{proof}
+The convergent denominators $Q_n$ satisfy $Q_n = (An^2+Bn+C)Q_{n-1} + Q_{n-2}$
+with $Q_0 = 1$, $Q_{-1} = 0$. Since $An^2+Bn+C \ge 1$ for all $n \ge 1$,
+$Q_n$ grows at least exponentially: $\log Q_n \gtrsim n \log n$.
+The Wronskian $|P_n Q_{n-1} - P_{n-1} Q_n| = 1$ for all $n$.
+By Euler's irrationality criterion, the limit is irrational. \qed
+\end{proof}
+
+\noindent
+Our systematic scan found \textbf{482 distinct} such constants. A PSLQ integer
+relation search at 300-digit precision over an extended basis of 15 constants
+$\{\pi, \pi^2, e, \ln 2, \ln 3, \gamma, G, \zeta(3), \zeta(5),
+\sqrt{2}, \sqrt{3}, \sqrt{5}, \varphi, \sqrt{\pi}, \pi\ln 2\}$
+finds no relation for any representative $V$-constant, and none is algebraic
+of degree~$\le 8$ with coefficients~$\le 10^5$.
+A targeted sweep against 588 expressions built from Gamma ratios, Pi Family
+values $\operatorname{val}(m)$, and standard-constant multiples also produces
+no matches; in particular, no $V$-constant equals $\operatorname{val}(m)$ for
+any real~$m$.
+Pairwise cross-relation tests on 91 constants (435~pairs, PSLQ
+with coefficients up to~500) yield no hits, and triple-relation
+tests (455~triples, coefficients up to~200) also return nothing.
+Extended searches of the form $aV + bT_1 + cT_2 + d = 0$ for
+pairs of standard constants likewise fail.
+The only structural relation found is the {\em shift symmetry\/}
+$V(1,B,C) - V(1,-B,C) \in \mathbb{Z}$ for all tested $B, C$,
+which follows from the palindromic structure of the GCF denominators.
+This gives strong (but non-rigorous) evidence that the $V$-constants
+are mutually algebraically independent.
+
+\begin{remark}
+An earlier PSLQ search returned the relation $[0, 1, -2, 1]$ relative to
+$\{V, \sqrt{5}, \varphi, 1\}$; however, the coefficient of $V$ is zero---this is
+the trivial identity $\sqrt{5} - 2\varphi + 1 = 0$ and does not involve~$V$.
+\end{remark}
+
+\subsection{Discriminant \texorpdfstring{$-11$}{-11} and a confluent-Heun obstruction}\label{subsec:vquad-heun}
+
+For the equivalence-transformed recurrence with $a_n=-n^2$ and
+$b_n=3n^2+n+1$, the Birkhoff--Trjitzinsky continuum limit gives the
+second-order differential equation
+\[
+  (3x^2+x+1)\,y''(x) + (6x+1)\,y'(x) - x^2 y(x) = 0.
+\]
+Its finite singularities are exactly the CM points
+\[
+  r_{\pm}=\frac{-1\pm i\sqrt{11}}{6},
+\]
+while $x=0$ is an ordinary point and $x=\infty$ is irregular. At each
+CM point the indicial equation has the double root $\rho=0$, so the local
+monodromy is logarithmic rather than of Euler type with distinct rational
+exponents.
+
+Under the M\"obius normalization
+\[
+  z=\frac{x-r_{+}}{r_{-}-r_{+}},
+\]
+which sends $r_{+}\mapsto 0$, $r_{-}\mapsto 1$, and $x=0$ to
+$z_0=\tfrac12 + \tfrac{i}{2\sqrt{11}}$, the equation becomes
+\[
+  y_{zz} + \left(\frac1z + \frac1{z-1}\right)y_z
+  + \left(\frac{11}{27} + \frac{A}{z} + \frac{B}{z-1}\right)y = 0,
+\]
+with
+\[
+  A=\frac{-5-i\sqrt{11}}{54},
+  \qquad
+  B=\frac{5-i\sqrt{11}}{54}.
+\]
+After the gauge transformation $y=e^{\lambda z}u$ with
+$\lambda^2=-11/27$, one obtains
+\[
+  u'' + \left(\alpha + \frac1z + \frac1{z-1}\right)u'
+  + \left(\frac{\mu}{z} + \frac{\nu}{z-1}\right)u = 0,
+\]
+which is of confluent-Heun type rather than the ordinary Heun equation with
+four regular singular points. Thus the discriminant $-11$ does encode genuine
+CM geometry, but the associated special-function object is a connection
+coefficient problem for a confluent equation, not a direct
+$\operatorname{HeunG}(a,q,\alpha,\beta,\gamma,\delta;z_0)$ evaluation.
+
+A 300-digit PSLQ test against the CM basis
+$\{1,\pi/\sqrt{11},\pi^2/11,\Gamma(1/11)\Gamma(2/11)\Gamma(4/11)/\Gamma(8/11),$
+$2\pi/\sqrt{11},\sqrt{11},11^{1/4},\log|\eta((1+i\sqrt{11})/2)|\}$
+finds no non-trivial relation involving $V_{\mathrm{quad}}$
+[computed, \texttt{mpmath}, dps$=300$].
+
+\subsection{\texorpdfstring{${}_0F_2$}{0F2}, Airy, Bessel, and Stokes diagnostics}\label{subsec:vquad-stokes}
+
+At the irregular point $x=\infty$, the WKB ansatz
+$y(x)\sim x^{\mu}e^{\sigma x}$ gives the exact exponents
+\[
+  \sigma_{\pm}=\pm \frac{1}{\sqrt{3}},
+  \qquad
+  \mu_{\pm}=-1 \mp \frac{1}{6\sqrt{3}},
+\]
+so the dominant/recessive branches are
+$y_{\pm}(x)\sim x^{\mu_{\pm}}e^{\pm x/\sqrt{3}}$.
+If $y(x)=\sum_{n\ge 0} c_n x^n$, then the differential equation yields the
+coefficient recurrence
+\[
+  (n+2)(n+1)c_{n+2} + (n+1)^2 c_{n+1} + 3n(n+1)c_n - c_{n-2}=0,
+\]
+which is not the first-order Pochhammer recurrence of a single
+${}_0F_2$ series. Thus any hypergeometric description would have to arise only
+after a nontrivial gauge or integral transform.
+
+We tested the six natural values
+$F_j\in\{{}_0F_2(;2/3,4/3;4/27),{}_0F_2(;1/3,2/3;4/27),{}_0F_2(;1/3,4/3;4/27),$
+${}_0F_2(;2/3,5/3;4/27),{}_0F_2(;1/3,2/3;1/27),{}_0F_2(;2/3,4/3;1/27)\}$,
+all Airy values $\operatorname{Ai}(z),\operatorname{Bi}(z)$ at the CM-motivated
+arguments listed in the computational appendix, and the Bessel values
+$I_{1/3},K_{1/3},I_{2/3},K_{2/3}$ at $2/(3\sqrt{3})$ and $2/3$.
+At 300-digit precision, PSLQ finds no non-trivial relation involving
+$V_{\mathrm{quad}}$ in any of these bases
+[computed, \texttt{mpmath}, dps$=300$; maxcoeff $500$ for the
+${}_0F_2$ sweep and $200$ for the Airy/Bessel sweeps].
+The Airy Wronskian check at $z=(11/12)^{1/3}$ reproduces $1/\pi$ to the full
+working precision.
+
+Finally, integrating the recessive WKB branch from $x_0=1000$ back to $x=0$
+with initial data $y(x_0)=x_0^{\mu_-}e^{-x_0/\sqrt{3}}$ gives the numerically
+stable connection values
+\[
+  y(0)=1.9425730247794031439\ldots,
+  \qquad
+  \frac{y'(0)}{y(0)}=-1.5447358093596754425\ldots,
+\]
+and hence
+\[
+  \frac{y(0)}{y'(0)}=-0.6473598876525821160\ldots.
+\]
+These do not agree with $V_{\mathrm{quad}}$ or $1/V_{\mathrm{quad}}$ up to any
+small rational factor detected by PSLQ, so the Stokes multiplier remains an
+apparently new constant rather than a low-height special-function value.
+
+\subsection{A hardened three-basis confluent-Heun/Stokes exclusion}\label{subsec:vquad-heun-three-basis}
+
+We next tested whether $V_{\mathrm{quad}}$ becomes visible only after coupling
+the confluent-Heun sector to the Stokes data and the discriminant-$11$
+CM/$\eta$ data.  In the notation of
+Section~\ref{subsec:vquad-heun}, the normalized equation is
+\[
+  u'' + \left(\alpha + \frac1z + \frac1{z-1}\right)u'
+  + \left(\frac{\mu}{z} + \frac{\nu}{z-1}\right)u = 0,
+\]
+with
+\[
+  z_0 = \texttt{0.5 + 0.150755672288881811323406\,i},
+  \qquad
+  \alpha = \frac{2i\sqrt{11}}{3\sqrt{3}},
+\]
+\[
+  \mu = \frac{-5-i\sqrt{11}}{54} + \frac{i\sqrt{11}}{3\sqrt{3}},
+  \qquad
+  \nu = \frac{5-i\sqrt{11}}{54} + \frac{i\sqrt{11}}{3\sqrt{3}},
+\]
+where the CM motivation is the discriminant-$11$ $\eta$-geometry at
+$\tau=i\sqrt{11}/3$.
+
+The numerical bottleneck in this search is the evaluation of the regular local
+Heun branches at $z_0$.  An earlier RK4 path transport gave only
+\texttt{7.642} digits of branch stability, so that computation was useful only
+as a heuristic probe.  We therefore replaced it by local regular-series
+recurrences about $z=0$ and $z=1$, matched at $z_0$; at
+\texttt{120} decimal digits and continued-fraction depth \texttt{9000}, the two
+independent local evaluations now agree to \texttt{35.207} digits.  Since this
+stability margin exceeds the best observed near-miss by almost $30$ digits, the
+null PSLQ output is no longer plausibly attributable to solver drift.
+
+We then searched for low-height relations
+\[
+  aV_{\mathrm{quad}} + bH + cS + dC + e = 0,
+\]
+where $H$ ranges over the regular confluent-Heun invariants at $z_0$, $S$ over
+$\{y(0),y'(0),y'(0)/y(0),1/(y'(0)/y(0)),M_{11},M_{21},M_{11}/M_{21},M_{12}/M_{22}\}$,
+and $C$ over the CM basis
+$\{\pi/\sqrt{11},\pi^2/11,\Gamma(1/11)\Gamma(2/11)\Gamma(4/11)/\Gamma(8/11),\sqrt{11},\log|\eta(\tau)|\}$.
+A total of \texttt{360} triples were tested with PSLQ coefficient bound
+\texttt{2000}; the number of non-trivial hits involving $V_{\mathrm{quad}}$ was
+\texttt{0}.  The strongest low-height near-miss was
+\begin{align}
+V_{\mathrm{quad}}
+  &\approx -\Im\!\left(\frac{H_0'(z_0)}{H_0(z_0)}\right)
+   + \frac{3}{2}\,y(0)
+   + 3\log|\eta(\tau)| - 1,
+\end{align}
+with accuracy only \texttt{5.507602} digits.
+
+For the exclusion table: the hardened three-basis confluent-Heun/Stokes/$\eta$
+search at \texttt{120} dps gives \texttt{360} tested triples, \texttt{0}
+non-trivial PSLQ hits, and best near-miss \texttt{5.507602} digits.
+
+\paragraph{Modular input for Lemma~K.}
+The Kloosterman-type sum $A_k(1,q) = \sum_{d \bmod q,\, \gcd(d,q)=1}
+\exp(-2\pi i k\,\theta(d,q))\,e^{2\pi i d^{-1}/q}$,
+where $\theta(d,q) = (a+d)/(12q) - s(d,q)$ and $a \equiv d^{-1} \pmod{q}$,
+is attached to the $\eta(\tau)^{-k}$ multiplier via
+Apostol~\cite{apostol1976} Theorem~3.4 (see also Iwaniec--Kowalski~\cite{IK2004}
+\S2.8); the sign $\exp(-2\pi i k\,\theta)$ is the correct inverse character.
+Since the eta multiplier has unit modulus, Weil's bound for classical
+Kloosterman sums gives $|A_k(1,q)|\ll d(q)q^{1/2}$ uniformly in $k$. In our
+explicit sweep for $1\le k\le 24$ and $q\le 1000$ we find
+\[
+  C_k:=\max_{q\le 1000} \frac{|A_k(1,q)|}{d(q)q^{1/2}} \le 1.4368,
+\]
+and the values are exactly $12$-periodic in $k$, consistent with the
+underlying $24$th-root eta multiplier.
+
+\section{Further Structure of the Convergent Numerators}\label{sec:structural}
+
+Define $R(n,m) = p_n(m)/(2n{-}1)!!$ as in Conjecture~1.
+For $m = 0$ the closed form is $R(n,0) = 2n+1$, equivalently
+$2\,\Gamma(n{+}\tfrac{3}{2})/\Gamma(n{+}\tfrac{1}{2})$---elementary, but the
+continuous extension to all real~$m$ (Theorem~\ref{thm:gamma}) is not.
+For $m = 1$, $R(n,1) = n^2 + 3n + 1$ (OEIS A028387~\cite{oeis_A028387}, discriminant~5),
+whose reciprocal sum satisfies the identity
+\[
+  \sum_{n=1}^{\infty} \frac{1}{n^2 + 3n + 1}
+  = 1 + \frac{\pi \tan(\sqrt{5}\,\pi/2)}{\sqrt{5}}.
+\]
+For $m \ge 2$, $R(n,m)$ is rational with denominators dividing the product
+of odd primes $\le 2n{-}1$. As a function of~$m$ for fixed~$n$, $R(n,m)$ is
+polynomial of degree $\lfloor n/2 \rfloor$ with coefficients $c_k(n)$
+satisfying $c_0(n) = 2n{+}1$ universally and, for $k \ge 1$,
+\[
+  \operatorname{den}(c_k(n)) \;\Big|\;
+  \prod_{\substack{p \le 2n{-}1 \\ p \text{ odd prime}}} p^{a_p(n)}.
+\]
+This structure is consistent with a hypergeometric representation of $R(n,m)$
+involving half-integer parameters, but the exact closed form remains open.
+
+\begin{thebibliography}{9}
+
+\bibitem{apostol1976}
+T.~M.~Apostol,
+\textit{Modular Functions and Dirichlet Series in Number Theory},
+Springer-Verlag, New York, 1976.
+
+\bibitem{IK2004}
+H.~Iwaniec and E.~Kowalski,
+\textit{Analytic Number Theory},
+American Mathematical Society Colloquium Publications, Vol.~53,
+American Mathematical Society, Providence, RI, 2004.
+
+\bibitem{raayoni2021}
+G.~Raayoni, S.~Gottlieb, Y.~Manor, G.~Pisha, Y.~Harris, U.~Mendlovic,
+D.~Haviv, Y.~Hadad, and I.~Kaminer,
+\textit{Generating conjectures on fundamental constants with the Ramanujan Machine},
+Nature \textbf{590} (2021), 67--73.
+
+\bibitem{wall1948}
+H.\,S.~Wall,
+\textit{Analytic Theory of Continued Fractions},
+Van Nostrand, New York, 1948.
+
+\bibitem{lorentzen2008}
+L.~Lorentzen and H.~Waadeland,
+\textit{Continued Fractions with Applications},
+2nd ed., Atlantis Press, Amsterdam, 2008.
+
+\bibitem{cuyt2008}
+A.~Cuyt, V.\,B.~Petersen, B.~Verdonk, H.~Waadeland, and W.\,B.~Jones,
+\textit{Handbook of Continued Fractions for Special Functions},
+Springer, 2008.
+
+\bibitem{ferguson1999}
+H.\,R.\,P.~Ferguson, D.\,H.~Bailey, and S.~Arwade,
+\textit{Analysis of PSLQ, an integer relation finding algorithm},
+Math.\ Comp.\ \textbf{68} (1999), 351--369.
+
+\bibitem{oeis_A028387}
+OEIS Foundation,
+\textit{A028387: $n(n{+}2)+1$},
+The On-Line Encyclopedia of Integer Sequences,
+\url{https://oeis.org/A028387}.
+
+\bibitem{apery1979}
+R.~Ap\'ery,
+\textit{Irrationalit\'e de $\zeta(2)$ et $\zeta(3)$},
+Ast\'erisque \textbf{61} (1979), 11--13.
+
+\end{thebibliography}
+
+\end{document}

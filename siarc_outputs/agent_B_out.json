@@ -1,0 +1,33 @@
+{
+  "gap": {
+    "id": "prove_A1_k5",
+    "description": "Prove A\u2081^(5) closed form. C_5 \u2264 1.36, need C_5 < 1.0. Path: extend Kloosterman bounds to q \u2264 500 or find structural argument.",
+    "source": "paper14/Conjecture 2*",
+    "gap_type": "proof",
+    "priority": 0.95,
+    "difficulty": 0.5,
+    "feasibility": 0.7,
+    "score": 0.6649999999999999,
+    "attempts": 0
+  },
+  "hypothesis": {
+    "id": "H-0025-prove_A1_k5",
+    "gap_id": "prove_A1_k5",
+    "claim": "A\u2081^(5) = -5\u00b7c\u2085/48 - 6\u00b78/(8\u00b7c\u2085) matches numerical extraction to 12+ digits",
+    "mechanism": "Kloosterman sum analysis at conductor N\u2085=24 with q\u2264500 bounds [Axiom seeds: The partition ratio f_k(n)/f_k(n-1) exhibits a uni; The partition ratio f_k(n)/f_k(n-1) exhibits a uni]",
+    "testable_prediction": "Compute A\u2081 from 8000-term partition ratios, compare to formula",
+    "failure_condition": "Digit agreement < 10 at N=8000",
+    "tools_needed": [
+      "compute_partition_ratios",
+      "pslq_search",
+      "symbolic_verify"
+    ],
+    "confidence": 0.7,
+    "numeric_lhs": null,
+    "numeric_rhs": null,
+    "target_value": null
+  },
+  "_agent": "B",
+  "_name": "Hypothesis Generator",
+  "_timestamp": "2026-03-31T15:41:17.783805"
+}

@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SIARC · Control Center v2</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#080c14; --panel:#0d1424; --panel2:#111c30; --line:#1e2e47;
+  --line2:#2a3f5e; --text:#dde6f5; --muted:#7a91b0; --dim:#3d5270;
+  --cyan:#38d9f5; --cyan-d:rgba(56,217,245,.13);
+  --green:#2dd4a0; --green-d:rgba(45,212,160,.13);
+  --gold:#f5c842; --gold-d:rgba(245,200,66,.13);
+  --red:#f5607a; --red-d:rgba(245,96,122,.13);
+  --violet:#a78bfa; --violet-d:rgba(167,139,250,.13);
+  --blue:#5b9cf6; --blue-d:rgba(91,156,246,.13);
+  --font-ui:'Syne',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --r:10px; --r-sm:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--font-mono);font-size:12px;background:var(--bg);color:var(--text)}
+
+/* SCANLINE TEXTURE */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.008) 3px,rgba(255,255,255,.008) 4px)}
+
+/* ── TOPBAR ── */
+.topbar{height:44px;display:flex;align-items:center;gap:12px;padding:0 16px;
+  border-bottom:1px solid var(--line);background:var(--panel);flex-shrink:0;position:relative;z-index:10}
+.logo{font-family:var(--font-ui);font-size:15px;font-weight:800;color:var(--cyan);letter-spacing:.05em}
+.logo-sub{font-size:11px;color:var(--dim);margin-left:6px}
+.spacer{flex:1}
+.topbar-meta{display:flex;align-items:center;gap:10px}
+.ts-badge{font-size:10px;color:var(--muted);font-family:var(--font-mono)}
+.ts-val{color:var(--cyan);font-weight:500}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.mode-pill{font-size:10px;padding:2px 8px;border-radius:20px;border:1px solid var(--line2);color:var(--muted)}
+.mode-pill.live{border-color:rgba(45,212,160,.4);color:var(--green);background:var(--green-d)}
+.mode-pill.local{border-color:rgba(245,200,66,.4);color:var(--gold);background:var(--gold-d);animation:pulse-warn 4s infinite}
+.mode-pill.integrity-good{border-color:rgba(45,212,160,.4);color:var(--green);background:var(--green-d)}
+.mode-pill.integrity-warn{border-color:rgba(245,200,66,.45);color:var(--gold);background:var(--gold-d)}
+@keyframes pulse-warn{0%,100%{box-shadow:0 0 0 rgba(245,200,66,0)}50%{box-shadow:0 0 10px rgba(245,200,66,.22)}}
+
+/* ── LAYOUT ── */
+.shell{display:grid;grid-template-columns:230px 1fr 350px;height:calc(100vh - 44px)}
+.col{overflow-y:auto;padding:12px}
+.col-left{background:var(--panel);border-right:1px solid var(--line)}
+.col-center{background:var(--bg);position:relative}
+.col-center.contaminated::before{content:'SYNTHETIC DATA / DRY-RUN ACTIVE';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-14deg);font-size:42px;font-family:var(--font-ui);font-weight:800;letter-spacing:.08em;color:rgba(245,200,66,.06);pointer-events:none;z-index:0;white-space:nowrap}
+.col-center.contaminated{box-shadow:inset 0 0 0 1px rgba(245,200,66,.18)}
+.col-right{background:var(--panel);border-left:1px solid var(--line);padding:0;display:flex;flex-direction:column}
+
+/* ── SECTION LABELS ── */
+.sec{margin-bottom:14px}
+.sec-head{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);
+  margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.sec-head-action{font-size:9px;color:var(--cyan);cursor:pointer;letter-spacing:.06em;text-transform:none}
+.sec-head-action:hover{text-decoration:underline}
+
+/* ── AGENT CARDS ── */
+.agent{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:9px 10px;margin-bottom:7px;cursor:pointer;transition:border-color .2s}
+.agent:hover{border-color:var(--line2)}
+.agent.sel{border-color:var(--cyan)}
+.agent.run{border-color:var(--gold);animation:ab 2s ease-in-out infinite;box-shadow:0 0 10px rgba(245,200,66,0.05)}
+@keyframes ab{0%,100%{border-color:var(--gold)}50%{border-color:rgba(245,200,66,.2)}}
+.agent.done{border-color:var(--green)}
+.agent-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.agent-name{font-family:var(--font-ui);font-size:12px;font-weight:700}
+.agent-role{font-size:10px;color:var(--muted);margin-bottom:5px}
+.agent-task{font-size:10px;color:var(--dim);line-height:1.4}
+.pill{font-size:9px;padding:1px 7px;border-radius:20px;font-weight:500;border:1px solid}
+.pill-ctrl{color:var(--cyan);border-color:rgba(56,217,245,.3);background:var(--cyan-d)}
+.pill-field{color:var(--blue);border-color:rgba(91,156,246,.3);background:var(--blue-d)}
+.pill-judge{color:var(--gold);border-color:rgba(245,200,66,.3);background:var(--gold-d)}
+.pill-pslq{color:var(--violet);border-color:rgba(167,139,250,.3);background:var(--violet-d)}
+.pill-run{color:var(--gold);border-color:rgba(245,200,66,.3);background:var(--gold-d)}
+.pill-done{color:var(--green);border-color:rgba(45,212,160,.3);background:var(--green-d)}
+.pill-idle{color:var(--dim);border-color:var(--line);background:transparent}
+.prog{height:2px;background:var(--line);border-radius:1px;margin-top:6px;overflow:hidden}
+.prog-fill{height:100%;border-radius:1px;transition:width .6s ease}
+
+/* ── CENTER STATS ── */
+.stats-row{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:12px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-sm);padding:10px 10px 8px}
+.stat-v{font-family:var(--font-ui);font-size:20px;font-weight:800;line-height:1;margin-bottom:3px;font-variant-numeric:tabular-nums;transition:all .3s ease}
+.stat-l{font-size:9px;color:var(--dim);letter-spacing:.08em;text-transform:uppercase}
+.stat-sub{font-size:9px;color:var(--muted);margin-top:4px}
+.cv{color:var(--cyan)} .gv{color:var(--green)} .av{color:var(--gold)} .rv{color:var(--red)} .vv{color:var(--violet)}
+
+/* ── CARDS ── */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px;margin-bottom:10px}
+.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.card-title{font-family:var(--font-ui);font-size:13px;font-weight:700}
+
+/* ── MISSION TABLE ── */
+.mission-table{width:100%;border-collapse:collapse;font-size:11px}
+.mission-table th{color:var(--dim);font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 6px;border-bottom:1px solid var(--line);text-align:left;font-weight:400}
+.mission-table td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle}
+.mission-table tr:last-child td{border-bottom:none}
+.mission-table tr:hover td{background:rgba(255,255,255,.02)}
+.gap-good{color:var(--green);font-weight:500} .gap-ok{color:var(--gold)} .gap-bad{color:var(--red)}
+.badge{font-size:9px;padding:2px 7px;border-radius:20px;border:1px solid}
+.bg-good{color:var(--green);border-color:rgba(45,212,160,.35);background:var(--green-d)}
+.bg-warn{color:var(--gold);border-color:rgba(245,200,66,.35);background:var(--gold-d)}
+.bg-bad{color:var(--red);border-color:rgba(245,96,122,.35);background:var(--red-d)}
+.bg-info{color:var(--cyan);border-color:rgba(56,217,245,.35);background:var(--cyan-d)}
+
+/* ── BREAKTHROUGH FEED ── */
+.bt{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:10px 11px;margin-bottom:7px;cursor:pointer;transition:border-color .15s,transform .1s;position:relative}
+.bt:hover{border-color:var(--line2);transform:translateY(-1px)}
+.bt.champ{border-color:rgba(56,217,245,.4)}
+.bt.champ::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+.bt.pend{border-color:rgba(245,200,66,.3);opacity:.8}
+.bt.rej{opacity:.3}
+.bt-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px}
+.bt-id{font-size:10px;font-weight:500;color:var(--cyan)} .bt-id.amber{color:var(--gold)} .bt-id.dim{color:var(--dim)}
+.bt-tags{display:flex;gap:4px;flex-wrap:wrap}
+.bt-formula{font-family:var(--font-mono);font-size:10px;color:var(--text);
+  background:rgba(0,0,0,.35);padding:5px 7px;border-radius:4px;margin-bottom:5px;line-height:1.5}
+.bt-meta{display:flex;gap:10px;font-size:10px;color:var(--dim)}
+.bt-meta span{color:var(--muted)}
+.bt-diff{font-size:9px;color:var(--cyan);margin:-1px 0 5px 0}
+.formula-academic{font-size:11px;letter-spacing:.02em}
+.shell-block{max-height:180px;overflow:auto;background:rgba(0,0,0,.55)}
+.log-toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:9px;color:var(--dim)}
+.log-filter-pill{padding:2px 8px;border-radius:999px;border:1px solid var(--line2);background:var(--panel2);color:var(--muted)}
+.raw-toggle{display:flex;align-items:center;gap:5px;color:var(--muted)}
+.raw-toggle input{accent-color:var(--cyan)}
+.action-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+
+/* ── PEER REVIEW PANE ── */
+.review-pane{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r);padding:12px;margin-bottom:10px}
+.review-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.review-title{font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--cyan)}
+.review-ts{font-size:9px;color:var(--dim)}
+.review-score{display:flex;gap:8px;margin-bottom:8px}
+.score-chip{font-size:10px;padding:3px 8px;border-radius:20px;border:1px solid}
+.finding-row{display:flex;gap:7px;padding:6px 8px;border-radius:var(--r-sm);margin-bottom:4px;border:1px solid transparent;font-size:11px}
+.finding-row.ok{background:var(--green-d);border-color:rgba(45,212,160,.2)}
+.finding-row.warn{background:var(--gold-d);border-color:rgba(245,200,66,.2)}
+.finding-row.fail{background:var(--red-d);border-color:rgba(245,96,122,.2)}
+.finding-icon{flex-shrink:0;font-size:11px;margin-top:1px}
+.finding-text{flex:1;line-height:1.4;color:var(--muted)}
+.finding-text b{color:var(--text);font-weight:500}
+
+/* ── LATEST FINDINGS PANE ── */
+.findings-strip{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r);padding:12px;margin-bottom:10px}
+.finding-item{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:8px;align-items:flex-start}
+.finding-item:last-child{border-bottom:none;padding-bottom:0}
+.fi-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.fi-body{flex:1;min-width:0}
+.fi-title{font-size:11px;color:var(--text);line-height:1.3;margin-bottom:2px}
+.fi-meta{font-size:9px;color:var(--dim)}
+
+/* ── RIGHT PANEL ── */
+.right-tabs{display:flex;border-bottom:1px solid var(--line);flex-shrink:0}
+.rtab{flex:1;text-align:center;padding:9px 4px;font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim);cursor:pointer;border-bottom:2px solid transparent;
+  margin-bottom:-1px;transition:color .15s}
+.rtab.act{color:var(--cyan);border-bottom-color:var(--cyan)}
+.rtab:hover:not(.act){color:var(--muted)}
+.right-body{flex:1;overflow-y:auto;padding:12px}
+
+/* ── CHAT ── */
+.chat-msg{margin-bottom:9px;animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+.chat-role{font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;font-weight:500}
+.chat-role.ctrl{color:var(--cyan)} .chat-role.user{color:var(--dim)}
+.chat-body{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:8px 10px;font-size:11px;line-height:1.6;color:var(--muted)}
+.chat-body.ctrl-style{border-color:rgba(56,217,245,.15);background:rgba(56,217,245,.04);color:var(--text)}
+.thinking{display:flex;gap:4px;align-items:center;padding:8px 0}
+.thinking span{width:5px;height:5px;border-radius:50%;background:var(--cyan);animation:th .8s ease-in-out infinite}
+.thinking span:nth-child(2){animation-delay:.16s}.thinking span:nth-child(3){animation-delay:.32s}
+@keyframes th{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-4px);opacity:1}}
+
+/* ── LOG ── */
+.log-entry{font-size:10px;line-height:1.7;padding:2px 5px;border-radius:3px}
+.log-entry:hover{background:rgba(255,255,255,.03)}
+.lt{color:var(--dim);margin-right:6px;font-size:9px}
+.la-ctrl{color:var(--cyan)} .la-field{color:var(--blue)} .la-judge{color:var(--gold)}
+.la-pslq{color:var(--violet)} .la-sys{color:var(--dim)} .la-ok{color:var(--green)} .la-err{color:var(--red)}
+.lm{color:var(--muted)}
+
+/* ── BOTTOM INPUT ── */
+.chat-footer{border-top:1px solid var(--line);padding:10px 12px;flex-shrink:0;display:flex;gap:7px}
+.chat-input{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:8px 10px;color:var(--text);font-family:var(--font-mono);font-size:11px;outline:none;transition:border-color .2s}
+.chat-input:focus{border-color:var(--cyan)}
+.chat-send{background:var(--cyan-d);border:1px solid rgba(56,217,245,.4);border-radius:var(--r-sm);
+  padding:8px 13px;color:var(--cyan);font-family:var(--font-mono);font-size:11px;cursor:pointer;
+  transition:all .2s;flex-shrink:0}
+.chat-send:hover{background:var(--cyan);color:#080c14}
+.chat-send:disabled{opacity:.35;cursor:not-allowed}
+
+/* ── PROMPT OUTPUT ── */
+.prompt-block{background:rgba(0,0,0,.4);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:10px 12px;font-family:var(--font-mono);font-size:11px;line-height:1.7;
+  color:var(--muted);white-space:pre-wrap;word-break:break-word;max-height:280px;overflow-y:auto;margin-top:6px}
+
+/* ── MODAL ── */
+.modal-wrap{display:none;min-height:500px;background:rgba(4,8,16,.8);
+  align-items:center;justify-content:center;padding:20px;margin-bottom:10px}
+.modal-wrap.show{display:flex}
+.modal{width:min(700px,100%);background:var(--panel);border:1px solid var(--line2);
+  border-radius:14px;padding:20px;position:relative}
+.modal-title{font-family:var(--font-ui);font-size:15px;font-weight:800;color:var(--cyan);margin-bottom:3px}
+.modal-sub{font-size:10px;color:var(--dim);margin-bottom:14px}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mlabel{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;margin-top:10px}
+.minput,.msel,.mtxt{width:100%;background:var(--panel2);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:8px 10px;color:var(--text);font-family:var(--font-mono);
+  font-size:11px;outline:none;transition:border-color .2s}
+.minput:focus,.msel:focus,.mtxt:focus{border-color:var(--cyan)}
+.mtxt{height:75px;resize:vertical}
+.ma{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+.mbtn{background:transparent;border:1px solid var(--line2);border-radius:var(--r-sm);
+  padding:7px 16px;color:var(--muted);font-family:var(--font-mono);font-size:11px;cursor:pointer;transition:all .2s}
+.mbtn:hover{color:var(--text);border-color:var(--line2)}
+.mbtn-launch{background:var(--cyan);border:none;border-radius:var(--r-sm);
+  padding:7px 20px;color:#080c14;font-family:var(--font-ui);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s}
+.mbtn-launch:hover{opacity:.85}
+.mbtn-launch:disabled{opacity:.4;cursor:not-allowed}
+.mclose{position:absolute;top:14px;right:14px;background:none;border:none;
+  color:var(--dim);cursor:pointer;font-size:16px;padding:2px 6px;border-radius:4px;line-height:1}
+.mclose:hover{color:var(--text)}
+
+/* ── TOP BTNS ── */
+.topbtn{background:var(--panel2);border:1px solid var(--line2);border-radius:var(--r-sm);
+  padding:5px 11px;color:var(--text);font-family:var(--font-mono);font-size:11px;cursor:pointer;transition:all .2s}
+.topbtn:hover{border-color:var(--cyan);color:var(--cyan)}
+.topbtn.primary{background:var(--cyan-d);border-color:rgba(56,217,245,.4);color:var(--cyan)}
+.topbtn.primary:hover{background:var(--cyan);color:#080c14}
+
+/* ── SCROLL ── */
+::-webkit-scrollbar{width:3px;height:3px}
+::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="logo">SIARC<span class="logo-sub">/ Mission Control v2</span></div>
+  <div class="spacer"></div>
+  <div class="topbar-meta">
+    <span class="ts-badge">Last sync: <span class="ts-val" id="syncTs">—</span></span>
+    <span class="ts-badge">UTC: <span class="ts-val" id="utcClock">—</span></span>
+    <span class="mode-pill" id="modePill">local</span>
+    <span class="mode-pill integrity-warn" id="integrityPill">integrity: unknown</span>
+    <div class="live-dot" id="liveDot"></div>
+    <button class="topbtn primary" onclick="openModal()">+ Deploy Agent</button>
+    <button class="topbtn" id="runObligationsBtn" onclick="runObligations()">Run Obligations</button>
+    <button class="topbtn" onclick="exportReport()">Export Report</button>
+    <button class="topbtn" onclick="openSettings()">⚙ Settings</button>
+    <button class="topbtn" onclick="refreshAll()">Refresh</button>
+  </div>
+</div>
+
+<div class="shell">
+
+  <!-- LEFT: ROSTER -->
+  <div class="col col-left">
+    <div class="sec">
+      <div class="sec-head">Control layer</div>
+      <div class="agent sel" id="ag-CTRL" onclick="selectAgent('CTRL')">
+        <div class="agent-top"><div class="agent-name">CTRL-01</div><span class="pill pill-ctrl">Overseer</span></div>
+        <div class="agent-role">Orchestrator · Router</div>
+        <div class="agent-task" id="ctrl-task">Routing 3 active missions</div>
+      </div>
+      <div class="agent" id="ag-JUDGE" onclick="selectAgent('JUDGE')">
+        <div class="agent-top"><div class="agent-name">JUDGE-01</div><span class="pill pill-judge">Verifier</span></div>
+        <div class="agent-role">Publication gate</div>
+        <div class="agent-task">Queue: H-0025, H-0026</div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sec-head">Field agents</div>
+      <div class="agent run" id="ag-A">
+        <div class="agent-top"><div class="agent-name">FIELD-A</div><span class="pill pill-run">Running</span></div>
+        <div class="agent-role">Prime search</div>
+        <div class="agent-task">Iter 847 · Mersenne LLT 6/8</div>
+        <div class="prog"><div class="prog-fill" style="width:67%;background:var(--gold)"></div></div>
+      </div>
+      <div class="agent run" id="ag-B">
+        <div class="agent-top"><div class="agent-name">FIELD-B</div><span class="pill pill-run">Running</span></div>
+        <div class="agent-role">A₁⁽ᵏ⁾ k=6 generalisation</div>
+        <div class="agent-task">Swarm gen 3 · gap 1.22%</div>
+        <div class="prog"><div class="prog-fill" style="width:41%;background:var(--gold)"></div></div>
+      </div>
+      <div class="agent done" id="ag-C">
+        <div class="agent-top"><div class="agent-name">FIELD-C</div><span class="pill pill-done">Done</span></div>
+        <div class="agent-role">Riemann ζ-zero identity</div>
+        <div class="agent-task">3 candidates for review</div>
+        <div class="prog"><div class="prog-fill" style="width:100%;background:var(--green)"></div></div>
+      </div>
+      <div class="agent" id="ag-D">
+        <div class="agent-top"><div class="agent-name">FIELD-D</div><span class="pill pill-idle">Idle</span></div>
+        <div class="agent-role">Red-team · Adversarial</div>
+        <div class="agent-task">Awaiting assignment</div>
+        <div class="prog"><div class="prog-fill" style="width:0%;background:var(--cyan)"></div></div>
+      </div>
+      <div class="agent" id="ag-PSLQ">
+        <div class="agent-top"><div class="agent-name">PSLQ-01</div><span class="pill pill-pslq">PSLQ</span></div>
+        <div class="agent-role">Symbolic recovery</div>
+        <div class="agent-task">Queued: β(k) family</div>
+        <div class="prog"><div class="prog-fill" style="width:0%;background:var(--violet)"></div></div>
+      </div>
+    </div>
+    <div class="sec" style="margin-top:auto">
+      <div class="sec-head">Session</div>
+      <div style="font-size:10px;line-height:2.1;color:var(--dim)">
+        Missions active <span style="color:var(--muted);float:right" id="ss-active">3</span><br>
+        Breakthroughs <span style="color:var(--green);float:right" id="ss-bt">3</span><br>
+        Pending judge <span style="color:var(--gold);float:right" id="ss-pend">2</span><br>
+        Rejected <span style="color:var(--red);float:right" id="ss-rej">8</span><br>
+        Total iterations <span style="color:var(--muted);float:right" id="ss-iter">4,291</span><br>
+        Live API calls <span style="color:var(--cyan);float:right" id="ss-api">0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CENTER -->
+  <div class="col col-center">
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat"><div class="stat-v cv" id="sv-bt">3</div><div class="stat-l">Breakthroughs</div></div>
+      <div class="stat"><div class="stat-v av" id="sv-iter">4,291</div><div class="stat-l">Iterations</div></div>
+      <div class="stat"><div class="stat-v gv" id="sv-gap">9.15356%</div><div class="stat-l">Structural gap</div><div class="stat-sub" id="sv-gap-cal">calibrated 1e-5%</div></div>
+      <div class="stat"><div class="stat-v av" id="sv-integrity">DRY</div><div class="stat-l">Data integrity</div><div class="stat-sub" id="sv-integrity-sub">synthetic evidence detected</div></div>
+      <div class="stat"><div class="stat-v" id="sv-lfi">0.16</div><div class="stat-l">Best LFI</div></div>
+      <div class="stat"><div class="stat-v vv" id="sv-pslq">2</div><div class="stat-l">PSLQ hits</div></div>
+    </div>
+
+    <!-- ROW: MISSION QUEUE + LATEST FINDINGS -->
+    <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:10px;margin-bottom:10px">
+      <div class="card">
+        <div class="card-head"><div class="card-title">Mission queue</div><span class="badge bg-info" id="q-count">3 active</span></div>
+        <table class="mission-table" id="missionTable">
+          <thead><tr><th>ID</th><th>Topic</th><th>Gap</th><th>Owner</th><th>Status</th></tr></thead>
+          <tbody id="missionBody"></tbody>
+        </table>
+      </div>
+
+      <!-- LATEST FINDINGS -->
+      <div class="findings-strip">
+        <div class="sec-head" style="border:none;padding-bottom:6px;margin-bottom:6px">
+          Latest findings
+          <span style="color:var(--dim);font-size:9px;font-weight:400;letter-spacing:0" id="findingsTs">—</span>
+        </div>
+        <div id="latestFindings"></div>
+      </div>
+    </div>
+
+    <!-- ROW: BREAKTHROUGH FEED + PEER REVIEW -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+      <div class="card">
+        <div class="card-head"><div class="card-title">Breakthrough feed</div><span class="badge bg-good">sorted by confidence</span></div>
+        <div id="btFeed"></div>
+      </div>
+
+      <!-- PEER REVIEW SUMMARY PANE -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title" style="color:var(--violet)">Peer review</div>
+          <div style="display:flex;gap:6px;align-items:center">
+            <button class="topbtn" style="font-size:10px;padding:3px 8px" onclick="verifyPaper14Check()">Verify G-01 vs Paper 14</button>
+            <button class="topbtn" style="font-size:10px;padding:3px 8px" onclick="runPeerReview()">Run review ↗</button>
+          </div>
+        </div>
+        <div id="peerReviewPane">
+          <div style="color:var(--dim);font-size:11px;padding:8px 0">No review yet. Click "Run review" to ask CTRL-01 to audit all active findings.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GENERATED BRIEF -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Generated field agent brief</div>
+        <span class="badge bg-info" id="briefMeta">awaiting mission</span>
+      </div>
+      <div class="prompt-block" id="promptOutput">Launch a mission to generate a live CTRL-01 field agent brief.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Live shell</div>
+        <span class="badge bg-info" id="shellMeta">backend heartbeat</span>
+      </div>
+      <div class="prompt-block shell-block" id="liveShell">Awaiting backend heartbeat…</div>
+    </div>
+  </div>
+
+  <!-- RIGHT: CHAT + LOG -->
+  <div class="col col-right">
+    <div class="right-tabs">
+      <div class="rtab act" id="tab-chat" onclick="switchTab('chat')">CTRL-01 Chat</div>
+      <div class="rtab" id="tab-log" onclick="switchTab('log')">Agent log</div>
+      <div class="rtab" id="tab-review" onclick="switchTab('review')">Reviews</div>
+    </div>
+    <div class="right-body" id="panel-chat">
+      <div id="chatMessages"></div>
+    </div>
+    <div class="right-body" id="panel-log" style="display:none">
+      <div class="log-toolbar">
+        <span class="log-filter-pill" id="logFilterLabel">Filter: all agents</span>
+        <label class="raw-toggle"><input type="checkbox" id="rawStreamToggle" onchange="toggleRawStream()"> Raw stream</label>
+      </div>
+      <div id="logStream"></div>
+    </div>
+    <div class="right-body" id="panel-review" style="display:none">
+      <div style="font-size:10px;color:var(--dim);margin-bottom:10px">All peer review sessions are stored here chronologically.</div>
+      <div id="reviewHistory"></div>
+    </div>
+    <div class="chat-footer">
+      <input class="chat-input" id="chatInput" placeholder="Instruct CTRL-01 or ask about any mission…" onkeydown="if(event.key==='Enter'&&!event.shiftKey)sendChat()">
+      <button class="chat-send" id="chatSendBtn" onclick="sendChat()">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- DEPLOY MODAL (in-flow, no position:fixed) -->
+<div class="modal-wrap" id="modalWrap">
+  <div class="modal">
+    <button class="mclose" onclick="closeModal()">✕</button>
+    <div class="modal-title">Deploy Field Agent</div>
+    <div class="modal-sub">CTRL-01 will write a live mission brief for the assigned field agent.</div>
+    <div class="mg">
+      <div>
+        <div class="mlabel">Topic / Challenge</div>
+        <input class="minput" id="mTopic" value="Search for next largest prime number">
+      </div>
+      <div>
+        <div class="mlabel">Domain</div>
+        <select class="msel" id="mDomain">
+          <option value="auto">Auto-detect</option>
+          <option value="prime-search">Prime search</option>
+          <option value="analytic-number-theory">Analytic number theory</option>
+          <option value="symbolic-recovery">Symbolic recovery</option>
+          <option value="formal-verification">Formal verification</option>
+          <option value="physics-bridge">Physics bridge</option>
+          <option value="combinatorics">Combinatorics</option>
+        </select>
+      </div>
+      <div>
+        <div class="mlabel">Swarm size</div>
+        <input class="minput" id="mSwarm" type="number" min="2" max="32" value="8">
+      </div>
+      <div>
+        <div class="mlabel">ASR threshold (%)</div>
+        <input class="minput" id="mAsr" type="text" value="1.0">
+      </div>
+    </div>
+    <div class="mlabel">Seed formula / starting hypothesis (optional)</div>
+    <textarea class="mtxt" id="mSeed" placeholder="e.g. α·cₖ + β/cₖ  — leave blank for fresh start"></textarea>
+    <div class="mlabel">Extra instructions to CTRL-01</div>
+    <textarea class="mtxt" id="mNotes" placeholder="e.g. Prioritise Mersenne form. Red-team must check Lucas–Lehmer. Report every 100 iterations."></textarea>
+    <div class="ma">
+      <button class="mbtn" onclick="closeModal()">Cancel</button>
+      <button class="mbtn-launch" id="launchBtn" onclick="deployMission()">Launch mission</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-wrap" id="settingsWrap">
+  <div class="modal">
+    <button class="mclose" onclick="closeSettings()">✕</button>
+    <div class="modal-title">Local Settings</div>
+    <div class="modal-sub">Store an optional browser API key and preferred backend URL without opening the console.</div>
+    <div class="mlabel">Anthropic API key (optional)</div>
+    <input class="minput" id="settingsApiKey" type="password" placeholder="sk-ant-...">
+    <div class="mlabel">Preferred backend base (optional)</div>
+    <input class="minput" id="settingsBase" type="text" placeholder="http://127.0.0.1:8771">
+    <div class="ma">
+      <button class="mbtn" onclick="clearSettings()">Clear</button>
+      <button class="mbtn-launch" onclick="saveSettings()">Save settings</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── CONSTANTS & STATE ───────────────────────────────────────────────────────
+const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
+const MODEL = 'claude-sonnet-4-20250514';
+const API_BASES = ['http://127.0.0.1:8771','http://127.0.0.1:8767','http://127.0.0.1:8766','http://127.0.0.1:8765',''];
+let activeBase = localStorage.getItem('siarcBase') || '';
+let directApiKey = (window.SIARC_API_KEY || window.SIARC_ANTHROPIC_KEY || localStorage.getItem('siarcApiKey') || localStorage.getItem('siarcAnthropicKey') || '').trim();
+let apiCallCount = 0;
+let iterCount = 4291;
+let reviewHistory = [];
+let lastBackendState = null;
+let currentFindings = [];
+let currentReviewText = '';
+let selectedAgent = 'ALL';
+let backendLog = [];
+let shellFrames = [];
+let failedProbeCount = 0;
+let pollDelayMs = 10000;
+let pollTimer = null;
+let rawStreamEnabled = false;
+
+const AGENT_FILTERS = {
+  ALL: [/./],
+  CTRL: [/CTRL/i],
+  JUDGE: [/Judge/i, /JUDGE/i],
+  A: [/FIELD-A/i, /Agent A/i],
+  B: [/FIELD-B/i, /Agent B/i, /ASR/i],
+  C: [/FIELD-C/i, /Agent C/i],
+  D: [/FIELD-D/i, /Agent D/i, /Red-team/i],
+  PSLQ: [/PSLQ/i]
+};
+
+const eventLog = [];
+function logEvent(agent, cls, msg, meta = null) {
+  const ts = new Date().toISOString().slice(11,19);
+  eventLog.unshift({ ts, agent, cls, msg, meta });
+  if (eventLog.length > 200) eventLog.pop();
+  renderLog();
+}
+function escHtml(text) {
+  return String(text ?? '').replace(/[&<>"']/g, ch => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[ch]));
+}
+function getApiBases() {
+  return [...new Set([activeBase, localStorage.getItem('siarcBase') || '', ...API_BASES])];
+}
+function pushShellFrame(label, payload) {
+  const stamp = new Date().toISOString();
+  const body = typeof payload === 'string' ? payload : JSON.stringify(payload, null, 2);
+  shellFrames.unshift(`[${stamp}] ${label}\n${body}`);
+  shellFrames = shellFrames.slice(0, 6);
+  document.getElementById('liveShell').textContent = shellFrames.join('\n\n────────────────────────────────\n\n');
+  document.getElementById('shellMeta').textContent = label;
+}
+function normalizeFormulaText(text) {
+  return String(text ?? '')
+    .replace(/\*+/g, '·')
+    .replace(/sqrt\(2\)/g, '√2')
+    .replace(/c5/g, 'c₅')
+    .replace(/c6/g, 'c₆')
+    .replace(/A1\^\(5\)/g, 'A₁⁽⁵⁾')
+    .replace(/A1\^\(6\)/g, 'A₁⁽⁶⁾')
+    .replace(/-\(/g, '−(')
+    .replace(/ - /g, ' − ')
+    .replace(/\+ /g, '+ ');
+}
+function formatFormulaHTML(formula) {
+  return `<span class="formula-academic">${escHtml(normalizeFormulaText(formula))}</span>`;
+}
+function formatPct(value, digits = 5, fallback = '—') {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return fallback;
+  if (Math.abs(num) < 0.001 && num !== 0) return `${num.toExponential(1)}%`;
+  return `${num.toFixed(digits).replace(/\.?0+$/, '')}%`;
+}
+function applyIntegrityState(backend) {
+  const contaminated = String(backend?.evidence_status || backend?.report_status?.validation_mode || backend?.validation_mode || '').toLowerCase().includes('dry')
+    || (backend?.warnings || []).some(w => /dry-run|synthetic/i.test(String(w)));
+  const pill = document.getElementById('integrityPill');
+  const stat = document.getElementById('sv-integrity');
+  const sub = document.getElementById('sv-integrity-sub');
+  const center = document.querySelector('.col-center');
+  center?.classList.toggle('contaminated', contaminated);
+  if (contaminated) {
+    pill.textContent = 'integrity: dry-run';
+    pill.className = 'mode-pill integrity-warn';
+    stat.textContent = 'DRY';
+    stat.style.color = 'var(--gold)';
+    sub.textContent = 'synthetic trail still present';
+  } else {
+    pill.textContent = 'integrity: live';
+    pill.className = 'mode-pill integrity-good';
+    stat.textContent = 'LIVE';
+    stat.style.color = 'var(--green)';
+    sub.textContent = 'live evidence path active';
+  }
+}
+function openSettings() {
+  document.getElementById('settingsApiKey').value = directApiKey || '';
+  document.getElementById('settingsBase').value = activeBase || localStorage.getItem('siarcBase') || '';
+  document.getElementById('settingsWrap').classList.add('show');
+}
+function closeSettings() { document.getElementById('settingsWrap').classList.remove('show'); }
+function saveSettings() {
+  directApiKey = document.getElementById('settingsApiKey').value.trim();
+  activeBase = document.getElementById('settingsBase').value.trim();
+  if (directApiKey) {
+    localStorage.setItem('siarcAnthropicKey', directApiKey);
+    localStorage.setItem('siarcApiKey', directApiKey);
+  } else {
+    localStorage.removeItem('siarcAnthropicKey');
+    localStorage.removeItem('siarcApiKey');
+  }
+  if (activeBase) localStorage.setItem('siarcBase', activeBase); else localStorage.removeItem('siarcBase');
+  closeSettings();
+  logEvent('SYS','la-ok','Local settings updated.');
+}
+function clearSettings() {
+  directApiKey = '';
+  activeBase = '';
+  localStorage.removeItem('siarcAnthropicKey');
+  localStorage.removeItem('siarcApiKey');
+  localStorage.removeItem('siarcBase');
+  document.getElementById('settingsApiKey').value = '';
+  document.getElementById('settingsBase').value = '';
+  logEvent('SYS','la-sys','Local settings cleared.');
+}
+function exportReport() {
+  const backend = lastBackendState || {};
+  const report = backend.report_status || {};
+  const paper14 = backend.paper14_check || {};
+  const findingsMd = (currentFindings || []).map(f => `- ${f.title} (${f.meta})`).join('\n');
+  const structuralGap = formatPct(report.best_gap_pct ?? backend.stats?.best_gap_pct, 5, 'n/a');
+  const calibratedGap = formatPct(report.calibrated_gap_pct ?? backend.stats?.best_calibrated_gap_pct, 5, 'n/a');
+  const body = `# SIARC Control Center Export\n\n- Generated: ${new Date().toISOString()}\n- Evidence status: ${backend.evidence_status || report.validation_mode || 'unknown'}\n- Status: ${report.status || 'unknown'}\n- Best formula: ${report.best_formula || backend.champion_formula || 'n/a'}\n- Structural gap: ${structuralGap}\n- Calibrated gap: ${calibratedGap}\n- Paper 14 back-check: ${paper14.summary || 'pending'}\n\n## Latest Findings\n${findingsMd || '- none'}\n\n## Latest Peer Review\n\n${currentReviewText || 'No peer review recorded in this session.'}\n`;
+  const blob = new Blob([body], { type: 'text/markdown;charset=utf-8' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `siarc-control-center-${new Date().toISOString().replace(/[:.]/g,'-')}.md`;
+  link.click();
+  URL.revokeObjectURL(link.href);
+  logEvent('CTRL','la-ok','Control-center report exported.');
+}
+function stageLiveRerunCommand() {
+  const cmd = 'python siarc.py --agent D --debate-critic --debate-live --debate-judge';
+  pushShellFrame('staged live Agent D rerun', { command: cmd, note: 'Run this in a terminal with API keys configured to clear the dry-run trail.' });
+  navigator.clipboard?.writeText(cmd).catch(() => {});
+  logEvent('CTRL','la-ctrl','Live Agent D rerun command staged and copied to clipboard when available.');
+}
+function verifyPaper14Check() {
+  logEvent('CTRL','la-ctrl','Paper 14 back-check initiated for G-01 (k=1..4).');
+  return postBackend('/api/verify-paper14-g01', {}).then(async result => {
+    const summary = result?.paper14_check?.summary || 'Paper 14 back-check completed.';
+    pushShellFrame('POST /api/verify-paper14-g01', result?.paper14_check || result || {});
+    logEvent('CTRL', result?.paper14_check?.all_match ? 'la-ok' : 'la-field', summary);
+    await refreshAll();
+  }).catch(e => {
+    logEvent('CTRL','la-err', `Paper 14 back-check failed: ${e.message}`);
+  });
+}
+function toggleRawStream() {
+  rawStreamEnabled = !!document.getElementById('rawStreamToggle')?.checked;
+  renderLog();
+}
+async function postBackend(path, payload = {}) {
+  for (const base of getApiBases()) {
+    try {
+      const r = await fetch(`${base}${path}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload || {}),
+        signal: AbortSignal.timeout(2500)
+      });
+      if (r.ok) {
+        activeBase = base;
+        localStorage.setItem('siarcBase', base);
+        const data = await r.json();
+        pushShellFrame(`POST ${path}`, { base: base || 'same-origin', ok: true, keys: Object.keys(data || {}).slice(0, 12) });
+        return data;
+      }
+    } catch (_) {}
+  }
+  pushShellFrame(`POST ${path}`, { ok: false, tried: getApiBases().filter(Boolean) });
+  return null;
+}
+function buildLocalMissionBrief(topic, domain, swarm, asr, seed, notes='') {
+  const stamp = new Date().toISOString().replace(/[-:TZ.]/g,'').slice(0,14);
+  const missionId = `${String(topic || 'MISSION').toUpperCase().replace(/[^A-Z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,24) || 'MISSION'}-${stamp}`;
+  const resolvedDomain = domain === 'auto'
+    ? ((String(topic).toLowerCase().includes('prime') || String(topic).toLowerCase().includes('lucas')) ? 'prime-search' : 'general-research')
+    : domain;
+  return `MISSION ID: ${missionId}
+TOPIC: ${topic}
+DOMAIN: ${resolvedDomain}
+AGENT PIPELINE: FIELD-X → RED-TEAM (FIELD-D) → ASR → JUDGE-01 → PSLQ-01
+
+FIELD AGENT SEED PROMPT:
+Investigate "${topic}" using a ${swarm}-candidate swarm, gauntlet filtering, ASR only for structural refinement, and red-team checks for dry-run contamination, scale-wrapper abuse, and seed sensitivity.${seed ? ` Starting hypothesis: ${seed}.` : ''}${notes ? ` Extra instructions: ${notes}.` : ''}
+
+SUCCESS CRITERIA:
+• Gap target: < ${Number(asr) <= 0 ? '1.0' : asr}%
+• LFI threshold: < 0.25 preferred
+• PSLQ required for any surviving float coefficients
+• Multi-seed robustness: 10 seeds before judge escalation
+
+CTRL BROADCAST: ${topic} routed to the SIARC field pipeline in local workspace mode.`;
+}
+function buildLocalCtrlReply(userMsg) {
+  const state = lastBackendState || {};
+  const stats = state.stats || {};
+  const report = state.report_status || {};
+  return `CTRL-01 local workspace mode is active. I can route missions, generate field briefs, and summarize the current SIARC state without any API key. Evidence status: ${state.evidence_status || report.validation_mode || 'unknown'}, best formula: ${report.best_formula || state.champion_formula || 'n/a'}, structural gap: ${formatPct(report.best_gap_pct ?? stats.best_gap_pct, 5, 'n/a')}, LFI: ${report.lfi ?? stats.lfi ?? 'n/a'}, breakthroughs: ${stats.breakthroughs ?? 'n/a'}. Request received: ${userMsg}`;
+}
+function buildLocalReviewReply() {
+  const state = lastBackendState || {};
+  const report = state.report_status || {};
+  const crossK = state.local_swarm_confirmations || {};
+  const paper14 = state.paper14_check || {};
+  const evidenceStatus = String(state.evidence_status || report.validation_mode || 'unknown');
+  const isLive = !evidenceStatus.toLowerCase().includes('dry');
+  const reviewedAt = new Date().toISOString();
+  const obligations = [];
+  if (!paper14.all_match) obligations.push('Run the Paper 14 k=1..4 back-check and archive the JSON result.');
+  obligations.push('Extend the precision ladder to k=9..12 and the k=24 boss run.');
+  obligations.push('Complete the derivation-grade symbolic proof / Lemma K write-up.');
+  const liveLine = isLive
+    ? '[OK] Evidence status is live — the current packet should be framed as high-confidence computational evidence, not as dry-run-only.'
+    : '[WARN] Evidence status is still dry-run — replace the stale synthetic trail before claiming live validation.';
+  const crossKLine = crossK.summary
+    ? `[OK] Cross-k structural recovery — ${crossK.summary}`
+    : '[WARN] Cross-k structural recovery — local confirmation summary is not yet available.';
+  const paper14Line = paper14.all_match
+    ? `[OK] Paper 14 back-check — ${paper14.summary}`
+    : '[WARN] Paper 14 back-check — the k=1..4 theorem-alignment step is still pending.';
+  return `REVIEW ID: PR-${Date.now().toString(36).toUpperCase()}
+REVIEWED AT: ${reviewedAt}
+OVERALL VERDICT: PROGRESS
+
+FINDINGS:
+[OK] H-0025 canonical form — ${report.best_formula || H0025_CANONICAL} is the locked scalar-free formula.
+${liveLine}
+${crossKLine}
+${paper14Line}
+[WARN] Formal proof status — the presentation is reviewer-safe as a computational conjecture, but the derivation packet is still pending.
+
+OPEN OBLIGATIONS:
+${obligations.map((item, idx) => `${idx + 1}. ${item}`).join('\n')}
+
+RECOMMENDED NEXT ACTION: ${paper14.all_match ? 'Export the refreshed review packet and push the proof sketch / k=24 evidence next.' : 'Run the Paper 14 verification first, then export the refreshed review packet.'}`;
+}
+
+// ─── CTRL-01 SYSTEM PROMPT ───────────────────────────────────────────────────
+const CTRL_SYSTEM = `You are CTRL-01, the Overseer agent of the SIARC (Self-Iterating Analytic Relay Chain) Mathematical Discovery System running inside a live mission control dashboard.
+
+Your role:
+- Receive mission topics and translate them into structured FIELD AGENT SEED PROMPTS
+- Route results: field agent → JUDGE-01 → PSLQ-01 when champion
+- Monitor active missions and broadcast concise status updates
+- Detect and flag dry-run contamination immediately (DRY_RUN_DETECTED verdict = HALT)
+- Maintain breakthrough ledger (H-XXXX IDs)
+
+Active missions right now:
+- FIELD-A: Mersenne prime search · iter 847 · LLT stage 6/8 · gap 0.004%
+- FIELD-B: A₁⁽ᵏ⁾ k=6 generalisation · swarm gen 3 · gap 1.22% · ASR active
+- FIELD-C: Riemann ζ-zero identity · gap 3.1% · pre-ASR
+- Champion: H-0025 · A₁⁽⁵⁾ = −(5·c₅)/48 − 6/c₅ · gap 1e-5% · PSLQ confirmed
+
+When given a new mission topic, output this exact structure:
+MISSION ID: [slug-YYYYMMDDHHMMSS]
+TOPIC: [verbatim]
+DOMAIN: [classified]
+AGENT PIPELINE: FIELD-X → RED-TEAM (FIELD-D) → ASR → JUDGE-01 → PSLQ-01
+
+FIELD AGENT SEED PROMPT:
+[Full operational brief covering: swarm mutation strategy, gauntlet criteria, ASR trigger condition, PSLQ recovery requirements, red-team adversarial checks, multi-seed robustness requirement (10 seeds), success criteria]
+
+SUCCESS CRITERIA:
+• Gap target: < [N]%
+• LFI threshold: < 0.5 lethal, target < 0.25
+• PSLQ: required if gap < 0.1% and formula contains float coefficients
+• Multi-seed: 10 seeds before judge verdict
+
+CTRL BROADCAST: [1-sentence dashboard log entry]
+
+Keep total response under 350 words. Be technically precise.`;
+
+// ─── PEER REVIEW SYSTEM PROMPT ───────────────────────────────────────────────
+function buildReviewSystemPrompt() {
+  const backend = lastBackendState || {};
+  const report = backend.report_status || {};
+  const stats = backend.stats || {};
+  const crossK = backend.local_swarm_confirmations || {};
+  const paper14 = backend.paper14_check || {};
+  const evidenceStatus = String(backend.evidence_status || report.validation_mode || backend.validation_mode || 'unknown');
+  const bestFormula = report.best_formula || backend.champion_formula || H0025_CANONICAL;
+  const bestGap = formatPct(report.best_gap_pct ?? stats.best_gap_pct, 5, 'n/a');
+  const calibratedGap = formatPct(report.calibrated_gap_pct ?? stats.best_calibrated_gap_pct, 5, 'n/a');
+  const lfi = report.lfi ?? stats.lfi ?? 'n/a';
+  const supportedKs = crossK.supported_ks || crossK.confirmed_ks || [];
+  const issueLines = [];
+  if (evidenceStatus.toLowerCase().includes('dry')) {
+    issueLines.push('- Historical caution: a dry-run trail is still present; do not call the packet live-validated.');
+  } else {
+    issueLines.push('- Evidence status is LIVE; do not describe the current packet as dry-run contaminated or pending a live rerun.');
+  }
+  if (report.scaling_warning) issueLines.push(`- Scaling note: ${report.scaling_warning}`);
+  if (report.obligations_summary) issueLines.push(`- Obligations summary: ${report.obligations_summary}`);
+
+  return `You are CTRL-01 acting as Peer Reviewer. Audit all current SIARC findings and produce a structured peer review summary.
+
+Current backend state to review:
+- evidence_status: ${evidenceStatus}
+- report_status: ${report.status || 'unknown'}
+- champion_formula: ${bestFormula}
+- structural_gap: ${bestGap}
+- calibrated_gap: ${calibratedGap}
+- LFI: ${lfi}
+- G-01 support summary: ${crossK.summary || 'pending'}
+- G-01 supported ks: ${supportedKs.length ? supportedKs.join(', ') : 'pending'}
+- Paper 14 back-check: ${paper14.summary || 'pending'}
+
+Review constraints:
+${issueLines.join('\n')}
+- LFI is a heuristic search ranking metric, not a p-value or proof statistic.
+- If the evidence status is live, frame H-0025 / G-01 as high-confidence computational evidence with formal proof pending.
+- Be scientifically responsible and distinguish computational identification from theorem status.
+
+Produce output in this exact format:
+REVIEW ID: PR-[timestamp]
+REVIEWED AT: [ISO timestamp]
+OVERALL VERDICT: [PUBLISH-READY | PROGRESS | INSUFFICIENT | BLOCKED]
+
+FINDINGS:
+[OK/WARN/FAIL] [finding title] — [1-sentence detail]
+...
+
+OPEN OBLIGATIONS:
+1. [obligation]
+...
+
+RECOMMENDED NEXT ACTION: [1 sentence for CTRL-01 routing]`;
+}
+
+// ─── ANTHROPIC API CALL ──────────────────────────────────────────────────────
+async function callClaude(system, userMsg, maxTokens = 1000) {
+  const apiKey = (directApiKey || localStorage.getItem('siarcApiKey') || localStorage.getItem('siarcAnthropicKey') || '').trim();
+  if (!apiKey) {
+    throw new Error('No browser Anthropic key configured; using local workspace mode instead.');
+  }
+  apiCallCount++;
+  document.getElementById('ss-api').textContent = apiCallCount;
+  const res = await fetch(ANTHROPIC_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01'
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      max_tokens: maxTokens,
+      system,
+      messages: [{ role: 'user', content: userMsg }]
+    })
+  });
+  if (!res.ok) throw new Error(`API ${res.status}: ${await res.text()}`);
+  const data = await res.json();
+  return data.content?.[0]?.text || '[no response]';
+}
+
+// ─── BACKEND PROBE ───────────────────────────────────────────────────────────
+async function probeBackend() {
+  for (const base of getApiBases()) {
+    try {
+      const r = await fetch(`${base}/api/control-center-state`, { signal: AbortSignal.timeout(1500) });
+      if (r.ok) {
+        activeBase = base;
+        localStorage.setItem('siarcBase', base);
+        lastBackendState = await r.json();
+        failedProbeCount = 0;
+        pollDelayMs = 10000;
+        pushShellFrame('GET /api/control-center-state', {
+          base: base || 'same-origin',
+          validation_mode: lastBackendState.validation_mode,
+          evidence_status: lastBackendState.evidence_status,
+          status: lastBackendState.report_status?.status,
+          best_formula: lastBackendState.report_status?.best_formula || lastBackendState.champion_formula
+        });
+        return lastBackendState;
+      }
+    } catch (_) {}
+  }
+  failedProbeCount += 1;
+  pollDelayMs = failedProbeCount >= 3 ? Math.min(60000, 10000 * (2 ** (failedProbeCount - 2))) : 10000;
+  pushShellFrame('backend probe failed', { failures: failedProbeCount, next_poll_seconds: Math.round(pollDelayMs / 1000), tried: getApiBases().filter(Boolean) });
+  return null;
+}
+
+// ─── STATIC FALLBACK DATA ────────────────────────────────────────────────────
+const H0025_CANONICAL = 'A₁⁽⁵⁾ = −(5·c₅)/48 − 6/c₅';
+
+const FALLBACK = {
+  missions: [
+    { id:'H-0025', topic:'A₁⁽⁵⁾ identity proof', gap: 0.00001, owner:'FIELD-D', status:'formal proof pending' },
+    { id:'H-0026', topic:'A₁⁽ᵏ⁾ cross-k k=6', gap: 1.22, owner:'FIELD-B', status:'watch' },
+    { id:'Z-001', topic:'ζ-zero identity Z-family', gap: 3.10, owner:'FIELD-C', status:'investigating' },
+  ],
+  breakthroughs: [
+    { id:'H-0025', status:'pend', formula:'H-0025 remains provisional until dry-run history is replaced by live validation', gap:'9.15356%', lfi:'0.160', iter:'892', agent:'JUDGE-01',
+      tags:[{l:'Provisional',c:'bg-warn'},{l:'Calibration warning',c:'bg-warn'}] },
+    { id:'H-0026', status:'pend', formula:'A₁⁽⁶⁾ ≈ −(6·c₆)/48 − (7·9)/(8·c₆) + δ', gap:'1.22%', lfi:'0.310', iter:'312', agent:'FIELD-B',
+      tags:[{l:'Pending judge',c:'bg-warn'},{l:'ASR survivor',c:'bg-warn'}] },
+    { id:'Z-001', status:'', formula:'Im(ρₙ) ≈ 2π·exp(W(n/e)) + ε(n)', gap:'3.1%', lfi:'0.44', iter:'203', agent:'FIELD-C',
+      tags:[{l:'New candidate',c:'bg-info'}] },
+    { id:'P-001', status:'rej', formula:'M₈₂₅₈₉₉₃₃ · LLT fail stage 4', gap:'—', lfi:'0.82', iter:'203', agent:'FIELD-A',
+      tags:[{l:'Rejected',c:'bg-bad'}] },
+  ],
+  findings: [
+    { color:'var(--gold)', title:'H-0025 remains provisional — dry-run evidence still needs a live rerun', meta:'JUDGE-01 · 11:10 UTC', type:'warn' },
+    { color:'var(--gold)', title:'H-0025 outer scalar (−0.0384×) unexplained — needs simplification', meta:'Peer review · 11:05 UTC', type:'warn' },
+    { color:'var(--gold)', title:'All prior Agent D scores were [DRY RUN] — re-run required', meta:'JUDGE-01 · 11:02 UTC', type:'warn' },
+    { color:'var(--red)', title:'PSLQ β fractions show 13-digit numerators (noise)', meta:'PSLQ-01 · 10:58 UTC', type:'fail' },
+    { color:'var(--green)', title:'Control center runtime is available in local workspace mode', meta:'CTRL-01 · 10:44 UTC', type:'ok' },
+  ]
+};
+
+function deriveBreakthroughs(backend) {
+  if (!backend) return FALLBACK.breakthroughs;
+  const provisional = String(backend.evidence_status || backend.validation_mode || '').includes('dry');
+  const structuralGap = formatPct(backend.report_status?.best_gap_pct ?? backend.stats?.best_gap_pct, 5, '—');
+  const calibratedGap = (backend.report_status?.calibrated_gap_pct ?? backend.stats?.best_calibrated_gap_pct) !== undefined
+    && (backend.report_status?.calibrated_gap_pct ?? backend.stats?.best_calibrated_gap_pct) !== null
+    ? formatPct(backend.report_status?.calibrated_gap_pct ?? backend.stats?.best_calibrated_gap_pct, 5, '—')
+    : null;
+  const lfi = backend.stats?.lfi ?? '—';
+  const iter = backend.stats?.iterations ?? '—';
+  const judgeNote = backend.breakthroughs?.find(b => b.id === 'H-0025')?.note || 'Review the latest judge output and warnings.';
+  const crossK = backend.local_swarm_confirmations || {};
+  const crossKNote = backend.breakthroughs?.find(b => b.id === 'H-0026')?.note || 'Cross-k local verification pending.';
+  const crossKFormula = crossK.champions?.k6?.formula || 'A₁⁽ᵏ⁾ = -(k·c_k)/48 - ((k+1)(k+3))/(8·c_k)';
+  const crossKGap = crossK.best_gap_pct !== undefined && crossK.best_gap_pct !== null ? `${crossK.best_gap_pct}%` : '—';
+  const crossKLfi = crossK.max_lfi !== undefined && crossK.max_lfi !== null ? crossK.max_lfi : '—';
+  return [
+    {
+      id: 'H-0025',
+      status: provisional ? 'pend' : 'champ',
+      formula: backend.champion_formula || H0025_CANONICAL,
+      diff: provisional ? 'Δ removed spurious ASR outer scale; canonical inner form retained.' : 'Δ live rerun validated against the canonical form.',
+      note: judgeNote,
+      gap: structuralGap,
+      calGap: calibratedGap,
+      lfi,
+      iter,
+      agent: 'JUDGE-01',
+      tags: provisional
+        ? [{ l:'Provisional', c:'bg-warn' }, { l:'Canonical locked', c:'bg-info' }]
+        : [{ l:'Champion', c:'bg-good' }, { l:'Live validated', c:'bg-info' }]
+    },
+    {
+      id: 'H-0026',
+      status: crossK.confirmed ? 'champ' : 'pend',
+      formula: crossKFormula,
+      diff: crossK.confirmed ? 'Δ local zero-API swarms now confirm the G-01 universal law at k=6,7,8.' : 'Δ cross-k local verification still in progress.',
+      note: crossKNote,
+      gap: crossKGap,
+      calGap: null,
+      lfi: crossKLfi,
+      iter: 'local',
+      agent: 'FIELD-B / Local Engine',
+      tags: crossK.confirmed
+        ? [{ l:'Local champion', c:'bg-good' }, { l:'G-01 confirmed', c:'bg-info' }]
+        : [{ l:'Cross-k watch', c:'bg-warn' }]
+    },
+    {
+      id: 'Z-001',
+      status: '',
+      formula: 'Im(ρₙ) ≈ 2π·exp(W(n/e)) + ε(n)',
+      gap: '3.1%',
+      lfi: '0.44',
+      iter: '203',
+      agent: 'FIELD-C',
+      tags:[{l:'New candidate',c:'bg-info'}]
+    }
+  ];
+}
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
+function renderMissions(missions) {
+  const body = document.getElementById('missionBody');
+  body.innerHTML = missions.map(m => {
+    const gc = m.gap < 0.01 ? 'gap-good' : m.gap < 2 ? 'gap-ok' : 'gap-bad';
+    const sc = m.status.includes('pend') ? 'bg-warn' : m.status === 'watch' ? 'bg-warn' :
+               m.status.includes('invest') ? 'bg-info' : 'bg-bad';
+    const gapStr = m.gap < 0.0001 ? m.gap.toExponential(1)+'%' : m.gap.toFixed(4).replace(/\.?0+$/,'')+'%';
+    return `<tr>
+      <td><code style="font-size:10px;color:var(--cyan)">${m.id}</code></td>
+      <td style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${m.topic}</td>
+      <td class="${gc}"><code style="font-size:10px">${gapStr}</code></td>
+      <td style="color:var(--muted)">${m.owner}</td>
+      <td><span class="badge ${sc}">${m.status}</span></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('q-count').textContent = missions.length + ' active';
+}
+
+function renderBreakthroughs(bts) {
+  document.getElementById('btFeed').innerHTML = bts.map(b => `
+    <div class="bt ${b.status}" onclick="askAbout('${b.id}')">
+      <div class="bt-top">
+        <div class="bt-id ${b.status==='pend'?'amber':b.status==='rej'?'dim':''}">${b.id}</div>
+        <div class="bt-tags">${b.tags.map(t=>`<span class="badge ${t.c}" style="font-size:8px">${t.l}</span>`).join('')}</div>
+      </div>
+      <div class="bt-formula">${formatFormulaHTML(b.formula)}</div>
+      ${b.diff ? `<div class="bt-diff">${escHtml(b.diff)}</div>` : ''}
+      ${b.note ? `<div class="fi-meta" style="margin-bottom:5px">${escHtml(b.note)}</div>` : ''}
+      <div class="bt-meta">structural <span>${b.gap}</span>${b.calGap ? ` &nbsp; calibrated <span>${b.calGap}</span>` : ''} &nbsp; LFI <span>${b.lfi}</span> &nbsp; iter <span>${b.iter}</span> &nbsp; <span>${b.agent}</span></div>
+    </div>`).join('');
+}
+
+function renderFindings(findings) {
+  const ts = new Date().toISOString().slice(11,19) + ' UTC';
+  document.getElementById('findingsTs').textContent = ts;
+  document.getElementById('latestFindings').innerHTML = findings.map(f => `
+    <div class="finding-item">
+      <div class="fi-dot" style="background:${f.color}"></div>
+      <div class="fi-body">
+        <div class="fi-title">${f.title}</div>
+        <div class="fi-meta">${f.meta}</div>
+      </div>
+    </div>`).join('');
+}
+
+function renderPeerReview(text) {
+  if (!text) return;
+  currentReviewText = text;
+  // Parse sections
+  const lines = text.split('\n');
+  const verdict = lines.find(l => l.startsWith('OVERALL VERDICT:'))?.replace('OVERALL VERDICT:','').trim() || '—';
+  const vColor = verdict.includes('PUBLISH') ? 'var(--green)' : verdict.includes('PROGRESS') ? 'var(--gold)' :
+                 verdict.includes('BLOCKED') ? 'var(--red)' : 'var(--muted)';
+  const findingLines = lines.filter(l => l.match(/^\[(OK|WARN|FAIL)\]/));
+  const obligations = lines.filter(l => l.match(/^\d+\. /));
+  const ts = new Date().toISOString().slice(0,19).replace('T',' ') + ' UTC';
+
+  const html = `
+    <div class="review-pane">
+      <div class="review-head">
+        <div class="review-title">PR-${Date.now().toString(36).toUpperCase()}</div>
+        <div class="review-ts">${ts}</div>
+      </div>
+      <div class="review-score">
+        <span class="score-chip" style="color:${vColor};border-color:${vColor};background:rgba(255,255,255,.04)">${verdict}</span>
+        <span class="score-chip" style="color:var(--muted);border-color:var(--line)">${findingLines.length} findings</span>
+        <span class="score-chip" style="color:var(--gold);border-color:rgba(245,200,66,.3)">${obligations.length} obligations</span>
+      </div>
+      ${findingLines.map(l => {
+        const type = l.startsWith('[OK]') ? 'ok' : l.startsWith('[WARN]') ? 'warn' : 'fail';
+        const icon = type==='ok'?'✓':type==='warn'?'⚠':'✗';
+        const content = l.replace(/^\[(OK|WARN|FAIL)\]\s*/,'');
+        return `<div class="finding-row ${type}"><div class="finding-icon">${icon}</div><div class="finding-text">${content}</div></div>`;
+      }).join('')}
+      ${obligations.length ? `<div style="font-size:10px;color:var(--dim);margin-top:8px;margin-bottom:4px">Open obligations</div>
+        ${obligations.map(o=>`<div class="finding-row warn"><div class="finding-icon">→</div><div class="finding-text">${o}</div></div>`).join('')}` : ''}
+      <div class="action-row">
+        <button class="topbtn" style="font-size:10px;padding:4px 8px" onclick="runObligations()">Run obligations</button>
+        <button class="topbtn" style="font-size:10px;padding:4px 8px" onclick="verifyPaper14Check()">Verify G-01 vs Paper 14</button>
+        <button class="topbtn" style="font-size:10px;padding:4px 8px" onclick="stageLiveRerunCommand()">Stage live Agent D rerun</button>
+        <button class="topbtn" style="font-size:10px;padding:4px 8px" onclick="exportReport()">Export summary</button>
+      </div>
+    </div>`;
+  document.getElementById('peerReviewPane').innerHTML = html;
+  // Push to history
+  reviewHistory.unshift({ ts, text, html });
+  document.getElementById('reviewHistory').innerHTML = reviewHistory.map(r =>
+    `<div style="margin-bottom:12px;border-bottom:1px solid var(--line);padding-bottom:12px">
+      <div style="font-size:9px;color:var(--dim);margin-bottom:6px">${r.ts}</div>
+      ${r.html}
+     </div>`).join('');
+  logEvent('CTRL','la-ok',`Peer review complete · ${findingLines.length} findings`);
+}
+
+// ─── LOG RENDER ───────────────────────────────────────────────────────────────
+function renderLog() {
+  const filterPatterns = AGENT_FILTERS[selectedAgent] || AGENT_FILTERS.ALL;
+  const sourceRows = rawStreamEnabled
+    ? shellFrames.map((frame, idx) => ({ ts: `raw-${idx}`, agent: 'RAW', cls: 'la-sys', msg: frame }))
+    : [...backendLog, ...eventLog];
+  const rows = selectedAgent === 'ALL'
+    ? sourceRows
+    : sourceRows.filter(e => filterPatterns.some(rx => rx.test(`${e.agent} ${e.msg}`)));
+  document.getElementById('logFilterLabel').textContent = `Filter: ${selectedAgent === 'ALL' ? 'all agents' : selectedAgent}`;
+  document.getElementById('logStream').innerHTML = rows.map(e =>
+    `<div class="log-entry"><span class="lt">${e.ts}</span><span class="${e.cls}">[${escHtml(e.agent)}]</span> <span class="lm">${escHtml(e.msg)}</span></div>`
+  ).join('') || '<div class="log-entry"><span class="lm">No log entries for the current filter.</span></div>';
+}
+
+// ─── CHAT ─────────────────────────────────────────────────────────────────────
+function appendChat(role, label, text, isCtrl) {
+  const box = document.getElementById('chatMessages');
+  const d = document.createElement('div');
+  d.className = 'chat-msg';
+  d.innerHTML = `<div class="chat-role ${role}">${label}</div><div class="chat-body ${isCtrl?'ctrl-style':''}">${text.replace(/\n/g,'<br>')}</div>`;
+  box.appendChild(d);
+  box.parentElement.scrollTop = box.parentElement.scrollHeight;
+}
+
+function showThinking() {
+  const box = document.getElementById('chatMessages');
+  const d = document.createElement('div');
+  d.className = 'chat-msg'; d.id = 'thinking-bubble';
+  d.innerHTML = `<div class="chat-role ctrl">CTRL-01</div><div class="thinking"><span></span><span></span><span></span></div>`;
+  box.appendChild(d);
+  box.parentElement.scrollTop = box.parentElement.scrollHeight;
+}
+function removeThinking() { document.getElementById('thinking-bubble')?.remove(); }
+
+async function sendChat() {
+  const inp = document.getElementById('chatInput');
+  const msg = inp.value.trim();
+  if (!msg) return;
+  const btn = document.getElementById('chatSendBtn');
+  btn.disabled = true;
+  inp.value = '';
+  appendChat('user','You', escHtml(msg), false);
+  logEvent('User','la-sys',`Chat: ${msg.slice(0,60)}`);
+  showThinking();
+  try {
+    const backendReply = await postBackend('/api/chat-ctrl', { message: msg });
+    const reply = backendReply?.reply || await callClaude(CTRL_SYSTEM, msg);
+    removeThinking();
+    appendChat('ctrl','CTRL-01 · Overseer', escHtml(reply), true);
+    logEvent('CTRL','la-ctrl', reply.slice(0,80)+'…');
+    document.getElementById('syncTs').textContent = new Date().toISOString().slice(11,19)+' UTC';
+    setMode(backendReply ? 'local' : 'live');
+  } catch(e) {
+    removeThinking();
+    const reply = buildLocalCtrlReply(msg);
+    appendChat('ctrl','CTRL-01 · Local', escHtml(reply), true);
+    logEvent('CTRL','la-ok','Local workspace reply generated without external API.');
+    setMode('local');
+  }
+  btn.disabled = false;
+}
+
+async function askAbout(id) {
+  document.getElementById('chatInput').value = `Show full report for ${id} and next recommended action`;
+  sendChat();
+  switchTab('chat');
+}
+
+// ─── DEPLOY MISSION ────────────────────────────────────────────────────────────
+function openModal() { document.getElementById('modalWrap').classList.add('show'); }
+function closeModal() { document.getElementById('modalWrap').classList.remove('show'); }
+
+async function deployMission() {
+  const topic   = document.getElementById('mTopic').value.trim();
+  const domain  = document.getElementById('mDomain').value;
+  const swarm   = document.getElementById('mSwarm').value;
+  const asr     = document.getElementById('mAsr').value;
+  const seed    = document.getElementById('mSeed').value.trim();
+  const notes   = document.getElementById('mNotes').value.trim();
+  if (!topic) { document.getElementById('mTopic').style.borderColor='var(--red)'; return; }
+
+  const btn = document.getElementById('launchBtn');
+  btn.textContent = 'Launching…'; btn.disabled = true;
+  closeModal();
+  switchTab('chat');
+
+  const userMsg = `NEW MISSION RECEIVED:
+Topic: ${topic}
+Domain: ${domain === 'auto' ? 'auto-detect' : domain}
+Swarm size: ${swarm}
+ASR threshold: ${asr}%
+Seed formula: ${seed || 'none — fresh start'}
+${notes ? 'Additional instructions: ' + notes : ''}
+
+Please produce the full FIELD AGENT SEED PROMPT for deployment, specify the agent pipeline, and set success criteria.`;
+
+  appendChat('user','Mission Control',`New mission: "${escHtml(topic)}"`,false);
+  logEvent('CTRL','la-ctrl',`New mission launched: ${topic}`);
+  showThinking();
+
+  try {
+    const backendReply = await postBackend('/api/deploy-field-agent', {
+      topic,
+      domain,
+      swarm_size: Number(swarm || 8),
+      asr_threshold: Number(asr || 1),
+      seed_formula: seed,
+      notes
+    });
+    const reply = backendReply?.seed_prompt || await callClaude(CTRL_SYSTEM, userMsg, 1000);
+    removeThinking();
+    appendChat('ctrl','CTRL-01 · Overseer', escHtml(reply), true);
+    document.getElementById('briefMeta').textContent = `Mission: ${topic.slice(0,30)} · ${backendReply?.mode || (directApiKey ? 'live_api' : 'local_workspace')}`;
+    document.getElementById('promptOutput').textContent = reply;
+    logEvent('CTRL','la-ok',`Brief generated for: ${topic.slice(0,50)}`);
+    document.getElementById('syncTs').textContent = new Date().toISOString().slice(11,19)+' UTC';
+    setMode(backendReply ? 'local' : 'live');
+    addMissionCard(topic);
+  } catch(e) {
+    removeThinking();
+    const reply = buildLocalMissionBrief(topic, domain, swarm, asr, seed, notes);
+    appendChat('ctrl','CTRL-01 · Local', escHtml(reply), true);
+    document.getElementById('briefMeta').textContent = `Mission: ${topic.slice(0,30)} · local_workspace`;
+    document.getElementById('promptOutput').textContent = reply;
+    logEvent('CTRL','la-ok',`Local brief generated for: ${topic.slice(0,50)}`);
+    setMode('local');
+    addMissionCard(topic);
+  }
+  btn.textContent = 'Launch mission'; btn.disabled = false;
+}
+
+function addMissionCard(topic) {
+  const newMission = { id:`M-${Date.now().toString(36).toUpperCase().slice(-4)}`, topic, gap:99, owner:'FIELD-D', status:'initializing' };
+  FALLBACK.missions.unshift(newMission);
+  renderMissions(FALLBACK.missions);
+  document.getElementById('ss-active').textContent = FALLBACK.missions.length;
+}
+
+// ─── PEER REVIEW ─────────────────────────────────────────────────────────────
+async function runPeerReview() {
+  const btn = document.querySelector('[onclick="runPeerReview()"]');
+  btn.textContent = 'Running…'; btn.disabled = true;
+  document.getElementById('peerReviewPane').innerHTML = '<div class="thinking" style="padding:12px 0"><span></span><span></span><span></span></div>';
+  logEvent('CTRL','la-ctrl','Peer review initiated');
+  switchTab('review');
+  try {
+    let reply;
+    try {
+      reply = await callClaude(buildReviewSystemPrompt(), 'Produce the full peer review now.', 1000);
+      setMode('live');
+    } catch (_) {
+      reply = buildLocalReviewReply();
+      setMode('local');
+    }
+    renderPeerReview(reply);
+    document.getElementById('syncTs').textContent = new Date().toISOString().slice(11,19)+' UTC';
+  } catch(e) {
+    document.getElementById('peerReviewPane').innerHTML = `<div style="color:var(--red);font-size:11px">Review error: ${escHtml(e.message)}</div>`;
+    logEvent('CTRL','la-err',`Peer review error: ${e.message}`);
+  }
+  btn.textContent = 'Run review ↗'; btn.disabled = false;
+}
+
+// ─── OBLIGATIONS BRIDGE ──────────────────────────────────────────────────────
+async function runObligations() {
+  const btn = document.getElementById('runObligationsBtn');
+  if (btn) { btn.disabled = true; btn.textContent = 'Running…'; }
+  try {
+    const result = await postBackend('/api/run-obligations', {});
+    const summary = result?.control_center?.report_status?.obligations_summary || result?.obligations?.results?.consolidated_verdict?.overall || 'Local obligations run completed.';
+    logEvent('Obligations Runner','la-field', summary);
+    await refreshAll();
+  } catch (e) {
+    logEvent('Obligations Runner','la-err', `Run failed: ${e.message}`);
+  }
+  if (btn) { btn.disabled = false; btn.textContent = 'Run Obligations'; }
+}
+
+// ─── REFRESH ─────────────────────────────────────────────────────────────────
+async function refreshAll() {
+  document.getElementById('syncTs').textContent = 'syncing…';
+  const backend = await probeBackend();
+  if (backend) {
+    setMode((backend.validation_mode || '').includes('live') ? 'live' : 'local');
+    applyIntegrityState(backend);
+    if (backend.mission_queue) {
+      renderMissions(backend.mission_queue.map(m => ({
+        id: m.id,
+        topic: m.topic,
+        gap: Number(m.gap_pct ?? 99),
+        owner: m.owner,
+        status: m.status
+      })));
+      document.getElementById('ss-active').textContent = backend.mission_queue.length;
+    }
+    if (backend.stats) {
+      document.getElementById('sv-bt').textContent   = backend.stats.breakthroughs;
+      document.getElementById('sv-iter').textContent = backend.stats.iterations?.toLocaleString() || '—';
+      const structuralGap = backend.report_status?.best_gap_pct ?? backend.stats.best_gap_pct;
+      const calibratedGap = backend.report_status?.calibrated_gap_pct ?? backend.stats.best_calibrated_gap_pct ?? structuralGap;
+      document.getElementById('sv-gap').textContent  = formatPct(structuralGap, 5, '—');
+      document.getElementById('sv-gap-cal').textContent = `calibrated ${formatPct(calibratedGap, 5, '—')}`;
+      document.getElementById('sv-lfi').textContent  = backend.stats.lfi ?? '—';
+      document.getElementById('sv-pslq').textContent = backend.stats.pslq_hits;
+      document.getElementById('ss-bt').textContent   = backend.stats.breakthroughs;
+      document.getElementById('ss-iter').textContent = backend.stats.iterations?.toLocaleString() || '—';
+    }
+    backendLog = (backend.agent_log || []).map(row => ({
+      ts: row.timestamp || '—',
+      agent: row.agent || 'agent',
+      cls: /judge/i.test(row.agent || '') ? 'la-judge' : /pslq/i.test(row.agent || '') ? 'la-pslq' : /obligation/i.test(row.agent || '') ? 'la-field' : 'la-field',
+      msg: row.message || ''
+    }));
+    const mergedFindings = [
+      ...(backend.warnings || []).slice(0, 3).map((w, i) => ({ color: i === 0 ? 'var(--gold)' : 'var(--red)', title: w, meta: `Backend · ${new Date().toISOString().slice(11,19)} UTC`, type: i === 0 ? 'warn' : 'fail' })),
+      ...FALLBACK.findings
+    ].slice(0, 5);
+    currentFindings = mergedFindings;
+    renderFindings(mergedFindings);
+  } else {
+    setMode('local');
+    applyIntegrityState({ validation_mode: 'dry_run', warnings: FALLBACK.findings.map(f => f.title) });
+    renderMissions(FALLBACK.missions);
+    currentFindings = FALLBACK.findings;
+    renderFindings(FALLBACK.findings);
+    logEvent('SYS','la-sys','Running from offline/local fallback state');
+  }
+  document.getElementById('syncTs').textContent = new Date().toISOString().slice(11,19)+' UTC';
+  renderBreakthroughs(deriveBreakthroughs(backend));
+  renderLog();
+}
+
+function setMode(m) {
+  const pill = document.getElementById('modePill');
+  pill.textContent = m === 'live' ? 'live API' : 'local';
+  pill.className = 'mode-pill ' + (m === 'live' ? 'live' : 'local');
+}
+
+// ─── TABS ────────────────────────────────────────────────────────────────────
+function switchTab(name) {
+  ['chat','log','review'].forEach(t => {
+    document.getElementById('panel-'+t).style.display = t===name?'block':'none';
+    document.getElementById('tab-'+t).classList.toggle('act',t===name);
+  });
+}
+function selectAgent(id) {
+  const next = selectedAgent === id ? 'ALL' : id;
+  selectedAgent = next;
+  document.querySelectorAll('.agent').forEach(a=>a.classList.remove('sel'));
+  if (selectedAgent !== 'ALL') {
+    document.getElementById('ag-'+id)?.classList.add('sel');
+    switchTab('log');
+  }
+  renderLog();
+}
+
+// ─── CLOCK ───────────────────────────────────────────────────────────────────
+function tickClock() {
+  document.getElementById('utcClock').textContent = new Date().toISOString().slice(11,19)+' UTC';
+}
+setInterval(tickClock,1000); tickClock();
+
+// ─── ITER TICKER ─────────────────────────────────────────────────────────────
+setInterval(()=>{
+  iterCount += Math.floor(Math.random()*3)+1;
+  document.getElementById('sv-iter').textContent = iterCount.toLocaleString();
+  document.getElementById('ss-iter').textContent = iterCount.toLocaleString();
+  document.querySelectorAll('.agent.run .prog-fill').forEach(f=>{
+    const w = parseFloat(f.style.width)||0;
+    if(w<97) f.style.width=(w+0.06)+'%';
+  });
+},3000);
+
+// ─── AUTO-POLL (backend only) ─────────────────────────────────────────────────
+function schedulePoll(delay = pollDelayMs) {
+  clearTimeout(pollTimer);
+  pollTimer = setTimeout(async () => {
+    await refreshAll();
+    schedulePoll(pollDelayMs);
+  }, delay);
+}
+
+// ─── BOOT ────────────────────────────────────────────────────────────────────
+appendChat('ctrl','CTRL-01 · Overseer',
+  'Mission Control v2 online in local-first mode.\n\nThis build can:\n• use the local SIARC backend on 8767 / 8766 / 8765\n• generate mission briefs without any API key\n• run peer review locally when no direct Anthropic key is configured\n• keep a live event log and backend poll cycle\n\nLaunch a mission or ask me anything.',
+  true);
+currentFindings = FALLBACK.findings;
+logEvent('SYS','la-sys','SIARC Control Center v2 boot');
+logEvent('SYS','la-sys',`Auto-probing backend: ${API_BASES.filter(Boolean).join(', ')}`);
+pushShellFrame('dashboard boot', { mode: 'local-first', api_bases: API_BASES.filter(Boolean) });
+refreshAll();
+schedulePoll();
+</script>
+</body>
+</html>

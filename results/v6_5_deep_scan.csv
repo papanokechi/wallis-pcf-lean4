@@ -1,0 +1,2 @@
+family,a1,a2,b1,b2,c_scale,bridge,best_zeta_label,best_zeta_digits,best_vquad_label,best_vquad_digits,stability_decay_rate,bayes_log10_evidence,intersection_score,near_miss_shift,pslq_relation,riccati_nullity,riccati_residual,casoratian_signature
+fixed_alpha,-14,0,-4,0,1,0,6*1/zeta3,300.0,-6/2*vquad/zeta3,2.775,0.0,0.184915,91.803563,"shift a1 by -1 (predicted Δscore≈0.544, decay→0.000)",,12,3.552713678800501e-15,++++++|log10|W|≈52.082

@@ -1,0 +1,21 @@
+{
+  "name": "claude-chat",
+  "displayName": "Claude Chat",
+  "description": "Claude web-style chat interface using VS Code Language Model API",
+  "version": "1.0.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "claude-chat.open",
+        "title": "Claude Chat: Open"
+      }
+    ]
+  }
+}

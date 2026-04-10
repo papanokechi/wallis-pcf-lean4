@@ -1,0 +1,5365 @@
+{
+  "timestamp": "2026-04-06T11:55:34.669159",
+  "precision": 80,
+  "elapsed_seconds": 8113.4,
+  "total_discoveries": 281,
+  "discoveries": [
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -2
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "1.44269504088896340735992468100189213742",
+      "matched_constant": "1/ln(2/1)",
+      "formula": "a(n)=-2n\u00b2, b(n)=3n+2",
+      "digits": 100,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=2"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        4
+      ],
+      "value": "2.46630346237643168600791006849073412068",
+      "matched_constant": "1/ln(3/2)",
+      "formula": "a(n)=-3n\u00b2, b(n)=4n+3",
+      "digits": 100,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=3"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -4
+      ],
+      "beta_coeffs": [
+        4,
+        5
+      ],
+      "value": "3.47605949678220691037649940164576636874",
+      "matched_constant": "1/ln(4/3)",
+      "formula": "a(n)=-4n\u00b2, b(n)=5n+4",
+      "digits": 100,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=4"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        5,
+        6
+      ],
+      "value": "4.48142011772454978689304724807839220158",
+      "matched_constant": "1/ln(5/4)",
+      "formula": "a(n)=-5n\u00b2, b(n)=6n+5",
+      "digits": 100,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=5"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -6
+      ],
+      "beta_coeffs": [
+        6,
+        7
+      ],
+      "value": "5.48481494774707713837756868930689503014",
+      "matched_constant": "1/ln(6/5)",
+      "formula": "a(n)=-6n\u00b2, b(n)=7n+6",
+      "digits": 99,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=6"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -7
+      ],
+      "beta_coeffs": [
+        7,
+        8
+      ],
+      "value": "6.48715919463088245606573699414319842488",
+      "matched_constant": "1/ln(7/6)",
+      "formula": "a(n)=-7n\u00b2, b(n)=8n+7",
+      "digits": 99,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=7"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -8
+      ],
+      "beta_coeffs": [
+        8,
+        9
+      ],
+      "value": "7.48887568941861783353087684785341732444",
+      "matched_constant": "1/ln(8/7)",
+      "formula": "a(n)=-8n\u00b2, b(n)=9n+8",
+      "digits": 99,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=8"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -9
+      ],
+      "beta_coeffs": [
+        9,
+        10
+      ],
+      "value": "8.49018701570376172554858928051159783228",
+      "matched_constant": "1/ln(9/8)",
+      "formula": "a(n)=-9n\u00b2, b(n)=10n+9",
+      "digits": 100,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=9"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -10
+      ],
+      "beta_coeffs": [
+        10,
+        11
+      ],
+      "value": "9.49122158102990302600993268648718259728",
+      "matched_constant": "1/ln(10/9)",
+      "formula": "a(n)=-10n\u00b2, b(n)=11n+10",
+      "digits": 99,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=10"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -11
+      ],
+      "beta_coeffs": [
+        11,
+        12
+      ],
+      "value": "10.4920586872570700428442705672365065451",
+      "matched_constant": "1/ln(11/10)",
+      "formula": "a(n)=-11n\u00b2, b(n)=12n+11",
+      "digits": 99,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=11"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -12
+      ],
+      "beta_coeffs": [
+        12,
+        13
+      ],
+      "value": "11.4927499666989812668987996837079984500",
+      "matched_constant": "1/ln(12/11)",
+      "formula": "a(n)=-12n\u00b2, b(n)=13n+12",
+      "digits": 99,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=12"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -13
+      ],
+      "beta_coeffs": [
+        13,
+        14
+      ],
+      "value": "12.4933304865024971917287475617817696898",
+      "matched_constant": "1/ln(13/12)",
+      "formula": "a(n)=-13n\u00b2, b(n)=14n+13",
+      "digits": 99,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=13"
+    },
+    {
+      "part": "A",
+      "family": "log_ladder",
+      "alpha_coeffs": [
+        0,
+        0,
+        -14
+      ],
+      "beta_coeffs": [
+        14,
+        15
+      ],
+      "value": "13.4938249008582219535975403241624403136",
+      "matched_constant": "1/ln(14/13)",
+      "formula": "a(n)=-14n\u00b2, b(n)=15n+14",
+      "digits": 98,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Logarithmic ladder k=14"
+    },
+    {
+      "part": "A",
+      "family": "pi_d3",
+      "alpha_coeffs": [
+        0,
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "0.63661977236758134307553505349005744813",
+      "matched_constant": "1/pi / (1/2)",
+      "formula": "a(n)=-n(2n-1), b(n)=3n+1",
+      "digits": 80,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Pi family d=3, m=0"
+    },
+    {
+      "part": "A",
+      "family": "pi_d3",
+      "alpha_coeffs": [
+        0,
+        3,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "1.27323954473516268615107010698011489627",
+      "matched_constant": "1/pi / (1/4)",
+      "formula": "a(n)=-n(2n-3), b(n)=3n+1",
+      "digits": 80,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Pi family d=3, m=1"
+    },
+    {
+      "part": "A",
+      "family": "pi_d3",
+      "alpha_coeffs": [
+        0,
+        5,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "1.69765272631355024820142680930681986170",
+      "matched_constant": "4/pi / (3/4)",
+      "formula": "a(n)=-n(2n-5), b(n)=3n+1",
+      "digits": 80,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Pi family d=3, m=2"
+    },
+    {
+      "part": "A",
+      "family": "pi_d3",
+      "alpha_coeffs": [
+        0,
+        7,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "2.03718327157626029784171217116818383404",
+      "matched_constant": "4/pi / (5/8)",
+      "formula": "a(n)=-n(2n-7), b(n)=3n+1",
+      "digits": 80,
+      "convergence": "polynomial",
+      "factorial_reduction": false,
+      "notes": "Pi family d=3, m=3"
+    },
+    {
+      "part": "A",
+      "family": "d4_search",
+      "alpha_coeffs": [
+        0,
+        0,
+        4
+      ],
+      "beta_coeffs": [
+        2,
+        4
+      ],
+      "value": "2.54647908947032537230214021396022979255",
+      "matched_constant": "1/pi / (1/8)",
+      "formula": "a(n)=4n\u00b2+0n, b(n)=4n+2",
+      "digits": 80,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "d=4 family search hit"
+    },
+    {
+      "part": "B",
+      "family": "heegner_D3",
+      "alpha_coeffs": [
+        0,
+        -1
+      ],
+      "beta_coeffs": [
+        -3,
+        -1
+      ],
+      "value": "-2.7182818284590452353602874713526624977",
+      "matched_constant": "-12/12 * e",
+      "formula": "a(n)=-1n+0, b(n)=-1n+-3 [D=-3]",
+      "digits": 80,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "Heegner disc D=-3"
+    },
+    {
+      "part": "B",
+      "family": "heegner_D3",
+      "alpha_coeffs": [
+        0,
+        -1
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "2.71828182845904523536028747135266249775",
+      "matched_constant": "1 * e",
+      "formula": "a(n)=-1n+0, b(n)=1n+3 [D=-3]",
+      "digits": 80,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "Heegner disc D=-3"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "9.191230380296184475679662191402414358822142687064",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+0, b(n)=-3n+1 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "3.867007328897139631000675185931853048459372695823",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=-3n+1 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "-0.18297759337415362357279165800299409603377380018",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=-3n+2 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "0.190943063501446626834415166278545952488411272359",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=-3n+2 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "2.518004137651577414089799412130646660319952743429",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+0, b(n)=-3n+3 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "2.625564859597019588084225057607445991187572504604",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=-3n+3 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        0,
+        -1
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "1.581976706869326424385002005109011558546869301075",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-1n+0, b(n)=1n+2 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        -1,
+        -1
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "2.392211191177332814376552878479816528373978385315",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-1n+-1, b(n)=1n+3 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "0.371657530934776081424154806197837446009633739758",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=3n+1 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-0.42396544122239793077919770140675523830524168386",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=3n+1 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "1.278116524465682074702671674482456191721047198664",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+0, b(n)=3n+2 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "1.535616536969198857727029466518795492574759879373",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=3n+2 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "2.430486510269200015488589922807637524968034215226",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+0, b(n)=3n+3 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "2.629400759671847774976556569603612244287983028141",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=3n+3 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D3",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "2.221107010123843612040910555722067799823150521106",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=3n+3 [D=-3]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        -4
+      ],
+      "value": "5.321973752333793639536596033297256672064118667148",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=-4n+1 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        -4
+      ],
+      "value": "3.906431451530704201177735457069612392551182044780",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=-4n+1 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        -4
+      ],
+      "value": "7.472572974106054532572947270295491942634343044467",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=-4n+1 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        -4
+      ],
+      "value": "-11.4028626776987972071631967906694548323531724460",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=-4n+2 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        -4
+      ],
+      "value": "-56.1284887949045745017134707795195176644480997970",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=-4n+2 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        -4
+      ],
+      "value": "-6.57507536595793319399112105836231101503382966155",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=-4n+2 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        -4
+      ],
+      "value": "0.928822436292084764056579566209912001541683182358",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=-4n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        -4
+      ],
+      "value": "0.905610617101041232758585396455017176488991958104",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=-4n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        -4
+      ],
+      "value": "0.990049021862667390270443281555999655081688508746",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=-4n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        -2
+      ],
+      "value": "-0.28319234169228049286689887344036139573539496537",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=-2n+1 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        -1,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        -2
+      ],
+      "value": "0.313949747123112928075153455519715155994353264029",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+-1, b(n)=-2n+1 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        0,
+        -2
+      ],
+      "beta_coeffs": [
+        2,
+        -2
+      ],
+      "value": "2.352532405988150807058791948738036244889408608573",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+0, b(n)=-2n+2 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        3,
+        -2
+      ],
+      "value": "-0.18522314212235327076271359076510392410732854340",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=-2n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        -1,
+        -2
+      ],
+      "beta_coeffs": [
+        3,
+        -2
+      ],
+      "value": "0.194679430512865845221835210932731007107675057712",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+-1, b(n)=-2n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        2
+      ],
+      "value": "0.562016750958962357308282181493428281335215578656",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=2n+1 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        -1,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        2
+      ],
+      "value": "-0.77930639663980147122766473354774884786168369844",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+-1, b(n)=2n+1 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        0,
+        -2
+      ],
+      "beta_coeffs": [
+        2,
+        2
+      ],
+      "value": "1.379731954740995632802106253634755381612594160359",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+0, b(n)=2n+2 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        2,
+        2
+      ],
+      "value": "1.708874905227206788808989503251915442466591907465",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=2n+2 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        0,
+        -2
+      ],
+      "beta_coeffs": [
+        3,
+        2
+      ],
+      "value": "2.541494082536798284131103444472514638340459236841",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+0, b(n)=2n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        3,
+        2
+      ],
+      "value": "2.779306396639801471227664733547748847861683698446",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=2n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        -1,
+        -2
+      ],
+      "beta_coeffs": [
+        3,
+        2
+      ],
+      "value": "2.283192341692280492866898873440361395735394965372",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+-1, b(n)=2n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        4
+      ],
+      "value": "-0.34958324964380431905780132958156597622860934515",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=4n+1 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        4
+      ],
+      "value": "-0.03947305659183464380918354428454444152808510319",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=4n+1 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        4
+      ],
+      "value": "-0.68637881131784063423321332110074453152829809078",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=4n+1 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        4
+      ],
+      "value": "0.972750421582603167876890260432108701141457258109",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=4n+2 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        4
+      ],
+      "value": "1.198424083162877643970127802021338210615428965878",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=4n+2 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        4
+      ],
+      "value": "0.734736776926859506591134731349328058805848119590",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=4n+2 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        4
+      ],
+      "value": "2.165535166230938611463771565438243501977088324030",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=4n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        4
+      ],
+      "value": "2.344219744695787585886834513327595725678909373802",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=4n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D4",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        4
+      ],
+      "value": "1.980004160574239541487351227400255347106611013958",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=4n+3 [D=-4]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        0,
+        -4
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "-5.83240976021689944697523209845673807009535379865",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+0, b(n)=-3n+1 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -4
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "-22.0449613930607731047455253713237721401362658432",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+1, b(n)=-3n+1 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -4
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "-3.50487113504268403970079348514416031398744839896",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+-1, b(n)=-3n+1 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        0,
+        -4
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "0.978732560919436422742882260373581753313214854455",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+0, b(n)=-3n+2 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -4
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "0.894644335672716293830000485727340443778903065234",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+1, b(n)=-3n+2 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -4
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "1.115814037779067564249002220622384077161166285918",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+-1, b(n)=-3n+2 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        0,
+        -4
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "3.110032197302794343811383686241811026286085164866",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+0, b(n)=-3n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -4
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "2.922305621837348726160342998476996005045080682272",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+1, b(n)=-3n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -4
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "3.371041005779807045646176310339384191981766116731",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+-1, b(n)=-3n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "-0.36303624396306111655560293220754201988951853870",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=-1n+1 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "0.439326867993394596403245579372802323090779646349",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+-1, b(n)=-1n+1 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "-0.27620952155158259649310472538012139052801414180",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=-1n+2 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -2
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "0.310457561842273400117615921812445124455906491637",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+-1, b(n)=-1n+2 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "-0.22105215948338087238836334920147824437266989567",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=-1n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -2
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "0.239038283296142054936433487483386349697423248701",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+-1, b(n)=-1n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "0.806325641513043145219511274861460476835013878982",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=1n+1 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "-1.94837486112981988526900059819900856535679828896",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+-1, b(n)=1n+1 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "1.446389965896534507047681795192642669776253147400",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=1n+2 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -2
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "5.163306117610534135342367268671688693988601732430",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+-1, b(n)=1n+2 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        0,
+        -2
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "2.313035285499331303636161246930847832912013941240",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+0, b(n)=1n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "2.691376477698500300631035190239149995203972404709",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+1, b(n)=1n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -2
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "1.806325641513043145219511274861460476835013878982",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-2n+-1, b(n)=1n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        0,
+        -4
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-0.55422420784935944529080439052366383816480799985",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+0, b(n)=3n+1 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -4
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-0.07908311162895066799463031170118498028427133694",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+1, b(n)=3n+1 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -4
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-1.12186263964403521769403918681793727061701707932",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+-1, b(n)=3n+1 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        0,
+        -4
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "0.952337865380337948116605266488533861322676471951",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+0, b(n)=3n+2 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -4
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "1.246735352022301156211241030467061472156056024490",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+1, b(n)=3n+2 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -4
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "0.629159450184859558877241121799994993496115745217",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+-1, b(n)=3n+2 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        0,
+        -4
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "2.197827597965937902369223442317060248865538430638",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+0, b(n)=3n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        1,
+        -4
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "2.414540980621525619851479634405133575410684232179",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+1, b(n)=3n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D7",
+      "alpha_coeffs": [
+        -1,
+        -4
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "1.968007340867517175272146493649451437639366427104",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-4n+-1, b(n)=3n+3 [D=-7]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -6
+      ],
+      "beta_coeffs": [
+        1,
+        -4
+      ],
+      "value": "10.68071822557545371821690808697346189156671766540",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+0, b(n)=-4n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -6
+      ],
+      "beta_coeffs": [
+        1,
+        -4
+      ],
+      "value": "6.739764771499722587526460602376133281593715731090",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+1, b(n)=-4n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -6
+      ],
+      "beta_coeffs": [
+        1,
+        -4
+      ],
+      "value": "20.75774216147026474059455199335840283939530320567",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+-1, b(n)=-4n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -6
+      ],
+      "beta_coeffs": [
+        2,
+        -4
+      ],
+      "value": "-3.02483847392471232985774375846557057612601683499",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+0, b(n)=-4n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -6
+      ],
+      "beta_coeffs": [
+        2,
+        -4
+      ],
+      "value": "-4.12491753500025361262341801801252257942454598677",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+1, b(n)=-4n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -6
+      ],
+      "beta_coeffs": [
+        2,
+        -4
+      ],
+      "value": "-2.35655592524236495443593854913132372270572401097",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+-1, b(n)=-4n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -6
+      ],
+      "beta_coeffs": [
+        3,
+        -4
+      ],
+      "value": "1.530144110042237446422933708497531870066575010682",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+0, b(n)=-4n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -6
+      ],
+      "beta_coeffs": [
+        3,
+        -4
+      ],
+      "value": "1.494603211729550376711370319708986077662534983062",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+1, b(n)=-4n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -6
+      ],
+      "beta_coeffs": [
+        3,
+        -4
+      ],
+      "value": "1.596901318581640820863230271541459833403298399768",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+-1, b(n)=-4n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        -2
+      ],
+      "value": "1.252869192806242088439249482603038725414922297441",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+0, b(n)=-2n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        -2
+      ],
+      "value": "0.932907841363466958322793649119130025355953691844",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=-2n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        -2
+      ],
+      "value": "1.706422469389552211433047721385172510429831102838",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=-2n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        -2
+      ],
+      "value": "11.03618448383650510415759261628907430519945651621",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+0, b(n)=-2n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        -2
+      ],
+      "value": "4.530589755948903177927424623652394382560707727710",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=-2n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        -2
+      ],
+      "value": "-33.8454047412621760990386552269910652164207309820",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=-2n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        -2
+      ],
+      "value": "2.048012808730977027082450111752062270818534663551",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+0, b(n)=-2n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        -2
+      ],
+      "value": "2.136573033207231794538917633861846386864683793145",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=-2n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        -2
+      ],
+      "value": "2.082976019540099173586118570528809031692739799433",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=-2n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        2
+      ],
+      "value": "-1.50690190505204075726843498427424348910547112441",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+0, b(n)=2n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        2
+      ],
+      "value": "-0.25484255016161259731161463205018720018151393815",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=2n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        2
+      ],
+      "value": "-4.48555253491884112659726898555743560474367218008",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=2n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        2
+      ],
+      "value": "0.891338996902821837647340153375644663700042435408",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+0, b(n)=2n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        2
+      ],
+      "value": "1.324533140726995348953671339513231338227402317762",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=2n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        2
+      ],
+      "value": "0.352661792468125968893436424149657963764433566511",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=2n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        2
+      ],
+      "value": "2.244859053535346097886040680881148818841807240231",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+0, b(n)=2n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        2
+      ],
+      "value": "2.519752816668654782131467294120902666585052705478",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=2n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        2
+      ],
+      "value": "1.939085919622844895849200541183702678461114610909",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=2n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -6
+      ],
+      "beta_coeffs": [
+        1,
+        4
+      ],
+      "value": "-0.77283755512325510665184165784965855742858609379",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+0, b(n)=4n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -6
+      ],
+      "beta_coeffs": [
+        1,
+        4
+      ],
+      "value": "-0.41322491008217882070946445185284386959409632159",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+1, b(n)=4n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -6
+      ],
+      "beta_coeffs": [
+        1,
+        4
+      ],
+      "value": "-1.16956133789210471210441168698772406934747691899",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+-1, b(n)=4n+1 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -6
+      ],
+      "beta_coeffs": [
+        2,
+        4
+      ],
+      "value": "0.695382380578364370109054814193585288330097638857",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+0, b(n)=4n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -6
+      ],
+      "beta_coeffs": [
+        2,
+        4
+      ],
+      "value": "0.942616922676022273778530634558284083934231143596",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+1, b(n)=4n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -6
+      ],
+      "beta_coeffs": [
+        2,
+        4
+      ],
+      "value": "0.432819889406015884477198230103055246635070497139",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+-1, b(n)=4n+2 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        0,
+        -6
+      ],
+      "beta_coeffs": [
+        3,
+        4
+      ],
+      "value": "1.958394959537457350344355740687592814033253535655",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+0, b(n)=4n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        1,
+        -6
+      ],
+      "beta_coeffs": [
+        3,
+        4
+      ],
+      "value": "2.148620890122460402524130505899230679871226202211",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+1, b(n)=4n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D8",
+      "alpha_coeffs": [
+        -1,
+        -6
+      ],
+      "beta_coeffs": [
+        3,
+        4
+      ],
+      "value": "1.760163603910676029964491848989701461556373500222",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-6n+-1, b(n)=4n+3 [D=-8]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "-1.29783169982041673513782336297788879901352369210",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=-3n+1 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "-1.79728647956448147808581079953725809605864945724",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=-3n+1 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "-0.92939298887336260582149468934612140389923315181",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=-3n+1 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "1.685522988554240060347386845457558905264044693731",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=-3n+2 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "1.537125474479879103514598436679143511532483015672",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=-3n+2 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "1.878278586070547889385729903326665848125520203763",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=-3n+2 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "4.103895996818215082284028023638774243035920300066",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=-3n+3 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "3.677916960056677112735776330191682671215459694827",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=-3n+3 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "4.648466114708786830821624857686632429277902956589",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=-3n+3 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "-0.34058046733940335408912050164239754604079048937",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=-1n+1 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "0.399071951800199486897741065832865918528408345572",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=-1n+1 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "-0.26430667597368637616125158526292275517706558378",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=-1n+2 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "0.292832800574827484056956298711904280761649307072",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=-1n+2 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "-0.21414683096857360968255315513163153171456284502",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=-1n+3 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "0.229892268844265797473179653502848021378592650734",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=-1n+3 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "0.691715130661230966212494816769618303871995523846",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=1n+1 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "-1.18441633043511024334296124271385267172299175940",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=1n+1 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "1.142448306269419639973241857135340649407928317597",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=1n+2 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "-5.58281039851431640491779631901471959863284521953",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=1n+2 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "2.066488561638838587517437755765147421809291721598",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+1, b(n)=1n+3 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -3
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "3.872826857793799312310933725644879822378722872638",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-3n+-1, b(n)=1n+3 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-1.41797135258774286984495655600033267825113619394",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=3n+1 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-0.73343300262529147760292838014383113201766055719",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=3n+1 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-2.30960178885825654869206855868019335531819941070",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=3n+1 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "0.545605681495259423322916364006903641704765443300",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=3n+2 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "0.895053629609470026802595656929837858980679718613",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=3n+2 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "0.152663850818819280147962296078526002442215005172",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=3n+2 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        0,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "1.931540408714287459453240113748182397716816527798",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+0, b(n)=3n+3 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "2.171492860920546545247929107554445461360999774872",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=3n+3 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D11",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "1.674554332014229387262084530014350023874465121013",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=3n+3 [D=-11]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        0,
+        -7
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "0.869232274138886258195778006004395337539175779177",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+0, b(n)=-3n+1 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -7
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "0.665277571066583286207755847642966922398307996409",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+1, b(n)=-3n+1 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -7
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "1.098444500747758197555094828926471272140359766020",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+-1, b(n)=-3n+1 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        0,
+        -7
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "3.547419033621151832529321014059455063947092090339",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+0, b(n)=-3n+2 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -7
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "3.110038527160943626295402751902744019007789426274",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+1, b(n)=-3n+2 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -7
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "4.075024454275585116240071583879853118388759322319",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+-1, b(n)=-3n+2 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        0,
+        -7
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "50.40394926108147442520429111857540369218158197772",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+0, b(n)=-3n+3 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -7
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "16.71171925132457343435880134188771579548188098465",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+1, b(n)=-3n+3 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -7
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "-52.3476935145368404651583347078803492741166993295",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+-1, b(n)=-3n+3 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "-0.30738402166182791405005140441500447722031109877",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=-1n+1 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "0.346550220398839583196601009280016929774535837371",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=-1n+1 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "-0.24542561269644965330236900613661565724905201553",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=-1n+2 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "0.266686271336568880311026853121038813816906513911",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=-1n+2 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "-0.20262694893243022591923740231662633842480144984",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=-1n+3 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "0.215218851531267728820923899375135984032362533012",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=-1n+3 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "0.557377285403389150422011809276344828840113051368",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=1n+1 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "-0.75651400876932176500913539638113752973655400639",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=1n+1 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "0.830935467894174006192842847741887584187529521701",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=1n+2 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "-1.47451540002858307862512200701745868965335253136",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=1n+2 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "1.345540112244266900960978956200159512131232081441",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+1, b(n)=1n+3 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -5
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "-5.48847035250293105072503020400942767662691892794",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-5n+-1, b(n)=1n+3 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        0,
+        -7
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-10.5320784740533176399998613020218598369722467633",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+0, b(n)=3n+1 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -7
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-5.11467598146069266804739261374644495204739371449",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+1, b(n)=3n+1 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -7
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-40.6814912117690504103240985041311457377855379166",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+-1, b(n)=3n+1 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        0,
+        -7
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "-0.82310286426338950111628587714240652029183370612",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+0, b(n)=3n+2 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -7
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "-0.20701004090688656166001973204037958864746442320",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+1, b(n)=3n+2 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -7
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "-1.59427937374822652187478400290523446771579644645",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+-1, b(n)=3n+2 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        0,
+        -7
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "1.231838183393827557904744502931677031039839328372",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+0, b(n)=3n+3 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        1,
+        -7
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "1.549822330747625121101737127085386923691066250135",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+1, b(n)=3n+3 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D19",
+      "alpha_coeffs": [
+        -1,
+        -7
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "0.879781451584865451548702102024073151553151454291",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-7n+-1, b(n)=3n+3 [D=-19]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        0,
+        -13
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "-4.56314501203696965062925878597002566945400520331",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+0, b(n)=-3n+1 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -13
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "-5.42068519666867456015124299089161344459755632195",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+1, b(n)=-3n+1 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -13
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "-3.91274079423252568275685605551160346868580899460",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+-1, b(n)=-3n+1 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        0,
+        -13
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "1.213657719348892052273314404728449899780812504101",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+0, b(n)=-3n+2 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -13
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "1.067339110897668339531570153375491323858877649091",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+1, b(n)=-3n+2 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -13
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "1.372600061798892877118389460992117103854394651923",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+-1, b(n)=-3n+2 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        0,
+        -13
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "4.691654728199626168735019772981598073396066142325",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+0, b(n)=-3n+3 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -13
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "4.360516777505150831099438032446757742519338417280",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+1, b(n)=-3n+3 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -13
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "5.065534224938754618421769786809754972442828388285",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+-1, b(n)=-3n+3 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -11
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "-0.24983698434926372170235339006512260608650946864",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+1, b(n)=-1n+1 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -11
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "0.268331894944407180713395924875372847004858684003",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+-1, b(n)=-1n+1 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -11
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "-0.20910201950126968490215177565696154185095416275",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+1, b(n)=-1n+2 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -11
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "0.220823690451795088947514060203525692488865512151",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+-1, b(n)=-1n+2 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -11
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "-0.17861611484984999528181117357488957931955491320",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+1, b(n)=-1n+3 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -11
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "0.186397338022955589577892723994370514663409244996",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+-1, b(n)=-1n+3 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -11
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "0.386147992420707605545943767318828371604548033913",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+1, b(n)=1n+1 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -11
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "-0.44125726848521159425250649610431149223442079197",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+-1, b(n)=1n+1 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -11
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "0.505252565287654343686273439012861777650869960481",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+1, b(n)=1n+2 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -11
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "-0.61240584852623837254568204480047416562048314749",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+-1, b(n)=1n+2 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -11
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "0.689910991120070452036054608577209601016995676075",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+1, b(n)=1n+3 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -11
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "-0.92236989464127430879105068306827777768769513454",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-11n+-1, b(n)=1n+3 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        0,
+        -13
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-1.02724935074916803972741180526061522698394896148",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+0, b(n)=3n+1 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -13
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-0.68840488502216886050680971929401504150950895176",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+1, b(n)=3n+1 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -13
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-1.40058600630616448571153615807230443340397696058",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+-1, b(n)=3n+1 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        0,
+        -13
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "1.998046951190863481306738682491271539915953331080",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+0, b(n)=3n+2 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -13
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "2.277254384852389742883086853734672847241313512000",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+1, b(n)=3n+2 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -13
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "1.725619964561256108344791957204826817203771443570",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+-1, b(n)=3n+2 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        0,
+        -13
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "9.917434448842423254926692929016230950591184169279",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+0, b(n)=3n+3 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        1,
+        -13
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "14.87516390170607465051476290513718681459837467254",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+1, b(n)=3n+3 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D43",
+      "alpha_coeffs": [
+        -1,
+        -13
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "7.751016301058022146328375983463977422677427871801",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-13n+-1, b(n)=3n+3 [D=-43]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        0,
+        -19
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "7.398684455982985341027018089703933644636491121083",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+0, b(n)=-3n+1 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -19
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "6.496624361502779517311422361712852287935563762671",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+1, b(n)=-3n+1 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -19
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "8.482563352915246642186760639531569897260102486561",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+-1, b(n)=-3n+1 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        0,
+        -19
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "-7.02227822515775989231810136410734764981480836577",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+0, b(n)=-3n+2 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -19
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "-8.11789441834208835164885568710042234452083688702",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+1, b(n)=-3n+2 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -19
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "-6.16632902238135690952540381740686212305104473866",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+-1, b(n)=-3n+2 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        0,
+        -19
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "1.522617356716784108476102379513843359334497362225",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+0, b(n)=-3n+3 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -19
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "1.410816603608189183991122905930932908759725378653",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+1, b(n)=-3n+3 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -19
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "1.642302301194646181567055173484815656401020979078",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+-1, b(n)=-3n+3 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -17
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "-0.21763922015393143026999209959509872164346906985",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+1, b(n)=-1n+1 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -17
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "0.229175507301594151192250130144070658025243915136",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+-1, b(n)=-1n+1 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -17
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "-0.18681192855117809012345808410890274234717392255",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+1, b(n)=-1n+2 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -17
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "0.194689214078105318843600077830930418552074317038",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+-1, b(n)=-1n+2 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -17
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "-0.16274358910372762664777209297761786704070142613",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+1, b(n)=-1n+3 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -17
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "0.168295236135633572131963799682152842288994197123",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+-1, b(n)=-1n+3 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -17
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "0.312072064301696598897888351532864365356595041299",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+1, b(n)=1n+1 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -17
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "-0.33983787439293505087759224704526793813151406206",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+-1, b(n)=1n+1 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -17
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "0.386537349042711118426733189534953393499667226787",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+1, b(n)=1n+2 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -17
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "-0.43276971274760519385543872425300761120921920020",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+-1, b(n)=1n+2 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -17
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "0.492062298487003950933603603264886655714555076614",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+1, b(n)=1n+3 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -17
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "-0.57369073955139374344308766512475279053936264111",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-17n+-1, b(n)=1n+3 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        0,
+        -19
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "2.896298111600754972414916841100597694572623607638",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+0, b(n)=3n+1 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -19
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "3.185982961717169991668131074382994452863358483670",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+1, b(n)=3n+1 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -19
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "2.624434708077927231254099417197191829486336824763",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+-1, b(n)=3n+1 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -19
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "-47.9799894281293341490282374640108407332652449372",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+1, b(n)=3n+2 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -19
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "47.61701339392259782133369877878788496638824988104",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+-1, b(n)=3n+2 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        0,
+        -19
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "-1.53357061364918869953449130244967558101542414474",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+0, b(n)=3n+3 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        1,
+        -19
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "-1.00219702486084371412144200546041174174057249249",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+1, b(n)=3n+3 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D67",
+      "alpha_coeffs": [
+        -1,
+        -19
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "-2.14156794115420687841722818566166552241977054959",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-19n+-1, b(n)=3n+3 [D=-67]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        0,
+        -43
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "1.861198248445128650865221701431561386166162105576",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+0, b(n)=-3n+1 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -43
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "1.707137903574449856859753318044158170524706038453",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+1, b(n)=-3n+1 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -43
+      ],
+      "beta_coeffs": [
+        1,
+        -3
+      ],
+      "value": "2.020057856759693248143584192142033659392352358205",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+-1, b(n)=-3n+1 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        0,
+        -43
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "10.96330542274258298150536755858205119323348409619",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+0, b(n)=-3n+2 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -43
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "10.31005067341476402453114647240680757376875397450",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+1, b(n)=-3n+2 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -43
+      ],
+      "beta_coeffs": [
+        2,
+        -3
+      ],
+      "value": "11.67856987642903673887151063110576207424013360974",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+-1, b(n)=-3n+2 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        0,
+        -43
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "-9.21287756771585468658512190791655309648102532523",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+0, b(n)=-3n+3 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -43
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "-9.82056905634688419449956254046204844933735175020",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+1, b(n)=-3n+3 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -43
+      ],
+      "beta_coeffs": [
+        3,
+        -3
+      ],
+      "value": "-8.66499342055993454587840137328302460746667841007",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+-1, b(n)=-3n+3 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -41
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "-0.15790642237213692601702952091382481871137501841",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+1, b(n)=-1n+1 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -41
+      ],
+      "beta_coeffs": [
+        1,
+        -1
+      ],
+      "value": "0.161939950027884878235334133967564982267605949018",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+-1, b(n)=-1n+1 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -41
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "-0.14176492081624023403489672694735093414945138866",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+1, b(n)=-1n+2 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -41
+      ],
+      "beta_coeffs": [
+        2,
+        -1
+      ],
+      "value": "0.144876987295517637209164875646436772397200163948",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+-1, b(n)=-1n+2 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -41
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "-0.12819096335815602046479967843685835047245425027",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+1, b(n)=-1n+3 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -41
+      ],
+      "beta_coeffs": [
+        3,
+        -1
+      ],
+      "value": "0.130625920759522764975477377314782046140884163849",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+-1, b(n)=-1n+3 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -41
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "0.200811623872331944209965775569363011854657556925",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+1, b(n)=1n+1 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -41
+      ],
+      "beta_coeffs": [
+        1,
+        1
+      ],
+      "value": "-0.20791401629891290228271457355818537681154862067",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+-1, b(n)=1n+1 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -41
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "0.229678859848755882573560232156734307499515691730",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+1, b(n)=1n+2 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -41
+      ],
+      "beta_coeffs": [
+        2,
+        1
+      ],
+      "value": "-0.23935600340622182123721263910503019881862210072",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+-1, b(n)=1n+2 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -41
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "0.265534502360164151416958640711724253527259800207",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+1, b(n)=1n+3 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -41
+      ],
+      "beta_coeffs": [
+        3,
+        1
+      ],
+      "value": "-0.27898391318279891746853112007521514064805309083",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-41n+-1, b(n)=1n+3 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        0,
+        -43
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-29.2625501534913799488399819292045501795300368299",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+0, b(n)=3n+1 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -43
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-24.3683388731413027132830701321012396651802941167",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+1, b(n)=3n+1 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -43
+      ],
+      "beta_coeffs": [
+        1,
+        3
+      ],
+      "value": "-36.1764537456162017273426416694485279267322188443",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+-1, b(n)=3n+1 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        0,
+        -43
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "-1.98017424307926998026695420496469519253041355010",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+0, b(n)=3n+2 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -43
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "-1.72234258189527032227448661932528084651188217508",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+1, b(n)=3n+2 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -43
+      ],
+      "beta_coeffs": [
+        2,
+        3
+      ],
+      "value": "-2.24994687943351496107814194368303261872492473338",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+-1, b(n)=3n+2 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        0,
+        -43
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "3.692802327794376158190803204037659883037943940070",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+0, b(n)=3n+3 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        1,
+        -43
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "3.877956530532657862104097025394683500129363450066",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+1, b(n)=3n+3 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    },
+    {
+      "part": "B",
+      "family": "NEW_heegner_D163",
+      "alpha_coeffs": [
+        -1,
+        -43
+      ],
+      "beta_coeffs": [
+        3,
+        3
+      ],
+      "value": "3.508873552712332757806802259735967378463012568199",
+      "matched_constant": "NONE (potential new constant)",
+      "formula": "a(n)=-43n+-1, b(n)=3n+3 [D=-163]",
+      "digits": 0,
+      "convergence": "unknown",
+      "factorial_reduction": false,
+      "notes": "PSLQ exclusion: no relation in span{1,\u03c0,ln2,\u03b6(3),G,\u221a2,e,\u03b3}"
+    }
+  ]
+}

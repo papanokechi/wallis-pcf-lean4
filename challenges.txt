@@ -1,0 +1,220 @@
+================================================================================
+RESEARCH CHALLENGE ENGINE — CHALLENGE LOG
+Generated: 2026-03-21
+================================================================================
+
+================================================================================
+CHALLENGE 1 (Initial — AI for Mathematical Discovery)
+================================================================================
+
+### ACTIVE CHALLENGE
+
+Automated Discovery and Proof of Graph-Theoretic Conjectures via Self-Improving
+Conjecturer-Prover Agent Loops
+
+The vast landscape of graph theory harbors thousands of potential relationships
+between graph invariants — chromatic number, clique number, independence number,
+spectral gap, girth, treewidth, and many others. Human mathematicians have
+discovered only a small fraction of the binding inequalities and structural
+theorems connecting these invariants. The challenge is to build an agentic AI
+system that autonomously discovers novel, non-trivial conjectures relating graph
+invariants and then proves (or refutes) them, using an exponentially compounding
+self-improvement loop where each discovered conjecture informs the search for
+the next.
+
+Technical Core: Design a Conjecturer-Prover agent system operating as follows.
+The Conjecturer agent generates candidate inequalities and equalities relating
+tuples of graph invariants (e.g., "For all connected graphs G on n ≥ 7 vertices,
+χ(G) ≤ f(tw(G), ω(G)) for some explicit function f") by symbolic regression
+over a database of computed invariants for graphs up to ~30 vertices. The Prover
+agent attempts to formally verify each conjecture in Lean 4 or refute it by
+counterexample search. Crucially, the system operates in a self-improving loop:
+(i) proven conjectures become axioms/lemmas available to the Prover in subsequent
+rounds, (ii) counterexamples refine the Conjecturer's feature space, and
+(iii) the Conjecturer's symbolic regression fitness function is updated using
+the Prover's feedback on which structural forms tend to be provable. Success is
+measured by: (a) the number of genuinely novel, proven conjectures discovered
+per iteration, (b) a demonstrated superlinear (ideally exponential) growth in
+the cumulative conjecture-discovery rate over successive loop iterations, and
+(c) at least one conjecture that is verifiably absent from existing databases
+(e.g., Graffiti conjectures, House of Graphs, OEIS).
+
+Required Theorem / Formal Guarantee: The paper must state and prove a theorem
+of the following form: "Under assumptions A1–Ak on the conjecture grammar and
+the graph family, the Conjecturer-Prover loop discovers at least Ω(log^α(T))
+novel true conjectures after T iterations, where α > 1, provided the invariant
+space has intrinsic dimension d and the grammar covers all degree-≤D polynomial
+inequalities." This provides a lower bound on the discovery rate and
+formalizes the sense in which the loop is self-improving.
+
+Required Falsifiable Numerical Prediction + Protocol: "When instantiated on all
+connected graphs with n ≤ 20 vertices and invariants {χ, ω, α, tw, Δ, λ₂, g}
+(chromatic number, clique number, independence number, treewidth, max degree,
+spectral gap, girth), after T = 500 Conjecturer-Prover iterations the system
+will have discovered and proved ≥ 15 binding inequalities not present in the
+Graffiti conjecture database as of 2025, with a cumulative discovery curve
+R(t) satisfying R(t) ≥ C · t^1.3 for some fitted constant C > 0."
+Experiment: enumerate all connected graphs up to n = 20 using nauty/Traces,
+compute the 7 invariants, run the Conjecturer (GP-based symbolic regression)
+for 500 iterations with the Lean 4 Prover in the loop, and compare against
+Graffiti. Null hypothesis: R(t) grows at most linearly (α ≤ 1).
+
+This challenge is "low-hanging-fruit yet significant" because: (1) graph
+invariant databases already exist and are computationally accessible; (2) symbolic
+regression for inequality discovery has precedent (Graffiti, AutoGraphiX) but has
+never been combined with a formal prover in a self-improving loop; (3) the
+self-improving/exponential component (proven lemmas accelerating future proofs)
+is architecturally natural but unexplored as a formal phenomenon; and (4) even a
+handful of genuinely novel proven graph conjectures would be publishable in
+discrete mathematics venues.
+
+
+================================================================================
+CHALLENGE 2 (Adjacent Domain: Symbolic Materials Science)
+================================================================================
+
+### ACTIVE CHALLENGE
+
+Self-Improving Symbolic Regression for Discovery of Compositional Micro-Laws
+in High-Entropy Alloy Phase Stability
+
+High-entropy alloys (HEAs) — metallic systems with five or more principal
+elements in near-equimolar ratios — represent a vast, largely unexplored
+compositional space. While DFT calculations and CALPHAD databases encode
+enormous amounts of thermodynamic data, the underlying symbolic relationships
+governing which compositions form stable single-phase solid solutions versus
+multi-phase mixtures remain poorly understood beyond simple heuristic parameters
+(Hume-Rothery rules, valence electron concentration VEC, atomic size mismatch δ,
+mixing enthalpy ΔHmix, mixing entropy ΔSmix). The challenge is to discover
+precise, interpretable symbolic micro-laws that predict phase stability boundaries
+in HEA compositional space, using a self-improving agent loop analogous to the
+Conjecturer-Prover system from Challenge 1, but now operating on continuous
+physical data with dimensional constraints.
+
+Technical Core: Build a Discoverer-Validator agent system for HEA micro-law
+discovery. The Discoverer agent performs dimensionally-constrained symbolic
+regression over a curated database of ~3,000 experimentally characterized HEA
+compositions (from the HEA database maintained by Miracle, Senkov et al.) with
+features: atomic radii, electronegativities, VEC, melting points, and mixing
+thermodynamic quantities. The target is a symbolic classifier: f(features) > 0
+implies single-phase FCC, f(features) < 0 implies multi-phase, with an explicit
+symbolic expression for f. The Validator agent checks: (i) dimensional
+consistency of every candidate law, (ii) cross-validation accuracy on held-out
+data, (iii) consistency with known thermodynamic limits (e.g., pure element
+limits, ideal solution limits). The self-improving loop operates as follows:
+validated micro-laws become "axioms" that constrain subsequent searches (e.g.,
+if VEC > 8 → FCC is validated, the Discoverer conditions on this and searches
+for refinements in the boundary region 7.5 < VEC < 8.5). Each iteration narrows
+the search space and increases precision in the phase boundary region. Success
+is measured by: (a) classification accuracy exceeding the current best heuristic
+rules (reported ~85% for simple VEC + δ rules) by at least 5 percentage points,
+(b) discovery of at least one micro-law involving a non-standard feature
+combination not present in existing literature, (c) demonstrated compounding
+improvement in accuracy over successive iterations.
+
+Required Theorem / Formal Guarantee: Prove that the dimensionally-constrained
+symbolic regression search, when augmented with validated micro-law axioms from
+previous iterations, contracts the effective hypothesis space by a factor of at
+least (1 - ε)^k after k validated laws, where ε > 0 depends on the information
+content of validated laws. Formally, if H_0 is the initial hypothesis space and
+H_k is the space after incorporating k validated laws, then |H_k| ≤ |H_0| ·
+∏_{i=1}^{k} (1 - ε_i) where ε_i is the fraction of H_{i-1} eliminated by the
+i-th validated law. This guarantees the self-improving property and convergence.
+
+Required Falsifiable Numerical Prediction + Protocol: "The self-improving
+symbolic regression system, trained on 80% of the curated HEA database
+(~2,400 compositions), will achieve ≥ 91% classification accuracy for FCC vs.
+multi-phase on the held-out 20% (~600 compositions), compared to ≤ 86% for the
+best existing VEC + δ heuristic rule on the same split, after at most 200
+Discoverer-Validator iterations. Furthermore, the discovered micro-law will
+be expressible in ≤ 12 symbols (operators + variables + constants)."
+Experiment: Use the Miracle-Senkov HEA database, 5-fold cross-validation,
+symbolic regression via PySR with dimensional constraints, accuracy measured
+as balanced accuracy (to handle class imbalance). Null hypothesis: no symbolic
+expression of ≤ 12 symbols exceeds 86% balanced accuracy.
+
+This challenge is "low-hanging-fruit yet significant" because it directly
+transfers the self-improving conjecturer-prover architecture from purely
+mathematical graph theory (Challenge 1) to a physical science domain (materials
+science), changing the conceptual axis from discrete/combinatorial to
+continuous/physical. HEA databases are publicly available, symbolic regression
+tools are mature, and dimensional analysis provides a powerful constraint that
+was absent in the graph-theory setting. Even a modest improvement in HEA phase
+prediction rules would be highly cited in the materials science community.
+
+
+================================================================================
+CHALLENGE 3 (Adjacent Domain: Quantum Information / Discrete Structures)
+================================================================================
+
+### ACTIVE CHALLENGE
+
+Agentic Discovery of Stabilizer Code Families via Self-Improving Symbolic
+Search over the Clifford Tableau Representation
+
+Quantum error correction is the central bottleneck in building fault-tolerant
+quantum computers. Stabilizer codes — the workhorse of quantum error correction
+— are defined by their stabilizer groups, subgroups of the Pauli group. Despite
+decades of research, the known families of good stabilizer codes (surface codes,
+color codes, hypergraph product codes, recently discovered asymptotically good
+qLDPC codes) were found by human ingenuity or algebraic constructions. The
+challenge is to build an agentic AI system that autonomously discovers new
+families of stabilizer codes with favorable parameters (high rate k/n, large
+distance d, low-weight stabilizers) by performing self-improving search over
+the Clifford tableau representation, where each discovered code family teaches
+the system structural priors that accelerate subsequent discoveries.
+
+Technical Core: Construct a Code-Discoverer agent that operates on the binary
+symplectic representation of stabilizer codes. An [[n, k, d]] stabilizer code
+is specified by an (n-k) × 2n binary matrix (the stabilizer tableau) satisfying
+the symplectic orthogonality constraint. The agent performs symbolic/structural
+search: it generates candidate tableaux by composing known structural motifs
+(repetition structure, cyclic symmetry, hypergraph products, fiber bundle
+constructions) and evaluates them by computing the code distance d via an
+efficient decoder or minimum weight algorithm. The self-improving loop works
+as follows: (i) discovered code families with good parameters are decomposed
+into reusable structural motifs, (ii) these motifs are added to the agent's
+construction vocabulary, expanding the space of efficiently searchable code
+families, (iii) a meta-learned scoring function predicts which motif combinations
+are likely to yield good parameters, updated after each batch of evaluations.
+Success is measured by: (a) discovery of at least one new code family with
+parameters [[n, k, d]] where k/n · d exceeds the best known stabilizer code
+at the same n (for some n in range 15–100), (b) demonstrated growth in the
+motif vocabulary and corresponding improvement in search efficiency over
+iterations, (c) at least one discovered code family admitting a compact
+algebraic description (not just a specific numerical tableau).
+
+Required Theorem / Formal Guarantee: Prove that the motif-augmented search
+space is strictly more expressive than any fixed motif vocabulary after
+sufficiently many iterations. Formally: let V_t be the motif vocabulary at
+iteration t and C(V_t) the set of constructible codes. Prove that if the
+discovery oracle finds at least one new code with a genuinely novel motif at
+each iteration, then |C(V_{t+1})| ≥ |C(V_t)| · (1 + γ) for some γ > 0
+depending on the motif's structural independence from V_t. Additionally,
+prove a no-regret bound: the fraction of search budget spent on codes with
+d = 0 (trivial codes) decreases as O(1/√t).
+
+Required Falsifiable Numerical Prediction + Protocol: "When instantiated with
+an initial vocabulary of 5 motifs (repetition, cyclic, hypergraph product,
+fiber bundle, random CSS), and run for T = 1000 iterations on codes with
+n ∈ {15, 20, 25, 30, 40, 50, 63, 80, 100}, the system will discover at least
+3 code families whose parameters [[n, k, d]] satisfy k · d ≥ n · 0.15 (i.e.,
+rate × relative distance ≥ 0.15), with at least one such family not equivalent
+to any code in Markus Grassl's code tables (codetables.de) as of 2025."
+Experiment: implement tableau-based search using the stim library for stabilizer
+simulation, distance computation via minimum weight decoding, and compare all
+discovered codes against codetables.de. Null hypothesis: random search with
+fixed vocabulary (no self-improvement) discovers ≤ 1 code family meeting the
+k · d ≥ 0.15n criterion in the same computational budget.
+
+This challenge is "low-hanging-fruit yet significant" because it shifts from
+continuous physical law discovery (Challenge 2) to a discrete algebraic-
+combinatorial domain (quantum codes), providing the meta-diversity called for
+by the loop rules. Stabilizer codes have a clean binary representation amenable
+to symbolic search, existing libraries (stim, QECC, Magma) provide efficient
+simulation tools, and the field has recently seen breakthroughs in qLDPC codes
+that suggest the landscape of good codes is richer than previously thought.
+The self-improving motif vocabulary concept directly parallels the lemma
+accumulation from Challenge 1 and the axiom accumulation from Challenge 2,
+but operates on a fundamentally different mathematical object (binary
+symplectic matrices rather than graph invariants or physical equations).

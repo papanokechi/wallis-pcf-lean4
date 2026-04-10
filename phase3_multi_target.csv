@@ -1,0 +1,5 @@
+target,seed,discovery_count,novel_count,elapsed_seconds,resolved_workers,effective_batch
+zeta3,123,3,3,12.159,1,16
+pi,124,1,1,12.919,1,16
+e,125,2,2,11.283,1,16
+log2,126,2,2,10.13,1,16

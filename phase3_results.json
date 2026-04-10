@@ -1,0 +1,12 @@
+{
+  "dashboard_file": "pcf_vquad_dashboard.html",
+  "generated": "2026-04-06T20:41:57.178211",
+  "sections": [
+    "Convergence: Log Ladder vs Taylor",
+    "Pi Family convergence by m",
+    "Parity Analysis table",
+    "Proof Status",
+    "Closed Forms",
+    "Meta-Family Discovery"
+  ]
+}

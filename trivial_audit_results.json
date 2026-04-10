@@ -1,0 +1,56 @@
+{
+  "zeta2": {
+    "total": 20,
+    "genuine": 0,
+    "trivial": 20,
+    "errors": 0
+  },
+  "zeta3": {
+    "total": 110,
+    "genuine": 0,
+    "trivial": 109,
+    "errors": 0
+  },
+  "zeta4": {
+    "total": 65,
+    "genuine": 0,
+    "trivial": 65,
+    "errors": 0
+  },
+  "zeta5": {
+    "total": 117,
+    "genuine": 0,
+    "trivial": 112,
+    "errors": 0
+  },
+  "zeta6": {
+    "total": 7,
+    "genuine": 0,
+    "trivial": 7,
+    "errors": 0
+  },
+  "zeta7": {
+    "total": 14,
+    "genuine": 0,
+    "trivial": 14,
+    "errors": 0
+  },
+  "pi2": {
+    "total": 2,
+    "genuine": 0,
+    "trivial": 2,
+    "errors": 0
+  },
+  "pi3": {
+    "total": 3,
+    "genuine": 0,
+    "trivial": 3,
+    "errors": 0
+  },
+  "catalan": {
+    "total": 4,
+    "genuine": 0,
+    "trivial": 4,
+    "errors": 0
+  }
+}

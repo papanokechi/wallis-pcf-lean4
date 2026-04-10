@@ -1,0 +1,321 @@
+{
+  "hypothesis": {
+    "id": "H-0025-prove_A1_k5",
+    "gap_id": "prove_A1_k5",
+    "claim": "A\u2081^(5) = -5\u00b7c\u2085/48 - 6\u00b78/(8\u00b7c\u2085) matches numerical extraction to 12+ digits",
+    "mechanism": "Kloosterman sum analysis at conductor N\u2085=24 with q\u2264500 bounds [Axiom seeds: The partition ratio f_k(n)/f_k(n-1) exhibits a uni; The partition ratio f_k(n)/f_k(n-1) exhibits a uni]",
+    "testable_prediction": "Compute A\u2081 from 8000-term partition ratios, compare to formula",
+    "failure_condition": "Digit agreement < 10 at N=8000",
+    "tools_needed": [
+      "compute_partition_ratios",
+      "pslq_search",
+      "symbolic_verify"
+    ],
+    "confidence": 0.7,
+    "numeric_lhs": null,
+    "numeric_rhs": null,
+    "target_value": null
+  },
+  "execution": {
+    "success": true,
+    "digits_matched": 8,
+    "proof_status": "none",
+    "wall_time_seconds": 14.0,
+    "tool_results": {
+      "partition_ratios": {
+        "skipped": "non-partition gap"
+      },
+      "pslq_search": {
+        "skipped": "no target_value in hypothesis"
+      },
+      "symbolic_verify": {
+        "skipped": true
+      },
+      "sandbox_fallback": {
+        "success": true,
+        "stdout": "{\"L_numeric\": 0.06314437013485971, \"L_predicted\": 2.112335167120566, \"gap_pct\": 97.01068414152594}\n",
+        "stderr": "",
+        "exit_code": 0,
+        "runtime": 13.995007514953613
+      },
+      "sandbox_parsed": {
+        "L_numeric": 0.06314437013485971,
+        "L_predicted": 2.112335167120566,
+        "gap_pct": 97.01068414152594
+      }
+    }
+  },
+  "evaluation": {
+    "scores": {
+      "N": 0.55,
+      "F": 0.66,
+      "E": 0.58,
+      "C": 0.52
+    },
+    "b_score": 0.109481,
+    "verdict": "progress",
+    "killed": false,
+    "critique": "[DRY RUN] Synthetic scores \u2014 no real API call made. Run without --debate-dry-run for live evaluation.",
+    "lfi": 0.46,
+    "controller_action": "TRIGGER_PERTURBATION",
+    "meta_directive": "Run a symbolic-regression / coefficient-perturbation sweep and keep only variants with gap_pct <= 10% before the next round.",
+    "red_team": {
+      "LFI": 0.46,
+      "lethal_flaws": [
+        "Numeric mismatch remains large: gap_pct=97.01%.",
+        "`pslq_search` was skipped, so the claimed relation remains unanchored to a symbolic constant search.",
+        "`symbolic_verify` was skipped, so no formal proof layer validated the claim."
+      ],
+      "controller_action": "TRIGGER_PERTURBATION",
+      "meta_directive": "Run a symbolic-regression / coefficient-perturbation sweep and keep only variants with gap_pct <= 10% before the next round."
+    },
+    "swarm": {
+      "swarm_id": "S-H-0025-prove_A1_k5-G4",
+      "parent_hypothesis_id": "H-0025-prove_A1_k5",
+      "gap_id": "prove_A1_k5",
+      "generation": 4,
+      "mutation_rate": 0.18,
+      "base_formula": "-5*c5/48 - 6*8/(8*c5)",
+      "candidates": [
+        {
+          "id": "H-0025-prove_A1_k5-m1",
+          "formula": "-5*c5/48 - 6*8/(8*c5)",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "baseline",
+          "rationale": "Keep one safe baseline candidate as the control.",
+          "tool_strategy": "Sandbox",
+          "complexity_score": 0.635,
+          "diversity_tag": "safe"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m2",
+          "formula": "-5.157*c5/48 - 6*8/(8*c5)",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "coefficient_perturbation",
+          "rationale": "Perturb the leading coefficient slightly to test local sensitivity.",
+          "tool_strategy": "Sandbox",
+          "complexity_score": 0.66,
+          "diversity_tag": "safe"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m3",
+          "formula": "-5*c5/48.584 - 6*8/(8*c5)",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "denominator_shift",
+          "rationale": "Shift the dominant denominator to probe nearby rational structure.",
+          "tool_strategy": "SymbolicVerify",
+          "complexity_score": 0.635,
+          "diversity_tag": "safe"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m4",
+          "formula": "5*c5/48",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "structure_reset",
+          "rationale": "Drop the inverse-c5 pole term to test whether the structural mismatch is the real failure mode.",
+          "tool_strategy": "SymbolicVerify",
+          "complexity_score": 0.305,
+          "diversity_tag": "radical"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m5",
+          "formula": "-(5*c5)/48 - sqrt(2)/12",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "dimension_safe",
+          "rationale": "Keep a simple linear term and replace the pole with a dimensionally safer constant offset.",
+          "tool_strategy": "PSLQ",
+          "complexity_score": 0.66,
+          "diversity_tag": "radical"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m6",
+          "formula": "(-5*c5/48 - 6*8/(8*c5)) + pi/48",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "constant_injection",
+          "rationale": "Inject a transcendental correction term to test whether the residual behaves like a known constant.",
+          "tool_strategy": "PSLQ",
+          "complexity_score": 0.82,
+          "diversity_tag": "radical"
+        }
+      ],
+      "execution_mode": "heuristic_sandbox_proxy",
+      "base_gap_pct": 97.01068414152594,
+      "survival_threshold": 15.0,
+      "results": [
+        {
+          "id": "H-0025-prove_A1_k5-m5",
+          "formula": "-(5*c5)/48 - sqrt(2)/12",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "dimension_safe",
+          "rationale": "Keep a simple linear term and replace the pole with a dimensionally safer constant offset.",
+          "tool_strategy": "PSLQ",
+          "complexity_score": 0.66,
+          "diversity_tag": "radical",
+          "gap_pct": 9.15356,
+          "fitness": "strong",
+          "execution_mode": "heuristic_sandbox_proxy",
+          "status": "SURVIVED"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m4",
+          "formula": "5*c5/48",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "structure_reset",
+          "rationale": "Drop the inverse-c5 pole term to test whether the structural mismatch is the real failure mode.",
+          "tool_strategy": "SymbolicVerify",
+          "complexity_score": 0.305,
+          "diversity_tag": "radical",
+          "gap_pct": 62.85913,
+          "fitness": "weak",
+          "execution_mode": "heuristic_sandbox_proxy",
+          "status": "PROMISING"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m6",
+          "formula": "(-5*c5/48 - 6*8/(8*c5)) + pi/48",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "constant_injection",
+          "rationale": "Inject a transcendental correction term to test whether the residual behaves like a known constant.",
+          "tool_strategy": "PSLQ",
+          "complexity_score": 0.82,
+          "diversity_tag": "radical",
+          "gap_pct": 63.26579,
+          "fitness": "weak",
+          "execution_mode": "heuristic_sandbox_proxy",
+          "status": "KILLED"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m2",
+          "formula": "-5.157*c5/48 - 6*8/(8*c5)",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "coefficient_perturbation",
+          "rationale": "Perturb the leading coefficient slightly to test local sensitivity.",
+          "tool_strategy": "Sandbox",
+          "complexity_score": 0.66,
+          "diversity_tag": "safe",
+          "gap_pct": 64.62502,
+          "fitness": "weak",
+          "execution_mode": "heuristic_sandbox_proxy",
+          "status": "KILLED"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m1",
+          "formula": "-5*c5/48 - 6*8/(8*c5)",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "baseline",
+          "rationale": "Keep one safe baseline candidate as the control.",
+          "tool_strategy": "Sandbox",
+          "complexity_score": 0.635,
+          "diversity_tag": "safe",
+          "gap_pct": 65.58898,
+          "fitness": "weak",
+          "execution_mode": "heuristic_sandbox_proxy",
+          "status": "KILLED"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m3",
+          "formula": "-5*c5/48.584 - 6*8/(8*c5)",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "denominator_shift",
+          "rationale": "Shift the dominant denominator to probe nearby rational structure.",
+          "tool_strategy": "SymbolicVerify",
+          "complexity_score": 0.635,
+          "diversity_tag": "safe",
+          "gap_pct": 65.80421,
+          "fitness": "weak",
+          "execution_mode": "heuristic_sandbox_proxy",
+          "status": "KILLED"
+        }
+      ],
+      "survivors": [
+        {
+          "id": "H-0025-prove_A1_k5-m5",
+          "formula": "-(5*c5)/48 - sqrt(2)/12",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "dimension_safe",
+          "rationale": "Keep a simple linear term and replace the pole with a dimensionally safer constant offset.",
+          "tool_strategy": "PSLQ",
+          "complexity_score": 0.66,
+          "diversity_tag": "radical",
+          "gap_pct": 9.15356,
+          "fitness": "strong",
+          "execution_mode": "heuristic_sandbox_proxy",
+          "status": "SURVIVED"
+        },
+        {
+          "id": "H-0025-prove_A1_k5-m4",
+          "formula": "5*c5/48",
+          "parent": "H-0025-prove_A1_k5",
+          "gap_id": "prove_A1_k5",
+          "mutation_kind": "structure_reset",
+          "rationale": "Drop the inverse-c5 pole term to test whether the structural mismatch is the real failure mode.",
+          "tool_strategy": "SymbolicVerify",
+          "complexity_score": 0.305,
+          "diversity_tag": "radical",
+          "gap_pct": 62.85913,
+          "fitness": "weak",
+          "execution_mode": "heuristic_sandbox_proxy",
+          "status": "PROMISING"
+        }
+      ],
+      "best_gap_pct": 9.15356,
+      "survivor_count": 2
+    },
+    "debate": {
+      "mode": "dry_run",
+      "iterations_completed": 2,
+      "output_path": "C:\\Users\\shkub\\OneDrive\\Documents\\archive\\admin\\VSCode\\claude-chat\\multi_agent_discussion\\runs\\debate_20260331_064134.json",
+      "judge_summary": null,
+      "self_correction_log_path": "C:\\Users\\shkub\\OneDrive\\Documents\\archive\\admin\\VSCode\\claude-chat\\multi_agent_discussion\\self_correction_log.json",
+      "memory_hits": 3
+    }
+  },
+  "pollination": {
+    "analogies": [],
+    "meta_insights": [
+      {
+        "domain": "ising_mc",
+        "status": "no_results",
+        "result_count": 0
+      },
+      {
+        "domain": "ramanujan_gcf",
+        "status": "no_results",
+        "result_count": 0
+      },
+      {
+        "domain": "ratio_universality",
+        "status": "no_results",
+        "result_count": 0
+      },
+      {
+        "domain": "gcf_discovery_loop",
+        "status": "no_results",
+        "result_count": 0
+      },
+      {
+        "domain": "micro_laws",
+        "status": "no_results",
+        "result_count": 0
+      }
+    ],
+    "cross_references": [],
+    "domains_checked": 5
+  },
+  "_agent": "E",
+  "_name": "Cross-Pollinator",
+  "_timestamp": "2026-03-31T15:41:34.953017"
+}

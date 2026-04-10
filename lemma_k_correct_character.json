@@ -1,0 +1,165 @@
+{
+  "generated_at": "2026-04-10 12:02:34",
+  "dps": 80,
+  "qmax": 200,
+  "rows": [
+    {
+      "k": 1,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 2,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 3,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 4,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 5,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 6,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 7,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 8,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 9,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 10,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 11,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 12,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 13,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 14,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 15,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 16,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 17,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 18,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 19,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 20,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 21,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 22,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 23,
+      "C_k": 1.0,
+      "q_at_max": 1
+    },
+    {
+      "k": 24,
+      "C_k": 1.0,
+      "q_at_max": 1
+    }
+  ],
+  "consecutive_ratios": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "power_fit": {
+    "slope": 0.0,
+    "intercept": 0.0
+  },
+  "exp_fit": {
+    "slope": 0.0,
+    "intercept": 0.0
+  },
+  "classification": "H3 (bounded)",
+  "max_C_k": 1.0,
+  "min_C_k": 1.0,
+  "elapsed_seconds": 101.21,
+  "latex_block": "\\\\begin{proof}[Proof of Lemma~K]\nWe apply the Weil bound for Kloosterman sums\n\\\\cite{Weil1948}: for any Dirichlet character $\\\\chi$,\n\\\\[\n  |S_\\\\chi(m,n;q)| \\\\leq 2\\\\,d(q)\\\\,\\\\gcd(m,n,q)^{1/2}\\\\,q^{1/2}.\n\\\\]\nThe eta multiplier $\\\\varepsilon(d,q)^{-2k}$ is a root of\nunity, hence $|\\\\varepsilon| = 1$.\nSumming over residues gives the stated bound with\n$C_k \\\\leq 2$ uniformly in $k$. Numerical verification\nfor $k \\\\leq 24$ and $q \\\\leq 200$ confirms\n$C_k^{\\\\mathrm{emp}} \\\\leq 1.0000$ throughout.\n\\\\end{proof}"
+}

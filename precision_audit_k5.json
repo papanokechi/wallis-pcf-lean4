@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-04-01T10:05:50.008775+00:00",
+  "k": 5,
+  "formula": "-(5*c5)/48 - 6/c5",
+  "canonical_formula": "-(5*c5)/48 - 6/c5",
+  "rows": [
+    {
+      "dps": 50,
+      "alpha": "-5/48",
+      "beta": "-6",
+      "pslq_quality": "excellent",
+      "residual_max": 0.0,
+      "exact_match": true,
+      "stability": "Initial Hit"
+    },
+    {
+      "dps": 100,
+      "alpha": "-5/48",
+      "beta": "-6",
+      "pslq_quality": "excellent",
+      "residual_max": 0.0,
+      "exact_match": true,
+      "stability": "Verified"
+    },
+    {
+      "dps": 200,
+      "alpha": "-5/48",
+      "beta": "-6",
+      "pslq_quality": "excellent",
+      "residual_max": 0.0,
+      "exact_match": true,
+      "stability": "Confirmed"
+    },
+    {
+      "dps": 500,
+      "alpha": "-5/48",
+      "beta": "-6",
+      "pslq_quality": "excellent",
+      "residual_max": 0.0,
+      "exact_match": true,
+      "stability": "Publication Grade"
+    }
+  ],
+  "publication_grade": true
+}

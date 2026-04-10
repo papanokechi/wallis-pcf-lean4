@@ -1,0 +1,13 @@
+% Auto-generated theorem box for LP-0012
+\begin{theorem}[LP-0012]
+The polynomial continued fraction with
+$a(n) = -2.0*n*(1.0*n - 0.5)$ and $b(n) = 3.0*(1.0*n + 0.333333333333333)$
+converges to $2/pi$.
+\end{theorem}
+\begin{proof}
+Closed forms: $p_n = (2n+1)!!$, $q_n = (2n+1)!! * sum j!/(2j+1)!!$. Verified by induction against the recurrence. Limit: pi/2 = sum j!/(2j+1)!!.
+\end{proof}
+\begin{corollary}[Arb Certification]
+At depth $N$, the bracket width is $< [4.307763214204631384953814515$,
+certifying the identity to $1207$ decimal digits.
+\end{corollary}

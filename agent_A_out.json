@@ -1,0 +1,147 @@
+{
+  "gaps": [
+    {
+      "id": "prove_A1_k5",
+      "description": "Prove A\u2081^(5) closed form. C_5 \u2264 1.36, need C_5 < 1.0. Path: extend Kloosterman bounds to q \u2264 500 or find structural argument.",
+      "source": "paper14/Conjecture 2*",
+      "gap_type": "proof",
+      "priority": 0.95,
+      "difficulty": 0.5,
+      "feasibility": 0.7,
+      "score": 0.6649999999999999,
+      "attempts": 0
+    },
+    {
+      "id": "bdj_bridge",
+      "description": "Test whether ratio fluctuations converge to Tracy-Widom TW\u2082. Need n=5000-10000, 100k samples, KS statistic.",
+      "source": "paper14/Section 11",
+      "gap_type": "computation",
+      "priority": 0.85,
+      "difficulty": 0.6,
+      "feasibility": 0.7,
+      "score": 0.595,
+      "attempts": 0
+    },
+    {
+      "id": "andrews_gordon",
+      "description": "Test ratio universality for Andrews-Gordon partitions. Different D(s) structure, satisfies Meinardus conditions.",
+      "source": "paper14/Section 10",
+      "gap_type": "extension",
+      "priority": 0.7,
+      "difficulty": 0.5,
+      "feasibility": 0.8,
+      "score": 0.5599999999999999,
+      "attempts": 0
+    },
+    {
+      "id": "new_gcf_identities",
+      "description": "Search for novel GCF identities linking partition ratios to known constants. Use PSLQ at 200 dps.",
+      "source": "knowledge_base/iteration_6",
+      "gap_type": "conjecture",
+      "priority": 0.7,
+      "difficulty": 0.4,
+      "feasibility": 0.8,
+      "score": 0.5599999999999999,
+      "attempts": 0
+    },
+    {
+      "id": "A3_numerical",
+      "description": "Extract fifth-order coefficient A\u2083 for k=1..5. Needs N \u2265 15000, Richardson at order 5.",
+      "source": "paper14/Section 9",
+      "gap_type": "computation",
+      "priority": 0.65,
+      "difficulty": 0.6,
+      "feasibility": 0.7,
+      "score": 0.45499999999999996,
+      "attempts": 0
+    },
+    {
+      "id": "sixth_root",
+      "description": "Numerically verify ratio universality for \u03b1=5 (6th root). Compute prod(1-q^n)^{-n^4} to N=5000. Untested regime.",
+      "source": "paper14/Section 10",
+      "gap_type": "computation",
+      "priority": 0.9,
+      "difficulty": 0.5,
+      "feasibility": 0.9,
+      "score": 0.45000000000000007,
+      "attempts": 1
+    },
+    {
+      "id": "kloosterman_q500",
+      "description": "Extend Kloosterman bounds from q\u2264300 to q\u2264500. May drop C_5 below 1.0, unlocking proof path.",
+      "source": "paper14/Theorem 2 proof",
+      "gap_type": "computation",
+      "priority": 0.8,
+      "difficulty": 0.3,
+      "feasibility": 0.95,
+      "score": 0.4222222222222222,
+      "attempts": 1
+    },
+    {
+      "id": "phase_boundary",
+      "description": "Find where universality breaks. Scan Meinardus products with varied D(s) coefficient patterns. Harris-criterion analogy.",
+      "source": "paper14/Section 12",
+      "gap_type": "extension",
+      "priority": 0.75,
+      "difficulty": 0.8,
+      "feasibility": 0.5,
+      "score": 0.375,
+      "attempts": 0
+    },
+    {
+      "id": "lemma_w",
+      "description": "Prove Wright M=2 saddle-point control. Extends Lemma PP (Olver bounds) to second order.",
+      "source": "paper14/Conjecture 3*",
+      "gap_type": "proof",
+      "priority": 0.9,
+      "difficulty": 0.8,
+      "feasibility": 0.4,
+      "score": 0.36000000000000004,
+      "attempts": 0
+    },
+    {
+      "id": "delta_k_qmf",
+      "description": "Interpret \u0394_k\u00b7c_k = -(k+3)(k-1)/8 (rational) via Zagier quantum modular forms. Compute mock modular partners.",
+      "source": "paper14/Section 11",
+      "gap_type": "conjecture",
+      "priority": 0.6,
+      "difficulty": 0.85,
+      "feasibility": 0.3,
+      "score": 0.18,
+      "attempts": 0
+    }
+  ],
+  "selected_gap": {
+    "id": "prove_A1_k5",
+    "description": "Prove A\u2081^(5) closed form. C_5 \u2264 1.36, need C_5 < 1.0. Path: extend Kloosterman bounds to q \u2264 500 or find structural argument.",
+    "source": "paper14/Conjecture 2*",
+    "gap_type": "proof",
+    "priority": 0.95,
+    "difficulty": 0.5,
+    "feasibility": 0.7,
+    "score": 0.6649999999999999,
+    "attempts": 0
+  },
+  "axiom_stats": {
+    "nodes": 53,
+    "edges": 271
+  },
+  "memory_stats": {
+    "entries": 16,
+    "failures": 2,
+    "tools": [
+      "sandbox",
+      "compute_general_product",
+      "symbolic_verify",
+      "extract_coefficients",
+      "pslq_search",
+      "partition_ratios",
+      "sandbox_fallback",
+      "sandbox_parsed"
+    ]
+  },
+  "seed": null,
+  "_agent": "A",
+  "_name": "Frontier Scanner",
+  "_timestamp": "2026-03-31T15:41:17.737375"
+}

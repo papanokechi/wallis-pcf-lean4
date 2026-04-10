@@ -1,0 +1,45 @@
+{
+  "pilot": "88_superseed_v2",
+  "targets": [
+    "zeta7",
+    "zeta5",
+    "zeta3"
+  ],
+  "prec": 1000,
+  "super_seeds_used": 23,
+  "escalated_seeds": 345,
+  "total_tested": 1536,
+  "total_novel": 129,
+  "total_deep8": 5,
+  "overall_hit_rate_pct": 8.398,
+  "hit_rate_threshold_pct": 1.5,
+  "green_light_full_88": true,
+  "per_target": [
+    {
+      "target": "zeta7",
+      "tested": 512,
+      "novel": 62,
+      "deep8_hits": 3,
+      "hit_rate_pct": 12.109,
+      "elapsed_seconds": 116.023
+    },
+    {
+      "target": "zeta5",
+      "tested": 512,
+      "novel": 67,
+      "deep8_hits": 2,
+      "hit_rate_pct": 13.086,
+      "elapsed_seconds": 101.523
+    },
+    {
+      "target": "zeta3",
+      "tested": 512,
+      "novel": 0,
+      "deep8_hits": 0,
+      "hit_rate_pct": 0.0,
+      "elapsed_seconds": 60.679
+    }
+  ],
+  "wall_seconds": 278.686,
+  "generated_at": "2026-04-05 12:53:43"
+}

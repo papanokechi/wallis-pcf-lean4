@@ -1,0 +1,312 @@
+{
+  "version": "v4_known_physics_first",
+  "timestamp": "2026-03-21 20:26:50",
+  "Tc_exact": 2.269185314213022,
+  "exact_exponents": {
+    "beta": 0.125,
+    "gamma": 1.75,
+    "nu": 1.0,
+    "alpha": 0.0
+  },
+  "simulation": {
+    "sizes": [
+      8,
+      16,
+      32
+    ],
+    "n_temperatures": 24,
+    "T_range": [
+      1.5,
+      3.5
+    ]
+  },
+  "discovery": {
+    "magnetization": {
+      "n_points": 11,
+      "laws": [
+        [
+          "1.557*1 + -0.4954*t_reduced^-0.125",
+          0.9931049765013273
+        ],
+        [
+          "1.165 * t_reduced^0.125",
+          0.8494582920415765
+        ],
+        [
+          "1.432 * t_reduced^0.25",
+          -1.6878231884847832
+        ],
+        [
+          "0.7374 * t_reduced^-0.125",
+          -4.865789978367331
+        ],
+        [
+          "0.7373*t_reduced^-0.125",
+          -4.86579110720957
+        ]
+      ]
+    },
+    "susceptibility": {
+      "n_points": 22,
+      "laws": [
+        [
+          "0.2653*t_reduced^-1.5 + -0.04614*t_reduced^-2",
+          0.2918439270652252
+        ],
+        [
+          "0.3093 * t_reduced^-1",
+          0.2482742450626142
+        ],
+        [
+          "0.5568 * t_reduced^-0.75",
+          0.23361103339161715
+        ],
+        [
+          "0.1269 * t_reduced^-1.33",
+          0.2201397745526239
+        ],
+        [
+          "0.6644 * t_reduced^-0.667",
+          0.2201252583600548
+        ]
+      ]
+    },
+    "finite_size": {
+      "n_points": 3,
+      "laws": [
+        [
+          "1.086 * L^-0.125",
+          -2.689227290329103
+        ],
+        [
+          "0.5414 * L^0.125",
+          -11.777544695368567
+        ],
+        [
+          "1.505 * L^-0.25",
+          -19.429104614708418
+        ]
+      ]
+    }
+  },
+  "calibration": {
+    "beta": {
+      "name": "beta",
+      "discovered": -0.125,
+      "exact": 0.125,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "pass": true,
+      "excellent": true
+    },
+    "gamma": {
+      "name": "gamma",
+      "discovered": -1.5,
+      "exact": -1.75,
+      "absolute_error": 0.25,
+      "relative_error": 0.14285714285714285,
+      "pass": true,
+      "excellent": true
+    },
+    "beta_over_nu": {
+      "name": "beta_over_nu",
+      "discovered": -0.125,
+      "exact": -0.125,
+      "absolute_error": 0.0,
+      "relative_error": 0.0,
+      "pass": true,
+      "excellent": true
+    }
+  },
+  "predictions": {
+    "M: L=8\u2192L=16": {
+      "status": "ok",
+      "r2_prediction": 0.7956584494038182,
+      "n_test": 11,
+      "expression": "1.168 * t_reduced^0.125",
+      "train_L": 8,
+      "test_L": 16
+    },
+    "M: L=16\u2192L=32": {
+      "status": "ok",
+      "r2_prediction": 0.8488472699594132,
+      "n_test": 11,
+      "expression": "1.167 * t_reduced^0.125",
+      "train_L": 16,
+      "test_L": 32
+    },
+    "M: L=8\u2192L=32": {
+      "status": "ok",
+      "r2_prediction": 0.847798004066667,
+      "n_test": 11,
+      "expression": "1.168 * t_reduced^0.125",
+      "train_L": 8,
+      "test_L": 32
+    }
+  },
+  "finite_size_rg": {
+    "magnetization": {
+      "is_fixed_point": true,
+      "drift": 0.0,
+      "mean_exponent": 0.125,
+      "per_L": {
+        "8": {
+          "exponent": 0.125,
+          "r_squared": 0.71899826668237,
+          "expression": "1.168 * t_reduced^0.125"
+        },
+        "16": {
+          "exponent": 0.125,
+          "r_squared": 0.795982500215279,
+          "expression": "1.167 * t_reduced^0.125"
+        },
+        "32": {
+          "exponent": 0.125,
+          "r_squared": 0.8494582920415765,
+          "expression": "1.165 * t_reduced^0.125"
+        }
+      }
+    },
+    "susceptibility": {
+      "is_fixed_point": false,
+      "drift": 0.75,
+      "mean_exponent": -0.639,
+      "per_L": {
+        "8": {
+          "exponent": -0.25,
+          "r_squared": 0.056978270775732254,
+          "expression": "0.4706 * t_reduced^-0.25"
+        },
+        "16": {
+          "exponent": -0.667,
+          "r_squared": 0.18684088594801485,
+          "expression": "0.4047 * t_reduced^-0.667"
+        },
+        "32": {
+          "exponent": -1.0,
+          "r_squared": 0.2482742450626142,
+          "expression": "0.3093 * t_reduced^-1"
+        }
+      }
+    }
+  },
+  "materials": {
+    "laws": [
+      [
+        "2.122 * r_X^-0.667",
+        0.5265642475638119
+      ],
+      [
+        "2.204 * r_X^-0.75",
+        0.5185717267428511
+      ],
+      [
+        "1.963 * r_X^-0.5",
+        0.49519698561335834
+      ],
+      [
+        "0.4672 * EN_X^1",
+        0.4813576892036582
+      ],
+      [
+        "2.301 * EN_B^-0.667",
+        0.47976196186829434
+      ]
+    ],
+    "cross_domain": {
+      "ising": {
+        "beta": -0.125
+      },
+      "materials": {
+        "beta": -0.667
+      },
+      "same_class": false,
+      "analysis": "Ising |\u03b2|=0.125, Materials |\u03b2|=0.667, ratio=5.3. DIFFERENT universality class.",
+      "exponent_ratio": 5.336
+    },
+    "isomorphism": {
+      "t_reduced": {
+        "target": "IE_A",
+        "similarity": 0.9541978470667152
+      },
+      "M": {
+        "target": "delta_EN",
+        "similarity": 0.768077485959448
+      },
+      "C": {
+        "target": "octahedral_factor",
+        "similarity": 0.7672499092060687
+      },
+      "E": {
+        "target": "EN_X",
+        "similarity": 0.7033303908967097
+      },
+      "chi": {
+        "target": "r_X",
+        "similarity": 0.6211453132393161
+      }
+    }
+  },
+  "scaling_relations": [
+    {
+      "name": "Rushbrooke",
+      "formula": "\u03b1 + 2\u03b2 + \u03b3 = 2",
+      "lhs": 1.75,
+      "rhs": 2.0,
+      "error": 0.25,
+      "verified": true
+    },
+    {
+      "name": "Hyperscaling",
+      "formula": "2 - \u03b1 = d\u03bd",
+      "lhs": 2.0,
+      "rhs": 2.0,
+      "error": 0.0,
+      "verified": true
+    },
+    {
+      "name": "Fisher (predict \u03b7)",
+      "formula": "\u03b7 = 2 - \u03b3/\u03bd",
+      "predicted_eta": 0.5,
+      "exact_eta": 0.25,
+      "error": 0.25,
+      "verified": true
+    }
+  ],
+  "causal_tests": [
+    {
+      "expression": "1.557*1 + -0.4954*t_reduced^-0.125",
+      "r2_obs": 0.9931002550745385,
+      "r2_int": -0.3389566311867318,
+      "is_causal": true,
+      "causal_gap": 1.3320568862612703
+    },
+    {
+      "expression": "1.165 * t_reduced^0.125",
+      "r2_obs": 0.8494044651632717,
+      "r2_int": -1.258475990484969,
+      "is_causal": true,
+      "causal_gap": 2.1078804556482407
+    },
+    {
+      "expression": "1.432 * t_reduced^0.25",
+      "r2_obs": -1.6878448192506248,
+      "r2_int": -7.358329810530094,
+      "is_causal": false,
+      "causal_gap": 5.670484991279469
+    }
+  ],
+  "statistics": {
+    "total_laws": 18,
+    "bh_significant": 12
+  },
+  "elapsed_seconds": 131.3149652481079,
+  "summary": {
+    "exponents_calibrated": 3,
+    "exponents_excellent": 3,
+    "rg_fixed_points": 1,
+    "scaling_relations_verified": 3,
+    "causal_tests_passed": 2,
+    "bh_significant": 12
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "title": "Grand Rosetta Table - All 4 Families",
+  "generated": "2026-04-08T10:48:41.300784",
+  "precision": 550,
+  "depth": 5000,
+  "families": [
+    {
+      "name": "Family 1",
+      "label": "T^(m+1)",
+      "a_formula": "a(n) = -(2m+3)n - 2n^2",
+      "b_formula": "b(n) = 3n+2",
+      "b0": 2,
+      "alpha": "3/2",
+      "beta": "1/2",
+      "alpha_minus_beta": "1",
+      "V0": "3",
+      "closed_form": "V(m) = 2m + 3",
+      "type": "Telescoping (rational)",
+      "S_relation": "N/A (b0=2 family)",
+      "members": {
+        "0": {
+          "value_25dp": "3.0",
+          "closed_form_digits": 599,
+          "gamma_formula_digits": 599,
+          "status": "OK"
+        },
+        "1": {
+          "value_25dp": "5.0",
+          "closed_form_digits": 599,
+          "gamma_formula_digits": 599,
+          "status": "OK"
+        },
+        "2": {
+          "value_25dp": "7.0",
+          "closed_form_digits": 598,
+          "gamma_formula_digits": 598,
+          "status": "OK"
+        },
+        "3": {
+          "value_25dp": "9.0",
+          "closed_form_digits": 598,
+          "gamma_formula_digits": 598,
+          "status": "OK"
+        },
+        "4": {
+          "value_25dp": "11.0",
+          "closed_form_digits": 597,
+          "gamma_formula_digits": 597,
+          "status": "OK"
+        },
+        "5": {
+          "value_25dp": "13.0",
+          "closed_form_digits": 597,
+          "gamma_formula_digits": 597,
+          "status": "OK"
+        },
+        "6": {
+          "value_25dp": "15.0",
+          "closed_form_digits": 597,
+          "gamma_formula_digits": 597,
+          "status": "OK"
+        },
+        "7": {
+          "value_25dp": "17.0",
+          "closed_form_digits": 597,
+          "gamma_formula_digits": 597,
+          "status": "OK"
+        }
+      },
+      "ratios": {
+        "1": "5/3",
+        "2": "7/5",
+        "3": "9/7",
+        "4": "11/9",
+        "5": "13/11",
+        "6": "15/13",
+        "7": "17/15"
+      },
+      "all_verified": true
+    },
+    {
+      "name": "Family 2",
+      "label": "T^(m)",
+      "a_formula": "a(n) = -(2m+1)n - 2n^2",
+      "b_formula": "b(n) = 3n+2",
+      "b0": 2,
+      "alpha": "1/2",
+      "beta": "-1/2",
+      "alpha_minus_beta": "1",
+      "V0": "1",
+      "closed_form": "V(m) = 2m + 1",
+      "type": "Telescoping (rational)",
+      "S_relation": "N/A (b0=2 family)",
+      "members": {
+        "0": {
+          "value_25dp": "1.0",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 550,
+          "status": "OK"
+        },
+        "1": {
+          "value_25dp": "3.0",
+          "closed_form_digits": 599,
+          "gamma_formula_digits": 599,
+          "status": "OK"
+        },
+        "2": {
+          "value_25dp": "5.0",
+          "closed_form_digits": 599,
+          "gamma_formula_digits": 599,
+          "status": "OK"
+        },
+        "3": {
+          "value_25dp": "7.0",
+          "closed_form_digits": 598,
+          "gamma_formula_digits": 598,
+          "status": "OK"
+        },
+        "4": {
+          "value_25dp": "9.0",
+          "closed_form_digits": 598,
+          "gamma_formula_digits": 598,
+          "status": "OK"
+        },
+        "5": {
+          "value_25dp": "11.0",
+          "closed_form_digits": 597,
+          "gamma_formula_digits": 597,
+          "status": "OK"
+        },
+        "6": {
+          "value_25dp": "13.0",
+          "closed_form_digits": 597,
+          "gamma_formula_digits": 597,
+          "status": "OK"
+        },
+        "7": {
+          "value_25dp": "15.0",
+          "closed_form_digits": 597,
+          "gamma_formula_digits": 597,
+          "status": "OK"
+        }
+      },
+      "ratios": {
+        "1": "3/1",
+        "2": "5/3",
+        "3": "7/5",
+        "4": "9/7",
+        "5": "11/9",
+        "6": "13/11",
+        "7": "15/13"
+      },
+      "all_verified": true
+    },
+    {
+      "name": "Family 3",
+      "label": "S^(m+1)",
+      "a_formula": "a(n) = (2m+3)n - 2n^2",
+      "b_formula": "b(n) = 3n+1",
+      "b0": 1,
+      "alpha": "1",
+      "beta": "1/2",
+      "alpha_minus_beta": "1/2",
+      "V0": "4/pi",
+      "closed_form": "V(m) = 2*Gamma(m+2) / (sqrt(pi)*Gamma(m+3/2))",
+      "type": "S-family integer shift",
+      "S_relation": "S^(m+1)",
+      "members": {
+        "0": {
+          "value_25dp": "1.27323954473516268615107",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 550,
+          "status": "OK"
+        },
+        "1": {
+          "value_25dp": "1.697652726313550248201427",
+          "closed_form_digits": 600,
+          "gamma_formula_digits": 600,
+          "status": "OK"
+        },
+        "2": {
+          "value_25dp": "2.037183271576260297841712",
+          "closed_form_digits": 600,
+          "gamma_formula_digits": 600,
+          "status": "OK"
+        },
+        "3": {
+          "value_25dp": "2.328209453230011768961957",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 550,
+          "status": "OK"
+        },
+        "4": {
+          "value_25dp": "2.586899392477790854402174",
+          "closed_form_digits": 600,
+          "gamma_formula_digits": 599,
+          "status": "OK"
+        },
+        "5": {
+          "value_25dp": "2.822072064521226386620554",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 550,
+          "status": "OK"
+        },
+        "6": {
+          "value_25dp": "3.039154531022859185591365",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 600,
+          "status": "OK"
+        },
+        "7": {
+          "value_25dp": "3.241764833091049797964123",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 599,
+          "status": "OK"
+        }
+      },
+      "ratios": {
+        "1": "4/3",
+        "2": "6/5",
+        "3": "8/7",
+        "4": "10/9",
+        "5": "12/11",
+        "6": "14/13",
+        "7": "16/15"
+      },
+      "all_verified": true
+    },
+    {
+      "name": "Family 4",
+      "label": "S^(m+3/2)",
+      "a_formula": "a(n) = (2m+4)n - 2n^2",
+      "b_formula": "b(n) = 3n+1",
+      "b0": 1,
+      "alpha": "3/2",
+      "beta": "1",
+      "alpha_minus_beta": "1/2",
+      "V0": "3/2",
+      "closed_form": "V(m) = 2*Gamma(m+5/2) / (sqrt(pi)*Gamma(m+2))",
+      "type": "S-family half-integer shift",
+      "S_relation": "S^(m+3/2)",
+      "members": {
+        "0": {
+          "value_25dp": "1.5",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 550,
+          "status": "OK"
+        },
+        "1": {
+          "value_25dp": "1.875",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 550,
+          "status": "OK"
+        },
+        "2": {
+          "value_25dp": "2.1875",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 550,
+          "status": "OK"
+        },
+        "3": {
+          "value_25dp": "2.4609375",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 600,
+          "status": "OK"
+        },
+        "4": {
+          "value_25dp": "2.70703125",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 550,
+          "status": "OK"
+        },
+        "5": {
+          "value_25dp": "2.9326171875",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 550,
+          "status": "OK"
+        },
+        "6": {
+          "value_25dp": "3.14208984375",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 550,
+          "status": "OK"
+        },
+        "7": {
+          "value_25dp": "3.338470458984375",
+          "closed_form_digits": 550,
+          "gamma_formula_digits": 600,
+          "status": "OK"
+        }
+      },
+      "ratios": {
+        "1": "5/4",
+        "2": "7/6",
+        "3": "9/8",
+        "4": "11/10",
+        "5": "13/12",
+        "6": "15/14",
+        "7": "17/16"
+      },
+      "all_verified": true
+    }
+  ]
+}

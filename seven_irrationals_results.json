@@ -1,0 +1,44 @@
+[
+  {
+    "label": "U1",
+    "status": "UNIDENTIFIED",
+    "cf": "-0.11012408963095339822",
+    "self_agree": 350
+  },
+  {
+    "label": "U2",
+    "status": "UNIDENTIFIED",
+    "cf": "-0.086555518651003653161",
+    "self_agree": 351
+  },
+  {
+    "label": "U3",
+    "status": "UNIDENTIFIED",
+    "cf": "0.073401129618008792816",
+    "self_agree": 8
+  },
+  {
+    "label": "U4",
+    "status": "UNIDENTIFIED",
+    "cf": "-0.044200716450061002652",
+    "self_agree": 7
+  },
+  {
+    "label": "U5",
+    "status": "UNIDENTIFIED",
+    "cf": "0.12489723213317568578",
+    "self_agree": 4
+  },
+  {
+    "label": "U6",
+    "status": "UNIDENTIFIED",
+    "cf": "0.090805446173865184868",
+    "self_agree": 1
+  },
+  {
+    "label": "U7",
+    "status": "UNIDENTIFIED",
+    "cf": "4.0",
+    "self_agree": 301
+  }
+]

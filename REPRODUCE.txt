@@ -1,0 +1,91 @@
+V_quad Paper — Reproducibility Package
+======================================
+
+This directory contains the code, data, and LaTeX source for the paper:
+
+  "A new transcendental constant from a quadratic continued fraction:
+   Exclusion from classical special-function families"
+
+
+## Quick Start
+
+    pip install mpmath>=1.3
+    python reproduce_vquad.py --quick    # 2-minute verification
+    python reproduce_vquad.py            # full 2200-digit reproduction (~5 min)
+
+
+## File Inventory
+
+### Paper
+- vquad_paper.tex              LaTeX source (submission-ready)
+
+### Core computation
+- reproduce_vquad.py           Reproduces all paper claims from scratch
+- V_quad_1000digits.txt        1000-digit decimal expansion (OEIS-ready)
+
+### Exclusion scans
+- vquad_pslq_fast.py           500dp PSLQ against 8 basis families
+- vquad_pslq_2000digit.py      2050dp PSLQ (higher precision)
+- vquad_lommel_scan.py         Lommel S_{mu,nu}(z) parametric scan
+- vquad_hypergeometric_v2.py   2F1, 3F2, q-series with timeouts
+
+### Agent and filter
+- ramanujan_agent_v2_fast.py   Search agent (with rationality filter)
+- logged_clean_sweep.py        Proof that filter works (100 candidates)
+- logged_clean_sweep.txt       Full audit trail
+
+### Validation
+- direct_rationality_check.py  Verified 335/342 catalog entries rational
+- seven_irrationals_battery.py U1, U2 companion constants analysis
+- trivial_relation_audit.py    Systematic false-positive discovery
+
+### Data
+- direct_rationality_check.json     342-entry rationality verification
+- seven_irrationals_results.json    7 non-rational entries analysis
+- vquad_exclusion_theorem_v2.txt    Formal exclusion statement
+
+
+## Reproducing Specific Claims
+
+### Claim: V_quad = 1.19737... to 2200 digits
+    python reproduce_vquad.py
+    # Checks: two independent depths (5000, 6000), full agreement
+
+### Claim: V_quad is irrational (mu = 2)
+    python reproduce_vquad.py
+    # Step 2 checks denominators up to 100,000
+
+### Claim: No PSLQ relation to 17 function families
+    python vquad_pslq_fast.py           # bases A-H at 500dp
+    python vquad_pslq_2000digit.py      # bases A-H at 2050dp
+    python vquad_lommel_scan.py         # 3591 Lommel grid points
+    python vquad_hypergeometric_v2.py   # 2F1 CM-points, q-series
+
+### Claim: 335/342 catalog entries are rational CFs
+    python direct_rationality_check.py
+
+### Claim: U1, U2 resist 26-constant battery
+    python seven_irrationals_battery.py
+
+### Claim: Fixed agent produces 0 false discoveries
+    python logged_clean_sweep.py
+
+
+## Environment
+
+- Python 3.11+
+- mpmath >= 1.3.0
+- No other dependencies required for core reproduction
+
+To freeze exact versions:
+    pip freeze > requirements.txt
+
+
+## Key Constants
+
+    V_quad  = 1.19737399068835760244860321993720632970427070323135...
+    U1      = -0.11012408963095339822...
+    U2      = -0.08655551865100365316...
+
+    b(n) = 3n^2 + n + 1   (discriminant -11)
+    a(n) = 1               (all partial numerators)

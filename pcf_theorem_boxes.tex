@@ -1,0 +1,43 @@
+
+\subsection{Certified Identity Statements}
+
+\begin{theorem}[Certified Log Family, $k=2$]\label{thm:ln2}
+The polynomial continued fraction
+\[
+  2 + \cfrac{-2 \cdot 1^2}{5 + \cfrac{-2 \cdot 2^2}{8 + \cfrac{-2 \cdot 3^2}{11 + \cdots}}}
+\]
+with $a(n) = -2n^2$, $b(n) = 3n + 2$, and standard forward recurrence
+$(p_{-1}, p_0, q_{-1}, q_0) = (1, 2, 0, 1)$, satisfies
+\[
+  \left|\, \mathrm{PCF}(N{=}5000) - \frac{1}{\ln 2}\, \right|
+  < 10^{-1509}
+\]
+with the limit rigorously enclosed by consecutive convergents under
+Arb ball arithmetic at $10\,000$-bit precision.
+\end{theorem}
+
+\begin{proof}
+Convergence follows from Lemma~\ref{lem:worpitzky}: the asymptotic
+normalized ratio is $|a(n)|/(b(n)\,b(n{-}1)) \to 2/9 < 1/4$.
+The bracket $[\min(C_N, C_{N-1}), \max(C_N, C_{N-1})]$ has width
+$< 10^{-1509}$ and contains $1/\ln 2$,
+as verified by Arb's overlap predicate applied to $C_N - 1/\ln 2$.
+\end{proof}
+
+\begin{theorem}[Certified Pi Family, $m=0$]\label{thm:2overpi}
+The PCF with $a(n) = -n(2n{-}1)$, $b(n) = 3n + 1$ satisfies
+\[
+  \left|\, \mathrm{PCF}(N{=}5000) - \frac{2}{\pi}\, \right|
+  < 10^{-1508}
+\]
+with the limit enclosed by consecutive convergents.
+\end{theorem}
+
+\begin{theorem}[Certified Pi Family, $m=1$]\label{thm:4overpi}
+The PCF with $a(n) = -n(2n{-}3)$, $b(n) = 3n + 1$ satisfies
+\[
+  \left|\, \mathrm{PCF}(N{=}5000) - \frac{4}{\pi}\, \right|
+  < 10^{-1518}
+\]
+with the limit enclosed by consecutive convergents.
+\end{theorem}

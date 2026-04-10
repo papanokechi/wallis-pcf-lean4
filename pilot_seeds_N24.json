@@ -1,0 +1,627 @@
+[
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -1,
+      -3,
+      0,
+      1,
+      4,
+      6,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      24,
+      72,
+      24,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      1,
+      8,
+      48,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      -1,
+      -3,
+      0,
+      1,
+      4,
+      6,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      24,
+      72,
+      24,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      1,
+      8,
+      48,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -1,
+      -3,
+      0,
+      1,
+      4,
+      6,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      24,
+      72,
+      24,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      1,
+      8,
+      48,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      -1,
+      -3,
+      0,
+      1,
+      4,
+      6,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      24,
+      72,
+      24,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      1,
+      8,
+      48,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      4,
+      6,
+      4,
+      1,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      -1,
+      -3,
+      0,
+      1,
+      4,
+      6,
+      4
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      24,
+      72,
+      24,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "beta": [
+      1,
+      1,
+      8,
+      48,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 6,
+    "n_terms": 500,
+    "_source": "crafted_N24"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "pslq": {
+    "Kc": "no_relation",
+    "Tc": "no_relation",
+    "Kc^2": "no_relation",
+    "sqrt(Kc)": "no_relation",
+    "log(Tc)": "no_relation"
+  }
+}

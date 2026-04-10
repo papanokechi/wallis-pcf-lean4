@@ -1,0 +1,228 @@
+{
+  "phase": 2,
+  "timestamp": "2026-04-06T20:39:25.835645",
+  "elapsed_seconds": 579.3,
+  "total_candidates": 482,
+  "constants": [
+    {
+      "A": 1,
+      "B": -6,
+      "C": 1,
+      "discriminant": 32,
+      "value": "0.75847698810404496724532186554781909482276272553944",
+      "irrationality": "IRRATIONAL",
+      "q_growth": 5118.32322784579,
+      "pslq_excluded_from": 1,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -6,
+      "C": 2,
+      "discriminant": 28,
+      "value": "1.6838318019573361984840640882118330418859377387554",
+      "irrationality": "IRRATIONAL",
+      "q_growth": 5118.371742277509,
+      "pslq_excluded_from": 1,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -6,
+      "C": 3,
+      "discriminant": 24,
+      "value": "2.5441552061607296278000736014592827984172444763971",
+      "irrationality": "IRRATIONAL",
+      "q_growth": 5118.158226823224,
+      "pslq_excluded_from": 1,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -6,
+      "C": 4,
+      "discriminant": 20,
+      "value": "3.1925758797799773376152512630578382337666715343182",
+      "irrationality": "IRRATIONAL",
+      "q_growth": 5117.643016041,
+      "pslq_excluded_from": 1,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -6,
+      "C": 6,
+      "discriminant": 12,
+      "value": "7.7949217024396653829497040066986225336326579967805",
+      "irrationality": "IRRATIONAL",
+      "q_growth": 5116.869115575673,
+      "pslq_excluded_from": 1,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -6,
+      "C": 7,
+      "discriminant": 8,
+      "value": "7.8298191789226654165765811544161915330844779429079",
+      "irrationality": "IRRATIONAL",
+      "q_growth": 5117.081648191245,
+      "pslq_excluded_from": 1,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -5,
+      "C": 1,
+      "discriminant": 21,
+      "value": "0.68680964448735158471547106326223225400644112005315",
+      "irrationality": "IRRATIONAL",
+      "q_growth": 5120.672862199403,
+      "pslq_excluded_from": 1,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -5,
+      "C": 2,
+      "discriminant": 17,
+      "value": "1.5530237110025787873054272258193994522853996451272",
+      "irrationality": "IRRATIONAL",
+      "q_growth": 5120.662719753845,
+      "pslq_excluded_from": 1,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -5,
+      "C": 3,
+      "discriminant": 13,
+      "value": "2.2367692548424713187775275843666779784485767785871",
+      "irrationality": "IRRATIONAL",
+      "q_growth": 5120.277099187228,
+      "pslq_excluded_from": 1,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -5,
+      "C": 5,
+      "discriminant": 5,
+      "value": "6.1641907530183419941190984756937135641900641852342",
+      "irrationality": "IRRATIONAL",
+      "q_growth": 5119.7731892694055,
+      "pslq_excluded_from": 1,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -5,
+      "C": 7,
+      "discriminant": -3,
+      "value": "7.2802174905118037541300011793074943664963198096302",
+      "irrationality": "unknown",
+      "q_growth": 0,
+      "pslq_excluded_from": 0,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -4,
+      "C": 1,
+      "discriminant": 12,
+      "value": "0.55712736585712660982616309135943165166034297612123",
+      "irrationality": "unknown",
+      "q_growth": 0,
+      "pslq_excluded_from": 0,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -4,
+      "C": 2,
+      "discriminant": 8,
+      "value": "1.2050818122790031344210897502591552086845744491397",
+      "irrationality": "unknown",
+      "q_growth": 0,
+      "pslq_excluded_from": 0,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -4,
+      "C": 5,
+      "discriminant": -4,
+      "value": "5.3721458145438515923354484143359151448292999100428",
+      "irrationality": "unknown",
+      "q_growth": 0,
+      "pslq_excluded_from": 0,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -4,
+      "C": 6,
+      "discriminant": -8,
+      "value": "6.2913946393232317052296550293196753517381028032085",
+      "irrationality": "unknown",
+      "q_growth": 0,
+      "pslq_excluded_from": 0,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -4,
+      "C": 7,
+      "discriminant": -12,
+      "value": "7.2320992655329409196569133248768773379703143022821",
+      "irrationality": "unknown",
+      "q_growth": 0,
+      "pslq_excluded_from": 0,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -3,
+      "C": 1,
+      "discriminant": 5,
+      "value": "0.85896576433659824388076993068570949368030260284095",
+      "irrationality": "unknown",
+      "q_growth": 0,
+      "pslq_excluded_from": 0,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -3,
+      "C": 3,
+      "discriminant": -3,
+      "value": "3.568656610883025714594833521753236162277477909538",
+      "irrationality": "unknown",
+      "q_growth": 0,
+      "pslq_excluded_from": 0,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -3,
+      "C": 4,
+      "discriminant": -7,
+      "value": "4.4088419336066646910377417934760124299029144968357",
+      "irrationality": "unknown",
+      "q_growth": 0,
+      "pslq_excluded_from": 0,
+      "algebraic_degree": null
+    },
+    {
+      "A": 1,
+      "B": -3,
+      "C": 5,
+      "discriminant": -11,
+      "value": "5.3018483275503808727094154084277316478917466715481",
+      "irrationality": "unknown",
+      "q_growth": 0,
+      "pslq_excluded_from": 0,
+      "algebraic_degree": null
+    }
+  ]
+}

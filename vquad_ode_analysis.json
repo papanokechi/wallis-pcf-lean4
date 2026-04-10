@@ -1,0 +1,200 @@
+{
+  "constant": "V_quad",
+  "definition": "GCF(1, 3n\u00b2+n+1)",
+  "recurrence": {
+    "recurrence": "Q_{n+1} = (3n\u00b2+n+1)\u00b7Q_n + Q_{n-1}",
+    "recurrence_order": 2,
+    "coefficient_degree": 2,
+    "expected_ode_order": 3,
+    "transfer_matrix": "[[3n\u00b2+n+1, 1], [1, 0]]",
+    "transfer_determinant": -1,
+    "transfer_trace": "3n\u00b2+n+1",
+    "quadratic_discriminant": -11,
+    "class_number_h_minus_11": 1,
+    "associated_conductor": 11,
+    "cm_curve": "y\u00b2 = x\u00b3 - x\u00b2 - x  (Cremona 11a1)",
+    "singular_structure": "Fuchsian with regular singularities at 0, \u221e, and algebraic points related to disc(-11)",
+    "symplectic_property": "Wronskian W(P_n, Q_n) = (-1)^n (constant magnitude)"
+  },
+  "convergent_count": 101,
+  "wronskian_constant": true,
+  "wronskian_alternating": true,
+  "wronskian_values": [
+    1.0,
+    -1.0,
+    1.0,
+    -1.0,
+    1.0,
+    -1.0,
+    1.0,
+    -1.0,
+    1.0,
+    -1.0
+  ],
+  "growth_ratios": [
+    5.0,
+    15.2,
+    31.06578947368421,
+    53.032189750105886,
+    81.01885647197885,
+    115.01234280565717,
+    155.00869471898065,
+    201.00645125102056,
+    253.00497496470277,
+    311.0039524914486
+  ],
+  "log_growth_rate": [
+    [
+      95,
+      0.08731963857722523
+    ],
+    [
+      96,
+      0.0866200682599332
+    ],
+    [
+      97,
+      0.08593283549481485
+    ],
+    [
+      98,
+      0.08525760376889353
+    ],
+    [
+      99,
+      0.08459404895721849
+    ]
+  ],
+  "irrationality_measures": [
+    [
+      26,
+      2.050441
+    ],
+    [
+      27,
+      2.048469
+    ],
+    [
+      28,
+      2.046643
+    ],
+    [
+      29,
+      2.044947
+    ],
+    [
+      30,
+      2.043369
+    ],
+    [
+      31,
+      2.041895
+    ],
+    [
+      32,
+      2.040516
+    ],
+    [
+      33,
+      2.039224
+    ],
+    [
+      34,
+      2.03801
+    ],
+    [
+      35,
+      2.036867
+    ]
+  ],
+  "monodromy": {
+    "trace_growth": [
+      [
+        1,
+        5.0
+      ],
+      [
+        2,
+        77.0
+      ],
+      [
+        3,
+        2376.0
+      ],
+      [
+        4,
+        125675.0
+      ],
+      [
+        5,
+        10169003.0
+      ],
+      [
+        6,
+        1168720778.0
+      ],
+      [
+        7,
+        181081800833.0
+      ],
+      [
+        8,
+        36388017812903.0
+      ],
+      [
+        9,
+        9204493428372024.0
+      ],
+      [
+        10,
+        2.8622176940705224e+18
+      ]
+    ],
+    "determinant_pattern": [
+      [
+        1,
+        -1.0
+      ],
+      [
+        2,
+        1.0
+      ],
+      [
+        3,
+        -1.0
+      ],
+      [
+        4,
+        1.0
+      ],
+      [
+        5,
+        -1.0
+      ],
+      [
+        6,
+        1.0
+      ],
+      [
+        7,
+        -1.0
+      ],
+      [
+        8,
+        1.0
+      ],
+      [
+        9,
+        -1.0
+      ],
+      [
+        10,
+        1.0
+      ]
+    ],
+    "final_det_sign": "negative",
+    "det_magnitude": 0.0
+  },
+  "wall_seconds": 1.065,
+  "generated_at": "2026-04-05 11:28:53"
+}

@@ -1,0 +1,62 @@
+{
+  "sweep": "deep_sweep",
+  "targets": [
+    "zeta5"
+  ],
+  "prec": 500,
+  "deep_mode": true,
+  "iters": 2,
+  "batch": 16,
+  "total_discoveries": 6,
+  "total_novel": 6,
+  "wall_seconds": 6.347,
+  "generated_at": "2026-04-05 10:31:42",
+  "results": [
+    {
+      "target": "zeta5",
+      "seed": 42,
+      "prec": 500,
+      "deep_mode": true,
+      "discovery_count": 6,
+      "novel_count": 6,
+      "high_value_count": 4,
+      "near_miss_count": 0,
+      "elapsed_seconds": 5.887,
+      "high_value": [
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "1\u00b7CF\u00b2 + -2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "formula": "-79\u00b7CF\u00b7zeta5 + -284\u00b7zeta5 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "formula": "-4\u00b7CF\u00b7zeta4 + 4\u00b7CF + 17\u00b7zeta4 + -17 = 0",
+          "is_multi_constant": false
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha_deg": 5,
+          "beta_deg": 6,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false
+        }
+      ],
+      "near_misses": []
+    }
+  ]
+}

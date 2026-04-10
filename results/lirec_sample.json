@@ -1,0 +1,4 @@
+﻿[
+  {"id": "lirec_demo_1", "target": "pi", "an": [2], "bn": [3, 1], "expression": "demo LIReC-style CF", "confidence": 0.88},
+  {"id": "lirec_demo_2", "target": "catalan", "an": [1], "bn": [4, 2, 1], "expression": "demo quadratic CF", "confidence": 0.84}
+]

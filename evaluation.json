@@ -1,0 +1,337 @@
+{
+  "metadata": {
+    "engine_version": "7.1",
+    "report_version": "v5",
+    "timestamp": "2026-03-27T12:00:00Z",
+    "author": "Gemini-Collaborator",
+    "title": "Breakthrough Engine V7.1 — Evaluation & Experiment Protocol"
+  },
+  "scores": {
+    "pipeline_score": 7.5,
+    "meta_evaluation": 8.5,
+    "external_rating": 8.8,
+    "final_rating": 8.9,
+    "research_grade_rating": 9.1,
+    "composite_breakthrough": 0.306,
+    "dimensions": {
+      "novelty": {
+        "raw": 0.85,
+        "sigmoid_k": 25,
+        "sigmoid_x0": 0.60,
+        "floor_hard": 0.50,
+        "bt_threshold": 0.70
+      },
+      "falsifiability": {
+        "raw": 0.88,
+        "sigmoid_k": 20,
+        "sigmoid_x0": 0.68,
+        "floor_hard": 0.55,
+        "bt_threshold": 0.80
+      },
+      "empirical_readiness": {
+        "raw": 0.80,
+        "sigmoid_k": 20,
+        "sigmoid_x0": 0.75,
+        "floor_hard": 0.35,
+        "bt_threshold": 0.65
+      },
+      "clarity": {
+        "raw": 0.70,
+        "sigmoid_k": 22,
+        "sigmoid_x0": 0.50,
+        "floor_hard": 0.40,
+        "bt_threshold": 0.60
+      }
+    },
+    "evaluation_breakdown": {
+      "scientific_rigor": 8,
+      "reproducibility": 8,
+      "novelty": 8,
+      "empirical_readiness": 5,
+      "clarity_auditability": 7,
+      "practical_impact": 7
+    },
+    "meta_breakdown": {
+      "structure": 10,
+      "actionability": 9,
+      "rigor": 7,
+      "maintainability": 6
+    },
+    "external_breakdown": {
+      "conceptual_depth": 9.5,
+      "mathematical_rigor": 8.5,
+      "actionability": 9.0,
+      "maintainability": 6.5
+    },
+    "final_breakdown": {
+      "architectural_depth": 9.5,
+      "mathematical_rigor": 9.0,
+      "maintainability": 7.5,
+      "alignment_innovation": 9.2
+    },
+    "research_grade_breakdown": {
+      "architecture": 9.5,
+      "math_design": 9.2,
+      "autonomy": 9.3,
+      "empirical": 6.5,
+      "anti_gaming": 9.0,
+      "maintainability": 8.2,
+      "breakthrough": 9.0
+    }
+  },
+  "hypotheses": [
+    {
+      "id": "H3.1",
+      "title": "Entropy as Jailbreak Predictor",
+      "claim": "Token-level alignment entropy predicts jailbreak vulnerability with AUROC >= 0.85",
+      "status": "BREAKTHROUGH_CANDIDATE",
+      "tier": "star",
+      "scores": { "N": 0.85, "F": 0.88, "E": 0.80, "C": 0.70 },
+      "raw_B": 0.419,
+      "sigma_E": 0.731,
+      "B_soft": 0.306,
+      "metrics": {
+        "auroc_target": 0.85,
+        "kill_condition": "AUROC < 0.85",
+        "entropy_features": ["mean_H", "p90_H", "max_token_H", "sliding_window_H"],
+        "aad_features": ["max_IF", "safety_bottleneck", "mean_IF_spike", "IF_gradient_max"],
+        "sliding_window_w": 8
+      }
+    },
+    {
+      "id": "H6.2",
+      "title": "Spectral Gap Criticality",
+      "claim": "KL divergence onset occurs at predicted D_crit",
+      "status": "PROBATIONAL",
+      "tier": "diamond",
+      "scores": { "N": 0.85, "F": 0.92, "E": 0.72, "C": 0.80 },
+      "raw_B": 0.450,
+      "sigma_E": 0.354,
+      "B_soft": 0.157,
+      "metrics": {
+        "target_error": "< 0.15",
+        "noise_levels": "variable"
+      }
+    },
+    {
+      "id": "H1.2",
+      "title": "Policy Gradient Stability",
+      "status": "THEORY_PROPOSAL",
+      "tier": "diamond",
+      "scores": { "N": 0.80, "F": 0.85, "E": 0.75, "C": 0.74 },
+      "raw_B": 0.376,
+      "sigma_E": 0.500,
+      "B_soft": 0.188
+    },
+    {
+      "id": "H1.3",
+      "title": "Reward Curvature Bound",
+      "status": "RESEARCH_DIRECTION",
+      "tier": "diamond",
+      "scores": { "N": 0.88, "F": 0.90, "E": 0.65, "C": 0.78 },
+      "raw_B": 0.402,
+      "sigma_E": 0.119,
+      "B_soft": 0.048
+    },
+    {
+      "id": "H4.1",
+      "title": "Constitutional AI Drift",
+      "status": "PROBATIONAL",
+      "tier": "diamond",
+      "scores": { "N": 0.82, "F": 0.86, "E": 0.72, "C": 0.65 },
+      "raw_B": 0.333,
+      "sigma_E": 0.354,
+      "B_soft": 0.118
+    },
+    {
+      "id": "H5.2",
+      "title": "Multi-Agent Alignment Decay",
+      "status": "RESEARCH_DIRECTION",
+      "tier": "diamond",
+      "scores": { "N": 0.85, "F": 0.88, "E": 0.68, "C": 0.77 },
+      "raw_B": 0.393,
+      "sigma_E": 0.198,
+      "B_soft": 0.078
+    },
+    {
+      "id": "H6.1",
+      "title": "Spectral Gap Universality",
+      "status": "RESEARCH_DIRECTION",
+      "tier": "diamond",
+      "scores": { "N": 0.84, "F": 0.90, "E": 0.70, "C": 0.75 },
+      "raw_B": 0.394,
+      "sigma_E": 0.269,
+      "B_soft": 0.106
+    },
+    {
+      "id": "H7.1",
+      "title": "Interpretability Scaling Law",
+      "status": "RESEARCH_DIRECTION",
+      "tier": "diamond",
+      "scores": { "N": 0.86, "F": 0.89, "E": 0.68, "C": 0.77 },
+      "raw_B": 0.403,
+      "sigma_E": 0.198,
+      "B_soft": 0.080
+    },
+    {
+      "id": "H2.2",
+      "title": "RLHF Reward Hacking",
+      "status": "EFFECTIVELY_KILLED",
+      "tier": "circle",
+      "scores": { "N": 0.72, "F": 0.80, "E": 0.50, "C": 0.75 },
+      "raw_B": 0.268,
+      "sigma_E": 0.007,
+      "B_soft": 0.002
+    },
+    {
+      "id": "H8.1",
+      "title": "Emergent Goal Misalignment",
+      "status": "EFFECTIVELY_KILLED",
+      "tier": "circle",
+      "scores": { "N": 0.80, "F": 0.85, "E": 0.55, "C": 0.78 },
+      "raw_B": 0.364,
+      "sigma_E": 0.018,
+      "B_soft": 0.006
+    }
+  ],
+  "experiment_protocol": {
+    "target": "H3.1",
+    "model": "Llama-3-8B or Mistral-7B chat",
+    "benchmark": "JailbreakBench JBB-Behaviors",
+    "steps": [
+      {
+        "id": 1,
+        "name": "Pilot Run",
+        "prompts": 100,
+        "gpu_hours": "1-2",
+        "description": "50 harmful + 50 benign prompts. Record top-k logprobs, compute all 4 entropy features + 4 AAD features."
+      },
+      {
+        "id": 2,
+        "name": "Threshold Tuning",
+        "prompts": 100,
+        "gpu_hours": "included",
+        "description": "Compute AUROC for each of 8 features independently and combined logistic regression."
+      },
+      {
+        "id": 3,
+        "name": "Full Test",
+        "prompts": 400,
+        "gpu_hours": "4-8",
+        "description": "Held-out 30% test split. Report AUROC with 95% bootstrap CI."
+      },
+      {
+        "id": 4,
+        "name": "Robustness Checks",
+        "prompts": 1600,
+        "gpu_hours": "16-32",
+        "description": "2 decoding modes × 2 top-k values. Report AUROC per condition."
+      },
+      {
+        "id": 5,
+        "name": "Ablations",
+        "prompts": 400,
+        "gpu_hours": "4-8",
+        "description": "Test entropy features vs AAD features vs combined. Feature importance analysis."
+      },
+      {
+        "id": 6,
+        "name": "Decision Rule",
+        "prompts": 0,
+        "gpu_hours": "0",
+        "description": "AUROC >= 0.85 on held-out test, stable across top-k choices (drop <= 0.05)."
+      }
+    ],
+    "total_compute_estimate": "24-50 GPU Hours",
+    "kill_condition": "AUROC < 0.85"
+  },
+  "backpressure": {
+    "target_survivor_rate": 0.25,
+    "k_initial": 20,
+    "x0_initial": 0.75,
+    "k_bounds": [5, 50],
+    "x0_bounds": [0.60, 0.90],
+    "eta": 2.0,
+    "lambda": 0.05,
+    "update_rule": "k_{t+1} = k_t + η × (survivor_rate_t − target_rate)"
+  },
+  "activation_anomaly_detector": {
+    "equation": "IF_t = 1 - cos(h_t^(l), h_t^(l+1))",
+    "aggregations": {
+      "max_IF": "max(IF) — global spike",
+      "safety_bottleneck": "argmax_l(mean(IF[l,:])) — which layer carries refusal",
+      "mean_IF_spike": "mean(IF[l_safety,:]) — sustained conflict",
+      "IF_gradient_max": "max(d(IF)/dt) — moment of compliance"
+    },
+    "target_layers": "middle-to-late (typically layers 16-28 in 32-layer model)"
+  },
+  "meta_skeptic": {
+    "audit_queries": [
+      {
+        "name": "Vacuousness Test",
+        "failure_mode": "Kill floor impossible to trigger",
+        "metric": "Variance(score_dist) > 0.1"
+      },
+      {
+        "name": "Tautology Check",
+        "failure_mode": "Hypothesis true by definition",
+        "metric": "Successful mapping to existing literature (non-circular)"
+      },
+      {
+        "name": "Sensitivity Check",
+        "failure_mode": "1% data change flips score",
+        "metric": "High gradient of B_soft near x0"
+      },
+      {
+        "name": "Collusion Detector",
+        "failure_mode": "Generator gaming the filter",
+        "metric": "KL(P_killed || P_survived) > threshold"
+      },
+      {
+        "name": "Justification Depth",
+        "failure_mode": "Score justifications restate rubric instead of citing data",
+        "metric": "External reference count per justification >= 2"
+      }
+    ]
+  },
+  "version_history": [
+    { "version": "v1", "score": 7.5, "additions": "Pipeline evaluation + H3.1 experiment protocol" },
+    { "version": "v2", "score": 8.5, "additions": "Sigmoid soft-threshold, kill floor formalization, entropy refinements" },
+    { "version": "v3", "score": 8.8, "additions": "Backpressure mechanism, multi-modal entropy, data-first architecture" },
+    { "version": "v4", "score": 8.9, "additions": "AAD implementation, Meta-Skeptic audit, IF visualization, directory scaffold" },
+    { "version": "v5", "score": 9.1, "additions": "ECAL, Hypothesis Lineage, Prediction Markets, Introspection Loop, Time-Delayed Evaluation" }
+  ],
+  "v5_upgrades": {
+    "ecal": {
+      "alpha": 0.1,
+      "decay": 0.95,
+      "equation_belief_update": "prior_score × P(empirical_result | hypothesis)",
+      "equation_confidence": "confidence_t × (1 + α × prediction_accuracy)"
+    },
+    "hypothesis_lineage": {
+      "mutation_operators": ["feature_addition", "recombination", "domain_transfer", "ablation", "parameter_sweep"],
+      "lineage_bonus_beta": 0.3,
+      "lfs_equation": "B_soft(H) × (1 + β × |descendants_survived| / |descendants_total|)"
+    },
+    "prediction_markets": {
+      "initial_capital_per_agent": 100,
+      "exploration_budget_pct": 10,
+      "return_equation": "capital_t × (1 + Σ(invested_fraction × empirical_outcome) - 1)"
+    },
+    "introspection_loop": {
+      "if_threshold": 0.7,
+      "reflection_depth": 3,
+      "diagnoses": ["SUDDEN_COMPLIANCE", "SUSTAINED_CONFLICT", "LOCALIZED_ANOMALY"]
+    },
+    "time_delayed_evaluation": {
+      "gates": [
+        { "gate": "T0", "delay_hours": 0, "action": "Initial scoring" },
+        { "gate": "T1", "delay_hours": 24, "action": "Re-score, check novelty illusion" },
+        { "gate": "T2", "delay_hours": 72, "action": "Cross-check, literature re-scan" },
+        { "gate": "T3", "delay_hours": 168, "action": "Final gate, require human review or pilot" }
+      ],
+      "stability_equation": "1 - Var(B_soft(H,t)) / Mean(B_soft(H,t))",
+      "b_final_equation": "B_soft(H) × Stability(H) × LFS(H)"
+    }
+  }
+}

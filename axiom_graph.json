@@ -1,0 +1,3487 @@
+{
+  "nodes": [
+    {
+      "id": "25ec7f1c-904",
+      "text": "The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count N_c, with the susceptibility (variance of gradient norms across batches) diverging as |N - N_c|^{-gamma} where gamma is consistent with the 3D Ising universality class (gamma ≈ 1.237). This predicts that training dynamics are not merely 'sharp' but exhibit measurable critical slowing down and power-law distributed gradient avalanches near N_c.",
+      "domain": "physics",
+      "domains_touched": [
+        "physics",
+        "computer_science",
+        "mathematics"
+      ],
+      "confidence": 0.3928724520129475,
+      "novelty_score": 0.92,
+      "generation": 1,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.84,
+        "F": 0.87,
+        "E": 0.74,
+        "C": 0.76
+      },
+      "tier": "THEORY_PROPOSAL",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Train GPT-2-style models at 20 parameter counts from 1M to 10B. 2. At epoch 1, record gradient norm variance across 1000 minibatches. 3. Fit chi(N) = A|N-Nc|^{-gamma} with Nc and gamma as free parameters. 4. Test gamma against Ising (1.237), mean-field (1.0), percolation (1.80). 5. Compute Binder cumulant U4 at each N to locate Nc precisely.",
+        "expected_result_if_false": "gamma is not consistent with any known universality class, or chi(N) does not diverge at all — it saturates or grows linearly.",
+        "surprising_result_if_true": "Neural networks satisfy universality — their critical behavior depends only on symmetry/dimensionality, not architecture details. This would be a physics-level law for AI."
+      },
+      "created_at": "2026-03-27T18:29:28.564065",
+      "metadata": {}
+    },
+    {
+      "id": "700279cf-a5a",
+      "text": "The apparent 'emergent abilities' in large language models are not phase transitions but percolation thresholds: the model's internal knowledge graph achieves a giant connected component at a critical scale, enabling multi-hop reasoning. The fraction of solvable multi-hop tasks should follow the universal percolation curve P(p) ~ (p - p_c)^{beta} with beta ≈ 0.41 (3D percolation) where p is a knowledge density proxy (training tokens / parameter count).",
+      "domain": "computer_science",
+      "domains_touched": [
+        "computer_science",
+        "physics",
+        "mathematics"
+      ],
+      "confidence": 0.4677110353528839,
+      "novelty_score": 0.88,
+      "generation": 1,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.9,
+        "F": 0.8200000000000001,
+        "E": 0.78,
+        "C": 0.85
+      },
+      "tier": "CONDITIONAL_BREAKTHROUGH",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Use Pythia model suite (70M to 12B, 7 checkpoints during training). 2. Evaluate on HotpotQA (2-hop), MuSiQue (2-4 hop), and custom k-hop chain tasks. 3. Define p = training_tokens / param_count. 4. Fit fraction_solved(p) = A(p-p_c)^beta. 5. Test whether p_c is the same for all k and whether beta = 0.41 ± 0.10.",
+        "expected_result_if_false": "Different k-hop tasks turn on at different p values, or the scaling is linear/logarithmic rather than power-law.",
+        "surprising_result_if_true": "LLM emergence is a literal percolation transition — same mathematics as forest fires, epidemics, and gelation. Would establish AI scaling as a branch of statistical physics."
+      },
+      "created_at": "2026-03-27T18:29:28.564263",
+      "metadata": {}
+    },
+    {
+      "id": "6d97b003-ff1",
+      "text": "The Kolmogorov complexity of a trained neural network's weight vector, when renormalized by layer using an information-theoretic RG procedure, flows to one of a small number of fixed points. These fixed points classify neural architectures into 'universality classes' that predict: (a) optimal learning rate schedules, (b) the number of emergent transitions during training, and (c) final loss as a function of scale. Different architectures (transformers, CNNs, SSMs) that flow to the same fixed point have identical scaling laws.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "mathematics",
+        "physics",
+        "computer_science"
+      ],
+      "confidence": 0.3891602357176044,
+      "novelty_score": 0.95,
+      "generation": 1,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.92,
+        "F": 0.74,
+        "E": 0.65,
+        "C": 0.92
+      },
+      "tier": "RESEARCH_DIRECTION",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Train 25 architectures (5 transformers, 5 CNNs, 5 RNNs, 5 SSMs, 5 MLPs) on identical task at 5 scales each. 2. Record layer-wise weight entropy h_l after convergence. 3. Define RG: average h_l over pairs of adjacent layers, iterate. 4. Plot RG flow in (h_mean, h_var) space. 5. Check for fixed-point convergence and cluster architectures by final flow destination.",
+        "expected_result_if_false": "No clear fixed points — the RG flow diverges or every architecture has a unique trajectory. The clustering is not predictive of scaling exponents.",
+        "surprising_result_if_true": "Architecture search could be replaced by fixed-point classification. We'd know in advance whether a new architecture will scale well, without training it."
+      },
+      "created_at": "2026-03-27T18:29:28.564447",
+      "metadata": {}
+    },
+    {
+      "id": "9f3f425c-156",
+      "text": "The generalization gap in overparameterized neural networks is governed by a topological invariant of the loss landscape — specifically, the Euler characteristic chi of the sub-level set {w : L(w) ≤ L*} where L* is the training loss. Networks that generalize well have chi ≈ 1 (topologically simple landscape), while networks that memorize have |chi| >> 1 (many holes and handles). This invariant is computable from the Hessian spectrum and predicts generalization better than existing norm-based bounds.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "mathematics",
+        "computer_science"
+      ],
+      "confidence": 0.3822028890104867,
+      "novelty_score": 0.8,
+      "generation": 1,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.8,
+        "F": 0.84,
+        "E": 0.8500000000000001,
+        "C": 0.7
+      },
+      "tier": "BREAKTHROUGH_CANDIDATE",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Train 100 ResNet-18 on CIFAR-10 with varying dropout (0-0.8), weight decay (0-0.1), and data augmentation. 2. At convergence, compute top-100 Hessian eigenvalues via stochastic Lanczos. 3. Estimate chi from eigenvalue distribution using Morse theory: chi = sum_{critical points} (-1)^{index}. 4. Compute generalization gap. 5. Rank-correlate chi with gap; compare Spearman rho against spectral norm rho.",
+        "expected_result_if_false": "chi has no significant correlation with generalization gap (|rho| < 0.3), or it's worse than spectral norm as a predictor.",
+        "surprising_result_if_true": "Topology predicts generalization — opening the door to topological regularizers that directly simplify the landscape geometry."
+      },
+      "created_at": "2026-03-27T18:29:28.564597",
+      "metadata": {}
+    },
+    {
+      "id": "9521bed9-288",
+      "text": "Large language models encode a compressed representation of the Kolmogorov structure function — the tradeoff between model complexity and data compression — and this structure function has a universal shape that is invariant across training datasets and architectures. Specifically, the in-context learning curve (loss vs number of in-context examples k) follows L(k) = L_inf + A * k^{-alpha} * (1 + B * sin(2*pi*log(k)/log(phi))) where phi = (1+sqrt(5))/2 is the golden ratio, and the log-periodic oscillations arise from discrete scale invariance in the model's internal representation hierarchy.",
+      "domain": "computer_science",
+      "domains_touched": [],
+      "confidence": 0.0,
+      "novelty_score": 0.98,
+      "generation": 1,
+      "session_id": "4e7622d0",
+      "status": "falsified",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.92,
+        "F": 0.88,
+        "E": 0.85,
+        "C": 0.7
+      },
+      "tier": "",
+      "counter_hypothesis": "Counter: The golden ratio prediction is numerologically motivated, not derived from first principles. Why would attention layers prefer Fibonacci connectivity over any other pattern?",
+      "falsification_evidence": "The golden ratio prediction is numerologically motivated, not derived from first principles. Why would attention layers prefer Fibonacci connectivity over any other pattern?",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:28.564770",
+      "metadata": {}
+    },
+    {
+      "id": "1f217ee7-61b",
+      "text": "The codon degeneracy of the genetic code is not merely redundancy but an optimal error-correcting code (ECC) in the information-theoretic sense. Specifically, the standard genetic code achieves at least 85% of the theoretical channel capacity for a noisy channel with the observed mutation spectrum. Alternative genetic codes found in mitochondria and certain organisms can be ranked by their ECC efficiency, and this ranking correlates with the organism's effective population size (N_e) — larger N_e organisms have codes closer to the Shannon limit because selection pressure on code optimization is stronger.",
+      "domain": "biology",
+      "domains_touched": [
+        "biology",
+        "mathematics",
+        "computer_science"
+      ],
+      "confidence": 0.34874540879771093,
+      "novelty_score": 0.75,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.74,
+        "F": 0.8,
+        "E": 0.84,
+        "C": 0.73
+      },
+      "tier": "BREAKTHROUGH_CANDIDATE",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Collect all 33 known genetic code variants from NCBI. 2. For each organism, estimate mutation spectrum from polymorphism data. 3. Model codon-to-amino-acid mapping as a channel. 4. Compute mutual information and channel capacity. 5. Correlate I/C with N_e estimates from Lynch & Conery (2003) and updates.",
+        "expected_result_if_false": "No significant correlation between ECC efficiency and N_e, or the standard code is not near the Shannon limit.",
+        "surprising_result_if_true": "Evolution discovered error-correcting codes 3.8 billion years before Shannon. Population genetics governs code optimality."
+      },
+      "created_at": "2026-03-27T18:29:29.188157",
+      "metadata": {}
+    },
+    {
+      "id": "748087eb-e41",
+      "text": "Protein folding times follow a universal scaling law: the folding time tau scales as tau ~ exp(c * N^{2/3}) where N is the chain length and c is a dimensionless constant that depends only on the secondary structure content (fraction helix vs sheet). This stretched-exponential scaling arises because folding is a nucleation process on the protein's contact surface (2D surface of a 3D object), and the nucleation barrier scales with the surface area N^{2/3} rather than the volume N.",
+      "domain": "biology",
+      "domains_touched": [
+        "biology",
+        "physics",
+        "chemistry"
+      ],
+      "confidence": 0.5040456663410721,
+      "novelty_score": 0.82,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.8200000000000001,
+        "F": 0.86,
+        "E": 0.93,
+        "C": 0.8
+      },
+      "tier": "BREAKTHROUGH_CANDIDATE",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Download Plaxco-Simons-Baker folding rate dataset + PFDB updates (150+ proteins). 2. Classify by DSSP: helix-dominant, sheet-dominant, mixed. 3. Plot ln(k_f) vs N^{2/3} for each class. 4. Fit linear model, compute R^2. 5. Compare to contact order fit R^2 using matched statistical tests.",
+        "expected_result_if_false": "R^2 < 0.5 for the N^{2/3} fit, or contact order remains a better predictor.",
+        "surprising_result_if_true": "Protein folding kinetics are governed by nucleation physics, not topology. Drug design could target nucleation-disrupting mutations."
+      },
+      "created_at": "2026-03-27T18:29:29.191855",
+      "metadata": {}
+    },
+    {
+      "id": "19713045-0ce",
+      "text": "The brain's functional connectivity network operates at a self-organized critical point, and this criticality is maintained by a homeostatic feedback loop where inhibitory plasticity tunes the network's branching ratio sigma to exactly 1. Disruption of this feedback (via GABAergic drugs or genetic perturbations) should move sigma away from 1, and the deviation |sigma - 1| should predict cognitive performance deficits on a per-subject basis with higher accuracy than any existing biomarker.",
+      "domain": "neuroscience",
+      "domains_touched": [
+        "neuroscience",
+        "physics",
+        "biology"
+      ],
+      "confidence": 0.3730476764438215,
+      "novelty_score": 0.78,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.77,
+        "F": 0.8200000000000001,
+        "E": 0.75,
+        "C": 0.82
+      },
+      "tier": "CONDITIONAL_BREAKTHROUGH",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "empirical",
+        "description": "1. Use HCP MEG dataset (100+ subjects with working memory fMRI task). 2. Compute neural avalanche distributions from broadband MEG. 3. Fit branching ratio sigma using maximum likelihood. 4. Correlate |sigma-1| with behavioral accuracy. 5. Compare predictive power (cross-validated R^2) against theta/alpha spectral ratio.",
+        "expected_result_if_false": "No significant correlation between sigma and working memory performance, or theta/alpha remains superior.",
+        "surprising_result_if_true": "A single physics parameter predicts cognition better than decades of conventional neuroscience biomarkers."
+      },
+      "created_at": "2026-03-27T18:29:29.194634",
+      "metadata": {}
+    },
+    {
+      "id": "b5ff0ef2-74a",
+      "text": "The distribution of evolutionary fitness effects (DFE) of mutations in a gene can be predicted from the gene's position in the protein-protein interaction (PPI) network. Specifically, the shape parameter k of the gamma-distributed DFE scales as k ~ (degree * betweenness)^{-1/2}, meaning that highly connected hub genes with high betweenness centrality have more strongly peaked DFEs (most mutations are more uniformly deleterious) while peripheral genes have flatter DFEs (mutations range from neutral to lethal).",
+      "domain": "biology",
+      "domains_touched": [
+        "biology",
+        "mathematics",
+        "computer_science"
+      ],
+      "confidence": 0.3938925663922218,
+      "novelty_score": 0.72,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.72,
+        "F": 0.84,
+        "E": 0.9,
+        "C": 0.66
+      },
+      "tier": "BREAKTHROUGH_CANDIDATE",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Collect deep mutational scanning DFE data for S. cerevisiae genes from MaveDB. 2. Fit gamma distribution to each gene's DFE, extract shape k. 3. Get PPI data from BioGRID, compute degree and betweenness for each gene. 4. Correlate log(k) vs log(degree * betweenness). 5. Control for gene length and expression level.",
+        "expected_result_if_false": "No significant correlation after controlling for confounders, or the correlation is positive (wrong direction).",
+        "surprising_result_if_true": "Network position predicts evolutionary fate — a gene's evolvability depends on its social network."
+      },
+      "created_at": "2026-03-27T18:29:29.195606",
+      "metadata": {}
+    },
+    {
+      "id": "2c229afe-0bc",
+      "text": "The human gut microbiome spontaneously organizes into one of exactly 3 stable community states (enterotypes) that correspond to the 3 stable fixed points of a generalized Lotka-Volterra system with the experimentally measured pairwise interaction matrix. Transitions between enterotypes require crossing a free energy barrier that scales as exp(N_species) where N_species is the number of bacterial species — explaining why dietary interventions temporarily perturb but rarely permanently shift enterotype identity.",
+      "domain": "biology",
+      "domains_touched": [
+        "biology",
+        "physics",
+        "mathematics"
+      ],
+      "confidence": 0.3465415405280273,
+      "novelty_score": 0.8,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.78,
+        "F": 0.77,
+        "E": 0.77,
+        "C": 0.78
+      },
+      "tier": "RESEARCH_DIRECTION",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Download HMP 16S abundance data. 2. Estimate A_ij from co-occurrence (SparCC or similar). 3. Simulate LV dynamics from 10K random initial conditions. 4. Cluster final states — count distinct attractors. 5. Compare attractor centroids to known enterotype centers (Bacteroides, Prevotella, Ruminococcus). 6. Classify HMP samples by nearest attractor — measure accuracy.",
+        "expected_result_if_false": "LV system converges to 1, 2, or >3 attractors, or the attractors don't correspond to the known enterotype clusters.",
+        "surprising_result_if_true": "The microbiome's discrete states are INEVITABLE consequences of the interaction matrix — not contingent on host genetics or diet."
+      },
+      "created_at": "2026-03-27T18:29:29.196003",
+      "metadata": {}
+    },
+    {
+      "id": "e3d862de-414",
+      "text": "[3-WAY SYNTHESIS] biology × computer_science × mathematics: How does 'Protein folding times follow a universal scaling law: the folding time tau scale...' inform 'The apparent 'emergent abilities' in large language models are not phase transit...' to optimize 'The Kolmogorov complexity of a trained neural network's weight vector, when reno...'?",
+      "domain": "biology×computer_science×mathematics",
+      "domains_touched": [
+        "biology",
+        "computer_science",
+        "chemistry",
+        "physics",
+        "mathematics"
+      ],
+      "confidence": 0.5920972492034333,
+      "novelty_score": 0.5,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "748087eb-e41",
+        "700279cf-a5a",
+        "6d97b003-ff1"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 1.0,
+        "F": 0.8050966281909007,
+        "E": 0.7783297593427903,
+        "C": 0.9835507042835689
+      },
+      "tier": "CONDITIONAL_BREAKTHROUGH",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:29.902562",
+      "metadata": {}
+    },
+    {
+      "id": "b78f9d7f-da6",
+      "text": "[3-WAY SYNTHESIS] computer_science × mathematics × neuroscience: How does 'The apparent 'emergent abilities' in large language models are not phase transit...' inform 'The Kolmogorov complexity of a trained neural network's weight vector, when reno...' to optimize 'The brain's functional connectivity network operates at a self-organized critica...'?",
+      "domain": "computer_science×mathematics×neuroscience",
+      "domains_touched": [
+        "biology",
+        "computer_science",
+        "physics",
+        "neuroscience",
+        "mathematics"
+      ],
+      "confidence": 0.5469306188737734,
+      "novelty_score": 0.5,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "700279cf-a5a",
+        "6d97b003-ff1",
+        "19713045-0ce"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 1.0,
+        "F": 0.7924158276194919,
+        "E": 0.72447445067339,
+        "C": 0.9916795911347416
+      },
+      "tier": "RESEARCH_DIRECTION",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:29.902811",
+      "metadata": {}
+    },
+    {
+      "id": "7d058553-f13",
+      "text": "[RECOMBINATION] Bridging biology × physics: The codon degeneracy of the genetic code is not merely redundancy but an optimal error-correcting code (ECC) in the info ⊕ The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+      "domain": "biology×physics",
+      "domains_touched": [
+        "biology",
+        "mathematics",
+        "physics",
+        "computer_science"
+      ],
+      "confidence": 0.4267429333222284,
+      "novelty_score": 0.5,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "1f217ee7-61b",
+        "25ec7f1c-904"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.9066785538436429,
+        "F": 0.8342661445845685,
+        "E": 0.7884161337770809,
+        "C": 0.7448489779814429
+      },
+      "tier": "CONDITIONAL_BREAKTHROUGH",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:29.903075",
+      "metadata": {}
+    },
+    {
+      "id": "d94ad94b-487",
+      "text": "[RECOMBINATION] Bridging biology × physics: Protein folding times follow a universal scaling law: the folding time tau scales as tau ~ exp(c * N^{2/3}) where N is t ⊕ The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+      "domain": "biology×physics",
+      "domains_touched": [
+        "biology",
+        "computer_science",
+        "chemistry",
+        "physics",
+        "mathematics"
+      ],
+      "confidence": 0.5622887873676697,
+      "novelty_score": 0.5,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "748087eb-e41",
+        "25ec7f1c-904"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.9544307203773357,
+        "F": 0.8649855490122363,
+        "E": 0.8295782060782455,
+        "C": 0.7797435475847172
+      },
+      "tier": "BREAKTHROUGH_CANDIDATE",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:29.903237",
+      "metadata": {}
+    },
+    {
+      "id": "9a1e5ddf-adc",
+      "text": "[RECOMBINATION] Bridging neuroscience × physics: The brain's functional connectivity network operates at a self-organized critical point, and this criticality is maintai ⊕ The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+      "domain": "neuroscience×physics",
+      "domains_touched": [
+        "biology",
+        "computer_science",
+        "physics",
+        "neuroscience",
+        "mathematics"
+      ],
+      "confidence": 0.4913613083279689,
+      "novelty_score": 0.5,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "19713045-0ce",
+        "25ec7f1c-904"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.9248745860926225,
+        "F": 0.8446300965511471,
+        "E": 0.744983221287567,
+        "C": 0.789430174239622
+      },
+      "tier": "THEORY_PROPOSAL",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:29.903650",
+      "metadata": {}
+    },
+    {
+      "id": "13412658-f01",
+      "text": "[RECOMBINATION] Bridging biology × physics: The distribution of evolutionary fitness effects (DFE) of mutations in a gene can be predicted from the gene's position  ⊕ The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+      "domain": "biology×physics",
+      "domains_touched": [
+        "biology",
+        "mathematics",
+        "physics",
+        "computer_science"
+      ],
+      "confidence": 0.42452524902068145,
+      "novelty_score": 0.5,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "b5ff0ef2-74a",
+        "25ec7f1c-904"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.8943422163802845,
+        "F": 0.8548684109265005,
+        "E": 0.8160882305241266,
+        "C": 0.708237248385031
+      },
+      "tier": "BREAKTHROUGH_CANDIDATE",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:29.903973",
+      "metadata": {}
+    },
+    {
+      "id": "fb8208ba-022",
+      "text": "[RECOMBINATION] Bridging biology × physics: The human gut microbiome spontaneously organizes into one of exactly 3 stable community states (enterotypes) that corres ⊕ The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+      "domain": "biology×physics",
+      "domains_touched": [
+        "biology",
+        "mathematics",
+        "physics",
+        "computer_science"
+      ],
+      "confidence": 0.4751424126706622,
+      "novelty_score": 0.5,
+      "generation": 2,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "2c229afe-0bc",
+        "25ec7f1c-904"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.9308608918630108,
+        "F": 0.8184741901856161,
+        "E": 0.7548509786706248,
+        "C": 0.7699350621968063
+      },
+      "tier": "CONDITIONAL_BREAKTHROUGH",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:29.904691",
+      "metadata": {}
+    },
+    {
+      "id": "53b5c472-026",
+      "text": "Financial market crashes are preceded by measurable critical slowing down in the autocorrelation structure of returns, and the lead time of the early warning signal scales as tau_warning ~ log(market_cap) — larger markets give MORE warning because they have longer correlation lengths and slower dynamics near the critical point. This predicts that cryptocurrency markets (small, fast) should crash with <1 day warning while sovereign bond markets (huge, slow) should give >30 days warning.",
+      "domain": "economics",
+      "domains_touched": [
+        "economics",
+        "physics",
+        "mathematics"
+      ],
+      "confidence": 0.3557070752828234,
+      "novelty_score": 0.82,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.8,
+        "F": 0.78,
+        "E": 0.8200000000000001,
+        "C": 0.72
+      },
+      "tier": "RESEARCH_DIRECTION",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Compile dataset of 50+ crashes: crypto (BTC, ETH), equity indices (SPX, FTSE, Nikkei), bonds (UST, Bund), commodities (oil, gold). 2. Define crash as >15% drawdown in <20 trading days. 3. For each, compute rolling AR(1) and variance in the 6 months before crash. 4. Detect first significant increase (Kendall tau test, p<0.05). 5. Lead time = crash date - detection date. 6. Correlate with log(market_cap_6mo_prior).",
+        "expected_result_if_false": "No significant correlation between lead time and market cap, or lead times are uniformly distributed.",
+        "surprising_result_if_true": "Market size determines forecastability — small markets crash without warning, large markets announce their own doom weeks in advance."
+      },
+      "created_at": "2026-03-27T18:29:29.920271",
+      "metadata": {}
+    },
+    {
+      "id": "3031b281-d2a",
+      "text": "Income inequality within nations follows a Tsallis distribution (q-Gaussian) rather than a log-normal or Pareto distribution, and the Tsallis parameter q is NOT a free fit parameter but is determined by the nation's economic network connectivity: q = 1 + 2/(k_mean + 1), where k_mean is the average degree of the inter-firm trade network. This predicts that more economically connected countries have q closer to 1 (more Gaussian, more equal) while fragmented economies have higher q (heavier tails, more extreme inequality).",
+      "domain": "economics",
+      "domains_touched": [
+        "economics",
+        "physics",
+        "mathematics"
+      ],
+      "confidence": 0.38263814958015097,
+      "novelty_score": 0.88,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.87,
+        "F": 0.8,
+        "E": 0.7300000000000001,
+        "C": 0.78
+      },
+      "tier": "THEORY_PROPOSAL",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Get household income distribution data for 40 countries from LIS/World Bank. 2. Fit Tsallis q-Gaussian via MLE. 3. Get inter-industry trade matrices from WIOD (40 countries, 56 industries). 4. Compute k_mean from binarized network. 5. Plot q vs 1 + 2/(k_mean + 1). 6. Compute RMSE and chi-squared test.",
+        "expected_result_if_false": "No systematic relationship between q and k_mean, or the formula is off by >0.2 for most countries.",
+        "surprising_result_if_true": "Inequality is a network property, not just a policy choice. Changing economic connectivity directly changes the income distribution shape."
+      },
+      "created_at": "2026-03-27T18:29:29.920996",
+      "metadata": {}
+    },
+    {
+      "id": "bd67c1b8-667",
+      "text": "Cities obey an information-theoretic scaling law: the Shannon entropy of the distribution of economic activities across sectors scales as H ~ log(population)^{beta} where beta = D_f/d is the ratio of the city's fractal dimension D_f to the embedding dimension d=2. Larger cities are more informationally complex (higher entropy) but the rate of complexity increase depends on their spatial structure. Compact cities (high D_f) diversify faster than sprawling ones.",
+      "domain": "economics",
+      "domains_touched": [
+        "economics",
+        "mathematics",
+        "physics"
+      ],
+      "confidence": 0.3664428924588274,
+      "novelty_score": 0.78,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.76,
+        "F": 0.8200000000000001,
+        "E": 0.87,
+        "C": 0.7
+      },
+      "tier": "BREAKTHROUGH_CANDIDATE",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Get NAICS 4-digit employment data for 380 MSAs from BLS. 2. Compute Shannon entropy H for each. 3. Download building footprints from OSM/Microsoft. 4. Estimate D_f via box-counting. 5. Fit models: M1: H ~ log(pop)^b (universal b), M2: H ~ log(pop)^{D_f/2} (morphology-dependent b). 6. Compare by AIC.",
+        "expected_result_if_false": "M2 is not significantly better than M1 (delta_AIC < 2), or D_f has no relationship to the scaling exponent.",
+        "surprising_result_if_true": "City shape determines economic complexity — urban planning literally shapes the information-theoretic capacity of an economy."
+      },
+      "created_at": "2026-03-27T18:29:29.921182",
+      "metadata": {}
+    },
+    {
+      "id": "5faeb99a-a0a",
+      "text": "The effectiveness of monetary policy transmission is governed by the spectral gap of the interbank lending network. Specifically, the lag between a central bank rate change and its full transmission to retail lending rates scales as tau_transmission ~ 1/lambda_2, where lambda_2 is the second-smallest eigenvalue of the Laplacian of the interbank network. Countries with well-connected banking systems (large lambda_2) transmit policy fast; countries with fragmented banking systems (small lambda_2) transmit slowly or incompletely.",
+      "domain": "economics",
+      "domains_touched": [
+        "economics",
+        "mathematics",
+        "computer_science"
+      ],
+      "confidence": 0.2763086048963958,
+      "novelty_score": 0.75,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.74,
+        "F": 0.78,
+        "E": 0.67,
+        "C": 0.74
+      },
+      "tier": "RESEARCH_DIRECTION",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Collect interbank lending data for ECB countries (TARGET2 data), US (FedWire), UK (CHAPS). 2. Construct monthly weighted directed graph. 3. Compute lambda_2 of symmetrized Laplacian. 4. Measure mortgage rate pass-through using ECB composite cost of borrowing indicator. 5. Cross-country regression: tau ~ alpha + beta/lambda_2.",
+        "expected_result_if_false": "R^2 < 0.2 in the cross-country regression, or beta is not significantly positive.",
+        "surprising_result_if_true": "Central banks should monitor their banking network's spectral gap as a key policy transmission diagnostic."
+      },
+      "created_at": "2026-03-27T18:29:29.921310",
+      "metadata": {}
+    },
+    {
+      "id": "daeee723-355",
+      "text": "There exists a 'forbidden zone' in the space of economic complexity indices: no country can simultaneously have high product complexity (Hidalgo-Hausmann ECI > 1.5) and low institutional complexity (World Governance Indicators < 30th percentile) for more than 15 years. This constraint is not merely correlational but reflects an information-theoretic impossibility: maintaining a complex export basket requires institutional infrastructure to process the requisite information flows, and the minimum institutional complexity is bounded below by the Shannon entropy of the product space.",
+      "domain": "economics",
+      "domains_touched": [
+        "economics",
+        "mathematics",
+        "computer_science"
+      ],
+      "confidence": 0.276861114431326,
+      "novelty_score": 0.7,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.7000000000000001,
+        "F": 0.76,
+        "E": 0.77,
+        "C": 0.7
+      },
+      "tier": "RESEARCH_DIRECTION",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {
+        "type": "computational",
+        "description": "1. Download Atlas of Economic Complexity ECI data (1960-2023). 2. Download WGI data (1996-2023, extrapolate before with Polity V). 3. Create country × year panel. 4. Flag all (country, year_range) where ECI > 1.5 and WGI < 30th percentile for >15 consecutive years. 5. Count violations. 6. For each violation, check if WGI is trending upward.",
+        "expected_result_if_false": "10+ country-decade violations with no institutional convergence trend. China is the obvious test case.",
+        "surprising_result_if_true": "There's a hard thermodynamic-like constraint on economic development — complexity demands institutions as surely as engines demand exhaust."
+      },
+      "created_at": "2026-03-27T18:29:29.921449",
+      "metadata": {}
+    },
+    {
+      "id": "9329788c-cc3",
+      "text": "[3-WAY SYNTHESIS] biology×computer_science×mathematics × computer_science×mathematics×neuroscience × economics: How does '[3-WAY SYNTHESIS] biology × computer_science × mathematics: How does 'Protein fo...' inform '[3-WAY SYNTHESIS] computer_science × mathematics × neuroscience: How does 'The a...' to optimize 'Income inequality within nations follows a Tsallis distribution (q-Gaussian) rat...'?",
+      "domain": "biology×computer_science×mathematics×computer_science×mathematics×neuroscience×economics",
+      "domains_touched": [
+        "biology",
+        "economics",
+        "computer_science",
+        "chemistry",
+        "physics",
+        "neuroscience",
+        "mathematics"
+      ],
+      "confidence": 0.5739778512390484,
+      "novelty_score": 0.5,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "e3d862de-414",
+        "b78f9d7f-da6",
+        "3031b281-d2a"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 1.0,
+        "F": 0.799153818178286,
+        "E": 0.743880527058603,
+        "C": 1.0
+      },
+      "tier": "RESEARCH_DIRECTION",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:30.662651",
+      "metadata": {}
+    },
+    {
+      "id": "4768d347-955",
+      "text": "[3-WAY SYNTHESIS] computer_science×mathematics×neuroscience × economics × mathematics: How does '[3-WAY SYNTHESIS] computer_science × mathematics × neuroscience: How does 'The a...' inform 'Income inequality within nations follows a Tsallis distribution (q-Gaussian) rat...' to optimize 'The Kolmogorov complexity of a trained neural network's weight vector, when reno...'?",
+      "domain": "computer_science×mathematics×neuroscience×economics×mathematics",
+      "domains_touched": [
+        "biology",
+        "economics",
+        "computer_science",
+        "physics",
+        "neuroscience",
+        "mathematics"
+      ],
+      "confidence": 0.5255406069501917,
+      "novelty_score": 0.5,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "b78f9d7f-da6",
+        "3031b281-d2a",
+        "6d97b003-ff1"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 1.0,
+        "F": 0.7770070323138709,
+        "E": 0.700518749382987,
+        "C": 1.0
+      },
+      "tier": "RESEARCH_DIRECTION",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:30.662875",
+      "metadata": {}
+    },
+    {
+      "id": "6b72b541-8ea",
+      "text": "[RECOMBINATION] Bridging economics × physics: Financial market crashes are preceded by measurable critical slowing down in the autocorrelation structure of returns, a ⊕ The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+      "domain": "economics×physics",
+      "domains_touched": [
+        "computer_science",
+        "mathematics",
+        "physics",
+        "economics"
+      ],
+      "confidence": 0.4320627247808881,
+      "novelty_score": 0.5,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "53b5c472-026",
+        "25ec7f1c-904"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.9427194704682831,
+        "F": 0.8237718130647589,
+        "E": 0.7789736837660178,
+        "C": 0.7397296803562772
+      },
+      "tier": "CONDITIONAL_BREAKTHROUGH",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:30.663079",
+      "metadata": {}
+    },
+    {
+      "id": "fecf4ca3-456",
+      "text": "[RECOMBINATION] Bridging economics × physics: Income inequality within nations follows a Tsallis distribution (q-Gaussian) rather than a log-normal or Pareto distribu ⊕ The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+      "domain": "economics×physics",
+      "domains_touched": [
+        "computer_science",
+        "mathematics",
+        "physics",
+        "economics"
+      ],
+      "confidence": 0.4971278411575482,
+      "novelty_score": 0.5,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "3031b281-d2a",
+        "25ec7f1c-904"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.9830986725654755,
+        "F": 0.8342661445845685,
+        "E": 0.7349829930005184,
+        "C": 0.7699350621968063
+      },
+      "tier": "THEORY_PROPOSAL",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:30.663276",
+      "metadata": {}
+    },
+    {
+      "id": "3d27bfbf-d21",
+      "text": "[RECOMBINATION] Bridging economics × physics: Cities obey an information-theoretic scaling law: the Shannon entropy of the distribution of economic activities across  ⊕ The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+      "domain": "economics×physics",
+      "domains_touched": [
+        "computer_science",
+        "mathematics",
+        "physics",
+        "economics"
+      ],
+      "confidence": 0.43853443344591925,
+      "novelty_score": 0.5,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "bd67c1b8-667",
+        "25ec7f1c-904"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.9188492803501561,
+        "F": 0.8446300965511471,
+        "E": 0.8023714850367004,
+        "C": 0.7293833011524187
+      },
+      "tier": "BREAKTHROUGH_CANDIDATE",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:30.663465",
+      "metadata": {}
+    },
+    {
+      "id": "c035f15d-ba5",
+      "text": "[RECOMBINATION] Bridging economics × physics: The effectiveness of monetary policy transmission is governed by the spectral gap of the interbank lending network. Spec ⊕ The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+      "domain": "economics×physics",
+      "domains_touched": [
+        "computer_science",
+        "mathematics",
+        "physics",
+        "economics"
+      ],
+      "confidence": 0.3808007134148294,
+      "novelty_score": 0.5,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "5faeb99a-a0a",
+        "25ec7f1c-904"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.9066785538436429,
+        "F": 0.8237718130647589,
+        "E": 0.7041306696913578,
+        "C": 0.749933330370107
+      },
+      "tier": "THEORY_PROPOSAL",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:30.663649",
+      "metadata": {}
+    },
+    {
+      "id": "d9fe7d34-1c0",
+      "text": "[RECOMBINATION] Bridging economics × physics: There exists a 'forbidden zone' in the space of economic complexity indices: no country can simultaneously have high pro ⊕ The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+      "domain": "economics×physics",
+      "domains_touched": [
+        "computer_science",
+        "mathematics",
+        "physics",
+        "economics"
+      ],
+      "confidence": 0.3811812497949023,
+      "novelty_score": 0.5,
+      "generation": 3,
+      "session_id": "4e7622d0",
+      "status": "alive",
+      "parent_ids": [
+        "daeee723-355",
+        "25ec7f1c-904"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.8818333175833175,
+        "F": 0.8131420540102449,
+        "E": 0.7548509786706248,
+        "C": 0.7293833011524187
+      },
+      "tier": "CONDITIONAL_BREAKTHROUGH",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-27T18:29:30.663904",
+      "metadata": {}
+    },
+    {
+      "id": "e3e2d2e5-7ac",
+      "text": "The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of order O(n^(-3/2)) that depends only on the Dedekind eta-function residues, independent of the specific partition function family.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "analytic_number_theory",
+        "modular_forms"
+      ],
+      "confidence": 0.7119315897789686,
+      "novelty_score": 0.72,
+      "generation": 7,
+      "session_id": "62694db9",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T16:21:41.493160",
+      "metadata": {}
+    },
+    {
+      "id": "54297e74-caa",
+      "text": "The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of order O(n^(-3/2)) that depends only on the Dedekind eta-function residues, independent of the specific partition function family.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "analytic_number_theory",
+        "modular_forms"
+      ],
+      "confidence": 0.6631691521228751,
+      "novelty_score": 0.72,
+      "generation": 7,
+      "session_id": "62694db9",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T16:21:43.505305",
+      "metadata": {}
+    },
+    {
+      "id": "be1bcf5f-2d7",
+      "text": "The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of order O(n^(-3/2)) that depends only on the Dedekind eta-function residues, independent of the specific partition function family.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "analytic_number_theory",
+        "modular_forms"
+      ],
+      "confidence": 0.6631691521228751,
+      "novelty_score": 0.72,
+      "generation": 7,
+      "session_id": "62694db9",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T16:21:45.517898",
+      "metadata": {}
+    },
+    {
+      "id": "f885b584-359",
+      "text": "[SYNTHESIS] mathematics×biology: The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of orde — applied via The distribution of evolutionary fitness effects (DFE) of mu",
+      "domain": "mathematics×biology",
+      "domains_touched": [
+        "biology",
+        "modular_forms",
+        "analytic_number_theory"
+      ],
+      "confidence": 0.48762437656093754,
+      "novelty_score": 0.5,
+      "generation": 7,
+      "session_id": "62694db9",
+      "status": "alive",
+      "parent_ids": [
+        "e3e2d2e5-7ac",
+        "b5ff0ef2-74a"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.55,
+        "F": 0.5,
+        "E": 0.5,
+        "C": 0.55
+      },
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T16:21:47.536628",
+      "metadata": {}
+    },
+    {
+      "id": "189ca9ba-e76",
+      "text": "[AUTO] Conservative stub hypothesis",
+      "domain": "mathematics",
+      "domains_touched": [
+        "mathematics"
+      ],
+      "confidence": 0.53908222534375,
+      "novelty_score": 0.5,
+      "generation": 8,
+      "session_id": "62694db9",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T18:04:24.306772",
+      "metadata": {}
+    },
+    {
+      "id": "0a0b9847-92b",
+      "text": "[AUTO] Balanced stub hypothesis",
+      "domain": "mathematics",
+      "domains_touched": [
+        "mathematics"
+      ],
+      "confidence": 0.49007475031250003,
+      "novelty_score": 0.5,
+      "generation": 8,
+      "session_id": "62694db9",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T18:04:24.306853",
+      "metadata": {}
+    },
+    {
+      "id": "4db0a81d-8f9",
+      "text": "[AUTO] Wild stub hypothesis",
+      "domain": "physics",
+      "domains_touched": [
+        "physics",
+        "mathematics"
+      ],
+      "confidence": 0.39205980025000003,
+      "novelty_score": 0.8,
+      "generation": 8,
+      "session_id": "62694db9",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T18:04:24.306902",
+      "metadata": {}
+    },
+    {
+      "id": "e66df9a0-e19",
+      "text": "[SYNTHESIS] mathematics×economics×physics: [AUTO] Conservative stub hypothesis — applied via [RECOMBINATION] Bridging economics × physics: Income inequal",
+      "domain": "mathematics×economics×physics",
+      "domains_touched": [
+        "economics×physics",
+        "mathematics"
+      ],
+      "confidence": 0.5395760003125,
+      "novelty_score": 0.5,
+      "generation": 8,
+      "session_id": "62694db9",
+      "status": "alive",
+      "parent_ids": [
+        "189ca9ba-e76",
+        "fecf4ca3-456"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.55,
+        "F": 0.5,
+        "E": 0.5,
+        "C": 0.55
+      },
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T18:04:24.308075",
+      "metadata": {}
+    },
+    {
+      "id": "207b8207-4d7",
+      "text": "The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of order O(n^(-3/2)) that depends only on the Dedekind eta-function residues, independent of the specific partition function family.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "analytic_number_theory",
+        "modular_forms"
+      ],
+      "confidence": 0.71910465875,
+      "novelty_score": 0.72,
+      "generation": 11,
+      "session_id": "dac53e75",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T18:21:13.777530",
+      "metadata": {}
+    },
+    {
+      "id": "15635615-049",
+      "text": "[Balanced] The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of order O(n^(-3/2)) that depends only on the Dedekind eta-function residues, independent of the specific partition function family.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "analytic_number_theory",
+        "modular_forms"
+      ],
+      "confidence": 0.669850915,
+      "novelty_score": 0.72,
+      "generation": 11,
+      "session_id": "dac53e75",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T18:21:13.777609",
+      "metadata": {}
+    },
+    {
+      "id": "05cc7d4c-47a",
+      "text": "[Wild] Cross-domain analogy: the same universality class governing mathematics ratio fluctuations also appears in random matrix eigenvalue spacings of GOE ensembles, connected by a hidden correspondence between integer partitions and matrix traces.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "mathematics",
+        "random_matrix_theory",
+        "statistical_physics"
+      ],
+      "confidence": 0.47283593999999995,
+      "novelty_score": 0.92,
+      "generation": 11,
+      "session_id": "dac53e75",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T18:21:13.777651",
+      "metadata": {}
+    },
+    {
+      "id": "df93ae68-361",
+      "text": "[SYNTHESIS] mathematics×biology×physics: The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of orde — applied via [RECOMBINATION] Bridging biology × physics: Protein folding ",
+      "domain": "mathematics×biology×physics",
+      "domains_touched": [
+        "biology×physics",
+        "modular_forms",
+        "analytic_number_theory"
+      ],
+      "confidence": 0.4925374375,
+      "novelty_score": 0.5,
+      "generation": 11,
+      "session_id": "dac53e75",
+      "status": "alive",
+      "parent_ids": [
+        "207b8207-4d7",
+        "d94ad94b-487"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.55,
+        "F": 0.5,
+        "E": 0.5,
+        "C": 0.55
+      },
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T18:21:19.788040",
+      "metadata": {}
+    },
+    {
+      "id": "c65b839a-faf",
+      "text": "The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of order O(n^(-3/2)) that depends only on the Dedekind eta-function residues, independent of the specific partition function family.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "analytic_number_theory",
+        "modular_forms"
+      ],
+      "confidence": 0.72271825,
+      "novelty_score": 0.72,
+      "generation": 16,
+      "session_id": "b1b075e8",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T20:39:26.976062",
+      "metadata": {}
+    },
+    {
+      "id": "95ef9309-17d",
+      "text": "[Balanced] The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of order O(n^(-3/2)) that depends only on the Dedekind eta-function residues, independent of the specific partition function family.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "analytic_number_theory",
+        "modular_forms"
+      ],
+      "confidence": 0.6732170000000001,
+      "novelty_score": 0.72,
+      "generation": 16,
+      "session_id": "b1b075e8",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T20:39:26.976139",
+      "metadata": {}
+    },
+    {
+      "id": "6c7f42ed-e3d",
+      "text": "[Wild] Cross-domain analogy: the same universality class governing mathematics ratio fluctuations also appears in random matrix eigenvalue spacings of GOE ensembles, connected by a hidden correspondence between integer partitions and matrix traces.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "mathematics",
+        "random_matrix_theory",
+        "statistical_physics"
+      ],
+      "confidence": 0.47521199999999997,
+      "novelty_score": 0.92,
+      "generation": 16,
+      "session_id": "b1b075e8",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T20:39:26.976192",
+      "metadata": {}
+    },
+    {
+      "id": "4d23a37f-00b",
+      "text": "[SYNTHESIS] mathematics×mathematics×economics×physics: The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of orde — applied via [SYNTHESIS] mathematics×economics×physics: [AUTO] Conservati",
+      "domain": "mathematics×mathematics×economics×physics",
+      "domains_touched": [
+        "mathematics×economics×physics",
+        "modular_forms",
+        "analytic_number_theory"
+      ],
+      "confidence": 0.4950125,
+      "novelty_score": 0.5,
+      "generation": 16,
+      "session_id": "b1b075e8",
+      "status": "alive",
+      "parent_ids": [
+        "c65b839a-faf",
+        "e66df9a0-e19"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.55,
+        "F": 0.5,
+        "E": 0.5,
+        "C": 0.55
+      },
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-30T20:39:34.988718",
+      "metadata": {}
+    },
+    {
+      "id": "344e8e82-63c",
+      "text": "The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of order O(n^(-3/2)) that depends only on the Dedekind eta-function residues, independent of the specific partition function family.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "analytic_number_theory",
+        "modular_forms"
+      ],
+      "confidence": 0.72635,
+      "novelty_score": 0.72,
+      "generation": 17,
+      "session_id": "b1b075e8",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-31T06:49:34.126690",
+      "metadata": {}
+    },
+    {
+      "id": "71f3f6b2-2e5",
+      "text": "[Balanced] The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of order O(n^(-3/2)) that depends only on the Dedekind eta-function residues, independent of the specific partition function family.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "analytic_number_theory",
+        "modular_forms"
+      ],
+      "confidence": 0.6766000000000001,
+      "novelty_score": 0.72,
+      "generation": 17,
+      "session_id": "b1b075e8",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-31T06:49:34.126747",
+      "metadata": {}
+    },
+    {
+      "id": "f6370635-780",
+      "text": "[Wild] Cross-domain analogy: the same universality class governing mathematics ratio fluctuations also appears in random matrix eigenvalue spacings of GOE ensembles, connected by a hidden correspondence between integer partitions and matrix traces.",
+      "domain": "mathematics",
+      "domains_touched": [
+        "mathematics",
+        "random_matrix_theory",
+        "statistical_physics"
+      ],
+      "confidence": 0.47759999999999997,
+      "novelty_score": 0.92,
+      "generation": 17,
+      "session_id": "b1b075e8",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-31T06:49:34.126784",
+      "metadata": {}
+    },
+    {
+      "id": "18e588b6-dfe",
+      "text": "[SYNTHESIS] mathematics×biology×physics: The partition ratio f_k(n)/f_k(n-1) exhibits a universal correction term of orde — applied via [RECOMBINATION] Bridging biology × physics: The human gut mi",
+      "domain": "mathematics×biology×physics",
+      "domains_touched": [
+        "modular_forms",
+        "analytic_number_theory",
+        "biology×physics"
+      ],
+      "confidence": 0.4975,
+      "novelty_score": 0.5,
+      "generation": 17,
+      "session_id": "b1b075e8",
+      "status": "alive",
+      "parent_ids": [
+        "344e8e82-63c",
+        "fb8208ba-022"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.55,
+        "F": 0.5,
+        "E": 0.5,
+        "C": 0.55
+      },
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-31T06:49:40.165305",
+      "metadata": {}
+    },
+    {
+      "id": "424f87cc-73a",
+      "text": "[AUTO] Conservative stub hypothesis",
+      "domain": "mathematics",
+      "domains_touched": [
+        "mathematics"
+      ],
+      "confidence": 0.55,
+      "novelty_score": 0.5,
+      "generation": 20,
+      "session_id": "bbc5025b",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-31T14:10:15.140304",
+      "metadata": {}
+    },
+    {
+      "id": "672dbcad-3c8",
+      "text": "[AUTO] Balanced stub hypothesis",
+      "domain": "mathematics",
+      "domains_touched": [
+        "mathematics"
+      ],
+      "confidence": 0.5,
+      "novelty_score": 0.5,
+      "generation": 20,
+      "session_id": "bbc5025b",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-31T14:10:15.140429",
+      "metadata": {}
+    },
+    {
+      "id": "8f91de4a-6c1",
+      "text": "[AUTO] Wild stub hypothesis",
+      "domain": "physics",
+      "domains_touched": [
+        "physics",
+        "mathematics"
+      ],
+      "confidence": 0.4,
+      "novelty_score": 0.8,
+      "generation": 20,
+      "session_id": "bbc5025b",
+      "status": "alive",
+      "parent_ids": [],
+      "falsification_attempts": 0,
+      "scores": {},
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-31T14:10:15.140480",
+      "metadata": {}
+    },
+    {
+      "id": "e1dec3d6-09d",
+      "text": "[SYNTHESIS] mathematics×neuroscience×physics: [AUTO] Conservative stub hypothesis — applied via [RECOMBINATION] Bridging neuroscience × physics: The brain's",
+      "domain": "mathematics×neuroscience×physics",
+      "domains_touched": [
+        "neuroscience×physics",
+        "mathematics"
+      ],
+      "confidence": 0.5,
+      "novelty_score": 0.5,
+      "generation": 20,
+      "session_id": "bbc5025b",
+      "status": "alive",
+      "parent_ids": [
+        "424f87cc-73a",
+        "9a1e5ddf-adc"
+      ],
+      "falsification_attempts": 0,
+      "scores": {
+        "N": 0.55,
+        "F": 0.5,
+        "E": 0.5,
+        "C": 0.55
+      },
+      "tier": "KILLED",
+      "counter_hypothesis": "",
+      "falsification_evidence": "",
+      "experimental_protocol": {},
+      "created_at": "2026-03-31T14:10:15.140835",
+      "metadata": {}
+    }
+  ],
+  "edges": [
+    {
+      "src": "pattern:Renormalization Group",
+      "dst": "25ec7f1c-904",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173664"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "700279cf-a5a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173687"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "6d97b003-ff1",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173699"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "9f3f425c-156",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173706"
+    },
+    {
+      "src": "pattern:Renormalization Group",
+      "dst": "700279cf-a5a",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173746"
+    },
+    {
+      "src": "700279cf-a5a",
+      "dst": "25ec7f1c-904",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173754"
+    },
+    {
+      "src": "700279cf-a5a",
+      "dst": "6d97b003-ff1",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173761"
+    },
+    {
+      "src": "700279cf-a5a",
+      "dst": "9f3f425c-156",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173767"
+    },
+    {
+      "src": "pattern:Renormalization Group",
+      "dst": "6d97b003-ff1",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173786"
+    },
+    {
+      "src": "6d97b003-ff1",
+      "dst": "25ec7f1c-904",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173792"
+    },
+    {
+      "src": "6d97b003-ff1",
+      "dst": "700279cf-a5a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173798"
+    },
+    {
+      "src": "pattern:Renormalization Group",
+      "dst": "9f3f425c-156",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173817"
+    },
+    {
+      "src": "9f3f425c-156",
+      "dst": "25ec7f1c-904",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173823"
+    },
+    {
+      "src": "9f3f425c-156",
+      "dst": "700279cf-a5a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.173829"
+    },
+    {
+      "src": "pattern:Error-Correcting Codes as Universal Motif",
+      "dst": "1f217ee7-61b",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910450"
+    },
+    {
+      "src": "1f217ee7-61b",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910464"
+    },
+    {
+      "src": "1f217ee7-61b",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910474"
+    },
+    {
+      "src": "1f217ee7-61b",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910481"
+    },
+    {
+      "src": "1f217ee7-61b",
+      "dst": "7d058553-f13",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910487"
+    },
+    {
+      "src": "1f217ee7-61b",
+      "dst": "d94ad94b-487",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910493"
+    },
+    {
+      "src": "1f217ee7-61b",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910499"
+    },
+    {
+      "src": "1f217ee7-61b",
+      "dst": "13412658-f01",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910508"
+    },
+    {
+      "src": "1f217ee7-61b",
+      "dst": "fb8208ba-022",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910521"
+    },
+    {
+      "src": "pattern:Error-Correcting Codes as Universal Motif",
+      "dst": "748087eb-e41",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910551"
+    },
+    {
+      "src": "748087eb-e41",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910562"
+    },
+    {
+      "src": "748087eb-e41",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910570"
+    },
+    {
+      "src": "748087eb-e41",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910578"
+    },
+    {
+      "src": "748087eb-e41",
+      "dst": "7d058553-f13",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910584"
+    },
+    {
+      "src": "748087eb-e41",
+      "dst": "d94ad94b-487",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910590"
+    },
+    {
+      "src": "748087eb-e41",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910596"
+    },
+    {
+      "src": "748087eb-e41",
+      "dst": "13412658-f01",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910602"
+    },
+    {
+      "src": "748087eb-e41",
+      "dst": "fb8208ba-022",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910658"
+    },
+    {
+      "src": "pattern:Error-Correcting Codes as Universal Motif",
+      "dst": "19713045-0ce",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910692"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "1f217ee7-61b",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910705"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "748087eb-e41",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910712"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "b5ff0ef2-74a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910718"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "2c229afe-0bc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910724"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910730"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910736"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "7d058553-f13",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910742"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "d94ad94b-487",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910748"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910754"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "13412658-f01",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910760"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "fb8208ba-022",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910766"
+    },
+    {
+      "src": "pattern:Error-Correcting Codes as Universal Motif",
+      "dst": "b5ff0ef2-74a",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910788"
+    },
+    {
+      "src": "b5ff0ef2-74a",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910795"
+    },
+    {
+      "src": "b5ff0ef2-74a",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910802"
+    },
+    {
+      "src": "b5ff0ef2-74a",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910808"
+    },
+    {
+      "src": "b5ff0ef2-74a",
+      "dst": "7d058553-f13",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910814"
+    },
+    {
+      "src": "b5ff0ef2-74a",
+      "dst": "d94ad94b-487",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910820"
+    },
+    {
+      "src": "b5ff0ef2-74a",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910826"
+    },
+    {
+      "src": "b5ff0ef2-74a",
+      "dst": "13412658-f01",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910832"
+    },
+    {
+      "src": "b5ff0ef2-74a",
+      "dst": "fb8208ba-022",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910838"
+    },
+    {
+      "src": "pattern:Error-Correcting Codes as Universal Motif",
+      "dst": "2c229afe-0bc",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910857"
+    },
+    {
+      "src": "2c229afe-0bc",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910865"
+    },
+    {
+      "src": "2c229afe-0bc",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910872"
+    },
+    {
+      "src": "2c229afe-0bc",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910878"
+    },
+    {
+      "src": "2c229afe-0bc",
+      "dst": "7d058553-f13",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910884"
+    },
+    {
+      "src": "2c229afe-0bc",
+      "dst": "d94ad94b-487",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910891"
+    },
+    {
+      "src": "2c229afe-0bc",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910896"
+    },
+    {
+      "src": "2c229afe-0bc",
+      "dst": "13412658-f01",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910902"
+    },
+    {
+      "src": "2c229afe-0bc",
+      "dst": "fb8208ba-022",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910908"
+    },
+    {
+      "src": "748087eb-e41",
+      "dst": "e3d862de-414",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910928"
+    },
+    {
+      "src": "700279cf-a5a",
+      "dst": "e3d862de-414",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910935"
+    },
+    {
+      "src": "6d97b003-ff1",
+      "dst": "e3d862de-414",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910938"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "1f217ee7-61b",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910944"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "748087eb-e41",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910948"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910952"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "b5ff0ef2-74a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910955"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "2c229afe-0bc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910959"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910965"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "7d058553-f13",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910971"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "d94ad94b-487",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910977"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910984"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "13412658-f01",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910988"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "fb8208ba-022",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.910992"
+    },
+    {
+      "src": "700279cf-a5a",
+      "dst": "b78f9d7f-da6",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911006"
+    },
+    {
+      "src": "6d97b003-ff1",
+      "dst": "b78f9d7f-da6",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911010"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "b78f9d7f-da6",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911014"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "1f217ee7-61b",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911021"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "748087eb-e41",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911026"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911033"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "b5ff0ef2-74a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911039"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "2c229afe-0bc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911045"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911051"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "7d058553-f13",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911058"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "d94ad94b-487",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911064"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911071"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "13412658-f01",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911077"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "fb8208ba-022",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911083"
+    },
+    {
+      "src": "1f217ee7-61b",
+      "dst": "7d058553-f13",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911102"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "7d058553-f13",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911107"
+    },
+    {
+      "src": "7d058553-f13",
+      "dst": "1f217ee7-61b",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911113"
+    },
+    {
+      "src": "7d058553-f13",
+      "dst": "748087eb-e41",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911120"
+    },
+    {
+      "src": "7d058553-f13",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911126"
+    },
+    {
+      "src": "7d058553-f13",
+      "dst": "b5ff0ef2-74a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911131"
+    },
+    {
+      "src": "7d058553-f13",
+      "dst": "2c229afe-0bc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911136"
+    },
+    {
+      "src": "7d058553-f13",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911141"
+    },
+    {
+      "src": "7d058553-f13",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911147"
+    },
+    {
+      "src": "7d058553-f13",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911152"
+    },
+    {
+      "src": "748087eb-e41",
+      "dst": "d94ad94b-487",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911169"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "d94ad94b-487",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911174"
+    },
+    {
+      "src": "d94ad94b-487",
+      "dst": "1f217ee7-61b",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911179"
+    },
+    {
+      "src": "d94ad94b-487",
+      "dst": "748087eb-e41",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911184"
+    },
+    {
+      "src": "d94ad94b-487",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911189"
+    },
+    {
+      "src": "d94ad94b-487",
+      "dst": "b5ff0ef2-74a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911194"
+    },
+    {
+      "src": "d94ad94b-487",
+      "dst": "2c229afe-0bc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911200"
+    },
+    {
+      "src": "d94ad94b-487",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911206"
+    },
+    {
+      "src": "d94ad94b-487",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911212"
+    },
+    {
+      "src": "d94ad94b-487",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911221"
+    },
+    {
+      "src": "19713045-0ce",
+      "dst": "9a1e5ddf-adc",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911235"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "9a1e5ddf-adc",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911237"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "1f217ee7-61b",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911241"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "748087eb-e41",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911245"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911249"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "b5ff0ef2-74a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911252"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "2c229afe-0bc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911256"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911260"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911264"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "7d058553-f13",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911268"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "d94ad94b-487",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911272"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "13412658-f01",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911276"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "fb8208ba-022",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911280"
+    },
+    {
+      "src": "b5ff0ef2-74a",
+      "dst": "13412658-f01",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911291"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "13412658-f01",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911294"
+    },
+    {
+      "src": "13412658-f01",
+      "dst": "1f217ee7-61b",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911298"
+    },
+    {
+      "src": "13412658-f01",
+      "dst": "748087eb-e41",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911302"
+    },
+    {
+      "src": "13412658-f01",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911305"
+    },
+    {
+      "src": "13412658-f01",
+      "dst": "b5ff0ef2-74a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911309"
+    },
+    {
+      "src": "13412658-f01",
+      "dst": "2c229afe-0bc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911314"
+    },
+    {
+      "src": "13412658-f01",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911318"
+    },
+    {
+      "src": "13412658-f01",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911322"
+    },
+    {
+      "src": "13412658-f01",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911326"
+    },
+    {
+      "src": "2c229afe-0bc",
+      "dst": "fb8208ba-022",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911346"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "fb8208ba-022",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911348"
+    },
+    {
+      "src": "fb8208ba-022",
+      "dst": "1f217ee7-61b",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911351"
+    },
+    {
+      "src": "fb8208ba-022",
+      "dst": "748087eb-e41",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911353"
+    },
+    {
+      "src": "fb8208ba-022",
+      "dst": "19713045-0ce",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911356"
+    },
+    {
+      "src": "fb8208ba-022",
+      "dst": "b5ff0ef2-74a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911358"
+    },
+    {
+      "src": "fb8208ba-022",
+      "dst": "2c229afe-0bc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911361"
+    },
+    {
+      "src": "fb8208ba-022",
+      "dst": "e3d862de-414",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911363"
+    },
+    {
+      "src": "fb8208ba-022",
+      "dst": "b78f9d7f-da6",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911366"
+    },
+    {
+      "src": "fb8208ba-022",
+      "dst": "9a1e5ddf-adc",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:29.911369"
+    },
+    {
+      "src": "pattern:Critical Slowing Down",
+      "dst": "53b5c472-026",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668273"
+    },
+    {
+      "src": "53b5c472-026",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668301"
+    },
+    {
+      "src": "53b5c472-026",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668313"
+    },
+    {
+      "src": "53b5c472-026",
+      "dst": "6b72b541-8ea",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668322"
+    },
+    {
+      "src": "53b5c472-026",
+      "dst": "fecf4ca3-456",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668334"
+    },
+    {
+      "src": "53b5c472-026",
+      "dst": "3d27bfbf-d21",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668343"
+    },
+    {
+      "src": "53b5c472-026",
+      "dst": "c035f15d-ba5",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668356"
+    },
+    {
+      "src": "53b5c472-026",
+      "dst": "d9fe7d34-1c0",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668364"
+    },
+    {
+      "src": "pattern:Critical Slowing Down",
+      "dst": "3031b281-d2a",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668393"
+    },
+    {
+      "src": "3031b281-d2a",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668404"
+    },
+    {
+      "src": "3031b281-d2a",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668413"
+    },
+    {
+      "src": "3031b281-d2a",
+      "dst": "6b72b541-8ea",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668420"
+    },
+    {
+      "src": "3031b281-d2a",
+      "dst": "fecf4ca3-456",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668428"
+    },
+    {
+      "src": "3031b281-d2a",
+      "dst": "3d27bfbf-d21",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668436"
+    },
+    {
+      "src": "3031b281-d2a",
+      "dst": "c035f15d-ba5",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668444"
+    },
+    {
+      "src": "3031b281-d2a",
+      "dst": "d9fe7d34-1c0",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668452"
+    },
+    {
+      "src": "pattern:Critical Slowing Down",
+      "dst": "bd67c1b8-667",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668477"
+    },
+    {
+      "src": "bd67c1b8-667",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668488"
+    },
+    {
+      "src": "bd67c1b8-667",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668496"
+    },
+    {
+      "src": "bd67c1b8-667",
+      "dst": "6b72b541-8ea",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668503"
+    },
+    {
+      "src": "bd67c1b8-667",
+      "dst": "fecf4ca3-456",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668511"
+    },
+    {
+      "src": "bd67c1b8-667",
+      "dst": "3d27bfbf-d21",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668518"
+    },
+    {
+      "src": "bd67c1b8-667",
+      "dst": "c035f15d-ba5",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668525"
+    },
+    {
+      "src": "bd67c1b8-667",
+      "dst": "d9fe7d34-1c0",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668533"
+    },
+    {
+      "src": "pattern:Critical Slowing Down",
+      "dst": "5faeb99a-a0a",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668556"
+    },
+    {
+      "src": "5faeb99a-a0a",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668567"
+    },
+    {
+      "src": "5faeb99a-a0a",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668574"
+    },
+    {
+      "src": "5faeb99a-a0a",
+      "dst": "6b72b541-8ea",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668582"
+    },
+    {
+      "src": "5faeb99a-a0a",
+      "dst": "fecf4ca3-456",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668589"
+    },
+    {
+      "src": "5faeb99a-a0a",
+      "dst": "3d27bfbf-d21",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668596"
+    },
+    {
+      "src": "5faeb99a-a0a",
+      "dst": "c035f15d-ba5",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668607"
+    },
+    {
+      "src": "5faeb99a-a0a",
+      "dst": "d9fe7d34-1c0",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668614"
+    },
+    {
+      "src": "pattern:Critical Slowing Down",
+      "dst": "daeee723-355",
+      "type": "seeded_by",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668640"
+    },
+    {
+      "src": "daeee723-355",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668651"
+    },
+    {
+      "src": "daeee723-355",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668659"
+    },
+    {
+      "src": "daeee723-355",
+      "dst": "6b72b541-8ea",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668665"
+    },
+    {
+      "src": "daeee723-355",
+      "dst": "fecf4ca3-456",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668673"
+    },
+    {
+      "src": "daeee723-355",
+      "dst": "3d27bfbf-d21",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668680"
+    },
+    {
+      "src": "daeee723-355",
+      "dst": "c035f15d-ba5",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668708"
+    },
+    {
+      "src": "daeee723-355",
+      "dst": "d9fe7d34-1c0",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668720"
+    },
+    {
+      "src": "e3d862de-414",
+      "dst": "9329788c-cc3",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668745"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "9329788c-cc3",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668755"
+    },
+    {
+      "src": "3031b281-d2a",
+      "dst": "9329788c-cc3",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668761"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "53b5c472-026",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668770"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "3031b281-d2a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668783"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "bd67c1b8-667",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668835"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "5faeb99a-a0a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668850"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "daeee723-355",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668859"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668867"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "6b72b541-8ea",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668876"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "fecf4ca3-456",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668885"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "3d27bfbf-d21",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668893"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "c035f15d-ba5",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668901"
+    },
+    {
+      "src": "9329788c-cc3",
+      "dst": "d9fe7d34-1c0",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668907"
+    },
+    {
+      "src": "b78f9d7f-da6",
+      "dst": "4768d347-955",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668937"
+    },
+    {
+      "src": "3031b281-d2a",
+      "dst": "4768d347-955",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668944"
+    },
+    {
+      "src": "6d97b003-ff1",
+      "dst": "4768d347-955",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668949"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "53b5c472-026",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668959"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "3031b281-d2a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668973"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "bd67c1b8-667",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668984"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "5faeb99a-a0a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668991"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "daeee723-355",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.668998"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669005"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "6b72b541-8ea",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669013"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "fecf4ca3-456",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669020"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "3d27bfbf-d21",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669027"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "c035f15d-ba5",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669035"
+    },
+    {
+      "src": "4768d347-955",
+      "dst": "d9fe7d34-1c0",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669042"
+    },
+    {
+      "src": "53b5c472-026",
+      "dst": "6b72b541-8ea",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669072"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "6b72b541-8ea",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669077"
+    },
+    {
+      "src": "6b72b541-8ea",
+      "dst": "53b5c472-026",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669084"
+    },
+    {
+      "src": "6b72b541-8ea",
+      "dst": "3031b281-d2a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669091"
+    },
+    {
+      "src": "6b72b541-8ea",
+      "dst": "bd67c1b8-667",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669098"
+    },
+    {
+      "src": "6b72b541-8ea",
+      "dst": "5faeb99a-a0a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669105"
+    },
+    {
+      "src": "6b72b541-8ea",
+      "dst": "daeee723-355",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669112"
+    },
+    {
+      "src": "6b72b541-8ea",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669120"
+    },
+    {
+      "src": "6b72b541-8ea",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669128"
+    },
+    {
+      "src": "3031b281-d2a",
+      "dst": "fecf4ca3-456",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669155"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "fecf4ca3-456",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669161"
+    },
+    {
+      "src": "fecf4ca3-456",
+      "dst": "53b5c472-026",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669170"
+    },
+    {
+      "src": "fecf4ca3-456",
+      "dst": "3031b281-d2a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669178"
+    },
+    {
+      "src": "fecf4ca3-456",
+      "dst": "bd67c1b8-667",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669186"
+    },
+    {
+      "src": "fecf4ca3-456",
+      "dst": "5faeb99a-a0a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669193"
+    },
+    {
+      "src": "fecf4ca3-456",
+      "dst": "daeee723-355",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669200"
+    },
+    {
+      "src": "fecf4ca3-456",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669208"
+    },
+    {
+      "src": "fecf4ca3-456",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669215"
+    },
+    {
+      "src": "bd67c1b8-667",
+      "dst": "3d27bfbf-d21",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669243"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "3d27bfbf-d21",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669248"
+    },
+    {
+      "src": "3d27bfbf-d21",
+      "dst": "53b5c472-026",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669256"
+    },
+    {
+      "src": "3d27bfbf-d21",
+      "dst": "3031b281-d2a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669263"
+    },
+    {
+      "src": "3d27bfbf-d21",
+      "dst": "bd67c1b8-667",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669273"
+    },
+    {
+      "src": "3d27bfbf-d21",
+      "dst": "5faeb99a-a0a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669281"
+    },
+    {
+      "src": "3d27bfbf-d21",
+      "dst": "daeee723-355",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669289"
+    },
+    {
+      "src": "3d27bfbf-d21",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669296"
+    },
+    {
+      "src": "3d27bfbf-d21",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669304"
+    },
+    {
+      "src": "5faeb99a-a0a",
+      "dst": "c035f15d-ba5",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669330"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "c035f15d-ba5",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669336"
+    },
+    {
+      "src": "c035f15d-ba5",
+      "dst": "53b5c472-026",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669344"
+    },
+    {
+      "src": "c035f15d-ba5",
+      "dst": "3031b281-d2a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669351"
+    },
+    {
+      "src": "c035f15d-ba5",
+      "dst": "bd67c1b8-667",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669358"
+    },
+    {
+      "src": "c035f15d-ba5",
+      "dst": "5faeb99a-a0a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669365"
+    },
+    {
+      "src": "c035f15d-ba5",
+      "dst": "daeee723-355",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669373"
+    },
+    {
+      "src": "c035f15d-ba5",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669380"
+    },
+    {
+      "src": "c035f15d-ba5",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669388"
+    },
+    {
+      "src": "daeee723-355",
+      "dst": "d9fe7d34-1c0",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669414"
+    },
+    {
+      "src": "25ec7f1c-904",
+      "dst": "d9fe7d34-1c0",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669420"
+    },
+    {
+      "src": "d9fe7d34-1c0",
+      "dst": "53b5c472-026",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669428"
+    },
+    {
+      "src": "d9fe7d34-1c0",
+      "dst": "3031b281-d2a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669435"
+    },
+    {
+      "src": "d9fe7d34-1c0",
+      "dst": "bd67c1b8-667",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669442"
+    },
+    {
+      "src": "d9fe7d34-1c0",
+      "dst": "5faeb99a-a0a",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669449"
+    },
+    {
+      "src": "d9fe7d34-1c0",
+      "dst": "daeee723-355",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669456"
+    },
+    {
+      "src": "d9fe7d34-1c0",
+      "dst": "9329788c-cc3",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669464"
+    },
+    {
+      "src": "d9fe7d34-1c0",
+      "dst": "4768d347-955",
+      "type": "domain_bridge",
+      "weight": 1.0,
+      "created_at": "2026-03-27T18:29:30.669472"
+    },
+    {
+      "src": "e3e2d2e5-7ac",
+      "dst": "f885b584-359",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-30T16:21:47.536782"
+    },
+    {
+      "src": "b5ff0ef2-74a",
+      "dst": "f885b584-359",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-30T16:21:47.536798"
+    },
+    {
+      "src": "189ca9ba-e76",
+      "dst": "e66df9a0-e19",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-30T18:04:24.308237"
+    },
+    {
+      "src": "fecf4ca3-456",
+      "dst": "e66df9a0-e19",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-30T18:04:24.308252"
+    },
+    {
+      "src": "207b8207-4d7",
+      "dst": "df93ae68-361",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-30T18:21:19.788191"
+    },
+    {
+      "src": "d94ad94b-487",
+      "dst": "df93ae68-361",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-30T18:21:19.788204"
+    },
+    {
+      "src": "c65b839a-faf",
+      "dst": "4d23a37f-00b",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-30T20:39:34.988871"
+    },
+    {
+      "src": "e66df9a0-e19",
+      "dst": "4d23a37f-00b",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-30T20:39:34.988890"
+    },
+    {
+      "src": "344e8e82-63c",
+      "dst": "18e588b6-dfe",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-31T06:49:40.165455"
+    },
+    {
+      "src": "fb8208ba-022",
+      "dst": "18e588b6-dfe",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-31T06:49:40.165468"
+    },
+    {
+      "src": "extremal_optimization",
+      "dst": "424f87cc-73a",
+      "type": "seeded_by",
+      "weight": 0.8,
+      "created_at": "2026-03-31T14:10:15.140967"
+    },
+    {
+      "src": "extremal_optimization",
+      "dst": "672dbcad-3c8",
+      "type": "seeded_by",
+      "weight": 0.8,
+      "created_at": "2026-03-31T14:10:15.141001"
+    },
+    {
+      "src": "extremal_optimization",
+      "dst": "8f91de4a-6c1",
+      "type": "seeded_by",
+      "weight": 0.8,
+      "created_at": "2026-03-31T14:10:15.141023"
+    },
+    {
+      "src": "424f87cc-73a",
+      "dst": "e1dec3d6-09d",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-31T14:10:15.141048"
+    },
+    {
+      "src": "9a1e5ddf-adc",
+      "dst": "e1dec3d6-09d",
+      "type": "derives_from",
+      "weight": 1.0,
+      "created_at": "2026-03-31T14:10:15.141061"
+    }
+  ],
+  "meta": {
+    "version": "1.0.0",
+    "saved_at": "2026-03-31T14:10:15.144940",
+    "node_count": 53,
+    "edge_count": 271
+  }
+}

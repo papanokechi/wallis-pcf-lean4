@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCF & V_quad Research Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0d1117; --card: #161b22; --border: #30363d;
+    --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff;
+    --green: #3fb950; --yellow: #d29922; --red: #f85149; --purple: #bc8cff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+         background: var(--bg); color: var(--text); padding: 20px; }
+  h1 { text-align: center; margin: 20px 0; font-size: 1.8em; }
+  h2 { color: var(--accent); margin: 15px 0 10px; font-size: 1.3em; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 20px; margin: 20px 0; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+  .card canvas { width: 100% !important; height: 300px !important; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+  th, td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left; }
+  th { color: var(--accent); font-weight: 600; }
+  .proved { color: var(--green); font-weight: bold; }
+  .numerical { color: var(--yellow); }
+  .evidence { color: var(--yellow); }
+  .open { color: var(--red); }
+  .odd { background: rgba(88, 166, 255, 0.1); }
+  .even { background: rgba(63, 185, 80, 0.1); }
+  .stat-row { display: flex; gap: 20px; margin: 15px 0; flex-wrap: wrap; }
+  .stat { flex: 1; min-width: 150px; background: var(--card); border: 1px solid var(--border);
+           border-radius: 8px; padding: 15px; text-align: center; }
+  .stat .num { font-size: 2em; font-weight: bold; color: var(--accent); }
+  .stat .label { color: var(--muted); font-size: 0.85em; margin-top: 5px; }
+  .formula { font-family: 'Courier New', monospace; color: var(--purple); }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; font-weight: 600; }
+  .badge-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .badge-yellow { background: rgba(210,153,34,0.15); color: var(--yellow); }
+  .badge-red { background: rgba(248,81,73,0.15); color: var(--red); }
+</style>
+</head>
+<body>
+
+<h1>🔬 PCF & V_quad Research Dashboard</h1>
+<p style="text-align:center; color:var(--muted);">Generated 2026-04-06 20:41 · Phases 0–4 · Ramanujan Breakthrough Generator</p>
+
+<div class="stat-row">
+  <div class="stat"><div class="num">2</div><div class="label">Conj. 1 Proved (m=0,1)</div></div>
+  <div class="stat"><div class="num">8</div><div class="label">Even-c Rationals</div></div>
+  <div class="stat"><div class="num">482</div><div class="label">V_quad Constants</div></div>
+  <div class="stat"><div class="num">10</div><div class="label">Meta-family Hits</div></div>
+  <div class="stat"><div class="num">80+</div><div class="label">Max Digits Verified</div></div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>Convergence: Log Ladder vs Taylor</h2>
+    <canvas id="convChart"></canvas>
+  </div>
+  <div class="card">
+    <h2>Pi Family Convergence by m</h2>
+    <canvas id="piChart"></canvas>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>Parity Analysis: Even→Rational, Odd→π</h2>
+    <table>
+      <tr><th>c</th><th>m</th><th>Parity</th><th>Value</th><th>Formula</th><th>Digits</th></tr>
+      <tr class="odd">
+        <td>1</td><td>0.0</td>
+        <td>ODD</td>
+        <td>0.6366197724</td>
+        <td class="formula">2^1/(π·C(0,0))</td>
+        <td><span class="badge badge-green">80d</span></td>
+      </tr>
+      <tr class="even">
+        <td>2</td><td>0.5</td>
+        <td>EVEN</td>
+        <td>1.0000000000</td>
+        <td class="formula">1/1</td>
+        <td><span class="badge badge-green">60d</span></td>
+      </tr>
+      <tr class="odd">
+        <td>3</td><td>1.0</td>
+        <td>ODD</td>
+        <td>1.2732395447</td>
+        <td class="formula">2^3/(π·C(2,1))</td>
+        <td><span class="badge badge-green">80d</span></td>
+      </tr>
+      <tr class="even">
+        <td>4</td><td>1.5</td>
+        <td>EVEN</td>
+        <td>1.5000000000</td>
+        <td class="formula">3/2</td>
+        <td><span class="badge badge-green">60d</span></td>
+      </tr>
+      <tr class="odd">
+        <td>5</td><td>2.0</td>
+        <td>ODD</td>
+        <td>1.6976527263</td>
+        <td class="formula">2^5/(π·C(4,2))</td>
+        <td><span class="badge badge-green">80d</span></td>
+      </tr>
+      <tr class="even">
+        <td>6</td><td>2.5</td>
+        <td>EVEN</td>
+        <td>1.8750000000</td>
+        <td class="formula">15/8</td>
+        <td><span class="badge badge-green">60d</span></td>
+      </tr>
+      <tr class="odd">
+        <td>7</td><td>3.0</td>
+        <td>ODD</td>
+        <td>2.0371832716</td>
+        <td class="formula">2^7/(π·C(6,3))</td>
+        <td><span class="badge badge-green">80d</span></td>
+      </tr>
+      <tr class="even">
+        <td>8</td><td>3.5</td>
+        <td>EVEN</td>
+        <td>2.1875000000</td>
+        <td class="formula">35/16</td>
+        <td><span class="badge badge-green">60d</span></td>
+      </tr>
+      <tr class="odd">
+        <td>9</td><td>4.0</td>
+        <td>ODD</td>
+        <td>2.3282094532</td>
+        <td class="formula">2^9/(π·C(8,4))</td>
+        <td><span class="badge badge-green">80d</span></td>
+      </tr>
+      <tr class="even">
+        <td>10</td><td>4.5</td>
+        <td>EVEN</td>
+        <td>2.4609375000</td>
+        <td class="formula">315/128</td>
+        <td><span class="badge badge-green">60d</span></td>
+      </tr>
+      <tr class="odd">
+        <td>11</td><td>5.0</td>
+        <td>ODD</td>
+        <td>2.5868993925</td>
+        <td class="formula">2^11/(π·C(10,5))</td>
+        <td><span class="badge badge-green">80d</span></td>
+      </tr>
+      <tr class="even">
+        <td>12</td><td>5.5</td>
+        <td>EVEN</td>
+        <td>2.7070312500</td>
+        <td class="formula">693/256</td>
+        <td><span class="badge badge-green">60d</span></td>
+      </tr>
+      <tr class="odd">
+        <td>13</td><td>6.0</td>
+        <td>ODD</td>
+        <td>2.8220720645</td>
+        <td class="formula">2^13/(π·C(12,6))</td>
+        <td><span class="badge badge-green">80d</span></td>
+      </tr>
+      <tr class="even">
+        <td>14</td><td>6.5</td>
+        <td>EVEN</td>
+        <td>2.9326171875</td>
+        <td class="formula">3003/1024</td>
+        <td><span class="badge badge-green">60d</span></td>
+      </tr>
+      <tr class="odd">
+        <td>15</td><td>7.0</td>
+        <td>ODD</td>
+        <td>3.0391545310</td>
+        <td class="formula">2^15/(π·C(14,7))</td>
+        <td><span class="badge badge-green">80d</span></td>
+      </tr>
+      <tr class="even">
+        <td>16</td><td>7.5</td>
+        <td>EVEN</td>
+        <td>3.1420898438</td>
+        <td class="formula">6435/2048</td>
+        <td><span class="badge badge-green">60d</span></td>
+      </tr>
+      <tr class="odd">
+        <td>17</td><td>8.0</td>
+        <td>ODD</td>
+        <td>3.2417648331</td>
+        <td class="formula">2^17/(π·C(16,8))</td>
+        <td><span class="badge badge-green">80d</span></td>
+      </tr>
+      <tr class="even">
+        <td>18</td><td>8.5</td>
+        <td>EVEN</td>
+        <td>3.3384704590</td>
+        <td class="formula">?</td>
+        <td><span class="badge badge-yellow">0d</span></td>
+      </tr>
+      <tr class="odd">
+        <td>19</td><td>9.0</td>
+        <td>ODD</td>
+        <td>3.4324568821</td>
+        <td class="formula">2^19/(π·C(18,9))</td>
+        <td><span class="badge badge-green">80d</span></td>
+      </tr>
+      <tr class="even">
+        <td>20</td><td>9.5</td>
+        <td>EVEN</td>
+        <td>3.5239410400</td>
+        <td class="formula">?</td>
+        <td><span class="badge badge-yellow">0d</span></td>
+      </tr>
+    </table>
+    <p style="margin-top:10px; color:var(--muted); font-size:0.85em;">
+      <strong>Proof:</strong> Even c ⟹ a(m)=0, CF truncates ⟹ exact rational (Wallis product).<br>
+      Odd c: verified to 80 digits for c=1..19; conjectured 2<sup>c</sup>/(π·C(c−1,⌊c/2⌋)).
+    </p>
+  </div>
+  
+  <div class="card">
+    <h2>Proof Status</h2>
+    <table>
+      <tr><th>Result</th><th>Status</th><th>Method</th></tr>
+      <tr>
+        <td>Log Ladder (Theorem 1)</td>
+        <td><span class="badge badge-green">PROVED</span></td>
+        <td style="color:var(--muted)">Gauss CF equivalence</td>
+      </tr>
+      <tr>
+        <td>Pi Family m=0 (Conj 1)</td>
+        <td><span class="badge badge-green">PROVED</span></td>
+        <td style="color:var(--muted)">Symbolic induction</td>
+      </tr>
+      <tr>
+        <td>Pi Family m=1 (Conj 1)</td>
+        <td><span class="badge badge-green">PROVED</span></td>
+        <td style="color:var(--muted)">Symbolic induction</td>
+      </tr>
+      <tr>
+        <td>Pi Family m≥2 (Conj 1)</td>
+        <td><span class="badge badge-red">OPEN</span></td>
+        <td style="color:var(--muted)">R(n,m) polynomial in m of degree ⌊n/2⌋</td>
+      </tr>
+      <tr>
+        <td>Even c → rational</td>
+        <td><span class="badge badge-green">PROVED</span></td>
+        <td style="color:var(--muted)">a(m)=0 truncation</td>
+      </tr>
+      <tr>
+        <td>Odd c → π</td>
+        <td><span class="badge badge-yellow">NUMERICAL</span></td>
+        <td style="color:var(--muted)">80-digit verification c=1..19</td>
+      </tr>
+      <tr>
+        <td>V_quad irrationality</td>
+        <td><span class="badge badge-green">PROVED</span></td>
+        <td style="color:var(--muted)">Wronskian/Euler criterion</td>
+      </tr>
+      <tr>
+        <td>V_quad non-algebraic</td>
+        <td><span class="badge badge-yellow">EVIDENCE</span></td>
+        <td style="color:var(--muted)">PSLQ deg≤6, coeff≤10000 at 3000 digits; sqrt(5)+phi relation is trivial (V_coeff=0)</td>
+      </tr>
+      <tr>
+        <td>Parity universality</td>
+        <td><span class="badge badge-red">OPEN</span></td>
+        <td style="color:var(--muted)">Generating function</td>
+      </tr>
+      <tr>
+        <td>Ratio universality link</td>
+        <td><span class="badge badge-yellow">EVIDENCE</span></td>
+        <td style="color:var(--muted)">Asymptotic ratio → 2n</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>Closed Forms (Phase 0)</h2>
+    <table>
+      <tr><th>m</th><th>Numerator p<sub>n</sub></th><th>Status</th></tr>
+      <tr><td>0</td><td class="formula">p<sub>n</sub> = (2n−1)!! · (2n+1)</td><td class="proved">PROVED ✓</td></tr>
+      <tr><td>1</td><td class="formula">p<sub>n</sub> = (2n−1)!! · (n²+3n+1)</td><td class="proved">PROVED ✓</td></tr>
+      <tr><td>2</td><td class="formula">R(n,2) polynomial in m, deg ⌊n/2⌋</td><td class="open">OPEN</td></tr>
+      <tr><td>≥2</td><td class="formula">R(n,m) = Σ c<sub>k</sub>(n)·m<sup>k</sup>, c<sub>0</sub>=2n+1, c<sub>k≥1</sub> have odd-prime denominators</td><td class="open">STRUCTURAL (Phase 0c)</td></tr>
+    </table>
+    <p style="margin-top:10px; color:var(--muted); font-size:0.85em;">
+      Key finding: R(n,m) = p<sub>n</sub>/(2n−1)!! is polynomial in m of degree ⌊n/2⌋ for each fixed n.<br>
+      Roots of n²+3n+1 involve golden ratio: (−3±√5)/2.<br>
+      c<sub>k</sub>(n) for k≥1 are rational functions with denominators dividing ∏(odd primes ≤ 2n−1).<br>
+      LCM pattern: n=3→5, n=4→7, n=5→21, n=6→33, n=7→429 (products of odd primes).
+    </p>
+  </div>
+  
+  <div class="card">
+    <h2>Meta-Family Discovery (Phase 1)</h2>
+    <table>
+      <tr><th>Family</th><th>Parameters</th><th>Target</th><th>Digits</th></tr>
+      <tr><td>Log Ladder</td><td>α=k, β=0, γ=k+1, δ=k</td><td>1/ln(k/(k−1))</td><td>80</td></tr>
+      <tr><td>Pi Family</td><td>α=2, β=−c, γ=3, δ=1</td><td>2<sup>c</sup>/(π·C)</td><td>80</td></tr>
+      <tr class="odd"><td><strong>NEW</strong></td><td>α=1, β=0, γ=4, δ=2</td><td>2/ln(3)</td><td>60</td></tr>
+      <tr class="odd"><td><strong>NEW</strong></td><td>α=4, β=0, γ=8, δ=4</td><td>4/ln(3)</td><td>60</td></tr>
+    </table>
+    <p style="margin-top:10px; color:var(--muted); font-size:0.85em;">
+      Unified template: a(n) = −(αn² + βn), b(n) = γn + δ. Log Ladder + Pi Family are special cases.
+    </p>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>Phase 5: Gamma Formula & Hypergeometric Structure</h2>
+    <table>
+      <tr><th>Result</th><th>Status</th><th>Details</th></tr>
+      <tr>
+        <td>val(m) = 2·Γ(m+1) / (√π·Γ(m+½))</td>
+        <td><span class="badge badge-green">VERIFIED 100d</span></td>
+        <td style="color:var(--muted)">Works for ALL real m > −½, not just integers</td>
+      </tr>
+      <tr>
+        <td>val(m+1)/val(m) = 2(m+1)/(2m+1)</td>
+        <td><span class="badge badge-green">PROVED 200d</span></td>
+        <td style="color:var(--muted)">Clean ratio from Gamma recursion</td>
+      </tr>
+      <tr>
+        <td>Half-integer m → exact Wallis rationals</td>
+        <td><span class="badge badge-green">PROVED</span></td>
+        <td style="color:var(--muted)">m=½→1, m=3/2→3/2, m=5/2→15/8 (= Parity Theorem)</td>
+      </tr>
+      <tr>
+        <td>rsolve(m=0): R(n)=2Γ(n+3/2)/Γ(n+1/2)</td>
+        <td><span class="badge badge-green">PROVED</span></td>
+        <td style="color:var(--muted)">sympy automatic solution</td>
+      </tr>
+      <tr>
+        <td>V_quad: not algebraic deg≤8</td>
+        <td><span class="badge badge-yellow">EVIDENCE</span></td>
+        <td style="color:var(--muted)">5 samples, 15-constant PSLQ, no cross-relations</td>
+      </tr>
+      <tr>
+        <td>R(n,1) = OEIS A028387</td>
+        <td><span class="badge badge-green">IDENTIFIED</span></td>
+        <td style="color:var(--muted)">Sum involves π·tan(√5π/2)/√5 (discriminant 5)</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<script>
+// Convergence chart
+const convCtx = document.getElementById('convChart').getContext('2d');
+new Chart(convCtx, {{
+  type: 'line',
+  data: {{
+    labels: {json.dumps(depths[::5])},
+    datasets: [
+      {{
+        label: 'Log Ladder (k=2)',
+        data: {json.dumps([log_ladder_errs[i] for i in range(0, len(log_ladder_errs), 5)])},
+        borderColor: '#58a6ff', borderWidth: 2, pointRadius: 0, tension: 0.1
+      }},
+      {{
+        label: 'Taylor series',
+        data: {json.dumps([taylor_errs[i] for i in range(0, len(taylor_errs), 5)])},
+        borderColor: '#f85149', borderWidth: 2, pointRadius: 0, tension: 0.1
+      }}
+    ]
+  }},
+  options: {{
+    responsive: true,
+    plugins: {{ legend: {{ labels: {{ color: '#e6edf3' }} }} }},
+    scales: {{
+      x: {{ title: {{ display: true, text: 'Depth (terms)', color: '#8b949e' }}, ticks: {{ color: '#8b949e' }} }},
+      y: {{ title: {{ display: true, text: 'log₁₀(error)', color: '#8b949e' }}, ticks: {{ color: '#8b949e' }} }}
+    }}
+  }}
+}});
+
+// Pi Family convergence
+const piCtx = document.getElementById('piChart').getContext('2d');
+new Chart(piCtx, {{
+  type: 'line',
+  data: {{
+    labels: {json.dumps(depths[::5])},
+    datasets: [
+      {{
+        label: 'm=0 (c=1)',
+        data: {json.dumps([pi_m0_errs[i] for i in range(0, len(pi_m0_errs), 5)])},
+        borderColor: '#58a6ff', borderWidth: 2, pointRadius: 0
+      }},
+      {{
+        label: 'm=1 (c=3)',
+        data: {json.dumps([pi_m1_errs[i] for i in range(0, len(pi_m1_errs), 5)])},
+        borderColor: '#3fb950', borderWidth: 2, pointRadius: 0
+      }},
+      {{
+        label: 'm=2 (c=5)',
+        data: {json.dumps([safe_log10(e) for i, e in enumerate(conv_data['pi_family_m2']['errors']) if i % 5 == 0])},
+        borderColor: '#d29922', borderWidth: 2, pointRadius: 0
+      }},
+      {{
+        label: 'm=3 (c=7)',
+        data: {json.dumps([safe_log10(e) for i, e in enumerate(conv_data['pi_family_m3']['errors']) if i % 5 == 0])},
+        borderColor: '#bc8cff', borderWidth: 2, pointRadius: 0
+      }},
+      {{
+        label: 'm=4 (c=9)',
+        data: {json.dumps([safe_log10(e) for i, e in enumerate(conv_data['pi_family_m4']['errors']) if i % 5 == 0])},
+        borderColor: '#f85149', borderWidth: 2, pointRadius: 0
+      }}
+    ]
+  }},
+  options: {{
+    responsive: true,
+    plugins: {{ legend: {{ labels: {{ color: '#e6edf3' }} }} }},
+    scales: {{
+      x: {{ title: {{ display: true, text: 'Depth', color: '#8b949e' }}, ticks: {{ color: '#8b949e' }} }},
+      y: {{ title: {{ display: true, text: 'log₁₀(error)', color: '#8b949e' }}, ticks: {{ color: '#8b949e' }} }}
+    }}
+  }}
+}});
+</script>
+</body>
+</html>

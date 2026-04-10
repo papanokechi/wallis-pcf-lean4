@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breakthrough Engine V6 — True Agentic Self-Modification</title>
+<style>
+:root {
+  --bg:#0c0e14; --bg2:#12151f; --bg3:#181c28; --bg4:#1e2434;
+  --text:#d4dae6; --sub:#6b7a90; --dim:#3d4a5c;
+  --border:#262f40;
+  --c1:#3b82f6; --c2:#22c55e; --c3:#8b5cf6; --c4:#ef4444;
+  --c5:#14b8a6; --c6:#f59e0b; --c7:#ec4899; --c8:#06b6d4;
+  --amber:#f59e0b;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow:hidden;height:100vh;}
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:var(--sub);}
+input,select,textarea{font-family:inherit;}
+
+/* ── HEADER ── */
+#header{
+  height:42px;display:flex;align-items:center;gap:12px;
+  padding:0 16px;background:var(--bg2);border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+#header .logo{
+  font-size:14px;font-weight:800;letter-spacing:-.3px;
+  background:linear-gradient(135deg,var(--c1),var(--c3));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.vbadge{
+  font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;
+  background:var(--c3);color:#fff;letter-spacing:.5px;text-transform:uppercase;
+}
+#phase-badge{
+  font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;
+  background:var(--bg3);color:var(--sub);text-transform:uppercase;letter-spacing:.5px;
+}
+#phase-badge.active{background:rgba(59,130,246,.15);color:var(--c1);}
+#phase-badge.debate{background:rgba(236,72,153,.15);color:var(--c7);}
+#phase-badge.interrupt{background:rgba(239,68,68,.15);color:var(--c4);animation:pulse 1.5s infinite;}
+#phase-badge.done{background:rgba(34,197,94,.15);color:var(--c2);}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+.hmet{font-size:10px;color:var(--sub);font-variant-numeric:tabular-nums;}
+.hmet b{color:var(--text);font-weight:600;}
+#prog-wrap{width:100px;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
+#prog{height:100%;background:linear-gradient(90deg,var(--c1),var(--c3));width:0%;transition:width .3s;}
+
+/* ── WORKSPACE ── */
+#workspace{
+  display:grid;
+  grid-template-columns:300px 1fr 260px;
+  height:calc(100vh - 42px);
+  overflow:hidden;
+}
+
+/* ── LEFT PANEL ── */
+#left{
+  background:var(--bg2);border-right:1px solid var(--border);
+  overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;
+}
+#left h4{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--dim);margin-bottom:6px;}
+#task-in{
+  width:100%;min-height:80px;background:var(--bg3);border:1px solid var(--border);
+  color:var(--text);font-size:11px;line-height:1.6;padding:8px 10px;border-radius:6px;
+  resize:vertical;outline:none;
+}
+#task-in:focus{border-color:var(--c1);}
+.ctl{margin-bottom:6px;}
+.ctl label{display:block;font-size:9px;font-weight:600;color:var(--sub);margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px;}
+.ctl select,.ctl input[type="number"]{
+  width:100%;background:var(--bg3);border:1px solid var(--border);
+  color:var(--text);font-size:11px;padding:5px 8px;border-radius:5px;outline:none;
+}
+.ctl select:focus,.ctl input:focus{border-color:var(--c1);}
+.ctl input[type="range"]{width:100%;accent-color:var(--c1);}
+.btn-row{display:flex;gap:6px;margin:4px 0;}
+#btn-run{
+  flex:1;background:linear-gradient(135deg,var(--c1),var(--c3));border:none;
+  color:#fff;padding:8px 0;border-radius:6px;font-size:11px;font-weight:700;
+  cursor:pointer;letter-spacing:.3px;transition:opacity .2s;
+}
+#btn-run:hover{opacity:.85;}
+#btn-run:disabled{opacity:.4;cursor:default;}
+#btn-stop{
+  flex:0 0 40px;background:var(--c4);border:none;color:#fff;
+  border-radius:6px;font-size:14px;cursor:pointer;display:none;
+}
+#btn-stop:hover{opacity:.85;}
+
+/* ── AGENTS ── */
+.agent-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;}
+.agent{
+  background:var(--bg3);border:1px solid var(--border);border-radius:5px;
+  padding:5px 6px;text-align:center;transition:all .3s;min-width:0;
+}
+.agent .a-label{font-size:8px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.agent .a-tag{font-size:7px;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:.3px;margin-top:1px;}
+.agent.firing{border-color:var(--c1);background:rgba(59,130,246,.08);box-shadow:0 0 8px rgba(59,130,246,.15);}
+.agent.firing .a-tag{color:var(--c1);}
+.agent.done{border-color:var(--c2);background:rgba(34,197,94,.05);}
+.agent.done .a-tag{color:var(--c2);}
+.agent.interrupted{border-color:var(--c4);background:rgba(239,68,68,.08);animation:pulse 1.5s infinite;}
+.agent.interrupted .a-tag{color:var(--c4);}
+
+/* ── SETTINGS ── */
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+
+/* ── BELIEF BOX ── */
+#belief-box{
+  font-size:9px;line-height:1.6;color:var(--sub);white-space:pre-wrap;
+  background:var(--bg3);border:1px solid var(--border);border-radius:5px;
+  padding:6px 8px;max-height:100px;overflow-y:auto;
+}
+
+/* ── CENTER PANEL ── */
+#center{overflow:hidden;display:flex;flex-direction:column;background:var(--bg);}
+
+/* ── TAB BAR ── */
+#tabbar{
+  display:flex;gap:0;border-bottom:1px solid var(--border);
+  background:var(--bg2);flex-shrink:0;padding:0 8px;
+}
+.tab{
+  padding:8px 14px;font-size:10px;font-weight:600;color:var(--sub);
+  cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;
+  display:flex;align-items:center;gap:5px;white-space:nowrap;
+}
+.tab:hover{color:var(--text);}
+.tab.on{color:var(--text);border-bottom-color:var(--c1);}
+.tbadge{
+  font-size:8px;font-weight:700;padding:1px 5px;border-radius:8px;
+  background:rgba(59,130,246,.15);color:var(--c1);
+}
+
+/* ── PANELS ── */
+.panel{display:none;overflow-y:auto;flex:1;padding:14px 16px;}
+.panel.on{display:block;}
+
+/* ── ITERATION CARDS ── */
+.icard{
+  background:var(--bg2);border:1px solid var(--border);border-radius:7px;
+  margin-bottom:8px;overflow:hidden;transition:border-color .2s;
+}
+.icard.bt{border-left:3px solid var(--c2);}
+.icard.inv{border-left:3px solid var(--amber);}
+.icard.interrupt-raised{box-shadow:0 0 10px rgba(239,68,68,.12);}
+.icard-head{
+  display:flex;align-items:center;gap:8px;padding:10px 12px;
+  cursor:pointer;transition:background .15s;
+}
+.icard-head:hover{background:var(--bg3);}
+.inum{font-size:11px;font-weight:800;color:var(--c1);min-width:28px;}
+.ititle{flex:1;font-size:10px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;}
+.chips{display:flex;gap:4px;flex-shrink:0;}
+.chip{font-size:8px;font-weight:700;padding:2px 6px;border-radius:3px;text-transform:uppercase;letter-spacing:.3px;}
+.chip-bt{background:rgba(34,197,94,.15);color:var(--c2);}
+.chip-inv{background:rgba(245,158,11,.15);color:var(--amber);}
+.chip-good{background:rgba(59,130,246,.12);color:var(--c1);}
+.chip-waste{background:var(--bg3);color:var(--dim);}
+.chip-q{background:rgba(34,197,94,.12);color:var(--c2);}
+.chip-q.lo{background:rgba(239,68,68,.1);color:var(--c4);}
+.chip-s{background:rgba(139,92,246,.12);color:var(--c3);}
+.chip-exp{background:rgba(6,182,212,.12);color:var(--c8);}
+.chip-int{background:rgba(239,68,68,.12);color:var(--c4);}
+.icard-body{display:none;padding:0 12px 12px;animation:fadeIn .2s ease;}
+.icard-body.open{display:block;}
+.icard-body pre{
+  font-family:'Consolas','JetBrains Mono',monospace;font-size:10px;
+  line-height:1.7;color:var(--text);white-space:pre-wrap;word-break:break-word;
+  background:var(--bg3);border-radius:5px;padding:10px;max-height:200px;
+  overflow-y:auto;
+}
+.interrupt-banner{
+  margin-top:8px;padding:6px 10px;border-radius:5px;font-size:10px;font-weight:600;
+  background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:var(--c4);
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── MANIFEST ── */
+.manifest-block{
+  font-family:'Consolas','JetBrains Mono',monospace;font-size:10px;
+  line-height:1.7;color:var(--text);white-space:pre-wrap;word-break:break-word;
+  background:var(--bg3);border:1px solid var(--border);border-radius:6px;
+  padding:10px 12px;max-height:300px;overflow-y:auto;transition:border-color .3s;
+}
+.manifest-block.mutated{border-color:var(--c7);box-shadow:0 0 12px rgba(236,72,153,.1);}
+.manifest-ver-badge{
+  font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;
+  background:rgba(139,92,246,.15);color:var(--c3);
+}
+
+/* ── DEBATE ── */
+.debate-record{
+  background:var(--bg3);border:1px solid var(--border);border-radius:6px;
+  padding:10px;margin-bottom:8px;
+}
+.debate-record-head{font-size:10px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.debate-thread{display:flex;flex-direction:column;gap:4px;}
+.debate-turn{
+  font-size:10px;line-height:1.6;color:var(--sub);padding:4px 8px;
+  background:rgba(255,255,255,.02);border-radius:4px;
+}
+.debate-turn b{margin-right:6px;}
+
+/* ── BELIEF STATE ── */
+.belief-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:7px;
+  padding:10px 12px;margin-bottom:8px;animation:glow-in .3s ease;
+}
+.belief-card-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.belief-iter{font-size:9px;font-weight:700;color:var(--c1);padding:1px 6px;background:rgba(59,130,246,.1);border-radius:3px;}
+.belief-delta{font-size:10px;font-weight:700;margin-left:auto;}
+.delta-up{color:var(--c2);}
+.delta-dn{color:var(--c4);}
+.delta-eq{color:var(--sub);}
+.belief-text{font-size:10px;line-height:1.7;color:var(--sub);}
+.confidence-bar{height:4px;background:var(--bg3);border-radius:2px;margin-bottom:6px;overflow:hidden;}
+.confidence-fill{height:100%;border-radius:2px;transition:width .5s;}
+@keyframes glow-in{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── ASSUMPTIONS ── */
+.aitem{
+  background:var(--bg2);border:1px solid var(--border);border-radius:5px;
+  padding:8px 10px;margin-bottom:5px;font-size:10px;line-height:1.6;
+}
+.a-st{font-size:8px;font-weight:700;padding:1px 5px;border-radius:3px;text-transform:uppercase;letter-spacing:.3px;}
+.a-confirmed{background:rgba(34,197,94,.15);color:var(--c2);}
+.a-challenged{background:rgba(245,158,11,.15);color:var(--amber);}
+.a-refuted{background:rgba(239,68,68,.15);color:var(--c4);}
+.a-unknown{background:var(--bg3);color:var(--sub);}
+
+/* ── RIGHT PANEL ── */
+#right{
+  background:var(--bg2);border-left:1px solid var(--border);
+  overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px;
+}
+.rcard{
+  background:var(--bg3);border:1px solid var(--border);border-radius:7px;
+  padding:10px;
+}
+.rcard-title{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--sub);margin-bottom:8px;}
+
+/* ── METRICS GRID ── */
+.mgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+.met{text-align:center;}
+.met-v{font-size:16px;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;line-height:1.2;}
+.met-v.g{color:var(--c2);}
+.met-v.w{color:var(--c3);}
+.met-v.b{color:var(--c1);}
+.met-v.r{color:var(--c4);}
+.met-l{font-size:8px;color:var(--dim);margin-top:2px;}
+
+/* ── 2×2 GRID ── */
+.g2x2{display:grid;grid-template-columns:auto 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:3px;}
+.g2x2-axis{display:flex;align-items:center;justify-content:center;}
+.gcell{
+  background:var(--bg);border:1px solid var(--border);border-radius:5px;
+  padding:8px 4px;text-align:center;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:2px;min-height:52px;
+}
+.gcell-icon{font-size:14px;}
+.gcell-lbl{font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--sub);}
+.gcell-n{font-size:16px;font-weight:800;font-variant-numeric:tabular-nums;}
+.gcell-good{border-color:rgba(34,197,94,.3);}.gcell-good .gcell-n{color:var(--c2);}
+.gcell-waste .gcell-n{color:var(--dim);}
+.gcell-bt{border-color:rgba(34,197,94,.4);background:rgba(34,197,94,.04);}.gcell-bt .gcell-n{color:var(--c2);}
+.gcell-inv{border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.03);}.gcell-inv .gcell-n{color:var(--amber);}
+
+/* ── CONVERGENCE DOTS ── */
+#conv-dots{display:flex;gap:2px;flex-wrap:wrap;min-height:14px;}
+.cdot{width:8px;height:8px;border-radius:2px;transition:background .3s;}
+
+/* ── INTERRUPT LOG ── */
+.ilog{max-height:200px;overflow-y:auto;font-size:9px;line-height:1.8;font-family:'Consolas','JetBrains Mono',monospace;}
+.ilog-item{display:flex;gap:6px;align-items:baseline;}
+.ilog-lv{font-size:7px;font-weight:700;padding:1px 4px;border-radius:2px;text-transform:uppercase;flex-shrink:0;}
+.lv-info{background:rgba(59,130,246,.12);color:var(--c1);}
+.lv-warn{background:rgba(245,158,11,.15);color:var(--amber);}
+.lv-interrupt{background:rgba(239,68,68,.15);color:var(--c4);}
+.lv-bt{background:rgba(34,197,94,.15);color:var(--c2);}
+
+/* ── API KEY ── */
+#api-key-input{
+  width:100%;background:var(--bg3);border:1px solid var(--border);
+  color:var(--text);font-size:10px;padding:5px 8px;border-radius:5px;
+  outline:none;font-family:monospace;
+}
+#api-key-input:focus{border-color:var(--c1);}
+#api-key-input::placeholder{color:var(--dim);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  #workspace{grid-template-columns:1fr;height:auto;}
+  #left,#right{display:none;}
+  body{overflow:auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div id="header">
+  <span class="logo">⚡ Breakthrough Engine</span>
+  <span class="vbadge">V6 AGENTIC</span>
+  <span id="phase-badge">IDLE</span>
+  <div id="prog-wrap"><div id="prog"></div></div>
+  <div class="hmet">Iter <b id="h-i">0</b>/<b id="h-m">20</b></div>
+  <div class="hmet">Q <b id="h-q">—</b></div>
+  <div class="hmet">S <b id="h-s">—</b></div>
+  <div class="hmet">🚀 <b id="h-bt">0</b></div>
+  <div class="hmet">⚠ Interrupts <b id="h-int">0</b></div>
+  <div class="hmet" style="margin-left:auto;">Manifest v<b id="h-mv">1</b>.<b id="h-mm">0</b></div>
+</div>
+
+<!-- ═══ WORKSPACE ═══ -->
+<div id="workspace">
+
+<!-- ── LEFT ── -->
+<div id="left">
+  <div>
+    <h4>Pipeline</h4>
+    <textarea id="task-in" placeholder="Enter research task or question…&#10;&#10;e.g. What are the hidden assumptions in current RLHF alignment research?"></textarea>
+  </div>
+
+  <div>
+    <div class="ctl"><label>API Key</label>
+      <input type="password" id="api-key-input" placeholder="sk-ant-... (stored in memory only)">
+    </div>
+    <div class="ctl"><label>Mode</label>
+      <select id="t-mode">
+        <option value="meta">AI/ML Meta-analysis</option>
+        <option value="generic" selected>Generic Research</option>
+        <option value="physics">Physics/Math</option>
+      </select>
+    </div>
+    <div class="ctl"><label>Mutation strategy</label>
+      <select id="t-mut">
+        <option value="adversarial" selected>Adversarial</option>
+        <option value="analogical">Analogical</option>
+        <option value="inversion">Assumption inversion</option>
+        <option value="reductive">Reductive</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button id="btn-run" onclick="runPipeline()">▶ Run Agentic Pipeline</button>
+    <button id="btn-stop" onclick="stopPipeline()">■</button>
+  </div>
+
+  <div>
+    <h4>Settings</h4>
+    <div class="settings-grid">
+      <div class="ctl"><label>Max Iterations</label><input type="number" id="s-iters" value="20" min="1" max="100"></div>
+      <div class="ctl"><label>Explore ratio</label><input type="number" id="s-exp" value="25" min="0" max="100" step="5"></div>
+      <div class="ctl"><label>Q threshold</label><input type="number" id="s-qt" value="70" min="10" max="100" step="5"></div>
+      <div class="ctl"><label>Surprise σ threshold</label><input type="number" id="s-st" value="15" min="5" max="50" step="5"></div>
+      <div class="ctl"><label>Manifest debate rounds</label><input type="number" id="s-dr" value="2" min="1" max="5"></div>
+      <div class="ctl"><label>Interrupt sensitivity</label>
+        <select id="s-is">
+          <option value="high">High</option>
+          <option value="normal" selected>Normal</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+    </div>
+    <div class="ctl" style="margin-top:6px;"><label>Meta-analysis target</label>
+      <select id="s-mt">
+        <option value="custom" selected>Custom Task</option>
+        <option value="llm_alignment">LLM Alignment</option>
+        <option value="scaling_laws">Scaling Laws</option>
+        <option value="emergent_abilities">Emergent Abilities</option>
+        <option value="rlhf_limits">RLHF Limits</option>
+        <option value="mechanistic_interp">Mechanistic Interpretability</option>
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <h4>Active Agents</h4>
+    <div class="agent-grid">
+      <div class="agent" id="a-meta"><div class="a-label">Meta-Analyst</div><div class="a-tag" id="t-meta">IDLE</div></div>
+      <div class="agent" id="a-prod"><div class="a-label">Producer</div><div class="a-tag" id="t-prod">IDLE</div></div>
+      <div class="agent" id="a-acc"><div class="a-label">Accuracy</div><div class="a-tag" id="t-acc">IDLE</div></div>
+      <div class="agent" id="a-coh"><div class="a-label">Coherence</div><div class="a-tag" id="t-coh">IDLE</div></div>
+      <div class="agent" id="a-dev"><div class="a-label">Devil's Adv.</div><div class="a-tag" id="t-dev">IDLE</div></div>
+      <div class="agent" id="a-stl"><div class="a-label">Steelmaner</div><div class="a-tag" id="t-stl">IDLE</div></div>
+      <div class="agent" id="a-crd"><div class="a-label">Coordinator</div><div class="a-tag" id="t-crd">IDLE</div></div>
+      <div class="agent" id="a-str"><div class="a-label">Strategy Mutator</div><div class="a-tag" id="t-str">IDLE</div></div>
+      <div class="agent" id="a-int"><div class="a-label">Interrupt Monitor</div><div class="a-tag" id="t-int">IDLE</div></div>
+    </div>
+  </div>
+
+  <div>
+    <h4>Current Belief State</h4>
+    <div id="belief-box">No beliefs formed yet — pipeline not started.</div>
+  </div>
+</div>
+
+<!-- ── CENTER ── -->
+<div id="center">
+  <div id="tabbar">
+    <div class="tab on" onclick="switchTab('iter')">🔄 Iterations <span class="tbadge" id="tb-i">0</span></div>
+    <div class="tab" onclick="switchTab('manifest')">📋 Manifest <span class="tbadge" id="tb-mv" style="display:none;background:rgba(236,72,153,.2);color:var(--c7);">MUTATED</span></div>
+    <div class="tab" onclick="switchTab('belief')">🧠 Belief State <span class="tbadge" id="tb-b">0</span></div>
+    <div class="tab" onclick="switchTab('assump')">🔍 Assumptions <span class="tbadge" id="tb-a">0</span></div>
+    <div class="tab" onclick="switchTab('disco')">💡 Discoveries <span class="tbadge" id="tb-d">0</span></div>
+    <div class="tab" onclick="switchTab('meta')">🌐 Meta-Graph <span class="tbadge" id="tb-mg">0</span></div>
+  </div>
+
+  <div id="panel-iter" class="panel on">
+    <div id="iter-list"><div style="text-align:center;color:var(--sub);padding:50px 0;font-size:11px;line-height:2;">Configure task above and press ▶ Run Agentic Pipeline<br><span style="font-size:9px;color:var(--dim);">V6: True agency · Multi-turn manifest debate · Interrupt system · Belief state tracking · AI/ML meta-analysis</span></div></div>
+  </div>
+
+  <div id="panel-manifest" class="panel">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+      <div style="font-size:11px;font-weight:700;color:var(--text);">Dynamic Manifest</div>
+      <span id="manifest-ver-badge" class="manifest-ver-badge">v1.0</span>
+      <span id="mut-count-label" style="font-size:10px;color:var(--c7);margin-left:4px;">0 mutations via internal debate</span>
+    </div>
+    <div style="font-size:10px;color:var(--sub);margin-bottom:8px;line-height:1.6;padding:6px 8px;background:var(--bg3);border-radius:5px;border-left:2px solid var(--c7);">
+      V6 manifest mutations happen through a <strong style="color:var(--c7);">multi-turn internal debate</strong>: Proposer suggests a mutation → Challenger attacks it → Arbiter decides. This is not a cron job — it fires when agentic signals demand it.
+    </div>
+    <div id="manifest-current" class="manifest-block">No manifest yet.</div>
+    <div id="manifest-debate-history"></div>
+  </div>
+
+  <div id="panel-belief" class="panel">
+    <div style="font-size:10px;color:var(--sub);margin-bottom:8px;line-height:1.6;padding:6px 8px;background:var(--bg3);border-radius:5px;border-left:2px solid var(--c1);">
+      The pipeline maintains an explicit <strong style="color:var(--c1);">belief state</strong>: what it currently believes, confidence, and how each iteration changes those beliefs. Belief updates are the primary signal for when to mutate the manifest.
+    </div>
+    <div id="belief-list"><div style="color:var(--sub);font-size:10px;">Belief updates appear here...</div></div>
+  </div>
+
+  <div id="panel-assump" class="panel">
+    <div style="font-size:10px;color:var(--sub);margin-bottom:8px;line-height:1.5;padding:6px 8px;background:var(--bg3);border-radius:5px;border-left:2px solid var(--c2);">
+      Assumptions are <strong style="color:var(--amber);">actively contested</strong> each iteration. Refuted assumptions trigger an <strong style="color:var(--c4);">immediate interrupt</strong> and force manifest re-evaluation.
+    </div>
+    <div id="assump-list"><div style="color:var(--sub);font-size:10px;">Extracted from manifest on first run...</div></div>
+  </div>
+
+  <div id="panel-disco" class="panel">
+    <div id="disco-list"><div style="color:var(--sub);font-size:10px;">Discoveries appear here as they are found...</div></div>
+  </div>
+
+  <div id="panel-meta" class="panel">
+    <div style="font-size:10px;color:var(--sub);margin-bottom:8px;line-height:1.5;padding:6px 8px;background:var(--bg3);border-radius:5px;border-left:2px solid var(--c8);">
+      AI/ML <strong style="color:var(--c8);">meta-research graph</strong>: tracks contradictions, hidden assumptions, and conceptual gaps discovered across the AI/ML literature during this run.
+    </div>
+    <div id="meta-graph"><div style="color:var(--sub);font-size:10px;">Meta-research nodes appear as the pipeline finds them...</div></div>
+  </div>
+</div>
+
+<!-- ── RIGHT ── -->
+<div id="right">
+  <div class="rcard">
+    <div class="rcard-title">Metrics</div>
+    <div class="mgrid">
+      <div class="met"><div class="met-v g" id="m-q">—</div><div class="met-l">Quality Q</div></div>
+      <div class="met"><div class="met-v w" id="m-s">—</div><div class="met-l">Surprise S</div></div>
+      <div class="met"><div class="met-v b" id="m-t">—</div><div class="met-l">Tension</div></div>
+      <div class="met"><div class="met-v g" id="m-bt">0</div><div class="met-l">🚀 Found</div></div>
+      <div class="met"><div class="met-v r" id="m-int">0</div><div class="met-l">⚠ Interrupts</div></div>
+      <div class="met"><div class="met-v" id="m-bel">—</div><div class="met-l">Belief conf.</div></div>
+    </div>
+  </div>
+
+  <div class="rcard">
+    <div class="rcard-title">Discovery Grid</div>
+    <div class="g2x2">
+      <div></div>
+      <div class="g2x2-axis" style="font-size:7px;color:var(--dim);">High Q</div>
+      <div class="g2x2-axis" style="font-size:7px;color:var(--dim);">Low Q</div>
+      <div class="g2x2-axis" style="writing-mode:vertical-rl;font-size:7px;color:var(--dim);">Low S</div>
+      <div class="gcell gcell-good"><span class="gcell-icon">✅</span><span class="gcell-lbl">GOOD</span><span class="gcell-n" id="g-good">0</span></div>
+      <div class="gcell gcell-waste"><span class="gcell-icon">❌</span><span class="gcell-lbl">WASTE</span><span class="gcell-n" id="g-waste">0</span></div>
+      <div class="g2x2-axis" style="writing-mode:vertical-rl;font-size:7px;color:var(--dim);">High S</div>
+      <div class="gcell gcell-bt"><span class="gcell-icon">🚀</span><span class="gcell-lbl">BREAK</span><span class="gcell-n" id="g-bt">0</span></div>
+      <div class="gcell gcell-inv"><span class="gcell-icon">🔍</span><span class="gcell-lbl">INVST</span><span class="gcell-n" id="g-inv">0</span></div>
+    </div>
+  </div>
+
+  <div class="rcard">
+    <div class="rcard-title">Q Convergence</div>
+    <div id="conv-dots"></div>
+  </div>
+
+  <div class="rcard">
+    <div class="rcard-title">Manifest Belief Delta</div>
+    <div id="manifest-delta" style="font-size:10px;color:var(--sub);">No mutations yet.</div>
+  </div>
+
+  <div class="rcard">
+    <div class="rcard-title">Assumptions</div>
+    <div id="assump-mini" style="font-size:10px;color:var(--sub);">—</div>
+  </div>
+
+  <div class="rcard" style="flex:1;min-height:0;">
+    <div class="rcard-title">Interrupt Log</div>
+    <div class="ilog" id="int-log">
+      <div class="ilog-item"><span class="ilog-lv lv-info">INFO</span> — Pipeline initialized.</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end workspace -->
+
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// BREAKTHROUGH ENGINE V6 — True Agentic Self-Modification
+// ═══════════════════════════════════════════════════════════════════
+const API   = 'https://api.anthropic.com/v1/messages';
+const MODEL = 'claude-sonnet-4-20250514';
+
+function getApiKey() {
+  const k = document.getElementById('api-key-input').value.trim();
+  if (!k) throw new Error('API key required — enter your Anthropic key in the left panel.');
+  return k;
+}
+
+// ── Global state ──
+let S = {
+  running:false, stopFlag:false,
+  iter:0, maxIter:20,
+  history:[],
+  qHist:[], sHist:[],
+  grid:{bt:0,inv:0,good:0,waste:0},
+  assumptions:[],
+  beliefState:{
+    core_claim:'',
+    confidence:0,
+    supporting_evidence:[],
+    contradicting_evidence:[],
+    uncertainty_sources:[],
+    last_updated_iter:0,
+  },
+  beliefHistory:[],
+  manifestText:'',
+  manifestObj:null,
+  manifestVersion:1,
+  manifestMutations:0,
+  manifestDebates:[],
+  interrupts:[],
+  discoveries:[],
+  metaNodes:[],
+  strategyContext:'',
+};
+
+// ── Tab ──
+function switchTab(name){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  const tabs=[...document.querySelectorAll('.tab')];
+  const t=tabs.find(x=>x.getAttribute('onclick')&&x.getAttribute('onclick').includes(`'${name}'`));
+  if(t)t.classList.add('on');
+  const p=document.getElementById(`panel-${name}`);
+  if(p)p.classList.add('on');
+}
+
+// ── Phase badge ──
+function setPhase(label, cls=''){
+  const el=document.getElementById('phase-badge');
+  el.textContent=label; el.className='';
+  if(cls)el.classList.add(cls);
+}
+
+// ── Agent ──
+function setAgent(id,tag,state){
+  const a=document.getElementById(`a-${id}`);
+  const t=document.getElementById(`t-${id}`);
+  if(!a||!t)return;
+  a.className=`agent ${state}`;
+  t.textContent=tag;
+}
+function idleAll(){['meta','prod','acc','coh','dev','stl','crd','str','int'].forEach(a=>setAgent(a,'IDLE',''));}
+
+// ── Interrupt log ──
+function intLog(msg, lv='info'){
+  const box=document.getElementById('int-log');
+  const d=document.createElement('div');
+  d.className='ilog-item';
+  const ts=new Date().toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  d.innerHTML=`<span class="ilog-lv lv-${lv}">${lv.toUpperCase()}</span> [${ts}] ${esc(msg)}`;
+  box.appendChild(d); box.scrollTop=box.scrollHeight;
+  if(lv==='interrupt'||lv==='warn'){
+    S.interrupts.push({iter:S.iter, msg, lv});
+    document.getElementById('m-int').textContent=S.interrupts.filter(x=>x.lv==='interrupt').length;
+    document.getElementById('h-int').textContent=S.interrupts.filter(x=>x.lv==='interrupt').length;
+  }
+}
+
+// ── Escape HTML ──
+function esc(s){
+  const d=document.createElement('div');
+  d.textContent=String(s);
+  return d.innerHTML;
+}
+
+// ── Metrics ──
+function updateMetrics(){
+  const q=S.qHist.at(-1), s=S.sHist.at(-1);
+  document.getElementById('m-q').textContent=q!=null?(q*100).toFixed(0)+'%':'—';
+  document.getElementById('m-s').textContent=s!=null?s.toFixed(2)+'σ':'—';
+  document.getElementById('m-bt').textContent=S.discoveries.length;
+  document.getElementById('m-bel').textContent=S.beliefState.confidence>0?(S.beliefState.confidence*100).toFixed(0)+'%':'—';
+  // Tension — compute from last history entry
+  const lastH=S.history.at(-1);
+  document.getElementById('m-t').textContent=lastH?.tension!=null?lastH.tension.toFixed(2):'—';
+  document.getElementById('h-i').textContent=S.iter;
+  document.getElementById('h-m').textContent=S.maxIter;
+  document.getElementById('h-q').textContent=q!=null?(q*100).toFixed(0)+'%':'—';
+  document.getElementById('h-s').textContent=s!=null?s.toFixed(2):'—';
+  document.getElementById('h-bt').textContent=S.discoveries.length;
+  document.getElementById('h-mv').textContent=S.manifestVersion;
+  document.getElementById('h-mm').textContent=S.manifestMutations;
+  document.getElementById('g-bt').textContent=S.grid.bt;
+  document.getElementById('g-inv').textContent=S.grid.inv;
+  document.getElementById('g-good').textContent=S.grid.good;
+  document.getElementById('g-waste').textContent=S.grid.waste;
+  document.getElementById('tb-i').textContent=S.iter;
+  document.getElementById('tb-d').textContent=S.discoveries.length;
+  document.getElementById('tb-b').textContent=S.beliefHistory.length;
+  document.getElementById('tb-a').textContent=S.assumptions.length;
+  document.getElementById('tb-mg').textContent=S.metaNodes.length;
+  document.getElementById('prog').style.width=(S.iter/S.maxIter*100)+'%';
+  document.getElementById('manifest-ver-badge').textContent=`v${S.manifestVersion}.${S.manifestMutations}`;
+  document.getElementById('mut-count-label').textContent=S.manifestMutations+' mutations via internal debate';
+  // Convergence strip
+  const strip=document.getElementById('conv-dots');
+  strip.innerHTML='';
+  S.qHist.forEach(q=>{
+    const d=document.createElement('div');
+    d.className='cdot';
+    d.style.background=`hsl(${Math.round(q*120)},65%,45%)`;
+    d.title=(q*100).toFixed(0)+'%';
+    strip.appendChild(d);
+  });
+  // Belief state sidebar
+  const b=S.beliefState;
+  document.getElementById('belief-box').textContent=
+    b.core_claim?(
+      `CLAIM: ${b.core_claim}\nCONFIDENCE: ${(b.confidence*100).toFixed(0)}%\n`+
+      `SUPPORT: ${b.supporting_evidence.length}\nCONTRAST: ${b.contradicting_evidence.length}\n`+
+      `UNCERTAINTY: ${b.uncertainty_sources.slice(0,2).join('; ')}`
+    ):'No beliefs formed yet.';
+  // Assumption mini
+  if(S.assumptions.length>0){
+    const counts={confirmed:0,challenged:0,refuted:0,unknown:0};
+    S.assumptions.forEach(a=>counts[a.status]++);
+    document.getElementById('assump-mini').innerHTML=
+      `<span class="a-confirmed">✓${counts.confirmed}</span> `+
+      `<span class="a-challenged">⚠${counts.challenged}</span> `+
+      `<span class="a-refuted">✗${counts.refuted}</span> `+
+      `<span class="a-unknown">?${counts.unknown}</span>`;
+  }
+}
+
+function computeSurprise(q){
+  if(S.qHist.length<3)return 0;
+  const h=S.qHist.slice(-10);
+  const m=h.reduce((a,b)=>a+b,0)/h.length;
+  const std=Math.sqrt(h.reduce((a,b)=>a+(b-m)**2,0)/h.length)||0.01;
+  return Math.abs(q-m)/std;
+}
+
+// ── API ──
+async function callClaude(sys,user,maxTok=1000){
+  const apiKey=getApiKey();
+  const r=await fetch(API,{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'x-api-key':apiKey,
+      'anthropic-version':'2023-06-01',
+      'anthropic-dangerous-direct-browser-access':'true'
+    },
+    body:JSON.stringify({model:MODEL,max_tokens:maxTok,system:sys,messages:[{role:'user',content:user}]})
+  });
+  if(!r.ok)throw new Error(`API ${r.status}: ${await r.text()}`);
+  const d=await r.json();
+  return d.content.map(c=>c.text||'').join('');
+}
+async function callJSON(sys,user,maxTok=800){
+  const t=await callClaude(sys,user+'\n\nRespond ONLY with valid JSON, no markdown, no preamble.',maxTok);
+  const c=t.replace(/```json|```/g,'').trim();
+  try{return JSON.parse(c);}catch{
+    const m=c.match(/\{[\s\S]*\}/);
+    if(m)return JSON.parse(m[0]);
+    throw new Error('JSON parse failed: '+c.slice(0,200));
+  }
+}
+
+// ════════════════════════════════════════════════════
+// AGENT: Meta-Analyst — frames the research landscape
+// ════════════════════════════════════════════════════
+async function runMetaAnalyst(task, mode){
+  setAgent('meta','RUNNING','firing'); setPhase('META-ANALYSIS','active');
+  intLog('Meta-Analyst: framing research landscape...','info');
+  const isAIML = mode==='meta';
+  const sys = isAIML
+    ? `You are a critical AI/ML research meta-analyst. Your job is to map the ACTUAL landscape of a research question:
+       what assumptions are hidden in how the field frames the question,
+       what contradictions exist in the literature,
+       and what questions SHOULD be asked but are systematically avoided.
+       You are NOT cheerleading — you are finding where the field is confused or wrong.`
+    : `You are a rigorous research architect. Map the research landscape for this task:
+       what assumptions are embedded, what the key uncertainties are, and what a breakthrough would look like.`;
+  const result=await callJSON(sys,
+    `Task: ${task}
+    Mode: ${isAIML?'AI/ML meta-analysis':'generic research'}
+    
+    Return JSON: {
+      "landscape_summary": string (2-3 sentences: what is the actual state of this area?),
+      "embedded_assumptions": [{"text":string,"danger_level":"low|medium|high","why_dangerous":string}],
+      "literature_contradictions": [{"claim_a":string,"claim_b":string,"what_this_reveals":string}],
+      "systematically_avoided_questions": [string x3],
+      "breakthrough_signature": string (what would a genuine breakthrough look like vs incremental progress?),
+      "meta_nodes": [{"label":string,"type":"assumption|contradiction|gap|claim","importance":"high|medium","detail":string}]
+    }`,1200);
+  setAgent('meta','DONE','done');
+  if(result.meta_nodes){
+    result.meta_nodes.forEach(n=>{S.metaNodes.push({...n,iter:0});});
+    renderMetaGraph();
+  }
+  intLog(`Meta-Analyst: found ${result.literature_contradictions?.length||0} contradictions, ${result.embedded_assumptions?.length||0} hidden assumptions`,'info');
+  return result;
+}
+
+// ════════════════════════════════════════════════════
+// AGENT: Manifest Initialization
+// ════════════════════════════════════════════════════
+async function initManifest(task, meta){
+  setAgent('str','RUNNING','firing'); setPhase('MANIFEST INIT','active');
+  const result=await callJSON(
+    `You are a research manifest architect. Create a precise, testable manifest for this research task.
+     The manifest should be REVISABLE — it will be updated as evidence accumulates.
+     Include 4-5 specific assumptions that can be confirmed, challenged, or refuted by evidence.`,
+    `Task: ${task}
+    Meta-analysis context: ${JSON.stringify(meta).slice(0,500)}
+    
+    Return JSON: {
+      "version": 1,
+      "core_claim": string (the central hypothesis being explored),
+      "objectives": [string x3],
+      "success_criteria": string,
+      "revision_triggers": [string x3] (conditions that should force manifest update),
+      "assumptions": [{"id":number,"text":string,"testable_signal":string,"danger_level":"low|medium|high"} x5],
+      "known_failure_modes": [string x3],
+      "strategic_context": string
+    }`,1000);
+  S.manifestObj=result;
+  S.manifestText=JSON.stringify(result,null,2);
+  S.assumptions=(result.assumptions||[]).map(a=>({...a,status:'unknown',evidence:[]}));
+  S.beliefState.core_claim=result.core_claim||task;
+  S.beliefState.confidence=0.5;
+  S.strategyContext=result.strategic_context||'';
+  document.getElementById('manifest-current').textContent=S.manifestText;
+  document.getElementById('manifest-current').classList.remove('mutated');
+  updateAssumptionPanel();
+  setAgent('str','DONE','done');
+  intLog(`Manifest v1 initialized. ${S.assumptions.length} assumptions. ${result.revision_triggers?.length||0} revision triggers.`,'info');
+  return result;
+}
+
+// ════════════════════════════════════════════════════
+// AGENT: Interrupt Monitor
+// ════════════════════════════════════════════════════
+async function checkInterruptSignal(iterNum, coordResult, believers){
+  setAgent('int','CHECKING','firing');
+  const sensitivity=document.getElementById('s-is').value;
+  const threshold={high:0.25,normal:0.4,low:0.6}[sensitivity];
+  const refuted=S.assumptions.filter(a=>a.status==='refuted');
+  const tension=coordResult.tension||0;
+  const q=coordResult.q||0;
+  const surpriseSpike=S.sHist.length>=2&&S.sHist.at(-1)>2.5;
+  let interruptReason=null;
+  if(refuted.length>0&&refuted.some(a=>a.evidence.length===1))
+    interruptReason=`Core assumption refuted: "${refuted.at(-1).text}"`;
+  else if(tension>threshold&&iterNum>3)
+    interruptReason=`Critic tension spike (${tension.toFixed(3)}) signals conceptual gap`;
+  else if(surpriseSpike)
+    interruptReason=`Extreme surprise score (${S.sHist.at(-1).toFixed(2)}σ) — pipeline may have found something genuinely novel`;
+  else if(q<0.3&&iterNum>5&&S.qHist.slice(-3).every(x=>x<0.35))
+    interruptReason=`Quality stuck low for 3+ iterations — manifest objectives may be wrong`;
+  if(interruptReason){
+    setAgent('int','INTERRUPT','interrupted'); setPhase('INTERRUPT','interrupt');
+    intLog(`⚠ INTERRUPT: ${interruptReason}`,'interrupt');
+    S.interrupts.push({iter:iterNum,msg:interruptReason,lv:'interrupt'});
+    document.getElementById('h-int').textContent=S.interrupts.filter(x=>x.lv==='interrupt').length;
+    return {raised:true, reason:interruptReason};
+  }
+  setAgent('int','OK','done');
+  return {raised:false};
+}
+
+// ════════════════════════════════════════════════════
+// MANIFEST DEBATE — multi-turn internal self-modification
+// ════════════════════════════════════════════════════
+async function runManifestDebate(interruptReason, iterNum){
+  setAgent('str','DEBATE','firing'); setPhase('MANIFEST DEBATE','debate');
+  intLog(`Manifest debate triggered by: ${interruptReason}`,'warn');
+  const debateRounds=parseInt(document.getElementById('s-dr').value);
+  const recentHistory=S.history.slice(-5).map((h,i)=>
+    `Iter ${iterNum-S.history.slice(-5).length+i+1}: Q=${(h.q*100).toFixed(0)}% S=${h.s.toFixed(2)} ${h.category} tension=${h.tension.toFixed(2)}`
+  ).join('\n');
+  const turns=[];
+  // Turn 1: PROPOSER
+  const proposerResult=await callJSON(
+    `You are the PROPOSER in a manifest debate. An interrupt signal has been raised.
+     Your job: propose a SPECIFIC, CONCRETE mutation to the manifest.
+     Be bold. If the evidence suggests the objectives are wrong, say so clearly.
+     
+     Return JSON: {
+       "should_mutate": boolean,
+       "proposed_change_type": "objectives"|"assumptions"|"success_criteria"|"core_claim"|"strategic_pivot",
+       "proposed_new_text": string (the exact new text to replace with),
+       "rationale": string (why this mutation is needed),
+       "confidence_in_mutation": number 0-1
+     }`,
+    `Task: ${S.beliefState.core_claim}
+    Interrupt reason: ${interruptReason}
+    Current manifest: ${S.manifestText.slice(0,600)}
+    Recent history: ${recentHistory}
+    Refuted assumptions: ${S.assumptions.filter(a=>a.status==='refuted').map(a=>a.text).join('; ')||'none'}
+    Belief state: confidence=${(S.beliefState.confidence*100).toFixed(0)}%, supporting=${S.beliefState.supporting_evidence.length}, contradicting=${S.beliefState.contradicting_evidence.length}`
+  );
+  turns.push({role:'Proposer',color:'var(--c7)',content:`should_mutate=${proposerResult.should_mutate} | ${proposerResult.rationale}`});
+  if(!proposerResult.should_mutate){
+    intLog('Proposer: no mutation needed.','info');
+    renderManifestDebate({iter:iterNum,turns,verdict:'NO CHANGE',reason:'Proposer found no mutation necessary'});
+    setAgent('str','STABLE','done'); return false;
+  }
+  // Turn 2+: CHALLENGER rounds
+  let currentProposal=proposerResult;
+  for(let r=0;r<debateRounds;r++){
+    const challengerResult=await callJSON(
+      `You are the CHALLENGER in a manifest debate. Attack the proposed mutation.
+       Find reasons why this mutation could be WRONG, PREMATURE, or HARMFUL to the pipeline.
+       Be specific. Your job is NOT to defend the current manifest — it's to ensure the proposed mutation is better.
+       
+       Return JSON: {
+         "upholds_mutation": boolean,
+         "strongest_objection": string,
+         "counterevidence": string or null,
+         "modified_proposal": string or null (if you'd modify the proposal rather than reject it)
+       }`,
+      `Proposed mutation: ${JSON.stringify(currentProposal).slice(0,400)}
+      Current manifest: ${S.manifestText.slice(0,400)}
+      Round: ${r+1}/${debateRounds}`
+    );
+    turns.push({role:`Challenger R${r+1}`,color:'var(--c4)',content:`upholds=${challengerResult.upholds_mutation} | ${challengerResult.strongest_objection}`});
+    if(!challengerResult.upholds_mutation&&r<debateRounds-1){
+      const rebut=await callClaude(
+        'You are the PROPOSER. The Challenger objected. Briefly respond (1-2 sentences) — concede, modify, or rebut.',
+        `Objection: ${challengerResult.strongest_objection}\nModified proposal: ${challengerResult.modified_proposal||'none'}`
+        ,200);
+      turns.push({role:'Proposer (rebuttal)',color:'var(--c7)',content:rebut});
+      if(challengerResult.modified_proposal)currentProposal.proposed_new_text=challengerResult.modified_proposal;
+    }
+  }
+  // Final: ARBITER
+  const arbiterResult=await callJSON(
+    `You are the ARBITER. You have the final vote on whether to mutate the manifest.
+     Review the full debate and decide: mutate or hold?
+     Be decisive. Indecision is the enemy of discovery.
+     
+     Return JSON: {
+       "verdict": "MUTATE"|"HOLD",
+       "final_text": string (the exact text to implement if MUTATE),
+       "change_type": string,
+       "key_reason": string (one sentence)
+     }`,
+    `Debate turns: ${turns.map(t=>t.role+': '+t.content).join('\n')}
+    Proposed new text: ${currentProposal.proposed_new_text}`
+  );
+  turns.push({role:'Arbiter',color:'var(--c6)',content:`VERDICT: ${arbiterResult.verdict} — ${arbiterResult.key_reason}`});
+  let mutated=false;
+  if(arbiterResult.verdict==='MUTATE'&&arbiterResult.final_text){
+    S.manifestMutations++;
+    S.manifestVersion++;
+    try{
+      const mobj=JSON.parse(S.manifestText);
+      const ct=(arbiterResult.change_type||'').toLowerCase();
+      if(ct.includes('objective'))mobj.objectives=[arbiterResult.final_text,...(mobj.objectives||[]).slice(1)];
+      else if(ct.includes('core'))mobj.core_claim=arbiterResult.final_text;
+      else if(ct.includes('success'))mobj.success_criteria=arbiterResult.final_text;
+      else mobj.strategic_context=arbiterResult.final_text;
+      mobj._mutation_iter=iterNum;
+      mobj._mutation_reason=arbiterResult.key_reason;
+      mobj.version=S.manifestVersion;
+      S.manifestText=JSON.stringify(mobj,null,2);
+      S.manifestObj=mobj;
+      const mc=document.getElementById('manifest-current');
+      mc.textContent=S.manifestText;mc.classList.add('mutated');
+      document.getElementById('tb-mv').style.display='inline';
+    }catch(e){}
+    mutated=true;
+    intLog(`Manifest MUTATED: ${arbiterResult.key_reason}`,'warn');
+  }else{
+    intLog(`Manifest held: ${arbiterResult.key_reason}`,'info');
+  }
+  renderManifestDebate({iter:iterNum,turns,verdict:arbiterResult.verdict,reason:arbiterResult.key_reason});
+  setAgent('str',mutated?'MUTATED':'HELD',mutated?'firing':'done');
+  return mutated;
+}
+
+function renderManifestDebate(debate){
+  S.manifestDebates.push(debate);
+  const hist=document.getElementById('manifest-debate-history');
+  const d=document.createElement('div');
+  d.className='debate-record';
+  d.innerHTML=`<div class="debate-record-head">Debate at Iter #${debate.iter} — ${esc(debate.verdict)}</div>`+
+    `<div class="debate-thread">`+
+    debate.turns.map(t=>`<div class="debate-turn"><b style="color:${t.color}">${esc(t.role)}</b>${esc(t.content)}</div>`).join('')+
+    `</div><div style="font-size:10px;color:var(--c6);margin-top:5px;">Verdict: ${esc(debate.verdict)} — ${esc(debate.reason)}</div>`;
+  hist.insertBefore(d,hist.firstChild);
+  document.getElementById('manifest-delta').innerHTML=
+    `Last debate: <span style="color:${debate.verdict==='MUTATE'?'var(--c7)':'var(--c5)'}">${esc(debate.verdict)}</span><br>${esc(debate.reason)}`;
+}
+
+// ════════════════════════════════════════════════════
+// AGENT: Belief State Update
+// ════════════════════════════════════════════════════
+async function updateBeliefState(iterNum, output, critics, q){
+  const prevConf=S.beliefState.confidence;
+  const result=await callJSON(
+    `You are the Belief State Manager. Maintain an explicit belief state about the research task.
+     Given new iteration evidence, update what the pipeline currently believes.
+     This is EPISTEMICALLY HONEST — the system tracks what it actually knows vs. believes vs. is uncertain about.
+     
+     Return JSON: {
+       "core_claim": string (current best formulation of the core hypothesis),
+       "confidence": number 0-1 (calibrated confidence in the core claim),
+       "supporting_evidence": [string x2] (strongest pieces of supporting evidence so far),
+       "contradicting_evidence": [string x2] (strongest contradictions found),
+       "uncertainty_sources": [string x2] (main sources of remaining uncertainty),
+       "belief_delta": string (what changed this iteration — was confidence increased or decreased?),
+       "requires_manifest_revision": boolean
+     }`,
+    `Current belief: ${JSON.stringify(S.beliefState).slice(0,400)}
+    Iteration ${iterNum} output summary: ${output.slice(0,300)}
+    Q score: ${(q*100).toFixed(0)}%
+    Devil's strongest objection: ${critics.devils?.worst_case_scenario||'none'}
+    Steelman hidden insight: ${critics.steelman?.hidden_insight||'none'}
+    Tension diagnosis: ${critics.coord?.tension_diagnosis||'none'}`,700);
+  const prevState={...S.beliefState};
+  S.beliefState={
+    core_claim:result.core_claim||S.beliefState.core_claim,
+    confidence:result.confidence||S.beliefState.confidence,
+    supporting_evidence:result.supporting_evidence||[],
+    contradicting_evidence:result.contradicting_evidence||[],
+    uncertainty_sources:result.uncertainty_sources||[],
+    last_updated_iter:iterNum,
+  };
+  S.beliefHistory.push({iter:iterNum,snapshot:{...S.beliefState},delta:result.belief_delta,prevConf});
+  renderBeliefUpdate(iterNum,result,prevConf);
+  return {requires_manifest_revision:result.requires_manifest_revision};
+}
+
+function renderBeliefUpdate(iterNum,result,prevConf){
+  const list=document.getElementById('belief-list');
+  if(list.querySelector('[data-empty]'))list.innerHTML='';
+  const delta=result.confidence-prevConf;
+  const deltaClass=delta>0.05?'delta-up':delta<-0.05?'delta-dn':'delta-eq';
+  const deltaLabel=delta>0.05?`▲${(delta*100).toFixed(0)}%`:delta<-0.05?`▼${Math.abs(delta*100).toFixed(0)}%`:'—';
+  const d=document.createElement('div');
+  d.className='belief-card';
+  d.innerHTML=`
+    <div class="belief-card-head">
+      <span class="belief-iter">Iter #${iterNum}</span>
+      <span style="font-size:11px;font-weight:700;color:var(--text);">${(result.confidence*100).toFixed(0)}% confidence</span>
+      <span class="belief-delta ${deltaClass}">${deltaLabel}</span>
+    </div>
+    <div class="confidence-bar"><div class="confidence-fill" style="width:${result.confidence*100}%;background:hsl(${Math.round(result.confidence*120)},60%,45%)"></div></div>
+    <div class="belief-text">
+      <strong style="color:var(--text);">${esc(result.core_claim||S.beliefState.core_claim)}</strong><br>
+      ${esc(result.belief_delta||'')}<br>
+      ${result.supporting_evidence?.length?'+ '+esc(result.supporting_evidence[0]):''}
+      ${result.contradicting_evidence?.length?'<br>− '+esc(result.contradicting_evidence[0]):''}
+    </div>`;
+  list.insertBefore(d,list.firstChild);
+}
+
+// ════════════════════════════════════════════════════
+// CORE CRITIC AGENTS
+// ════════════════════════════════════════════════════
+async function runProducer(task,iterNum,isExplore){
+  setAgent('prod','RUNNING','firing'); setPhase('PRODUCING','active');
+  const prevSummary=S.history.slice(-3).map((h,i)=>
+    `[${iterNum-3+i}] Q=${(h.q*100).toFixed(0)}% ${h.category}: ${h.output.slice(0,200)}`
+  ).join('\n---\n');
+  const mutStrategy=document.getElementById('t-mut').value;
+  const sys=isExplore
+    ?`You are a radical hypothesis generator. MAXIMIZE SURPRISE. 
+      Import frameworks from completely different domains. Deliberately violate standard assumptions.
+      Output: 300-400 words, specific, technically grounded.`
+    :`You are a rigorous research generator. Strategy: ${mutStrategy}.
+      Challenge assumptions. Build on what worked, mutate what failed.
+      Current strategic context: ${S.strategyContext.slice(0,200)}
+      Output: 300-400 words, specific, technically grounded.`;
+  const out=await callClaude(sys,
+    `Task: ${task}
+    Iter: ${iterNum}${isExplore?' [EXPLORATION — maximize novelty]':''}
+    Belief state: ${S.beliefState.core_claim} (confidence ${(S.beliefState.confidence*100).toFixed(0)}%)
+    Key uncertainties: ${S.beliefState.uncertainty_sources.join('; ')}
+    ${prevSummary?`\nPrevious outputs:\n${prevSummary}`:''}
+    ${S.assumptions.filter(a=>a.status==='refuted').length>0?`\nRefuted assumptions (DO NOT repeat these paths): ${S.assumptions.filter(a=>a.status==='refuted').map(a=>a.text).join('; ')}`:''}
+    
+    Generate your output:`,600);
+  setAgent('prod','DONE','done');
+  return out;
+}
+
+async function runAccuracy(task,output){
+  setAgent('acc','RUNNING','firing');
+  const r=await callJSON(
+    `You are the Accuracy Critic. Personality: RIGOROUS SKEPTIC. Actively hunt for errors.
+     Check factual correctness, mathematical consistency, known empirical contradictions.
+     You are NOT here to be supportive. Find what is WRONG.
+     Return JSON: {"score":number 0-1,"verdict":"PASS|FAIL|UNCERTAIN","strongest_objection":string,"factual_errors":[string],"confidence":number 0-1}`,
+    `Task: ${task}\nOutput:\n${output}`);
+  setAgent('acc',r.verdict==='PASS'?'PASS':'FAIL',r.verdict==='PASS'?'done':'firing');
+  return r;
+}
+
+async function runCoherence(task,output){
+  setAgent('coh','RUNNING','firing');
+  const r=await callJSON(
+    `You are the Coherence Critic. Personality: LOGICAL HAWK. Find internal contradictions.
+     Check: does the argument contradict itself? Circular reasoning? Hidden assumptions?
+     Return JSON: {"score":number 0-1,"verdict":"PASS|FAIL|UNCERTAIN","internal_contradiction":string|null,"hidden_assumptions":[string],"reasoning_quality":"valid|flawed|circular|incomplete"}`,
+    `Task: ${task}\nOutput:\n${output}`);
+  setAgent('coh',r.verdict==='PASS'?'PASS':'FAIL',r.verdict==='PASS'?'done':'firing');
+  return r;
+}
+
+async function runDevil(task,output){
+  setAgent('dev','RUNNING','firing');
+  const r=await callJSON(
+    `You are the Devil's Advocate. Personality: ADVERSARIAL DESTROYER.
+     Find the worst-case interpretation. Steel-man the opposite hypothesis.
+     What scenario makes this output catastrophically wrong?
+     Return JSON: {"score":number 0-1,"worst_case_scenario":string,"opposite_hypothesis":string,"confidence_killer":string,"verdict":"ATTACK|UNCERTAIN|CONCEDE"}`,
+    `Task: ${task}\nOutput:\n${output}`);
+  setAgent('dev',r.verdict==='CONCEDE'?'CONCEDE':'ATTACK',r.verdict==='CONCEDE'?'done':'firing');
+  return r;
+}
+
+async function runSteelman(task,output,devil){
+  setAgent('stl','RUNNING','firing');
+  const r=await callJSON(
+    `You are the Steel-Maner. Personality: CHARITABLE MAXIMIZER who responds to adversarial attacks.
+     Find the best interpretation. What non-obvious insight is hidden here?
+     Respond directly to the Devil's Advocate attack.
+     Return JSON: {"score":number 0-1,"hidden_insight":string,"best_interpretation":string,"worth_pursuing":boolean,"surprising_implication":string|null,"rebuttal_to_attack":string}`,
+    `Task: ${task}\nOutput:\n${output}\nDevil's attack: ${devil.worst_case_scenario||'none'}`);
+  setAgent('stl','DONE','done');
+  return r;
+}
+
+async function runCoordinator(task,output,critics,iterNum){
+  setAgent('crd','RUNNING','firing'); setPhase('COORDINATING','active');
+  const scores=[critics.acc.score,critics.coh.score,critics.dev.score,critics.stl.score].filter(s=>s!=null);
+  const mean=scores.reduce((a,b)=>a+b,0)/scores.length;
+  const std=Math.sqrt(scores.reduce((a,b)=>a+(b-mean)**2,0)/scores.length)||0;
+  const srt=[...scores].sort((a,b)=>a-b);
+  const q=Math.min(1,Math.max(0,srt[0]+0.3*srt.slice(1).reduce((a,b)=>a+b,0)/(srt.length-1)));
+  const r=await callJSON(
+    `You are the Coordinator. Synthesize critic disagreements into DISCOVERY SIGNALS.
+     High critic tension = conceptual gap = potential breakthrough zone.
+     Identify what the pipeline should focus on next. Update the strategic context.
+     Return JSON: {"q_score":number 0-1,"tension_diagnosis":string,"primary_discovery_signal":string,"next_direction":string,"strategic_context_update":string,"assumption_update":{"id":number|null,"new_status":"confirmed|challenged|refuted"|null}}`,
+    `Task: ${task}\nIter: ${iterNum}\nOutput: ${output.slice(0,200)}\nScores: acc=${critics.acc.score},coh=${critics.coh.score},dev=${critics.dev.score},stl=${critics.stl.score}\nTension(std):${std.toFixed(3)}\nBelief confidence:${(S.beliefState.confidence*100).toFixed(0)}%`,700);
+  if(r.strategic_context_update)S.strategyContext=r.strategic_context_update;
+  if(r.assumption_update&&r.assumption_update.id!==null){
+    const idx=S.assumptions.findIndex(a=>a.id===r.assumption_update.id);
+    if(idx>=0){
+      const prev=S.assumptions[idx].status;
+      S.assumptions[idx].status=r.assumption_update.new_status;
+      S.assumptions[idx].evidence.push(`Iter ${iterNum}: ${r.tension_diagnosis||''}`);
+      if(r.assumption_update.new_status==='refuted'&&prev!=='refuted'){
+        intLog(`Assumption REFUTED: "${S.assumptions[idx].text}"`,'interrupt');
+      }
+    }
+  }
+  setAgent('crd','DONE','done');
+  return {...r,q,tension:std};
+}
+
+// ════════════════════════════════════════════════════
+// UI RENDERS
+// ════════════════════════════════════════════════════
+function renderIterCard(entry, iterNum){
+  const {output,critics,q,s,category,tension,isExplore,interrupt}=entry;
+  const card=document.createElement('div');
+  const catMap={'breakthrough':'bt','investigate':'inv','good-output':'good','waste':'waste'};
+  const catClassMap={'breakthrough':'chip-bt','investigate':'chip-inv','good-output':'chip-good','waste':'chip-waste'};
+  const catLabelMap={'breakthrough':'🚀 BREAKTHROUGH','investigate':'🔍 INVESTIGATE','good-output':'✅ GOOD','waste':'❌ WASTE'};
+  card.className=`icard ${catMap[category]||''}${interrupt?.raised?' interrupt-raised':''}`;
+  const qClass=q>=(parseInt(document.getElementById('s-qt').value)/100)?'chip-q':'chip-q lo';
+  card.innerHTML=`
+    <div class="icard-head" onclick="toggleCard(${iterNum})">
+      <span class="inum">#${iterNum}</span>
+      <span class="ititle">${esc(output.slice(0,90).replace(/\n/g,' '))}…</span>
+      <div class="chips">
+        ${isExplore?'<span class="chip chip-exp">EXPLORE</span>':''}
+        ${interrupt?.raised?`<span class="chip chip-int">⚠ INTERRUPT</span>`:''}
+        <span class="chip ${qClass}">Q ${(q*100).toFixed(0)}%</span>
+        <span class="chip chip-s">S ${s.toFixed(2)}σ</span>
+        <span class="chip ${catClassMap[category]||'chip-waste'}">${catLabelMap[category]||'—'}</span>
+      </div>
+    </div>
+    <div class="icard-body" id="icb-${iterNum}">
+      <pre>${esc(output)}</pre>
+      <div style="margin-top:8px;font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">CRITIC ANALYSIS</div>
+      <div class="debate-thread">
+        ${[
+          {n:'🔍 Accuracy',c:'var(--c2)',v:critics.acc,k:'strongest_objection'},
+          {n:'🧠 Coherence',c:'var(--c3)',v:critics.coh,k:'internal_contradiction'},
+          {n:'👹 Devil',c:'var(--c4)',v:critics.dev,k:'worst_case_scenario'},
+          {n:'⚔️ Steelman',c:'var(--c5)',v:critics.stl,k:'hidden_insight'},
+        ].map(({n,c,v,k})=>`<div class="debate-turn">
+          <b style="color:${c}">${n} — ${typeof v?.score==='number'?(v.score*100).toFixed(0)+'%':'?'}</b>
+          ${esc(String(v?.[k]||'—').slice(0,200))}
+        </div>`).join('')}
+        ${critics.coord?.tension_diagnosis?`<div class="debate-turn"><b style="color:var(--c6)">⚡ Tension (${tension.toFixed(3)})</b>${esc(critics.coord.tension_diagnosis)}</div>`:''}
+        ${critics.coord?.primary_discovery_signal?`<div class="debate-turn"><b style="color:var(--c8)">💡 Signal</b>${esc(critics.coord.primary_discovery_signal)}</div>`:''}
+      </div>
+      ${interrupt?.raised?`<div class="interrupt-banner">⚠ INTERRUPT RAISED: ${esc(interrupt.reason)}</div>`:''}
+    </div>`;
+  return card;
+}
+
+function toggleCard(n){
+  const b=document.getElementById(`icb-${n}`);
+  if(b)b.classList.toggle('open');
+}
+
+function updateAssumptionPanel(){
+  const list=document.getElementById('assump-list');
+  if(!S.assumptions.length)return;
+  const stClass={confirmed:'a-confirmed',challenged:'a-challenged',refuted:'a-refuted',unknown:'a-unknown'};
+  const stLabel={confirmed:'✓ CONFIRMED',challenged:'⚠ CHALLENGED',refuted:'✗ REFUTED',unknown:'? UNKNOWN'};
+  list.innerHTML=S.assumptions.map(a=>`
+    <div class="aitem">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+        <span class="a-st ${stClass[a.status]}">${stLabel[a.status]}</span>
+        <span style="color:var(--dim);font-size:8px;">A${a.id} [${esc(a.danger_level||'?')}]</span>
+      </div>
+      <div style="color:var(--text);">${esc(a.text)}</div>
+      ${a.evidence.at(-1)?`<div style="color:var(--sub);font-size:9px;margin-top:1px;">${esc(a.evidence.at(-1))}</div>`:''}
+    </div>`).join('');
+  document.getElementById('tb-a').textContent=S.assumptions.length;
+}
+
+function addDiscovery(iterNum, entry){
+  S.discoveries.push({iterNum,...entry});
+  const list=document.getElementById('disco-list');
+  if(list.querySelector('[data-empty]'))list.innerHTML='';
+  const catColor={breakthrough:'var(--c6)',investigate:'var(--c8)','good-output':'var(--c5)'}[entry.category];
+  const catLabel={breakthrough:'🚀 BREAKTHROUGH',investigate:'🔍 INVESTIGATE','good-output':'✅ GOOD OUTPUT'}[entry.category];
+  const d=document.createElement('div');
+  d.style.cssText=`background:var(--bg2);border:1px solid ${catColor||'var(--border)'};border-radius:7px;padding:10px;margin-bottom:8px;animation:glow-in .3s ease;`;
+  d.innerHTML=`
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+      <span style="font-size:11px;font-weight:700;color:${catColor||'var(--text)'};">${catLabel||'RESULT'}</span>
+      <span style="font-size:9px;color:var(--dim);">Iter #${iterNum} · Q=${(entry.q*100).toFixed(0)}% · S=${entry.s.toFixed(2)}σ</span>
+    </div>
+    <div style="font-size:10px;color:var(--text);line-height:1.7;">${esc(entry.output.slice(0,350))}…</div>
+    ${entry.critics.stl?.hidden_insight?`<div style="margin-top:5px;font-size:9px;color:var(--c6);padding:3px 7px;background:rgba(251,191,36,.08);border-radius:4px;">💡 ${esc(entry.critics.stl.hidden_insight)}</div>`:''}
+    ${entry.critics.coord?.primary_discovery_signal?`<div style="margin-top:3px;font-size:9px;color:var(--c8);padding:3px 7px;background:rgba(6,182,212,.07);border-radius:4px;">⚡ ${esc(entry.critics.coord.primary_discovery_signal)}</div>`:''}`;
+  list.insertBefore(d,list.firstChild);
+}
+
+function renderMetaGraph(){
+  const g=document.getElementById('meta-graph');
+  if(!S.metaNodes.length)return;
+  g.innerHTML='';
+  const colorMap={assumption:'var(--c2)',contradiction:'var(--c4)',gap:'var(--c8)',claim:'var(--c5)'};
+  S.metaNodes.forEach(n=>{
+    const d=document.createElement('div');
+    d.style.cssText=`background:var(--bg2);border:1px solid ${colorMap[n.type]||'var(--border)'};border-radius:6px;padding:8px;margin-bottom:6px;animation:glow-in .3s ease;`;
+    d.innerHTML=`
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+        <span style="font-size:9px;font-weight:700;color:${colorMap[n.type]||'var(--sub)'};text-transform:uppercase;">${esc(n.type)}</span>
+        <span style="font-size:9px;color:var(--dim);">[${esc(n.importance||'?')}]${n.iter?` · iter #${n.iter}`:' · initial'}</span>
+      </div>
+      <div style="font-size:10px;font-weight:700;color:var(--text);margin-bottom:3px;">${esc(n.label)}</div>
+      <div style="font-size:9px;color:var(--sub);line-height:1.5;">${esc(n.detail||'')}</div>`;
+    g.appendChild(d);
+  });
+}
+
+function classify(q,s){
+  const qT=parseInt(document.getElementById('s-qt').value)/100;
+  const sT=parseInt(document.getElementById('s-st').value)/10;
+  if(q>=qT&&s>=sT)return 'breakthrough';
+  if(q>=qT)return 'good-output';
+  if(s>=sT)return 'investigate';
+  return 'waste';
+}
+
+// ════════════════════════════════════════════════════
+// MAIN PIPELINE
+// ════════════════════════════════════════════════════
+async function runPipeline(){
+  const task=document.getElementById('task-in').value.trim();
+  if(!task){alert('Enter a research task first.');return;}
+
+  // Validate API key early
+  try{getApiKey();}catch(e){alert(e.message);return;}
+
+  const mode=document.getElementById('t-mode').value;
+  const metaTarget=document.getElementById('s-mt').value;
+  let resolvedTask=task;
+  if(mode==='meta'&&metaTarget!=='custom'){
+    const presets={
+      llm_alignment:'What are the hidden assumptions in current RLHF/RLAIF alignment research that are rarely questioned, and what does challenging them reveal about the difficulty of the alignment problem?',
+      scaling_laws:'Where do scaling law predictions break down in practice, what does this imply about AGI timelines, and what alternative theoretical frameworks could explain the discrepancies?',
+      emergent_abilities:'What does the emergent abilities debate reveal about how the ML field models its own uncertainty, and what genuine discoveries about model capabilities have been obscured by the framing?',
+      rlhf_limits:'What are the fundamental theoretical limitations of RLHF as an alignment approach, and what class of AI behaviors can it provably not align?',
+      mechanistic_interp:'What contradictions exist between different mechanistic interpretability findings, and what do they imply about whether the approach will scale to understanding large models?',
+    };
+    resolvedTask=presets[metaTarget]||task;
+    document.getElementById('task-in').value=resolvedTask;
+  }
+
+  // Reset state
+  S={
+    running:true,stopFlag:false,
+    iter:0,maxIter:parseInt(document.getElementById('s-iters').value),
+    history:[],qHist:[],sHist:[],
+    grid:{bt:0,inv:0,good:0,waste:0},
+    assumptions:[],
+    beliefState:{core_claim:'',confidence:0.5,supporting_evidence:[],contradicting_evidence:[],uncertainty_sources:[],last_updated_iter:0},
+    beliefHistory:[],
+    manifestText:'',manifestObj:null,manifestVersion:1,manifestMutations:0,manifestDebates:[],
+    interrupts:[],discoveries:[],metaNodes:[],strategyContext:'',
+  };
+  // Reset UI
+  document.getElementById('iter-list').innerHTML='';
+  document.getElementById('disco-list').innerHTML='<div data-empty style="color:var(--sub);font-size:10px;">Discoveries appear here...</div>';
+  document.getElementById('meta-graph').innerHTML='<div style="color:var(--sub);font-size:10px;">Analyzing research landscape...</div>';
+  document.getElementById('belief-list').innerHTML='<div data-empty style="color:var(--sub);font-size:10px;">Belief updates appear here...</div>';
+  document.getElementById('manifest-debate-history').innerHTML='';
+  document.getElementById('int-log').innerHTML='';
+  document.getElementById('tb-mv').style.display='none';
+  idleAll();
+  document.getElementById('btn-run').disabled=true;
+  document.getElementById('btn-stop').style.display='block';
+  intLog('Pipeline started — V6 Agentic mode','info');
+
+  try{
+    // Phase 0: Meta-analysis (if AI/ML mode)
+    let meta={};
+    if(mode==='meta'){
+      meta=await runMetaAnalyst(resolvedTask, mode);
+      intLog(`Meta-analysis: ${meta.landscape_summary?.slice(0,100)||'complete'}...`,'info');
+    }
+    // Phase 0b: Init manifest
+    await initManifest(resolvedTask, meta);
+    updateAssumptionPanel();
+    updateMetrics();
+
+    // ── MAIN LOOP ──
+    for(let i=1;i<=S.maxIter;i++){
+      if(S.stopFlag){intLog('Stopped by user.','warn');break;}
+      S.iter=i;
+      intLog(`═══ Iteration ${i}/${S.maxIter} ═══`,'info');
+
+      // Explore/exploit decision
+      const isExplore=Math.random()<(parseInt(document.getElementById('s-exp').value)/100);
+
+      // Production
+      const output=await runProducer(resolvedTask,i,isExplore);
+      if(S.stopFlag)break;
+
+      // Critics (sequential for reliability)
+      const acc=await runAccuracy(resolvedTask,output);
+      if(S.stopFlag)break;
+      const coh=await runCoherence(resolvedTask,output);
+      if(S.stopFlag)break;
+      const dev=await runDevil(resolvedTask,output);
+      if(S.stopFlag)break;
+      const stl=await runSteelman(resolvedTask,output,dev);
+      if(S.stopFlag)break;
+      const coord=await runCoordinator(resolvedTask,output,{acc,coh,dev:dev,stl},i);
+      if(S.stopFlag)break;
+
+      // Scores
+      const q=coord.q;
+      const s=computeSurprise(q);
+      S.qHist.push(q); S.sHist.push(s);
+      const category=classify(q,s);
+      const gridKey={breakthrough:'bt',investigate:'inv','good-output':'good',waste:'waste'}[category];
+      S.grid[gridKey]++;
+
+      // Belief state update
+      const beliefResult=await updateBeliefState(i,output,{acc,coh,devils:dev,steelman:stl,coord},q);
+      if(S.stopFlag)break;
+
+      // Interrupt check
+      setPhase('INTERRUPT CHECK','active');
+      const interrupt=await checkInterruptSignal(i,coord,S.beliefHistory);
+
+      // If interrupt raised OR belief state demands revision → manifest debate
+      if(!S.stopFlag&&(interrupt.raised||beliefResult.requires_manifest_revision)){
+        const reason=interrupt.reason||(beliefResult.requires_manifest_revision?`Belief state requires manifest revision (confidence drift at iter ${i})`:'');
+        await runManifestDebate(reason,i);
+      }
+      if(S.stopFlag)break;
+
+      // Register in meta-graph if AI/ML mode and discovery found
+      if(mode==='meta'&&category!=='waste'&&coord.primary_discovery_signal){
+        S.metaNodes.push({
+          label:coord.primary_discovery_signal.slice(0,80),
+          type:'gap',importance:category==='breakthrough'?'high':'medium',
+          detail:coord.tension_diagnosis||'',iter:i
+        });
+        renderMetaGraph();
+      }
+
+      // Build entry
+      const entry={output,isExplore,category,q,s,tension:coord.tension||0,
+        critics:{acc,coh,dev,stl,coord},interrupt};
+      S.history.push(entry);
+
+      // Render iteration card
+      const card=renderIterCard(entry,i);
+      document.getElementById('iter-list').insertBefore(card,document.getElementById('iter-list').firstChild);
+
+      // Register discovery
+      if(category!=='waste')addDiscovery(i,entry);
+
+      // Update all panels
+      updateAssumptionPanel();
+      updateMetrics();
+
+      // Log
+      const lv=category==='breakthrough'?'bt':category==='investigate'?'warn':'info';
+      intLog(`${category==='breakthrough'?'🚀':category==='investigate'?'🔍':'✓'} Iter ${i}: ${category} Q=${(q*100).toFixed(0)}% S=${s.toFixed(2)}σ T=${coord.tension.toFixed(2)}`,lv);
+      if(coord.next_direction)intLog(`→ Next: ${coord.next_direction}`,'info');
+    }
+
+    setPhase('DONE','done');
+    intLog(`Pipeline complete. ${S.discoveries.length} discoveries. ${S.manifestMutations} manifest mutations. ${S.interrupts.filter(x=>x.lv==='interrupt').length} interrupts.`,'info');
+    if(S.grid.bt>0)intLog(`🚀 ${S.grid.bt} BREAKTHROUGH(S) FOUND — check Discoveries tab`,'bt');
+
+  }catch(e){
+    intLog(`ERROR: ${e.message}`,'interrupt');
+    setPhase('ERROR','interrupt');
+    console.error(e);
+  }finally{
+    S.running=false; idleAll();
+    document.getElementById('btn-run').disabled=false;
+    document.getElementById('btn-stop').style.display='none';
+    updateMetrics();
+  }
+}
+
+function stopPipeline(){
+  S.stopFlag=true;
+  intLog('Stop requested...','warn');
+}
+</script>
+</body>
+</html>

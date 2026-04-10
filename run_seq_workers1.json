@@ -1,0 +1,189 @@
+{
+  "generated_at": "2026-04-04 15:32:31",
+  "script": "ramanujan_agent_v2_fast.py",
+  "target": "zeta3",
+  "llm_mode": "disabled",
+  "lirec_enabled": false,
+  "stats": {
+    "iters": 10,
+    "tested": 80,
+    "discoveries": 4,
+    "novel": 4,
+    "rate_percent": 40.0,
+    "seeds_injected": 20,
+    "llm_calls": 0,
+    "elapsed_human": "0m04s",
+    "elapsed_seconds": 4.8,
+    "gcf_per_sec": 16.665
+  },
+  "environment": {
+    "python": "3.14.3",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.29560-SP0",
+    "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "cpu_count": 8,
+    "mpmath": "1.4.1"
+  },
+  "artifacts": {
+    "discoveries_path": "ramanujan_discoveries.json",
+    "seed_path": "relay_chain_seed_pool.json",
+    "profile_path": null
+  },
+  "pslq": {
+    "tested_targets": 149,
+    "pslq_calls": 297,
+    "degree2_calls": 148,
+    "prefilter_skips": 1,
+    "neighbour_attempts": 104,
+    "neighbour_skips": 108,
+    "found": 4
+  },
+  "run_config": {
+    "iters": 10,
+    "target": "zeta3",
+    "batch": 8,
+    "workers": 1,
+    "prec": 300,
+    "quiet": true,
+    "seed": 123,
+    "llm": false,
+    "lirec": false,
+    "seed_file": null
+  },
+  "discoveries": [
+    {
+      "spec": {
+        "spec_id": "GCF_60BF7838",
+        "alpha": [
+          0,
+          0
+        ],
+        "beta": [
+          1,
+          2
+        ],
+        "target": "zeta3",
+        "n_terms": 200,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+      "timestamp": 1775284347.3593574,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_85A6D7D3",
+        "alpha": [
+          -6,
+          6
+        ],
+        "beta": [
+          2,
+          0,
+          2,
+          -2
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        -1,
+        -2,
+        2
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + -2\u00b7zeta3 + 2 = 0",
+      "timestamp": 1775284348.475996,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_62A05783",
+        "alpha": [
+          0,
+          2,
+          -3,
+          1
+        ],
+        "beta": [
+          -5,
+          1,
+          -6
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        1,
+        -1,
+        0,
+        5,
+        -5,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 79,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 5\u00b7CF + -5\u00b7zeta3 = 0",
+      "timestamp": 1775284350.265743,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_CD0637D8",
+        "alpha": [
+          -5,
+          -1,
+          6
+        ],
+        "beta": [
+          -2,
+          -1
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + 2\u00b7zeta3 + -2 = 0",
+      "timestamp": 1775284351.2999408,
+      "enrichment": {}
+    }
+  ]
+}

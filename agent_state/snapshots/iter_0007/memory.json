@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "saved_at": "2026-03-30T16:14:33.577742",
+  "entries": [
+    {
+      "id": "fc3050f2",
+      "category": "insight",
+      "content": "Progress on sixth_root: 0 digits, B=0.1260",
+      "metadata": {},
+      "timestamp": "2026-03-27T18:36:17.575859"
+    },
+    {
+      "id": "f9559b55",
+      "category": "insight",
+      "content": "Progress on kloosterman_q500: 0 digits, B=0.1296",
+      "metadata": {},
+      "timestamp": "2026-03-27T18:36:17.910836"
+    },
+    {
+      "id": "c8fe078b",
+      "category": "insight",
+      "content": "Progress on kloosterman_q500: 0 digits, B=0.1296",
+      "metadata": {},
+      "timestamp": "2026-03-27T18:36:18.307624"
+    }
+  ],
+  "embeddings": [
+    null,
+    null,
+    null
+  ],
+  "context_summary": "",
+  "paper_knowledge": {},
+  "tool_effectiveness": {
+    "sandbox": {
+      "successes": 5,
+      "failures": 1,
+      "total_runtime": 124.88973140716553,
+      "calls": 6
+    },
+    "compute_general_product": {
+      "successes": 0,
+      "failures": 1,
+      "total_runtime": 0.0,
+      "calls": 1
+    },
+    "symbolic_verify": {
+      "successes": 0,
+      "failures": 2,
+      "total_runtime": 0.0,
+      "calls": 2
+    },
+    "extract_coefficients": {
+      "successes": 0,
+      "failures": 1,
+      "total_runtime": 0.0,
+      "calls": 1
+    }
+  },
+  "failure_signatures": [
+    {
+      "gap_id": "sixth_root",
+      "hypothesis": "Product prod(1-q^n)^{-n^4} ratios satisfy L\u2085 = c\u2085\u00b2/8 + \u03ba\u2085 universality",
+      "reason": "Scores: N=0.50 F=0.80 E=0.15 C=0.60 \u2192 B=0.0360\nVerdict: failure\nFlaws: Execution did not succeed; E below kill floor (0.15 < 0.35)",
+      "method": "siarc_chain",
+      "signature": {},
+      "timestamp": "2026-03-30T15:42:00.428760"
+    },
+    {
+      "gap_id": "kloosterman_q500",
+      "hypothesis": "Extending Kloosterman bounds to q\u2264500 reduces C\u2085 below 1.0",
+      "reason": "Scores: N=0.60 F=0.80 E=0.15 C=0.60 \u2192 B=0.0432\nVerdict: failure\nFlaws: Execution did not succeed; E below kill floor (0.15 < 0.35)",
+      "method": "siarc_chain",
+      "signature": {},
+      "timestamp": "2026-03-30T15:43:10.645019"
+    }
+  ]
+}

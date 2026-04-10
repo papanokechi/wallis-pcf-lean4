@@ -1,0 +1,21 @@
+[
+  {
+    "discovery_id": "41122fd465cc",
+    "family": "continued_fraction",
+    "expression": "GCF a(n)=2\u00b7n!, b(n)=3",
+    "value": 3.4910744001668914,
+    "precision_verified": 0,
+    "params": {
+      "strategy": "factorial",
+      "label": "cf_fact_k2_b3"
+    },
+    "proof_strategy": "1. Establish convergence via named CF theorem (Worpitzky, \u015aleszy\u0144ski-Pringsheim, Van Vleck, or ratio test). 2. If polynomial coefficients: express as a ratio of contiguous    hypergeometric functions and apply Gauss/Euler CF theorems. 3. Attempt CAS identification of limit via Bessel/\u2081F\u2081 ratios +    SymPy nsimplify. 4. Verify symbolic closed form via high-precision evaluation.",
+    "framework": "Generalised continued fraction theory (Wall 1948, Lorentzen & Waadeland 2008)",
+    "key_lemmas": [
+      "Convergence: apply named theorem to CF with a(n)=[], b(n)=[]",
+      "Closed form: Bessel ratio I_\u03bd(z)/I_{\u03bd-1}(z) or confluent \u2081F\u2081 ratio",
+      "Symbolic verification: CAS check to 100+ digits",
+      "Uniqueness: rule out algebraic/PSLQ relations to known constants"
+    ]
+  }
+]

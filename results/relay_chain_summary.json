@@ -1,0 +1,11 @@
+{
+  "recognized_count": 7,
+  "template_count": 0,
+  "prompt_count": 6,
+  "seed_count": 8,
+  "metrics_path": "results\\relay_chain_cf_metrics.json",
+  "templates_path": "results\\relay_chain_templates.json",
+  "prompts_path": "results\\relay_chain_llm_prompts.json",
+  "seed_pool_path": "results\\relay_chain_seed_pool.json",
+  "results_catalog_path": "results\\relay_chain_results_catalog.json"
+}

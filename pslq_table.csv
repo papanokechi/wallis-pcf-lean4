@@ -1,0 +1,13 @@
+run_id,precision_digits,basis_size,target_description,best_relation_norm,verdict
+1,500,8,"{pi,e,log2,zeta3,sqrt2,sqrt3,Catalan,1}",">1e200","no relation"
+2,500,12,"{pi,pi^2,log2,log3,zeta3,zeta5,e,G,sqrt2,sqrt3,sqrt5,1}",">1e180","no relation"
+3,1000,8,"{pi,e,log2,zeta3,sqrt2,sqrt3,Catalan,1}",">1e450","no relation"
+4,1000,12,"{pi,pi^2,log2,log3,zeta3,zeta5,e,G,sqrt2,sqrt3,sqrt5,1}",">1e400","no relation"
+5,1500,8,"{pi,e,log2,zeta3,sqrt2,sqrt3,Catalan,1}",">1e700","no relation"
+6,1500,16,"16-function basis incl. Gamma values",">1e600","no relation"
+7,2050,8,"{pi,e,log2,zeta3,sqrt2,sqrt3,Catalan,1}",">1e950","no relation"
+8,2050,12,"{pi,pi^2,log2,log3,zeta3,zeta5,e,G,sqrt2,sqrt3,sqrt5,1}",">1e850","no relation"
+9,2050,16,"16-function basis incl. polylog and Gamma values",">1e800","no relation"
+10,500,6,"algebraic number test (deg<=5)",">1e200","not algebraic deg<=5"
+11,1000,6,"algebraic number test (deg<=5)",">1e450","not algebraic deg<=5"
+12,2050,6,"algebraic number test (deg<=5)",">1e950","not algebraic deg<=5"

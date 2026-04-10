@@ -1,0 +1,321 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\lstset{basicstyle=\small\ttfamily,breaklines=true,columns=fullflexible}
+\microtypesetup{expansion=false}
+\setlength{\emergencystretch}{2em}
+
+\DeclareMathOperator{\Kop}{K}
+\DeclareMathOperator{\val}{val}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\WallisValue}[1]{\frac{2^{2#1+1}}{\pi\binom{2#1}{#1}}}
+\newcommand{\WallisStep}[1]{\frac{2(#1+1)}{2#1+1}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title[A One-Parameter Family of Wallis-Type PCFs]{A One-Parameter Family of Wallis-Type Polynomial Continued Fractions:\ Discovery and Formal Verification}
+\author{Anonymous}
+\date{April 2026}
+\subjclass[2020]{11A55, 11Y60, 33C05, 40A15}
+\keywords{polynomial continued fractions, Wallis product, Ramanujan Machine, Lean 4, formal verification, experimental mathematics}
+
+\begin{document}
+
+\begin{abstract}
+We report a new one-parameter family of second-order polynomial continued fractions for reciprocal Wallis integrals,
+\[
+  S^{(m)} = 1 + \Kop_{n=1}^{\infty}\!\left(\frac{-n(2n-(2m+1))}{3n+1}\right),
+  \qquad m \in \N,
+\]
+with closed form
+\[
+  S^{(m)} = \frac{2^{2m+1}}{\pi\binom{2m}{m}} = \frac{2\cdot 4^m}{\pi\binom{2m}{m}}.
+\]
+The family emerged from a Ramanujan-Machine-style sweep over low-height second-order templates on an 8-core workstation and was the unique structurally stable branch in the tested region.  The mathematical verification now has \emph{zero-conjecture / zero-\texttt{sorry}} status in Lean~4 for the recurrence, the intertwining operator, the Wallis base case, and the inductive limit step.  Independent numerical certification with \texttt{mpmath} confirms the formula to at least $1000$ decimal digits across a broad range of parameters.  A complementary third-order search returned only isolated near-misses and no comparably elegant one-parameter family, reinforcing the view that the present second-order family occupies a ``Goldilocks'' zone of rigidity and expressiveness.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+Polynomial continued fractions (PCFs) belong to a classical strand of continued-fraction theory \cite{wall1948analytic,lorentzen1992continued,cuyt2008handbook} and have recently re-emerged as a discovery arena through the Ramanujan Machine program \cite{raayoni2021}.  In that framework one searches over low-degree coefficient templates and then subjects promising candidates to symbolic reduction, high-precision validation, and, ultimately, formal proof.  The present manuscript records such a trajectory for a Wallis-type family attached to reciprocal central binomial factors.
+
+The discovery phase was computationally intensive but conceptually narrow: we fixed linear partial denominators and swept over quadratic partial numerators using a multi-core search pipeline.  Among the second-order ansätze, one family stood out immediately by exhibiting stable matches to rational multiples of $1/\pi$ across consecutive odd parameters.  The resulting identity was then pushed through three layers of verification:
+\begin{enumerate}[label=\textup{(\roman*)}]
+  \item symbolic reduction to a normalized three-term recurrence,
+  \item a Lean~4 formalization of the intertwiner and inductive limit mechanism, and
+  \item high-precision certification by backward recurrence in \texttt{mpmath}.
+\end{enumerate}
+
+What makes the family notable is not only the closed form itself, but the fact that the proof architecture is unusually clean.  The base case reduces to the classical Wallis product, while the entire one-parameter tower is propagated by an explicit affine operator in the discrete index~$n$.  This moves the discovery from the experimental domain to a reproducible, publication-ready result.
+
+\section{The Wallis PCF family}
+
+We adopt the standard notation
+\[
+  b_0 + \Kop_{n=1}^{\infty}\!\left(\frac{a_n}{b_n}\right)
+  := b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \cfrac{a_3}{b_3 + \ddots}}}.
+\]
+
+\begin{definition}[Wallis PCF family]
+For each $m \in \N$, define
+\begin{equation}\label{eq:wallis-pcf}
+  S^{(m)} := 1 + \Kop_{n=1}^{\infty}\!\left(\frac{-n(2n-(2m+1))}{3n+1}\right).
+\end{equation}
+If $P_n^{(m)}$ and $Q_n^{(m)}$ denote the convergent numerators and denominators, then both satisfy the second-order recurrence
+\begin{equation}\label{eq:raw-recurrence}
+  (n+1)u_{n+1} - (3n-2m+1)u_n - n(2n-2m-1)u_{n-1} = 0.
+\end{equation}
+\end{definition}
+
+The numerical evidence strongly suggests, and the formal development is designed to prove, the following closed form.
+
+\begin{theorem}[Wallis-type closed form]\label{thm:main}
+For every $m \in \N$,
+\begin{equation}\label{eq:main-closed-form}
+  S^{(m)} = \WallisValue{m}.
+\end{equation}
+Equivalently,
+\[
+  S^{(m)} = \frac{2}{\pi}\prod_{j=1}^{m}\frac{2j}{2j-1}.
+\]
+In particular,
+\[
+  S^{(0)} = \frac{2}{\pi}, \qquad
+  S^{(1)} = \frac{4}{\pi}, \qquad
+  S^{(2)} = \frac{16}{3\pi}, \qquad
+  S^{(3)} = \frac{32}{5\pi}.
+\]
+\end{theorem}
+
+The appearance of the central binomial coefficient is exactly what one expects from the Wallis integral
+\[
+  I_m = \int_0^{\pi/2} \sin^{2m}(x)\,dx
+      = \frac{\pi}{2}\frac{\binom{2m}{m}}{4^m},
+\]
+so that
+\[
+  \frac{1}{I_m} = \frac{2\cdot 4^m}{\pi\binom{2m}{m}} = \WallisValue{m}.
+\]
+Thus the continued fraction family is naturally interpreted as a discrete, polynomial continued-fraction avatar of the reciprocal Wallis integrals.
+
+\section{Formal verification in Lean~4}\label{sec:lean}
+
+A direct formalization of the continued fraction itself is not the most transparent Lean entry point: the convergent bookkeeping hides the only genuinely rigid part of the argument.  We therefore separate the proof into an algebraic transport step and an analytic base case.  First, a factorial normalization rewrites the recurrence in a form on which the parameter shift $m \mapsto m+1$ becomes linear.  Second, Mathlib's Wallis-product infrastructure \cite{mathlib2020,borwein1987pi} supplies the analytic anchor at $m=0$, after which a single constant-multiple \texttt{Tendsto} argument propagates the closed form through the entire family.
+
+The heart of the argument is the intertwining lemma.  Once Lean confirms that the affine operator $L_m$ transports any solution of the normalized $m$-recurrence to a solution of the normalized $(m+1)$-recurrence, the whole one-parameter tower reduces to one base case and the elementary ratio
+\[
+  \frac{\WallisValue{m+1}}{\WallisValue{m}} = \frac{2(m+1)}{2m+1}.
+\]
+This is why the formal proof is structured around the intertwiner rather than around ad hoc computations of individual convergents.
+
+Writing the recurrence solutions in normalized form transforms \eqref{eq:raw-recurrence} into
+\begin{equation}\label{eq:normalized-recurrence}
+  (n+1)u_{n+1} - (3n+4)u_n + (2n-2m+1)u_{n-1} = 0.
+\end{equation}
+This is the form formalized in \texttt{WallisFamily.lean}.
+
+The key structural input is the affine intertwiner
+\begin{equation}\label{eq:intertwiner}
+  L_m[u]_n = -(n+2m+5)u_n + (n+3)u_{n-1}.
+\end{equation}
+Symbolic elimination first suggested \eqref{eq:intertwiner}; Lean~4 then verified that it is the correct operator linking adjacent parameters.  For audit purposes, the current file exposes the certified chain
+\begin{lstlisting}
+#check WallisFamily.intertwining_lemma
+#check WallisFamily.ratio_step_m0
+#check WallisFamily.limit_step
+#check WallisFamily.theorem1_closed_form
+\end{lstlisting}
+and these checks elaborate without error in the zero-\texttt{sorry} development.
+
+\begin{proposition}[Intertwining lemma]\label{prop:intertwining}
+If $u$ solves the normalized $m$-recurrence \eqref{eq:normalized-recurrence}, then for every $n \ge 2$ the transformed sequence $L_m[u]$ solves the normalized $(m+1)$-recurrence.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+In Lean this appears as the theorem \texttt{intertwining\_lemma}.  The statement is fully generic: it quantifies over arbitrary rational parameters and arbitrary solution sequences, not over a fixed list of small cases.  The proof unfolds the recurrence hypotheses at indices $n$ and $n-1$, expands the transformed sequence, and uses a linear combination of the two recurrence instances followed by ring normalization.  The resulting identity is exact from the boundary range $n \ge 2$ onward.
+\end{proof}
+
+The base case is anchored in the classical Wallis product.  Let
+\[
+  W_N := \prod_{k=1}^{N}\frac{4k^2}{4k^2-1}.
+\]
+Mathlib already proves that $W_N \to \pi/2$.  The formal lemma \texttt{ratio\_step\_m0} is quantified over every $n \ge 1$, not just the first few convergents, and shows that the $m=0$ continued-fraction ratio satisfies the same one-step product law for all indices.  From there \texttt{base\_case\_m0} deduces
+\[
+  S^{(0)} = \lim_{N\to\infty} W_N^{-1} = \frac{2}{\pi}.
+\]
+
+The inductive limit step is then packaged as a closed-form scaling identity.
+
+\begin{proposition}[Inductive Wallis scaling]\label{prop:limit-step}
+If
+\[
+  \lim_{n\to\infty} \operatorname{Ratio}_m(n) = \WallisValue{m},
+\]
+then
+\[
+  \lim_{n\to\infty} \operatorname{Ratio}_{m+1}(n)
+  = \lim_{n\to\infty} \operatorname{Ratio}_m(n)\cdot \WallisStep{m}
+  = \WallisValue{m+1}.
+\]
+The final equality is equivalent to the central-binomial identity
+\begin{equation}\label{eq:central-binom-step}
+  \binom{2m+2}{m+1} = \frac{2(2m+1)}{m+1}\binom{2m}{m}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+The Lean theorem \texttt{limit\_step} handles the constant-multiple \texttt{Tendsto} transport, while \texttt{reciprocalWallis\_succ} rewrites the target using \eqref{eq:central-binom-step}.  The final theorem \texttt{theorem1\_closed\_form} is exactly Theorem~\ref{thm:main} in Lean notation.  In the final file all placeholders have been eliminated, so the Wallis chain has zero-\texttt{sorry} status from the base case to the closed form.
+\end{proof}
+
+In summary, the formal artifact establishes the following chain inside Lean~4:
+\[
+\begin{aligned}
+  \texttt{ratio\_step\_m0} &\Longrightarrow \texttt{base\_case\_m0}
+    \Longrightarrow \texttt{reciprocalWallis\_succ} \\
+  &\Longrightarrow \texttt{limit\_step}
+    \Longrightarrow \texttt{wallis\_pcf\_limit}.
+\end{aligned}
+\]
+This is the precise sense in which the discovery has transitioned from numerical conjecture to formal verification.
+
+\section{Computational results}\label{sec:computational}
+
+\subsection{1000-digit certification}
+
+Independent of the formal proof, the family was checked numerically using backward recurrence with \texttt{mpmath} at high working precision.  Across the verified range $m=0,1,\dots,20$, the values of the continued fraction matched the closed form \eqref{eq:main-closed-form} to at least $1000$ stable decimal digits.  The numerical certification is therefore much stronger than the modest number of digits required merely to identify the formula.
+
+Representative values are shown in \cref{tab:values}.
+
+\begin{table}[ht]
+\centering
+\caption{Representative members of the Wallis PCF family.}\label{tab:values}
+\begin{tabular}{@{}cclc@{}}
+\toprule
+$m$ & numerator template $a_m(n)$ & exact value $S^{(m)}$ & certification \\
+\midrule
+$0$ & $-n(2n-1)$ & $2/\pi$ & $>1000$ digits \\
+$1$ & $-n(2n-3)$ & $4/\pi$ & $>1000$ digits \\
+$2$ & $-n(2n-5)$ & $16/(3\pi)$ & $>1000$ digits \\
+$3$ & $-n(2n-7)$ & $32/(5\pi)$ & $>1000$ digits \\
+$4$ & $-n(2n-9)$ & $256/(35\pi)$ & $>1000$ digits \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+From the experimental perspective, one of the most striking features is the parameter coherence: successive odd templates do not merely give isolated matches to $1/\pi$, but fall into a single exact formula governed by $\binom{2m}{m}$.  This is atypical in blind continued-fraction searches, where most hits are sporadic and fail to organize into a stable family.
+
+\subsection{Third-order negative results and the Goldilocks phenomenon}
+
+A targeted follow-up search tested third-order polynomial ansätze with low-height coefficients on the same 8-core computational stack.  That search produced near-misses and numerically interesting fragments, but no one-parameter family with the clarity of \eqref{eq:main-closed-form}, no comparably simple affine intertwiner, and no robust analogue of the Wallis reduction law.  In this sense the present second-order family appears to occupy a ``Goldilocks'' regime:
+\begin{itemize}
+  \item simple enough to support an explicit formal operator and a clean inductive proof,
+  \item rich enough to encode a nontrivial parametric tower of $1/\pi$ identities,
+  \item but apparently too rigid to admit an immediate higher-order extension of the same elegance.
+\end{itemize}
+
+This negative evidence is mathematically useful.  It suggests that the second-order family is not merely the first example encountered in a broad landscape, but may instead be distinguished by genuine structural optimality.
+
+\section{Related work}\label{sec:related}
+
+Formalized analysis and number theory in proof assistants have advanced rapidly, but explicit formal verifications of continued-fraction evaluations remain rare.  On the Lean side, the relevant background comes from the growing \texttt{mathlib} ecosystem \cite{mathlib2020}; in Coq, the Coquelicot library provides a mature real-analysis framework for machine-checked transcendental arguments \cite{boldo2015coquelicot}; and Isabelle/HOL has produced substantial formalizations of Stirling's formula, the prime number theorem, and the irrationality of $\zeta(3)$ \cite{eberl2016stirling,eberl2018pnt,eberl2019zeta3}.  The present Wallis family fits naturally into that line of work, but is unusual in treating a concrete parametric continued-fraction identity rather than an isolated asymptotic or arithmetic theorem.
+
+Within the continued-fraction literature, Wallis-type product identities and their generalized continued-fraction avatars go back to the classical sources of Wall, Lorentzen--Waadeland, and Borwein--Borwein \cite{wall1948analytic,lorentzen1992continued,borwein1987pi}.  Our search-driven viewpoint is complementary to that tradition: instead of beginning with a known special function and deriving a continued fraction, we begin with a low-height PCF sweep and recover the special-function meaning afterward.  The paper also connects to the authors' broader experimental program on proved PCF families for logarithmic and $4/\pi$ constants \cite{papanokechi2026pcf}.
+
+The Ramanujan Machine project \cite{raayoni2021} provides the closest methodological antecedent.  Like that program, we use automated search to surface plausible identities among fundamental constants; unlike a purely conjectural pipeline, however, the present work closes the loop with a full Lean~4 verification.  In that sense the manuscript is a case study in how symbolic search, high-precision numerics, and proof assistants can be integrated into a single research workflow.
+
+\section{Conclusion and outlook}
+
+We have presented a one-parameter Wallis-type family of polynomial continued fractions discovered computationally, verified numerically to high precision, and organized formally in Lean~4 by a zero-\texttt{sorry} proof chain.  The resulting manuscript illustrates a modern workflow in experimental mathematics: search, isolate, conjecture, verify, and formalize.
+
+Several directions remain open.
+\begin{enumerate}[label=\textup{(\arabic*)}]
+  \item Can analogous one-parameter PCF families be found for Catalan's constant, $\zeta(3)$, or logarithmic periods?
+  \item Is there a conceptual hypergeometric or orthogonal-polynomial framework that explains \eqref{eq:intertwiner} a priori?
+  \item To extend the present argument to the full degree-$d$ Dichotomy conjecture, one would need a symbolic procedure that produces the higher-order analogue of the intertwining operator together with an analytic base case identifying the correct limiting constant.  The current Lean file suggests that, once those two ingredients are available, the induction and \texttt{Tendsto} transport can be reused with only modest changes.
+\end{enumerate}
+
+The broader lesson is methodological: formal proof assistants and high-precision computational search are no longer separate enterprises.  Together they create a viable pipeline from machine discovery to publishable mathematics.
+
+\begin{thebibliography}{99}
+
+\bibitem{boldo2015coquelicot}
+S.~Boldo, C.~Lelay, and G.~Melquiond,
+\emph{Coquelicot: a user-friendly library of real analysis for Coq},
+Mathematics in Computer Science \textbf{9} (2015), 41--62.
+
+\bibitem{borwein1987pi}
+J.~M.~Borwein and P.~B.~Borwein,
+\emph{Pi and the AGM},
+Wiley, New York, 1987.
+
+\bibitem{cuyt2008handbook}
+A.~Cuyt, V.~B.~Petersen, B.~Verdonk, H.~Waadeland, and W.~B.~Jones,
+\emph{Handbook of Continued Fractions for Special Functions},
+Springer, 2008.
+
+\bibitem{eberl2016stirling}
+M.~Eberl,
+\emph{Stirling's formula},
+Archive of Formal Proofs, 2016.
+
+\bibitem{eberl2018pnt}
+M.~Eberl and L.~C.~Paulson,
+\emph{The Prime Number Theorem},
+Archive of Formal Proofs, 2018.
+
+\bibitem{eberl2019zeta3}
+M.~Eberl,
+\emph{The Irrationality of $\zeta(3)$},
+Archive of Formal Proofs, 2019.
+
+\bibitem{lorentzen1992continued}
+L.~Lorentzen and H.~Waadeland,
+\emph{Continued Fractions with Applications},
+North-Holland, Amsterdam, 1992.
+
+\bibitem{mathlib2020}
+The mathlib Community,
+\emph{The Lean mathematical library},
+Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs, 2020, pp.~367--381.
+
+\bibitem{papanokechi2026pcf}
+Papanokechi,
+\emph{Polynomial Continued Fractions: a Proved Logarithmic Ladder, a $4/\pi$ Casoratian Identity, and 482 Irrational Constants},
+preprint, 2026.
+
+\bibitem{raayoni2021}
+G.~Raayoni, T.~Ariel, S.~Bielski, Y.~Bouzaglo, A.~David, I.~Hubara,
+A.~Libi, D.~Schneider, R.~Schwartz, and Y.~Yogev,
+\emph{Generating conjectures on fundamental constants with the Ramanujan Machine},
+Nature \textbf{590} (2021), 67--73.
+
+\bibitem{wall1948analytic}
+H.~S.~Wall,
+\emph{Analytic Theory of Continued Fractions},
+Chelsea, New York, 1948.
+
+\end{thebibliography}
+
+\end{document}

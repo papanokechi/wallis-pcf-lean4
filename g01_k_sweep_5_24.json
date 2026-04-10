@@ -1,0 +1,152 @@
+{
+  "generated_at": "2026-04-01T10:05:58.372786+00:00",
+  "ks": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    15,
+    24
+  ],
+  "n_max": 1200,
+  "rows": [
+    {
+      "k": 5,
+      "c_k": 5.735737209545476,
+      "a1_est": -1.6250799206780346,
+      "a1_closed_form": -1.6435456556329053,
+      "fit_gap_pct": 1.1235303924526399,
+      "seed_pass_rate": 100.0,
+      "alpha_relation": "-17/60",
+      "beta_relation": "-((k+1)(k+3))/8 = -6 (1.77% gap)",
+      "closed_formula": "A1^(k) = -(k*c_k)/48 - ((k+1)(k+3))/(8*c_k)",
+      "verdict": "supports_g01"
+    },
+    {
+      "k": 6,
+      "c_k": 6.283185307179586,
+      "a1_est": -2.0137975938598602,
+      "a1_closed_form": -2.038743340246124,
+      "fit_gap_pct": 1.223584445075472,
+      "seed_pass_rate": 100.0,
+      "alpha_relation": "-25/78",
+      "beta_relation": "-((k+1)(k+3))/8 = -7.875 (1.99% gap)",
+      "closed_formula": "A1^(k) = -(k*c_k)/48 - ((k+1)(k+3))/(8*c_k)",
+      "verdict": "supports_g01"
+    },
+    {
+      "k": 7,
+      "c_k": 6.78661578931284,
+      "a1_est": -2.431038054611951,
+      "a1_closed_form": -2.4632032555344554,
+      "fit_gap_pct": 1.3058281264541989,
+      "seed_pass_rate": 100.0,
+      "alpha_relation": "-24/67",
+      "beta_relation": "-((k+1)(k+3))/8 = -10 (2.18% gap)",
+      "closed_formula": "A1^(k) = -(k*c_k)/48 - ((k+1)(k+3))/(8*c_k)",
+      "verdict": "supports_g01"
+    },
+    {
+      "k": 8,
+      "c_k": 7.2551974569368705,
+      "a1_est": -2.8747400231233886,
+      "a1_closed_form": -2.9148733463673144,
+      "fit_gap_pct": 1.3768462116524656,
+      "seed_pass_rate": 100.0,
+      "alpha_relation": "-21/53",
+      "beta_relation": "-((k+1)(k+3))/8 = -12.375 (2.35% gap)",
+      "closed_formula": "A1^(k) = -(k*c_k)/48 - ((k+1)(k+3))/(8*c_k)",
+      "verdict": "supports_g01"
+    },
+    {
+      "k": 9,
+      "c_k": 7.695298980971184,
+      "a1_est": -3.343254531840785,
+      "a1_closed_form": -3.3921105620162875,
+      "fit_gap_pct": 1.440284132320913,
+      "seed_pass_rate": 100.0,
+      "alpha_relation": "-53/122",
+      "beta_relation": "-((k+1)(k+3))/8 = -15 (2.51% gap)",
+      "closed_formula": "A1^(k) = -(k*c_k)/48 - ((k+1)(k+3))/(8*c_k)",
+      "verdict": "supports_g01"
+    },
+    {
+      "k": 10,
+      "c_k": 8.111557351947223,
+      "a1_est": -3.8352161867742245,
+      "a1_closed_form": -3.8935536691755335,
+      "fit_gap_pct": 1.4983094457681392,
+      "seed_pass_rate": 100.0,
+      "alpha_relation": "-26/55",
+      "beta_relation": "-((k+1)(k+3))/8 = -17.875 (2.65% gap)",
+      "closed_formula": "A1^(k) = -(k*c_k)/48 - ((k+1)(k+3))/(8*c_k)",
+      "verdict": "supports_g01"
+    },
+    {
+      "k": 11,
+      "c_k": 8.507473123161892,
+      "a1_est": -4.349466466717079,
+      "a1_closed_form": -4.4180472818722105,
+      "fit_gap_pct": 1.5522879403424945,
+      "seed_pass_rate": 100.0,
+      "alpha_relation": "-45/88",
+      "beta_relation": "-((k+1)(k+3))/8 = -21 (2.78% gap)",
+      "closed_formula": "A1^(k) = -(k*c_k)/48 - ((k+1)(k+3))/(8*c_k)",
+      "verdict": "supports_g01"
+    },
+    {
+      "k": 12,
+      "c_k": 8.885765876316732,
+      "a1_est": -4.885004226347723,
+      "a1_closed_form": -4.964592744870366,
+      "fit_gap_pct": 1.6031228060927483,
+      "seed_pass_rate": 100.0,
+      "alpha_relation": "-61/111",
+      "beta_relation": "-((k+1)(k+3))/8 = -24.375 (2.90% gap)",
+      "closed_formula": "A1^(k) = -(k*c_k)/48 - ((k+1)(k+3))/(8*c_k)",
+      "verdict": "supports_g01"
+    },
+    {
+      "k": 15,
+      "c_k": 9.934588265796101,
+      "a1_est": -6.61104509556798,
+      "a1_closed_form": -6.728262104584348,
+      "fit_gap_pct": 1.7421587802963503,
+      "seed_pass_rate": 100.0,
+      "alpha_relation": "-2/3",
+      "beta_relation": "-2752/79",
+      "closed_formula": "A1^(k) = -(k*c_k)/48 - ((k+1)(k+3))/(8*c_k)",
+      "verdict": "supports_g01"
+    },
+    {
+      "k": 24,
+      "c_k": 12.566370614359172,
+      "a1_est": -12.72567989447544,
+      "a1_closed_form": -12.99753446886892,
+      "fit_gap_pct": 2.0915857160803295,
+      "seed_pass_rate": 100.0,
+      "alpha_relation": "-80/79",
+      "beta_relation": "-7853/97",
+      "closed_formula": "A1^(k) = -(k*c_k)/48 - ((k+1)(k+3))/(8*c_k)",
+      "verdict": "watch"
+    }
+  ],
+  "supported_ks": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    15
+  ],
+  "g01_supported": false,
+  "mean_gap_pct": 1.4957537996535752,
+  "summary": "G-01 supported for k=[5, 6, 7, 8, 9, 10, 11, 12, 15] using the independent Epoch5 extraction path."
+}

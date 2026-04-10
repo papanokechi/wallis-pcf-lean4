@@ -1,0 +1,118 @@
+{
+  "arb_certifications": [
+    {
+      "label": "Log k=2: 1/ln(2)",
+      "target": "1/ln2",
+      "depth": 2000,
+      "contains_target": false,
+      "value_interval": "[1.44269504088896340735992468100189213742664595415298593413544940693110921918118"
+    },
+    {
+      "label": "Log k=3: 1/ln(3/2)",
+      "target": "1/ln(3/2)",
+      "depth": 2000,
+      "contains_target": true,
+      "value_interval": "[2.46630346237643168600791006849073412068228464404347227362871219512493291822051"
+    },
+    {
+      "label": "Log k=4: 1/ln(4/3)",
+      "target": "1/ln(4/3)",
+      "depth": 2000,
+      "contains_target": true,
+      "value_interval": "[3.47605949678220691037649940164576636874819550517356574839279012502600699450270"
+    },
+    {
+      "label": "Pi m=0: 2/pi",
+      "target": "2/pi",
+      "depth": 2000,
+      "contains_target": false,
+      "value_interval": "[0.63661977236758134307553505349005744813783858296182579499066937623558719053690"
+    },
+    {
+      "label": "Pi m=1: 4/pi",
+      "target": "4/pi",
+      "depth": 2000,
+      "contains_target": false,
+      "value_interval": "[1.27323954473516268615107010698011489627567716592365158998133875247117438107381"
+    }
+  ],
+  "noninteger_k_results": [
+    {
+      "k": 1.5,
+      "dp": 90,
+      "match": true
+    },
+    {
+      "k": 2,
+      "dp": 119,
+      "match": true
+    },
+    {
+      "k": 2.5,
+      "dp": 120,
+      "match": true
+    },
+    {
+      "k": 3,
+      "dp": 119,
+      "match": true
+    },
+    {
+      "k": 3.5,
+      "dp": 118,
+      "match": true
+    },
+    {
+      "k": 4,
+      "dp": 120,
+      "match": true
+    },
+    {
+      "k": 4.5,
+      "dp": 118,
+      "match": true
+    },
+    {
+      "k": 5,
+      "dp": 119,
+      "match": true
+    },
+    {
+      "k": 5.5,
+      "dp": 119,
+      "match": true
+    },
+    {
+      "k": 6,
+      "dp": 119,
+      "match": true
+    },
+    {
+      "k": 7,
+      "dp": 118,
+      "match": true
+    },
+    {
+      "k": 8,
+      "dp": 119,
+      "match": true
+    },
+    {
+      "k": 10,
+      "dp": 118,
+      "match": true
+    },
+    {
+      "k": 20,
+      "dp": 119,
+      "match": true
+    },
+    {
+      "k": 100,
+      "dp": 117,
+      "match": true
+    }
+  ],
+  "log_family_real_extension": true,
+  "latex_file": "pcf_paper_draft.tex"
+}

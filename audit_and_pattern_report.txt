@@ -1,0 +1,66 @@
+======================================================================
+  CATALOG SPOT AUDIT + ZETA(5) PATTERN ANALYSIS
+  Date: 2026-04-05 11:25:52
+======================================================================
+
+PART 1: SPOT AUDIT
+  Sample size: 30
+   30  VERIFIED
+
+  Individual results:
+    f64a903377b3 zeta3    adeg=4|bdeg=1|mode=backward|order=0      VERIFIED
+    3496e0b8c8c3 zeta3    adeg=3|bdeg=1|mode=backward|order=0      VERIFIED
+    739339e79834 zeta3    adeg=2|bdeg=1|mode=backward|order=0      VERIFIED
+    cd34ea769acb zeta3    adeg=4|bdeg=1|mode=backward|order=0      VERIFIED
+    cfa99273a44d zeta5    adeg=3|bdeg=1|mode=backward|order=0      VERIFIED
+    21068ba2be52 zeta2    adeg=3|bdeg=2|mode=backward|order=0      VERIFIED
+    b8ec78eb267b zeta3    adeg=2|bdeg=1|mode=backward|order=0      VERIFIED
+    4263a37b630f zeta4    adeg=2|bdeg=1|mode=backward|order=0      VERIFIED
+    bc598c4b53aa zeta5    adeg=4|bdeg=1|mode=backward|order=0      VERIFIED
+    dc0262710459 zeta3    adeg=1|bdeg=1|mode=backward|order=0      VERIFIED
+    73ea85ede467 zeta5    adeg=4|bdeg=1|mode=backward|order=0      VERIFIED
+    e978a37c1af4 zeta3    adeg=3|bdeg=2|mode=backward|order=0      VERIFIED
+    86cee6de31e8 zeta3    adeg=1|bdeg=1|mode=backward|order=0      VERIFIED
+    f6071427558a zeta3    adeg=2|bdeg=2|mode=backward|order=0      VERIFIED
+    7df6e26a94fe pi2      adeg=2|bdeg=1|mode=backward|order=0      VERIFIED
+    064418ecd6fd zeta3    adeg=1|bdeg=3|mode=backward|order=0      VERIFIED
+    fdb0b855c865 zeta5    adeg=2|bdeg=1|mode=backward|order=0      VERIFIED
+    d23fa6538a87 zeta4    adeg=3|bdeg=1|mode=backward|order=0      VERIFIED
+    b61aa5e2d2b6 zeta7    adeg=3|bdeg=1|mode=backward|order=0      VERIFIED
+    2d7974694d4e zeta3    adeg=3|bdeg=2|mode=backward|order=0      VERIFIED
+    3e0705938485 zeta5    adeg=2|bdeg=2|mode=backward|order=0      VERIFIED
+    eabc6107b608 zeta3    adeg=2|bdeg=3|mode=backward|order=0      VERIFIED
+    c06e0325ffb4 zeta5    adeg=5|bdeg=1|mode=backward|order=0      VERIFIED
+    795971df9f1f zeta3    adeg=2|bdeg=1|mode=backward|order=0      VERIFIED
+    160074b2e9e3 zeta5    adeg=6|bdeg=1|mode=backward|order=0      VERIFIED
+    20c18780731c zeta4    adeg=4|bdeg=1|mode=backward|order=0      VERIFIED
+    8ad3b450a185 zeta2    adeg=2|bdeg=1|mode=backward|order=0      VERIFIED
+    0f6f8162b236 zeta3    adeg=4|bdeg=1|mode=backward|order=0      VERIFIED
+    7d6dac945556 zeta4    adeg=2|bdeg=1|mode=backward|order=0      VERIFIED
+    5ba39b1f6592 zeta5    adeg=2|bdeg=1|mode=backward|order=0      VERIFIED
+
+PART 2: ZETA(5) ANALYSIS
+  Total entries: 117
+  Unique signatures: 22
+      22  adeg=2|bdeg=1|mode=backward|order=0
+      15  adeg=3|bdeg=1|mode=backward|order=0
+      14  adeg=4|bdeg=1|mode=backward|order=0
+      14  adeg=1|bdeg=1|mode=backward|order=0
+      10  adeg=3|bdeg=2|mode=backward|order=0
+      10  adeg=5|bdeg=1|mode=backward|order=0
+       5  adeg=4|bdeg=2|mode=backward|order=0
+       5  adeg=2|bdeg=2|mode=backward|order=0
+       4  adeg=2|bdeg=3|mode=backward|order=0
+       2  adeg=4|bdeg=6|mode=backward|order=0
+       2  adeg=1|bdeg=3|mode=backward|order=0
+       2  adeg=3|bdeg=3|mode=backward|order=0
+       2  adeg=6|bdeg=4|mode=ratio|order=6
+       2  adeg=1|bdeg=2|mode=backward|order=0
+       1  adeg=4|bdeg=5|mode=ratio|order=4
+       1  adeg=7|bdeg=4|mode=ratio|order=7
+       1  adeg=5|bdeg=2|mode=backward|order=0
+       1  adeg=6|bdeg=1|mode=backward|order=0
+       1  adeg=4|bdeg=3|mode=backward|order=0
+       1  adeg=4|bdeg=4|mode=ratio|order=4
+       1  adeg=4|bdeg=4|mode=backward|order=0
+       1  adeg=5|bdeg=3|mode=backward|order=0

@@ -1,0 +1,15 @@
+{
+  "judge_id": "JUDGE-LOCAL-01",
+  "timestamp": "2026-04-01T08:06:51.530179+00:00",
+  "formula": "-5*c5/48 - 6/c5",
+  "gates": {
+    "dry_run_clean": false,
+    "scalar_valid": true,
+    "seed_stable": true,
+    "pslq_confirmed": true
+  },
+  "gates_passed": 3,
+  "verdict": "PROGRESS",
+  "detail": "3/4 gates. Failing: ['dry_run_clean']",
+  "publication_ready": false
+}

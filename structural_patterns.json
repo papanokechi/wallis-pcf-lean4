@@ -1,0 +1,394 @@
+[
+  {
+    "id": "renormalization_group",
+    "name": "Renormalization Group",
+    "core": "A transformation that leaves qualitative behavior invariant while changing scale of description",
+    "origin": "quantum field theory / statistical mechanics",
+    "appeared_in": ["ML (deep learning as RG coarse-graining)", "ecology (species aggregation)", "economics (macro as micro aggregation)"],
+    "tags": ["scale_invariance", "coarse_graining", "universality"]
+  },
+  {
+    "id": "self_organized_criticality",
+    "name": "Self-Organized Criticality",
+    "core": "Systems spontaneously evolve toward a critical state where events of all scales occur (power-law distribution)",
+    "origin": "sandpile model / Bak-Tang-Wiesenfeld",
+    "appeared_in": ["neuroscience", "finance", "earthquakes", "internet traffic"],
+    "tags": ["power_law", "emergence", "critical_phenomena"]
+  },
+  {
+    "id": "negative_feedback",
+    "name": "Negative Feedback Stabilization",
+    "core": "Output is fed back to reduce input deviation, producing homeostasis or oscillation around an attractor",
+    "origin": "control theory / cybernetics",
+    "appeared_in": ["biology (homeostasis)", "economics (price equilibrium)", "climate (ice-albedo)", "electronics"],
+    "tags": ["stability", "control", "homeostasis"]
+  },
+  {
+    "id": "phase_transition",
+    "name": "Phase Transition / Critical Threshold",
+    "core": "Continuous parameter change triggers discontinuous qualitative shift in system behavior",
+    "origin": "thermodynamics / Ising model",
+    "appeared_in": ["social dynamics (opinion tipping)", "percolation", "neural networks", "epidemiology"],
+    "tags": ["criticality", "bifurcation", "discontinuity"]
+  },
+  {
+    "id": "symmetry_breaking",
+    "name": "Symmetry Breaking → Information Gain",
+    "core": "A symmetric system spontaneously selects one of multiple equivalent states, creating structure from uniformity",
+    "origin": "particle physics / Higgs mechanism",
+    "appeared_in": ["biology (chirality)", "crystallography", "cosmology", "economics (path dependence)"],
+    "tags": ["symmetry", "emergence", "order_parameter"]
+  },
+  {
+    "id": "resonance_amplification",
+    "name": "Resonance Amplification",
+    "core": "Small periodic forcing at a natural frequency produces disproportionately large response",
+    "origin": "classical mechanics / acoustics",
+    "appeared_in": ["quantum mechanics (Rabi oscillation)", "finance (business cycles)", "neuroscience (brainwave entrainment)", "materials science"],
+    "tags": ["frequency", "amplification", "oscillation"]
+  },
+  {
+    "id": "error_correcting_codes",
+    "name": "Error-Correcting Codes as Universal Motif",
+    "core": "Redundant encoding enables reliable information transmission through noisy channels",
+    "origin": "information theory / Shannon",
+    "appeared_in": ["genetics (codon degeneracy)", "neural coding", "distributed computing", "immune system"],
+    "tags": ["redundancy", "robustness", "information"]
+  },
+  {
+    "id": "godel_incompleteness",
+    "name": "Gödel Incompleteness / Self-Reference Limits",
+    "core": "Sufficiently powerful formal systems contain true statements they cannot prove about themselves",
+    "origin": "mathematical logic",
+    "appeared_in": ["AI alignment (self-knowledge limits)", "economics (rational expectations limits)", "philosophy of mind"],
+    "tags": ["self_reference", "undecidability", "limits"]
+  },
+  {
+    "id": "scale_free_networks",
+    "name": "Scale-Free Network Topology",
+    "core": "Networks where degree distribution follows power law — few hubs, many low-degree nodes — emerge from preferential attachment",
+    "origin": "Barabási-Albert model",
+    "appeared_in": ["internet topology", "protein interactions", "citation networks", "airline routes"],
+    "tags": ["networks", "power_law", "hubs"]
+  },
+  {
+    "id": "quorum_sensing",
+    "name": "Quorum Sensing / Collective Threshold",
+    "core": "Individual agents independently measure local density and trigger collective behavior only above a threshold",
+    "origin": "microbiology (bacterial communication)",
+    "appeared_in": ["swarm robotics", "social movements", "financial panics", "ant colonies"],
+    "tags": ["collective", "threshold", "emergence"]
+  },
+  {
+    "id": "fourier_decomposition",
+    "name": "Fourier Decomposition / Spectral Analysis",
+    "core": "Any signal can be decomposed into fundamental periodic components, revealing hidden structure in frequency domain",
+    "origin": "mathematics / signal processing",
+    "appeared_in": ["quantum mechanics", "image compression", "earthquake analysis", "gene expression", "financial cycles"],
+    "tags": ["spectral", "decomposition", "periodicity"]
+  },
+  {
+    "id": "replicator_dynamics",
+    "name": "Replicator Dynamics",
+    "core": "Entities that reproduce proportional to fitness dominate; selection pressure drives population composition",
+    "origin": "evolutionary biology / evolutionary game theory",
+    "appeared_in": ["cultural evolution (memes)", "economics (firm competition)", "machine learning (genetic algorithms)", "language evolution"],
+    "tags": ["evolution", "selection", "fitness"]
+  },
+  {
+    "id": "critical_slowing_down",
+    "name": "Critical Slowing Down",
+    "core": "Near a phase transition, system perturbation recovery time diverges — the system becomes fragile before it breaks",
+    "origin": "dynamical systems / ecology",
+    "appeared_in": ["climate tipping points", "financial crises", "ecosystem collapse", "epileptic seizures"],
+    "tags": ["early_warning", "fragility", "transition"]
+  },
+  {
+    "id": "dimensional_reduction",
+    "name": "Dimensional Reduction / Manifold Hypothesis",
+    "core": "High-dimensional data concentrates near a lower-dimensional manifold; effective description requires far fewer variables",
+    "origin": "statistics / differential geometry",
+    "appeared_in": ["deep learning", "protein folding", "cosmology (holographic principle)", "neuroscience"],
+    "tags": ["compression", "manifold", "effective_theory"]
+  },
+  {
+    "id": "frustrated_systems",
+    "name": "Frustration / Competing Constraints",
+    "core": "When local constraints cannot all be satisfied simultaneously, the system develops complex ground states and slow dynamics",
+    "origin": "spin glasses / condensed matter",
+    "appeared_in": ["protein folding", "social networks", "scheduling", "neural networks"],
+    "tags": ["frustration", "complexity", "glassiness"]
+  },
+  {
+    "id": "duality",
+    "name": "Duality Transform",
+    "core": "Two apparently different descriptions are exactly equivalent — what is hard in one becomes easy in the other",
+    "origin": "mathematical physics (electric-magnetic duality)",
+    "appeared_in": ["string theory (S/T/U dualities)", "optimization (primal-dual)", "graph theory (planar duality)", "economics (supply-demand)"],
+    "tags": ["duality", "equivalence", "complementarity"]
+  },
+  {
+    "id": "preferential_attachment",
+    "name": "Preferential Attachment / Matthew Effect",
+    "core": "The rich get richer — probability of acquiring more is proportional to what you already have",
+    "origin": "network science / sociology",
+    "appeared_in": ["citation networks", "wealth distribution", "city growth", "web links", "language (Zipf's law)"],
+    "tags": ["power_law", "inequality", "accumulation"]
+  },
+  {
+    "id": "dissipative_structures",
+    "name": "Dissipative Structures",
+    "core": "Systems far from equilibrium spontaneously create order by exporting entropy to environment",
+    "origin": "Prigogine / non-equilibrium thermodynamics",
+    "appeared_in": ["biology (metabolism)", "atmospheric convection (Bénard cells)", "cities", "laser physics"],
+    "tags": ["non_equilibrium", "self_organization", "entropy"]
+  },
+  {
+    "id": "information_bottleneck",
+    "name": "Information Bottleneck",
+    "core": "Optimal compression preserves only the information relevant to a target variable, discarding noise",
+    "origin": "information theory / Tishby",
+    "appeared_in": ["deep learning (DNN layers)", "biology (sensory processing)", "linguistics", "data compression"],
+    "tags": ["compression", "relevance", "representation"]
+  },
+  {
+    "id": "spontaneous_pattern_formation",
+    "name": "Turing Pattern / Reaction-Diffusion",
+    "core": "Local excitation + long-range inhibition produces stable spatial patterns from homogeneous initial conditions",
+    "origin": "Turing 1952 / mathematical biology",
+    "appeared_in": ["animal coat patterns", "vegetation bands", "chemical waves", "cortical maps", "semiconductor patterns"],
+    "tags": ["pattern_formation", "instability", "morphogenesis"]
+  },
+  {
+    "id": "renormalization_fixed_points",
+    "name": "Fixed Points of Iterative Maps",
+    "core": "Repeated application of a transformation converges to or cycles around special invariant states",
+    "origin": "dynamical systems / Banach fixed point theorem",
+    "appeared_in": ["PageRank", "neural network training (gradient descent)", "ecology (population equilibria)", "numerical methods"],
+    "tags": ["convergence", "iteration", "attractors"]
+  },
+  {
+    "id": "canalization",
+    "name": "Canalization / Developmental Robustness",
+    "core": "Biological development is buffered against perturbation — many genotypes map to the same phenotype",
+    "origin": "Waddington / developmental biology",
+    "appeared_in": ["gene regulatory networks", "evolution (genetic assimilation)", "robustness in engineering"],
+    "tags": ["robustness", "buffering", "genotype_phenotype"]
+  },
+  {
+    "id": "hysteresis",
+    "name": "Hysteresis / Path Dependence",
+    "core": "System state depends not just on current input but on history — forward and reverse paths differ",
+    "origin": "magnetism / materials science",
+    "appeared_in": ["economics (unemployment)", "ecology (regime shifts)", "social norms", "electronics (schmitt trigger)"],
+    "tags": ["memory", "irreversibility", "bistability"]
+  },
+  {
+    "id": "ergodicity_breaking",
+    "name": "Ergodicity Breaking",
+    "core": "Time averages differ from ensemble averages — a system gets trapped in subsets of its state space",
+    "origin": "statistical mechanics / dynamical systems",
+    "appeared_in": ["economics (wealth dynamics)", "aging (glasses)", "fitness landscapes", "poker strategy"],
+    "tags": ["non_ergodic", "trapping", "irreversibility"]
+  },
+  {
+    "id": "superposition_principle",
+    "name": "Superposition / Linear Combination",
+    "core": "If A and B are solutions, then aA + bB is also a solution — allows construction of complex from simple",
+    "origin": "wave physics / linear algebra",
+    "appeared_in": ["quantum mechanics", "signal processing", "optics", "structural engineering", "economics (portfolio theory)"],
+    "tags": ["linearity", "composition", "interference"]
+  },
+  {
+    "id": "lévy_flights",
+    "name": "Lévy Flights / Heavy-Tailed Search",
+    "core": "Optimal foraging uses many short local steps interspersed with rare long jumps — outperforms pure random walk",
+    "origin": "stochastic processes / ecology",
+    "appeared_in": ["animal foraging", "human mobility", "financial markets", "optimization (simulated annealing)"],
+    "tags": ["search", "heavy_tails", "exploration"]
+  },
+  {
+    "id": "maxwell_demon",
+    "name": "Maxwell's Demon / Information-Energy Tradeoff",
+    "core": "Acquiring information about a system requires energy expenditure; using that information can extract work — connecting entropy, information, and thermodynamics",
+    "origin": "thermodynamics / Landauer's principle",
+    "appeared_in": ["computing (fundamental limits)", "biology (molecular motors)", "quantum measurement", "economics (insider trading)"],
+    "tags": ["information", "entropy", "energy"]
+  },
+  {
+    "id": "small_world",
+    "name": "Small World Networks",
+    "core": "High clustering + short path lengths — local cliques connected by long-range shortcuts enable rapid global coordination",
+    "origin": "Watts-Strogatz model / sociology",
+    "appeared_in": ["neural wiring", "social networks", "power grids", "metabolic networks"],
+    "tags": ["networks", "shortcuts", "clustering"]
+  },
+  {
+    "id": "catastrophe_theory",
+    "name": "Catastrophe Theory / Fold Bifurcation",
+    "core": "Smooth, gradual changes in parameters lead to sudden, discontinuous changes in system behavior at critical manifolds",
+    "origin": "René Thom / topology",
+    "appeared_in": ["capsizing ships", "stock market crashes", "animal aggression", "optical caustics"],
+    "tags": ["bifurcation", "discontinuity", "topology"]
+  },
+  {
+    "id": "minimum_description_length",
+    "name": "Minimum Description Length / Occam's Razor",
+    "core": "The best model is the shortest program that reproduces the data — compression = understanding",
+    "origin": "algorithmic information theory / Rissanen",
+    "appeared_in": ["machine learning (model selection)", "physics (Lagrangian)", "biology (genetic code efficiency)", "linguistics"],
+    "tags": ["compression", "simplicity", "kolmogorov"]
+  },
+  {
+    "id": "reservoir_computing",
+    "name": "Reservoir Computing / Echo State",
+    "core": "A high-dimensional dynamical system with fixed random internal connections can compute over temporal inputs with only a trained readout layer",
+    "origin": "computational neuroscience",
+    "appeared_in": ["physical computing (water waves, optical)", "time series prediction", "memristive devices"],
+    "tags": ["computation", "dynamics", "random_projection"]
+  },
+  {
+    "id": "edge_of_chaos",
+    "name": "Edge of Chaos / Criticality Optimum",
+    "core": "Computation and adaptation are maximized at the boundary between ordered (frozen) and chaotic (random) dynamics",
+    "origin": "cellular automata / Langton / Kauffman",
+    "appeared_in": ["gene regulation", "neural networks", "liquid state machines", "evolution"],
+    "tags": ["criticality", "computation", "adaptation"]
+  },
+  {
+    "id": "modularity",
+    "name": "Modularity / Hierarchical Decomposition",
+    "core": "Complex systems evolve modular structure where subsystems interact strongly within modules and weakly between them",
+    "origin": "Simon (1962) / architecture of complexity",
+    "appeared_in": ["biology (organs)", "software engineering", "brain (functional areas)", "ecosystems"],
+    "tags": ["hierarchy", "decomposition", "evolvability"]
+  },
+  {
+    "id": "stigmergy",
+    "name": "Stigmergy / Environment-Mediated Communication",
+    "core": "Agents communicate indirectly by modifying the shared environment, enabling coordination without direct interaction",
+    "origin": "entomology (termite mound building)",
+    "appeared_in": ["ant colonies (pheromone trails)", "Wikipedia editing", "urban planning", "multi-agent AI"],
+    "tags": ["indirect_communication", "swarm", "emergence"]
+  },
+  {
+    "id": "topological_protection",
+    "name": "Topological Protection",
+    "core": "Certain properties are protected by global topology and cannot be destroyed by continuous local perturbations",
+    "origin": "condensed matter physics / topological insulators",
+    "appeared_in": ["quantum computing (anyons)", "photonics", "mechanical metamaterials", "knot theory"],
+    "tags": ["topology", "robustness", "quantization"]
+  },
+  {
+    "id": "percolation",
+    "name": "Percolation Threshold",
+    "core": "In a random network/lattice, there exists a sharp threshold above which a giant connected component first appears",
+    "origin": "statistical physics / random graphs",
+    "appeared_in": ["epidemiology", "forest fires", "social contagion", "material failure"],
+    "tags": ["threshold", "connectivity", "phase_transition"]
+  },
+  {
+    "id": "extremal_optimization",
+    "name": "Extremal Optimization / Bak-Sneppen",
+    "core": "Repeatedly replacing the worst-performing component drives the system to a critical state with power-law distributed avalanches of improvement",
+    "origin": "Bak-Sneppen model / combinatorial optimization",
+    "appeared_in": ["graph coloring", "spin glasses", "ecosystem evolution", "scheduling"],
+    "tags": ["optimization", "SOC", "punctuated_equilibrium"]
+  },
+  {
+    "id": "adiabatic_invariance",
+    "name": "Adiabatic Invariance",
+    "core": "When parameters change slowly enough, certain action variables are conserved — allowing controlled state transfers",
+    "origin": "classical/quantum mechanics",
+    "appeared_in": ["quantum computing (adiabatic QC)", "plasma confinement", "astronomy (orbital migration)", "molecular dynamics"],
+    "tags": ["slow_change", "conservation", "control"]
+  },
+  {
+    "id": "constructive_interference",
+    "name": "Constructive Interference / Path Integral",
+    "core": "A quantity is determined by summing contributions from ALL possible paths, with most cancelling and only coherent ones surviving",
+    "origin": "Feynman / quantum mechanics",
+    "appeared_in": ["optics (diffraction)", "number theory (circle method)", "finance (option pricing)", "optimization (beam search)"],
+    "tags": ["interference", "path_integral", "saddle_point"]
+  },
+  {
+    "id": "attractor_landscape",
+    "name": "Attractor Landscape / Energy Landscape",
+    "core": "System dynamics can be understood as descent on a landscape with basins of attraction surrounding stable states",
+    "origin": "dynamical systems / Hopfield networks",
+    "appeared_in": ["protein folding", "cell fate (Waddington)", "opinion dynamics", "optimization"],
+    "tags": ["attractors", "landscape", "basins"]
+  },
+  {
+    "id": "stochastic_resonance",
+    "name": "Stochastic Resonance",
+    "core": "Adding noise to a nonlinear system can IMPROVE signal detection — optimal noise level exists",
+    "origin": "climate physics / nonlinear dynamics",
+    "appeared_in": ["sensory neuroscience", "signal processing", "nanotechnology", "financial markets"],
+    "tags": ["noise", "amplification", "nonlinear"]
+  },
+  {
+    "id": "no_free_lunch",
+    "name": "No Free Lunch Theorem",
+    "core": "No algorithm can outperform all others on all possible problems — performance guarantees require assumptions about problem structure",
+    "origin": "optimization theory / Wolpert-Macready",
+    "appeared_in": ["machine learning", "evolutionary computation", "search theory", "financial investing"],
+    "tags": ["limits", "specialization", "tradeoffs"]
+  },
+  {
+    "id": "red_queen",
+    "name": "Red Queen Effect / Coevolutionary Arms Race",
+    "core": "Coupled evolving entities must continuously adapt just to maintain relative fitness — standing still means falling behind",
+    "origin": "evolutionary biology / Van Valen",
+    "appeared_in": ["host-parasite dynamics", "cybersecurity", "market competition", "AI alignment"],
+    "tags": ["coevolution", "arms_race", "adaptation"]
+  },
+  {
+    "id": "broken_ergodicity_aging",
+    "name": "Aging / Memory in Disordered Systems",
+    "core": "Systems with many metastable states develop history-dependent responses — older systems respond differently than younger ones to the same stimulus",
+    "origin": "spin glass physics",
+    "appeared_in": ["polymer physics", "granular materials", "neural plasticity", "organizational inertia"],
+    "tags": ["aging", "memory", "disorder"]
+  },
+  {
+    "id": "butterfly_effect",
+    "name": "Sensitive Dependence on Initial Conditions",
+    "core": "Exponential divergence of nearby trajectories makes long-term prediction impossible despite deterministic dynamics",
+    "origin": "Lorenz / chaos theory",
+    "appeared_in": ["weather", "fluid turbulence", "population dynamics", "financial markets", "double pendulum"],
+    "tags": ["chaos", "unpredictability", "lyapunov"]
+  },
+  {
+    "id": "universality_class",
+    "name": "Universality Class",
+    "core": "Microscopically different systems exhibit identical critical behavior if they share the same symmetry and dimensionality",
+    "origin": "statistical mechanics / Wilson RG",
+    "appeared_in": ["magnets (Ising/Heisenberg/XY)", "percolation", "directed polymers", "financial correlations"],
+    "tags": ["universality", "critical_exponents", "symmetry"]
+  },
+  {
+    "id": "variational_principle",
+    "name": "Variational Principle / Least Action",
+    "core": "Nature follows paths that extremize an action functional — unifies diverse phenomena under a single optimization principle",
+    "origin": "classical mechanics / Hamilton",
+    "appeared_in": ["optics (Fermat)", "quantum mechanics", "general relativity", "optimal control", "economics"],
+    "tags": ["optimization", "action", "extremal"]
+  },
+  {
+    "id": "holographic_principle",
+    "name": "Holographic Principle / Boundary-Bulk Correspondence",
+    "core": "All information contained in a volume can be described by data on its boundary — dimensionality reduction of a fundamental kind",
+    "origin": "'t Hooft, Susskind / black hole physics",
+    "appeared_in": ["AdS/CFT", "condensed matter (holographic metals)", "entanglement entropy", "tensor networks"],
+    "tags": ["holography", "boundary", "information"]
+  },
+  {
+    "id": "metabolic_scaling",
+    "name": "Allometric Scaling / Kleiber's Law",
+    "core": "Biological rates scale as power laws of body mass with universal exponents (often multiples of 1/4)",
+    "origin": "biology / West-Brown-Enquist theory",
+    "appeared_in": ["metabolic rate", "lifespan", "city scaling (Bettencourt)", "corporate growth"],
+    "tags": ["scaling", "power_law", "fractal_networks"]
+  }
+]

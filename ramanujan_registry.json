@@ -1,0 +1,574 @@
+{
+  "version": "1.0",
+  "updated": "2026-04-07T09:47:15.844827",
+  "total": 21,
+  "conjectures": [
+    {
+      "conjecture_id": "CF-20260407-0001",
+      "target_constant": "\u03c0",
+      "formula": "\u03c0 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = 3n - 2n^2,  b\u2099 = -1 - 3n",
+      "pcf_alpha": "3n - 2n^2",
+      "pcf_beta": "-1 - 3n",
+      "alpha_coeffs": [
+        0,
+        3,
+        -2
+      ],
+      "beta_coeffs": [
+        -1,
+        -3,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 67,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:23:40.504341",
+      "numerical_value": "-1.273239544735162686151070106980114896275677165923651589981",
+      "error_at_depth": "2.258199832998118104"
+    },
+    {
+      "conjecture_id": "CF-20260407-0002",
+      "target_constant": "\u03c0",
+      "formula": "\u03c0 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n^2,  b\u2099 = 1 + 2n",
+      "pcf_alpha": "n^2",
+      "pcf_beta": "1 + 2n",
+      "alpha_coeffs": [
+        0,
+        0,
+        1
+      ],
+      "beta_coeffs": [
+        1,
+        2,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 50,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:23:40.611751",
+      "numerical_value": "1.2732395447351626861510701069801148962756771659236515899813",
+      "error_at_depth": "2.108439588646104644"
+    },
+    {
+      "conjecture_id": "CF-20260407-0003",
+      "target_constant": "\u03c0",
+      "formula": "\u03c0 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n - 2n^2,  b\u2099 = 1 + 3n",
+      "pcf_alpha": "n - 2n^2",
+      "pcf_beta": "1 + 3n",
+      "alpha_coeffs": [
+        0,
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        3,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 61,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:23:40.718092",
+      "numerical_value": "0.6366197723675813430755350534900574481378385829618257949906",
+      "error_at_depth": "1.733749309295599743"
+    },
+    {
+      "conjecture_id": "CF-20260407-0004",
+      "target_constant": "\u03c0",
+      "formula": "\u03c0 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = 3n - 2n^2,  b\u2099 = 1 + 3n",
+      "pcf_alpha": "3n - 2n^2",
+      "pcf_beta": "1 + 3n",
+      "alpha_coeffs": [
+        0,
+        3,
+        -2
+      ],
+      "beta_coeffs": [
+        1,
+        3,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 67,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:23:40.861744",
+      "numerical_value": "1.2732395447351626861510701069801148962756771659236515899813",
+      "error_at_depth": "2.258199832998118104"
+    },
+    {
+      "conjecture_id": "CF-20260407-0005",
+      "target_constant": "\u03c0",
+      "formula": "\u03c0 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n - 2n^2,  b\u2099 = -1 - 3n",
+      "pcf_alpha": "n - 2n^2",
+      "pcf_beta": "-1 - 3n",
+      "alpha_coeffs": [
+        0,
+        1,
+        -2
+      ],
+      "beta_coeffs": [
+        -1,
+        -3,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 61,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:23:40.984701",
+      "numerical_value": "-0.636619772367581343075535053490057448137838582961825794990",
+      "error_at_depth": "1.733749309295599743"
+    },
+    {
+      "conjecture_id": "CF-20260407-0006",
+      "target_constant": "\u03c0",
+      "formula": "\u03c0 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n^2,  b\u2099 = -1 - 2n",
+      "pcf_alpha": "n^2",
+      "pcf_beta": "-1 - 2n",
+      "alpha_coeffs": [
+        0,
+        0,
+        1
+      ],
+      "beta_coeffs": [
+        -1,
+        -2,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 50,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:23:41.116250",
+      "numerical_value": "-1.273239544735162686151070106980114896275677165923651589981",
+      "error_at_depth": "2.108439588646104644"
+    },
+    {
+      "conjecture_id": "CF-20260407-0001",
+      "target_constant": "e",
+      "formula": "e = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = 1 + n,  b\u2099 = 1 + n",
+      "pcf_alpha": "1 + n",
+      "pcf_beta": "1 + n",
+      "alpha_coeffs": [
+        1,
+        1,
+        0
+      ],
+      "beta_coeffs": [
+        1,
+        1,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 71,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:38:19.717567",
+      "numerical_value": "1.7182818284590452353602874713526624977572470936999595749669",
+      "error_at_depth": "2.108439588646104644"
+    },
+    {
+      "conjecture_id": "CF-20260407-0002",
+      "target_constant": "e",
+      "formula": "e = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = -n,  b\u2099 = 3 + n",
+      "pcf_alpha": "-n",
+      "pcf_beta": "3 + n",
+      "alpha_coeffs": [
+        0,
+        -1,
+        0
+      ],
+      "beta_coeffs": [
+        3,
+        1,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 71,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:38:19.786876",
+      "numerical_value": "2.7182818284590452353602874713526624977572470936999595749669",
+      "error_at_depth": "4.216879177292209289"
+    },
+    {
+      "conjecture_id": "CF-20260407-0003",
+      "target_constant": "e",
+      "formula": "e = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = -n,  b\u2099 = -3 - n",
+      "pcf_alpha": "-n",
+      "pcf_beta": "-3 - n",
+      "alpha_coeffs": [
+        0,
+        -1,
+        0
+      ],
+      "beta_coeffs": [
+        -3,
+        -1,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 71,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:38:19.890512",
+      "numerical_value": "-2.718281828459045235360287471352662497757247093699959574966",
+      "error_at_depth": "4.216879177292209289"
+    },
+    {
+      "conjecture_id": "CF-20260407-0001",
+      "target_constant": "ln 2",
+      "formula": "ln 2 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = -2n^2,  b\u2099 = 2 + 3n",
+      "pcf_alpha": "-2n^2",
+      "pcf_beta": "2 + 3n",
+      "alpha_coeffs": [
+        0,
+        0,
+        -2
+      ],
+      "beta_coeffs": [
+        2,
+        3,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 62,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:59:20.700949",
+      "numerical_value": "1.4426950408889634073599246810018921374266459541529859341354",
+      "error_at_depth": "3.711025378925198065"
+    },
+    {
+      "conjecture_id": "CF-20260407-0002",
+      "target_constant": "ln 2",
+      "formula": "ln 2 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = -2n^2,  b\u2099 = -2 - 3n",
+      "pcf_alpha": "-2n^2",
+      "pcf_beta": "-2 - 3n",
+      "alpha_coeffs": [
+        0,
+        0,
+        -2
+      ],
+      "beta_coeffs": [
+        -2,
+        -3,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 62,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T07:59:20.961020",
+      "numerical_value": "-1.442695040888963407359924681001892137426645954152985934135",
+      "error_at_depth": "3.711025378925198065"
+    },
+    {
+      "conjecture_id": "CF-20260407-0001",
+      "target_constant": "\u221a2",
+      "formula": "\u221a2 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n + n^2,  b\u2099 = 2 + 2n",
+      "pcf_alpha": "n + n^2",
+      "pcf_beta": "2 + 2n",
+      "alpha_coeffs": [
+        0,
+        1,
+        1
+      ],
+      "beta_coeffs": [
+        2,
+        2,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 50,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T08:23:51.463119",
+      "numerical_value": "2.4142135623730950488016887242096980785696718753769480731766",
+      "error_at_depth": "1.686751670916883715"
+    },
+    {
+      "conjecture_id": "CF-20260407-0002",
+      "target_constant": "\u221a2",
+      "formula": "\u221a2 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = 1,  b\u2099 = 2",
+      "pcf_alpha": "1",
+      "pcf_beta": "2",
+      "alpha_coeffs": [
+        1,
+        0,
+        0
+      ],
+      "beta_coeffs": [
+        2,
+        0,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 50,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T08:23:51.661979",
+      "numerical_value": "2.4142135623730950488016887242096980785696718753769480731766",
+      "error_at_depth": "0.0"
+    },
+    {
+      "conjecture_id": "CF-20260407-0001",
+      "target_constant": "\u03c6",
+      "formula": "\u03c6 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = 1,  b\u2099 = 1",
+      "pcf_alpha": "1",
+      "pcf_beta": "1",
+      "alpha_coeffs": [
+        1,
+        0,
+        0
+      ],
+      "beta_coeffs": [
+        1,
+        0,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 72,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T08:51:23.538515",
+      "numerical_value": "1.6180339887498948482045868343656381177203091798057628621354",
+      "error_at_depth": "4.965438484449235821"
+    },
+    {
+      "conjecture_id": "CF-20260407-0002",
+      "target_constant": "\u03c6",
+      "formula": "\u03c6 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = 2 + 3n + n^2,  b\u2099 = -2 - n",
+      "pcf_alpha": "2 + 3n + n^2",
+      "pcf_beta": "-2 - n",
+      "alpha_coeffs": [
+        2,
+        3,
+        1
+      ],
+      "beta_coeffs": [
+        -2,
+        -1,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 71,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T08:51:23.695741",
+      "numerical_value": "-3.236067977499789696409173668731276235440618359611525724270",
+      "error_at_depth": "9.930834800106698721"
+    },
+    {
+      "conjecture_id": "CF-20260407-0003",
+      "target_constant": "\u03c6",
+      "formula": "\u03c6 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n + n^2,  b\u2099 = -1 - n",
+      "pcf_alpha": "n + n^2",
+      "pcf_beta": "-1 - n",
+      "alpha_coeffs": [
+        0,
+        1,
+        1
+      ],
+      "beta_coeffs": [
+        -1,
+        -1,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 72,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T08:51:23.844493",
+      "numerical_value": "-1.618033988749894848204586834365638117720309179805762862135",
+      "error_at_depth": "4.965480653241008743"
+    },
+    {
+      "conjecture_id": "CF-20260407-0004",
+      "target_constant": "\u03c6",
+      "formula": "\u03c6 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = n + n^2,  b\u2099 = 1 + n",
+      "pcf_alpha": "n + n^2",
+      "pcf_beta": "1 + n",
+      "alpha_coeffs": [
+        0,
+        1,
+        1
+      ],
+      "beta_coeffs": [
+        1,
+        1,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 72,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T08:51:24.044177",
+      "numerical_value": "1.6180339887498948482045868343656381177203091798057628621354",
+      "error_at_depth": "4.965480653241008743"
+    },
+    {
+      "conjecture_id": "CF-20260407-0005",
+      "target_constant": "\u03c6",
+      "formula": "\u03c6 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = 1,  b\u2099 = -1",
+      "pcf_alpha": "1",
+      "pcf_beta": "-1",
+      "alpha_coeffs": [
+        1,
+        0,
+        0
+      ],
+      "beta_coeffs": [
+        -1,
+        0,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 72,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T08:51:24.237173",
+      "numerical_value": "-1.618033988749894848204586834365638117720309179805762862135",
+      "error_at_depth": "4.965438484449235821"
+    },
+    {
+      "conjecture_id": "CF-20260407-0006",
+      "target_constant": "\u03c6",
+      "formula": "\u03c6 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = -n - n^2,  b\u2099 = 3 + 3n",
+      "pcf_alpha": "-n - n^2",
+      "pcf_beta": "3 + 3n",
+      "alpha_coeffs": [
+        0,
+        -1,
+        -1
+      ],
+      "beta_coeffs": [
+        3,
+        3,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 50,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T08:51:24.448750",
+      "numerical_value": "2.6180339887498948482045868343656381177203091798057628621354",
+      "error_at_depth": "8.433758354584418579"
+    },
+    {
+      "conjecture_id": "CF-20260407-0007",
+      "target_constant": "\u03c6",
+      "formula": "\u03c6 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = -1,  b\u2099 = 3",
+      "pcf_alpha": "-1",
+      "pcf_beta": "3",
+      "alpha_coeffs": [
+        -1,
+        0,
+        0
+      ],
+      "beta_coeffs": [
+        3,
+        0,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 50,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T08:51:24.608994",
+      "numerical_value": "2.6180339887498948482045868343656381177203091798057628621354",
+      "error_at_depth": "0.0"
+    },
+    {
+      "conjecture_id": "CF-20260407-0008",
+      "target_constant": "\u03c6",
+      "formula": "\u03c6 = b\u2080 + a\u2081/(b\u2081 + a\u2082/(b\u2082 + ...))  where  a\u2099 = 2 + 3n + n^2,  b\u2099 = 2 + n",
+      "pcf_alpha": "2 + 3n + n^2",
+      "pcf_beta": "2 + n",
+      "alpha_coeffs": [
+        2,
+        3,
+        1
+      ],
+      "beta_coeffs": [
+        2,
+        1,
+        0
+      ],
+      "convergence": "exponential",
+      "digits_verified": 71,
+      "factorial_reduction": false,
+      "novelty": "new",
+      "irrationality_bound": null,
+      "notes": "",
+      "algorithm": "MITM-RF",
+      "timestamp": "2026-04-07T08:51:24.778938",
+      "numerical_value": "3.2360679774997896964091736687312762354406183596115257242708",
+      "error_at_depth": "9.930834800106698721"
+    }
+  ]
+}

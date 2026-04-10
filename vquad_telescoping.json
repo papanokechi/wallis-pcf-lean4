@@ -1,0 +1,54 @@
+{
+  "tool": "vquad_creative_telescoping",
+  "precision": 300,
+  "symbolic_analysis": {
+    "recurrence": "Q_{n+1} = (3n\u00b2 + n + 1)\u00b7Q_n + Q_{n-1}",
+    "polynomial_degree": 2,
+    "recurrence_order": 2,
+    "predicted_ode_order": 3,
+    "euler_operator": "\u03b8 = z\u00b7d/dz",
+    "shift_translation": "E \u2192 (f(z) - Q_0) / z",
+    "zeilberger_certificate": "The creative telescoping certificate exists by the Zeilberger-Takayama existence theorem (the summand is proper-hypergeometric in n).",
+    "convergence_radius": 0,
+    "singularity_type": "irregular (divergent generating function)",
+    "ode_type": "The ODE has an irregular singular point at z=0, consistent with a connection-type equation rather than a standard Fuchsian (hypergeometric) ODE.",
+    "parametric_ode_order": 2,
+    "parametric_variable": "t in b(n) = t\u00b7(3n\u00b2+n+1)"
+  },
+  "numerical_ode": {
+    "derivatives_at_t1": {
+      "CF(1)": 1.1973739906883576,
+      "CF_prime_1": 0.19220204025150853,
+      "CF_dprime_1": 0.3692035922991428,
+      "CF_tprime_1": 1.048356633478995
+    },
+    "ode_order_2": {
+      "detected": false,
+      "relation": null
+    },
+    "ode_order_3": {
+      "detected": false,
+      "relation": null
+    }
+  },
+  "polynomial_ode_scan": {
+    "sample_points": 8,
+    "polynomial_ode": {
+      "coefficients": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        -2
+      ],
+      "precision": 300,
+      "ode_form": "(0 + 0\u00b7t)\u00b7CF'' + (0 + 0\u00b7t)\u00b7CF' + (0 + 0\u00b7t)\u00b7CF + (1 + -2\u00b7t) = 0",
+      "detected": true
+    }
+  },
+  "wall_seconds": 9.393,
+  "generated_at": "2026-04-05 12:23:48"
+}

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Agent Research Hub</title>
+<style>
+  :root { --bg: #0d1117; --surface: #161b22; --border: #30363d; --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff; --green: #3fb950; --orange: #d29922; --red: #f85149; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  .container { max-width: 960px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); margin-bottom: 24px; font-size: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+  .card h2 { font-size: 16px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .mode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .mode-btn { background: var(--bg); border: 2px solid var(--border); border-radius: 8px; padding: 16px; cursor: pointer; text-align: left; transition: all 0.15s; }
+  .mode-btn:hover { border-color: var(--accent); }
+  .mode-btn.active { border-color: var(--accent); background: rgba(88,166,255,0.1); }
+  .mode-btn h3 { font-size: 14px; margin-bottom: 4px; color: var(--text); }
+  .mode-btn p { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .mode-btn .agents { font-size: 11px; color: var(--accent); margin-top: 8px; }
+  .agent-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 4px 12px; font-size: 12px; cursor: pointer; transition: all 0.15s; user-select: none; }
+  .chip:hover { border-color: var(--accent); }
+  .chip.selected { border-color: var(--green); background: rgba(63,185,80,0.1); }
+  .chip .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot-explorer { background: var(--accent); }
+  .dot-verifier { background: var(--green); }
+  .dot-researcher { background: var(--accent); }
+  .dot-analyst { background: var(--orange); }
+  .dot-writer { background: var(--green); }
+  .dot-critic { background: var(--red); }
+  .dot-improver { background: var(--green); }
+  label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  textarea, input[type="text"] { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; color: var(--text); font-size: 14px; font-family: inherit; resize: vertical; }
+  textarea:focus, input:focus { outline: none; border-color: var(--accent); }
+  textarea { min-height: 80px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; border: none; border-radius: 6px; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity 0.15s; }
+  .btn:hover { opacity: 0.9; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-secondary { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+  .actions { display: flex; gap: 12px; align-items: center; margin-top: 16px; }
+  .status { font-size: 13px; color: var(--muted); }
+  .status.running { color: var(--orange); }
+  .status.done { color: var(--green); }
+  .status.error { color: var(--red); }
+  #output { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 16px; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 13px; line-height: 1.6; white-space: pre-wrap; max-height: 500px; overflow-y: auto; display: none; margin-top: 12px; }
+  #output.visible { display: block; }
+  .event-line { margin: 2px 0; }
+  .event-line.agent-start { color: var(--accent); }
+  .event-line.agent-done { color: var(--green); }
+  .event-line.task-start { color: var(--muted); }
+  .event-line.task-done { color: var(--muted); }
+  .event-line.final { color: var(--text); font-weight: 600; }
+  .auth-banner { background: rgba(210,153,34,0.15); border: 1px solid var(--orange); border-radius: 6px; padding: 12px 16px; font-size: 13px; display: none; margin-bottom: 16px; }
+  .auth-banner a { color: var(--accent); }
+  .auth-banner code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+  .token-status { font-size: 12px; padding: 4px 10px; border-radius: 12px; }
+  .token-status.valid { background: rgba(63,185,80,0.15); color: var(--green); }
+  .token-status.missing { background: rgba(248,81,73,0.15); color: var(--red); }
+  .history { margin-top: 16px; }
+  .history-item { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 8px; cursor: pointer; transition: border-color 0.15s; }
+  .history-item:hover { border-color: var(--accent); }
+  .history-item .meta { font-size: 11px; color: var(--muted); }
+  .history-item .goal { font-size: 13px; margin-top: 4px; }
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Multi-Agent Research Hub</h1>
+  <p class="subtitle">Orchestrate AI agent teams for your math research workspace</p>
+
+  <div id="authBanner" class="auth-banner">
+    <strong>Authentication needed.</strong> Open <a id="authUrl" href="#" target="_blank"></a> and enter code: <code id="authCode"></code>
+  </div>
+
+  <div class="card">
+    <h2>
+      <span>Mode</span>
+      <span id="tokenStatus" class="token-status missing">checking...</span>
+    </h2>
+    <div class="mode-grid">
+      <div class="mode-btn active" data-mode="research" onclick="selectMode('research')">
+        <h3>Research</h3>
+        <p>Gather facts, verify computations, write report</p>
+        <div class="agents">researcher → analyst → writer</div>
+      </div>
+      <div class="mode-btn" data-mode="review" onclick="selectMode('review')">
+        <h3>Review</h3>
+        <p>Critique papers and suggest improvements</p>
+        <div class="agents">critic → improver</div>
+      </div>
+      <div class="mode-btn" data-mode="explore" onclick="selectMode('explore')">
+        <h3>Explore</h3>
+        <p>Search for new formulas and verify candidates</p>
+        <div class="agents">explorer → verifier</div>
+      </div>
+    </div>
+
+    <h2>Agents</h2>
+    <div id="agentChips" class="agent-chips"></div>
+  </div>
+
+  <div class="card">
+    <h2>Goal</h2>
+    <textarea id="goalInput" placeholder="e.g., Analyze pcf_discoveries.json and summarize what was discovered"></textarea>
+    <div class="actions">
+      <button class="btn" id="runBtn" onclick="runTeam()">Run Team</button>
+      <button class="btn btn-secondary" id="stopBtn" onclick="stopRun()" style="display:none">Stop</button>
+      <span id="statusText" class="status"></span>
+    </div>
+  </div>
+
+  <div id="output"></div>
+
+  <div class="card history" id="historyCard" style="display:none">
+    <h2>History</h2>
+    <div id="historyList"></div>
+  </div>
+</div>
+
+<script>
+const API = `http://localhost:${location.port || 3847}`
+let currentMode = 'research'
+let selectedAgents = []
+let eventSource = null
+
+const AGENTS = {
+  research:  ['researcher', 'analyst', 'writer'],
+  review:    ['critic', 'improver'],
+  explore:   ['explorer', 'verifier'],
+}
+
+const ALL_AGENTS = ['researcher', 'analyst', 'writer', 'critic', 'improver', 'explorer', 'verifier']
+
+function selectMode(mode) {
+  currentMode = mode
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode))
+  selectedAgents = [...AGENTS[mode]]
+  renderChips()
+}
+
+function renderChips() {
+  const el = document.getElementById('agentChips')
+  el.innerHTML = ALL_AGENTS.map(name => {
+    const sel = selectedAgents.includes(name)
+    return `<div class="chip ${sel ? 'selected' : ''}" onclick="toggleAgent('${name}')">
+      <span class="dot dot-${name}"></span>${name}
+    </div>`
+  }).join('')
+}
+
+function toggleAgent(name) {
+  const idx = selectedAgents.indexOf(name)
+  if (idx >= 0) selectedAgents.splice(idx, 1)
+  else selectedAgents.push(name)
+  renderChips()
+}
+
+async function checkToken() {
+  try {
+    const res = await fetch(`${API}/api/status`)
+    const data = await res.json()
+    const el = document.getElementById('tokenStatus')
+    if (data.authenticated) {
+      el.textContent = 'authenticated'
+      el.className = 'token-status valid'
+    } else {
+      el.textContent = 'no token'
+      el.className = 'token-status missing'
+    }
+  } catch {
+    document.getElementById('tokenStatus').textContent = 'server offline'
+    document.getElementById('tokenStatus').className = 'token-status missing'
+  }
+}
+
+function appendOutput(text, cls = '') {
+  const out = document.getElementById('output')
+  out.classList.add('visible')
+  const line = document.createElement('div')
+  line.className = `event-line ${cls}`
+  line.textContent = text
+  out.appendChild(line)
+  out.scrollTop = out.scrollHeight
+}
+
+async function runTeam() {
+  const goal = document.getElementById('goalInput').value.trim()
+  if (!goal) return
+  if (selectedAgents.length === 0) { alert('Select at least one agent'); return }
+
+  document.getElementById('runBtn').disabled = true
+  document.getElementById('stopBtn').style.display = ''
+  document.getElementById('statusText').className = 'status running'
+  document.getElementById('statusText').innerHTML = '<span class="spinner"></span> Running...'
+  const out = document.getElementById('output')
+  out.innerHTML = ''
+  out.classList.add('visible')
+
+  try {
+    eventSource = new EventSource(`${API}/api/run?mode=${currentMode}&agents=${selectedAgents.join(',')}&goal=${encodeURIComponent(goal)}`)
+
+    eventSource.onmessage = (e) => {
+      const data = JSON.parse(e.data)
+      if (data.type === 'auth_required') {
+        const banner = document.getElementById('authBanner')
+        banner.style.display = 'block'
+        document.getElementById('authUrl').href = data.uri
+        document.getElementById('authUrl').textContent = data.uri
+        document.getElementById('authCode').textContent = data.code
+        appendOutput(`Auth required: ${data.uri}  code: ${data.code}`, 'task-start')
+      } else if (data.type === 'auth_complete') {
+        document.getElementById('authBanner').style.display = 'none'
+        appendOutput('✓ Authenticated', 'agent-done')
+        checkToken()
+      } else if (data.type === 'agent_start') {
+        appendOutput(`▶ Agent "${data.agent}" starting`, 'agent-start')
+      } else if (data.type === 'agent_complete') {
+        appendOutput(`✓ Agent "${data.agent}" done`, 'agent-done')
+      } else if (data.type === 'task_start') {
+        appendOutput(`  ┌ Task: "${data.title}" → ${data.assignee}`, 'task-start')
+      } else if (data.type === 'task_complete') {
+        appendOutput(`  └ Task done: "${data.title}"`, 'task-done')
+      } else if (data.type === 'output') {
+        appendOutput(data.text, 'final')
+      } else if (data.type === 'tokens') {
+        appendOutput(`Tokens: input=${data.input}, output=${data.output}`, 'task-start')
+      } else if (data.type === 'done') {
+        finish('Done.', 'done')
+        addHistory(goal, currentMode, data.success)
+      } else if (data.type === 'error') {
+        appendOutput(`ERROR: ${data.message}`, '')
+        finish('Failed', 'error')
+      }
+    }
+
+    eventSource.onerror = () => {
+      finish('Connection lost', 'error')
+    }
+  } catch (err) {
+    appendOutput(`Error: ${err.message}`)
+    finish('Failed', 'error')
+  }
+}
+
+function stopRun() {
+  if (eventSource) { eventSource.close(); eventSource = null }
+  finish('Stopped', 'error')
+  fetch(`${API}/api/stop`, { method: 'POST' }).catch(() => {})
+}
+
+function finish(msg, cls) {
+  if (eventSource) { eventSource.close(); eventSource = null }
+  document.getElementById('runBtn').disabled = false
+  document.getElementById('stopBtn').style.display = 'none'
+  document.getElementById('statusText').className = `status ${cls}`
+  document.getElementById('statusText').textContent = msg
+}
+
+function addHistory(goal, mode, success) {
+  const card = document.getElementById('historyCard')
+  card.style.display = ''
+  const list = document.getElementById('historyList')
+  const item = document.createElement('div')
+  item.className = 'history-item'
+  item.innerHTML = `<div class="meta">${new Date().toLocaleTimeString()} · ${mode} · ${success ? '✓' : '✗'}</div><div class="goal">${goal}</div>`
+  item.onclick = () => { document.getElementById('goalInput').value = goal; selectMode(mode) }
+  list.prepend(item)
+}
+
+// Init
+selectMode('research')
+checkToken()
+setInterval(checkToken, 30000)
+</script>
+</body>
+</html>

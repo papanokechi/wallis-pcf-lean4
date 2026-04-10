@@ -1,0 +1,1477 @@
+[
+  {
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1,
+      3
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 2.5,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      6,
+      -3,
+      0,
+      -3
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -1,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      4,
+      -4,
+      1,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      6,
+      3,
+      -4,
+      -8,
+      3
+    ],
+    "beta": [
+      4,
+      0,
+      1,
+      -4,
+      -6,
+      -4
+    ],
+    "mode": "ratio",
+    "order": 4,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 0.6,
+    "signature": "adeg=4|bdeg=5|mode=ratio|order=4",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -4,
+      -4,
+      -5,
+      -4,
+      4
+    ],
+    "beta": [
+      10,
+      9,
+      8,
+      -4,
+      0,
+      -9,
+      -7
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 0.6,
+    "signature": "adeg=4|bdeg=6|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -5,
+      -2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      4,
+      2
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      -3
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      3,
+      1,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 0.6,
+    "signature": "adeg=4|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      2,
+      -1
+    ],
+    "beta": [
+      3,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -6,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0,
+      0
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -4,
+      -8,
+      -20,
+      -32,
+      64
+    ],
+    "beta": [
+      10,
+      18,
+      32,
+      -32,
+      -1,
+      -288,
+      -448
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 0.6,
+    "signature": "adeg=4|bdeg=6|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -8,
+      2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      6,
+      -2,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      2,
+      -1
+    ],
+    "beta": [
+      -2,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -8,
+      2,
+      1,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -3,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -6,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      2,
+      -1
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -4,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=5|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -4,
+      -1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 0.833,
+    "signature": "adeg=5|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      1,
+      -3,
+      3,
+      -1,
+      0
+    ],
+    "beta": [
+      18,
+      6,
+      6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 0.6,
+    "signature": "adeg=4|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      4,
+      -5,
+      -3,
+      1
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -2,
+      -5,
+      -1,
+      2
+    ],
+    "beta": [
+      4,
+      1,
+      5,
+      -3
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=3|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      0,
+      -3,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=5|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -3,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      6,
+      -2
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=5|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      9,
+      -2,
+      1,
+      -8,
+      -2,
+      -6,
+      -5,
+      5
+    ],
+    "beta": [
+      9,
+      3,
+      -4,
+      0,
+      6
+    ],
+    "mode": "ratio",
+    "order": 7,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=7|bdeg=4|mode=ratio|order=7",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -4,
+      -4,
+      0,
+      2,
+      -3,
+      -5,
+      1
+    ],
+    "beta": [
+      -4,
+      -9,
+      5,
+      -5,
+      -9
+    ],
+    "mode": "ratio",
+    "order": 6,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=6|bdeg=4|mode=ratio|order=6",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      0,
+      -3,
+      3,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=5|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -4,
+      4,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=5|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      0,
+      -2,
+      -3,
+      2,
+      3
+    ],
+    "beta": [
+      -5,
+      -6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0
+    ],
+    "beta": [
+      -1,
+      -1,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=3|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      0,
+      -3,
+      1,
+      0,
+      0,
+      0,
+      2
+    ],
+    "beta": [
+      8,
+      6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=6|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      0,
+      -2,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      0,
+      -2,
+      -3,
+      2,
+      0
+    ],
+    "beta": [
+      6,
+      0,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 0.615,
+    "signature": "adeg=4|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -4,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=5|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -4,
+      1,
+      -4,
+      1,
+      0
+    ],
+    "beta": [
+      0,
+      6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -6,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      -5,
+      0
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=5|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      0
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=5|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -3,
+      4,
+      -4,
+      1
+    ],
+    "beta": [
+      -3,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      6,
+      -2
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=5|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -3,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -4,
+      1,
+      -4,
+      1,
+      0
+    ],
+    "beta": [
+      5,
+      3,
+      2,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 0.41,
+    "signature": "adeg=4|bdeg=3|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -3,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      2,
+      4,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=4|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -4,
+      4,
+      -1,
+      0,
+      0
+    ],
+    "beta": [
+      -3,
+      -4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0
+    ],
+    "beta": [
+      1,
+      2
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      7,
+      6,
+      -7,
+      2,
+      -1,
+      -8,
+      10
+    ],
+    "beta": [
+      7,
+      -4,
+      -2,
+      10,
+      -7
+    ],
+    "mode": "ratio",
+    "order": 6,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=6|bdeg=4|mode=ratio|order=6",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      2,
+      -1,
+      0,
+      0
+    ],
+    "beta": [
+      -4,
+      -3,
+      4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=3|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      2,
+      -3,
+      -1,
+      1
+    ],
+    "beta": [
+      -24,
+      18,
+      3
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=3|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -2,
+      -3,
+      -2,
+      2,
+      0
+    ],
+    "beta": [
+      -6,
+      1,
+      -3
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 0.413,
+    "signature": "adeg=4|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      0,
+      -5,
+      1,
+      0,
+      0
+    ],
+    "beta": [
+      -8,
+      6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -6,
+      -4,
+      -4,
+      2
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -4,
+      2,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      6,
+      -2
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0
+    ],
+    "beta": [
+      6,
+      0,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=3|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      2,
+      5,
+      1,
+      -2
+    ],
+    "beta": [
+      -1,
+      -5,
+      1,
+      -6
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 4.167,
+    "signature": "adeg=3|bdeg=3|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -4,
+      -3,
+      1,
+      0
+    ],
+    "beta": [
+      -1,
+      -1,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=3|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -10,
+      8,
+      4,
+      -2,
+      6
+    ],
+    "beta": [
+      -10,
+      10,
+      8,
+      10,
+      -3
+    ],
+    "mode": "ratio",
+    "order": 4,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=4|bdeg=4|mode=ratio|order=4",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0
+    ],
+    "beta": [
+      -3,
+      -4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      0,
+      -2,
+      -3,
+      2,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -5,
+      4,
+      -3,
+      -1,
+      5
+    ],
+    "beta": [
+      -7,
+      -4,
+      -2,
+      -4,
+      7
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=4|bdeg=4|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      6,
+      -2,
+      3,
+      -1
+    ],
+    "beta": [
+      -2,
+      5,
+      3
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 4.167,
+    "signature": "adeg=3|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      -5,
+      1,
+      0,
+      0,
+      0
+    ],
+    "beta": [
+      0,
+      1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      8,
+      -2,
+      -1,
+      0
+    ],
+    "beta": [
+      -24,
+      18,
+      3
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=3|bdeg=2|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      0,
+      -2,
+      -3,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      5,
+      3,
+      2,
+      -1
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 4.167,
+    "signature": "adeg=5|bdeg=3|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      0,
+      -3,
+      1,
+      0
+    ],
+    "beta": [
+      1,
+      2
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=3|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_standard"
+  },
+  {
+    "alpha": [
+      0,
+      -2,
+      -3,
+      2,
+      0,
+      0
+    ],
+    "beta": [
+      -6,
+      0
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.0,
+    "signature": "adeg=5|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  },
+  {
+    "alpha": [
+      -2,
+      -3,
+      -2,
+      2,
+      0
+    ],
+    "beta": [
+      -2,
+      4
+    ],
+    "mode": "backward",
+    "order": 0,
+    "target": "zeta5",
+    "n_terms": 500,
+    "convergence_rate": 1.667,
+    "signature": "adeg=4|bdeg=1|mode=backward|order=0",
+    "_source": "kloosterman_sweep_zeta5_sieve",
+    "_category": "zeta5_quartic_higher"
+  }
+]

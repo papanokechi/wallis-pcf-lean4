@@ -1,0 +1,764 @@
+[
+  {
+    "alpha": [
+      6,
+      -2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -6,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C00_zeta3",
+    "source_cluster_size": 4,
+    "source_members": [
+      "GCF_185E1450",
+      "GCF_1D8A13E7",
+      "GCF_724CA6CC",
+      "GCF_1D8A13E7"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -3,
+      1,
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta7",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C01_zeta7",
+    "source_cluster_size": 14,
+    "source_members": [
+      "GCF_9C0163F8",
+      "GCF_B3FF0A44",
+      "GCF_F164DCB7",
+      "GCF_06A97391",
+      "GCF_45B8CBE2"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -3,
+      -6,
+      10,
+      -10,
+      -7,
+      3,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -3,
+      -5,
+      6,
+      4,
+      -9,
+      7,
+      -3,
+      -7,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 5,
+    "n_terms": 700,
+    "spec_id": "SS2_C02_zeta5",
+    "source_cluster_size": 1,
+    "source_members": [
+      "GCF_0811870E"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -3,
+      1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C03_zeta3",
+    "source_cluster_size": 13,
+    "source_members": [
+      "GCF_B0A31C5B",
+      "GCF_D67EB2C7",
+      "GCF_8B7574E3",
+      "GCF_8F98E965",
+      "GCF_6B67C72E"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      0,
+      -6,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C04_zeta3",
+    "source_cluster_size": 7,
+    "source_members": [
+      "GCF_5E9B7E51",
+      "GCF_76D2BB0A",
+      "GCF_D9C240E7",
+      "GCF_76D2BB0A",
+      "GCF_D2109885"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      5,
+      -3,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      1
+    ],
+    "beta": [
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C05_zeta5",
+    "source_cluster_size": 5,
+    "source_members": [
+      "GCF_5379793E",
+      "GCF_E07847B0",
+      "GCF_35F4E88D",
+      "GCF_B1D28C28",
+      "GCF_5379793E"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -4,
+      1,
+      -8,
+      3,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      5,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C06_zeta5",
+    "source_cluster_size": 3,
+    "source_members": [
+      "GCF_04F0B9EE",
+      "GCF_781C3304",
+      "GCF_DA113EC9"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      10,
+      -9,
+      -4,
+      -1,
+      4,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      2,
+      -1,
+      -1,
+      4,
+      -5,
+      3,
+      -1,
+      9,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 4,
+    "n_terms": 700,
+    "spec_id": "SS2_C07_zeta5",
+    "source_cluster_size": 1,
+    "source_members": [
+      "GCF_1C3A7805"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      4,
+      -10,
+      -5,
+      4,
+      8,
+      4,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      4,
+      -8,
+      -2,
+      0,
+      10,
+      -5,
+      -7,
+      -8,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 5,
+    "n_terms": 700,
+    "spec_id": "SS2_C08_zeta5",
+    "source_cluster_size": 1,
+    "source_members": [
+      "GCF_90C7E9BF"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -7,
+      -9,
+      1,
+      -2,
+      10,
+      6,
+      1,
+      0,
+      1
+    ],
+    "beta": [
+      -7,
+      -9,
+      10,
+      -7,
+      4,
+      -1,
+      8,
+      -10,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C09_zeta5",
+    "source_cluster_size": 1,
+    "source_members": [
+      "GCF_0845FAC1"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -9,
+      4,
+      -2,
+      10,
+      -8,
+      5,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -10,
+      8,
+      10,
+      -1,
+      7,
+      10,
+      -7,
+      10,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "ratio",
+    "order": 5,
+    "n_terms": 700,
+    "spec_id": "SS2_C10_zeta5",
+    "source_cluster_size": 1,
+    "source_members": [
+      "GCF_C58222D0"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -9,
+      9,
+      0,
+      -1,
+      6,
+      -7,
+      2,
+      0,
+      1
+    ],
+    "beta": [
+      8,
+      5,
+      10,
+      -4,
+      5,
+      -1,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta5",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C11_zeta5",
+    "source_cluster_size": 1,
+    "source_members": [
+      "GCF_C7207BE8"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -5,
+      -6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C12_zeta3",
+    "source_cluster_size": 3,
+    "source_members": [
+      "GCF_429D7A95",
+      "GCF_9E1B43C6",
+      "GCF_619D608B"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -2,
+      9,
+      -9,
+      -6,
+      8,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      9,
+      2,
+      1,
+      -6,
+      -9,
+      -2,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta7",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C13_zeta7",
+    "source_cluster_size": 1,
+    "source_members": [
+      "GCF_A7EAC5A6"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "beta": [
+      2,
+      0,
+      0,
+      -2,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ],
+    "target": "zeta7",
+    "mode": "ratio",
+    "order": 7,
+    "n_terms": 700,
+    "spec_id": "SS2_C14_zeta7",
+    "source_cluster_size": 1,
+    "source_members": [
+      "GCF_D523E51B"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      -2,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta7",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C15_zeta7",
+    "source_cluster_size": 2,
+    "source_members": [
+      "GCF_794658B8",
+      "GCF_F156082E"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      -8,
+      -7,
+      0,
+      9,
+      1,
+      4,
+      -6,
+      7,
+      1
+    ],
+    "beta": [
+      -2,
+      -3,
+      7,
+      0,
+      -2,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "mode": "ratio",
+    "order": 7,
+    "n_terms": 700,
+    "spec_id": "SS2_C16_zeta3",
+    "source_cluster_size": 1,
+    "source_members": [
+      "GCF_ECAE0649"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      6,
+      -2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "beta": [
+      1,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 700,
+    "spec_id": "SS2_C17_zeta3",
+    "source_cluster_size": 1,
+    "source_members": [
+      "GCF_E2198BBE"
+    ],
+    "generation": 2
+  },
+  {
+    "alpha": [
+      1,
+      -1
+    ],
+    "beta": [
+      0,
+      1
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "spec_id": "SUPER_CLUSTER00",
+    "source_cluster_size": 7,
+    "source_members": [
+      "GCF_C0C79573",
+      "GCF_9312F0BA",
+      "GCF_BD2DE7E8",
+      "GCF_1887FA23",
+      "GCF_A40D5266"
+    ],
+    "generation": 1
+  },
+  {
+    "alpha": [
+      0,
+      -2,
+      0,
+      1,
+      -1
+    ],
+    "beta": [
+      -10,
+      -57
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "spec_id": "SUPER_CLUSTER01",
+    "source_cluster_size": 5,
+    "source_members": [
+      "GCF_791EFA6B",
+      "GCF_D1B84976",
+      "GCF_29566589",
+      "GCF_33EA0BAB",
+      "GCF_4F66432E"
+    ],
+    "generation": 1
+  },
+  {
+    "alpha": [
+      -1,
+      -1,
+      1
+    ],
+    "beta": [
+      0,
+      -1
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "spec_id": "SUPER_CLUSTER03",
+    "source_cluster_size": 17,
+    "source_members": [
+      "GCF_675469BE",
+      "GCF_AC2938EC",
+      "GCF_7457E7FB",
+      "GCF_71B32B4C",
+      "GCF_7EF62B26"
+    ],
+    "generation": 1
+  },
+  {
+    "alpha": [
+      1,
+      -3,
+      -2,
+      1
+    ],
+    "beta": [
+      3,
+      17
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "spec_id": "SUPER_CLUSTER04",
+    "source_cluster_size": 7,
+    "source_members": [
+      "GCF_AE8D42B9",
+      "GCF_81C72ABE",
+      "GCF_8FBC7FE0",
+      "GCF_5763F234",
+      "GCF_F5FE57DB"
+    ],
+    "generation": 1
+  },
+  {
+    "alpha": [
+      2,
+      -4,
+      -3,
+      1
+    ],
+    "beta": [
+      5,
+      -14,
+      47
+    ],
+    "target": "zeta3",
+    "mode": "backward",
+    "order": 0,
+    "n_terms": 500,
+    "spec_id": "SUPER_CLUSTER06",
+    "source_cluster_size": 2,
+    "source_members": [
+      "GCF_5A8C4F18",
+      "GCF_756E14B4"
+    ],
+    "generation": 1
+  }
+]

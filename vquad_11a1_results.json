@@ -1,0 +1,28 @@
+{
+  "verifier": "vquad_11a1",
+  "precision": 500,
+  "vquad": "1.1973739906883576024486032199372063297042707032314",
+  "periods": {
+    "omega_plus": "5.810199068699677660538444688252774234272",
+    "omega_minus": "2.905099534349838830269222344126387117136",
+    "discriminant": -11.0
+  },
+  "l_values": {
+    "L_E_1": "0.246254675423700397782902917727",
+    "L_E_2": "0.543591901067822212214909600993"
+  },
+  "period_relations": [],
+  "ode_verification": {
+    "cf_at_1": 1.1973739906883576,
+    "cf_prime": -0.19220204025150853,
+    "cf_double_prime": 0.3692035922991428,
+    "cf_triple_prime": -1.048356633478995,
+    "ode_relation": null,
+    "ode_precision": 0,
+    "ode_detected": false
+  },
+  "matches_found": 0,
+  "near_misses_found": 0,
+  "wall_seconds": 1.166,
+  "generated_at": "2026-04-05 11:41:20"
+}

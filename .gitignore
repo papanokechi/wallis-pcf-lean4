@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets
+.env
+*.key
+
+# Data / state files (regenerable)
+ramanujan_state.json
+ramanujan_state_backup.json
+ramanujan_discoveries.jsonl
+ramanujan_discoveries_backup.jsonl
+catalan_discoveries.jsonl
+
+# Profiling
+*.prof
+*.pstats
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Pytest
+.pytest_cache/
+
+# Build artifacts
+*.pkl
+*.pyc

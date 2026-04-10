@@ -1,0 +1,518 @@
+{"a": [0, 5, -2], "b": [1, 3], "value": "1.69765272631355024820142680931", "match": "5/6*S^(3)", "verified_digits": 550.6, "complexity": 11, "timestamp": "2026-04-08T07:21:14.286658", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 5, -2], "b": [1, 3, 0], "value": "1.69765272631355024820142680931", "match": "5/6*S^(3)", "verified_digits": 550.6, "complexity": 11, "timestamp": "2026-04-08T07:23:13.211965", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 11, -2], "b": [1, 3], "value": "2.58689939247779085440217418561", "match": "10/9*S^(4)", "verified_digits": 550.3, "complexity": 17, "timestamp": "2026-04-08T07:21:31.349337", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 15, -2], "b": [1, 3], "value": "3.0391545310228591855913654768", "match": "14/13*S^(6)", "verified_digits": 550.3, "complexity": 21, "timestamp": "2026-04-08T07:21:35.652768", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 13, -2], "b": [1, 3], "value": "2.82207206452122638662055365703", "match": "12/11*S^(5)", "verified_digits": 550.3, "complexity": 19, "timestamp": "2026-04-08T07:21:33.270753", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 19, -2], "b": [1, 3], "value": "3.43245688209640566843260100909", "match": "19/20*S^(10)", "verified_digits": 550.3, "complexity": 25, "timestamp": "2026-04-08T07:21:46.320372", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 17, -2], "b": [1, 3], "value": "3.24176483309104979796412317525", "match": "16/15*S^(7)", "verified_digits": 550.0, "complexity": 23, "timestamp": "2026-04-08T07:21:41.720069", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 2, -2], "b": [1, 3], "value": "1.0", "match": "1*x + 0*4/pi + -1 = 0", "verified_digits": 500, "complexity": 8, "timestamp": "2026-04-08T07:21:53.104871", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 4, -2], "b": [1, 3], "value": "1.5", "match": "-2*x + 0*4/pi + 3 = 0", "verified_digits": 500, "complexity": 10, "timestamp": "2026-04-08T07:21:56.768514", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 6, -2], "b": [1, 3], "value": "1.875", "match": "-8*x + 0*4/pi + 15 = 0", "verified_digits": 500, "complexity": 12, "timestamp": "2026-04-08T07:22:01.207907", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 8, -2], "b": [1, 3], "value": "2.1875", "match": "16*x + 0*4/pi + -35 = 0", "verified_digits": 500, "complexity": 14, "timestamp": "2026-04-08T07:22:05.539450", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 9, -2], "b": [1, 3], "value": "2.32820945323001176896195676705", "match": "8/7*S^(3)", "verified_digits": 500, "complexity": 15, "timestamp": "2026-04-08T07:21:26.870746", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 7, -2], "b": [1, 3], "value": "2.03718327157626029784171217117", "match": "8/5*4/pi", "verified_digits": 500, "complexity": 13, "timestamp": "2026-04-08T07:21:21.533470", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 3, -2], "b": [1, 3], "value": "1.27323954473516268615107010698", "match": "1/1*4/pi", "verified_digits": 500, "complexity": 9, "timestamp": "2026-04-08T07:21:09.701000", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 21, -2], "b": [1, 3], "value": "3.6131125074699007036132642201", "match": "20/19*S^(9)", "verified_digits": 500, "complexity": 27, "timestamp": "2026-04-08T07:21:49.995527", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 1, -2], "b": [1, 3, 0], "value": "0.63661977236758134307553505349", "match": "1/2*4/pi", "verified_digits": 500, "complexity": 7, "timestamp": "2026-04-08T07:23:06.037694", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 3, -2], "b": [1, 3, 0], "value": "1.27323954473516268615107010698", "match": "1/1*4/pi", "verified_digits": 500, "complexity": 9, "timestamp": "2026-04-08T07:23:08.929113", "type": "targeted_probe", "shard": "family-gap"}
+{"a": [0, 7, -2], "b": [1, 3, 0], "value": "2.03718327157626029784171217117", "match": "8/5*4/pi", "verified_digits": 500, "complexity": 13, "timestamp": "2026-04-08T07:23:15.548309", "type": "targeted_probe", "shard": "family-gap"}
+{"cycle": null, "a": [0, 1, -2], "b": [1, 3], "value": "0.63661977236758134308", "match": "3/8*S^(2)", "residual": -152.31036742952145, "verified_digits": 257.7, "complexity": 3.4, "timestamp": "2026-04-07T19:46:29.808118"}
+{"cycle": null, "a": [1], "b": [1, 0], "value": "1.6180339887498948482", "match": "phi", "residual": -135.0, "verified_digits": 241.6, "complexity": 1.3, "timestamp": "2026-04-07T19:54:25.277367"}
+{"cycle": 480, "type": "scan", "a": [1, 0, 0], "b": [1, 0], "value": "1.6180339887498948482", "match": "phi", "residual": -83.66354637832345, "verified_digits": 241.6, "complexity": 2.3, "timestamp": "2026-04-07T19:58:30.596452"}
+{"cycle": null, "a": [4], "b": [2, 0], "value": "3.2360679774997896964", "match": "2/1*phi", "residual": -135.0, "verified_digits": 241.3, "complexity": 1.7, "timestamp": "2026-04-07T20:14:16.232791"}
+{"cycle": 1, "worker_id": 4, "shard": "composite", "a": [4, 0, 0], "b": [2, 0], "value": "3.2360679774997896964", "match": "2/1*phi", "residual": -135.0, "verified_digits": 241.3, "complexity": 2.7, "timestamp": "2026-04-08T07:46:04.362560", "type": "parallel"}
+{"cycle": null, "a": [0, -4], "b": [6, 2], "value": "5.4365636569180904707", "match": "2/1*e", "residual": -135.0, "verified_digits": 241.2, "complexity": 3.1, "timestamp": "2026-04-08T07:24:43.402194"}
+{"cycle": 500, "type": "scan", "a": [1, 0, 0], "b": [2, 0], "value": "2.4142135623730950488", "match": "sqrt2+1", "residual": -135.0, "verified_digits": 240.9, "complexity": 2.4, "timestamp": "2026-04-07T20:13:12.406999"}
+{"cycle": 500, "type": "scan", "a": [2, 0, 0], "b": [2, 0], "value": "2.7320508075688772935", "match": "sqrt3+1", "residual": -114.42186643118143, "verified_digits": 240.9, "complexity": 2.5, "timestamp": "2026-04-07T20:13:12.665788"}
+{"cycle": null, "a": [2], "b": [2, 0], "value": "2.7320508075688772935", "match": "sqrt3+1", "residual": -135.0, "verified_digits": 240.9, "complexity": 1.5, "timestamp": "2026-04-07T20:13:23.704936"}
+{"cycle": null, "a": [1], "b": [2, 0], "value": "2.4142135623730950488", "match": "sqrt2+1", "residual": -135.0, "verified_digits": 240.9, "complexity": 1.4, "timestamp": "2026-04-07T20:15:13.925774"}
+{"cycle": null, "a": [4], "b": [4, 0], "value": "4.8284271247461900976", "match": "2/1*sqrt2+1", "residual": -135.0, "verified_digits": 240.6, "complexity": 1.9, "timestamp": "2026-04-07T20:29:48.094262"}
+{"cycle": 17, "worker_id": 6, "shard": "symmetry", "a": [1, 0], "b": [1, 0], "value": "1.6180339887498948482", "match": "phi", "residual": -75.0, "verified_digits": 221.1, "complexity": 1.8, "timestamp": "2026-04-08T08:53:19.550433", "type": "parallel"}
+{"cycle": null, "a": [1], "b": [1], "value": "1.6180339887498948482", "match": "phi", "residual": -75.0, "verified_digits": 221.1, "complexity": 0.8, "timestamp": "2026-04-08T16:01:29.822402"}
+{"cycle": null, "a": [0, -1], "b": [3, 1], "value": "2.7182818284590452354", "match": "e", "residual": -65.0, "verified_digits": 221.0, "complexity": 2.4, "timestamp": "2026-04-08T09:26:20.804976"}
+{"cycle": null, "a": [2, 0], "b": [2, 0], "value": "2.7320508075688772935", "match": "sqrt3+1", "residual": -55.0, "verified_digits": 220.8, "complexity": 2.0, "timestamp": "2026-04-08T09:29:39.763958"}
+{"cycle": 480, "type": "scan", "a": [0, -1, 0], "b": [3, 1], "value": "2.7182818284590452354", "match": "e", "residual": -135.0, "verified_digits": 220, "complexity": 2.9, "timestamp": "2026-04-07T19:58:30.413827"}
+{"a": [-3, -8, 3], "b": [2, 3], "match": "2/33", "verified_digits": 162.3, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:08.807751"}
+{"a": [-4, -6, 4], "b": [1, 6], "match": "1/7", "verified_digits": 161.7, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:32.185476"}
+{"a": [-4, -4, 3], "b": [1, 5], "match": "1/6", "verified_digits": 161.7, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:18.733877"}
+{"a": [-3, -8, 3], "b": [1, 7], "match": "-7/113", "verified_digits": 161.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:00.522507"}
+{"a": [-4, -4, 3], "b": [1, 6], "match": "2/7", "verified_digits": 161.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:05.057878"}
+{"a": [-3, -8, 3], "b": [1, 5], "match": "-29/59", "verified_digits": 161.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:00.340420"}
+{"a": [-4, -4, 3], "b": [2, 1], "match": "1/3", "verified_digits": 161.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:14.969917"}
+{"a": [-4, -6, 4], "b": [1, 4], "match": "-1/5", "verified_digits": 161.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:03.847685"}
+{"a": [-3, -8, 3], "b": [2, 5], "match": "58/77", "verified_digits": 161.1, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:06.909504"}
+{"a": [-3, -8, 3], "b": [2, 4], "match": "26/53", "verified_digits": 161.1, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:10.671765"}
+{"a": [4, -8, 3], "b": [1, 2], "match": "2/3", "verified_digits": 161.1, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:37.774843"}
+{"a": [-3, -8, 3], "b": [2, 6], "match": "14/15", "verified_digits": 161.1, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:34.296689"}
+{"a": [-4, -4, 3], "b": [1, 2], "match": "-2/3", "verified_digits": 161.1, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:18.588009"}
+{"a": [-3, -8, 3], "b": [1, 6], "match": "-5/21", "verified_digits": 160.9, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:44.687343"}
+{"a": [-3, -8, 3], "b": [3, 3], "match": "69/47", "verified_digits": 160.8, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:37.354257"}
+{"a": [4, 4, -3], "b": [1, 5], "match": "11/6", "verified_digits": 160.8, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:34.149105"}
+{"a": [-3, 10, -3], "b": [1, 6], "match": "37/24", "verified_digits": 160.8, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:49.750367"}
+{"a": [-4, 10, -4], "b": [1, 2], "match": "5/3", "verified_digits": 160.8, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:10.135079"}
+{"a": [-4, -4, 3], "b": [2, 4], "match": "7/6", "verified_digits": 160.8, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:45.506642"}
+{"a": [-3, -8, 3], "b": [1, 4], "match": "-17/19", "verified_digits": 160.8, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:43.980043"}
+{"a": [-4, -6, 4], "b": [2, 7], "match": "4/3", "verified_digits": 160.8, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:14.671100"}
+{"a": [-3, -8, 3], "b": [1, 3], "match": "-5/3", "verified_digits": 160.8, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:44.329457"}
+{"a": [-3, -8, 3], "b": [3, 1], "match": "-1/13", "verified_digits": 160.7, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:15.201212"}
+{"a": [-3, -8, 3], "b": [2, 2], "match": "-14/17", "verified_digits": 160.6, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:08.587529"}
+{"a": [0, 10, 3], "b": [1, 2], "match": "70/23", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:25.464757"}
+{"a": [3, 8, -3], "b": [1, 1], "match": "37/13", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:27.618158"}
+{"a": [-4, -6, 4], "b": [3, 4], "match": "15/7", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:31.226156"}
+{"a": [4, 6, -4], "b": [2, 5], "match": "20/7", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:33.416323"}
+{"a": [4, 6, -4], "b": [3, 4], "match": "27/7", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:51.533679"}
+{"a": [4, 4, -3], "b": [2, 1], "match": "11/3", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:21.930242"}
+{"a": [-3, -8, 3], "b": [4, 3], "match": "172/63", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:05:11.816247"}
+{"a": [-4, -6, 4], "b": [4, 3], "match": "22/7", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:40.592710"}
+{"a": [-3, 10, -3], "b": [1, 1], "match": "23/11", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:42.792812"}
+{"a": [-3, -8, 3], "b": [4, 4], "match": "260/89", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:31.348553"}
+{"a": [3, 8, -3], "b": [2, 1], "match": "70/19", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:05.281361"}
+{"a": [4, 4, -3], "b": [1, 2], "match": "8/3", "verified_digits": 160.4, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:54.841517"}
+{"a": [0, 42, -2], "b": [1, 3], "match": "1412926920405/274877906944", "verified_digits": 160.1, "convergence_digits": 150, "type": "even_k_rational", "k": 42, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:56.204223"}
+{"a": [0, 50, -2], "b": [1, 3], "match": "395033145117975/70368744177664", "verified_digits": 160.1, "convergence_digits": 150, "type": "even_k_rational", "k": 50, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:57.480651"}
+{"a": [0, 52, -2], "b": [1, 3], "match": "805867616040669/140737488355328", "verified_digits": 160.1, "convergence_digits": 150, "type": "even_k_rational", "k": 52, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:57.737284"}
+{"a": [0, 60, -2], "b": [1, 3], "match": "110873045217057585/18014398509481984", "verified_digits": 160.1, "convergence_digits": 150, "type": "even_k_rational", "k": 60, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:58.938346"}
+{"a": [-3, 10, -3], "b": [4, 3], "match": "68/15", "verified_digits": 160.1, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:05:25.662413"}
+{"a": [-3, -8, 3], "b": [5, 4], "match": "223/55", "verified_digits": 160.1, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:19.330005"}
+{"a": [0, 10, 3], "b": [5, 2], "match": "70/11", "verified_digits": 160.1, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:01.716708"}
+{"a": [3, 8, -3], "b": [4, 6], "match": "796/167", "verified_digits": 160.1, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:32.216396"}
+{"a": [0, -8, -3], "b": [1, 4], "match": "-40/11", "verified_digits": 160.0, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:32.795337"}
+{"a": [3, -8, -3], "b": [1, 4], "match": "-7/5", "verified_digits": 160.0, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:29.677049"}
+{"a": [-3, 2, 1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:10.882581"}
+{"a": [-3, 2, 2, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:11.172719"}
+{"a": [-2, 2, -1, 1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:11.898857"}
+{"a": [-2, 2, 1, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:11.996180"}
+{"a": [-1, 2, -2, 1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:12.731631"}
+{"a": [-1, 2, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:12.766885"}
+{"a": [0, 2, -3, 1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:13.817846"}
+{"a": [0, 2, -1], "b": [1, 3], "match": "5/4", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:14.280681"}
+{"a": [0, 2, -1, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:14.518228"}
+{"a": [0, 2, 1, -1], "b": [1, 3], "match": "3/2", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:14.835292"}
+{"a": [1, 2, -4, 1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:15.360001"}
+{"a": [1, 2, -3], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:15.399157"}
+{"a": [1, 2, -2, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:15.639425"}
+{"a": [2, 2, -4], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:16.868890"}
+{"a": [2, 2, -3, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:17.600073"}
+{"a": [3, 2, -4, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:18.955002"}
+{"a": [-3, 4, -2, 1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:21.647510"}
+{"a": [-3, 4, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:21.689281"}
+{"a": [-2, 4, -3, 1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:22.634636"}
+{"a": [-2, 4, -2], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:22.677024"}
+{"a": [-2, 4, -1, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:22.917576"}
+{"a": [-1, 4, -4, 1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:23.674308"}
+{"a": [-1, 4, -3], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:23.751906"}
+{"a": [-1, 4, -2, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:24.002969"}
+{"a": [0, 4, -4], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:24.968038"}
+{"a": [0, 4, -4, 1], "b": [1, 3], "match": "5/4", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:25.124782"}
+{"a": [0, 4, -3, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:25.272869"}
+{"a": [1, 4, -4, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:26.432075"}
+{"a": [-3, 6, -4, 1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 6, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:31.208965"}
+{"a": [-3, 6, -3], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 6, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:31.267688"}
+{"a": [-3, 6, -2, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 6, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:31.637868"}
+{"a": [-2, 6, -4], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 6, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:32.559388"}
+{"a": [-2, 6, -3, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 6, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:32.842910"}
+{"a": [-1, 6, -4, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 6, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:34.036257"}
+{"a": [0, 6, -3], "b": [1, 3], "match": "7/4", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 6, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:35.491398"}
+{"a": [0, 6, -1, -1], "b": [1, 3], "match": "2/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 6, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:35.803342"}
+{"a": [-3, 8, -4, -1], "b": [1, 3], "match": "1/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 8, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:40.823626"}
+{"a": [0, 8, -4], "b": [1, 3], "match": "2/1", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 8, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:45.233431"}
+{"a": [0, 8, -2, -1], "b": [1, 3], "match": "9/4", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 8, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:45.716302"}
+{"a": [3, 8, -3], "b": [1, 3], "match": "13/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:45.084101"}
+{"a": [0, 10, -2], "b": [1, 3], "match": "315/128", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 10, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:50.842367"}
+{"a": [-3, 10, -3], "b": [1, 3], "match": "61/33", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:40.747172"}
+{"a": [0, 12, -2], "b": [1, 3], "match": "693/256", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 12, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:51.450563"}
+{"a": [0, 14, -2], "b": [1, 3], "match": "3003/1024", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 14, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:51.773771"}
+{"a": [0, 16, -2], "b": [1, 3], "match": "6435/2048", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 16, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:52.082687"}
+{"a": [0, 18, -2], "b": [1, 3], "match": "109395/32768", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 18, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:52.370358"}
+{"a": [0, 20, -2], "b": [1, 3], "match": "230945/65536", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 20, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:52.610105"}
+{"a": [0, 22, -2], "b": [1, 3], "match": "969969/262144", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 22, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:52.906326"}
+{"a": [0, 24, -2], "b": [1, 3], "match": "2028117/524288", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 24, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:53.207752"}
+{"a": [0, 26, -2], "b": [1, 3], "match": "16900975/4194304", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 26, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:53.458486"}
+{"a": [0, 28, -2], "b": [1, 3], "match": "35102025/8388608", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 28, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:53.758370"}
+{"a": [0, 30, -2], "b": [1, 3], "match": "145422675/33554432", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 30, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:54.050416"}
+{"a": [0, 10, -3, -1], "b": [1, 3], "match": "5/2", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 10, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:54.334762"}
+{"a": [0, 32, -2], "b": [1, 3], "match": "300540195/67108864", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 32, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:54.406639"}
+{"a": [0, 34, -2], "b": [1, 3], "match": "9917826435/2147483648", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 34, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:54.784635"}
+{"a": [0, 36, -2], "b": [1, 3], "match": "20419054425/4294967296", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 36, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:55.079555"}
+{"a": [0, 38, -2], "b": [1, 3], "match": "83945001525/17179869184", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 38, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:55.476877"}
+{"a": [0, 40, -2], "b": [1, 3], "match": "172308161025/34359738368", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 40, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:55.869431"}
+{"a": [0, 44, -2], "b": [1, 3], "match": "2893136075115/549755813888", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 44, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:56.510910"}
+{"a": [0, 46, -2], "b": [1, 3], "match": "11835556670925/2199023255552", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 46, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:56.845884"}
+{"a": [0, 48, -2], "b": [1, 3], "match": "24185702762325/4398046511104", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 48, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:57.170571"}
+{"a": [0, 54, -2], "b": [1, 3], "match": "3285460280781189/562949953421312", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 54, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:57.971224"}
+{"a": [0, 56, -2], "b": [1, 3], "match": "6692604275665385/1125899906842624", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 56, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:58.271020"}
+{"a": [0, 58, -2], "b": [1, 3], "match": "54496920530418135/9007199254740992", "verified_digits": 150, "convergence_digits": 150, "type": "even_k_rational", "k": 58, "shard": "even-k-verify", "timestamp": "2026-04-08T08:58:58.542573"}
+{"a": [0, 12, -4, -1], "b": [1, 3], "match": "11/4", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 12, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:02.285710"}
+{"a": [0, 12, -1, -1], "b": [1, 3], "match": "11/4", "verified_digits": 150, "type": "even_k_perturbed_rational", "k": 12, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:02.930653"}
+{"a": [0, 2, -2], "b": [1, 2], "match": "1/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:40.950458"}
+{"a": [0, 2, -2], "b": [1, 4], "match": "1/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:41.555971"}
+{"a": [0, 2, -2], "b": [1, 5], "match": "1/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:42.377638"}
+{"a": [0, 2, -2], "b": [1, 6], "match": "1/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:43.168806"}
+{"a": [0, 2, -2], "b": [1, 7], "match": "1/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:43.875747"}
+{"a": [0, 4, -2], "b": [1, 7], "match": "5/4", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:43.912753"}
+{"a": [0, 2, -2], "b": [2, 3], "match": "2/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:44.433771"}
+{"a": [0, 2, -2], "b": [2, 5], "match": "2/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:44.943007"}
+{"a": [0, 2, -2], "b": [3, 1], "match": "3/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.460044"}
+{"a": [0, 4, -2], "b": [3, 1], "match": "7/2", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.492010"}
+{"a": [0, 8, -2], "b": [3, 1], "match": "33/8", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.564514"}
+{"a": [0, 2, -2], "b": [3, 5], "match": "3/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.961388"}
+{"a": [0, 4, -2], "b": [3, 5], "match": "13/4", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:46.002130"}
+{"a": [0, 2, -2], "b": [1, 1, 1], "match": "1/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:46.535206"}
+{"a": [0, 2, -2], "b": [1, 2, 1], "match": "1/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:47.092269"}
+{"a": [0, 4, -2], "b": [1, 2, 1], "match": "3/2", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:47.130715"}
+{"a": [0, 2, -2], "b": [1, 3, 1], "match": "1/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:47.624343"}
+{"a": [0, 4, -2], "b": [0, 1, 1], "match": "1/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:48.165326"}
+{"a": [0, 6, -2], "b": [0, 1, 1], "match": "3/2", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:48.194117"}
+{"a": [0, 2, -2], "b": [1, 0, 1], "match": "1/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 2, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:48.592989"}
+{"a": [0, 4, -2], "b": [1, 0, 1], "match": "2/1", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:48.627735"}
+{"a": [0, 8, -2], "b": [1, 0, 1], "match": "11/4", "verified_digits": 150, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:48.688201"}
+{"a": [3, 8, -3], "b": [1, 6], "match": "101/49", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T08:59:52.969472"}
+{"a": [-4, 10, -4], "b": [5, 7], "match": "31/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T08:59:54.350306"}
+{"a": [-4, -4, 3], "b": [3, 5], "match": "19/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T08:59:55.645257"}
+{"a": [-4, -6, 4], "b": [5, 3], "match": "17/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T08:59:59.722471"}
+{"a": [-3, 10, -3], "b": [5, 3], "match": "509/93", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:08.547311"}
+{"a": [4, 6, -4], "b": [1, 7], "match": "7/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:21.194134"}
+{"a": [4, -8, 3], "b": [3, 7], "match": "29/10", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:23.364259"}
+{"a": [-4, 10, -4], "b": [4, 1], "match": "22/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:25.673261"}
+{"a": [4, 4, -3], "b": [1, 7], "match": "13/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:26.760949"}
+{"a": [4, 6, -4], "b": [2, 3], "match": "16/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:31.393505"}
+{"a": [4, -8, 3], "b": [2, 1], "match": "5/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:38.813806"}
+{"a": [-4, 10, -4], "b": [2, 3], "match": "12/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:39.085722"}
+{"a": [-3, 10, -3], "b": [4, 7], "match": "884/203", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:39.777306"}
+{"a": [3, 8, -3], "b": [3, 5], "match": "437/111", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:40.985810"}
+{"a": [0, 8, 3], "b": [3, 2], "match": "40/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:41.688909"}
+{"a": [-3, -8, 3], "b": [4, 7], "match": "620/191", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:43.294780"}
+{"a": [4, 4, -3], "b": [1, 6], "match": "12/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:43.852248"}
+{"a": [4, 6, -4], "b": [3, 7], "match": "18/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:47.932741"}
+{"a": [4, -8, 3], "b": [4, 5], "match": "35/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:52.466814"}
+{"a": [-4, 8, -3], "b": [2, 2], "match": "9/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:52.804232"}
+{"a": [-4, 10, -4], "b": [5, 2], "match": "37/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:53.521943"}
+{"a": [-4, 8, -3], "b": [1, 4], "match": "6/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:55.216425"}
+{"a": [-4, 8, -3], "b": [5, 2], "match": "36/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:56.399840"}
+{"a": [-4, -6, 4], "b": [1, 3], "match": "-1/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:00:57.729268"}
+{"a": [4, 4, -3], "b": [3, 4], "match": "26/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:03.657213"}
+{"a": [4, 6, -4], "b": [5, 4], "match": "17/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:05.292082"}
+{"a": [-4, 8, -3], "b": [2, 5], "match": "15/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:09.948621"}
+{"a": [-3, 10, -3], "b": [5, 5], "match": "167/31", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:11.548101"}
+{"a": [-3, 10, -3], "b": [2, 6], "match": "290/117", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:12.281808"}
+{"a": [4, 6, -4], "b": [4, 3], "match": "34/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:17.983421"}
+{"a": [-4, 10, -4], "b": [3, 3], "match": "10/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:20.023253"}
+{"a": [-4, -4, 3], "b": [3, 6], "match": "22/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:20.748817"}
+{"a": [-3, -8, 3], "b": [5, 6], "match": "191/45", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:21.311890"}
+{"a": [4, 6, -4], "b": [2, 2], "match": "7/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:21.612805"}
+{"a": [-4, -4, 3], "b": [3, 3], "match": "13/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:23.475606"}
+{"a": [-4, 10, -4], "b": [2, 6], "match": "9/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:25.127517"}
+{"a": [-4, 10, -4], "b": [5, 5], "match": "26/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:25.524322"}
+{"a": [3, 8, -3], "b": [2, 5], "match": "278/91", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:26.208814"}
+{"a": [-3, 10, -3], "b": [5, 4], "match": "331/61", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:28.351717"}
+{"a": [-4, 10, -4], "b": [4, 4], "match": "17/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:29.407864"}
+{"a": [-3, 10, -3], "b": [5, 1], "match": "263/47", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:37.583103"}
+{"a": [-4, -6, 4], "b": [3, 7], "match": "12/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:37.790704"}
+{"a": [4, 4, -3], "b": [5, 3], "match": "45/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:38.158573"}
+{"a": [-4, -6, 4], "b": [3, 2], "match": "9/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:45.020282"}
+{"a": [4, 4, -3], "b": [5, 1], "match": "35/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:47.596729"}
+{"a": [-4, -6, 4], "b": [4, 4], "match": "13/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:50.487272"}
+{"a": [4, 6, -4], "b": [5, 5], "match": "28/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:50.796049"}
+{"a": [-3, -8, 3], "b": [3, 4], "match": "61/35", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:01:53.934948"}
+{"a": [-4, 10, -4], "b": [3, 6], "match": "29/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:15.022635"}
+{"a": [-3, 10, -3], "b": [1, 7], "match": "37/25", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:17.125154"}
+{"a": [4, -8, 3], "b": [3, 4], "match": "20/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:19.469117"}
+{"a": [4, 4, -3], "b": [5, 2], "match": "40/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:19.978079"}
+{"a": [-4, -6, 4], "b": [4, 6], "match": "17/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:22.156310"}
+{"a": [4, 4, -3], "b": [5, 5], "match": "11/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:25.783938"}
+{"a": [4, 4, -3], "b": [3, 1], "match": "17/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:29.896501"}
+{"a": [-4, -4, 3], "b": [2, 6], "match": "11/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:32.602094"}
+{"a": [-3, -8, 3], "b": [4, 1], "match": "44/23", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:33.447120"}
+{"a": [4, -8, 3], "b": [2, 3], "match": "9/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:33.853450"}
+{"a": [4, 4, -3], "b": [2, 7], "match": "23/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:36.080940"}
+{"a": [4, 6, -4], "b": [4, 5], "match": "14/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:36.809362"}
+{"a": [4, 4, -3], "b": [5, 6], "match": "60/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:37.837604"}
+{"a": [-4, -6, 4], "b": [3, 6], "match": "7/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:44.592606"}
+{"a": [-4, -4, 3], "b": [2, 2], "match": "3/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:46.639309"}
+{"a": [0, -6, -4], "b": [4, 5], "match": "12/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:50.811080"}
+{"a": [3, 8, -3], "b": [1, 7], "match": "247/127", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:51.330783"}
+{"a": [-4, -4, 3], "b": [5, 3], "match": "35/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:53.015104"}
+{"a": [-4, 8, -3], "b": [2, 3], "match": "11/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:55.390879"}
+{"a": [4, 6, -4], "b": [4, 6], "match": "23/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:02:58.784692"}
+{"a": [-4, -4, 3], "b": [1, 7], "match": "3/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:01.105889"}
+{"a": [-4, 10, -4], "b": [3, 5], "match": "13/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:04.362800"}
+{"a": [-3, 10, -3], "b": [4, 2], "match": "244/53", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:05.532693"}
+{"a": [-3, -8, 3], "b": [3, 6], "match": "33/16", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:06.281356"}
+{"a": [4, -8, 3], "b": [2, 2], "match": "7/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:07.061749"}
+{"a": [-3, -8, 3], "b": [5, 7], "match": "953/221", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:17.364736"}
+{"a": [-4, -4, 3], "b": [4, 2], "match": "19/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:19.555366"}
+{"a": [4, -8, 3], "b": [1, 5], "match": "5/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:30.429507"}
+{"a": [-3, -8, 3], "b": [5, 5], "match": "595/143", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:31.509174"}
+{"a": [-4, 8, -3], "b": [4, 2], "match": "25/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:42.393469"}
+{"a": [3, 8, -3], "b": [5, 5], "match": "905/157", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:44.616642"}
+{"a": [-4, 8, -3], "b": [5, 5], "match": "51/10", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:46.474953"}
+{"a": [-4, 8, -3], "b": [1, 6], "match": "8/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:52.931324"}
+{"a": [4, 4, -3], "b": [2, 5], "match": "19/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:03:53.607035"}
+{"a": [-4, 8, -3], "b": [3, 2], "match": "16/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:01.054134"}
+{"a": [-4, 8, -3], "b": [3, 4], "match": "22/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:02.823893"}
+{"a": [-4, 8, -3], "b": [2, 7], "match": "19/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:09.329115"}
+{"a": [-3, 10, -3], "b": [3, 5], "match": "379/109", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:10.276963"}
+{"a": [4, -8, 3], "b": [5, 6], "match": "54/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:15.463937"}
+{"a": [4, 6, -4], "b": [4, 4], "match": "19/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:16.816339"}
+{"a": [-3, -8, 3], "b": [4, 2], "match": "100/41", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:22.594485"}
+{"a": [-4, 8, -3], "b": [5, 6], "match": "56/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:24.516207"}
+{"a": [-4, -4, 3], "b": [3, 7], "match": "5/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:41.424559"}
+{"a": [0, -8, -3], "b": [5, 4], "match": "40/13", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:46.645764"}
+{"a": [4, 6, -4], "b": [5, 6], "match": "61/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:04:55.731195"}
+{"a": [3, 8, -3], "b": [3, 3], "match": "255/61", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:05:00.576318"}
+{"a": [4, -8, 3], "b": [4, 6], "match": "39/10", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:05:06.251033"}
+{"a": [-3, -8, 3], "b": [4, 6], "match": "484/153", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:05:12.727764"}
+{"a": [3, 8, -3], "b": [2, 7], "match": "430/151", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:05:38.484530"}
+{"a": [-4, 8, -3], "b": [2, 1], "match": "7/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:06:08.644345"}
+{"a": [-3, 10, -3], "b": [4, 6], "match": "724/165", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:06:24.421910"}
+{"a": [-3, 10, -3], "b": [3, 1], "match": "19/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:06:32.307770"}
+{"a": [4, 4, -3], "b": [3, 6], "match": "32/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:06:41.291415"}
+{"a": [-3, 10, -3], "b": [2, 4], "match": "34/13", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:06:55.967694"}
+{"a": [4, 4, -3], "b": [4, 2], "match": "29/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:01.305617"}
+{"a": [3, 8, -3], "b": [5, 4], "match": "181/31", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:21.069223"}
+{"a": [3, 8, -3], "b": [2, 6], "match": "50/17", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:22.542654"}
+{"a": [-3, 10, -3], "b": [3, 3], "match": "213/59", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:25.776178"}
+{"a": [4, 6, -4], "b": [5, 3], "match": "23/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:28.423987"}
+{"a": [-4, 10, -4], "b": [5, 3], "match": "21/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:30.783160"}
+{"a": [4, -8, 3], "b": [4, 4], "match": "31/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:37.494958"}
+{"a": [4, 6, -4], "b": [1, 3], "match": "5/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:44.785639"}
+{"a": [4, -8, 3], "b": [5, 5], "match": "49/10", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:50.941699"}
+{"a": [3, 8, -3], "b": [5, 3], "match": "563/95", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:07:59.491656"}
+{"a": [4, 4, -3], "b": [4, 5], "match": "41/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:01.247833"}
+{"a": [4, 6, -4], "b": [5, 7], "match": "11/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:02.325558"}
+{"a": [-4, 8, -3], "b": [1, 3], "match": "5/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:04.276056"}
+{"a": [-4, -6, 4], "b": [2, 3], "match": "4/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:07.332605"}
+{"a": [0, 10, 4], "b": [4, 3], "match": "60/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:09.497371"}
+{"a": [-3, -8, 3], "b": [3, 5], "match": "187/97", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:10.716576"}
+{"a": [-3, 10, -3], "b": [2, 5], "match": "226/89", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:12.943814"}
+{"a": [-4, -4, 3], "b": [1, 1], "match": "-3/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:14.297077"}
+{"a": [-4, -6, 4], "b": [1, 7], "match": "1/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:15.334436"}
+{"a": [-4, 10, -4], "b": [1, 4], "match": "7/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:21.403185"}
+{"a": [3, 8, -3], "b": [5, 7], "match": "1327/235", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:24.738210"}
+{"a": [4, -8, 3], "b": [2, 5], "match": "13/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:30.748531"}
+{"a": [3, 8, -3], "b": [1, 2], "match": "31/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:34.343199"}
+{"a": [4, -8, 3], "b": [1, 3], "match": "3/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:35.483429"}
+{"a": [-4, 8, -3], "b": [5, 4], "match": "46/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:42.961243"}
+{"a": [-4, -6, 4], "b": [5, 2], "match": "29/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:45.551250"}
+{"a": [4, -8, 3], "b": [1, 4], "match": "4/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:46.511090"}
+{"a": [4, -8, 3], "b": [4, 2], "match": "23/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:52.794951"}
+{"a": [4, 6, -4], "b": [2, 6], "match": "11/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:08:58.419032"}
+{"a": [-4, 10, -4], "b": [5, 6], "match": "57/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:00.471939"}
+{"a": [4, -8, 3], "b": [1, 1], "match": "1/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:06.443487"}
+{"a": [-4, 10, -4], "b": [4, 7], "match": "46/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:12.742379"}
+{"a": [-4, 10, -4], "b": [1, 6], "match": "9/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:14.737238"}
+{"a": [4, -8, 3], "b": [5, 3], "match": "39/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:16.440830"}
+{"a": [4, 6, -4], "b": [1, 6], "match": "13/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:17.111138"}
+{"a": [4, 4, -3], "b": [3, 5], "match": "29/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:18.331580"}
+{"a": [-4, -6, 4], "b": [5, 4], "match": "13/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:20.281355"}
+{"a": [4, 6, -4], "b": [2, 7], "match": "8/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:20.645402"}
+{"a": [-4, 8, -3], "b": [1, 7], "match": "9/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:21.870348"}
+{"a": [-4, -4, 3], "b": [3, 4], "match": "16/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:24.543214"}
+{"a": [-3, 10, -3], "b": [3, 6], "match": "24/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:35.198705"}
+{"a": [-4, 8, -3], "b": [4, 3], "match": "29/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:39.010742"}
+{"a": [-4, 10, -4], "b": [4, 6], "match": "21/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:39.650421"}
+{"a": [-4, 10, -4], "b": [4, 3], "match": "30/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:42.756407"}
+{"a": [3, 8, -3], "b": [1, 5], "match": "161/73", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:46.232626"}
+{"a": [-4, -6, 4], "b": [4, 7], "match": "38/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:48.261497"}
+{"a": [4, 4, -3], "b": [2, 2], "match": "13/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:51.560655"}
+{"a": [4, 4, -3], "b": [2, 4], "match": "17/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:56.496848"}
+{"a": [-4, -4, 3], "b": [2, 7], "match": "13/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:58.895117"}
+{"a": [4, 6, -4], "b": [4, 1], "match": "26/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:09:59.563773"}
+{"a": [-3, 10, -3], "b": [1, 5], "match": "115/71", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:00.412964"}
+{"a": [-3, 10, -3], "b": [5, 7], "match": "1241/233", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:00.824904"}
+{"a": [-3, -8, 3], "b": [3, 7], "match": "353/163", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:01.181532"}
+{"a": [4, -8, 3], "b": [5, 4], "match": "44/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:13.211859"}
+{"a": [3, 8, -3], "b": [2, 3], "match": "158/47", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:13.802969"}
+{"a": [4, 4, -3], "b": [1, 1], "match": "7/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:17.642008"}
+{"a": [-4, -6, 4], "b": [5, 7], "match": "9/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:18.228752"}
+{"a": [3, 8, -3], "b": [3, 6], "match": "273/71", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:25.014784"}
+{"a": [4, 6, -4], "b": [5, 2], "match": "41/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:27.747531"}
+{"a": [-4, 10, -4], "b": [1, 3], "match": "3/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:30.989784"}
+{"a": [3, 8, -3], "b": [4, 7], "match": "964/205", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:35.027572"}
+{"a": [-4, -4, 3], "b": [5, 7], "match": "55/12", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:36.229358"}
+{"a": [-4, 8, -3], "b": [1, 1], "match": "3/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:37.318898"}
+{"a": [4, -8, 3], "b": [2, 6], "match": "15/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:37.941482"}
+{"a": [-4, 10, -4], "b": [3, 4], "match": "23/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:40.105991"}
+{"a": [-4, 10, -4], "b": [4, 2], "match": "13/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:41.021941"}
+{"a": [-4, -4, 3], "b": [4, 7], "match": "39/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:42.621909"}
+{"a": [-4, 10, -4], "b": [2, 7], "match": "20/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:46.797967"}
+{"a": [3, 8, -3], "b": [3, 4], "match": "85/21", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:47.745196"}
+{"a": [-3, 10, -3], "b": [4, 1], "match": "164/35", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:50.149195"}
+{"a": [3, 8, -3], "b": [4, 2], "match": "284/55", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:10:52.893463"}
+{"a": [-4, -6, 4], "b": [4, 5], "match": "10/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:11:03.417488"}
+{"a": [-3, -8, 3], "b": [4, 5], "match": "52/17", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:11:07.664316"}
+{"a": [-4, 8, -3], "b": [4, 6], "match": "41/10", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:11:09.139216"}
+{"a": [4, -8, 3], "b": [5, 1], "match": "29/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:11:24.276147"}
+{"a": [3, 8, -3], "b": [5, 2], "match": "211/35", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:11:25.536602"}
+{"a": [-4, -4, 3], "b": [5, 1], "match": "25/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:11:33.203586"}
+{"a": [4, -8, 3], "b": [2, 7], "match": "17/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:11:35.876358"}
+{"a": [-4, 8, -3], "b": [1, 2], "match": "4/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:11:38.202033"}
+{"a": [-4, 10, -4], "b": [3, 1], "match": "7/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:11:52.218692"}
+{"a": [4, 4, -3], "b": [3, 3], "match": "23/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:11:53.945194"}
+{"a": [-3, -8, 3], "b": [5, 1], "match": "17/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:12:25.302722"}
+{"a": [-4, -4, 3], "b": [2, 5], "match": "9/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:12:29.500003"}
+{"a": [4, 4, -3], "b": [4, 4], "match": "37/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:12:30.215495"}
+{"a": [-3, 10, -3], "b": [5, 2], "match": "94/17", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:12:34.237048"}
+{"a": [4, 6, -4], "b": [3, 5], "match": "15/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:12:35.076510"}
+{"a": [-4, 8, -3], "b": [3, 6], "match": "28/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:12:37.864724"}
+{"a": [4, -8, 3], "b": [4, 1], "match": "19/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:12:43.026047"}
+{"a": [-4, 8, -3], "b": [3, 5], "match": "25/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:05.265914"}
+{"a": [-4, -4, 3], "b": [4, 4], "match": "27/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:11.413402"}
+{"a": [3, 8, -3], "b": [4, 1], "match": "196/37", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:12.007448"}
+{"a": [-4, 10, -4], "b": [5, 1], "match": "16/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:13.084719"}
+{"a": [4, -8, 3], "b": [3, 3], "match": "17/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:13.473905"}
+{"a": [4, -8, 3], "b": [5, 2], "match": "34/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:14.372159"}
+{"a": [3, 8, -3], "b": [4, 4], "match": "508/103", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:14.726748"}
+{"a": [4, -8, 3], "b": [4, 3], "match": "27/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:18.903089"}
+{"a": [-4, 10, -4], "b": [2, 1], "match": "8/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:21.988884"}
+{"a": [-3, 10, -3], "b": [3, 4], "match": "145/41", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:27.312068"}
+{"a": [3, 8, -3], "b": [2, 2], "match": "110/31", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:30.039065"}
+{"a": [4, 6, -4], "b": [3, 1], "match": "9/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:38.058752"}
+{"a": [0, -4, -3], "b": [3, 4], "match": "4/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:40.195927"}
+{"a": [4, 4, -3], "b": [1, 3], "match": "9/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:43.540080"}
+{"a": [-3, -8, 3], "b": [5, 2], "match": "26/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:55.247839"}
+{"a": [4, 6, -4], "b": [4, 7], "match": "50/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:55.687405"}
+{"a": [-4, -6, 4], "b": [2, 2], "match": "1/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:13:59.130568"}
+{"a": [-4, 10, -4], "b": [1, 7], "match": "5/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:01.311981"}
+{"a": [-4, 8, -3], "b": [4, 7], "match": "45/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:04.547691"}
+{"a": [-4, 8, -3], "b": [4, 1], "match": "21/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:09.348119"}
+{"a": [-4, 8, -3], "b": [5, 3], "match": "41/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:16.214852"}
+{"a": [-3, -8, 3], "b": [2, 1], "match": "-22/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:32.468470"}
+{"a": [4, -8, 3], "b": [1, 7], "match": "7/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:37.371096"}
+{"a": [-4, -6, 4], "b": [4, 1], "match": "14/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:38.715179"}
+{"a": [-3, 10, -3], "b": [2, 1], "match": "50/17", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:48.026314"}
+{"a": [-3, 10, -3], "b": [4, 4], "match": "452/101", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:52.430052"}
+{"a": [-3, 10, -3], "b": [3, 7], "match": "593/175", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:14:58.998677"}
+{"a": [-4, -4, 3], "b": [4, 6], "match": "7/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:04.808450"}
+{"a": [-4, -4, 3], "b": [5, 6], "match": "50/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:05.938921"}
+{"a": [4, 4, -3], "b": [4, 7], "match": "49/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:08.794660"}
+{"a": [-4, -6, 4], "b": [2, 5], "match": "8/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:10.406228"}
+{"a": [4, -8, 3], "b": [1, 6], "match": "6/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:13.807168"}
+{"a": [3, 8, -3], "b": [5, 6], "match": "553/97", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:15.366798"}
+{"a": [-4, 10, -4], "b": [5, 4], "match": "47/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:15.827597"}
+{"a": [-3, -8, 3], "b": [5, 3], "match": "317/81", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:20.678490"}
+{"a": [3, 8, -3], "b": [5, 1], "match": "43/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:21.036598"}
+{"a": [-4, 10, -4], "b": [3, 7], "match": "16/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:22.996049"}
+{"a": [3, 8, -3], "b": [2, 4], "match": "214/67", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:35.041792"}
+{"a": [3, 8, -3], "b": [3, 2], "match": "13/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:35.671136"}
+{"a": [-4, -4, 3], "b": [5, 2], "match": "30/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:39.181666"}
+{"a": [-4, 8, -3], "b": [4, 4], "match": "33/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:43.619538"}
+{"a": [3, 8, -3], "b": [3, 7], "match": "667/177", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:47.532371"}
+{"a": [-4, 8, -3], "b": [4, 5], "match": "37/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:15:54.204827"}
+{"a": [-4, -6, 4], "b": [5, 6], "match": "49/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:06.834543"}
+{"a": [-4, 8, -3], "b": [5, 1], "match": "31/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:08.886775"}
+{"a": [-3, 10, -3], "b": [4, 5], "match": "580/131", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:13.452340"}
+{"a": [-4, 10, -4], "b": [2, 2], "match": "5/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:17.434929"}
+{"a": [4, -8, 3], "b": [3, 1], "match": "11/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:20.262267"}
+{"a": [-4, 10, -4], "b": [2, 4], "match": "7/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:23.899669"}
+{"a": [4, 4, -3], "b": [5, 4], "match": "50/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:33.412440"}
+{"a": [-4, 8, -3], "b": [2, 4], "match": "13/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:52.623016"}
+{"a": [-4, 8, -3], "b": [3, 7], "match": "31/10", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:55.822088"}
+{"a": [4, 4, -3], "b": [2, 6], "match": "21/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:57.423183"}
+{"a": [-4, -6, 4], "b": [3, 5], "match": "9/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:16:57.675839"}
+{"a": [-4, 8, -3], "b": [3, 3], "match": "19/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:03.971011"}
+{"a": [-3, -8, 3], "b": [2, 7], "match": "146/137", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:05.793096"}
+{"a": [-4, -4, 3], "b": [4, 5], "match": "31/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:17.317845"}
+{"a": [4, 4, -3], "b": [4, 6], "match": "9/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:25.435450"}
+{"a": [4, -8, 3], "b": [2, 4], "match": "11/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:26.892642"}
+{"a": [-3, 10, -3], "b": [2, 3], "match": "122/45", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:30.318666"}
+{"a": [4, 4, -3], "b": [3, 7], "match": "7/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:33.590230"}
+{"a": [-4, -4, 3], "b": [4, 3], "match": "23/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:38.239202"}
+{"a": [-4, 8, -3], "b": [2, 6], "match": "17/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:41.853264"}
+{"a": [-3, 10, -3], "b": [2, 2], "match": "82/29", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:50.422297"}
+{"a": [-4, 8, -3], "b": [5, 7], "match": "61/12", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:50.823668"}
+{"a": [4, 6, -4], "b": [1, 4], "match": "11/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:17:59.162131"}
+{"a": [-3, 10, -3], "b": [5, 6], "match": "257/48", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:00.180695"}
+{"a": [4, 6, -4], "b": [3, 6], "match": "11/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:03.612931"}
+{"a": [-4, -6, 4], "b": [3, 1], "match": "3/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:05.933353"}
+{"a": [4, -8, 3], "b": [5, 7], "match": "59/12", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:25.913432"}
+{"a": [4, -8, 3], "b": [3, 6], "match": "26/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:33.513978"}
+{"a": [4, -8, 3], "b": [3, 5], "match": "23/8", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:35.757118"}
+{"a": [4, -8, 3], "b": [3, 2], "match": "14/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:40.017851"}
+{"a": [-3, 10, -3], "b": [2, 7], "match": "362/149", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:44.721325"}
+{"a": [-4, 10, -4], "b": [2, 5], "match": "16/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:45.094710"}
+{"a": [-4, 10, -4], "b": [3, 2], "match": "17/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:45.369562"}
+{"a": [-4, -4, 3], "b": [5, 4], "match": "40/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:45.890890"}
+{"a": [-4, 10, -4], "b": [1, 5], "match": "4/3", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:55.764732"}
+{"a": [-4, 8, -3], "b": [1, 5], "match": "7/6", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:18:57.098760"}
+{"a": [-4, -4, 3], "b": [5, 5], "match": "9/2", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:02.598436"}
+{"a": [-4, 8, -3], "b": [3, 1], "match": "13/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:03.963681"}
+{"a": [4, -8, 3], "b": [4, 7], "match": "43/11", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:05.326022"}
+{"a": [-3, 10, -3], "b": [1, 4], "match": "43/25", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:10.225757"}
+{"a": [-4, -6, 4], "b": [2, 6], "match": "5/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:13.863231"}
+{"a": [-4, -6, 4], "b": [5, 5], "match": "22/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:17.711765"}
+{"a": [-3, 10, -3], "b": [3, 2], "match": "37/10", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:26.355797"}
+{"a": [3, 8, -3], "b": [1, 4], "match": "31/13", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:28.185982"}
+{"a": [4, 4, -3], "b": [5, 7], "match": "65/12", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:35.031963"}
+{"a": [-4, 10, -4], "b": [4, 5], "match": "38/9", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:39.691220"}
+{"a": [-4, -4, 3], "b": [1, 3], "match": "-1/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:40.256051"}
+{"a": [3, 8, -3], "b": [3, 1], "match": "121/27", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:43.234739"}
+{"a": [4, 4, -3], "b": [4, 3], "match": "33/7", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:45.249528"}
+{"a": [3, 8, -3], "b": [4, 3], "match": "388/77", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:49.550621"}
+{"a": [4, 6, -4], "b": [3, 2], "match": "21/5", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:52.102597"}
+{"a": [3, 8, -3], "b": [4, 5], "match": "92/19", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:56.183861"}
+{"a": [-4, -4, 3], "b": [3, 1], "match": "7/4", "verified_digits": 150, "type": "new_rational_family", "shard": "even-k-new", "timestamp": "2026-04-08T09:19:57.023047"}
+{"match": "sqrt2+1", "a": [-1, 0, 4], "b": [2, 4], "digits": 121.3, "verified_digits": 141.3, "cycle": 107318, "source": "deep_space_grid", "timestamp": "2026-04-08T08:24:40"}
+{"match": "1/1/phi", "a": [-1, 0, 4], "b": [1, 2], "digits": 121.4, "verified_digits": 141.2, "cycle": 91851, "source": "deep_space_grid", "timestamp": "2026-04-08T08:20:21"}
+{"a": [0, 8, -2], "b": [1, 7], "match": "305/179", "verified_digits": 73.0, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:44.005060"}
+{"a": [0, 10, -2], "b": [2, 5], "match": "4826/1605", "verified_digits": 72.5, "type": "even_k_alt_b_rational", "k": 10, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.091629"}
+{"a": [3, 2, -4, 1], "b": [1, 3], "match": "41/27", "verified_digits": 72.2, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:19.000756"}
+{"a": [0, 6, -2], "b": [1, 3, 1], "match": "103/59", "verified_digits": 72.2, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:47.693875"}
+{"a": [0, 12, -2], "b": [3, 1], "match": "1702/369", "verified_digits": 72.1, "type": "even_k_alt_b_rational", "k": 12, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.638559"}
+{"a": [-3, 4, -4, 1], "b": [1, 3], "match": "11/25", "verified_digits": 71.8, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:21.154409"}
+{"a": [0, 6, -2], "b": [1, 2], "match": "39/19", "verified_digits": 71.7, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:41.037510"}
+{"a": [0, 6, -2], "b": [1, 1, 1], "match": "53/25", "verified_digits": 71.5, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:46.614900"}
+{"a": [0, 12, -3], "b": [1, 3], "match": "1147/436", "verified_digits": 71.4, "type": "even_k_perturbed_rational", "k": 12, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:02.408000"}
+{"a": [3, 20, -4, -1], "b": [1, 3], "match": "173/47", "verified_digits": 71.4, "type": "even_k_perturbed_rational", "k": 20, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:39.277235"}
+{"a": [0, 4, -2], "b": [1, 4], "match": "7/5", "verified_digits": 71.4, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:41.607096"}
+{"a": [0, 6, -2], "b": [1, 4], "match": "85/49", "verified_digits": 71.4, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:41.669897"}
+{"a": [0, 4, -2], "b": [1, 3, 1], "match": "7/5", "verified_digits": 71.4, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:47.660407"}
+{"a": [0, 4, -1], "b": [1, 3], "match": "551/332", "verified_digits": 71.2, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:25.706963"}
+{"a": [0, 8, -2], "b": [1, 4], "match": "1457/719", "verified_digits": 71.2, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:41.779454"}
+{"a": [0, 4, -2], "b": [1, 5], "match": "4/3", "verified_digits": 71.2, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:42.458480"}
+{"a": [0, 8, -2], "b": [1, 6], "match": "1147/641", "verified_digits": 71.2, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:43.339327"}
+{"a": [0, 8, -2], "b": [2, 3], "match": "280/93", "verified_digits": 71.2, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:44.543565"}
+{"a": [0, 10, -2], "b": [0, 1, 1], "match": "144/67", "verified_digits": 71.2, "type": "even_k_alt_b_rational", "k": 10, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:48.254940"}
+{"a": [3, 2, 2, -1], "b": [1, 3], "match": "11/5", "verified_digits": 71.1, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:20.871675"}
+{"a": [-3, 4, 2, -1], "b": [1, 3], "match": "47/33", "verified_digits": 71.1, "type": "even_k_perturbed_rational", "k": 4, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:22.131772"}
+{"a": [3, 14, -2, -1], "b": [1, 3], "match": "141/43", "verified_digits": 71.1, "type": "even_k_perturbed_rational", "k": 14, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:11.802986"}
+{"a": [0, 6, -2], "b": [1, 5], "match": "57/35", "verified_digits": 71.1, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:42.522848"}
+{"a": [0, 10, -2], "b": [2, 3], "match": "630/193", "verified_digits": 71.1, "type": "even_k_alt_b_rational", "k": 10, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:44.590608"}
+{"a": [0, 12, -2], "b": [2, 3], "match": "2772/793", "verified_digits": 71.1, "type": "even_k_alt_b_rational", "k": 12, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:44.627745"}
+{"a": [0, 20, -1, -1], "b": [1, 3], "match": "587/164", "verified_digits": 71.0, "type": "even_k_perturbed_rational", "k": 20, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:36.458934"}
+{"a": [0, 4, -2], "b": [1, 6], "match": "9/7", "verified_digits": 71.0, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:43.228680"}
+{"a": [0, 6, -2], "b": [1, 7], "match": "46/31", "verified_digits": 71.0, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:43.958382"}
+{"a": [0, 4, -2], "b": [2, 5], "match": "16/7", "verified_digits": 71.0, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:44.973406"}
+{"a": [0, 6, -2], "b": [2, 5], "match": "28/11", "verified_digits": 71.0, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.010749"}
+{"a": [0, 8, -2], "b": [1, 1, 1], "match": "977/395", "verified_digits": 71.0, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:46.654591"}
+{"a": [0, 8, -2], "b": [1, 3, 1], "match": "839/409", "verified_digits": 71.0, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:47.742003"}
+{"a": [0, 6, 1, -1], "b": [1, 3], "match": "13/6", "verified_digits": 70.9, "type": "even_k_perturbed_rational", "k": 6, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:36.092393"}
+{"a": [0, 16, -4], "b": [1, 3], "match": "184/61", "verified_digits": 70.9, "type": "even_k_perturbed_rational", "k": 16, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:16.556488"}
+{"a": [0, 18, -3, -1], "b": [1, 3], "match": "71/22", "verified_digits": 70.9, "type": "even_k_perturbed_rational", "k": 18, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:24.566953"}
+{"a": [0, 4, -2], "b": [1, 2], "match": "5/3", "verified_digits": 70.9, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:40.999974"}
+{"a": [0, 6, -2], "b": [1, 6], "match": "147/95", "verified_digits": 70.9, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:43.298115"}
+{"a": [0, 6, -2], "b": [2, 3], "match": "30/11", "verified_digits": 70.9, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:44.509135"}
+{"a": [0, 14, -2], "b": [2, 3], "match": "6006/1619", "verified_digits": 70.9, "type": "even_k_alt_b_rational", "k": 14, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:44.662042"}
+{"a": [0, 6, -2], "b": [3, 1], "match": "23/6", "verified_digits": 70.9, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.520191"}
+{"a": [0, 4, -2], "b": [1, 1, 1], "match": "5/3", "verified_digits": 70.9, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:46.582139"}
+{"a": [0, 10, -2], "b": [1, 2, 1], "match": "1095/433", "verified_digits": 70.9, "type": "even_k_alt_b_rational", "k": 10, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:47.247262"}
+{"a": [0, 8, -2], "b": [0, 1, 1], "match": "13/7", "verified_digits": 70.9, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:48.230216"}
+{"a": [0, 10, -2], "b": [1, 0, 1], "match": "3269/1081", "verified_digits": 70.9, "type": "even_k_alt_b_rational", "k": 10, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:48.721612"}
+{"a": [3, 2, -1], "b": [1, 3], "match": "59/31", "verified_digits": 70.8, "type": "even_k_perturbed_rational", "k": 2, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:19.937782"}
+{"a": [0, 8, 2, -1], "b": [1, 3], "match": "253/100", "verified_digits": 70.8, "type": "even_k_perturbed_rational", "k": 8, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:58:46.466939"}
+{"a": [0, 12, -4], "b": [1, 3], "match": "23/9", "verified_digits": 70.8, "type": "even_k_perturbed_rational", "k": 12, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:02.229704"}
+{"a": [0, 8, -2], "b": [1, 2], "match": "425/179", "verified_digits": 70.8, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:41.084985"}
+{"a": [0, 4, -2], "b": [2, 3], "match": "12/5", "verified_digits": 70.8, "type": "even_k_alt_b_rational", "k": 4, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:44.469943"}
+{"a": [0, 8, -2], "b": [2, 5], "match": "2236/803", "verified_digits": 70.8, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.056809"}
+{"a": [0, 8, -2], "b": [3, 5], "match": "159/43", "verified_digits": 70.8, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:46.073140"}
+{"a": [0, 6, -2], "b": [1, 2, 1], "match": "19/10", "verified_digits": 70.8, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:47.172585"}
+{"a": [0, 20, 1, -1], "b": [1, 3], "match": "1923/523", "verified_digits": 70.7, "type": "even_k_perturbed_rational", "k": 20, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:36.652095"}
+{"a": [0, 8, -2], "b": [1, 5], "match": "578/305", "verified_digits": 70.7, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:42.600735"}
+{"a": [0, 14, -2], "b": [3, 1], "match": "473/98", "verified_digits": 70.7, "type": "even_k_alt_b_rational", "k": 14, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.676400"}
+{"a": [0, 6, -2], "b": [3, 5], "match": "94/27", "verified_digits": 70.7, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:46.038702"}
+{"a": [0, 6, -2], "b": [1, 0, 1], "match": "17/7", "verified_digits": 70.7, "type": "even_k_alt_b_rational", "k": 6, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:48.654711"}
+{"a": [0, 12, 1, -1], "b": [1, 3], "match": "67/23", "verified_digits": 70.6, "type": "even_k_perturbed_rational", "k": 12, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:03.129274"}
+{"a": [-3, 16, -2, -1], "b": [1, 3], "match": "111/41", "verified_digits": 70.6, "type": "even_k_perturbed_rational", "k": 16, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:12.850164"}
+{"a": [0, 20, -4], "b": [1, 3], "match": "3773/1105", "verified_digits": 70.6, "type": "even_k_perturbed_rational", "k": 20, "shard": "even-k-perturb", "timestamp": "2026-04-08T08:59:35.695900"}
+{"a": [0, 10, -2], "b": [3, 1], "match": "530/121", "verified_digits": 70.6, "type": "even_k_alt_b_rational", "k": 10, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:45.605304"}
+{"a": [0, 8, -2], "b": [1, 2, 1], "match": "407/182", "verified_digits": 70.5, "type": "even_k_alt_b_rational", "k": 8, "shard": "even-k-alt-b", "timestamp": "2026-04-08T08:59:47.215857"}

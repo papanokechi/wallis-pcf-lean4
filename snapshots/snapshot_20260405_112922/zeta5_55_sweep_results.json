@@ -1,0 +1,4856 @@
+{
+  "sweep": "deep_sweep",
+  "targets": [
+    "zeta5"
+  ],
+  "prec": 500,
+  "deep_mode": true,
+  "iters": 50,
+  "batch": 64,
+  "total_discoveries": 158,
+  "total_novel": 158,
+  "wall_seconds": 251.622,
+  "generated_at": "2026-04-05 11:07:24",
+  "results": [
+    {
+      "target": "zeta5",
+      "seed": 7777,
+      "prec": 500,
+      "deep_mode": true,
+      "discovery_count": 158,
+      "novel_count": 158,
+      "high_value_count": 138,
+      "near_miss_count": 0,
+      "elapsed_seconds": 251.364,
+      "high_value": [
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -2,
+            1
+          ],
+          "beta": [
+            -2,
+            4
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_BBF8DADD",
+          "relation": [
+            0,
+            2,
+            0,
+            0,
+            5,
+            0
+          ],
+          "degree": 2,
+          "formula": "2\u00b7CF\u00b7zeta5 + 5\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.5",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_46D0CB11",
+          "relation": [
+            0,
+            5,
+            0,
+            0,
+            36,
+            0
+          ],
+          "degree": 2,
+          "formula": "5\u00b7CF\u00b7zeta5 + 36\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-7.2",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            3,
+            -3,
+            0
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_ECB1EEF5",
+          "relation": [
+            1,
+            -2,
+            0,
+            -3,
+            10,
+            -10
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b2 + -2\u00b7CF\u00b7zeta5 + -3\u00b7CF + 10\u00b7zeta5 + -10 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -3,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_E0858C62",
+          "relation": [
+            0,
+            -12,
+            0,
+            0,
+            55,
+            0
+          ],
+          "degree": 2,
+          "formula": "-12\u00b7CF\u00b7zeta4 + 55\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.5833333333333333333333333333333333333333333333333",
+          "enrichment": {
+            "closed_form": "55/12",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta4",
+          "precision": 124,
+          "alpha": [
+            0,
+            -2,
+            -3,
+            2,
+            0,
+            0
+          ],
+          "beta": [
+            -5,
+            -6
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_B6B3F2F2",
+          "relation": [
+            0,
+            -11,
+            0,
+            -11,
+            -52,
+            -52
+          ],
+          "degree": 2,
+          "formula": "-11\u00b7CF\u00b7zeta4 + -11\u00b7CF + -52\u00b7zeta4 + -52 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-4.7272727272727272727272727272727272727272727272727",
+          "enrichment": {
+            "closed_form": "-52/11",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            -5,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            2,
+            4,
+            -1
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_FD65086F",
+          "relation": [
+            0,
+            223,
+            0,
+            0,
+            -246,
+            0
+          ],
+          "degree": 2,
+          "formula": "223\u00b7CF\u00b7zeta3 + -246\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "1.1031390134529147982062780269058295964125560538117",
+          "enrichment": {
+            "closed_form": "246/223",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -3,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            6,
+            -2
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_C06E0325",
+          "relation": [
+            0,
+            -7,
+            0,
+            0,
+            38,
+            0
+          ],
+          "degree": 2,
+          "formula": "-7\u00b7CF\u00b7zeta5 + 38\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.4285714285714285714285714285714285714285714285714",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            -4,
+            -3,
+            1
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_9A716210",
+          "relation": [
+            0,
+            11,
+            0,
+            0,
+            70,
+            0
+          ],
+          "degree": 2,
+          "formula": "11\u00b7CF\u00b7zeta3 + 70\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-6.3636363636363636363636363636363636363636363636364",
+          "enrichment": {
+            "closed_form": "-70/11",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            -3,
+            4,
+            -4,
+            1
+          ],
+          "beta": [
+            6,
+            0,
+            1
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_E978A37C",
+          "relation": [
+            0,
+            67,
+            0,
+            0,
+            -382,
+            0
+          ],
+          "degree": 2,
+          "formula": "67\u00b7CF\u00b7zeta3 + -382\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.7014925373134328358208955223880597014925373134328",
+          "enrichment": {
+            "closed_form": "382/67",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            9,
+            -2,
+            1,
+            -8,
+            -2,
+            -6,
+            -5,
+            5
+          ],
+          "beta": [
+            9,
+            3,
+            -4,
+            0,
+            6
+          ],
+          "alpha_deg": 7,
+          "beta_deg": 4,
+          "mode": "ratio",
+          "order": 7,
+          "n_terms": 500,
+          "spec_id": "GCF_244EF0C1",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -9,
+            9
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -9\u00b7zeta5 + 9 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "9.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            -4,
+            0,
+            2,
+            -3,
+            -5,
+            1
+          ],
+          "beta": [
+            -4,
+            -9,
+            5,
+            -5,
+            -9
+          ],
+          "alpha_deg": 6,
+          "beta_deg": 4,
+          "mode": "ratio",
+          "order": 6,
+          "n_terms": 500,
+          "spec_id": "GCF_F1728A57",
+          "relation": [
+            1,
+            2,
+            0,
+            2,
+            8,
+            -8
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b2 + 2\u00b7CF\u00b7zeta5 + 2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-4.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -2,
+            2
+          ],
+          "beta": [
+            -2,
+            4
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_AEB8FD19",
+          "relation": [
+            1,
+            1,
+            0,
+            0,
+            2,
+            -4
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta5 + 2\u00b7zeta5 + -4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -3,
+            3,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_158039DB",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            8,
+            -8
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-8.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -8,
+            2,
+            1
+          ],
+          "beta": [
+            6,
+            0,
+            1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 200,
+          "spec_id": "GCF_B7205EDA",
+          "relation": [
+            0,
+            7,
+            0,
+            -7,
+            -37,
+            37
+          ],
+          "degree": 2,
+          "formula": "7\u00b7CF\u00b7zeta4 + -7\u00b7CF + -37\u00b7zeta4 + 37 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.2857142857142857142857142857142857142857142857143",
+          "enrichment": {
+            "closed_form": "37/7",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            4,
+            -1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -4,
+            -3,
+            4
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_4045B301",
+          "relation": [
+            0,
+            -3,
+            0,
+            3,
+            -11,
+            11
+          ],
+          "degree": 2,
+          "formula": "-3\u00b7CF\u00b7zeta5 + 3\u00b7CF + -11\u00b7zeta5 + 11 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-3.6666666666666666666666666666666666666666666666667",
+          "enrichment": {}
+        },
+        {
+          "constant": "pi3",
+          "precision": 500,
+          "alpha": [
+            -2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            6,
+            -2
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_2CE9BB1C",
+          "relation": [
+            -4,
+            12,
+            0,
+            19,
+            -69,
+            23
+          ],
+          "degree": 2,
+          "formula": "-4\u00b7CF\u00b2 + 12\u00b7CF\u00b7pi3 + 19\u00b7CF + -69\u00b7pi3 + 23 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.75",
+          "enrichment": {
+            "closed_form": "23/4",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta6",
+          "precision": 500,
+          "alpha": [
+            0,
+            -3,
+            1,
+            0,
+            0
+          ],
+          "beta": [
+            2,
+            4,
+            -1
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_FB8D8C79",
+          "relation": [
+            0,
+            7,
+            0,
+            0,
+            -11,
+            0
+          ],
+          "degree": 2,
+          "formula": "7\u00b7CF\u00b7zeta6 + -11\u00b7zeta6 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "1.5714285714285714285714285714285714285714285714286",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -2,
+            -3,
+            2,
+            3
+          ],
+          "beta": [
+            -5,
+            -6
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_AD85227F",
+          "relation": [
+            1,
+            2,
+            0,
+            3,
+            10,
+            -10
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b2 + 2\u00b7CF\u00b7zeta5 + 3\u00b7CF + 10\u00b7zeta5 + -10 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -8,
+            2
+          ],
+          "beta": [
+            6,
+            0,
+            1
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 200,
+          "spec_id": "GCF_F4DF708B",
+          "relation": [
+            0,
+            -122,
+            0,
+            0,
+            621,
+            0
+          ],
+          "degree": 2,
+          "formula": "-122\u00b7CF\u00b7zeta4 + 621\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.0901639344262295081967213114754098360655737704918",
+          "enrichment": {
+            "closed_form": "621/122",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta6",
+          "precision": 500,
+          "alpha": [
+            -3,
+            1,
+            0
+          ],
+          "beta": [
+            0,
+            -2,
+            6,
+            4
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_5F1CB84E",
+          "relation": [
+            0,
+            -415,
+            0,
+            0,
+            -104,
+            0
+          ],
+          "degree": 2,
+          "formula": "-415\u00b7CF\u00b7zeta6 + -104\u00b7zeta6 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-0.2506024096385542168674698795180722891566265060241",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            -4,
+            -6,
+            -2,
+            3,
+            0
+          ],
+          "beta": [
+            3,
+            4,
+            5
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_4F66432E",
+          "relation": [
+            0,
+            -4,
+            0,
+            0,
+            9,
+            0
+          ],
+          "degree": 2,
+          "formula": "-4\u00b7CF\u00b7zeta7 + 9\u00b7zeta7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "2.25",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            8,
+            -2,
+            -1,
+            0
+          ],
+          "beta": [
+            -1,
+            -1,
+            1
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_191A20C3",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            6,
+            -6
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + 6\u00b7zeta5 + -6 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-6.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -3,
+            1,
+            0,
+            0,
+            0,
+            2
+          ],
+          "beta": [
+            8,
+            6
+          ],
+          "alpha_deg": 6,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_160074B2",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -8,
+            8
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -8\u00b7zeta5 + 8 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "8.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -2,
+            1,
+            0,
+            0
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_5D29EFC7",
+          "relation": [
+            0,
+            2,
+            0,
+            0,
+            15,
+            0
+          ],
+          "degree": 2,
+          "formula": "2\u00b7CF\u00b7zeta5 + 15\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-7.5",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            -6,
+            -4,
+            -4,
+            2
+          ],
+          "beta": [
+            1,
+            2
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_E04AC218",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            59,
+            -59
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta7 + -1\u00b7CF + 59\u00b7zeta7 + -59 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-59.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta3",
+          "precision": 124,
+          "alpha": [
+            -4,
+            4,
+            -1,
+            0,
+            0
+          ],
+          "beta": [
+            -5,
+            -6
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_6B433417",
+          "relation": [
+            11,
+            11,
+            0,
+            54,
+            54,
+            0
+          ],
+          "degree": 2,
+          "formula": "11\u00b7CF\u00b2 + 11\u00b7CF\u00b7zeta3 + 54\u00b7CF + 54\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-4.9090909090909090909090909090909090909090909090909",
+          "enrichment": {
+            "closed_form": "-54/11",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 123,
+          "alpha": [
+            0,
+            -2,
+            -3,
+            2,
+            0
+          ],
+          "beta": [
+            6,
+            0,
+            1
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 200,
+          "spec_id": "GCF_89BEF8A1",
+          "relation": [
+            7,
+            14,
+            0,
+            -32,
+            -78,
+            -39
+          ],
+          "degree": 2,
+          "formula": "7\u00b7CF\u00b2 + 14\u00b7CF\u00b7zeta5 + -32\u00b7CF + -78\u00b7zeta5 + -39 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.5714285714285714285714285714285714285714285714286",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_D2D0A899",
+          "relation": [
+            1,
+            -2,
+            0,
+            -2,
+            8,
+            -8
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b2 + -2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -4,
+            1,
+            -4,
+            1,
+            0
+          ],
+          "beta": [
+            -5,
+            0
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_DD86CB62",
+          "relation": [
+            0,
+            5,
+            0,
+            0,
+            7,
+            0
+          ],
+          "degree": 2,
+          "formula": "5\u00b7CF\u00b7zeta4 + 7\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-1.4",
+          "enrichment": {
+            "closed_form": "-7/5",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            1,
+            -4,
+            1,
+            0
+          ],
+          "beta": [
+            0,
+            6
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_896F8CAE",
+          "relation": [
+            0,
+            -88,
+            0,
+            0,
+            -103,
+            0
+          ],
+          "degree": 2,
+          "formula": "-88\u00b7CF\u00b7zeta5 + -103\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-1.1704545454545454545454545454545454545454545454545",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            4,
+            -2
+          ],
+          "beta": [
+            -5,
+            -4
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_1F31465E",
+          "relation": [
+            0,
+            -9,
+            0,
+            0,
+            -47,
+            0
+          ],
+          "degree": 2,
+          "formula": "-9\u00b7CF\u00b7zeta4 + -47\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.2222222222222222222222222222222222222222222222222",
+          "enrichment": {
+            "closed_form": "-47/9",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -6,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -5,
+            0
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_BAA54038",
+          "relation": [
+            0,
+            23,
+            0,
+            0,
+            95,
+            0
+          ],
+          "degree": 2,
+          "formula": "23\u00b7CF\u00b7zeta5 + 95\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-4.1304347826086956521739130434782608695652173913043",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -2,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_8D127C12",
+          "relation": [
+            0,
+            5,
+            0,
+            -5,
+            -24,
+            24
+          ],
+          "degree": 2,
+          "formula": "5\u00b7CF\u00b7zeta5 + -5\u00b7CF + -24\u00b7zeta5 + 24 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.8",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta3",
+          "precision": 124,
+          "alpha": [
+            -4,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -5,
+            0
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_B42A57BF",
+          "relation": [
+            5,
+            5,
+            0,
+            28,
+            23,
+            23
+          ],
+          "degree": 2,
+          "formula": "5\u00b7CF\u00b2 + 5\u00b7CF\u00b7zeta3 + 28\u00b7CF + 23\u00b7zeta3 + 23 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-4.6",
+          "enrichment": {
+            "closed_form": "-23/5",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -3,
+            4,
+            -4,
+            1
+          ],
+          "beta": [
+            -3,
+            -1
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_7AA663EB",
+          "relation": [
+            0,
+            -17,
+            0,
+            0,
+            -41,
+            0
+          ],
+          "degree": 2,
+          "formula": "-17\u00b7CF\u00b7zeta5 + -41\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.4117647058823529411764705882352941176470588235294",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            6,
+            -6
+          ],
+          "beta": [
+            2,
+            -4,
+            2,
+            -3
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_8F4772CE",
+          "relation": [
+            1,
+            -1,
+            0,
+            0,
+            2,
+            -4
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta5 + 2\u00b7zeta5 + -4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "2.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            6,
+            -2
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_0A60519A",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -6,
+            6
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -6\u00b7zeta5 + 6 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "6.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            -3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -2,
+            4
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_1887FA23",
+          "relation": [
+            0,
+            -11,
+            0,
+            0,
+            -34,
+            0
+          ],
+          "degree": 2,
+          "formula": "-11\u00b7CF\u00b7zeta7 + -34\u00b7zeta7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-3.0909090909090909090909090909090909090909090909091",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            0,
+            6
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_A5909605",
+          "relation": [
+            0,
+            -71,
+            0,
+            0,
+            -24,
+            0
+          ],
+          "degree": 2,
+          "formula": "-71\u00b7CF\u00b7zeta5 + -24\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-0.33802816901408450704225352112676056338028169014085",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            4,
+            -1,
+            0
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_1A54342D",
+          "relation": [
+            0,
+            70,
+            0,
+            -70,
+            -389,
+            389
+          ],
+          "degree": 2,
+          "formula": "70\u00b7CF\u00b7zeta5 + -70\u00b7CF + -389\u00b7zeta5 + 389 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.5571428571428571428571428571428571428571428571429",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -8,
+            2
+          ],
+          "beta": [
+            1,
+            2
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_8CB3BF78",
+          "relation": [
+            0,
+            -71,
+            0,
+            0,
+            -127,
+            0
+          ],
+          "degree": 2,
+          "formula": "-71\u00b7CF\u00b7zeta5 + -127\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-1.788732394366197183098591549295774647887323943662",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -4,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -3,
+            -4
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_23CA1B4B",
+          "relation": [
+            0,
+            7,
+            0,
+            0,
+            19,
+            0
+          ],
+          "degree": 2,
+          "formula": "7\u00b7CF\u00b7zeta4 + 19\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.7142857142857142857142857142857142857142857142857",
+          "enrichment": {
+            "closed_form": "-19/7",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            0,
+            -4,
+            1,
+            0
+          ],
+          "beta": [
+            -2,
+            4
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_307C03AF",
+          "relation": [
+            0,
+            74,
+            0,
+            0,
+            319,
+            0
+          ],
+          "degree": 2,
+          "formula": "74\u00b7CF\u00b7zeta4 + 319\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-4.3108108108108108108108108108108108108108108108108",
+          "enrichment": {
+            "closed_form": "-319/74",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            -3,
+            4,
+            -4,
+            1,
+            0
+          ],
+          "beta": [
+            -6,
+            0,
+            -1,
+            0
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_29998BF3",
+          "relation": [
+            0,
+            -67,
+            0,
+            0,
+            -382,
+            0
+          ],
+          "degree": 2,
+          "formula": "-67\u00b7CF\u00b7zeta3 + -382\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.7014925373134328358208955223880597014925373134328",
+          "enrichment": {
+            "closed_form": "-382/67",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 123,
+          "alpha": [
+            -4,
+            1,
+            -4,
+            1,
+            0
+          ],
+          "beta": [
+            5,
+            3,
+            2,
+            -1
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_412DD8E9",
+          "relation": [
+            -71,
+            71,
+            0,
+            301,
+            -301,
+            0
+          ],
+          "degree": 2,
+          "formula": "-71\u00b7CF\u00b2 + 71\u00b7CF\u00b7zeta5 + 301\u00b7CF + -301\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.2394366197183098591549295774647887323943661971831",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta6",
+          "precision": 500,
+          "alpha": [
+            3,
+            -1,
+            0
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_86F61C9B",
+          "relation": [
+            0,
+            7,
+            0,
+            0,
+            64,
+            0
+          ],
+          "degree": 2,
+          "formula": "7\u00b7CF\u00b7zeta6 + 64\u00b7zeta6 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-9.1428571428571428571428571428571428571428571428571",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            2,
+            4,
+            -1
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_A75272B4",
+          "relation": [
+            29,
+            -29,
+            0,
+            -17,
+            46,
+            -46
+          ],
+          "degree": 2,
+          "formula": "29\u00b7CF\u00b2 + -29\u00b7CF\u00b7zeta5 + -17\u00b7CF + 46\u00b7zeta5 + -46 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "1.5862068965517241379310344827586206896551724137931",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            4,
+            -1,
+            0,
+            0
+          ],
+          "beta": [
+            -3,
+            -4
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_54E407A6",
+          "relation": [
+            0,
+            -7,
+            0,
+            0,
+            -20,
+            0
+          ],
+          "degree": 2,
+          "formula": "-7\u00b7CF\u00b7zeta5 + -20\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.8571428571428571428571428571428571428571428571429",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            8,
+            -2,
+            -1,
+            0
+          ],
+          "beta": [
+            1,
+            2
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_A31B242B",
+          "relation": [
+            0,
+            3,
+            0,
+            -3,
+            -8,
+            8
+          ],
+          "degree": 2,
+          "formula": "3\u00b7CF\u00b7zeta5 + -3\u00b7CF + -8\u00b7zeta5 + 8 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "2.6666666666666666666666666666666666666666666666667",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            8,
+            -2,
+            -1
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_7D65748F",
+          "relation": [
+            0,
+            -2,
+            0,
+            0,
+            -21,
+            0
+          ],
+          "degree": 2,
+          "formula": "-2\u00b7CF\u00b7zeta3 + -21\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-10.5",
+          "enrichment": {
+            "closed_form": "-21/2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -3,
+            4,
+            -4,
+            1
+          ],
+          "beta": [
+            6,
+            -2
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_7840A0F7",
+          "relation": [
+            0,
+            -5,
+            0,
+            0,
+            26,
+            0
+          ],
+          "degree": 2,
+          "formula": "-5\u00b7CF\u00b7zeta4 + 26\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.2",
+          "enrichment": {
+            "closed_form": "26/5",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            3,
+            -1,
+            0
+          ],
+          "beta": [
+            0,
+            -2,
+            6,
+            4
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_9DF58E22",
+          "relation": [
+            0,
+            -417,
+            0,
+            0,
+            104,
+            0
+          ],
+          "degree": 2,
+          "formula": "-417\u00b7CF\u00b7zeta5 + 104\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "0.24940047961630695443645083932853717026378896882494",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            7,
+            6,
+            -7,
+            2,
+            -1,
+            -8,
+            10
+          ],
+          "beta": [
+            7,
+            -4,
+            -2,
+            10,
+            -7
+          ],
+          "alpha_deg": 6,
+          "beta_deg": 4,
+          "mode": "ratio",
+          "order": 6,
+          "n_terms": 500,
+          "spec_id": "GCF_6CF629DC",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -7,
+            7
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -7\u00b7zeta5 + 7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "7.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -2,
+            1
+          ],
+          "beta": [
+            2,
+            -5,
+            -2
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_AAE20DC7",
+          "relation": [
+            0,
+            -5,
+            0,
+            0,
+            11,
+            0
+          ],
+          "degree": 2,
+          "formula": "-5\u00b7CF\u00b7zeta5 + 11\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "2.2",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -3,
+            4,
+            -4,
+            1
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_D23FA653",
+          "relation": [
+            0,
+            11,
+            0,
+            11,
+            80,
+            80
+          ],
+          "degree": 2,
+          "formula": "11\u00b7CF\u00b7zeta4 + 11\u00b7CF + 80\u00b7zeta4 + 80 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-7.2727272727272727272727272727272727272727272727273",
+          "enrichment": {
+            "closed_form": "-80/11",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            4,
+            -2,
+            0
+          ],
+          "beta": [
+            -6,
+            0
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_1964F2E1",
+          "relation": [
+            0,
+            3,
+            0,
+            0,
+            19,
+            0
+          ],
+          "degree": 2,
+          "formula": "3\u00b7CF\u00b7zeta5 + 19\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-6.3333333333333333333333333333333333333333333333333",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            2,
+            -1,
+            0,
+            0
+          ],
+          "beta": [
+            -4,
+            -3,
+            4
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_3D9536DC",
+          "relation": [
+            0,
+            3,
+            0,
+            0,
+            13,
+            0
+          ],
+          "degree": 2,
+          "formula": "3\u00b7CF\u00b7zeta5 + 13\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-4.3333333333333333333333333333333333333333333333333",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -4,
+            1,
+            -4,
+            1,
+            0
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_14527CA9",
+          "relation": [
+            0,
+            5,
+            0,
+            0,
+            -7,
+            0
+          ],
+          "degree": 2,
+          "formula": "5\u00b7CF\u00b7zeta4 + -7\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "1.4",
+          "enrichment": {
+            "closed_form": "7/5",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            3,
+            -1
+          ],
+          "beta": [
+            1,
+            2
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_96B00ABC",
+          "relation": [
+            0,
+            8,
+            0,
+            0,
+            -13,
+            0
+          ],
+          "degree": 2,
+          "formula": "8\u00b7CF\u00b7zeta4 + -13\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "1.625",
+          "enrichment": {
+            "closed_form": "13/8",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            0,
+            -4,
+            1,
+            0,
+            0
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_8970449D",
+          "relation": [
+            0,
+            -38,
+            0,
+            0,
+            -267,
+            0
+          ],
+          "degree": 2,
+          "formula": "-38\u00b7CF\u00b7zeta7 + -267\u00b7zeta7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-7.0263157894736842105263157894736842105263157894737",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -6,
+            0
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_D342AD5A",
+          "relation": [
+            0,
+            6,
+            0,
+            0,
+            35,
+            0
+          ],
+          "degree": 2,
+          "formula": "6\u00b7CF\u00b7zeta4 + 35\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.8333333333333333333333333333333333333333333333333",
+          "enrichment": {
+            "closed_form": "-35/6",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "pi3",
+          "precision": 500,
+          "alpha": [
+            6,
+            -2
+          ],
+          "beta": [
+            6,
+            0,
+            2
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 200,
+          "spec_id": "GCF_4C9FD951",
+          "relation": [
+            0,
+            -57,
+            0,
+            0,
+            370,
+            0
+          ],
+          "degree": 2,
+          "formula": "-57\u00b7CF\u00b7pi3 + 370\u00b7pi3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "6.4912280701754385964912280701754385964912280701754",
+          "enrichment": {
+            "closed_form": "370/57",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            3,
+            -1
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_D8D04576",
+          "relation": [
+            0,
+            -13,
+            0,
+            13,
+            70,
+            -70
+          ],
+          "degree": 2,
+          "formula": "-13\u00b7CF\u00b7zeta5 + 13\u00b7CF + 70\u00b7zeta5 + -70 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.3846153846153846153846153846153846153846153846154",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta6",
+          "precision": 500,
+          "alpha": [
+            -3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            1,
+            2
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_8435C7A4",
+          "relation": [
+            -7,
+            -7,
+            0,
+            2,
+            2,
+            0
+          ],
+          "degree": 2,
+          "formula": "-7\u00b7CF\u00b2 + -7\u00b7CF\u00b7zeta6 + 2\u00b7CF + 2\u00b7zeta6 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "0.28571428571428571428571428571428571428571428571429",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            6,
+            -3,
+            0
+          ],
+          "beta": [
+            -3,
+            -1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_4F1F28AF",
+          "relation": [
+            0,
+            4,
+            0,
+            0,
+            15,
+            0
+          ],
+          "degree": 2,
+          "formula": "4\u00b7CF\u00b7zeta3 + 15\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-3.75",
+          "enrichment": {
+            "closed_form": "-15/4",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -3,
+            4,
+            -4,
+            1
+          ],
+          "beta": [
+            -2,
+            4
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_5FFE3123",
+          "relation": [
+            0,
+            -3,
+            0,
+            0,
+            -10,
+            0
+          ],
+          "degree": 2,
+          "formula": "-3\u00b7CF\u00b7zeta4 + -10\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-3.3333333333333333333333333333333333333333333333333",
+          "enrichment": {
+            "closed_form": "-10/3",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            2,
+            -3,
+            -1,
+            1
+          ],
+          "beta": [
+            -24,
+            18,
+            3
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_FA58B8A0",
+          "relation": [
+            0,
+            3,
+            0,
+            0,
+            71,
+            0
+          ],
+          "degree": 2,
+          "formula": "3\u00b7CF\u00b7zeta5 + 71\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-23.666666666666666666666666666666666666666666666667",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            0,
+            -7,
+            1
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_71A30837",
+          "relation": [
+            0,
+            61,
+            0,
+            0,
+            -231,
+            0
+          ],
+          "degree": 2,
+          "formula": "61\u00b7CF\u00b7zeta3 + -231\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "3.7868852459016393442622950819672131147540983606557",
+          "enrichment": {
+            "closed_form": "231/61",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 124,
+          "alpha": [
+            -2,
+            -3,
+            -2,
+            2,
+            0
+          ],
+          "beta": [
+            -6,
+            1,
+            -3
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_F560EAAA",
+          "relation": [
+            0,
+            -16,
+            0,
+            -8,
+            -86,
+            -43
+          ],
+          "degree": 2,
+          "formula": "-16\u00b7CF\u00b7zeta5 + -8\u00b7CF + -86\u00b7zeta5 + -43 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.375",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -5,
+            1,
+            0,
+            0
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_96F34432",
+          "relation": [
+            0,
+            -83,
+            0,
+            0,
+            -576,
+            0
+          ],
+          "degree": 2,
+          "formula": "-83\u00b7CF\u00b7zeta5 + -576\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-6.9397590361445783132530120481927710843373493975904",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -4,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 6,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_CBD30381",
+          "relation": [
+            0,
+            -55,
+            0,
+            0,
+            239,
+            0
+          ],
+          "degree": 2,
+          "formula": "-55\u00b7CF\u00b7zeta4 + 239\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.3454545454545454545454545454545454545454545454545",
+          "enrichment": {
+            "closed_form": "239/55",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta4",
+          "precision": 122,
+          "alpha": [
+            -5,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_0A4EE28E",
+          "relation": [
+            -239,
+            239,
+            0,
+            975,
+            -975,
+            0
+          ],
+          "degree": 2,
+          "formula": "-239\u00b7CF\u00b2 + 239\u00b7CF\u00b7zeta4 + 975\u00b7CF + -975\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.0794979079497907949790794979079497907949790794979",
+          "enrichment": {
+            "closed_form": "975/239",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            3,
+            -1,
+            0
+          ],
+          "beta": [
+            6,
+            -2
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_C392B576",
+          "relation": [
+            0,
+            9,
+            0,
+            0,
+            -58,
+            0
+          ],
+          "degree": 2,
+          "formula": "9\u00b7CF\u00b7zeta5 + -58\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "6.4444444444444444444444444444444444444444444444444",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -6,
+            -4,
+            -4,
+            2
+          ],
+          "beta": [
+            -2,
+            4
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_38050500",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -34,
+            34
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -34\u00b7zeta5 + 34 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "34.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -2,
+            -6
+          ],
+          "beta": [
+            3,
+            -3
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 200,
+          "spec_id": "GCF_0B143AA1",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            -11,
+            11
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -11\u00b7zeta5 + 11 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "11.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            2,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            6,
+            -2
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_BC598C4B",
+          "relation": [
+            0,
+            -2,
+            0,
+            2,
+            11,
+            -11
+          ],
+          "degree": 2,
+          "formula": "-2\u00b7CF\u00b7zeta5 + 2\u00b7CF + 11\u00b7zeta5 + -11 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.5",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -5,
+            0
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_4206B032",
+          "relation": [
+            0,
+            -12,
+            0,
+            0,
+            -55,
+            0
+          ],
+          "degree": 2,
+          "formula": "-12\u00b7CF\u00b7zeta4 + -55\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-4.5833333333333333333333333333333333333333333333333",
+          "enrichment": {
+            "closed_form": "-55/12",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "pi3",
+          "precision": 500,
+          "alpha": [
+            6,
+            -2,
+            0
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_7F9DF32C",
+          "relation": [
+            0,
+            3,
+            0,
+            0,
+            32,
+            0
+          ],
+          "degree": 2,
+          "formula": "3\u00b7CF\u00b7pi3 + 32\u00b7pi3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-10.666666666666666666666666666666666666666666666667",
+          "enrichment": {
+            "closed_form": "-32/3",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            6,
+            -3,
+            0
+          ],
+          "beta": [
+            -24,
+            18,
+            3
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_15E2C84E",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            25,
+            -25
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta7 + -1\u00b7CF + 25\u00b7zeta7 + -25 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-25.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 122,
+          "alpha": [
+            -5,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -5,
+            0
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_91236E76",
+          "relation": [
+            -239,
+            -239,
+            0,
+            -975,
+            -975,
+            0
+          ],
+          "degree": 2,
+          "formula": "-239\u00b7CF\u00b2 + -239\u00b7CF\u00b7zeta4 + -975\u00b7CF + -975\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-4.0794979079497907949790794979079497907949790794979",
+          "enrichment": {
+            "closed_form": "-975/239",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            8,
+            -2,
+            -1,
+            0
+          ],
+          "beta": [
+            6,
+            0,
+            1
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_437796FF",
+          "relation": [
+            0,
+            7,
+            0,
+            0,
+            -47,
+            0
+          ],
+          "degree": 2,
+          "formula": "7\u00b7CF\u00b7zeta5 + -47\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "6.7142857142857142857142857142857142857142857142857",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -4,
+            2
+          ],
+          "beta": [
+            6,
+            -2,
+            4,
+            4
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 200,
+          "spec_id": "GCF_AC4D84B6",
+          "relation": [
+            0,
+            -6,
+            0,
+            0,
+            35,
+            0
+          ],
+          "degree": 2,
+          "formula": "-6\u00b7CF\u00b7zeta4 + 35\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.8333333333333333333333333333333333333333333333333",
+          "enrichment": {
+            "closed_form": "35/6",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -5,
+            1
+          ],
+          "beta": [
+            3,
+            1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_C38FCCC0",
+          "relation": [
+            0,
+            91,
+            0,
+            0,
+            -125,
+            0
+          ],
+          "degree": 2,
+          "formula": "91\u00b7CF\u00b7zeta5 + -125\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "1.3736263736263736263736263736263736263736263736264",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            6,
+            -3,
+            0
+          ],
+          "beta": [
+            2,
+            4,
+            -1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_3E070593",
+          "relation": [
+            0,
+            5,
+            0,
+            0,
+            -13,
+            0
+          ],
+          "degree": 2,
+          "formula": "5\u00b7CF\u00b7zeta5 + -13\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "2.6",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_E02F6C58",
+          "relation": [
+            98,
+            -98,
+            0,
+            667,
+            -667,
+            0
+          ],
+          "degree": 2,
+          "formula": "98\u00b7CF\u00b2 + -98\u00b7CF\u00b7zeta5 + 667\u00b7CF + -667\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-6.8061224489795918367346938775510204081632653061224",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            4,
+            -2,
+            0
+          ],
+          "beta": [
+            -5,
+            -6
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_4A68A1EF",
+          "relation": [
+            0,
+            11,
+            0,
+            0,
+            57,
+            0
+          ],
+          "degree": 2,
+          "formula": "11\u00b7CF\u00b7zeta4 + 57\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.1818181818181818181818181818181818181818181818182",
+          "enrichment": {
+            "closed_form": "-57/11",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            2,
+            5,
+            1,
+            -2
+          ],
+          "beta": [
+            -1,
+            -5,
+            1,
+            -6
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_EFB3A66E",
+          "relation": [
+            0,
+            11,
+            0,
+            0,
+            17,
+            0
+          ],
+          "degree": 2,
+          "formula": "11\u00b7CF\u00b7zeta5 + 17\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-1.5454545454545454545454545454545454545454545454545",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            -3,
+            1,
+            0
+          ],
+          "beta": [
+            -1,
+            -1,
+            1
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_B44F5606",
+          "relation": [
+            -31,
+            -31,
+            0,
+            -56,
+            -25,
+            -25
+          ],
+          "degree": 2,
+          "formula": "-31\u00b7CF\u00b2 + -31\u00b7CF\u00b7zeta5 + -56\u00b7CF + -25\u00b7zeta5 + -25 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-0.80645161290322580645161290322580645161290322580645",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -2,
+            1,
+            0
+          ],
+          "beta": [
+            5,
+            3,
+            2,
+            -1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_C7EA88A8",
+          "relation": [
+            0,
+            9,
+            0,
+            0,
+            -44,
+            0
+          ],
+          "degree": 2,
+          "formula": "9\u00b7CF\u00b7zeta5 + -44\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.8888888888888888888888888888888888888888888888889",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            2,
+            -1
+          ],
+          "beta": [
+            -1,
+            -6,
+            4
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 200,
+          "spec_id": "GCF_C64A1A5C",
+          "relation": [
+            0,
+            3,
+            0,
+            -3,
+            4,
+            -4
+          ],
+          "degree": 2,
+          "formula": "3\u00b7CF\u00b7zeta5 + -3\u00b7CF + 4\u00b7zeta5 + -4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-1.3333333333333333333333333333333333333333333333333",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            0,
+            -3,
+            1,
+            0
+          ],
+          "beta": [
+            0,
+            -2,
+            6,
+            4
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_BBF6BF0A",
+          "relation": [
+            0,
+            -207,
+            0,
+            207,
+            -52,
+            52
+          ],
+          "degree": 2,
+          "formula": "-207\u00b7CF\u00b7zeta7 + 207\u00b7CF + -52\u00b7zeta7 + 52 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-0.25120772946859903381642512077294685990338164251208",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            3,
+            -1,
+            0
+          ],
+          "beta": [
+            2,
+            4,
+            -1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_C0AD4586",
+          "relation": [
+            0,
+            31,
+            0,
+            31,
+            -74,
+            -74
+          ],
+          "degree": 2,
+          "formula": "31\u00b7CF\u00b7zeta4 + 31\u00b7CF + -74\u00b7zeta4 + -74 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "2.3870967741935483870967741935483870967741935483871",
+          "enrichment": {
+            "closed_form": "74/31",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -10,
+            8,
+            4,
+            -2,
+            6
+          ],
+          "beta": [
+            -10,
+            10,
+            8,
+            10,
+            -3
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 4,
+          "mode": "ratio",
+          "order": 4,
+          "n_terms": 500,
+          "spec_id": "GCF_E668FC91",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            10,
+            -10
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + 10\u00b7zeta5 + -10 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-10.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -6,
+            -1
+          ],
+          "beta": [
+            3,
+            1
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 200,
+          "spec_id": "GCF_C0078C5A",
+          "relation": [
+            0,
+            37,
+            0,
+            0,
+            114,
+            0
+          ],
+          "degree": 2,
+          "formula": "37\u00b7CF\u00b7zeta5 + 114\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-3.0810810810810810810810810810810810810810810810811",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -4,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -3,
+            -1
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_0C968A18",
+          "relation": [
+            0,
+            -104,
+            0,
+            0,
+            -225,
+            0
+          ],
+          "degree": 2,
+          "formula": "-104\u00b7CF\u00b7zeta4 + -225\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.1634615384615384615384615384615384615384615384615",
+          "enrichment": {
+            "closed_form": "-225/104",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            8,
+            -2,
+            -1,
+            0
+          ],
+          "beta": [
+            -3,
+            -4
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_AB63E5B6",
+          "relation": [
+            0,
+            7,
+            0,
+            0,
+            26,
+            0
+          ],
+          "degree": 2,
+          "formula": "7\u00b7CF\u00b7zeta5 + 26\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-3.7142857142857142857142857142857142857142857142857",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -6,
+            2
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_4F277ECA",
+          "relation": [
+            0,
+            -23,
+            0,
+            0,
+            95,
+            0
+          ],
+          "degree": 2,
+          "formula": "-23\u00b7CF\u00b7zeta5 + 95\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.1304347826086956521739130434782608695652173913043",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            0,
+            -3,
+            1,
+            0
+          ],
+          "beta": [
+            -3,
+            -4
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_6CB39A69",
+          "relation": [
+            0,
+            75,
+            0,
+            0,
+            203,
+            0
+          ],
+          "degree": 2,
+          "formula": "75\u00b7CF\u00b7zeta7 + 203\u00b7zeta7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.7066666666666666666666666666666666666666666666667",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            -6,
+            -4,
+            -4,
+            2
+          ],
+          "beta": [
+            -4,
+            -3,
+            4
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_8ED5AD4C",
+          "relation": [
+            0,
+            -4,
+            0,
+            4,
+            -7,
+            7
+          ],
+          "degree": 2,
+          "formula": "-4\u00b7CF\u00b7zeta7 + 4\u00b7CF + -7\u00b7zeta7 + 7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-1.75",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta6",
+          "precision": 500,
+          "alpha": [
+            6,
+            -2,
+            0
+          ],
+          "beta": [
+            -2,
+            4
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_F015B345",
+          "relation": [
+            7,
+            -7,
+            0,
+            2,
+            -2,
+            0
+          ],
+          "degree": 2,
+          "formula": "7\u00b7CF\u00b2 + -7\u00b7CF\u00b7zeta6 + 2\u00b7CF + -2\u00b7zeta6 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-0.28571428571428571428571428571428571428571428571429",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 124,
+          "alpha": [
+            -5,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            6,
+            -2
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_20C18780",
+          "relation": [
+            0,
+            -11,
+            0,
+            -11,
+            58,
+            58
+          ],
+          "degree": 2,
+          "formula": "-11\u00b7CF\u00b7zeta4 + -11\u00b7CF + 58\u00b7zeta4 + 58 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.2727272727272727272727272727272727272727272727273",
+          "enrichment": {
+            "closed_form": "58/11",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -2,
+            -3,
+            2,
+            0
+          ],
+          "beta": [
+            -2,
+            4
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_73EA85ED",
+          "relation": [
+            0,
+            2,
+            0,
+            0,
+            7,
+            0
+          ],
+          "degree": 2,
+          "formula": "2\u00b7CF\u00b7zeta5 + 7\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-3.5",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            4,
+            -2,
+            0,
+            0
+          ],
+          "beta": [
+            -5,
+            -4,
+            1
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_9A0608A8",
+          "relation": [
+            0,
+            4,
+            0,
+            -4,
+            21,
+            -21
+          ],
+          "degree": 2,
+          "formula": "4\u00b7CF\u00b7zeta4 + -4\u00b7CF + 21\u00b7zeta4 + -21 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.25",
+          "enrichment": {
+            "closed_form": "-21/4",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -5,
+            4,
+            -3,
+            -1,
+            5
+          ],
+          "beta": [
+            -7,
+            -4,
+            -2,
+            -4,
+            7
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 4,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_41FBDB5F",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            7,
+            -7
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + 7\u00b7zeta5 + -7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-7.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            2,
+            -1,
+            0,
+            0
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_488EDFA7",
+          "relation": [
+            0,
+            2,
+            0,
+            0,
+            17,
+            0
+          ],
+          "degree": 2,
+          "formula": "2\u00b7CF\u00b7zeta3 + 17\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-8.5",
+          "enrichment": {
+            "closed_form": "-17/2",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            6,
+            -2,
+            3,
+            -1
+          ],
+          "beta": [
+            -2,
+            5,
+            3
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_6E2B25EF",
+          "relation": [
+            21,
+            21,
+            0,
+            22,
+            22,
+            0
+          ],
+          "degree": 2,
+          "formula": "21\u00b7CF\u00b2 + 21\u00b7CF\u00b7zeta5 + 22\u00b7CF + 22\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-1.047619047619047619047619047619047619047619047619",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            -6,
+            2
+          ],
+          "beta": [
+            0,
+            -2,
+            6,
+            4
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 200,
+          "spec_id": "GCF_7753B4A1",
+          "relation": [
+            0,
+            207,
+            0,
+            0,
+            104,
+            0
+          ],
+          "degree": 2,
+          "formula": "207\u00b7CF\u00b7zeta7 + 104\u00b7zeta7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-0.50241545893719806763285024154589371980676328502415",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            -2,
+            -1,
+            1
+          ],
+          "beta": [
+            -4,
+            -5,
+            -1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_280DEFDF",
+          "relation": [
+            0,
+            5,
+            0,
+            0,
+            19,
+            0
+          ],
+          "degree": 2,
+          "formula": "5\u00b7CF\u00b7zeta4 + 19\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-3.8",
+          "enrichment": {
+            "closed_form": "-19/5",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            0,
+            -4,
+            1,
+            0
+          ],
+          "beta": [
+            3,
+            1
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_B61AA5E2",
+          "relation": [
+            0,
+            -28,
+            0,
+            0,
+            57,
+            0
+          ],
+          "degree": 2,
+          "formula": "-28\u00b7CF\u00b7zeta7 + 57\u00b7zeta7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "2.0357142857142857142857142857142857142857142857143",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta6",
+          "precision": 500,
+          "alpha": [
+            -2,
+            1,
+            0
+          ],
+          "beta": [
+            9,
+            3,
+            3
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_5EB21B52",
+          "relation": [
+            0,
+            -15,
+            0,
+            0,
+            134,
+            0
+          ],
+          "degree": 2,
+          "formula": "-15\u00b7CF\u00b7zeta6 + 134\u00b7zeta6 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "8.9333333333333333333333333333333333333333333333333",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -5,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            0,
+            1
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_6F790A5A",
+          "relation": [
+            0,
+            -19,
+            0,
+            0,
+            56,
+            0
+          ],
+          "degree": 2,
+          "formula": "-19\u00b7CF\u00b7zeta5 + 56\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "2.9473684210526315789473684210526315789473684210526",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            2,
+            -1,
+            0,
+            0
+          ],
+          "beta": [
+            -5,
+            0
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_B1157AAC",
+          "relation": [
+            0,
+            5,
+            0,
+            0,
+            26,
+            0
+          ],
+          "degree": 2,
+          "formula": "5\u00b7CF\u00b7zeta4 + 26\u00b7zeta4 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.2",
+          "enrichment": {
+            "closed_form": "-26/5",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -6,
+            -1,
+            0
+          ],
+          "beta": [
+            -1,
+            -1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_9AE3CF02",
+          "relation": [
+            0,
+            -185,
+            0,
+            0,
+            906,
+            0
+          ],
+          "degree": 2,
+          "formula": "-185\u00b7CF\u00b7zeta5 + 906\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.8972972972972972972972972972972972972972972972973",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            -4,
+            3
+          ],
+          "beta": [
+            6,
+            3,
+            -6,
+            0
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_2EF896DC",
+          "relation": [
+            0,
+            -3,
+            0,
+            0,
+            13,
+            0
+          ],
+          "degree": 2,
+          "formula": "-3\u00b7CF\u00b7zeta5 + 13\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.3333333333333333333333333333333333333333333333333",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            3,
+            -1,
+            0
+          ],
+          "beta": [
+            -5,
+            0
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_CB507ABA",
+          "relation": [
+            0,
+            13,
+            0,
+            -13,
+            70,
+            -70
+          ],
+          "degree": 2,
+          "formula": "13\u00b7CF\u00b7zeta5 + -13\u00b7CF + 70\u00b7zeta5 + -70 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.3846153846153846153846153846153846153846153846154",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            6,
+            -3,
+            -4,
+            2
+          ],
+          "beta": [
+            -2,
+            -1,
+            -6,
+            5
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_E1F7AEEF",
+          "relation": [
+            0,
+            4,
+            0,
+            0,
+            9,
+            0
+          ],
+          "degree": 2,
+          "formula": "4\u00b7CF\u00b7zeta7 + 9\u00b7zeta7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.25",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            -2,
+            2
+          ],
+          "beta": [
+            4,
+            2,
+            -6,
+            -3
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_553622EB",
+          "relation": [
+            0,
+            -3,
+            0,
+            0,
+            16,
+            0
+          ],
+          "degree": 2,
+          "formula": "-3\u00b7CF\u00b7zeta5 + 16\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.3333333333333333333333333333333333333333333333333",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            8,
+            -2,
+            -1,
+            0
+          ],
+          "beta": [
+            -24,
+            18,
+            3
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_6C05DFCA",
+          "relation": [
+            0,
+            3,
+            0,
+            0,
+            77,
+            0
+          ],
+          "degree": 2,
+          "formula": "3\u00b7CF\u00b7zeta5 + 77\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-25.666666666666666666666666666666666666666666666667",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            -4,
+            -2,
+            0,
+            1
+          ],
+          "beta": [
+            3,
+            1
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_B968A8F4",
+          "relation": [
+            0,
+            4,
+            0,
+            -4,
+            -7,
+            7
+          ],
+          "degree": 2,
+          "formula": "4\u00b7CF\u00b7zeta7 + -4\u00b7CF + -7\u00b7zeta7 + 7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "1.75",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -2,
+            -3,
+            2,
+            0,
+            0
+          ],
+          "beta": [
+            5,
+            3,
+            2,
+            -1
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_9350F189",
+          "relation": [
+            0,
+            3,
+            0,
+            0,
+            -14,
+            0
+          ],
+          "degree": 2,
+          "formula": "3\u00b7CF\u00b7zeta5 + -14\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.6666666666666666666666666666666666666666666666667",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            -2,
+            1,
+            0
+          ],
+          "beta": [
+            3,
+            1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_61382BA8",
+          "relation": [
+            0,
+            4,
+            0,
+            0,
+            -11,
+            0
+          ],
+          "degree": 2,
+          "formula": "4\u00b7CF\u00b7zeta7 + -11\u00b7zeta7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "2.75",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            4,
+            -2,
+            0
+          ],
+          "beta": [
+            -8,
+            6
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_2B9B22A2",
+          "relation": [
+            0,
+            1,
+            0,
+            -1,
+            9,
+            -9
+          ],
+          "degree": 2,
+          "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + 9\u00b7zeta5 + -9 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-9.0",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta6",
+          "precision": 500,
+          "alpha": [
+            0,
+            -3,
+            1
+          ],
+          "beta": [
+            5,
+            0
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_01FD430A",
+          "relation": [
+            0,
+            -23,
+            0,
+            0,
+            105,
+            0
+          ],
+          "degree": 2,
+          "formula": "-23\u00b7CF\u00b7zeta6 + 105\u00b7zeta6 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.5652173913043478260869565217391304347826086956522",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta7",
+          "precision": 500,
+          "alpha": [
+            0,
+            -4,
+            1
+          ],
+          "beta": [
+            -3,
+            -1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_6E4672FB",
+          "relation": [
+            0,
+            -28,
+            0,
+            0,
+            -57,
+            0
+          ],
+          "degree": 2,
+          "formula": "-28\u00b7CF\u00b7zeta7 + -57\u00b7zeta7 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.0357142857142857142857142857142857142857142857143",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -6,
+            2
+          ],
+          "beta": [
+            -3,
+            -4
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_D86E7844",
+          "relation": [
+            0,
+            -75,
+            0,
+            0,
+            -181,
+            0
+          ],
+          "degree": 2,
+          "formula": "-75\u00b7CF\u00b7zeta5 + -181\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.4133333333333333333333333333333333333333333333333",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            8,
+            -2,
+            -1
+          ],
+          "beta": [
+            0,
+            -2,
+            6,
+            4
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_58DA7AEC",
+          "relation": [
+            16,
+            8,
+            0,
+            6,
+            -5,
+            -10
+          ],
+          "degree": 2,
+          "formula": "16\u00b7CF\u00b2 + 8\u00b7CF\u00b7zeta4 + 6\u00b7CF + -5\u00b7zeta4 + -10 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "0.625",
+          "enrichment": {
+            "closed_form": "5/8",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            3,
+            -1
+          ],
+          "beta": [
+            -6,
+            0
+          ],
+          "alpha_deg": 1,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_B3B89E5B",
+          "relation": [
+            0,
+            -37,
+            0,
+            0,
+            -234,
+            0
+          ],
+          "degree": 2,
+          "formula": "-37\u00b7CF\u00b7zeta5 + -234\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-6.3243243243243243243243243243243243243243243243243",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -3,
+            1,
+            0
+          ],
+          "beta": [
+            1,
+            2
+          ],
+          "alpha_deg": 3,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_9645B63C",
+          "relation": [
+            0,
+            -13,
+            0,
+            0,
+            3,
+            0
+          ],
+          "degree": 2,
+          "formula": "-13\u00b7CF\u00b7zeta5 + 3\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "0.23076923076923076923076923076923076923076923076923",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            0,
+            -2,
+            -3,
+            2,
+            0,
+            0
+          ],
+          "beta": [
+            -6,
+            0
+          ],
+          "alpha_deg": 5,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_84C88884",
+          "relation": [
+            0,
+            2,
+            0,
+            -2,
+            11,
+            -11
+          ],
+          "degree": 2,
+          "formula": "2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 11\u00b7zeta5 + -11 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.5",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta6",
+          "precision": 500,
+          "alpha": [
+            6,
+            5,
+            -1
+          ],
+          "beta": [
+            -4,
+            -1
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 120,
+          "spec_id": "GCF_9AC46363",
+          "relation": [
+            0,
+            -109,
+            0,
+            0,
+            -601,
+            0
+          ],
+          "degree": 2,
+          "formula": "-109\u00b7CF\u00b7zeta6 + -601\u00b7zeta6 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.5137614678899082568807339449541284403669724770642",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -2,
+            -3,
+            -2,
+            2,
+            0
+          ],
+          "beta": [
+            -2,
+            4
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_C3A56C38",
+          "relation": [
+            0,
+            2,
+            0,
+            -2,
+            9,
+            -9
+          ],
+          "degree": 2,
+          "formula": "2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 9\u00b7zeta5 + -9 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-4.5",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            -4,
+            1,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -2,
+            4
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_F64A9033",
+          "relation": [
+            0,
+            -98,
+            0,
+            0,
+            -373,
+            0
+          ],
+          "degree": 2,
+          "formula": "-98\u00b7CF\u00b7zeta3 + -373\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-3.8061224489795918367346938775510204081632653061224",
+          "enrichment": {
+            "closed_form": "-373/98",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            0,
+            -4,
+            1
+          ],
+          "beta": [
+            -6,
+            0
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_6FE33BD0",
+          "relation": [
+            0,
+            -58,
+            0,
+            0,
+            -315,
+            0
+          ],
+          "degree": 2,
+          "formula": "-58\u00b7CF\u00b7zeta3 + -315\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-5.4310344827586206896551724137931034482758620689655",
+          "enrichment": {
+            "closed_form": "-315/58",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta3",
+          "precision": 500,
+          "alpha": [
+            -2,
+            -3,
+            -2,
+            2,
+            0
+          ],
+          "beta": [
+            5,
+            3,
+            2,
+            -1
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 3,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_C41C592F",
+          "relation": [
+            0,
+            -9,
+            0,
+            0,
+            40,
+            0
+          ],
+          "degree": 2,
+          "formula": "-9\u00b7CF\u00b7zeta3 + 40\u00b7zeta3 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "4.4444444444444444444444444444444444444444444444444",
+          "enrichment": {
+            "closed_form": "40/9",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            -4,
+            -3,
+            1
+          ],
+          "beta": [
+            1,
+            2
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 500,
+          "spec_id": "GCF_1FF51D3F",
+          "relation": [
+            0,
+            -17,
+            0,
+            0,
+            -45,
+            0
+          ],
+          "degree": 2,
+          "formula": "-17\u00b7CF\u00b7zeta5 + -45\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-2.6470588235294117647058823529411764705882352941176",
+          "enrichment": {}
+        },
+        {
+          "constant": "zeta3",
+          "precision": 123,
+          "alpha": [
+            4,
+            -2,
+            0,
+            0,
+            0
+          ],
+          "beta": [
+            -6,
+            0,
+            1
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_67460795",
+          "relation": [
+            -10,
+            5,
+            0,
+            -59,
+            32,
+            32
+          ],
+          "degree": 2,
+          "formula": "-10\u00b7CF\u00b2 + 5\u00b7CF\u00b7zeta3 + -59\u00b7CF + 32\u00b7zeta3 + 32 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "-6.4",
+          "enrichment": {
+            "closed_form": "-32/5",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta4",
+          "precision": 500,
+          "alpha": [
+            0,
+            -2,
+            -3,
+            2,
+            0
+          ],
+          "beta": [
+            6,
+            -2
+          ],
+          "alpha_deg": 4,
+          "beta_deg": 1,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_FF31B933",
+          "relation": [
+            0,
+            -4,
+            0,
+            4,
+            21,
+            -21
+          ],
+          "degree": 2,
+          "formula": "-4\u00b7CF\u00b7zeta4 + 4\u00b7CF + 21\u00b7zeta4 + -21 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "5.25",
+          "enrichment": {
+            "closed_form": "21/4",
+            "closed_form_source": "sympy_relation",
+            "closed_form_kind": "algebraic_root"
+          }
+        },
+        {
+          "constant": "zeta5",
+          "precision": 500,
+          "alpha": [
+            6,
+            1,
+            -2
+          ],
+          "beta": [
+            2,
+            -5,
+            -3
+          ],
+          "alpha_deg": 2,
+          "beta_deg": 2,
+          "mode": "backward",
+          "order": 0,
+          "n_terms": 300,
+          "spec_id": "GCF_2B04BE95",
+          "relation": [
+            0,
+            -6,
+            0,
+            0,
+            7,
+            0
+          ],
+          "degree": 2,
+          "formula": "-6\u00b7CF\u00b7zeta5 + 7\u00b7zeta5 = 0",
+          "is_multi_constant": false,
+          "cf_approx": "1.1666666666666666666666666666666666666666666666667",
+          "enrichment": {}
+        }
+      ],
+      "near_misses": []
+    }
+  ]
+}

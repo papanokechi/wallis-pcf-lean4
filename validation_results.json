@@ -1,0 +1,2219 @@
+{
+  "validated": [
+    {
+      "index": 0,
+      "spec_id": "GCF_C0C79573",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 1,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 1,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 3.6949,
+      "is_mutant": true
+    },
+    {
+      "index": 1,
+      "spec_id": "GCF_791EFA6B",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta3 + -8\u00b7CF + -8\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 249,
+      "max_coeff": 8,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 5.3761,
+      "is_mutant": true
+    },
+    {
+      "index": 2,
+      "spec_id": "GCF_3A610A59",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta3 + -6\u00b7CF + -6\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 5,
+      "beta_deg": 1,
+      "original_precision": 249,
+      "max_coeff": 6,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0033",
+      "coefficient_drift": 4.6995,
+      "is_mutant": true
+    },
+    {
+      "index": 3,
+      "spec_id": "GCF_675469BE",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 8\u00b7CF + -8\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 249,
+      "max_coeff": 8,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0016",
+      "coefficient_drift": 5.33,
+      "is_mutant": true
+    },
+    {
+      "index": 4,
+      "spec_id": "GCF_D1B84976",
+      "constant": "zeta3",
+      "formula": "3\u00b7CF\u00b7zeta3 + 3\u00b7CF + -14\u00b7zeta3 + -14 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 14,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 7.3949,
+      "is_mutant": true
+    },
+    {
+      "index": 5,
+      "spec_id": "GCF_AE8D42B9",
+      "constant": "zeta3",
+      "formula": "62\u00b7CF\u00b2 + -62\u00b7CF\u00b7zeta3 + -551\u00b7CF + 551\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 247,
+      "max_coeff": 551,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 7.59,
+      "is_mutant": true
+    },
+    {
+      "index": 6,
+      "spec_id": "GCF_AC2938EC",
+      "constant": "zeta3",
+      "formula": "13\u00b7CF\u00b7zeta3 + -70\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 70,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 4.3915,
+      "is_mutant": true
+    },
+    {
+      "index": 7,
+      "spec_id": "GCF_9312F0BA",
+      "constant": "catalan",
+      "formula": "8\u00b7CF\u00b2 + 8\u00b7CF\u00b7catalan + 5\u00b7CF + -3\u00b7catalan + -3 = 0",
+      "degree": 2,
+      "alpha_deg": 1,
+      "beta_deg": 3,
+      "original_precision": 1000,
+      "max_coeff": 8,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0054",
+      "coefficient_drift": 6.6039,
+      "is_mutant": true
+    },
+    {
+      "index": 8,
+      "spec_id": "GCF_7457E7FB",
+      "constant": "zeta3",
+      "formula": "-9\u00b7CF\u00b7zeta3 + 44\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 3,
+      "original_precision": 1000,
+      "max_coeff": 44,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 6.2915,
+      "is_mutant": true
+    },
+    {
+      "index": 9,
+      "spec_id": "GCF_71B32B4C",
+      "constant": "zeta4",
+      "formula": "4\u00b7CF\u00b7zeta4 + -4\u00b7CF + 17\u00b7zeta4 + -17 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 17,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 7.88,
+      "is_mutant": true
+    },
+    {
+      "index": 10,
+      "spec_id": "GCF_7EF62B26",
+      "constant": "zeta4",
+      "formula": "-7\u00b7CF\u00b7zeta4 + 7\u00b7CF + 30\u00b7zeta4 + -30 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 30,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 7.2983,
+      "is_mutant": true
+    },
+    {
+      "index": 11,
+      "spec_id": "GCF_70F23F50",
+      "constant": "zeta3",
+      "formula": "-70\u00b7CF\u00b2 + 70\u00b7CF\u00b7zeta3 + -389\u00b7CF + 389\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 248,
+      "max_coeff": 389,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0016",
+      "coefficient_drift": 4.875,
+      "is_mutant": true
+    },
+    {
+      "index": 12,
+      "spec_id": "GCF_660FD0AA",
+      "constant": "zeta5",
+      "formula": "-9\u00b7CF\u00b7zeta5 + -9\u00b7CF + -2\u00b7zeta5 + -2 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 2,
+      "original_precision": 250,
+      "max_coeff": 9,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 9.555,
+      "is_mutant": true
+    },
+    {
+      "index": 13,
+      "spec_id": "GCF_29566589",
+      "constant": "zeta5",
+      "formula": "1\u00b7CF\u00b2 + 2\u00b7CF\u00b7zeta5 + 2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 3,
+      "original_precision": 1000,
+      "max_coeff": 8,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N8_zeta3_0010",
+      "coefficient_drift": 0.995,
+      "is_mutant": true
+    },
+    {
+      "index": 14,
+      "spec_id": "GCF_C06E0325",
+      "constant": "zeta3",
+      "formula": "7\u00b7CF\u00b7zeta3 + 7\u00b7CF + -38\u00b7zeta3 + -38 = 0",
+      "degree": 2,
+      "alpha_deg": 5,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 38,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0086",
+      "coefficient_drift": 4.1946,
+      "is_mutant": true
+    },
+    {
+      "index": 15,
+      "spec_id": "GCF_81C72ABE",
+      "constant": "zeta2",
+      "formula": "-31\u00b7CF\u00b7zeta2 + 389\u00b7zeta2 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 3,
+      "original_precision": 1000,
+      "max_coeff": 389,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 4.795,
+      "is_mutant": true
+    },
+    {
+      "index": 16,
+      "spec_id": "GCF_43517D81",
+      "constant": "zeta3",
+      "formula": "20\u00b7CF\u00b7zeta3 + 20\u00b7CF + -159\u00b7zeta3 + -159 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 159,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0086",
+      "coefficient_drift": 6.3731,
+      "is_mutant": true
+    },
+    {
+      "index": 17,
+      "spec_id": "GCF_AFE0B85D",
+      "constant": "zeta4",
+      "formula": "4\u00b7CF\u00b2 + -4\u00b7CF\u00b7zeta4 + -7\u00b7CF + 7\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 7,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 3.8932,
+      "is_mutant": true
+    },
+    {
+      "index": 18,
+      "spec_id": "GCF_52B13FBC",
+      "constant": "zeta2",
+      "formula": "-7\u00b7CF\u00b7zeta2 + 37\u00b7zeta2 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 37,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 7.5881,
+      "is_mutant": true
+    },
+    {
+      "index": 19,
+      "spec_id": "GCF_8FBC7FE0",
+      "constant": "zeta3",
+      "formula": "11\u00b7CF\u00b7zeta3 + -60\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 60,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 6.09,
+      "is_mutant": true
+    },
+    {
+      "index": 20,
+      "spec_id": "GCF_D88857AD",
+      "constant": "pi2",
+      "formula": "-7\u00b7CF\u00b7pi2 + 55\u00b7pi2 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 55,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0086",
+      "coefficient_drift": 4.8812,
+      "is_mutant": true
+    },
+    {
+      "index": 21,
+      "spec_id": "GCF_00EAE552",
+      "constant": "zeta4",
+      "formula": "-12\u00b7CF\u00b7zeta4 + -55\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 55,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0016",
+      "coefficient_drift": 4.075,
+      "is_mutant": true
+    },
+    {
+      "index": 22,
+      "spec_id": "GCF_5A8C4F18",
+      "constant": "pi2",
+      "formula": "8\u00b7CF\u00b7pi2 + 45\u00b7pi2 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 45,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0016",
+      "coefficient_drift": 4.25,
+      "is_mutant": true
+    },
+    {
+      "index": 23,
+      "spec_id": "GCF_BD2DE7E8",
+      "constant": "zeta3",
+      "formula": "27\u00b7CF\u00b7zeta3 + 176\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 176,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0010",
+      "coefficient_drift": 5.37,
+      "is_mutant": true
+    },
+    {
+      "index": 24,
+      "spec_id": "GCF_5763F234",
+      "constant": "zeta4",
+      "formula": "-23\u00b7CF\u00b7zeta4 + -73\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 73,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 7.585,
+      "is_mutant": true
+    },
+    {
+      "index": 25,
+      "spec_id": "GCF_70A06765",
+      "constant": "zeta3",
+      "formula": "27\u00b7CF\u00b7zeta3 + 14\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 27,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 4.785,
+      "is_mutant": true
+    },
+    {
+      "index": 26,
+      "spec_id": "GCF_AD85227F",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 5\u00b7CF + -5\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 249,
+      "max_coeff": 5,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0076",
+      "coefficient_drift": 5.8879,
+      "is_mutant": true
+    },
+    {
+      "index": 27,
+      "spec_id": "GCF_E391B128",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta3 + -5\u00b7CF + -5\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 249,
+      "max_coeff": 5,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 5.3915,
+      "is_mutant": true
+    },
+    {
+      "index": 28,
+      "spec_id": "GCF_BC4A7191",
+      "constant": "zeta3",
+      "formula": "225\u00b7CF\u00b2 + 225\u00b7CF\u00b7zeta3 + -34\u00b7CF + -34\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 225,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0086",
+      "coefficient_drift": 4.896,
+      "is_mutant": true
+    },
+    {
+      "index": 29,
+      "spec_id": "GCF_1887FA23",
+      "constant": "catalan",
+      "formula": "11\u00b7CF\u00b7catalan + 34\u00b7catalan = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 34,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0072",
+      "coefficient_drift": 3.8954,
+      "is_mutant": true
+    },
+    {
+      "index": 30,
+      "spec_id": "GCF_A40D5266",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + -2\u00b7zeta3 + 2 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 2,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 6.8949,
+      "is_mutant": true
+    },
+    {
+      "index": 31,
+      "spec_id": "GCF_756E14B4",
+      "constant": "zeta3",
+      "formula": "15\u00b7CF\u00b2 + 15\u00b7CF\u00b7zeta3 + -11\u00b7CF + -11\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 2,
+      "original_precision": 249,
+      "max_coeff": 15,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0010",
+      "coefficient_drift": 7.285,
+      "is_mutant": true
+    },
+    {
+      "index": 32,
+      "spec_id": "GCF_CD34EA76",
+      "constant": "zeta3",
+      "formula": "44\u00b7CF\u00b7zeta3 + 7\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 44,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0082",
+      "coefficient_drift": 4.3954,
+      "is_mutant": true
+    },
+    {
+      "index": 33,
+      "spec_id": "GCF_F5FE57DB",
+      "constant": "zeta5",
+      "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta5 + 2\u00b7CF + 3\u00b7zeta5 + -3 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 3,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0042",
+      "coefficient_drift": 4.2912,
+      "is_mutant": true
+    },
+    {
+      "index": 34,
+      "spec_id": "GCF_A11F3355",
+      "constant": "zeta3",
+      "formula": "-73\u00b7CF\u00b7zeta3 + 24\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 73,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0010",
+      "coefficient_drift": 4.07,
+      "is_mutant": true
+    },
+    {
+      "index": 35,
+      "spec_id": "GCF_7AA663EB",
+      "constant": "zeta2",
+      "formula": "-17\u00b7CF\u00b7zeta2 + -41\u00b7zeta2 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 41,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 7.08,
+      "is_mutant": true
+    },
+    {
+      "index": 36,
+      "spec_id": "GCF_33EA0BAB",
+      "constant": "zeta5",
+      "formula": "1\u00b7CF\u00b2 + -2\u00b7CF\u00b7zeta5 + -2\u00b7CF + 8\u00b7zeta5 + -8 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 8,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 7.3949,
+      "is_mutant": true
+    },
+    {
+      "index": 37,
+      "spec_id": "GCF_4F66432E",
+      "constant": "zeta4",
+      "formula": "-4\u00b7CF\u00b7zeta4 + 9\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 9,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 8.5966,
+      "is_mutant": true
+    },
+    {
+      "index": 38,
+      "spec_id": "GCF_3D9536DC",
+      "constant": "zeta4",
+      "formula": "-3\u00b7CF\u00b7zeta4 + -13\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 13,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0042",
+      "coefficient_drift": 3.2912,
+      "is_mutant": true
+    },
+    {
+      "index": 39,
+      "spec_id": "GCF_B02C2DF3",
+      "constant": "zeta5",
+      "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -10\u00b7zeta5 + 10 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 3,
+      "original_precision": 1000,
+      "max_coeff": 10,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 4.995,
+      "is_mutant": true
+    },
+    {
+      "index": 40,
+      "spec_id": "GCF_99CD4B94",
+      "constant": "zeta4",
+      "formula": "-239\u00b7CF\u00b2 + 239\u00b7CF\u00b7zeta4 + 975\u00b7CF + -975\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 975,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0086",
+      "coefficient_drift": 4.5933,
+      "is_mutant": true
+    },
+    {
+      "index": 41,
+      "spec_id": "GCF_68B0A831",
+      "constant": "zeta3",
+      "formula": "5\u00b7CF\u00b2 + 5\u00b7CF\u00b7zeta3 + 28\u00b7CF + 23\u00b7zeta3 + 23 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 249,
+      "max_coeff": 28,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0076",
+      "coefficient_drift": 4.8945,
+      "is_mutant": true
+    },
+    {
+      "index": 42,
+      "spec_id": "GCF_CB356814",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + -13\u00b7zeta3 + 13 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 13,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 9.085,
+      "is_mutant": true
+    },
+    {
+      "index": 43,
+      "spec_id": "GCF_FD2CAF92",
+      "constant": "zeta2",
+      "formula": "17\u00b7CF\u00b2 + 17\u00b7CF\u00b7zeta2 + 63\u00b7CF + 80\u00b7zeta2 + -80 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 80,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0042",
+      "coefficient_drift": 4.0912,
+      "is_mutant": true
+    },
+    {
+      "index": 44,
+      "spec_id": "GCF_F2C491E3",
+      "constant": "zeta4",
+      "formula": "104\u00b7CF\u00b7zeta4 + -225\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 225,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0086",
+      "coefficient_drift": 4.3946,
+      "is_mutant": true
+    },
+    {
+      "index": 45,
+      "spec_id": "GCF_FA58B8A0",
+      "constant": "zeta3",
+      "formula": "-3\u00b7CF\u00b2 + 3\u00b7CF\u00b7zeta3 + -71\u00b7CF + 71\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 2,
+      "original_precision": 247,
+      "max_coeff": 71,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0046",
+      "coefficient_drift": 4.2386,
+      "is_mutant": true
+    },
+    {
+      "index": 46,
+      "spec_id": "GCF_B9299E8E",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + 2\u00b7zeta3 + -2 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 2,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0010",
+      "coefficient_drift": 3.37,
+      "is_mutant": true
+    },
+    {
+      "index": 47,
+      "spec_id": "GCF_FD65086F",
+      "constant": "zeta3",
+      "formula": "223\u00b7CF\u00b7zeta3 + -246\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 5,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 246,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0086",
+      "coefficient_drift": 4.8933,
+      "is_mutant": true
+    },
+    {
+      "index": 48,
+      "spec_id": "GCF_2CE9BB1C",
+      "constant": "zeta4",
+      "formula": "4\u00b7CF\u00b2 + -4\u00b7CF\u00b7zeta4 + -23\u00b7CF + 23\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 249,
+      "max_coeff": 23,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0086",
+      "coefficient_drift": 3.3946,
+      "is_mutant": true
+    },
+    {
+      "index": 49,
+      "spec_id": "GCF_CA6FF8FF",
+      "constant": "zeta2",
+      "formula": "-17\u00b7CF\u00b7zeta2 + 12\u00b7zeta2 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 17,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 6.0932,
+      "is_mutant": true
+    },
+    {
+      "index": 50,
+      "spec_id": "GCF_AF8C5828",
+      "constant": "zeta3",
+      "formula": "5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta3 + -28\u00b7CF + 23\u00b7zeta3 + 23 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 249,
+      "max_coeff": 28,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 5.3915,
+      "is_mutant": true
+    },
+    {
+      "index": 51,
+      "spec_id": "GCF_56B26AAD",
+      "constant": "zeta2",
+      "formula": "14\u00b7CF\u00b2 + -14\u00b7CF\u00b7zeta2 + -9\u00b7CF + 16\u00b7zeta2 + -8 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 3,
+      "original_precision": 1000,
+      "max_coeff": 16,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0010",
+      "coefficient_drift": 4.955,
+      "is_mutant": true
+    },
+    {
+      "index": 52,
+      "spec_id": "GCF_E04AC218",
+      "constant": "zeta3",
+      "formula": "-1\u00b7CF\u00b7zeta3 + -59\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 59,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 9.0949,
+      "is_mutant": true
+    },
+    {
+      "index": 53,
+      "spec_id": "GCF_89A6C7E0",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b7zeta3 + 1\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 5,
+      "beta_deg": 5,
+      "original_precision": 1000,
+      "max_coeff": 1,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N8_zeta5_0020",
+      "coefficient_drift": 2.6,
+      "is_mutant": true
+    },
+    {
+      "index": 54,
+      "spec_id": "GCF_BBF8DADD",
+      "constant": "zeta5",
+      "formula": "2\u00b7CF\u00b7zeta5 + 5\u00b7zeta5 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 5,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0010",
+      "coefficient_drift": 3.87,
+      "is_mutant": true
+    },
+    {
+      "index": 55,
+      "spec_id": "GCF_412DD8E9",
+      "constant": "zeta3",
+      "formula": "71\u00b7CF\u00b7zeta3 + -301\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 3,
+      "original_precision": 1000,
+      "max_coeff": 301,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 5.7915,
+      "is_mutant": true
+    },
+    {
+      "index": 56,
+      "spec_id": "GCF_F560EAAA",
+      "constant": "zeta3",
+      "formula": "-8\u00b7CF\u00b2 + 8\u00b7CF\u00b7zeta3 + -35\u00b7CF + 43\u00b7zeta3 + 43 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 2,
+      "original_precision": 249,
+      "max_coeff": 43,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N8_zeta3_0016",
+      "coefficient_drift": 5.55,
+      "is_mutant": true
+    },
+    {
+      "index": 57,
+      "spec_id": "GCF_29A225AF",
+      "constant": "zeta3",
+      "formula": "-25\u00b7CF\u00b7zeta3 + 83\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 83,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 6.3915,
+      "is_mutant": true
+    },
+    {
+      "index": 58,
+      "spec_id": "GCF_71A30837",
+      "constant": "zeta3",
+      "formula": "61\u00b7CF\u00b7zeta3 + -231\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 231,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 6.3915,
+      "is_mutant": true
+    },
+    {
+      "index": 59,
+      "spec_id": "GCF_444A1334",
+      "constant": "zeta5",
+      "formula": "7\u00b7CF\u00b7zeta5 + 3\u00b7zeta5 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 7,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0010",
+      "coefficient_drift": 7.595,
+      "is_mutant": true
+    },
+    {
+      "index": 60,
+      "spec_id": "GCF_9D243391",
+      "constant": "zeta2",
+      "formula": "17\u00b7CF\u00b7zeta2 + 12\u00b7zeta2 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 17,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 6.38,
+      "is_mutant": true
+    },
+    {
+      "index": 61,
+      "spec_id": "GCF_3597E171",
+      "constant": "zeta2",
+      "formula": "-7\u00b7CF\u00b7zeta2 + 7\u00b7CF + -16\u00b7zeta2 + 16 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 16,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 4.565,
+      "is_mutant": true
+    },
+    {
+      "index": 62,
+      "spec_id": "GCF_CA1BBA0F",
+      "constant": "zeta2",
+      "formula": "17\u00b7CF\u00b7zeta2 + -92\u00b7zeta2 = 0",
+      "degree": 2,
+      "alpha_deg": 1,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 92,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 6.3915,
+      "is_mutant": true
+    },
+    {
+      "index": 63,
+      "spec_id": "GCF_D4F3B2E1",
+      "constant": "zeta5",
+      "formula": "1\u00b7CF\u00b7zeta5 + -1\u00b7CF + -7\u00b7zeta5 + 7 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 3,
+      "original_precision": 1000,
+      "max_coeff": 7,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 11.8051,
+      "is_mutant": true
+    },
+    {
+      "index": 64,
+      "spec_id": "GCF_D8789464",
+      "constant": "zeta2",
+      "formula": "-2\u00b7CF\u00b7zeta2 + -19\u00b7zeta2 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 19,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0016",
+      "coefficient_drift": 6.83,
+      "is_mutant": true
+    },
+    {
+      "index": 65,
+      "spec_id": "GCF_5F1CB84E",
+      "constant": "zeta3",
+      "formula": "-415\u00b7CF\u00b7zeta3 + -104\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 3,
+      "original_precision": 1000,
+      "max_coeff": 415,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0054",
+      "coefficient_drift": 3.8039,
+      "is_mutant": true
+    },
+    {
+      "index": 66,
+      "spec_id": "GCF_96B00ABC",
+      "constant": "zeta4",
+      "formula": "8\u00b7CF\u00b7zeta4 + -13\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 1,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 13,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 4.6949,
+      "is_mutant": true
+    },
+    {
+      "index": 67,
+      "spec_id": "GCF_191A20C3",
+      "constant": "zeta3",
+      "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 6\u00b7CF + -6\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 2,
+      "original_precision": 249,
+      "max_coeff": 6,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 7.295,
+      "is_mutant": true
+    },
+    {
+      "index": 68,
+      "spec_id": "GCF_D674D258",
+      "constant": "zeta4",
+      "formula": "-11\u00b7CF\u00b7zeta4 + -11\u00b7CF + -52\u00b7zeta4 + -52 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 249,
+      "max_coeff": 52,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 4.865,
+      "is_mutant": true
+    },
+    {
+      "index": 69,
+      "spec_id": "GCF_DAE6FDEB",
+      "constant": "zeta5",
+      "formula": "-15\u00b7CF\u00b7zeta5 + 15\u00b7CF + 46\u00b7zeta5 + -46 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 46,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0010",
+      "coefficient_drift": 6.785,
+      "is_mutant": true
+    },
+    {
+      "index": 70,
+      "spec_id": "GCF_5EB21B52",
+      "constant": "zeta3",
+      "formula": "15\u00b7CF\u00b7zeta3 + 15\u00b7CF + -134\u00b7zeta3 + -134 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 134,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0056",
+      "coefficient_drift": 3.5846,
+      "is_mutant": true
+    },
+    {
+      "index": 71,
+      "spec_id": "GCF_EE6DF3BE",
+      "constant": "zeta4",
+      "formula": "-12\u00b7CF\u00b7zeta4 + 55\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 55,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0086",
+      "coefficient_drift": 3.8933,
+      "is_mutant": true
+    },
+    {
+      "index": 72,
+      "spec_id": "GCF_4F1F28AF",
+      "constant": "zeta3",
+      "formula": "4\u00b7CF\u00b7zeta3 + 15\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 15,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 6.88,
+      "is_mutant": true
+    },
+    {
+      "index": 73,
+      "spec_id": "GCF_58DA7AEC",
+      "constant": "zeta4",
+      "formula": "16\u00b7CF\u00b2 + 8\u00b7CF\u00b7zeta4 + 6\u00b7CF + -5\u00b7zeta4 + -10 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 3,
+      "original_precision": 1000,
+      "max_coeff": 16,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N24_zeta3_0054",
+      "coefficient_drift": 7.3039,
+      "is_mutant": true
+    },
+    {
+      "index": 74,
+      "spec_id": "GCF_1964F2E1",
+      "constant": "zeta3",
+      "formula": "-3\u00b7CF\u00b7zeta3 + -19\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 19,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0016",
+      "coefficient_drift": 5.37,
+      "is_mutant": true
+    },
+    {
+      "index": 75,
+      "spec_id": "GCF_A62A8590",
+      "constant": "zeta3",
+      "formula": "5\u00b7CF\u00b7zeta3 + 36\u00b7zeta3 = 0",
+      "degree": 2,
+      "alpha_deg": 3,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 36,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0016",
+      "coefficient_drift": 4.03,
+      "is_mutant": true
+    },
+    {
+      "index": 76,
+      "spec_id": "GCF_89D8FF44",
+      "constant": "zeta4",
+      "formula": "-103\u00b7CF\u00b2 + -103\u00b7CF\u00b7zeta4 + 505\u00b7CF + 505\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 1,
+      "original_precision": 248,
+      "max_coeff": 505,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0086",
+      "coefficient_drift": 5.3946,
+      "is_mutant": true
+    },
+    {
+      "index": 77,
+      "spec_id": "GCF_AF03CA09",
+      "constant": "zeta3",
+      "formula": "-5\u00b7CF\u00b2 + -5\u00b7CF\u00b7zeta3 + -21\u00b7CF + -16\u00b7zeta3 + -16 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 1,
+      "original_precision": 1000,
+      "max_coeff": 21,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0010",
+      "coefficient_drift": 4.37,
+      "is_mutant": true
+    },
+    {
+      "index": 78,
+      "spec_id": "GCF_4B8561C3",
+      "constant": "zeta4",
+      "formula": "-13\u00b7CF\u00b7zeta4 + -38\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 2,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 38,
+      "is_deep": false,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "nearest_seed_id": "KLOOST_N8_zeta3_0012",
+      "coefficient_drift": 6.535,
+      "is_mutant": true
+    },
+    {
+      "index": 79,
+      "spec_id": "GCF_BDF8B087",
+      "constant": "zeta4",
+      "formula": "-3\u00b7CF\u00b7zeta4 + -11\u00b7zeta4 = 0",
+      "degree": 2,
+      "alpha_deg": 4,
+      "beta_deg": 2,
+      "original_precision": 1000,
+      "max_coeff": 11,
+      "is_deep": true,
+      "is_multi": false,
+      "residuals": {
+        "1000": 1000,
+        "1200": 1200,
+        "1500": 1500
+      },
+      "grade": "A",
+      "asymptotic": [
+        {
+          "n_terms": 1000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 2000,
+          "converged": true,
+          "diff_digits": 1000
+        },
+        {
+          "n_terms": 3000,
+          "converged": true,
+          "diff_digits": 1000
+        }
+      ],
+      "nearest_seed_id": "KLOOST_N24_zeta5_0076",
+      "coefficient_drift": 6.0879,
+      "is_mutant": true
+    }
+  ],
+  "summary": {
+    "total": 80,
+    "grades": {
+      "A": 80
+    },
+    "deep_count": 26,
+    "mutant_count": 80,
+    "prec_levels_tested": [
+      1000,
+      1200,
+      1500
+    ]
+  }
+}

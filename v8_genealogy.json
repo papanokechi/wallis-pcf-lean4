@@ -1,0 +1,396 @@
+[
+  {
+    "id": "25ec7f1c-904",
+    "text": "The loss landscape of transformer models undergoes a genuine second-order phase transition at a critical parameter count",
+    "domain": "physics",
+    "status": "alive",
+    "confidence": 0.40486766496876003,
+    "novelty": 0.92,
+    "generation": 1,
+    "parents": [],
+    "tier": "THEORY_PROPOSAL",
+    "b_score": 0.41100192
+  },
+  {
+    "id": "700279cf-a5a",
+    "text": "The apparent 'emergent abilities' in large language models are not phase transitions but percolation thresholds: the mod",
+    "domain": "computer_science",
+    "status": "alive",
+    "confidence": 0.4819912258882501,
+    "novelty": 0.88,
+    "generation": 1,
+    "parents": [],
+    "tier": "CONDITIONAL_BREAKTHROUGH",
+    "b_score": 0.4892940000000001
+  },
+  {
+    "id": "6d97b003-ff1",
+    "text": "The Kolmogorov complexity of a trained neural network's weight vector, when renormalized by layer using an information-t",
+    "domain": "mathematics",
+    "status": "alive",
+    "confidence": 0.4010421069902001,
+    "novelty": 0.95,
+    "generation": 1,
+    "parents": [],
+    "tier": "RESEARCH_DIRECTION",
+    "b_score": 0.4071184000000001
+  },
+  {
+    "id": "9f3f425c-156",
+    "text": "The generalization gap in overparameterized neural networks is governed by a topological invariant of the loss landscape",
+    "domain": "mathematics",
+    "status": "alive",
+    "confidence": 0.39387233802000005,
+    "novelty": 0.8,
+    "generation": 1,
+    "parents": [],
+    "tier": "BREAKTHROUGH_CANDIDATE",
+    "b_score": 0.39984000000000003
+  },
+  {
+    "id": "9521bed9-288",
+    "text": "Large language models encode a compressed representation of the Kolmogorov structure function — the tradeoff between mod",
+    "domain": "computer_science",
+    "status": "falsified",
+    "confidence": 0.0,
+    "novelty": 0.98,
+    "generation": 1,
+    "parents": [],
+    "tier": "",
+    "b_score": 0.481712
+  },
+  {
+    "id": "1f217ee7-61b",
+    "text": "The codon degeneracy of the genetic code is not merely redundancy but an optimal error-correcting code (ECC) in the info",
+    "domain": "biology",
+    "status": "alive",
+    "confidence": 0.35939333135999996,
+    "novelty": 0.75,
+    "generation": 2,
+    "parents": [],
+    "tier": "BREAKTHROUGH_CANDIDATE",
+    "b_score": 0.36301439999999996
+  },
+  {
+    "id": "748087eb-e41",
+    "text": "Protein folding times follow a universal scaling law: the folding time tau scales as tau ~ exp(c * N^{2/3}) where N is t",
+    "domain": "biology",
+    "status": "alive",
+    "confidence": 0.51943522872,
+    "novelty": 0.82,
+    "generation": 2,
+    "parents": [],
+    "tier": "BREAKTHROUGH_CANDIDATE",
+    "b_score": 0.5246688
+  },
+  {
+    "id": "19713045-0ce",
+    "text": "The brain's functional connectivity network operates at a self-organized critical point, and this criticality is maintai",
+    "domain": "neuroscience",
+    "status": "alive",
+    "confidence": 0.38443759777500003,
+    "novelty": 0.78,
+    "generation": 2,
+    "parents": [],
+    "tier": "CONDITIONAL_BREAKTHROUGH",
+    "b_score": 0.388311
+  },
+  {
+    "id": "b5ff0ef2-74a",
+    "text": "The distribution of evolutionary fitness effects (DFE) of mutations in a gene can be predicted from the gene's position ",
+    "domain": "biology",
+    "status": "alive",
+    "confidence": 0.35566766928000004,
+    "novelty": 0.72,
+    "generation": 2,
+    "parents": [],
+    "tier": "BREAKTHROUGH_CANDIDATE",
+    "b_score": 0.35925120000000005
+  },
+  {
+    "id": "2c229afe-0bc",
+    "text": "The human gut microbiome spontaneously organizes into one of exactly 3 stable community states (enterotypes) that corres",
+    "domain": "biology",
+    "status": "alive",
+    "confidence": 0.357122174409,
+    "novelty": 0.8,
+    "generation": 2,
+    "parents": [],
+    "tier": "RESEARCH_DIRECTION",
+    "b_score": 0.36072036
+  },
+  {
+    "id": "e3d862de-414",
+    "text": "[3-WAY SYNTHESIS] biology × computer_science × mathematics: How does 'Protein folding times follow a universal scaling l",
+    "domain": "biology×computer_science×mathematics",
+    "status": "alive",
+    "confidence": 0.6101752095143587,
+    "novelty": 0.5,
+    "generation": 2,
+    "parents": [
+      "748087eb-e41",
+      "700279cf-a5a",
+      "6d97b003-ff1"
+    ],
+    "tier": "CONDITIONAL_BREAKTHROUGH",
+    "b_score": 0.616323031756126
+  },
+  {
+    "id": "b78f9d7f-da6",
+    "text": "[3-WAY SYNTHESIS] computer_science × mathematics × neuroscience: How does 'The apparent 'emergent abilities' in large la",
+    "domain": "computer_science×mathematics×neuroscience",
+    "status": "alive",
+    "confidence": 0.5636295480347039,
+    "novelty": 0.5,
+    "generation": 2,
+    "parents": [
+      "700279cf-a5a",
+      "6d97b003-ff1",
+      "19713045-0ce"
+    ],
+    "tier": "RESEARCH_DIRECTION",
+    "b_score": 0.5693083993179
+  },
+  {
+    "id": "7d058553-f13",
+    "text": "[RECOMBINATION] Bridging biology × physics: The codon degeneracy of the genetic code is not merely redundancy but an opt",
+    "domain": "biology×physics",
+    "status": "alive",
+    "confidence": 0.439772282507596,
+    "novelty": 0.5,
+    "generation": 2,
+    "parents": [
+      "1f217ee7-61b",
+      "25ec7f1c-904"
+    ],
+    "tier": "CONDITIONAL_BREAKTHROUGH",
+    "b_score": 0.44420320952258374
+  },
+  {
+    "id": "d94ad94b-487",
+    "text": "[RECOMBINATION] Bridging biology × physics: Protein folding times follow a universal scaling law: the folding time tau s",
+    "domain": "biology×physics",
+    "status": "alive",
+    "confidence": 0.5286990703786646,
+    "novelty": 0.5,
+    "generation": 2,
+    "parents": [
+      "748087eb-e41",
+      "25ec7f1c-904"
+    ],
+    "tier": "BREAKTHROUGH_CANDIDATE",
+    "b_score": 0.5340259795244207
+  },
+  {
+    "id": "9a1e5ddf-adc",
+    "text": "[RECOMBINATION] Bridging neuroscience × physics: The brain's functional connectivity network operates at a self-organize",
+    "domain": "neuroscience×physics",
+    "status": "alive",
+    "confidence": 0.45483698690182717,
+    "novelty": 0.5,
+    "generation": 2,
+    "parents": [
+      "19713045-0ce",
+      "25ec7f1c-904"
+    ],
+    "tier": "THEORY_PROPOSAL",
+    "b_score": 0.4594196983933004
+  },
+  {
+    "id": "13412658-f01",
+    "text": "[RECOMBINATION] Bridging biology × physics: The distribution of evolutionary fitness effects (DFE) of mutations in a gen",
+    "domain": "biology×physics",
+    "status": "alive",
+    "confidence": 0.43748688769254895,
+    "novelty": 0.5,
+    "generation": 2,
+    "parents": [
+      "b5ff0ef2-74a",
+      "25ec7f1c-904"
+    ],
+    "tier": "BREAKTHROUGH_CANDIDATE",
+    "b_score": 0.44189478820489275
+  },
+  {
+    "id": "fb8208ba-022",
+    "text": "[RECOMBINATION] Bridging biology × physics: The human gut microbiome spontaneously organizes into one of exactly 3 stabl",
+    "domain": "biology×physics",
+    "status": "alive",
+    "confidence": 0.4383805276520692,
+    "novelty": 0.5,
+    "generation": 2,
+    "parents": [
+      "2c229afe-0bc",
+      "25ec7f1c-904"
+    ],
+    "tier": "CONDITIONAL_BREAKTHROUGH",
+    "b_score": 0.44279743203663463
+  },
+  {
+    "id": "53b5c472-026",
+    "text": "Financial market crashes are preceded by measurable critical slowing down in the autocorrelation structure of returns, a",
+    "domain": "economics",
+    "status": "alive",
+    "confidence": 0.3665675520000001,
+    "novelty": 0.82,
+    "generation": 3,
+    "parents": [],
+    "tier": "RESEARCH_DIRECTION",
+    "b_score": 0.36840960000000006
+  },
+  {
+    "id": "3031b281-d2a",
+    "text": "Income inequality within nations follows a Tsallis distribution (q-Gaussian) rather than a log-normal or Pareto distribu",
+    "domain": "economics",
+    "status": "alive",
+    "confidence": 0.39432088800000004,
+    "novelty": 0.88,
+    "generation": 3,
+    "parents": [],
+    "tier": "THEORY_PROPOSAL",
+    "b_score": 0.39630240000000005
+  },
+  {
+    "id": "bd67c1b8-667",
+    "text": "Cities obey an information-theoretic scaling law: the Shannon entropy of the distribution of economic activities across ",
+    "domain": "economics",
+    "status": "alive",
+    "confidence": 0.3776311560000001,
+    "novelty": 0.78,
+    "generation": 3,
+    "parents": [],
+    "tier": "BREAKTHROUGH_CANDIDATE",
+    "b_score": 0.37952880000000006
+  },
+  {
+    "id": "5faeb99a-a0a",
+    "text": "The effectiveness of monetary policy transmission is governed by the spectral gap of the interbank lending network. Spec",
+    "domain": "economics",
+    "status": "alive",
+    "confidence": 0.2847448812000001,
+    "novelty": 0.75,
+    "generation": 3,
+    "parents": [],
+    "tier": "RESEARCH_DIRECTION",
+    "b_score": 0.28617576000000006
+  },
+  {
+    "id": "daeee723-355",
+    "text": "There exists a 'forbidden zone' in the space of economic complexity indices: no country can simultaneously have high pro",
+    "domain": "economics",
+    "status": "alive",
+    "confidence": 0.28531426,
+    "novelty": 0.7,
+    "generation": 3,
+    "parents": [],
+    "tier": "RESEARCH_DIRECTION",
+    "b_score": 0.286748
+  },
+  {
+    "id": "9329788c-cc3",
+    "text": "[3-WAY SYNTHESIS] biology×computer_science×mathematics × computer_science×mathematics×neuroscience × economics: How does",
+    "domain": "biology×computer_science×mathematics×computer_science×mathematics×neuroscience×economics",
+    "status": "alive",
+    "confidence": 0.5915025886500216,
+    "novelty": 0.5,
+    "generation": 3,
+    "parents": [
+      "e3d862de-414",
+      "b78f9d7f-da6",
+      "3031b281-d2a"
+    ],
+    "tier": "RESEARCH_DIRECTION",
+    "b_score": 0.5944749634673584
+  },
+  {
+    "id": "4768d347-955",
+    "text": "[3-WAY SYNTHESIS] computer_science×mathematics×neuroscience × economics × mathematics: How does '[3-WAY SYNTHESIS] compu",
+    "domain": "computer_science×mathematics×neuroscience×economics×mathematics",
+    "status": "alive",
+    "confidence": 0.5415864545656075,
+    "novelty": 0.5,
+    "generation": 3,
+    "parents": [
+      "b78f9d7f-da6",
+      "3031b281-d2a",
+      "6d97b003-ff1"
+    ],
+    "tier": "RESEARCH_DIRECTION",
+    "b_score": 0.544307994538299
+  },
+  {
+    "id": "6b72b541-8ea",
+    "text": "[RECOMBINATION] Bridging economics × physics: Financial market crashes are preceded by measurable critical slowing down ",
+    "domain": "economics×physics",
+    "status": "alive",
+    "confidence": 0.44525449826223307,
+    "novelty": 0.5,
+    "generation": 3,
+    "parents": [
+      "53b5c472-026",
+      "25ec7f1c-904"
+    ],
+    "tier": "CONDITIONAL_BREAKTHROUGH",
+    "b_score": 0.44749195805249553
+  },
+  {
+    "id": "fecf4ca3-456",
+    "text": "[RECOMBINATION] Bridging economics × physics: Income inequality within nations follows a Tsallis distribution (q-Gaussia",
+    "domain": "economics×physics",
+    "status": "alive",
+    "confidence": 0.4618024127905028,
+    "novelty": 0.5,
+    "generation": 3,
+    "parents": [
+      "3031b281-d2a",
+      "25ec7f1c-904"
+    ],
+    "tier": "THEORY_PROPOSAL",
+    "b_score": 0.4641230279301536
+  },
+  {
+    "id": "3d27bfbf-d21",
+    "text": "[RECOMBINATION] Bridging economics × physics: Cities obey an information-theoretic scaling law: the Shannon entropy of t",
+    "domain": "economics×physics",
+    "status": "alive",
+    "confidence": 0.4519238016510156,
+    "novelty": 0.5,
+    "generation": 3,
+    "parents": [
+      "bd67c1b8-667",
+      "25ec7f1c-904"
+    ],
+    "tier": "BREAKTHROUGH_CANDIDATE",
+    "b_score": 0.4541947755286589
+  },
+  {
+    "id": "c035f15d-ba5",
+    "text": "[RECOMBINATION] Bridging economics × physics: The effectiveness of monetary policy transmission is governed by the spect",
+    "domain": "economics×physics",
+    "status": "alive",
+    "confidence": 0.39242735108752036,
+    "novelty": 0.5,
+    "generation": 3,
+    "parents": [
+      "5faeb99a-a0a",
+      "25ec7f1c-904"
+    ],
+    "tier": "THEORY_PROPOSAL",
+    "b_score": 0.39439934782665365
+  },
+  {
+    "id": "d9fe7d34-1c0",
+    "text": "[RECOMBINATION] Bridging economics × physics: There exists a 'forbidden zone' in the space of economic complexity indice",
+    "domain": "economics×physics",
+    "status": "alive",
+    "confidence": 0.3928195060346194,
+    "novelty": 0.5,
+    "generation": 3,
+    "parents": [
+      "daeee723-355",
+      "25ec7f1c-904"
+    ],
+    "tier": "CONDITIONAL_BREAKTHROUGH",
+    "b_score": 0.39479347340162757
+  }
+]

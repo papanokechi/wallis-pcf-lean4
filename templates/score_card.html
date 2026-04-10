@@ -1,0 +1,48 @@
+{# score_card.html — Renders a score badge row + table from evaluation data #}
+{# Usage: {% include 'score_card.html' with context %} #}
+{# Required vars: title, scores (list of {name, score, assessment}), overall #}
+
+<h2 id="sec-{{ section_id }}" data-section="{{ section_id }}"
+    {% if accent_color %}style="color:var(--{{ accent_color }})"{% endif %}>
+  {{ title }}
+  {% if tag %}<span class="tag new">{{ tag }}</span>{% endif %}
+</h2>
+
+{% if description %}
+<section class="card" {% if accent_color %}style="border-left:3px solid var(--{{ accent_color }})"{% endif %}>
+  <p>{{ description }}</p>
+</section>
+{% endif %}
+
+<table data-table="{{ section_id }}-scorecard">
+  <thead>
+    <tr><th>{{ col_labels[0] | default('Category') }}</th><th class="center">Score</th><th>{{ col_labels[2] | default('Notes') }}</th></tr>
+  </thead>
+  <tbody>
+    {% for item in scores %}
+    <tr {% if loop.last %}style="border-top:2px solid var(--{{ accent_color | default('accent') }})"{% endif %}>
+      <td class="bold" {% if loop.last %}style="color:var(--{{ accent_color | default('accent') }})"{% endif %}>
+        {{ item.name }}
+      </td>
+      <td class="center {% if item.score >= 8 %}score-high{% elif item.score >= 7 %}score-mid{% else %}score-low{% endif %}"
+          {% if loop.last %}style="color:var(--{{ accent_color | default('accent') }});font-weight:800;font-size:0.95rem"{% endif %}>
+        {{ item.score }}
+      </td>
+      <td>{{ item.assessment }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if show_stats %}
+<div class="stats-row">
+  {% for item in scores if not loop.last %}
+  <div class="stat-card">
+    <div class="num {% if item.score >= 9 %}green{% elif item.score >= 7 %}amber{% else %}red{% endif %}">
+      {{ item.score }}
+    </div>
+    <div class="lbl">{{ item.name }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}

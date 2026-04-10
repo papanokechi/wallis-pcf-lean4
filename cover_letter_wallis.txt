@@ -1,0 +1,15 @@
+Dear Professor Josef Schicho,
+
+Please consider the manuscript "A One-Parameter Family of Wallis-Type Polynomial Continued Fractions: Discovery and Formal Verification" for publication in the Journal of Symbolic Computation. The paper proves that the continued fractions
+
+  S^(m) = 1 + K_{n>=1} [-n(2n-(2m+1)) / (3n+1)]
+
+admit the closed form 2^(2m+1)/(pi * binom(2m,m)) for every m in N, yielding a new one-parameter Wallis-type family. In addition, the manuscript gives a zero-sorry Lean 4 verification of the recurrence transport lemma, the Wallis base case, and the inductive limit step, so the main theorem is backed by a machine-checked proof chain rather than by numerical evidence alone.
+
+We believe the paper is particularly well suited to the Journal of Symbolic Computation because its main methodological contribution is a reusable Lean-oriented proof pattern. The key intertwining lemma transports solutions between adjacent recurrence parameters and turns the full family proof into a symbolic computation problem plus a formal limit step. This combination of automated discovery, exact recurrence manipulation, and formal certification aligns closely with the journal's symbolic-computation mission.
+
+This manuscript is not under consideration elsewhere, and we have no conflicts of interest to declare. All Lean source files, numerical verification scripts, LaTeX sources, and result files are included in the accompanying repository; the data and code will be made publicly available in that form, with an arXiv link added once the preprint is posted.
+
+Sincerely,
+
+[Author name]

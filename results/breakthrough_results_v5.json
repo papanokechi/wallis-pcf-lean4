@@ -1,0 +1,470 @@
+{
+  "version": "v5_cross_system_universality",
+  "timestamp": "2026-03-21 20:59:59",
+  "question": "Do universal scaling relations connect critical exponents across different physical systems?",
+  "ising": {
+    "exponents": {
+      "d": 2,
+      "alpha": 0.0,
+      "nu": 1.0,
+      "beta": 0.125,
+      "gamma": 1.33
+    },
+    "calibration": {
+      "beta": {
+        "name": "beta",
+        "discovered": 0.125,
+        "exact": 0.125,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "pass": true,
+        "excellent": true
+      },
+      "gamma": {
+        "name": "gamma",
+        "discovered": 1.33,
+        "exact": 1.75,
+        "absolute_error": 0.41999999999999993,
+        "relative_error": 0.23999999999999996,
+        "pass": true,
+        "excellent": false
+      }
+    },
+    "laws_M": [
+      [
+        "1.165 * t_reduced^0.125",
+        0.8468676900490194
+      ],
+      [
+        "1.193 * t_reduced^0.139",
+        0.7169797337564141
+      ],
+      [
+        "4.98*t_reduced^-0.125 + -4.133*t_reduced^-0.139",
+        -1.2333627200966246
+      ]
+    ],
+    "laws_chi": [
+      [
+        "0.2574*t_reduced^-1.33 + -0.004709*t_reduced^-2.5",
+        0.2955300852660311
+      ],
+      [
+        "0.3288 * t_reduced^-1",
+        0.24949096046632846
+      ],
+      [
+        "0.5902 * t_reduced^-0.75",
+        0.23201019066146022
+      ]
+    ]
+  },
+  "percolation_fss": {
+    "L_values": [
+      16,
+      32,
+      64,
+      128,
+      256
+    ],
+    "beta_over_nu": 0.15870355131412903,
+    "beta_over_nu_from_df": 0.1587035513141275,
+    "gamma_over_nu": 1.764999157595111,
+    "d_f": 1.8412964486858725,
+    "beta_fss": 0.21160473508550537,
+    "beta_fss_from_df": 0.21160473508550331,
+    "gamma_fss": 2.3533322101268146,
+    "beta_best": 0.21160473508550331,
+    "gamma_best": 2.3533322101268146,
+    "r2_P": 0.9873968420000623,
+    "r2_S": 0.9988415581963519,
+    "r2_Smax": 0.9999051860309996,
+    "exact_beta_over_nu": 0.10416666666666667,
+    "exact_gamma_over_nu": 1.7916666666666667,
+    "exact_d_f": 1.8958333333333333,
+    "log_L": [
+      2.772588722239781,
+      3.4657359027997265,
+      4.1588830833596715,
+      4.852030263919617,
+      5.545177444479562
+    ],
+    "log_P": [
+      -1.0068150190730856,
+      -1.160186457841666,
+      -1.2689345921115311,
+      -1.3641237427772648,
+      -1.454870972296482
+    ],
+    "log_S": [
+      3.3282471752039124,
+      4.483571891065443,
+      5.6687257519375525,
+      7.058848463324393,
+      8.157629837963082
+    ],
+    "log_Smax": [
+      4.5383624254064765,
+      5.771285347757787,
+      7.048831574607813,
+      8.339936785061969,
+      9.635483916662643
+    ]
+  },
+  "percolation": {
+    "exponents": {
+      "d": 2,
+      "alpha": -0.6666666666666666,
+      "nu": 1.3333333333333333,
+      "beta": 0.21160473508550331,
+      "gamma": 2.3533322101268146,
+      "d_f": 1.8412964486858725
+    },
+    "calibration": {
+      "beta": {
+        "name": "beta",
+        "discovered": 0.25,
+        "exact": 0.1388888888888889,
+        "absolute_error": 0.1111111111111111,
+        "relative_error": 0.7999999999999999,
+        "pass": false,
+        "excellent": false
+      },
+      "gamma": {
+        "name": "gamma",
+        "discovered": 1.0,
+        "exact": 2.388888888888889,
+        "absolute_error": 1.3888888888888888,
+        "relative_error": 0.5813953488372093,
+        "pass": false,
+        "excellent": false
+      },
+      "beta_FSS": {
+        "name": "beta_FSS",
+        "discovered": 0.21160473508550331,
+        "exact": 0.1388888888888889,
+        "absolute_error": 0.07271584619661442,
+        "relative_error": 0.5235540926156238,
+        "pass": false,
+        "excellent": false
+      },
+      "gamma_FSS": {
+        "name": "gamma_FSS",
+        "discovered": 2.3533322101268146,
+        "exact": 2.388888888888889,
+        "absolute_error": 0.035556678762074245,
+        "relative_error": 0.014884191109705498,
+        "pass": true,
+        "excellent": true
+      },
+      "d_f_FSS": {
+        "name": "d_f_FSS",
+        "discovered": 1.8412964486858725,
+        "exact": 1.8958333333333333,
+        "absolute_error": 0.05453688464746076,
+        "relative_error": 0.028766708385473808,
+        "pass": true,
+        "excellent": true
+      }
+    },
+    "laws_P": [
+      [
+        "1.04 * p_reduced^0.25",
+        0.9944946946973573
+      ],
+      [
+        "1.169 * p_reduced^0.333",
+        0.9328982392808649
+      ],
+      [
+        "0.8795 * p_reduced^0.139",
+        0.8044776063560748
+      ]
+    ],
+    "laws_S": [
+      [
+        "6.226 * p_reduced^-1",
+        0.4387460561052773
+      ],
+      [
+        "12.79 * p_reduced^-0.75",
+        0.4150416087192321
+      ],
+      [
+        "2.143 * p_reduced^-1.33",
+        0.41165391304649324
+      ]
+    ]
+  },
+  "materials": {
+    "exponents": {
+      "d": 3,
+      "beta": 0.667
+    },
+    "laws": [
+      [
+        "2.122 * r_X^-0.667",
+        0.5265642475638119
+      ],
+      [
+        "2.204 * r_X^-0.75",
+        0.5185717267428511
+      ],
+      [
+        "1.963 * r_X^-0.5",
+        0.49519698561335834
+      ]
+    ]
+  },
+  "meta_relations": [
+    {
+      "system": "ising_2d",
+      "name": "Rushbrooke",
+      "formula": "\u03b1 + 2\u03b2 + \u03b3 = 2",
+      "lhs": 1.58,
+      "rhs": 2.0,
+      "error": 0.41999999999999993,
+      "verified": true
+    },
+    {
+      "system": "ising_2d",
+      "name": "Hyperscaling",
+      "formula": "d\u03bd = 2 - \u03b1",
+      "lhs": 2.0,
+      "rhs": 2.0,
+      "error": 0.0,
+      "verified": true
+    },
+    {
+      "system": "ising_2d",
+      "name": "Widom (predict \u03b4)",
+      "formula": "\u03b4 = \u03b3/\u03b2 + 1",
+      "predicted_delta": 11.64,
+      "error": 0.0,
+      "verified": true,
+      "note": "Predicted \u03b4 = 11.64"
+    },
+    {
+      "system": "percolation_2d",
+      "name": "Rushbrooke",
+      "formula": "\u03b1 + 2\u03b2 + \u03b3 = 2",
+      "lhs": 3.4432083469644876,
+      "rhs": 2.0,
+      "error": 1.4432083469644876,
+      "verified": false
+    },
+    {
+      "system": "percolation_2d",
+      "name": "Hyperscaling",
+      "formula": "d\u03bd = 2 - \u03b1",
+      "lhs": 2.6666666666666665,
+      "rhs": 1.3333333333333335,
+      "error": 1.333333333333333,
+      "verified": false
+    },
+    {
+      "system": "percolation_2d",
+      "name": "Widom (predict \u03b4)",
+      "formula": "\u03b4 = \u03b3/\u03b2 + 1",
+      "predicted_delta": 12.121358929779626,
+      "error": 0.0,
+      "verified": true,
+      "note": "Predicted \u03b4 = 12.12"
+    },
+    {
+      "system": "materials",
+      "name": "Hyperscaling",
+      "formula": "d\u03bd = 2 - \u03b1",
+      "lhs": 3.0,
+      "rhs": 2.0,
+      "error": 1.0,
+      "verified": false
+    },
+    {
+      "system": "CROSS-SYSTEM",
+      "name": "\u03b2\u00b7\u03b3 product test",
+      "formula": "\u03b2\u00b7\u03b3 = const across systems?",
+      "products": {
+        "ising_2d": 0.16625,
+        "percolation_2d": 0.4979762388920666
+      },
+      "mean": 0.3321131194460333,
+      "cv": 0.49941754701739577,
+      "verified": "False",
+      "note": "CV=0.50 \u2014 DIFFERENT"
+    },
+    {
+      "system": "CROSS-SYSTEM",
+      "name": "\u03b3/\u03b2 ratio test",
+      "formula": "\u03b3/\u03b2 = const across systems?",
+      "ratios": {
+        "ising_2d": 10.64,
+        "percolation_2d": 11.121358929779626
+      },
+      "mean": 10.880679464889813,
+      "std": 0.24067946488981296,
+      "verified": false,
+      "note": "Ratios: ising_2d=10.64, percolation_2d=11.12"
+    }
+  ],
+  "anomalies": [
+    {
+      "type": "exponent_match",
+      "description": "ising_2d.d=2.0000 \u2248 percolation_2d.d=2.0000",
+      "strength": 1.0,
+      "systems": [
+        "ising_2d",
+        "percolation_2d"
+      ]
+    },
+    {
+      "type": "ratio_integer",
+      "description": "ising_2d: |d/nu| \u2248 2/1",
+      "strength": 1.0,
+      "systems": [
+        "ising_2d"
+      ]
+    },
+    {
+      "type": "ratio_integer",
+      "description": "percolation_2d: |d/alpha| \u2248 3/1",
+      "strength": 1.0,
+      "systems": [
+        "percolation_2d"
+      ]
+    },
+    {
+      "type": "ratio_integer",
+      "description": "percolation_2d: |d/nu| \u2248 3/2",
+      "strength": 1.0,
+      "systems": [
+        "percolation_2d"
+      ]
+    },
+    {
+      "type": "ratio_integer",
+      "description": "percolation_2d: |alpha/nu| \u2248 1/2",
+      "strength": 1.0,
+      "systems": [
+        "percolation_2d"
+      ]
+    },
+    {
+      "type": "exponent_match",
+      "description": "percolation_2d.alpha=-0.6667 \u2248 materials.beta=0.6670",
+      "strength": 0.9995002498750624,
+      "systems": [
+        "percolation_2d",
+        "materials"
+      ]
+    },
+    {
+      "type": "exponent_match",
+      "description": "ising_2d.gamma=1.3300 \u2248 percolation_2d.nu=1.3333",
+      "strength": 0.9975,
+      "systems": [
+        "ising_2d",
+        "percolation_2d"
+      ]
+    },
+    {
+      "type": "ratio_integer",
+      "description": "ising_2d: |d/gamma| \u2248 3/2",
+      "strength": 0.9974937343358397,
+      "systems": [
+        "ising_2d"
+      ]
+    },
+    {
+      "type": "ratio_integer",
+      "description": "ising_2d: |nu/gamma| \u2248 3/4",
+      "strength": 0.9974937343358397,
+      "systems": [
+        "ising_2d"
+      ]
+    },
+    {
+      "type": "ratio_integer",
+      "description": "percolation_2d: |nu/d_f| \u2248 3/4",
+      "strength": 0.965503289297371,
+      "systems": [
+        "percolation_2d"
+      ]
+    }
+  ],
+  "predictions": {
+    "ising_M_16\u219232": {
+      "status": "ok",
+      "r2_prediction": 0.8468194826049188,
+      "n_test": 11,
+      "expression": "1.165 * t_reduced^0.125",
+      "train_L": 16,
+      "test_L": 32
+    },
+    "perc_P_32\u219264": {
+      "status": "ok",
+      "r2_prediction": 0.9944923987480956
+    }
+  },
+  "replication": {
+    "ising_beta": {
+      "n_seeds": 5,
+      "n_success": 5,
+      "mean": 0.125,
+      "std": 0.0,
+      "min": 0.125,
+      "max": 0.125,
+      "exact": 0.125,
+      "mean_error": 0.0,
+      "all_same": true,
+      "all_values": [
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125
+      ]
+    },
+    "percolation_beta": {
+      "n_seeds": 5,
+      "n_success": 5,
+      "mean": 0.25,
+      "std": 0.0,
+      "min": 0.25,
+      "max": 0.25,
+      "exact": 0.1388888888888889,
+      "mean_error": 0.1111111111111111,
+      "all_same": true,
+      "all_values": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    }
+  },
+  "dashboard": {
+    "signals": [
+      "ConvergenceSignal(name='calibration.ising.beta', value=1.0, direction='stable', confidence=1.0)",
+      "ConvergenceSignal(name='calibration.ising.gamma', value=0.76, direction='improving', confidence=0.76)",
+      "ConvergenceSignal(name='calibration.percolation.gamma_FSS', value=0.9851158088902945, direction='stable', confidence=0.9851158088902945)",
+      "ConvergenceSignal(name='calibration.percolation.d_f_FSS', value=0.9712332916145262, direction='stable', confidence=0.9712332916145262)"
+    ],
+    "overall_score": 0.9167188749831514,
+    "calibration_score": 0.9290872751262051,
+    "rg_score": 0.8335,
+    "prediction_score": 0.9206559406765071,
+    "anomaly_score": 0.8907724537753242,
+    "replication_score": 1.0
+  },
+  "statistics": {
+    "total_laws": 15,
+    "bh_significant": 8
+  },
+  "elapsed_seconds": 467.4925739765167,
+  "answer": {
+    "question": "Do universal scaling relations connect critical exponents across different physical systems?",
+    "rushbrooke_universal": false
+  }
+}

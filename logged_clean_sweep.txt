@@ -1,0 +1,118 @@
+==========================================================================
+  LOGGED CLEAN SWEEP — 100 CANDIDATES
+  Precision: 300dp, Depth: 300, RNG seed: 12345
+==========================================================================
+
+[  1] IRRATIONAL-UNID  CF=-0.0832356447991712  adeg=3|bdeg=1         a=[0, 0, 1, -2] b=[1, 2]
+[  2] RATIONAL  CF=1/    1  adeg=1|bdeg=1         a=[0, 0] b=[1, 2]  — FILTERED
+[  3] IRRATIONAL-UNID  CF=0.811517241292897  adeg=2|bdeg=1         a=[0, 1, 1] b=[0, 1]
+[  4] IRRATIONAL-UNID  CF=-2.83700026892116  adeg=2|bdeg=1         a=[0, 0, -1] b=[-2, 4]
+[  5] RATIONAL  CF=0/    1  adeg=4|bdeg=3         a=[-1, 0, 0, 0, 1] b=[0, -2, 6, 4]  — FILTERED
+[  6] IRRATIONAL-UNID  CF=0.304764157492037  adeg=3|bdeg=1         a=[-1, 0, 4, -1] b=[0, 6]
+[  7] IRRATIONAL-UNID  CF=4.73999815209741  adeg=4|bdeg=3         a=[-2, 1, -2, 0, 0] b=[5, 6, 8, -8]
+[  8] IRRATIONAL-UNID  CF=5.4015316782371  adeg=3|bdeg=3         a=[2, 1, -1, 2] b=[5, 6, 8, -8]
+[  9] IRRATIONAL-UNID  CF=-6.26620327849611  adeg=6|bdeg=1         a=[-3, 4, -4, 1, 0, 0, -3] b=[-6, 0]
+[ 10] IRRATIONAL-UNID  CF=-5.34499803807216  adeg=5|bdeg=2         a=[0, -2, 1, 0, 0, -1] b=[-6, 0, 1]
+[ 11] IRRATIONAL-UNID  CF=3.16695719585761  adeg=4|bdeg=1         a=[6, -3, 0, 0, -2] b=[3, 1]
+[ 12] IRRATIONAL-UNID  CF=17.7181663820424  adeg=6|bdeg=2         a=[6, -3, 0, 0, 0, 2, 0] b=[-6, 0, 1]
+[ 13] IRRATIONAL-UNID  CF=9.75166431300252  adeg=5|bdeg=2         a=[-2, 1, 0, 0, 0, -1] b=[10, 0, 0]
+[ 14] IRRATIONAL-UNID  CF=-5.26542825668386  adeg=2|bdeg=2         a=[-4, 2, -2] b=[-6, 0, 1]
+[ 15] IRRATIONAL-UNID  CF=-6.52835565337878  adeg=2|bdeg=2         a=[-6, 3, 1] b=[-6, 0, 1]
+[ 16] IRRATIONAL-UNID  CF=-4.21778470596034  adeg=5|bdeg=2         a=[0, -2, 1, 0, 0, 3] b=[-6, 0, 1]
+[ 17] IRRATIONAL-UNID  CF=-5.56533776810361  adeg=2|bdeg=3         a=[-3, -1, 1] b=[-6, 0, -1, 0]
+[ 18] IRRATIONAL-UNID  CF=9.7699284895116  adeg=4|bdeg=2         a=[-2, 1, 0, -1, 0] b=[10, 0, 0]
+[ 19] IRRATIONAL-UNID  CF=8.03384068715536  adeg=3|bdeg=3         a=[6, -2, 0, 3] b=[5, 5, -1, -6]
+[ 20] IRRATIONAL-UNID  CF=-8.08826365934236  adeg=6|bdeg=1         a=[-4, 1, -4, 1, 0, 0, -1] b=[-6, 0]
+[ 21] IRRATIONAL-UNID  CF=-6.00382498746074  adeg=10|bdeg=3        a=[-3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3] b=[-6, 0, -1, 0]
+[ 22] IRRATIONAL-UNID  CF=-6.57039901564423  adeg=6|bdeg=2         a=[6, -1, 0, 0, 0, 0, 0] b=[-6, 0, 1]
+[ 23] RATIONAL  CF=-46/   13  adeg=1|bdeg=2         a=[-10, 2] b=[-6, 0, 1]  — FILTERED
+[ 24] IRRATIONAL-UNID  CF=4.72785116276531  adeg=4|bdeg=3         a=[0, -2, 1, 0, -3] b=[5, 6, 8, -8]
+[ 25] IRRATIONAL-UNID  CF=3.28703360111408  adeg=2|bdeg=1         a=[4, -3, 0] b=[3, 1]
+[ 26] IRRATIONAL-UNID  CF=3.83251151145434  adeg=3|bdeg=3         a=[-6, -5, 4, -1] b=[6, -4, -3, 5]
+[ 27] RATIONAL  CF=6/    1  adeg=2|bdeg=1         a=[0, 3, -3] b=[6, -2]  — FILTERED
+[ 28] IRRATIONAL-UNID  CF=9.91807389439547  adeg=5|bdeg=2         a=[-3, 1, 0, 0, 0, 1] b=[10, 0, 0]
+[ 29] RATIONAL  CF=-6/    1  adeg=2|bdeg=2         a=[2, 1, -3] b=[-6, 0, 1]  — FILTERED
+[ 30] IRRATIONAL-UNID  CF=-4.19708386970854  adeg=8|bdeg=3         a=[-3, 1, 0, 0, 0, -1, 0, 0, 0] b=[-6, 0, -1, 0]
+[ 31] IRRATIONAL-UNID  CF=-5.8716004731103  adeg=4|bdeg=2         a=[-4, 1, 1, 0, 0] b=[-6, 0, 1]
+[ 32] IRRATIONAL-UNID  CF=5.47750768664806  adeg=2|bdeg=3         a=[6, -3, 2] b=[5, 6, 8, -8]
+[ 33] IRRATIONAL-UNID  CF=-5.07743494247588  adeg=4|bdeg=1         a=[-3, 4, -4, 1, 3] b=[-5, -6]
+[ 34] RATIONAL  CF=-382/   67  adeg=6|bdeg=3         a=[-3, 4, -4, 1, 0, 0, 0] b=[-6, 0, -1, 0]  — FILTERED
+[ 35] IRRATIONAL-UNID  CF=-5.5196953417242  adeg=3|bdeg=2         a=[0, -2, 0, 0] b=[-6, 0, 1]
+[ 36] IRRATIONAL-UNID  CF=-3.40569360913902  adeg=4|bdeg=1         a=[-4, 0, -4, 1, 0] b=[-6, 0]
+[ 37] IRRATIONAL-UNID  CF=6.7617428934943  adeg=2|bdeg=3         a=[6, -2, 1] b=[5, 5, -1, -6]
+[ 38] IRRATIONAL-UNID  CF=-4.34968205919702  adeg=2|bdeg=1         a=[-2, -2, 1] b=[-5, 0]
+[ 39] IRRATIONAL-UNID  CF=-5.84209379248022  adeg=4|bdeg=3         a=[-3, 4, -4, -1, 0] b=[-6, 0, -1, 0]
+[ 40] IRRATIONAL-UNID  CF=-5.41198706511103  adeg=3|bdeg=3         a=[-4, -1, 1, 0] b=[-6, 0, -1, 0]
+[ 41] RATIONAL  CF=62/  -11  adeg=3|bdeg=1         a=[-3, 4, -4, 1] b=[-6, 0]  — FILTERED
+[ 42] RATIONAL  CF=-16/    3  adeg=5|bdeg=1         a=[0, -6, 1, 1, 0, 0] b=[-6, 0]  — FILTERED
+[ 43] RATIONAL  CF=-44/    7  adeg=2|bdeg=3         a=[6, -5, 1] b=[-6, 0, -1, 0]  — FILTERED
+[ 44] RATIONAL  CF=41/   -7  adeg=4|bdeg=3         a=[-2, 1, 0, 0, 0] b=[-6, 0, -1, 0]  — FILTERED
+[ 45] IRRATIONAL-UNID  CF=10.0964266245455  adeg=2|bdeg=2         a=[0, 0, 1] b=[10, 0, 0]
+[ 46] RATIONAL  CF=15/    4  adeg=3|bdeg=1         a=[6, -3, 0, 0] b=[3, 1]  — FILTERED
+[ 47] RATIONAL  CF=35/   -8  adeg=4|bdeg=1         a=[-4, 1, -4, 1, 0] b=[-6, 0]  — FILTERED
+[ 48] RATIONAL  CF=-693/  146  adeg=6|bdeg=1         a=[0, -6, 1, 0, 0, 0, 0] b=[-6, 0]  — FILTERED
+[ 49] RATIONAL  CF=-382/   67  adeg=3|bdeg=3         a=[-3, 4, -4, 1] b=[-6, 0, -1, 0]  — FILTERED
+[ 50] RATIONAL  CF=15/    4  adeg=2|bdeg=1         a=[6, -3, 0] b=[3, 1]  — FILTERED
+[ 51] RATIONAL  CF=-970/  -99  adeg=8|bdeg=2         a=[-3, 1, 0, 0, 0, 0, 0, 0, 0] b=[10, 0, 0]  — FILTERED
+[ 52] RATIONAL  CF=-27/    5  adeg=1|bdeg=2         a=[-6, 3] b=[-6, 0, 1]  — FILTERED
+[ 53] RATIONAL  CF=-693/  146  adeg=6|bdeg=1         a=[0, -6, 1, 0, 0, 0, 0] b=[-6, 0]  — FILTERED
+[ 54] RATIONAL  CF=35/   -8  adeg=5|bdeg=1         a=[-4, 1, -4, 1, 0, 0] b=[-6, 0]  — FILTERED
+[ 55] RATIONAL  CF=-13/   -4  adeg=4|bdeg=1         a=[4, -2, -2, 1, 0] b=[3, 1]  — FILTERED
+[ 56] IRRATIONAL-UNID  CF=-6.85377196529811  adeg=4|bdeg=2         a=[0, 0, 0, 0, 1] b=[-6, 0, 1]
+[ 57] RATIONAL  CF=14/    9  adeg=3|bdeg=2         a=[-3, 4, -4, 1] b=[2, 4, -1]  — FILTERED
+[ 58] RATIONAL  CF=35/   -8  adeg=5|bdeg=1         a=[-4, 1, -4, 1, 0, 0] b=[-6, 0]  — FILTERED
+[ 59] RATIONAL  CF=198/  -35  adeg=9|bdeg=1         a=[-3, 1, 0, 0, 0, 0, 0, 0, 0, 0] b=[-6, 0]  — FILTERED
+[ 60] IRRATIONAL-UNID  CF=-1.61344689332788  adeg=2|bdeg=1         a=[0, 0, 1] b=[-2, 4]
+[ 61] IRRATIONAL-UNID  CF=-6.24255650381534  adeg=1|bdeg=2         a=[1, 1] b=[-6, -1, -1]
+[ 62] IRRATIONAL-UNID  CF=1.39696428140407  adeg=3|bdeg=3         a=[0, 3, 3, 6] b=[3, -5, 1, -5]
+[ 63] IRRATIONAL-UNID  CF=-1.58601813677898  adeg=3|bdeg=3         a=[-6, -2, -3, 2] b=[-5, 1, 1, 1]
+[ 64] IRRATIONAL-UNID  CF=-1.92601975183293  adeg=3|bdeg=3         a=[-3, -1, 5, 6] b=[-4, 0, 3, 2]
+[ 65] RATIONAL  CF=2/    1  adeg=2|bdeg=2         a=[1, -4, 3] b=[2, 3, 2]  — FILTERED
+[ 66] IRRATIONAL-UNID  CF=17.8821887585155  adeg=1|bdeg=3         a=[5, 1] b=[6, -6, 4, -3]
+[ 67] IRRATIONAL-UNID  CF=-5.23178261655375  adeg=2|bdeg=2         a=[-5, 2, 6] b=[-5, -5, -2]
+[ 68] RATIONAL  CF=-159/  130  adeg=1|bdeg=2         a=[-3, 1] b=[-1, 5, 5]  — FILTERED
+[ 69] IRRATIONAL-UNID  CF=-7.05314369788446  adeg=3|bdeg=3         a=[-3, 4, 1, 2] b=[-5, 2, -6, 2]
+[ 70] IRRATIONAL-UNID  CF=-2.80386103453759  adeg=3|bdeg=2         a=[-3, 0, 1, 4] b=[-5, 0, 1]
+[ 71] IRRATIONAL-UNID  CF=-1.51294898127201  adeg=3|bdeg=3         a=[-2, 0, 3, 5] b=[-4, -3, 5, 3]
+[ 72] IRRATIONAL-UNID  CF=7.59180330930771  adeg=2|bdeg=2         a=[3, 4, 6] b=[6, -4, 4]
+[ 73] IRRATIONAL-UNID  CF=0.636740179729411  adeg=2|bdeg=2         a=[-2, -6, 6] b=[1, -1, 5]
+[ 74] RATIONAL  CF=-3/    1  adeg=3|bdeg=2         a=[-6, 5, 0, 1] b=[-3, 2, -2]  — FILTERED
+[ 75] IRRATIONAL-UNID  CF=-5.81284253387073  adeg=2|bdeg=2         a=[-3, -2, 2] b=[-6, -6, -4]
+[ 76] IRRATIONAL-UNID  CF=2.9084879548332  adeg=1|bdeg=2         a=[-3, 4] b=[3, 3, -2]
+[ 77] IRRATIONAL-UNID  CF=7.01408052724507  adeg=2|bdeg=3         a=[4, 5, 4] b=[6, 1, 3, 2]
+[ 78] IRRATIONAL-UNID  CF=5.18754845051798  adeg=3|bdeg=2         a=[2, -5, 4, 1] b=[5, 1, 4]
+[ 79] IRRATIONAL-UNID  CF=-0.322886616685522  adeg=3|bdeg=3         a=[5, -5, 5, 5] b=[-2, 4, -1, 3]
+[ 80] IRRATIONAL-UNID  CF=6.6872887685453  adeg=3|bdeg=3         a=[0, 5, 4, 5] b=[5, 0, -3, 3]
+[ 81] IRRATIONAL-UNID  CF=3.78297035455318  adeg=3|bdeg=3         a=[4, -6, -1, 4] b=[4, -2, -4, -2]
+[ 82] IRRATIONAL-UNID  CF=-4.1193446167122  adeg=3|bdeg=3         a=[-1, 0, -6, 1] b=[-3, 5, 3, 1]
+[ 83] IRRATIONAL-UNID  CF=6.42632832601445  adeg=3|bdeg=3         a=[1, -4, 3, 6] b=[6, -1, 5, 3]
+[ 84] IRRATIONAL-UNID  CF=4.66911491333264  adeg=2|bdeg=3         a=[-4, 1, 1] b=[5, -6, 1, 6]
+[ 85] IRRATIONAL-UNID  CF=0.321410994320414  adeg=3|bdeg=3         a=[1, -3, 3, 2] b=[-1, 1, -2, 3]
+[ 86] IRRATIONAL-UNID  CF=-7.25343477160912  adeg=3|bdeg=3         a=[-5, -4, -4, 2] b=[-6, 6, 5, 4]
+[ 87] RATIONAL  CF=691/ -160  adeg=1|bdeg=2         a=[-4, 1] b=[-5, -3, 4]  — FILTERED
+[ 88] IRRATIONAL-UNID  CF=2.28762353861603  adeg=3|bdeg=3         a=[-2, 3, -3, 4] b=[2, 3, -2, 3]
+[ 89] IRRATIONAL-UNID  CF=4.28721943188713  adeg=2|bdeg=2         a=[-1, 0, 6] b=[3, -5, 3]
+[ 90] IRRATIONAL-UNID  CF=42.9042472161954  adeg=3|bdeg=3         a=[-3, -2, -5, 4] b=[4, -2, 4, -6]
+[ 91] IRRATIONAL-UNID  CF=-2.24128093405343  adeg=1|bdeg=3         a=[-3, 5] b=[-2, -3, -2, -1]
+[ 92] IRRATIONAL-UNID  CF=-4.26703668302896  adeg=2|bdeg=2         a=[-4, 6, 5] b=[-3, 5, -6]
+[ 93] IRRATIONAL-UNID  CF=-0.154791256346208  adeg=1|bdeg=1         a=[-6, 4] b=[1, 0]
+[ 94] IRRATIONAL-UNID  CF=-4.91870430644183  adeg=2|bdeg=2         a=[4, 2, 2] b=[-4, 1, -5]
+[ 95] IRRATIONAL-UNID  CF=0.195935179204505  adeg=3|bdeg=3         a=[-4, -6, -5, 6] b=[-1, -4, -1, -1]
+[ 96] IRRATIONAL-UNID  CF=-5.30727257548349  adeg=2|bdeg=1         a=[2, -1, 1] b=[-5, -1]
+[ 97] IRRATIONAL-UNID  CF=-4.45077479489543  adeg=3|bdeg=3         a=[2, -4, 2, 5] b=[-4, 0, -6, 1]
+[ 98] IRRATIONAL-UNID  CF=-2.55092793906636  adeg=2|bdeg=2         a=[-4, 6, 4] b=[-4, 2, 5]
+[ 99] RATIONAL  CF=20/    7  adeg=3|bdeg=2         a=[-2, 5, -6, 2] b=[3, -1, 5]  — FILTERED
+[100] IRRATIONAL-UNID  CF=-4.7353146316054  adeg=3|bdeg=3         a=[-5, -5, 4, 2] b=[-4, 1, 6, 2]
+
+==========================================================================
+  SUMMARY
+==========================================================================
+  Total candidates:   100
+  Rational (filtered):  28
+  Irrational:           72
+  Genuine hits:          0
+  Divergent/error:       0
+  Filter active:      YES
+
+  72 irrational CF values found but none identified
+  with known constants at degree-1 PSLQ.

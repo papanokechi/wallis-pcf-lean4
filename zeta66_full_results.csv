@@ -1,0 +1,4 @@
+target,tested,novel,deep6_hits,hit_rate_pct,near_miss_count,elapsed_seconds
+zeta5,1280,107,13,8.359,0,150.859
+zeta7,1280,107,15,8.359,0,156.393
+zeta3,1280,98,12,7.656,0,144.364

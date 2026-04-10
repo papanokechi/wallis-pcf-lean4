@@ -1,0 +1,6 @@
+Review the last {n} iterations. Identify patterns:
+- Which approaches consistently succeed?
+- Which consistently fail?
+- What tools are missing?
+- What scoring adjustments would improve target selection?
+Propose ONE concrete improvement to the agent's behavior.

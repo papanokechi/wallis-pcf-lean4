@@ -1,0 +1,48 @@
+[
+  {
+    "id": "evolved_mech_network",
+    "name": "Mechanism Recurrence: Network",
+    "core": "The concept of 'network' recurred in 2 independent breakthrough hypotheses, suggesting it is a productive structural lens for discovery",
+    "origin": "V8.5 Pattern Evolution (mechanism mining)",
+    "appeared_in": [
+      "biology",
+      "biology×computer_science×mathematics",
+      "biology×physics",
+      "computer_science",
+      "economics",
+      "economics×physics",
+      "mathematics",
+      "neuroscience"
+    ],
+    "tags": [
+      "network",
+      "evolved",
+      "mechanism_recurrence"
+    ],
+    "recurrence_count": 2,
+    "discovered_at": "2026-03-27T18:29:30.680403"
+  },
+  {
+    "id": "evolved_mech_critical",
+    "name": "Mechanism Recurrence: Critical",
+    "core": "The concept of 'critical' recurred in 2 independent breakthrough hypotheses, suggesting it is a productive structural lens for discovery",
+    "origin": "V8.5 Pattern Evolution (mechanism mining)",
+    "appeared_in": [
+      "biology",
+      "biology×computer_science×mathematics",
+      "biology×physics",
+      "computer_science",
+      "economics",
+      "economics×physics",
+      "mathematics",
+      "neuroscience"
+    ],
+    "tags": [
+      "critical",
+      "evolved",
+      "mechanism_recurrence"
+    ],
+    "recurrence_count": 2,
+    "discovered_at": "2026-03-27T18:29:30.680428"
+  }
+]

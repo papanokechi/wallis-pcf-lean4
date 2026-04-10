@@ -1,0 +1,528 @@
+{
+  "generated_at": "2026-04-04 18:06:59",
+  "script": "ramanujan_agent_v2_fast.py",
+  "target": "zeta3",
+  "llm_mode": "disabled",
+  "lirec_enabled": false,
+  "stats": {
+    "iters": 4,
+    "tested": 256,
+    "discoveries": 14,
+    "novel": 14,
+    "rate_percent": 350.0,
+    "seeds_injected": 70,
+    "llm_calls": 0,
+    "elapsed_human": "0m04s",
+    "elapsed_seconds": 4.645,
+    "gcf_per_sec": 55.11
+  },
+  "environment": {
+    "python": "3.14.3",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.29560-SP0",
+    "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "cpu_count": 8,
+    "mpmath": "1.4.1"
+  },
+  "artifacts": {
+    "discoveries_path": "ramanujan_discoveries.json",
+    "seed_path": "relay_chain_seed_pool.json",
+    "profile_path": null
+  },
+  "pslq": {
+    "tested_targets": 566,
+    "pslq_calls": 1127,
+    "degree2_calls": 561,
+    "prefilter_skips": 0,
+    "neighbour_attempts": 420,
+    "neighbour_skips": 444,
+    "found": 14
+  },
+  "run_config": {
+    "iters": 4,
+    "target": "zeta3",
+    "batch": 64,
+    "effective_batch": 64,
+    "workers": 0,
+    "executor": "process",
+    "prec": 300,
+    "quiet": true,
+    "seed": 123,
+    "llm": false,
+    "lirec": false,
+    "seed_file": null
+  },
+  "discoveries": [
+    {
+      "spec": {
+        "spec_id": "GCF_0A77FBB8",
+        "alpha": [
+          -2,
+          1
+        ],
+        "beta": [
+          6,
+          4,
+          5,
+          -3
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "catalan",
+      "relation": [
+        0,
+        12,
+        0,
+        0,
+        -71,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "12\u00b7CF\u00b7catalan + -71\u00b7catalan = 0",
+      "timestamp": 1775293616.101059,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_4FDAAEA7",
+        "alpha": [
+          -2,
+          2
+        ],
+        "beta": [
+          6,
+          4,
+          5,
+          -3
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        1,
+        1,
+        0,
+        -6,
+        -6,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 80,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta3 + -6\u00b7CF + -6\u00b7zeta3 = 0",
+      "timestamp": 1775293617.1241374,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_C0C79573",
+        "alpha": [
+          -1,
+          1
+        ],
+        "beta": [
+          1,
+          2
+        ],
+        "target": "zeta3",
+        "n_terms": 200,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7zeta3 = 0",
+      "timestamp": 1775293617.2399144,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_62AF7A46",
+        "alpha": [
+          -2,
+          2
+        ],
+        "beta": [
+          -5,
+          27,
+          -51,
+          34
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 3
+      },
+      "constant": "zeta3",
+      "relation": [
+        1,
+        -1,
+        0,
+        5,
+        -5,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 79,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 5\u00b7CF + -5\u00b7zeta3 = 0",
+      "timestamp": 1775293617.1283548,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_769F0A93",
+        "alpha": [
+          0,
+          -3,
+          3
+        ],
+        "beta": [
+          -6,
+          6
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        1,
+        -1,
+        0,
+        6,
+        -6,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 80,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b2 + -1\u00b7CF\u00b7zeta3 + 6\u00b7CF + -6\u00b7zeta3 = 0",
+      "timestamp": 1775293617.5576901,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_7EB1EBBD",
+        "alpha": [
+          -4,
+          2
+        ],
+        "beta": [
+          -2,
+          -3,
+          0,
+          -3
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta4",
+      "relation": [
+        4,
+        4,
+        0,
+        7,
+        7,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "4\u00b7CF\u00b2 + 4\u00b7CF\u00b7zeta4 + 7\u00b7CF + 7\u00b7zeta4 = 0",
+      "timestamp": 1775293617.371737,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_7CBFB47A",
+        "alpha": [
+          -6,
+          2
+        ],
+        "beta": [
+          -3,
+          -5,
+          1,
+          3
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta2",
+      "relation": [
+        0,
+        -31,
+        0,
+        0,
+        -63,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "-31\u00b7CF\u00b7zeta2 + -63\u00b7zeta2 = 0",
+      "timestamp": 1775293617.4293203,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_92B75EC3",
+        "alpha": [
+          -5,
+          5
+        ],
+        "beta": [
+          5,
+          -6
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        1,
+        1,
+        0,
+        -5,
+        -5,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 79,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b2 + 1\u00b7CF\u00b7zeta3 + -5\u00b7CF + -5\u00b7zeta3 = 0",
+      "timestamp": 1775293617.6770403,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_29E9F477",
+        "alpha": [
+          -4,
+          2
+        ],
+        "beta": [
+          6,
+          4,
+          5,
+          -3
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        -6,
+        0,
+        0,
+        35,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "-6\u00b7CF\u00b7zeta3 + 35\u00b7zeta3 = 0",
+      "timestamp": 1775293618.4586875,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_FD7345EC",
+        "alpha": [
+          -4,
+          4
+        ],
+        "beta": [
+          -1,
+          -6,
+          0,
+          -24
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + 1\u00b7zeta3 = 0",
+      "timestamp": 1775293618.7273552,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_56EB174F",
+        "alpha": [
+          -6,
+          6
+        ],
+        "beta": [
+          -3,
+          -10,
+          4,
+          24
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta4",
+      "relation": [
+        0,
+        1,
+        0,
+        -1,
+        3,
+        -3
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta4 + -1\u00b7CF + 3\u00b7zeta4 + -3 = 0",
+      "timestamp": 1775293618.834278,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_6F2DAE1D",
+        "alpha": [
+          1,
+          -3,
+          2
+        ],
+        "beta": [
+          4,
+          -5,
+          -6
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta4",
+      "relation": [
+        0,
+        1,
+        0,
+        -1,
+        -4,
+        4
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta4 + -1\u00b7CF + -4\u00b7zeta4 + 4 = 0",
+      "timestamp": 1775293619.1382995,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_A969B595",
+        "alpha": [
+          -4,
+          2
+        ],
+        "beta": [
+          -3,
+          -5,
+          1,
+          3
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta4",
+      "relation": [
+        0,
+        2,
+        0,
+        0,
+        5,
+        0
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "2\u00b7CF\u00b7zeta4 + 5\u00b7zeta4 = 0",
+      "timestamp": 1775293619.2808716,
+      "enrichment": {}
+    },
+    {
+      "spec": {
+        "spec_id": "GCF_98922C4E",
+        "alpha": [
+          -2,
+          2
+        ],
+        "beta": [
+          -2,
+          -3,
+          0,
+          -3
+        ],
+        "target": "zeta3",
+        "n_terms": 120,
+        "mode": "backward",
+        "order": 0
+      },
+      "constant": "zeta3",
+      "relation": [
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2
+      ],
+      "degree": 2,
+      "precision_dp": 300,
+      "conv_digits": 300,
+      "formula": "1\u00b7CF\u00b7zeta3 + -1\u00b7CF + 2\u00b7zeta3 + -2 = 0",
+      "timestamp": 1775293619.1096013,
+      "enrichment": {}
+    }
+  ]
+}

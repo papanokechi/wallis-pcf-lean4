@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breakthrough Engine V8.0 — Evolutionary Discovery Dashboard</title>
+<style>
+:root {
+  --bg: #0a0e14; --surface: #111820; --surface2: #1a2230;
+  --border: #2a3545; --border2: #3a4a60;
+  --text: #c8d0dc; --text2: #8892a0; --text3: #5c6670;
+  --accent1: #00e5a0; --accent2: #00b4d8; --accent3: #ff6b6b;
+  --accent4: #ffd93d; --accent5: #c77dff; --accent6: #ff8c42;
+  --mono: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+  --sans: 'Inter', -apple-system, sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:var(--bg); color:var(--text); font-family:var(--sans);
+  font-size:13px; line-height:1.6;
+}
+.dashboard { display:grid; grid-template-columns:1fr 320px; min-height:100vh; }
+.main { padding:20px 24px; overflow-y:auto; }
+.sidebar { background:var(--surface); border-left:1px solid var(--border);
+  padding:16px; overflow-y:auto; }
+
+h1 { font-size:20px; color:var(--accent1); margin-bottom:4px;
+  font-family:var(--mono); letter-spacing:-0.5px; }
+.subtitle { color:var(--text2); font-size:12px; margin-bottom:20px; }
+.version { color:var(--accent5); font-family:var(--mono); }
+
+/* Tabs */
+.tabs { display:flex; gap:2px; margin-bottom:16px; flex-wrap:wrap; }
+.tab {
+  padding:6px 14px; background:var(--surface2); border:1px solid var(--border);
+  color:var(--text2); cursor:pointer; font-size:12px; font-family:var(--mono);
+  border-radius:4px 4px 0 0; transition:all 0.15s;
+}
+.tab:hover { color:var(--text); background:var(--surface); }
+.tab.active { color:var(--accent1); border-bottom-color:var(--bg);
+  background:var(--bg); }
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+
+/* Stats cards */
+.stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
+  margin-bottom:16px; }
+.stat-card {
+  background:var(--surface2); border:1px solid var(--border);
+  padding:12px; border-radius:6px; text-align:center;
+}
+.stat-value { font-size:24px; font-family:var(--mono); font-weight:700; }
+.stat-label { font-size:10px; color:var(--text2); text-transform:uppercase;
+  letter-spacing:0.5px; }
+
+/* Hypothesis cards */
+.hypo-card {
+  background:var(--surface2); border:1px solid var(--border);
+  padding:14px; border-radius:6px; margin-bottom:10px;
+}
+.hypo-card.killed { border-color:var(--accent3); opacity:0.7; }
+.hypo-card.tier-breakthrough_candidate { border-color:var(--accent1);
+  box-shadow:0 0 12px rgba(0,229,160,0.15); }
+.hypo-card.tier-conditional_breakthrough { border-color:var(--accent4); }
+.hypo-card.tier-theory_proposal { border-color:var(--accent2); }
+.hypo-header { display:flex; align-items:center; gap:8px; margin-bottom:6px;
+  flex-wrap:wrap; }
+.tier-symbol { font-size:16px; }
+.b-score { font-family:var(--mono); color:var(--accent1); font-size:13px;
+  font-weight:700; }
+.gen-label { font-size:11px; color:var(--text3); font-family:var(--mono); }
+.domain-badge {
+  font-size:10px; padding:2px 6px; border-radius:3px;
+  background:var(--accent5); color:#000; font-weight:600;
+}
+.temp-badge {
+  font-size:10px; padding:2px 6px; border-radius:3px; font-weight:600;
+}
+.temp-conservative { background:var(--accent2); color:#000; }
+.temp-balanced { background:var(--accent4); color:#000; }
+.temp-wild { background:var(--accent3); color:#000; }
+.temp-recombination { background:var(--accent6); color:#000; }
+.temp-resurrection { background:var(--accent5); color:#000; }
+.hypo-claim { margin-bottom:6px; }
+.hypo-prediction { font-size:12px; color:var(--text2); margin-bottom:4px; }
+.hypo-scores { font-size:11px; color:var(--text3); font-family:var(--mono); }
+.protocol {
+  font-size:11px; color:var(--text2); margin-top:8px; padding:8px;
+  background:var(--surface); border-radius:4px;
+}
+.kill-reason { font-size:12px; color:var(--accent3); margin-top:4px; }
+.counter { font-size:12px; color:var(--accent4); margin-top:4px; }
+
+/* Log */
+.log-entry {
+  font-family:var(--mono); font-size:11px; padding:3px 8px;
+  border-left:3px solid var(--border);
+}
+.log-info { border-left-color:var(--accent2); }
+.log-kill { border-left-color:var(--accent3); }
+.log-error { border-left-color:var(--accent3); background:rgba(255,107,107,0.05); }
+.log-phase { color:var(--accent5); margin-right:6px; }
+.log-agent { color:var(--accent4); margin-right:6px; }
+
+/* Interrupts */
+.interrupt {
+  padding:6px 10px; margin-bottom:4px; border-radius:4px;
+  font-size:11px; font-family:var(--mono);
+}
+.int-info { background:rgba(0,180,216,0.1); color:var(--accent2); }
+.int-warn { background:rgba(255,217,61,0.1); color:var(--accent4); }
+.int-crit { background:rgba(255,107,107,0.15); color:var(--accent3); }
+
+/* Sidebar */
+.sidebar h3 {
+  font-size:12px; text-transform:uppercase; letter-spacing:0.5px;
+  color:var(--text2); margin:12px 0 6px; padding-bottom:4px;
+  border-bottom:1px solid var(--border);
+}
+.gauge {
+  background:var(--surface2); border:1px solid var(--border);
+  padding:8px; border-radius:4px; margin-bottom:6px; text-align:center;
+}
+.gauge-value { font-size:20px; font-family:var(--mono); font-weight:700; }
+.gauge-label { font-size:10px; color:var(--text2); }
+
+/* Genealogy tree */
+#genealogy-tree {
+  width:100%; min-height:400px; background:var(--surface);
+  border:1px solid var(--border); border-radius:6px;
+}
+.tree-node {
+  fill:var(--accent2); stroke:var(--border); stroke-width:1;
+}
+.tree-node.alive { fill:var(--accent1); }
+.tree-node.falsified { fill:var(--accent3); }
+.tree-node.dormant { fill:var(--accent4); }
+
+/* Sparkline canvas */
+canvas.spark { width:100%; height:40px; }
+
+/* Chart */
+#b-chart { width:100%; height:120px; }
+
+@media (max-width:900px) {
+  .dashboard { grid-template-columns:1fr; }
+  .sidebar { border-left:none; border-top:1px solid var(--border); }
+  .stats-row { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+<div class="dashboard">
+<div class="main">
+  <h1>Breakthrough Engine <span class="version">V8.0</span></h1>
+  <div class="subtitle">
+    Evolutionary Autonomous Discovery · Physics/Math · Scaling Laws ·
+    0 generations · claude-test ·
+    Session test1234
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--accent1)">0</div>
+      <div class="stat-label">Breakthroughs</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--accent2)">2</div>
+      <div class="stat-label">Survivors</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--accent3)">1</div>
+      <div class="stat-label">Killed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color:var(--accent4)">0.450</div>
+      <div class="stat-label">Best B Score</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('survivors')">★ Survivors</div>
+    <div class="tab" onclick="showTab('graveyard')">💀 Graveyard</div>
+    <div class="tab" onclick="showTab('genealogy')">🌳 Genealogy</div>
+    <div class="tab" onclick="showTab('log')">📋 Log</div>
+    <div class="tab" onclick="showTab('graph-stats')">🕸 Graph</div>
+    <div class="tab" onclick="showTab('visuals')">📊 Visuals</div>
+  </div>
+
+  <div id="tab-survivors" class="tab-panel active">
+    <div class="hypo-card tier-breakthrough_candidate">
+            <div class="hypo-header">
+                <span class="tier-symbol">★</span>
+                <span class="b-score">B=0.459</span>
+                <span class="domain-badge"></span> <span class="temp-badge temp-balanced">balanced</span>
+                <span class="gen-label">Gen 0</span>
+            </div>
+            <div class="hypo-claim">Test claim</div>
+            <div class="hypo-prediction"><b>Prediction:</b> </div>
+            <div class="hypo-scores">N=0.85 | F=0.80 | E=0.90 | C=0.75</div>
+            
+        </div>
+<div class="hypo-card tier-theory_proposal">
+            <div class="hypo-header">
+                <span class="tier-symbol">◆</span>
+                <span class="b-score">B=0.249</span>
+                <span class="domain-badge"></span> <span class="temp-badge temp-balanced">balanced</span>
+                <span class="gen-label">Gen 0</span>
+            </div>
+            <div class="hypo-claim">Mid claim</div>
+            <div class="hypo-prediction"><b>Prediction:</b> </div>
+            <div class="hypo-scores">N=0.72 | F=0.82 | E=0.68 | C=0.62</div>
+            
+        </div>
+
+  </div>
+
+  <div id="tab-graveyard" class="tab-panel">
+    <div class="hypo-card killed">
+            <div class="hypo-header">
+                <span class="tier-symbol">💀</span>
+                <span class="b-score">B=0.012</span>
+                <span class="gen-label">Gen 0</span>
+            </div>
+            <div class="hypo-claim">Bad claim</div>
+            <div class="kill-reason"><b>Attack:</b> </div>
+            
+        </div>
+
+  </div>
+
+  <div id="tab-genealogy" class="tab-panel">
+    <div id="genealogy-tree"></div>
+  </div>
+
+  <div id="tab-log" class="tab-panel">
+    <div style="color:var(--text3);padding:20px">No log entries.</div>
+  </div>
+
+  <div id="tab-graph-stats" class="tab-panel">
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--accent1)">2</div>
+        <div class="stat-label">Alive Nodes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--accent3)">1</div>
+        <div class="stat-label">Falsified</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--accent4)">0</div>
+        <div class="stat-label">Dormant</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--accent2)">1</div>
+        <div class="stat-label">Edges</div>
+      </div>
+    </div>
+    <div style="color:var(--text2); font-size:12px; padding:10px;">
+      <b>Domains:</b> cs, mathematics, physics<br>
+      <b>Serendipity injections:</b> 1<br>
+      <b>Recombinations:</b> 0<br>
+      <b>Resurrections:</b> 0<br>
+      <b>Stagnation events:</b> 0
+    </div>
+  </div>
+
+  <div id="tab-visuals" class="tab-panel">
+    <h3 style="color:var(--accent2); margin-bottom:8px;">B-Score History</h3>
+    <canvas id="b-chart"></canvas>
+    <h3 style="color:var(--accent4); margin:12px 0 8px;">Delta-Novelty</h3>
+    <canvas id="delta-chart" style="width:100%;height:100px;"></canvas>
+    <h3 style="color:var(--accent3); margin:12px 0 8px;">Kill Rate</h3>
+    <canvas id="kill-chart" style="width:100%;height:100px;"></canvas>
+  </div>
+</div>
+
+<div class="sidebar">
+  <h3>Gauges</h3>
+  <div class="gauge">
+    <div class="gauge-value" style="color:var(--accent1)">0.450</div>
+    <div class="gauge-label">Best B Score</div>
+  </div>
+  <div class="gauge">
+    <div class="gauge-value" style="color:var(--accent3)">40%</div>
+    <div class="gauge-label">Avg Kill Rate</div>
+  </div>
+  <div class="gauge">
+    <div class="gauge-value" style="color:var(--accent4)">0</div>
+    <div class="gauge-label">★ Candidates</div>
+  </div>
+  <div class="gauge">
+    <div class="gauge-value" style="color:var(--accent5)">3</div>
+    <div class="gauge-label">Graph Nodes</div>
+  </div>
+
+  <h3>Serendipity</h3>
+  <div style="font-size:11px;color:var(--text2);padding:2px 0;">Gen 1: Renormalization Group</div>
+
+  <h3>Interrupts</h3>
+  <div class="interrupt int-info">
+            [INFO] Test interrupt
+        </div>
+
+
+  <h3>Architecture</h3>
+  <div style="font-size:10px; color:var(--text3); font-family:var(--mono); line-height:1.8;">
+    L0 Serendipity Injection<br>
+    L1 Ingestion / Seed Context<br>
+    L2 Encoder / Context Compress<br>
+    L3 Conjecture Engine (3-temp)<br>
+    L4 Adversarial Falsifier ⚡<br>
+    L5 Counter-Hypothesis Gen<br>
+    L6 Recombination Chamber<br>
+    L7 Axiom Graph Updater<br>
+    L8 Synthesis Controller
+  </div>
+</div>
+</div>
+
+<script>
+// ── Tab switching ──────────────────────────────────────────────────────
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+
+  // Re-draw charts when visuals tab shown
+  if (name === 'visuals') drawCharts();
+  if (name === 'genealogy') drawGenealogy();
+}
+
+// ── Chart drawing ──────────────────────────────────────────────────────
+const bHistory = [0.1, 0.2, 0.35, 0.28, 0.45];
+const deltaHistory = [0.5, 0.3, 0.2, 0.15, 0.4];
+const killHistory = [0.6, 0.4, 0.5, 0.3, 0.2];
+
+function drawSparkline(canvasId, data, color, maxVal) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas || !data.length) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width = canvas.clientWidth * 2;
+  const H = canvas.height = canvas.clientHeight * 2;
+  ctx.scale(2, 2);
+  const w = W/2, h = H/2;
+
+  ctx.clearRect(0, 0, w, h);
+  const mx = maxVal || Math.max(...data, 0.01);
+  const step = w / Math.max(data.length - 1, 1);
+
+  // Fill
+  ctx.beginPath();
+  ctx.moveTo(0, h);
+  data.forEach((v, i) => ctx.lineTo(i * step, h - (v / mx) * h * 0.9));
+  ctx.lineTo((data.length - 1) * step, h);
+  ctx.closePath();
+  ctx.fillStyle = color + '15';
+  ctx.fill();
+
+  // Line
+  ctx.beginPath();
+  data.forEach((v, i) => {
+    const x = i * step, y = h - (v / mx) * h * 0.9;
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  // Dots
+  data.forEach((v, i) => {
+    ctx.beginPath();
+    ctx.arc(i * step, h - (v / mx) * h * 0.9, 2, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+  });
+}
+
+function drawCharts() {
+  drawSparkline('b-chart', bHistory, '#00e5a0', 1);
+  drawSparkline('delta-chart', deltaHistory, '#ffd93d', 1);
+  drawSparkline('kill-chart', killHistory, '#ff6b6b', 1);
+}
+
+// ── Genealogy tree ─────────────────────────────────────────────────────
+const genealogyData = [{"id": "test-001", "text": "Phase transitions in LLM training loss curves mirror Ising model criticality", "domain": "physics", "status": "alive", "confidence": 0.792, "novelty": 0.7, "generation": 1, "parents": [], "tier": "", "b_score": 0.357}, {"id": "test-002", "text": "Attention patterns exhibit self-organized criticality at scale boundaries", "domain": "cs", "status": "alive", "confidence": 0.594, "novelty": 0.9, "generation": 1, "parents": [], "tier": "", "b_score": 0.2457}, {"id": "test-003", "text": "Token embeddings live on a low-dim manifold with curvature proportional to perplexity", "domain": "mathematics", "status": "falsified", "confidence": 0.3, "novelty": 0.4, "generation": 1, "parents": [], "tier": "", "b_score": 0.024}];
+
+function drawGenealogy() {
+  const container = document.getElementById('genealogy-tree');
+  if (!genealogyData.length) {
+    container.innerHTML = '<div style="color:var(--text3);padding:20px">No genealogy data yet.</div>';
+    return;
+  }
+
+  // Build a simple hierarchical visualization
+  const byGen = {};
+  genealogyData.forEach(n => {
+    if (!byGen[n.generation]) byGen[n.generation] = [];
+    byGen[n.generation].push(n);
+  });
+
+  const gens = Object.keys(byGen).sort((a, b) => a - b);
+  let html = '<div style="padding:16px;overflow-x:auto;">';
+
+  gens.forEach(g => {
+    html += `<div style="margin-bottom:12px;">`;
+    html += `<div style="color:var(--accent5);font-family:var(--mono);font-size:11px;margin-bottom:4px;">Generation ${g}</div>`;
+    html += `<div style="display:flex;gap:8px;flex-wrap:wrap;">`;
+
+    byGen[g].forEach(node => {
+      const color = node.status === 'alive' ? 'var(--accent1)' :
+                    node.status === 'falsified' ? 'var(--accent3)' : 'var(--accent4)';
+      const symbol = node.tier === 'BREAKTHROUGH_CANDIDATE' ? '★' :
+                     node.tier === 'CONDITIONAL_BREAKTHROUGH' ? '★?' :
+                     node.tier === 'THEORY_PROPOSAL' ? '◆' :
+                     node.status === 'falsified' ? '💀' : '○';
+
+      html += `<div style="background:var(--surface2);border:1px solid ${color};
+        border-radius:4px;padding:6px 8px;max-width:250px;font-size:11px;">
+        <span>${symbol}</span>
+        <span style="color:${color};font-family:var(--mono);font-size:10px">
+          B=${node.b_score.toFixed(3)} c=${node.confidence.toFixed(2)}
+        </span><br>
+        <span style="color:var(--text2)">${node.text.substring(0, 100)}${node.text.length > 100 ? '…' : ''}</span>
+        ${node.parents.length ? '<br><span style="color:var(--text3);font-size:10px">← ' + node.parents.join(', ') + '</span>' : ''}
+      </div>`;
+    });
+
+    html += `</div></div>`;
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+// Initial draw
+if (bHistory.length) setTimeout(drawCharts, 100);
+</script>
+</body>
+</html>

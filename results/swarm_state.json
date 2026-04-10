@@ -1,0 +1,846 @@
+{
+  "discoveries": {
+    "2ec13907382e": {
+      "id": "2ec13907382e",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774088564.7331433,
+      "law_expression": "0.6039*delta_Hill_01^1.5 + -0.6703*delta_Hill_01^1 + -0.09689*delta_Hill_01^2",
+      "accuracy": 0.7438869608097494,
+      "complexity": 9,
+      "r_squared": 0.7438869608097494,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.06347943358080728,
+        "coefficients": {
+          "delta_Hill_01^1.5": 0.603905150248067,
+          "delta_Hill_01^1": -0.6702639628953968,
+          "delta_Hill_01^2": -0.09688569763084225
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 0.75,
+          "comments": "[{\"test\": \"holdout_accuracy\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.050000000000000044, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.5104329112892516, \"passed\": false}]",
+          "timestamp": 1774088564.9721446
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "bfd1563798a7": {
+      "id": "bfd1563798a7",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774088564.7359154,
+      "law_expression": "-0.1035*delta_Hill_01^1 + 0.05997*delta_Hill_01^2",
+      "accuracy": 0.7279779511052156,
+      "complexity": 6,
+      "r_squared": 0.7279779511052156,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.06742259449158458,
+        "coefficients": {
+          "delta_Hill_01^1": -0.10350387169261784,
+          "delta_Hill_01^2": 0.05997440991702295
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_accuracy\", \"value\": 0.925, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.10625000000000007, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9999677965997558, \"passed\": true}]",
+          "timestamp": 1774088564.9757056
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "3a96a7b1523f": {
+      "id": "3a96a7b1523f",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774088564.7382894,
+      "law_expression": "0.0375 * delta_Hill_01^2",
+      "accuracy": 0.6972697363951794,
+      "complexity": 3,
+      "r_squared": 0.6972697363951794,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.07503384334573944,
+        "coefficients": {
+          "delta_Hill_01": 0.037501179421355335
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_accuracy\", \"value\": 0.975, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.13124999999999998, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9997314289733829, \"passed\": true}]",
+          "timestamp": 1774088564.9796963
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "be78c8d4b57c": {
+      "id": "be78c8d4b57c",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774088564.7408679,
+      "law_expression": "0.0375*delta_Hill_01^2",
+      "accuracy": 0.6972697363951785,
+      "complexity": 3,
+      "r_squared": 0.6972697363951785,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.07503384334573963,
+        "coefficients": {
+          "delta_Hill_01^2": 0.03750117858159563
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_accuracy\", \"value\": 0.975, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.13124999999999998, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9997314289733829, \"passed\": true}]",
+          "timestamp": 1774088564.9842567
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "4a87a07cf656": {
+      "id": "4a87a07cf656",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774088564.743064,
+      "law_expression": "0.007731 * delta_Hill_01^3",
+      "accuracy": 0.6900819190597463,
+      "complexity": 3,
+      "r_squared": 0.6900819190597463,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.07681539486134445,
+        "coefficients": {
+          "delta_Hill_01": 0.007731277037556783
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_accuracy\", \"value\": 0.775, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.05625000000000002, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9999999999999998, \"passed\": true}]",
+          "timestamp": 1774088564.9879363
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "046c52683d06": {
+      "id": "046c52683d06",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774088564.745145,
+      "law_expression": "0.003407 * delta_Hill_01^3.5",
+      "accuracy": 0.6482161730691038,
+      "complexity": 3,
+      "r_squared": 0.6482161730691038,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.08719211699281611,
+        "coefficients": {
+          "delta_Hill_01": 0.003406610074754768
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "82bf64001bfb": {
+      "id": "82bf64001bfb",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774088564.7476432,
+      "law_expression": "0.07903 * delta_Hill_01^1.5",
+      "accuracy": 0.6405267564786976,
+      "complexity": 3,
+      "r_squared": 0.6405267564786976,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.08909799344201655,
+        "coefficients": {
+          "delta_Hill_01": 0.07902547895906319
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "5b630864ea7e": {
+      "id": "5b630864ea7e",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774088564.749876,
+      "law_expression": "0.1295 * P_ratio_01^3.5",
+      "accuracy": 0.5228845375069197,
+      "complexity": 3,
+      "r_squared": 0.5228845375069197,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.11825645194584285,
+        "coefficients": {
+          "P_ratio_01": 0.1295338812043115
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "46d93975898d": {
+      "id": "46d93975898d",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774088564.7523708,
+      "law_expression": "0.1586 * delta_Hill_01^1",
+      "accuracy": 0.5204808995474224,
+      "complexity": 3,
+      "r_squared": 0.5204808995474224,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.11885221066505772,
+        "coefficients": {
+          "delta_Hill_01": 0.1585670206789664
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "81583bd3b5aa": {
+      "id": "81583bd3b5aa",
+      "agent_id": "explorer_exoplanet",
+      "domain": "exoplanet",
+      "timestamp": 1774088564.7552536,
+      "law_expression": "3.174 * nearest_mmr_01^0.667",
+      "accuracy": 0.502783157432505,
+      "complexity": 3,
+      "r_squared": 0.502783157432505,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.12323872159267832,
+        "coefficients": {
+          "nearest_mmr_01": 3.173611771727723
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "f9aff7543f28": {
+      "id": "f9aff7543f28",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774088564.865839,
+      "law_expression": "2.098 * r_X^-0.667",
+      "accuracy": 0.6778326858597823,
+      "complexity": 3,
+      "r_squared": 0.6778326858597823,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.016715895393243155,
+        "coefficients": {
+          "r_X": 2.097736137070386
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_r2\", \"value\": 0.8497706488409159, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.17196597728761331, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9999973908747678, \"passed\": true}]",
+          "timestamp": 1774088564.9926252
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "7fefc6a75bd1": {
+      "id": "7fefc6a75bd1",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774088564.8681521,
+      "law_expression": "1.936 * r_X^-0.5",
+      "accuracy": 0.647281678286367,
+      "complexity": 3,
+      "r_squared": 0.647281678286367,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.01830105758798127,
+        "coefficients": {
+          "r_X": 1.9359433332058573
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_r2\", \"value\": 0.738139542470965, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.09085790154516105, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9999984894787403, \"passed\": true}]",
+          "timestamp": 1774088564.995239
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "630a142ab767": {
+      "id": "630a142ab767",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774088564.8711205,
+      "law_expression": "2.287 * EN_B^-0.667",
+      "accuracy": 0.625542685039409,
+      "complexity": 3,
+      "r_squared": 0.625542685039409,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.019429001737251515,
+        "coefficients": {
+          "EN_B": 2.2871777502678214
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_r2\", \"value\": 0.8199399736698945, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.1944523082333055, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9999939009180727, \"passed\": true}]",
+          "timestamp": 1774088564.9976616
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "d2dcc386be33": {
+      "id": "d2dcc386be33",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774088564.8745232,
+      "law_expression": "0.4643 * EN_X^1",
+      "accuracy": 0.6135949977770871,
+      "complexity": 3,
+      "r_squared": 0.6135949977770871,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.020048916550773635,
+        "coefficients": {
+          "EN_X": 0.46431086035806135
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_r2\", \"value\": 0.782163372879674, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.168568398940947, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9999884856685803, \"passed\": true}]",
+          "timestamp": 1774088565.0004597
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "f5d44f4fe2ca": {
+      "id": "f5d44f4fe2ca",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774088564.877518,
+      "law_expression": "2.066 * EN_B^-0.5",
+      "accuracy": 0.6022576477681686,
+      "complexity": 3,
+      "r_squared": 0.6022576477681686,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.020637163553084942,
+        "coefficients": {
+          "EN_B": 2.0655013717418647
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_r2\", \"value\": 0.7536933969929708, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.1514382878322641, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9999966064130654, \"passed\": true}]",
+          "timestamp": 1774088565.0034614
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "9386247957cc": {
+      "id": "9386247957cc",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774088564.8801923,
+      "law_expression": "0.6891 * EN_X^0.667",
+      "accuracy": 0.5701808956994323,
+      "complexity": 3,
+      "r_squared": 0.5701808956994323,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.022301490157932955,
+        "coefficients": {
+          "EN_X": 0.6890956151481181
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "736941c46e74": {
+      "id": "736941c46e74",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774088564.8833861,
+      "law_expression": "1.781 * r_X^-0.333",
+      "accuracy": 0.5254226378903444,
+      "complexity": 3,
+      "r_squared": 0.5254226378903444,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.024623806304489317,
+        "coefficients": {
+          "r_X": 1.7810636120282817
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "204ece3ea8fc": {
+      "id": "204ece3ea8fc",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774088564.8865213,
+      "law_expression": "1.472 * delta_EN^-0.333",
+      "accuracy": 0.49668147552625797,
+      "complexity": 3,
+      "r_squared": 0.49668147552625797,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.026115063308138,
+        "coefficients": {
+          "delta_EN": 1.4724605415896614
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "31290ca0f3da": {
+      "id": "31290ca0f3da",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774088564.8888304,
+      "law_expression": "0.8378 * EN_X^0.5",
+      "accuracy": 0.48773827106507195,
+      "complexity": 3,
+      "r_squared": 0.48773827106507195,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.02657908825322758,
+        "coefficients": {
+          "EN_X": 0.8377598010794535
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "545a62410088": {
+      "id": "545a62410088",
+      "agent_id": "explorer_materials",
+      "domain": "materials",
+      "timestamp": 1774088564.892032,
+      "law_expression": "1.859 * EN_B^-0.333",
+      "accuracy": 0.48525546403746955,
+      "complexity": 3,
+      "r_squared": 0.48525546403746955,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 0.026707910578564243,
+        "coefficients": {
+          "EN_B": 1.8592635928445538
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "2a4e1e070dfa": {
+      "id": "2a4e1e070dfa",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774088564.929594,
+      "law_expression": "0.1497 * control_param^3",
+      "accuracy": 0.9989803471781664,
+      "complexity": 3,
+      "r_squared": 0.9989803471781664,
+      "status": "proposed",
+      "priority": 4,
+      "metadata": {
+        "mse": 0.0745324647426092,
+        "coefficients": {
+          "control_param": 0.1496543897097866
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_r2\", \"value\": 0.9991881160128148, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.00020794265558143898, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9995190439251097, \"passed\": true}]",
+          "timestamp": 1774088565.0074635
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "0fc56b738e27": {
+      "id": "0fc56b738e27",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774088564.9318018,
+      "law_expression": "0.1497 * control_sq^1.5",
+      "accuracy": 0.9989803471781664,
+      "complexity": 3,
+      "r_squared": 0.9989803471781664,
+      "status": "proposed",
+      "priority": 4,
+      "metadata": {
+        "mse": 0.07453246474260924,
+        "coefficients": {
+          "control_sq": 0.1496543897097866
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_r2\", \"value\": 0.9991881160128148, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.00020794265558143898, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9995190439251096, \"passed\": true}]",
+          "timestamp": 1774088565.011611
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "fb34d18a7c3b": {
+      "id": "fb34d18a7c3b",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774088564.9340394,
+      "law_expression": "0.1497 * control_cube^1",
+      "accuracy": 0.9989803471781664,
+      "complexity": 3,
+      "r_squared": 0.9989803471781664,
+      "status": "proposed",
+      "priority": 4,
+      "metadata": {
+        "mse": 0.0745324647426092,
+        "coefficients": {
+          "control_cube": 0.1496543897097866
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_r2\", \"value\": 0.9991881160128148, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.00020794265558143898, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 1.0, \"passed\": true}]",
+          "timestamp": 1774088565.01381
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "ca7b2444a7c9": {
+      "id": "ca7b2444a7c9",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774088564.9374065,
+      "law_expression": "0.06587 * control_param^3.5",
+      "accuracy": 0.9907795920805934,
+      "complexity": 3,
+      "r_squared": 0.9907795920805934,
+      "status": "proposed",
+      "priority": 4,
+      "metadata": {
+        "mse": 0.6739742326509017,
+        "coefficients": {
+          "control_param": 0.06586593643381727
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_r2\", \"value\": 0.9911091051068989, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": -0.00032952011785081226, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9995221964910008, \"passed\": true}]",
+          "timestamp": 1774088565.017709
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "681e9148d9fb": {
+      "id": "681e9148d9fb",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774088564.9409394,
+      "law_expression": "0.02864 * control_sq^2",
+      "accuracy": 0.9690626989622025,
+      "complexity": 3,
+      "r_squared": 0.9690626989622025,
+      "status": "proposed",
+      "priority": 4,
+      "metadata": {
+        "mse": 2.2613905924220234,
+        "coefficients": {
+          "control_sq": 0.02864044217742463
+        }
+      },
+      "reviews": [
+        {
+          "reviewer": "adversary_0",
+          "verdict": "VALID",
+          "score": 1.0,
+          "comments": "[{\"test\": \"holdout_r2\", \"value\": 0.9689702875228176, \"passed\": \"True\"}, {\"test\": \"overfitting_gap\", \"value\": 9.241100046053496e-05, \"passed\": \"True\"}, {\"test\": \"extreme_stability\", \"value\": 1.0, \"passed\": \"True\"}, {\"test\": \"coefficient_sensitivity\", \"value\": 0.9999999999999999, \"passed\": true}]",
+          "timestamp": 1774088565.0220401
+        }
+      ],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "a47f2f8b1664": {
+      "id": "a47f2f8b1664",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774088564.9454522,
+      "law_expression": "0.7293 * control_param^2",
+      "accuracy": 0.94085634443687,
+      "complexity": 3,
+      "r_squared": 0.94085634443687,
+      "status": "proposed",
+      "priority": 3,
+      "metadata": {
+        "mse": 4.3231601272685625,
+        "coefficients": {
+          "control_param": 0.7292512672052752
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "a77cb050c955": {
+      "id": "a77cb050c955",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774088564.9494295,
+      "law_expression": "0.7293 * control_sq^1",
+      "accuracy": 0.94085634443687,
+      "complexity": 3,
+      "r_squared": 0.94085634443687,
+      "status": "proposed",
+      "priority": 3,
+      "metadata": {
+        "mse": 4.3231601272685625,
+        "coefficients": {
+          "control_sq": 0.7292512672052752
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "79df08bba847": {
+      "id": "79df08bba847",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774088564.9543252,
+      "law_expression": "0.7293 * control_cube^0.667",
+      "accuracy": 0.94085634443687,
+      "complexity": 3,
+      "r_squared": 0.94085634443687,
+      "status": "proposed",
+      "priority": 3,
+      "metadata": {
+        "mse": 4.3231601272685625,
+        "coefficients": {
+          "control_cube": 0.7292512672052752
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "5687ca8cfb42": {
+      "id": "5687ca8cfb42",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774088564.9583068,
+      "law_expression": "0.01234 * control_cube^1.5",
+      "accuracy": 0.9388467670737398,
+      "complexity": 3,
+      "r_squared": 0.9388467670737398,
+      "status": "proposed",
+      "priority": 3,
+      "metadata": {
+        "mse": 4.470052040631488,
+        "coefficients": {
+          "control_cube": 0.012342337674580416
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "3ed055f3482b": {
+      "id": "3ed055f3482b",
+      "agent_id": "explorer_critical_transitions",
+      "domain": "critical_transitions",
+      "timestamp": 1774088564.961751,
+      "law_expression": "1.534 * control_param^1.5",
+      "accuracy": 0.8466197960861455,
+      "complexity": 3,
+      "r_squared": 0.8466197960861455,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "mse": 11.211467663930883,
+        "coefficients": {
+          "control_param": 1.5338421779937226
+        }
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "e7c427e7d4f4": {
+      "id": "e7c427e7d4f4",
+      "agent_id": "pollinator_0",
+      "domain": "critical_transitions",
+      "timestamp": 1774088565.037128,
+      "law_expression": "2.098 * correlation_length^-0.667",
+      "accuracy": 0.2566127024013495,
+      "complexity": 3,
+      "r_squared": 0.2566127024013495,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "transfer_from": "materials",
+        "source_law": "2.098 * r_X^-0.667",
+        "r2_direct": -0.31974165809561295,
+        "r2_refit": 0.2566127024013495
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "f55b65d784a3": {
+      "id": "f55b65d784a3",
+      "agent_id": "pollinator_0",
+      "domain": "critical_transitions",
+      "timestamp": 1774088565.0446787,
+      "law_expression": "1.936 * correlation_length^-0.5",
+      "accuracy": 0.12758101261290267,
+      "complexity": 3,
+      "r_squared": 0.12758101261290267,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "transfer_from": "materials",
+        "source_law": "1.936 * r_X^-0.5",
+        "r2_direct": -0.40031140634134244,
+        "r2_refit": 0.12758101261290267
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    },
+    "86915fb1631f": {
+      "id": "86915fb1631f",
+      "agent_id": "pollinator_0",
+      "domain": "exoplanet",
+      "timestamp": 1774088565.0607288,
+      "law_expression": "0.1497 * delta_Hill_01^1",
+      "accuracy": 0.5148999458449508,
+      "complexity": 3,
+      "r_squared": 0.5148999458449508,
+      "status": "proposed",
+      "priority": 2,
+      "metadata": {
+        "transfer_from": "critical_transitions",
+        "source_law": "0.1497 * control_cube^1",
+        "r2_direct": 0.5148999458449508,
+        "r2_refit": null
+      },
+      "reviews": [],
+      "cross_domain_transfers": [],
+      "parent_discovery_id": null
+    }
+  },
+  "analogies": [],
+  "meta_insights": [],
+  "domain_stats": {
+    "exoplanet": {
+      "total_discoveries": 11,
+      "validated": 0,
+      "best_accuracy": 0.7438869608097494,
+      "min_complexity": 3,
+      "breakthrough_count": 0
+    },
+    "materials": {
+      "total_discoveries": 10,
+      "validated": 0,
+      "best_accuracy": 0.6778326858597823,
+      "min_complexity": 3,
+      "breakthrough_count": 0
+    },
+    "critical_transitions": {
+      "total_discoveries": 12,
+      "validated": 0,
+      "best_accuracy": 0.9989803471781664,
+      "min_complexity": 3,
+      "breakthrough_count": 5
+    }
+  },
+  "iteration_count": 0
+}

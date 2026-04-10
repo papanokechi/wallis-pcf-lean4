@@ -1,0 +1,150 @@
+{
+  "generated_at": "2026-04-04 18:54:35",
+  "script": "C:\\Users\\shkub\\OneDrive\\Documents\\archive\\admin\\VSCode\\claude-chat\\ramanujan_agent_v2_fast.py",
+  "python": "3.14.3",
+  "platform": "Windows-11-10.0.29560-SP0",
+  "worker_values": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "results": [
+    {
+      "label": "zeta3 | 5 iters | batch 128 | 300dp",
+      "workers": 1,
+      "executor": "process",
+      "trials": 1,
+      "successful_trials": 1,
+      "wall_seconds_mean": 129.18,
+      "wall_seconds_std": 0.0,
+      "gcf_per_sec_mean": 5.246,
+      "novel_finds_mean": 16,
+      "speedup_vs_seq": 1.0,
+      "efficiency_pct": 100.0,
+      "trial_details": [
+        {
+          "case": {
+            "target": "zeta3",
+            "iters": 5,
+            "batch": 128,
+            "prec": 300
+          },
+          "label": "zeta3 | 5 iters | batch 128 | 300dp",
+          "returncode": 0,
+          "wall_seconds": 129.18,
+          "elapsed_seconds": 121.994,
+          "gcf_per_sec": 5.246,
+          "novel_finds": 16,
+          "discoveries": 16,
+          "stdout_tail": "    [GCF_B093F483]  zeta4  deg=2  300dp  |  1\u00b7CF\u00b7zeta4 + -1\u00b7CF + -4\u00b7zeta4 + 4 = 0  \u21d2  4\n\n  Saved \u2192 ramanujan_discoveries.json\n  Seeds \u2192 relay_chain_seed_pool.json  (104 specs)\n  Summary JSON -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench_fwg217vn\\summary.json\n  Summary page -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench_fwg217vn\\summary.html\n\n  Next run:  python ramanujan_agent_v2_fast.py --seed-file relay_chain_seed_pool.json --target zeta3",
+          "stderr": "",
+          "trial": 1,
+          "workers": 1
+        }
+      ]
+    },
+    {
+      "label": "zeta3 | 5 iters | batch 128 | 300dp",
+      "workers": 2,
+      "executor": "process",
+      "trials": 1,
+      "successful_trials": 1,
+      "wall_seconds_mean": 38.401,
+      "wall_seconds_std": 0.0,
+      "gcf_per_sec_mean": 17.868,
+      "novel_finds_mean": 16,
+      "speedup_vs_seq": 3.406,
+      "efficiency_pct": 170.3,
+      "trial_details": [
+        {
+          "case": {
+            "target": "zeta3",
+            "iters": 5,
+            "batch": 128,
+            "prec": 300
+          },
+          "label": "zeta3 | 5 iters | batch 128 | 300dp",
+          "returncode": 0,
+          "wall_seconds": 38.401,
+          "elapsed_seconds": 35.817,
+          "gcf_per_sec": 17.868,
+          "novel_finds": 16,
+          "discoveries": 16,
+          "stdout_tail": "    [GCF_B093F483]  zeta4  deg=2  300dp  |  1\u00b7CF\u00b7zeta4 + -1\u00b7CF + -4\u00b7zeta4 + 4 = 0  \u21d2  4\n\n  Saved \u2192 ramanujan_discoveries.json\n  Seeds \u2192 relay_chain_seed_pool.json  (104 specs)\n  Summary JSON -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench__3p5di5f\\summary.json\n  Summary page -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench__3p5di5f\\summary.html\n\n  Next run:  python ramanujan_agent_v2_fast.py --seed-file relay_chain_seed_pool.json --target zeta3",
+          "stderr": "",
+          "trial": 1,
+          "workers": 2
+        }
+      ]
+    },
+    {
+      "label": "zeta3 | 5 iters | batch 128 | 300dp",
+      "workers": 4,
+      "executor": "process",
+      "trials": 1,
+      "successful_trials": 1,
+      "wall_seconds_mean": 30.844,
+      "wall_seconds_std": 0.0,
+      "gcf_per_sec_mean": 23.999,
+      "novel_finds_mean": 16,
+      "speedup_vs_seq": 4.575,
+      "efficiency_pct": 114.4,
+      "trial_details": [
+        {
+          "case": {
+            "target": "zeta3",
+            "iters": 5,
+            "batch": 128,
+            "prec": 300
+          },
+          "label": "zeta3 | 5 iters | batch 128 | 300dp",
+          "returncode": 0,
+          "wall_seconds": 30.844,
+          "elapsed_seconds": 26.668,
+          "gcf_per_sec": 23.999,
+          "novel_finds": 16,
+          "discoveries": 16,
+          "stdout_tail": "    [GCF_B093F483]  zeta4  deg=2  300dp  |  1\u00b7CF\u00b7zeta4 + -1\u00b7CF + -4\u00b7zeta4 + 4 = 0  \u21d2  4\n\n  Saved \u2192 ramanujan_discoveries.json\n  Seeds \u2192 relay_chain_seed_pool.json  (104 specs)\n  Summary JSON -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench_30hvwg0o\\summary.json\n  Summary page -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench_30hvwg0o\\summary.html\n\n  Next run:  python ramanujan_agent_v2_fast.py --seed-file relay_chain_seed_pool.json --target zeta3",
+          "stderr": "",
+          "trial": 1,
+          "workers": 4
+        }
+      ]
+    },
+    {
+      "label": "zeta3 | 5 iters | batch 128 | 300dp",
+      "workers": 8,
+      "executor": "process",
+      "trials": 1,
+      "successful_trials": 1,
+      "wall_seconds_mean": 43.005,
+      "wall_seconds_std": 0.0,
+      "gcf_per_sec_mean": 18.246,
+      "novel_finds_mean": 16,
+      "speedup_vs_seq": 3.478,
+      "efficiency_pct": 43.5,
+      "trial_details": [
+        {
+          "case": {
+            "target": "zeta3",
+            "iters": 5,
+            "batch": 128,
+            "prec": 300
+          },
+          "label": "zeta3 | 5 iters | batch 128 | 300dp",
+          "returncode": 0,
+          "wall_seconds": 43.005,
+          "elapsed_seconds": 35.075,
+          "gcf_per_sec": 18.246,
+          "novel_finds": 16,
+          "discoveries": 16,
+          "stdout_tail": "    [GCF_B093F483]  zeta4  deg=2  300dp  |  1\u00b7CF\u00b7zeta4 + -1\u00b7CF + -4\u00b7zeta4 + 4 = 0  \u21d2  4\n\n  Saved \u2192 ramanujan_discoveries.json\n  Seeds \u2192 relay_chain_seed_pool.json  (104 specs)\n  Summary JSON -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench_pl26ww5m\\summary.json\n  Summary page -> C:\\Users\\shkub\\AppData\\Local\\Temp\\ramanujan_bench_pl26ww5m\\summary.html\n\n  Next run:  python ramanujan_agent_v2_fast.py --seed-file relay_chain_seed_pool.json --target zeta3",
+          "stderr": "",
+          "trial": 1,
+          "workers": 8
+        }
+      ]
+    }
+  ]
+}

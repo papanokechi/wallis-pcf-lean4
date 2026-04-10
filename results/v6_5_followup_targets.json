@@ -1,0 +1,357 @@
+{
+  "timestamp": 1775687650.752661,
+  "vquad_spec": {
+    "family": "fixed_alpha",
+    "a1": -15,
+    "a2": -1,
+    "b1": -4,
+    "b2": 0,
+    "c_value": "5/4",
+    "bridge": 1
+  },
+  "apery_spec": {
+    "family": "fixed_alpha",
+    "a1": -15,
+    "a2": 0,
+    "b1": -4,
+    "b2": 0,
+    "c_value": "1",
+    "bridge": 0
+  },
+  "vquad_reference_depth": 3000,
+  "vquad_depth_rows": [
+    {
+      "m": 0,
+      "depth": 500,
+      "value": "5.9897418544898576341450182957209258469539737777802",
+      "delta_from_prev": "n/a",
+      "digits_from_prev": 0.0,
+      "digits_per_term": 0.0,
+      "err_vs_6_over_zeta3": "0.998297619006",
+      "err_vs_5_vquad": "0.00287190104807",
+      "err_vs_minus_2_over_5": "6.38974185449"
+    },
+    {
+      "m": 0,
+      "depth": 1000,
+      "value": "5.9897418544898576341450182957209258469539737777802",
+      "delta_from_prev": "0.0",
+      "digits_from_prev": 999.0,
+      "digits_per_term": 1.998,
+      "err_vs_6_over_zeta3": "0.998297619006",
+      "err_vs_5_vquad": "0.00287190104807",
+      "err_vs_minus_2_over_5": "6.38974185449"
+    },
+    {
+      "m": 0,
+      "depth": 2000,
+      "value": "5.9897418544898576341450182957209258469539737777802",
+      "delta_from_prev": "0.0",
+      "digits_from_prev": 999.0,
+      "digits_per_term": 0.999,
+      "err_vs_6_over_zeta3": "0.998297619006",
+      "err_vs_5_vquad": "0.00287190104807",
+      "err_vs_minus_2_over_5": "6.38974185449"
+    },
+    {
+      "m": 1,
+      "depth": 500,
+      "value": "1.89590507951864555742029062556828755198589861287",
+      "delta_from_prev": "n/a",
+      "digits_from_prev": 0.0,
+      "digits_per_term": 0.0,
+      "err_vs_6_over_zeta3": "3.09553915597",
+      "err_vs_5_vquad": "4.09096487392",
+      "err_vs_minus_2_over_5": "2.29590507952"
+    },
+    {
+      "m": 1,
+      "depth": 1000,
+      "value": "1.8959032536171829781708339271218777300811380907886",
+      "delta_from_prev": "1.82590146258e-6",
+      "digits_from_prev": 5.738523,
+      "digits_per_term": 0.01147705,
+      "err_vs_6_over_zeta3": "3.09554098187",
+      "err_vs_5_vquad": "4.09096669982",
+      "err_vs_minus_2_over_5": "2.29590325362"
+    },
+    {
+      "m": 1,
+      "depth": 2000,
+      "value": "1.8959044561222818935018143495445648775485367803249",
+      "delta_from_prev": "1.20250509892e-6",
+      "digits_from_prev": 5.919913,
+      "digits_per_term": 0.00591991,
+      "err_vs_6_over_zeta3": "3.09553977936",
+      "err_vs_5_vquad": "4.09096549732",
+      "err_vs_minus_2_over_5": "2.29590445612"
+    },
+    {
+      "m": 1,
+      "depth": 5000,
+      "value": "1.8959059204589772045327493276930350286204162416378",
+      "delta_from_prev": "1.46433669531e-6",
+      "digits_from_prev": 5.834359,
+      "digits_per_term": 0.00194479,
+      "err_vs_6_over_zeta3": "3.09553831503",
+      "err_vs_5_vquad": "4.09096403298",
+      "err_vs_minus_2_over_5": "2.29590592046"
+    },
+    {
+      "m": 2,
+      "depth": 500,
+      "value": "-1.9881900482877865145244099824284759468108153904016",
+      "delta_from_prev": "n/a",
+      "digits_from_prev": 0.0,
+      "digits_per_term": 0.0,
+      "err_vs_6_over_zeta3": "6.97963428377",
+      "err_vs_5_vquad": "7.97506000173",
+      "err_vs_minus_2_over_5": "1.58819004829"
+    },
+    {
+      "m": 2,
+      "depth": 1000,
+      "value": "-1.9881900482877865145244099824284759468108153904016",
+      "delta_from_prev": "0.0",
+      "digits_from_prev": 999.0,
+      "digits_per_term": 1.998,
+      "err_vs_6_over_zeta3": "6.97963428377",
+      "err_vs_5_vquad": "7.97506000173",
+      "err_vs_minus_2_over_5": "1.58819004829"
+    },
+    {
+      "m": 2,
+      "depth": 2000,
+      "value": "-1.9881900482877865145244099824284759468108153904016",
+      "delta_from_prev": "0.0",
+      "digits_from_prev": 999.0,
+      "digits_per_term": 0.999,
+      "err_vs_6_over_zeta3": "6.97963428377",
+      "err_vs_5_vquad": "7.97506000173",
+      "err_vs_minus_2_over_5": "1.58819004829"
+    },
+    {
+      "m": 3,
+      "depth": 500,
+      "value": "-5.9947463359797743265904573415807907461036483370553",
+      "delta_from_prev": "n/a",
+      "digits_from_prev": 0.0,
+      "digits_per_term": 0.0,
+      "err_vs_6_over_zeta3": "10.9861905715",
+      "err_vs_5_vquad": "11.9816162894",
+      "err_vs_minus_2_over_5": "5.59474633598"
+    },
+    {
+      "m": 3,
+      "depth": 1000,
+      "value": "-5.9947463359797743265904573415807907461036483370553",
+      "delta_from_prev": "0.0",
+      "digits_from_prev": 999.0,
+      "digits_per_term": 1.998,
+      "err_vs_6_over_zeta3": "10.9861905715",
+      "err_vs_5_vquad": "11.9816162894",
+      "err_vs_minus_2_over_5": "5.59474633598"
+    },
+    {
+      "m": 3,
+      "depth": 2000,
+      "value": "-5.9947463359797743265904573415807907461036483370553",
+      "delta_from_prev": "0.0",
+      "digits_from_prev": 999.0,
+      "digits_per_term": 0.999,
+      "err_vs_6_over_zeta3": "10.9861905715",
+      "err_vs_5_vquad": "11.9816162894",
+      "err_vs_minus_2_over_5": "5.59474633598"
+    }
+  ],
+  "vquad_reference_rows": [
+    {
+      "depth": 100,
+      "digits_vs_ref": 298.612918,
+      "err_vs_ref": "2.4382694358905577705e-299"
+    },
+    {
+      "depth": 200,
+      "digits_vs_ref": 589.999997,
+      "err_vs_ref": "6.6892454244204699872e-596"
+    },
+    {
+      "depth": 500,
+      "digits_vs_ref": 590.0,
+      "err_vs_ref": "0.0"
+    },
+    {
+      "depth": 1000,
+      "digits_vs_ref": 590.0,
+      "err_vs_ref": "0.0"
+    },
+    {
+      "depth": 1500,
+      "digits_vs_ref": 590.0,
+      "err_vs_ref": "0.0"
+    },
+    {
+      "depth": 2000,
+      "digits_vs_ref": 590.0,
+      "err_vs_ref": "0.0"
+    }
+  ],
+  "apery_depth_rows": [
+    {
+      "m": 0,
+      "depth": 150,
+      "value": "4.9914442354842448120987576729291844065023383864024",
+      "delta_from_prev": "n/a",
+      "digits_from_prev": 0.0,
+      "digits_per_term": 0.0,
+      "err_vs_6_over_zeta3": "2.95903952754e-301",
+      "err_vs_5_vquad": "0.995425717958",
+      "err_vs_minus_2_over_5": "5.39144423548"
+    },
+    {
+      "m": 0,
+      "depth": 300,
+      "value": "4.9914442354842448120987576729291844065023383864024",
+      "delta_from_prev": "0.0",
+      "digits_from_prev": 999.0,
+      "digits_per_term": 6.66,
+      "err_vs_6_over_zeta3": "2.95903952754e-301",
+      "err_vs_5_vquad": "0.995425717958",
+      "err_vs_minus_2_over_5": "5.39144423548"
+    },
+    {
+      "m": 0,
+      "depth": 600,
+      "value": "4.9914442354842448120987576729291844065023383864024",
+      "delta_from_prev": "0.0",
+      "digits_from_prev": 999.0,
+      "digits_per_term": 3.33,
+      "err_vs_6_over_zeta3": "2.95903952754e-301",
+      "err_vs_5_vquad": "0.995425717958",
+      "err_vs_minus_2_over_5": "5.39144423548"
+    }
+  ],
+  "apery_pslq": {
+    "relation": "-1*x + 6*(1/zeta3) + 0 = 0",
+    "residual": "0.0",
+    "identified": "None"
+  },
+  "apery_sequence_check": {
+    "kernel_matches_standard_apery": true,
+    "direct_q_matches_apery_A": false,
+    "direct_p_matches_apery_B": false,
+    "max_A_residual": 5143680097182607808939681567907596927,
+    "max_B_residual": 25674392370257167892354318444554695993,
+    "first_q_terms": [
+      1,
+      117,
+      62531,
+      91397560,
+      283533296824,
+      1604788039632960,
+      14986725276952656576,
+      214945639642580607037440,
+      4486930568941435145627774976,
+      130747099117499663341849473024000,
+      5143680097182607808939695225344000000
+    ],
+    "first_A_terms": [
+      1,
+      5,
+      73,
+      1445,
+      33001,
+      819005,
+      21460825,
+      584307365,
+      16367912425,
+      468690849005,
+      13657436403073
+    ],
+    "first_p_terms": [
+      5,
+      584,
+      312120,
+      456205824,
+      1415240640000,
+      8010210009600000,
+      74805403492431360000,
+      1072889173936432742400000,
+      22396263723360769360527360000,
+      652616854196330886646726656000000,
+      25674392370257167892354334720000000000
+    ],
+    "first_B_terms": [
+      0,
+      6,
+      87,
+      1722,
+      39327,
+      976001,
+      25574674,
+      696313882,
+      19505495435,
+      558534709761,
+      16275445304007
+    ]
+  },
+  "mobius_top": [
+    {
+      "formula": "(-2m+3)/(1m+2)",
+      "zeta_digits_at_m0": 3.230115,
+      "vquad_peak_digits": 2.219477,
+      "best_m": 2,
+      "score": 6.559331
+    },
+    {
+      "formula": "(-1m+3)/(-3m+2)",
+      "zeta_digits_at_m0": 3.230115,
+      "vquad_peak_digits": 2.219477,
+      "best_m": 2,
+      "score": 6.559331
+    },
+    {
+      "formula": "(1m-3)/(3m-2)",
+      "zeta_digits_at_m0": 3.230115,
+      "vquad_peak_digits": 2.219477,
+      "best_m": 2,
+      "score": 6.559331
+    },
+    {
+      "formula": "(2m-3)/(-1m-2)",
+      "zeta_digits_at_m0": 3.230115,
+      "vquad_peak_digits": 2.219477,
+      "best_m": 2,
+      "score": 6.559331
+    },
+    {
+      "formula": "(-3m-3)/(-1m-2)",
+      "zeta_digits_at_m0": 3.230115,
+      "vquad_peak_digits": 2.167399,
+      "best_m": 1,
+      "score": 6.481213
+    },
+    {
+      "formula": "(-1m-3)/(0m-2)",
+      "zeta_digits_at_m0": 3.230115,
+      "vquad_peak_digits": 2.167399,
+      "best_m": 1,
+      "score": 6.481213
+    },
+    {
+      "formula": "(1m+3)/(0m+2)",
+      "zeta_digits_at_m0": 3.230115,
+      "vquad_peak_digits": 2.167399,
+      "best_m": 1,
+      "score": 6.481213
+    },
+    {
+      "formula": "(3m+3)/(1m+2)",
+      "zeta_digits_at_m0": 3.230115,
+      "vquad_peak_digits": 2.167399,
+      "best_m": 1,
+      "score": 6.481213
+    }
+  ],
+  "conclusion": "The Apéry-basin hit is confirmed: the kernel is exactly the standard Apéry `-n^6` / `(2n+1)(17n^2+17n+5)` kernel, and PSLQ recovers a linear relation with `1/zeta(3)`. The raw convergent sequences are not termwise identical to the classical Apéry A/B tables, so this behaves as the reciprocal/Pincherle-side realization rather than a literal A/B copy. Step A shows the V_quad-island value at m=0 already agrees with the depth-3000 reference to at least 298.612918 digits across the probe depths, so the persistent offset of about 0.002871901 from 5*Vquad is a real limiting gap rather than a pre-asymptotic transient."
+}
