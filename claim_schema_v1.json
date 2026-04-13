@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/claim_schema_v1.json",
+  "title": "Numerical Claim Package",
+  "type": "object",
+  "required": [
+    "inputs",
+    "raw_output",
+    "comparison",
+    "reproduce",
+    "evidence_class",
+    "environment",
+    "provenance"
+  ],
+  "properties": {
+    "inputs": {
+      "type": "object",
+      "required": ["function", "args", "precision", "depth"],
+      "properties": {
+        "function": {"type": "string", "minLength": 1},
+        "args": {"type": "object"},
+        "precision": {"type": "integer", "minimum": 0},
+        "depth": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": true
+    },
+    "raw_output": {
+      "description": "The literal value or text produced by the run.",
+      "oneOf": [{"type": "string"}, {"type": "number"}, {"type": "object"}, {"type": "array"}]
+    },
+    "comparison": {
+      "type": "object",
+      "required": ["target", "residual", "digits", "threshold", "threshold_met"],
+      "properties": {
+        "target": {"type": "string", "minLength": 1},
+        "target_value": {
+          "type": "string",
+          "description": "Optional machine-evaluable expression such as '2/mp.pi'."
+        },
+        "residual": {"oneOf": [{"type": "string"}, {"type": "number"}]},
+        "digits": {"type": "number", "minimum": 0},
+        "threshold": {"type": "number", "minimum": 0},
+        "threshold_met": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "reproduce": {
+      "type": "string",
+      "minLength": 1,
+      "description": "A one-shot command that reproduces raw_output in a clean environment."
+    },
+    "evidence_class": {
+      "type": "string",
+      "enum": [
+        "near_miss",
+        "numerical_identity",
+        "independently_verified",
+        "formalized"
+      ]
+    },
+    "environment": {
+      "type": "object",
+      "required": ["python", "git_commit"],
+      "properties": {
+        "python": {"type": "string", "minLength": 1},
+        "mpmath": {"type": "string"},
+        "sympy": {"type": "string"},
+        "git_commit": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["code_path", "implementation_hash", "timestamp"],
+      "properties": {
+        "code_path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Path to the research script under audit; must not be verify_claim.py itself."
+        },
+        "implementation_hash": {"type": "string", "minLength": 8},
+        "timestamp": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "summary": {"type": "string"},
+    "narrative": {"type": "string"},
+    "claim_text": {"type": "string"},
+    "report_text": {"type": "string"}
+  },
+  "additionalProperties": true
+}

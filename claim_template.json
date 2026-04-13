@@ -1,0 +1,33 @@
+{
+  "inputs": {
+    "function": "eval_pcf",
+    "args": {
+      "a_coeffs": [1, 0, 1],
+      "b_coeffs": [1, 2]
+    },
+    "precision": 200,
+    "depth": 500
+  },
+  "raw_output": "REPLACE_WITH_LITERAL_OUTPUT",
+  "comparison": {
+    "target": "2/pi",
+    "target_value": "2/mp.pi",
+    "residual": "REPLACE_WITH_RESIDUAL",
+    "digits": 0.0,
+    "threshold": 50,
+    "threshold_met": false
+  },
+  "reproduce": "REPLACE_WITH_ONE_SHOT_COMMAND",
+  "evidence_class": "near_miss",
+  "environment": {
+    "python": "3.14",
+    "mpmath": "1.3.0",
+    "git_commit": "4253926"
+  },
+  "provenance": {
+    "code_path": "ramanujan_breakthrough_generator.py",
+    "implementation_hash": "REPLACE_WITH_SHA256_OR_PREFIX",
+    "timestamp": "2026-04-14T00:00:00Z"
+  },
+  "summary": "Use only claim language allowed by the evidence_class."
+}
