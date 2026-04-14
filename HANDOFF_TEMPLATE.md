@@ -23,10 +23,10 @@
 [paste: python verify_claim.py --precommit-check --health-file agent_health_history.json output]
 
 ### Prohibited actions for receiving model
-- Do not implement functions not present in ramanujan_breakthrough_generator.py at commit above
-- Do not report results without raw stdout attached
-- Do not create summary files before underlying numbers are confirmed
-- Do not use phrases: breakthrough, verified, confirmed, mission complete — unless evidence_class permits
+- Do not make a numerical success claim unless a claim package is replayed with verify_claim.py and returns VERIFIED
+- Do not set provenance.code_path to verify_claim.py; it must point to the actual research script under audit
+- Do not use stronger narrative language than the chosen evidence_class permits
+- Do not close the session without rerunning the verifier and keeping the git-anchored integrity scaffold in sync
 
 ### Context summary
 [maximum 5 sentences — what has been established, what remains open]
