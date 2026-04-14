@@ -1,4 +1,5 @@
 {
+  "agent_id": "default-agent",
   "inputs": {
     "function": "eval_pcf",
     "args": {
@@ -22,12 +23,14 @@
   "environment": {
     "python": "3.14",
     "mpmath": "1.3.0",
+    "model": "github-copilot",
     "git_commit": "4253926"
   },
   "provenance": {
     "code_path": "ramanujan_breakthrough_generator.py",
     "implementation_hash": "REPLACE_WITH_SHA256_OR_PREFIX",
-    "timestamp": "2026-04-14T00:00:00Z"
+    "timestamp": "2026-04-14T00:00:00Z",
+    "git_commit": "4253926"
   },
   "summary": "Use only claim language allowed by the evidence_class."
 }

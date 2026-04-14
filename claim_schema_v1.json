@@ -13,6 +13,11 @@
     "provenance"
   ],
   "properties": {
+    "agent_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Optional persistent agent identifier for rolling health scoring."
+    },
     "inputs": {
       "type": "object",
       "required": ["function", "args", "precision", "depth"],
@@ -65,6 +70,10 @@
         "python": {"type": "string", "minLength": 1},
         "mpmath": {"type": "string"},
         "sympy": {"type": "string"},
+        "model": {
+          "type": "string",
+          "description": "Optional but recommended model identifier that produced the claim, e.g. 'github-copilot'."
+        },
         "git_commit": {"type": "string", "minLength": 1}
       },
       "additionalProperties": true
@@ -79,7 +88,11 @@
           "description": "Path to the research script under audit; must not be verify_claim.py itself."
         },
         "implementation_hash": {"type": "string", "minLength": 8},
-        "timestamp": {"type": "string", "minLength": 1}
+        "timestamp": {"type": "string", "minLength": 1},
+        "git_commit": {
+          "type": "string",
+          "description": "Optional duplicate of environment.git_commit for audit anchoring."
+        }
       },
       "additionalProperties": true
     },
