@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "updated_at": "2026-04-14T00:00:00Z",
+  "config": {
+    "window_days": 30,
+    "max_sessions": 20,
+    "depth_floor_digits": 20.0,
+    "rolling_half_life_days": 14.0,
+    "coverage_ratio_note": "Fraction of claim-bearing agent outputs in a session that are captured in the Session Integrity Report. Reserved for middleware instrumentation; not computed automatically by verify_claim.py.",
+    "producing_model_note": "Session records include producing_model copied from claim.environment.model, defaulting to 'unknown' when absent.",
+    "hash_chain_formula": "record_hash = SHA256(json.dumps(session_without_record_hash, sort_keys=True) + previous_record_hash)",
+    "precommit_override_rule": "Block when SCHEMA_INVALID > 0 or fabrication_rate > 0.25, regardless of rolling score.",
+    "axis_formulas": {
+      "fabrication": "F = 100 * (1 - ((MISMATCH + SCHEMA_INVALID + 0.5*EXECUTION_FAILED) / total_claims))",
+      "depth": "D = 100 * mean(min(actual_digits / max(threshold, 20), 1))",
+      "honesty": "H = 100 * (1 - mean(min(1, status_penalty + 0.5*max(0, evidence_weight - depth_ratio))))"
+    },
+    "overall_formula": "S = 100 * (F/100)^0.45 * (D/100)^0.35 * (H/100)^0.20",
+    "grade_bands": {
+      "A": ">= 90",
+      "B": "80-89.99",
+      "C": "70-79.99",
+      "D": "60-69.99",
+      "F": "< 60"
+    }
+  },
+  "claims": [],
+  "sessions": [],
+  "rolling": {}
+}
