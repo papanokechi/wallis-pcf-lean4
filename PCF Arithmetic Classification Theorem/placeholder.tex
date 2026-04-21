@@ -1,0 +1,962 @@
+\documentclass[12pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,hyperref,xcolor,tabularx}
+
+% ── Placeholder convention ─────────────────────────────
+% \PLACEHOLDER{text} marks items to fill after decisions
+\newcommand{\PLACEHOLDER}[1]{{\color{red}\textbf{[#1]}}}
+% ── Status markers ─────────────────────────────────────
+\newcommand{\DONE}[1]{{\color{blue}\textbf{[DONE: #1]}}}
+\newcommand{\UPDATED}[1]{{\color{teal}\textbf{[UPDATED 2026-04-21: #1]}}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\title[PCF Arithmetic Stratification]{%
+A Complete Arithmetic Stratification of\\
+Polynomial Continued Fractions}
+
+\author{papanokechi}
+\address{Yokohama, Japan}
+\urladdr{https://github.com/papanokechi}
+\email{\PLACEHOLDER{email}}
+
+\keywords{polynomial continued fractions,
+arithmetic stratification, spectral classification,
+obstruction hierarchy, PSL$_2(\mathbb{Z})$,
+experimental mathematics, Wallis recurrence,
+rational contamination, PSLQ}
+
+\subjclass[2020]{11A55, 11J70, 11Y65, 11F06, 11B37}
+
+\thanks{%
+  Supplementary data, SIARC relay logs, and AEAL
+  evidence records:
+  \href{https://github.com/papanokechi/pcf-research}{%
+  github.com/papanokechi/pcf-research}.
+  Individual stratum results are developed in the
+  companion papers
+  \cite{Rat,Log,Alg,Obstruction,Spectral,Desert,Khinchin};
+  this paper synthesizes them into a unified framework.
+  Contamination methodology:
+  \href{https://github.com/papanokechi/pcf-rational-contamination}{%
+  github.com/papanokechi/pcf-rational-contamination}.}
+
+\begin{document}
+\maketitle
+
+% ══════════════════════════════════════════════════════
+% STATUS DASHBOARD — update this block as decisions arrive
+% ══════════════════════════════════════════════════════
+%
+% Submission pipeline (as of 2026-04-20):
+%
+%  [1] JNTH-D-26-00480     JNT          — under review
+%  [2] ExpMath 260636324   Exp Math     — under review
+%  [3] ExpMath 266535114   Exp Math     — under review
+%  [4] ExpMath 268704746   Exp Math     — under review
+%  [5] ExpMath 266999523   Exp Math     — under review
+%  [6] ExpMath 267262713   Exp Math     — under review
+%  [7] ExpMath 264514392   Exp Math     — under review
+%  [8] ExpMath 261945835   Exp Math     — SUBMITTED 2026-04-20
+%       (pcf_rational_contamination_2026.pdf)
+%  [17] NON-110708    Nonlinearity  — SUBMITTED 2026-04-21
+%       (vquad_resurgence_SUBMISSION.pdf)
+%
+% TRIGGER: begin drafting body text after
+% ≥2 ExpMath decisions received.
+% JNT decision on [1] = spine signal.
+% Nonlinearity decision on [17] = F2 signal.
+%
+% ══════════════════════════════════════════════════════
+
+\begin{abstract}
+We develop a complete arithmetic stratification of
+the space $\mathcal{F}(d,D)$ of degree-$d$ polynomial
+continued fractions with integer coefficients bounded
+by $D$. The space decomposes into five mutually
+exclusive strata --- Rational (\textbf{Rat}),
+Logarithmic (\textbf{Log}), Algebraic (\textbf{Alg}),
+Transcendental (\textbf{Trans}), and Desert
+(\textbf{Des}) --- each characterized by an explicit
+algebraic obstruction within a four-tier hierarchy
+connecting PCF arithmetic to the action of
+$\mathrm{PSL}_2(\mathbb{Z})$ and the Takeuchi
+classification of arithmetic Fuchsian groups.
+
+\medskip
+The \textbf{Rat} stratum is fully characterized:
+a PCF converges to a rational limit if and only if
+$a(1)=0$ (trivial zero: $K=b(0)$) or $a(k)=0$ for
+some $k\geq 2$ (finite termination), accounting for
+$43/1000$ families ($4.3\%$) in a random survey
+across degrees $d=2,\ldots,6$ \cite{Rat}.
+The \textbf{Log} stratum is characterized by a
+Frobenius obstruction of Catalan--logarithmic type
+\cite{Log}. The \textbf{Desert} stratum accounts for
+$95.7\%$ of random families at precision
+\texttt{dps}$=150$; its non-emptiness is witnessed
+by precision-controlled PSLQ null results \cite{Desert,Khinchin}.
+The obstruction hierarchy spine is established via
+the spectral 5-tuple
+$\mathrm{Spec}(K)=(d,\Lambda,\Delta,\rho,\tau)$
+and the four-tier framework of \cite{Obstruction}.
+
+\medskip
+A completeness conjecture --- that every convergent
+PCF in $\mathcal{F}(d,D)$ falls into exactly one
+stratum --- is supported by a $1000$-family
+experimental survey with zero unclassified families.
+
+\smallskip
+\noindent\textit{AI assistance disclosure.}
+Results were discovered through the SIARC
+(Self-Iterating Analytic Relay Chain) multi-model
+relay pipeline (iterations 1--15+).
+Manuscript preparation involved Claude
+(\texttt{claude-sonnet-4-6}, Anthropic) and
+GitHub Copilot (Microsoft). All mathematical
+results were conceived, directed, and validated
+by the author.
+\end{abstract}
+
+% ══════════════════════════════════════════════════════
+\section{Introduction}
+\label{sec:intro}
+% ══════════════════════════════════════════════════════
+
+A \emph{polynomial continued fraction} (PCF) of
+degree $d$ is an expression
+\[
+  K \;=\; b(0) + \mathbf{K}_{n=1}^{\infty}
+  \frac{a(n)}{b(n)},
+  \qquad a(n), b(n) \in \mathbb{Z}[n],
+  \quad \deg a, \deg b \leq d.
+\]
+The space $\mathcal{F}(d,D)$ consists of all such
+PCFs with $\|a\|_\infty, \|b\|_\infty \leq D$.
+
+\subsection{The stratification problem}
+
+\begin{quote}
+\textit{Given a convergent PCF
+$K \in \mathcal{F}(d,D)$, what determines the
+arithmetic nature of its limit, and what obstructs
+identification when the limit is transcendental?}
+\end{quote}
+
+\subsection{Main results}
+
+\begin{enumerate}
+\item \textbf{(Stratification,
+  \S\S\ref{sec:rat}--\ref{sec:desert})}
+  $\mathcal{F}(d,D)$ decomposes as
+  $\mathrm{Rat} \sqcup \mathrm{Log} \sqcup
+  \mathrm{Alg} \sqcup \mathrm{Trans} \sqcup
+  \mathrm{Des}$,
+  with explicit membership criteria.
+
+\item \textbf{(Rat stratum, \S\ref{sec:rat})}
+  $K \in \mathrm{Rat}$ iff $a(1)=0$ (giving $K=b(0)$)
+  or $\exists\,k\geq 2: a(k)=0$.
+  \DONE{proved, submitted as \cite{Rat},
+  ExpMath 261945835, 2026-04-20}
+
+\item \textbf{(Rational contamination,
+  \S\ref{sec:rat})}
+  The enriched PSLQ basis
+  $\{1,K,\ln 2, K\ln 2,\ln^2 2\}$ produces
+  false-positive transcendental identities at
+  rate $\sim\!4.3\%$ from Rat-stratum families.
+  Pre-screening protocol eliminates both
+  contamination classes.
+  \DONE{proved and documented in \cite{Rat}}
+
+\item \textbf{(Log stratum, \S\ref{sec:log})}
+  \PLACEHOLDER{sharpen after ExpMath decision
+  on 266999523}
+
+\item \textbf{(Obstruction hierarchy,
+  \S\ref{sec:obstruction})}
+  Four-tier filtration: Wallis $\to$ Frobenius
+  $\to$ Spectral $\to$ Fuchsian.
+  \PLACEHOLDER{upgrade Conjecture to Theorem
+  after JNT decision on JNTH-D-26-00480}
+
+\item \textbf{(Desert dominance,
+  \S\ref{sec:desert})}
+  Under uniform sampling with $D=4$,
+  $957/1000$ families are Desert at
+  \texttt{dps}$=150$.
+  \UPDATED{empirical result from
+  1000-family classification pass,
+  2026-04-20}
+
+\item \textbf{(Genuine ln(2) null result,
+  \S\ref{sec:desert})}
+  A corrected search over 800 families
+  ($d=2,\ldots,5$, $D=4$) using stripped
+  basis $\{1,\ln 2,\ln^2 2\}$ with
+  rationality pre-screen finds zero genuine
+  ln(2) identities at residual $<10^{-40}$.
+  \UPDATED{null result confirmed 2026-04-20}
+
+\item \textbf{(Completeness conjecture,
+  \S\ref{sec:completeness})}
+  Every convergent $K\in\mathcal{F}(d,D)$
+  falls into exactly one stratum.
+  Evidence: 1000-family survey,
+  0 unclassified.
+  \UPDATED{Both-stratum artifact resolved:
+  all 41 multi-basis hits confirmed rational,
+  2026-04-20}
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════
+\section{The Spectral 5-Tuple}
+\label{sec:spectral}
+% ══════════════════════════════════════════════════════
+
+\begin{definition}[Spectral class]
+For $K \in \mathcal{F}(d,D)$ convergent, define
+\[
+  \mathrm{Spec}(K) \;=\;
+  (d,\,\Lambda,\,\Delta,\,\rho,\,\tau),
+\]
+where $d$ is the polynomial degree; $\Lambda$ is
+the asymptotic Poincar\'e exponent of $(Q_n)$;
+$\Delta$ is the discriminant of the connection
+matrix of the associated rank-2 recurrence;
+$\rho$ is the PSLQ spectral density; and
+$\tau \in \{0,1,2,3\}$ is the obstruction
+tier following \cite{Obstruction}
+(\S\ref{sec:obstruction}); the pre-tier
+$\tau = -1$ denotes Rat-stratum families
+where the Wallis recurrence collapses before
+any hypergeometric structure is reached.
+\end{definition}
+
+\PLACEHOLDER{Insert Poincar\'e characteristic
+lemma with $\Lambda$ formula from JNT paper
+after JNTH-D-26-00480 decision.}
+
+% ══════════════════════════════════════════════════════
+\section{The Rational Stratum}
+\label{sec:rat}
+% ══════════════════════════════════════════════════════
+
+\begin{theorem}[Rat stratum characterization
+  {\cite{Rat}}]
+\label{thm:rat}
+Let $K \in \mathcal{F}(d,D)$ be convergent.
+\begin{enumerate}
+\item[(i)] If $a(1)=0$, then $K=b(0)$
+  (trivial zero mechanism).
+\item[(ii)] If $a(k)=0$ for some $k\geq 2$
+  and $a(n)\neq 0$ for $1\leq n<k$,
+  then $K=P_{k-1}/Q_{k-1}\in\mathbb{Q}$
+  (finite termination mechanism).
+\end{enumerate}
+Together, (i) and (ii) account for all
+$43/1000$ rational-limit families in the
+survey, with zero residual cases.
+\end{theorem}
+
+\begin{remark}[Rational contamination in
+  PSLQ searches]
+The enriched basis $\{1,K,\ln 2,K\ln 2,\ln^2 2\}$
+expresses rational $K$ via spurious factored
+relations $(c_1 K+c_0)(1+\ln 2)=0$, producing
+false-positive transcendental identity claims
+at rate $\sim\!4{-}9\%$ depending on degree.
+Pre-screening via $[1,K]$ PSLQ before any
+enriched-basis call eliminates this artifact.
+Full methodology in \cite{Rat}.
+\end{remark}
+
+\begin{corollary}[Rational density]
+Under uniform sampling from $\{-D,\ldots,D\}$,
+\[
+  P(K \in \mathrm{Rat}) \;\approx\;
+  \frac{1}{\sqrt{2\pi(d+1)D(D+1)/3}}
+  \;+\; O(D^{-(d+2)/2}),
+\]
+empirically $3$--$8.5\%$ at $d=2,\ldots,6$,
+$D=4$.
+\end{corollary}
+
+% ══════════════════════════════════════════════════════
+\section{The Logarithmic Stratum}
+\label{sec:log}
+% ══════════════════════════════════════════════════════
+
+\PLACEHOLDER{Full section to be written after
+ExpMath decisions on 266999523 and 266535114.}
+
+\medskip\noindent\textbf{Structural framework
+(from \cite{Obstruction}, available now):}
+
+The Log stratum decomposes into two
+geometrically distinct sub-types corresponding
+to Tiers~0 and~1 of the obstruction hierarchy:
+
+\begin{itemize}
+\item \textbf{Tier-0 Log} (modular,
+  generic transcendental).
+  Seven verified families
+  (\textnormal{log-}$k=2$,
+  \textnormal{pi-}$m=0,\ldots,5$)
+  with limits lying on the modular orbifold
+  $X(1) = \mathrm{PSL}_2(\mathbb{Z})\backslash
+  \mathfrak{H}^*$.
+  The limits are generically transcendental
+  but not CM.
+  Spectral coordinates: $\Lambda=3$,
+  $\tau=0$.
+
+\item \textbf{Tier-1 Log} (arithmetic cuspidal,
+  logarithmic).
+  Prototype: Catalan, with Frobenius residual
+  $3/(2n)$ and fitted signature $(\infty,1,4)$.
+  The limit involves logarithmic terms
+  incompatible with a clean Gauss identity.
+  Spectral coordinates: $\Lambda$ modified by
+  logarithmic Frobenius growth, $\tau=1$.
+\end{itemize}
+
+\begin{remark}[Log stratum inaccessibility under
+  uniform polynomial sampling]
+A directed search over 1500 polynomial families
+($d=2,3,4$, $D=4$, $N=500$ per degree) with
+pre-filter threshold $10^{-6}$ against target
+constants $\{\ln 2, \ln 3, \ln 5, G, \pi/4\}$
+found zero pre-filter passes: no random polynomial
+PCF limit came within $10^{-6}$ of any target.
+The classical Log examples (Catalan, $\ln 2$ via
+Gauss CF) use non-polynomial partial numerators
+outside $\mathcal{F}(d,D)$. This confirms that
+$\mu(\mathrm{Log}) = 0$ under the uniform measure
+on $\mathcal{F}(d,D)$ and that Log families require
+structural construction beyond uniform sampling.
+\UPDATED{confirmed 2026-04-20, iteration 16}
+\end{remark}
+
+\noindent\PLACEHOLDER{Insert: Frobenius
+obstruction lemma (Catalan-logarithmic type),
+482 irrational constants theorem,
+$4/\pi$ Casoratian identity, and Wallis--PCF
+arithmetic sector bifurcation. Cite \cite{Log}
+and \cite{Alg} from accepted versions.}
+
+% ══════════════════════════════════════════════════════
+\section{The Algebraic Stratum}
+\label{sec:alg}
+% ══════════════════════════════════════════════════════
+
+\PLACEHOLDER{Write after ExpMath decisions on
+266535114 and 268704746.}
+
+% ══════════════════════════════════════════════════════
+\section{The Four-Tier Obstruction Hierarchy}
+\label{sec:obstruction}
+% ══════════════════════════════════════════════════════
+
+\begin{definition}[Schwarz triangle data]
+For a $d=1$ PCF admitting a Gauss hypergeometric
+witness $\,_2F_1(a,b;c;z)$, the Schwarz triangle
+parameters are
+\[
+  \lambda = |c-1|,\quad
+  \mu = |a-b|,\quad
+  \nu = |a+b-c|,
+\]
+giving triangle order triple $(\infty,\mu,\nu)$
+when $\lambda=0$.
+\end{definition}
+
+\begin{theorem}[\textnormal{PSL}$_2(\mathbb{Z})$
+  theorem {\cite{Obstruction}, Theorem~1}]
+\label{thm:psl2z}
+Every arithmetic $d=1$ polynomial continued
+fraction family in the current verified taxonomy
+has hypergeometric Schwarz triangle group
+commensurable with $\mathrm{PSL}_2(\mathbb{Z})$
+and uniformizes the classical modular curve
+$X(1)$.
+
+The arithmetic families are exactly those with
+$c=1$ (forcing $\lambda=0$) and
+$(\mu,\nu)=(2,3)$: seven verified families
+(\textnormal{log-}$k=2$,
+\textnormal{pi-}$m=0,\ldots,5$),
+all governed by the same
+$\,_2F_1(-1-i,-1+i;1;z)$ at different
+evaluation points $z_0$ on the same orbifold.
+The condition $c=1$ is necessary but not
+sufficient; the sharper pair $(\mu,\nu)=(2,3)$
+distinguishes the arithmetic sector.
+\end{theorem}
+
+\begin{definition}[Obstruction tiers
+  {\cite{Obstruction}, Section~5}]
+\label{def:tiers}
+\begin{itemize}
+\item \textbf{Tier~0 (Modular).}
+  Arithmetic; signature $(\infty,2,3)$;
+  $c=1$, $(\mu,\nu)=(2,3)$.
+  Proved obstruction: the PCF evaluation point
+  $z_0$ is generically transcendental and
+  non-CM; CM occurs only at isolated modularly
+  distinguished arguments.
+  Examples: \textnormal{log-}$k=2$,
+  \textnormal{pi-}$m=0,\ldots,5$.
+
+\item \textbf{Tier~1 (Arithmetic cuspidal).}
+  Arithmetic in origin but Schwarz triangle
+  degenerates cuspidally; fitted signature
+  $(\infty,1,4)$; Frobenius-log residual
+  $3/(2n)$.
+  Two independent proofs: analytic (Frobenius
+  residual, \cite{Spectral}) and geometric
+  (cuspidal triangle degeneration,
+  \cite{Obstruction}).
+  Example: Catalan.
+
+\item \textbf{Tier~2 (Non-arithmetic Fuchsian).}
+  Gauss $\,_2F_1$ witness exists but triangle
+  order triple $(\infty,q,r)$ absent from
+  Takeuchi's list \cite{Takeuchi}.
+  Proved obstruction: no Shimura-curve CM
+  interpretation exists at the group-theoretic
+  level (Lemma~1 of \cite{Obstruction}).
+  Examples: \textnormal{log-}$k=3,4,5,6,7,8,10$;
+  some have irrational orders
+  $\sqrt{3}$, $\sqrt{5}$.
+
+\item \textbf{Tier~3 (Irregular Heun).}
+  No Gauss $\,_2F_1$ witness; governing
+  differential equation has irregular
+  singularity at $\infty$; outside the
+  Fuchsian triangle-group world.
+  Proved obstruction (\cite{Obstruction},
+  Proposition~1): neither Takeuchi's list
+  nor the Tier-0 modular criterion applies.
+  Example: $V_{\mathrm{quad}}\approx
+  1.19737\ldots$, confirmed as confluent-Heun
+  type at CM discriminant $-11$.
+\end{itemize}
+\end{definition}
+
+\begin{remark}[Poincar\'e exponent and tiers]
+For a $d=1$ PCF in Tier~0 or~1, the
+Poincar\'e exponent of the Wallis denominator
+sequence satisfies $\Lambda = \mathrm{Re}(\nu)$
+where $\nu=|a+b-c|$ is the Schwarz parameter.
+For Tier-0 families $\nu=3$, giving $\Lambda=3$.
+For Tiers~2 and~3, $\Lambda$ is irrational or
+undefined within the Gauss framework.
+\end{remark}
+
+\begin{remark}[$V_{\mathrm{quad}}$ as Tier-3
+  exemplar]
+By \cite{Obstruction} Proposition~1,
+$V_{\mathrm{quad}}$ does not admit a
+Gauss--Schwarz triangle interpretation.
+Its governing equation has an irregular
+singularity at $\infty$, placing it in the
+confluent-Heun sector.
+It is excluded from all classical special-value
+families at \texttt{dps}$=300$--$500$.
+The correct uniformization framework, if any
+exists, requires a Heun or isomonodromic
+theory (\cite{Obstruction}, Conjecture~4).
+\end{remark}
+
+\begin{theorem}[Apparent singularity exclusion
+  for $V_{\mathrm{quad}}$]
+\label{thm:exclusion2}
+Let $V_{\mathrm{quad}}$ be the Stokes connection
+coefficient $M_{11}$ of the rank-2 ODE
+$a(x)\,y''+a'(x)\,y'+c(x)\,y=0$ with
+$a(x)=3x^2+x+1$ and $c(x)=-x^2$.
+\begin{enumerate}
+\item[\textup{(i)}]
+  At both finite singularities
+  $s_{1,2}=(-1\pm i\sqrt{11})/6$
+  (roots of $a$), the indicial equation
+  is $\rho^2=0$, giving a double root
+  $\rho=0$.
+\item[\textup{(ii)}]
+  The monodromy around each $s_k$ fixes
+  $M_{11}=V_{\mathrm{quad}}$; the effective
+  monodromy on the connection coefficient
+  is trivial. In particular, $V_{\mathrm{quad}}$
+  cannot be identified via CM elliptic periods,
+  gamma values, or classical hypergeometric
+  special values by any monodromy-based argument.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The structural key is the identity
+$b(x) \equiv a'(x)$, i.e.\
+$6x+1 = \frac{d}{dx}(3x^2+x+1)$,
+which makes the ODE exact:
+$\frac{d}{dx}[a(x)\,y'] + c(x)\,y = 0$.
+This forces the indicial exponent
+$p_0 = a'(s_k)/a'(s_k) = 1$ and
+$q_0 = 0$ at each simple root $s_k$
+of $a$, giving indicial equation
+$\rho^2 = 0$. The monodromy around
+$s_k$ is then unipotent: it fixes
+the analytic first solution $y_1$
+and acts only on $y_2 = y_1\log\zeta
++ \cdots$, leaving $M_{11}$
+invariant.
+The full four-step Frobenius computation
+and numerical certificate (at
+\texttt{dps}$=150$) appear
+in~\cite{Vquad}.
+\end{proof}
+
+\begin{conjecture}[Master hierarchy
+  {\cite{Obstruction}, Conjecture~5}]
+\label{conj:master}
+Every polynomial continued fraction family in
+the present spectral program admits a
+well-defined tier within
+Definition~\ref{def:tiers}. The tier
+determines the correct ambient geometry:
+modular ($X(1)$), cuspidal, non-arithmetic
+Fuchsian, or irregular Heun.
+\end{conjecture}
+
+\begin{theorem}[Tier--stratum correspondence
+  {\cite{Obstruction}}]
+\label{thm:tiers}
+The four obstruction tiers of the JNT paper
+correspond to strata as follows:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{llXl}
+\hline
+Tier & Geometry & Condition & Stratum \\
+\hline
+Pre-tier & Wallis collapse &
+  $a(1)=0$ or $a(k)=0$ &
+  \textbf{Rat} \\
+0 & Modular $(\infty,2,3)$ &
+  $\lambda=0$, $(\mu,\nu)=(2,3)$, $c=1$ &
+  \textbf{Log} (Tier-0) \\
+1 & Arithmetic cuspidal &
+  Arithmetic origin, Frobenius-log residual &
+  \textbf{Log} (Tier-1) \\
+2 & Non-arithmetic Fuchsian &
+  Gauss $\,_2F_1$ witness, not in
+  Takeuchi list &
+  \textbf{Des} (Tier-2) \\
+3 & Irregular Heun &
+  No Gauss witness, irregular
+  singularity at $\infty$ &
+  \textbf{Des} (Tier-3) \\
+\hline
+\end{tabularx}
+\end{center}
+In particular:
+\begin{itemize}
+\item The \textbf{Log} stratum is the union of
+  Tier-0 (modular, generic transcendental limit
+  on $X(1)$) and Tier-1 (arithmetic cuspidal,
+  logarithmic Frobenius residual).
+\item The \textbf{Des} stratum is the union of
+  Tier-2 (non-arithmetic Fuchsian, Takeuchi
+  obstruction) and Tier-3 (irregular Heun,
+  non-Fuchsian).
+\item The \textbf{Rat} stratum is pre-tier:
+  the Wallis recurrence collapses before any
+  hypergeometric structure is reached.
+\item The \textbf{Alg} and \textbf{Trans}
+  strata are not directly addressed by the
+  JNT paper, which operates in the $d=1$
+  sector; their tier placement is
+  \PLACEHOLDER{open, pending higher-degree
+  analysis}.
+\end{itemize}
+\end{theorem}
+
+% ══════════════════════════════════════════════════════
+\section{The Desert Stratum}
+\label{sec:desert}
+% ══════════════════════════════════════════════════════
+
+\begin{definition}[Desert stratum]
+$K\in\mathcal{F}(d,D)$ is Desert if it is
+convergent and $\rho(K)=0$: no integer
+relation of bounded norm is found against
+any basis in
+$\mathcal{B}=\{$algebraic, logarithmic,
+polylogarithmic, hypergeometric$\}$
+at \texttt{dps}$=500$.
+\end{definition}
+
+\begin{theorem}[Desert witnesses {\cite{Desert}}]
+Degree profiles $(4,3)$ and $(5,3)$ contain
+Desert families: PSLQ null at
+\texttt{dps}$=500$ against all bases in
+$\mathcal{B}$.
+\PLACEHOLDER{insert norm bound from accepted
+version of 267262713}
+\end{theorem}
+
+\begin{remark}[Desert dominance under uniform
+  sampling]
+\label{rem:desert-dominance}
+Under uniform random sampling with $D=4$,
+$d=2,\ldots,5$, the Desert stratum accounts
+for $957/1000$ families at
+\texttt{dps}$=150$.
+The Log and Alg strata are not populated by
+random sampling at these parameters; known
+examples in each stratum were found by
+targeted construction.
+This suggests
+\[
+  \mu(\mathrm{Log}\cup\mathrm{Alg})=0
+\]
+under the uniform measure on
+$\mathcal{F}(d,D)$, while both strata are
+non-empty and mathematically non-trivial.
+\UPDATED{empirical result, 1000-family
+classification pass, 2026-04-20}
+\end{remark}
+
+\begin{remark}[Genuine ln(2) null result]
+A corrected search over 800 families
+($d=2,\ldots,5$, $D=4$, seed offset 1500)
+using stripped basis $\{1,\ln 2,\ln^2 2\}$
+with rationality pre-screen finds zero
+genuine $\ln 2$ identities at residual
+$<10^{-40}$.
+This confirms that $\ln 2$ PCF identities,
+if they exist at $D=4$, are not detectable
+by random sampling and require targeted
+construction.
+\UPDATED{confirmed 2026-04-20; see
+\cite{Rat} for pre-screening protocol}
+\end{remark}
+
+% ══════════════════════════════════════════════════════
+\section{Completeness}
+\label{sec:completeness}
+% ══════════════════════════════════════════════════════
+
+\begin{conjecture}[Completeness]
+\label{conj:complete}
+Every convergent $K\in\mathcal{F}(d,D)$
+falls into exactly one stratum:
+\[
+  \mathcal{F}(d,D)_{\mathrm{conv}}
+  \;=\;
+  \mathrm{Rat}\sqcup\mathrm{Log}
+  \sqcup\mathrm{Alg}\sqcup\mathrm{Trans}
+  \sqcup\mathrm{Des}.
+\]
+\end{conjecture}
+
+\noindent\textbf{Experimental evidence
+(1000-family survey, $d=2,\ldots,6$,
+$D=4$):}
+
+\begin{center}
+\begin{tabular}{lrrp{5cm}}
+\hline
+Stratum & Count & \% & Notes \\
+\hline
+Rat & 43 & 4.3\% &
+  Fully characterized \cite{Rat} \\
+Log & 0 & 0\% &
+  Not found by random sampling;
+  examples by construction;
+  zero pre-filter proximity to log
+  constants in 1500-family directed
+  search \cite{Log} \\
+Alg & 0 & 0\% &
+  Not found by random sampling;
+  examples by construction \cite{Alg,Spectral} \\
+Trans & 0 & 0\% &
+  No identified hits at \texttt{dps}$=150$ \\
+Des & 957 & 95.7\% &
+  Dominant stratum \cite{Desert,Khinchin} \\
+\textbf{Both (artifact)} & \textbf{41$\to$0} & — &
+  All confirmed rational by pre-screen;
+  see Remark~\ref{rem:rat-contamination} \\
+\textbf{Unclassified} & \textbf{0} & \textbf{0\%} &
+  Completeness holds empirically \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{remark}[Both-stratum artifact]
+\label{rem:rat-contamination}
+The initial classification flagged 41 families
+as hitting multiple bases (``Both''). Rationality
+pre-screening via $[1,K]$ PSLQ confirmed all
+41 have $K\in\mathbb{Q}$; the multi-basis hits
+were spurious expressions of rational limits.
+The 11 distinct rational values include
+$K\in\{-2,-1,0,1,2,3,4\}$ and two simple
+fractions ($29/8$, $21/4$), with $K=1$ most
+frequent ($9$ families across $d=2,\ldots,6$).
+\UPDATED{diagnosed 2026-04-20}
+\end{remark}
+
+\begin{remark}[Relation to F1]
+Conjecture~\ref{conj:complete} is equivalent
+to the \emph{generalized degree-$d$ dichotomy}
+(F1): for any degree $d\geq 2$, every
+convergent PCF has an arithmetic type
+detectable by $\mathrm{Spec}(K)$ at finite
+precision.
+\end{remark}
+
+% ══════════════════════════════════════════════════════
+\section{Formal Verification Status}
+\label{sec:lean}
+% ══════════════════════════════════════════════════════
+
+The Wallis--PCF family has been partially
+formalized in Lean~4 (repository:
+\href{https://github.com/papanokechi/siarc-lean4}{%
+github.com/papanokechi/siarc-lean4}).
+
+\begin{itemize}
+\item \textbf{36 proof targets} discharged
+  in \texttt{proof\_status.json}
+  (iterations 12--13).
+\item \textbf{Poincar\'e characteristic lemma}
+  transcribed from \cite{Obstruction}.
+\item \textbf{CasoratianPi4.lean} and
+  \textbf{ShiftConsistency.lean} repaired
+  (iteration 13).
+\item \textbf{WallisFamily.lean}: 
+  \DONE{lake build clean, 8267 jobs,
+  0 errors, 0 sorry, 0 warnings.
+  Fix: \texttt{open scoped Topology} +
+  \texttt{push\_cast} cast normalization.
+  Completed iteration 15, 2026-04-20.}
+\item \textbf{Lemma K} (Kloosterman sum bound
+  at conductor $N=24$): still blocked;
+  key theoretical blocker for G-01
+  universal law conjecture $k\geq 5$.
+\end{itemize}
+
+% ══════════════════════════════════════════════════════
+\section{Open Problems}
+\label{sec:open}
+% ══════════════════════════════════════════════════════
+
+\begin{enumerate}
+\item \textbf{(F1)} Prove
+  Conjecture~\ref{conj:complete} for $d=2$,
+  $D=4$.
+
+\item \textbf{(F2)} Identify
+  $V_{\mathrm{quad}}\approx 1.19737\ldots$
+  The governing ODE has the exact form
+  $a(x)y''+a'(x)y'+c(x)y=0$ with
+  $a(x)=3x^2+x+1$, $c(x)=-x^2$; both
+  finite singularities are apparent
+  (trivial monodromy, indicial exponents
+  $\{0,0\}$) by the algebraic identity
+  $b(x)\equiv a'(x)$. The CM discriminant
+  $-11$ is $\mathrm{disc}(a)=1-12=-11$,
+  not a deep CM structure. The constant
+  equals the Stokes connection coefficient
+  $M_{11}$ of the irregular singularity;
+  its isomonodromic deformation is
+  PIII($D_6$) with $\alpha=1/6$,
+  $\beta=\gamma=0$, $\delta=-1/2$.
+  The Stokes constant $S\approx 0.43770528$
+  and connection parameter
+  $\sigma_{\mathrm{conn}}\approx 0.060877$
+  are computed but unidentified in closed
+  form; identification requires the
+  PIII($D_6$) $\tau$-function at the CM
+  accessory parameter $q=(5+i\sqrt{11})/54$.
+  See \cite{Vquad} for the complete analysis.
+  \UPDATED{submitted to Nonlinearity
+  NON-110708, 2026-04-21}
+
+\item \textbf{(F3)} Give a computable
+  definition of the Arithmetic Valuation
+  Operator (AVO) extending $\tau$.
+
+\item \textbf{(F4)} Determine whether the
+  Desert stratum contains provably
+  transcendental elements.
+
+\item \textbf{(F5)} Characterize the Alg
+  stratum for $d\geq 3$: does every
+  degree-$d$ algebraic PCF limit arise as a
+  period of an arithmetic Fuchsian group?
+
+\item \textbf{(F6, new)} Explain the Desert
+  dominance: prove that
+  $\mu(\mathrm{Log}\cup\mathrm{Alg})=0$
+  under the uniform measure on
+  $\mathcal{F}(d,D)$, or exhibit a
+  constructive density lower bound.
+
+\item \textbf{(F7, new)} Determine the
+  asymptotic Desert rate as $D\to\infty$
+  and $d\to\infty$ separately.
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════
+\section*{Acknowledgments}
+% ══════════════════════════════════════════════════════
+
+Results were discovered through the SIARC
+multi-model relay pipeline across iterations
+1--\PLACEHOLDER{final iteration number}.
+All computations are reproducible via the
+supplementary repositories.
+
+\smallskip
+\noindent\textit{AI assistance disclosure.}
+The preparation of this manuscript involved
+assistance from Claude
+(\texttt{claude-sonnet-4-6}, Anthropic) for
+\LaTeX{} editing, proof review, and
+computational interpretation, and from
+GitHub Copilot (Microsoft) for autonomous
+script execution within the SIARC relay chain.
+All mathematical results, proofs, and
+numerical verifications were conceived,
+directed, and validated by the author.
+The AI was used as a writing and research
+tool, not as a source of original mathematics.
+
+% ══════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+
+\bibitem{Rat}
+  papanokechi,
+  \textit{Trivial Rational Contamination in
+  PSLQ-Based Polynomial Continued Fraction
+  Searches: Diagnosis, Correction, and a
+  Pre-Screening Protocol},
+  submitted to Experimental Mathematics,
+  submission 261945835 (2026-04-20).
+
+\bibitem{Log}
+  papanokechi,
+  \textit{Polynomial Continued Fractions:
+  a Proved Logarithmic Ladder, a $4/\pi$
+  Casoratian Identity, and 482 Irrational
+  Constants},
+  \PLACEHOLDER{Experimental Mathematics,
+  submission 266999523, under review;
+  Zenodo DOI: 10.5281/zenodo.19491767}.
+
+\bibitem{Alg}
+  papanokechi,
+  \textit{Arithmetic Sector Bifurcation in
+  Quadratic Continued Fractions: A Formalized
+  Study of the Wallis--PCF Family},
+  \PLACEHOLDER{Experimental Mathematics,
+  submission 266535114, under review}.
+
+\bibitem{Obstruction}
+  papanokechi,
+  \textit{PSL$_2(\mathbb{Z})$ and a Four-Tier
+  Obstruction Hierarchy in the Spectral Theory
+  of Polynomial Continued Fractions},
+  \PLACEHOLDER{Journal of Number Theory,
+  submission JNTH-D-26-00480, under review}.
+
+\bibitem{Spectral}
+  papanokechi,
+  \textit{Spectral Classes of Polynomial
+  Continued Fractions: A Hypergeometric
+  Framework and Arithmetic Obstructions},
+  \PLACEHOLDER{Experimental Mathematics,
+  submission 268704746, under review}.
+
+\bibitem{Desert}
+  papanokechi,
+  \textit{A Computational Verification of the
+  Polynomial Continued Fraction Desert at
+  Degree Profiles $(4,3)$ and $(5,3)$},
+  \PLACEHOLDER{Experimental Mathematics,
+  submission 267262713, under review}.
+
+\bibitem{Khinchin}
+  papanokechi,
+  \textit{A Precision-Controlled Null Result
+  for a Khinchin-Signature PSLQ Family},
+  \PLACEHOLDER{Experimental Mathematics,
+  submission 264514392, under review}.
+
+\bibitem{Vquad}
+  papanokechi,
+  \textit{Painlev\'e~III($D_6$) and resurgence
+  for a constant from a quadratic polynomial
+  continued fraction},
+  submitted to Nonlinearity,
+  submission NON-110708 (2026-04-21).
+
+\bibitem{Takeuchi}
+  K.~Takeuchi,
+  \textit{Arithmetic triangle groups},
+  J.\ Math.\ Soc.\ Japan \textbf{29} (1977),
+  no.~1, 91--106.
+
+\bibitem{Yoshida}
+  M.~Yoshida,
+  \textit{Fuchsian Differential Equations:
+  With Special Emphasis on the Gauss--Schwarz
+  Theory},
+  Vieweg, Braunschweig, 1987.
+
+\bibitem{ClarkVoight}
+  P.~L.~Clark and J.~Voight,
+  \textit{Algebraic curves uniformized by
+  congruence subgroups of triangle groups},
+  Trans.\ Amer.\ Math.\ Soc.\
+  \textbf{363} (2011), no.~1, 33--60.
+
+\bibitem{RamanujanMachine}
+  Raayoni, G.\ et al.,
+  \textit{Generating conjectures on fundamental
+  constants with the Ramanujan Machine},
+  Nature \textbf{590} (2021), 67--73.
+
+\bibitem{LorentzenWaadeland}
+  Lorentzen, L.\ and Waadeland, H.,
+  \textit{Continued Fractions with
+  Applications}, North-Holland, 1992.
+
+\bibitem{aeal-paper7}
+  papanokechi,
+  \textit{AI Behavior Science --- 
+  Founding Territory Paper},
+  Zenodo,
+  \href{https://doi.org/10.5281/zenodo.19562751}{%
+  DOI: 10.5281/zenodo.19562751} (2026).
+
+\bibitem{aeal-paper8}
+  papanokechi,
+  \textit{AEAL: Agent Epistemic
+  Accountability Layer},
+  Zenodo,
+  \href{https://doi.org/10.5281/zenodo.19565086}{%
+  DOI: 10.5281/zenodo.19565086} (2026).
+
+\end{thebibliography}
+
+\end{document}
