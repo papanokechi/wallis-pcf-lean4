@@ -1,0 +1,419 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,graphicx,hyperref}
+% \usepackage{lineno}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Spectral Classes of Polynomial Continued Fractions:\\A Hypergeometric Framework and Arithmetic Obstructions}
+\author{Papanokechi\\
+\small Independent Researcher, Yokohama, Japan\\
+\small ORCID: 0009-0000-6192-8273}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+% \linenumbers
+
+\begin{abstract}
+We propose a spectral classification program for polynomial continued fractions (PCFs) in which each family is assigned the invariant
+\[
+\operatorname{Spec}(K)=(d,\Lambda,\Delta,\rho,\tau),
+\]
+recording the dominant degree, normalized Poincar\'e root, discriminant class, Wallis tail-decay rate, and arithmetic sector. This framework organizes classical logarithmic and $1/\pi$ ladders together with higher-rank obstructed examples inside a single reproducible taxonomy. Our first proved result is the Poincar\'e characteristic lemma, showing that balanced degree-one PCFs are governed at leading order by the quadratic law $\Lambda^2-\alpha\Lambda-\delta=0$. Our second proved result is the Catalan logarithmic Frobenius obstruction lemma: after factorial normalization, a universal residual term $3/(2n)$ forces a logarithmic correction and rules out the naive Gauss ${}_2F_1$ ansatz. We then isolate two main conjectures, one for a clean $d=2$ V\_quad regime linked to a confluent-Heun/Stokes problem and one for an Ap\'ery-type $d=3$ regime governed by a Picard--Fuchs operator and numerically identified with $6/\zeta(3)$. The current dataset contains 37 rigorously verified families, including seven rows imported from Cohen (2024) that supply elliptic and Gauss-hypergeometric comparison examples. The resulting picture suggests that arithmetic behavior in PCFs is controlled not only by coarse spectral data, but also by Frobenius resonance, monodromy type, and higher-rank geometry. Key open problems are to prove nonreducibility in the clean obstructed sectors and to locate further resonant-versus-clean families.
+\end{abstract}
+
+\noindent\textbf{Keywords:} polynomial continued fractions, spectral classification, hypergeometric functions, arithmetic obstructions, Poincar\'e characteristic roots
+
+\noindent\textbf{2020 Mathematics Subject Classification.}
+Primary: 11J70;
+Secondary: 33C05, 11J72, 34M35
+
+\section{Introduction}
+Polynomial continued fractions (PCFs) sit at a crossroads of special functions, Diophantine approximation, and arithmetic geometry \cite{wall1948,lorentzen2008}. Classical continued fractions of Gauss, Euler, Brouncker, and Ap\'ery show that low-degree recurrences can encode logarithms, Gamma quotients, elliptic periods, and zeta-type constants with remarkable efficiency \cite{apery1979}. Recent large-scale search programs, especially the Ramanujan Machine paradigm, have greatly expanded the list of examples \cite{raayoni2021}, but they also expose a conceptual gap: there is still no generally accepted invariant that predicts when a polynomial continued fraction should belong to a classical hypergeometric sector and when it should instead fall into a genuinely obstructed arithmetic class.
+
+The central claim of this paper is that the first layer of that answer is spectral. Given a PCF with polynomial data $a_n,b_n$, we attach the invariant
+\[
+\operatorname{Spec}(K)=(d,\Lambda,\Delta,\rho,\tau),
+\]
+where $d$ records dominant growth, $\Lambda$ is the normalized Perron--Poincar\'e root, $\Delta$ is the balanced discriminant, $\rho$ is a Wallis-style tail-decay rate, and $\tau$ is the observed arithmetic sector. The philosophy is to separate coarse asymptotic behavior from fine arithmetic behavior. The pair $(d,\Lambda,\Delta)$ organizes families into broad sheets; the additional parameters $\rho$ and $\tau$, together with the fitted hypergeometric point $z_0$ and the Frobenius type of the normalized recurrence, refine those sheets into a workable taxonomy.\footnote{A companion paper \cite{pcf_bifurcation_2026} establishes the bifurcation phenomenon for specific families; the present work provides the general framework.} The broader synthesis also interfaces with our earlier PCF and asymptotic manuscripts \cite{pcf_unified_2026,ratio_universality_2026}.
+
+\begin{remark}[Series position]
+This paper is the third in a series. Paper~\cite{ratio_universality_2026} establishes ratio universality for Meinardus-class partition functions. Paper~\cite{pcf_bifurcation_2026} identifies the bifurcation phenomenon for specific PCF sectors. The present work provides the unifying spectral classification framework. No theorem in this paper duplicates a result in~\cite{ratio_universality_2026,pcf_bifurcation_2026}.
+\end{remark}
+
+This viewpoint is motivated by three distinct strands of evidence. First, the classical degree-one ladders for logarithms and rational multiples of $1/\pi$ share closely related recurrences yet land in different arithmetic sectors. Second, the Catalan family shows that matching the leading Poincar\'e root is not enough: a repeated-root Frobenius defect can force logarithmic behavior and destroy the naive Gauss ${}_2F_1$ ansatz, in the sense of the Frobenius local theory \cite{frobenius1873}. Third, the V\_quad and Ap\'ery rows display clean higher-rank asymptotics with no logarithmic resonance, but still resist collapse to the low-rank hypergeometric templates. Put differently, spectral data explain \emph{where} a family lives, while Frobenius resonance, monodromy, and Picard--Fuchs/Heun structure explain \emph{why} it does or does not reduce to a familiar closed form.
+
+Our first rigorous result is a leading-order classification theorem in the balanced degree-one regime, in the spirit of the asymptotic recurrence theory initiated by Poincar\'e \cite{poincare1885}. It shows that the normalized ratio $r_n/n$ cannot converge arbitrarily: its limit is forced by the top coefficients of the recurrence. This theorem supplies the basic invariant used throughout the Phase~1 table and anchors the entire numerical taxonomy. Our second rigorous result is a concrete obstruction theorem for Catalan's constant. After factorial normalization, the symbolic residual contains an unavoidable term $3/(2n)$; since this coefficient cannot be removed inside a pure Frobenius power-law ansatz, a logarithmic correction is forced. This produces a clean proof-of-concept that arithmetic obstruction can be detected directly from normalized asymptotics.
+
+Two further sectors emerge clearly from the data but remain conjectural. The first is the V\_quad regime, a clean $d=2$ family whose renormalized characteristic polynomial has distinct roots and whose Borel transform points to a confluent-Heun / Stokes connection problem rather than a Gauss-type evaluation; see \cite{ronveaux1995}. The second is the Ap\'ery regime, a balanced $d=3$ family governed by the classical Picard--Fuchs operator for the Ap\'ery recurrence and numerically identified with $6/\zeta(3)$; see Section~\ref{subsec:apery-outline}. These examples suggest a three-way obstruction trichotomy: repeated-root logarithmic resonance (Catalan), clean $d=2$ Heun/Stokes behavior (V\_quad), and clean $d=3$ Picard--Fuchs/modular behavior (Ap\'ery).
+
+For ease of reference, we record the four principal statements in the front matter.
+
+\begin{theorem}[Poincar\'e characteristic law, informal]
+In the balanced degree-one class, the normalized root $\Lambda$ is forced by the quadratic equation $\Lambda^2-\alpha\Lambda-\delta=0$; see Theorem~\ref{thm:poincare-outline}.
+\end{theorem}
+
+\begin{lemma}[Catalan Frobenius obstruction, informal]
+For the Catalan row, factorial normalization leaves a residual $3/(2n)$ term, forcing a logarithmic correction and excluding the plain Gauss ${}_2F_1$ model; see Lemma~\ref{lem:catalan-outline}.
+\end{lemma}
+
+\begin{conjecture}[V\_quad clean $d=2$ obstruction, informal]
+The V\_quad constant belongs to a confluent-Heun / Stokes sector and is not reducible to a single algebraic Gauss value; see Conjecture~\ref{conj:vquad-outline}.
+\end{conjecture}
+
+\begin{conjecture}[Ap\'ery clean $d=3$ obstruction, informal]
+The Ap\'ery row belongs to a Picard--Fuchs / modular sector, distinct both from the Catalan resonance mechanism and from the V\_quad Heun regime; see Conjecture~\ref{conj:apery-obstruction} and Section~\ref{subsec:apery-outline}.
+\end{conjecture}
+
+The current taxonomy contains \textbf{37 rigorously verified families}. It includes ten $d=2$ rows, five elliptic examples, and a seven-row external block mined from Cohen's 2024 database of polynomial-type continued fractions \cite{cohen2024database}, whose data supply especially useful comparison cases in the elliptic and Gauss-hypergeometric sectors. The visual appendix makes this classification immediately visible: the classical logarithmic and $1/\pi$ rows occupy the low-degree mainland, the Cohen additions enrich the elliptic comparison layer, and the V\_quad family remains isolated by its unusually large convergence-rate parameter $\rho$; see Appendix~\ref{app:visuals}. These plots complement the table by showing not just exact values but also convergence profiles and sector separation.
+
+The structure of the paper follows the discovery pipeline. Section~2 fixes definitions and normalization conventions. Section~3 proves the Poincar\'e characteristic lemma. Section~4 presents the 37-family taxonomy table and records the Cohen additions. Section~5 develops the $z_0$-orbit framework for the degree-one hypergeometric sector. Section~6 studies the obstruction mechanisms, moving from the proved Catalan resonance lemma to the conjectural clean sectors for V\_quad and Ap\'ery. Section~7 collects open problems, including nonreducibility in the clean sectors and the search for further resonant-versus-clean examples. The appendix records the scripts, figures, and data products that make the workflow reproducible.
+
+\section{Definitions and spectral classes}
+\subsection{Polynomial continued fractions}
+Define
+\[
+K(a_n,b_n) = b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \cdots}}
+\]
+with polynomial data $a_n,b_n$.
+
+\subsection{The spectral invariant}
+Introduce
+\[
+\operatorname{Spec}(K)=(d,\Lambda,\Delta,\rho,\tau),
+\]
+where $d$ is the growth degree, $\Lambda$ is the Poincar\'e root, $\Delta$ the discriminant, $\rho$ the Wallis decay rate, and $\tau$ the arithmetic type.
+
+\begin{remark}
+All numerical invariants quoted in this outline are extracted from the reproducible CSV/JSON outputs generated by the workspace scripts. In particular, $\Lambda$ is estimated from normalized convergent ratios, $\rho$ from the Wallis-determinant tail slope, and the arithmetic tag $\tau$ from high-precision PSLQ and special-function matching.
+\end{remark}
+
+\section{The Poincar\'e lemma}
+\begin{theorem}[Poincar\'e characteristic lemma]\label{thm:poincare-outline}
+Let $p_n$ satisfy
+\[
+  p_n=b_n p_{n-1}+a_n p_{n-2},
+\]
+with
+\[
+  a_n = \delta n^2 + O(n), \qquad b_n = \alpha n + O(1),
+\]
+and suppose the normalized ratio $r_n:=p_n/p_{n-1}$ obeys $r_n/n\to\Lambda\neq 0$. Then $\Lambda$ satisfies the characteristic equation
+\[
+  \Lambda^2 - \alpha \Lambda - \delta = 0.
+\]
+In particular, the balanced degree-one spectral class is already determined at leading order by the pair $(\alpha,\delta)$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+From the recurrence one has the exact identity
+\[
+  r_n = b_n + \frac{a_n}{r_{n-1}}.
+\]
+Divide by $n$ and use the hypotheses $b_n/n \to \alpha$, $a_n/n^2 \to \delta$, and $r_{n-1}/n \to \Lambda$. Passing to the limit gives
+\[
+  \Lambda = \alpha + \frac{\delta}{\Lambda},
+\]
+which is equivalent to the quadratic equation above. In the computational pipeline this lemma is used in reverse: one first estimates $\Lambda$ numerically from convergent ratios and then checks the resulting discriminant class against the symbolic leading coefficients.
+\end{proof}
+
+\section{Phase 1: Taxonomy table}
+\subsection{Seed families}
+Include at least 15 families, for example:
+\begin{itemize}
+  \item logarithmic ladder `log-k`,
+  \item pi-family `pi-m`,
+  \item Catalan-type degenerate cases,
+  \item V\_quad and Ap\'ery-type outliers,
+  \item probe families used to test boundary and sign hypotheses.
+\end{itemize}
+
+\subsection{Main taxonomy table}
+The current CSV now contains \textbf{37 verified rows}. A representative submission-ready slice is shown below, with the seven Cohen-derived additions highlighted alongside the earlier seed set.
+
+\begin{center}
+\scriptsize
+\begin{tabular}{@{}lcccccl@{}}
+\toprule
+Family & $d$ & $\Lambda$ & $\Delta$ & $\rho$ & $\tau$ & Status \\
+\midrule
+log-k=2 & 1 & 2 & 1 & 0.301 & log-type & seed \\
+log-k=3 & 1 & 3 & 4 & 0.477 & log-type & seed \\
+log-k=4 & 1 & 4 & 9 & 0.602 & log-type & seed \\
+log-k=5 & 1 & 5 & 16 & 0.699 & log-type & seed \\
+log-k=6 & 1 & 6 & 25 & 0.779 & log-type & seed \\
+log-k=7 & 1 & 7 & 36 & 0.845 & log-type & seed \\
+log-k=8 & 1 & 8 & 49 & 0.903 & log-type & seed \\
+\textbf{log-k=9} & 1 & 9 & 64 & 0.955 & log-type & \textbf{NEW} \\
+log-k=10 & 1 & 10 & 81 & 1.000 & log-type & seed \\
+\textbf{log-k=11} & 1 & 11 & 100 & 1.042 & log-type & \textbf{NEW} \\
+\textbf{log-k=12} & 1 & 12 & 121 & 1.080 & log-type & \textbf{NEW} \\
+pi-m=0 & 1 & 2 & 1 & 0.301 & pi-type & seed \\
+pi-m=1 & 1 & 2 & 1 & 0.302 & pi-type & seed \\
+pi-m=3 & 1 & 2 & 1 & 0.305 & pi-type & seed \\
+\textbf{pi-m=6} & 1 & 2 & 1 & 0.308 & pi-type & \textbf{NEW} \\
+\textbf{pi-m=7} & 1 & 2 & 1 & 0.309 & pi-type & \textbf{NEW} \\
+\textbf{cohen-4D1-k=1/2} & 2 & 4 & 9 & 0.602 & elliptic-period & \textbf{COHEN} \\
+\textbf{cohen-4D1.7-k=1/2} & 2 & 4 & 9 & 0.602 & elliptic-period & \textbf{COHEN} \\
+\textbf{cohen-4D3.3-k=1/2} & 3 & 2 & $1/4$ & 0.125 & elliptic-period & \textbf{COHEN} \\
+\textbf{cohen-4D4-k=1/2} & 1 & $3/2$ & 4 & 0.477 & elliptic-period & \textbf{COHEN} \\
+\textbf{cohen-4D6-k=1/2} & 1 & 2 & $9/4$ & 0.602 & elliptic-period & \textbf{COHEN} \\
+\textbf{cohen-5.2.7.4} & 1 & $1.707\ldots$ & 2 & 0.766 & ${}_2F_1$-type & \textbf{COHEN} \\
+\textbf{cohen-3.1.11.3-z=1} & 2 & $11.657\ldots$ & 128 & 1.531 & log-type & \textbf{COHEN} \\
+apery-zeta3 & 3 & $17+12\sqrt2$ & 1152 & 3.062 & Apery-isolated & seed \\
+vquad-3-1-1 & 2 & 3 & -11 & 13.213 & V\_quad-mystery & obstruction \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Phase 2: The z0-orbit framework}
+\subsection{Hypergeometric fitting}
+Explain the fitting ansatz
+\[
+L = C\,{}_2F_1(a,b;c;z_0)
+\]
+and the recovery of $(a,b,c)$ from $(\alpha,\delta)$.
+
+\begin{theorem}[z0-orbit separation, empirical]\label{thm:z0-orbit-outline}
+For the identified $d=1$ families in the current dataset, the $PGL_2(\mathbb{Q})$-orbit of the fitted evaluation point $z_0$ is a finer invariant than $(\Lambda,\Delta)$ and separates the mixed control pair \texttt{log-k=2} and \texttt{pi-m=0}.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The Phase~2 audit fits all currently identified $d=1$ rows to values of the form $L=C\,{}_2F_1(a,b;c;z_0)$ with small rational $C$. The control pair \texttt{log-k=2} and \texttt{pi-m=0} has the same indicial triple $(a,b,c)$ but different fitted values of $z_0$, and these points are not related by the Euler--Pfaff sixfold action. Thus $(a,b,c)$ alone is insufficient, while adjoining the orbit of $z_0$ restores separation.
+\end{proof}
+
+\section{Phase 3: Arithmetic obstructions}
+\subsection{Catalan obstruction}
+\begin{lemma}[Catalan obstruction]\label{lem:catalan-outline}
+For the Catalan family
+\[
+  a_n=-4n^2,\qquad b_n=4n+1,
+\]
+one has $\Delta=0$ and repeated Poincar\'e root $\Lambda=2$. After normalizing by $u_n:=p_n/n!$, the recurrence becomes
+\[
+  u_n=(4+1/n)u_{n-1}-(4-4/n)u_{n-2}.
+\]
+No solution of the form $u_n=2^n n^s(1+c_1/n+c_2/n^2+\cdots)$ can satisfy this recurrence without a logarithmic correction term.
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+Substituting the nonlogarithmic Frobenius ansatz into the normalized recurrence gives the symbolic residual
+\[
+  \mathrm{RHS}-\mathrm{LHS}=\frac{3}{2n}+\frac{3c_1-2s^2-3s}{2n^2}+O(n^{-3}).
+\]
+The coefficient $3/(2n)$ is independent of $s,c_1,c_2,\dots$, so it cannot be removed inside the pure power-law ansatz. Hence the second local solution is necessarily logarithmic. This is the mechanism behind the observed failure of the plain Gauss ${}_2F_1$ fit for Catalan. A 220-digit PSLQ check against the standard algebraic/logarithmic basis also returns \texttt{None}, supporting the obstruction numerically.
+\end{proof}
+
+\subsection{V\_quad obstruction (conditional / numerical)}
+\begin{lemma}[Clean d=2 tier for V\_quad]\label{lem:vquad-outline}
+For the recurrence
+\[
+p_n = (3n^2+n+1)p_{n-1} + p_{n-2},
+\]
+one has the asymptotic law
+\[
+p_n \sim C\,3^n (n!)^2 n^{1/3},
+\]
+so the renormalized recurrence has distinct characteristic roots and no logarithmic Frobenius resonance.
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+Set
+\[
+  p_n = 3^n (n!)^2 n^{1/3} q_n.
+\]
+Then the recurrence becomes exactly
+\[
+  q_n = A_n q_{n-1} + B_n q_{n-2},
+\]
+where
+\[
+  A_n = \frac{(n-1)^{1/3}(3n^2+n+1)}{3n^{7/3}},
+  \qquad
+  B_n = \frac{(n-2)^{1/3}}{9n^{7/3}(n-1)^2}.
+\]
+Expanding at infinity gives
+\[
+  A_n = 1 + \frac{1}{9n^2} - \frac{17}{81n^3} - \frac{8}{81n^4} + O(n^{-5}),
+  \qquad
+  B_n = \frac{1}{9n^4} + \frac{4}{27n^5} + \frac{11}{81n^6} + O(n^{-7}).
+\]
+Hence the asymptotic characteristic equation is
+\[
+  \lambda^2 - \lambda = 0,
+\]
+with distinct roots $\lambda_1=1$ and $\lambda_2=0$. Therefore the V\_quad sector is a clean $d=2$ regime with one dominant power-law branch and one recessive branch, but no logarithmic Frobenius resonance.
+\end{proof}
+
+This strengthens the obstruction picture considerably. Catalan fails because of repeated-root Frobenius resonance; V\_quad fails for a different reason. After the factorial-square normalization the dominant solution stabilizes, while the second solution is recessive and numerically tiny, so generic initial data collapse onto the same dominant branch without any sign of a logarithmic defect.
+
+\paragraph{Generating-function / Heun link.}
+The naive ordinary generating function for the normalized sequence $q_n$ is not especially transparent because of the fractional factor $n^{1/3}$. However, the associated Birkhoff transform leads to an explicit second-order differential equation of confluent-Heun type. In the notation of the April 9 connection-matrix computation, the transformed function $y(x)$ satisfies
+\[
+  (3x^2+x+1)y'' + (6x+1)y' - x^2 y = 0.
+\]
+Its finite singularities are
+\[
+  x = \frac{-1 \pm i\sqrt{11}}{6},
+\]
+while $x=\infty$ is an irregular singularity of rank $1$. Thus the equation is not ordinary HeunG; rather, it lies in a confluent-Heun / Stokes sector, exactly matching the arithmetic behavior seen numerically.
+
+Equivalently, if $F(z)=\sum_{n\ge 0} p_n z^n$ is the ordinary generating function for the raw denominator sequence, then direct summation of the recurrence yields the differential equation
+\[
+  3z^3 F''(z) + 10z^2 F'(z) + (z^2+5z-1)F(z) + 1 = 0,
+\]
+whose Birkhoff-Laplace transform is the equation above. This is the clearest analytic route currently available toward a full V\_quad theorem.
+
+\paragraph{Connection to known special functions.}
+The finite-singularity set has discriminant $-11$, which points naturally toward CM-type and modular/elliptic structures; nevertheless the high-precision tests performed so far do not collapse the value to a simple Gauss, elliptic, Bessel, Airy, or ${}_0F_2$ constant. The most plausible current interpretation is therefore: V\_quad is not hypergeometric in the plain ${}_2F_1$ sense, but is governed by a confluent-Heun-type connection problem with nontrivial Stokes data.
+
+At present the evidence is numerical but strong: the 220-digit, 320-digit, and now 400-digit PSLQ searches against the expanded basis
+\[
+\begin{aligned}
+\{&1, V_{\mathrm{quad}}, \pi, \log 2, \log 3, \sqrt 3, \sqrt{11},\\
+&\Gamma(1/3), \Gamma(2/3), \Gamma(1/4), \Gamma(3/4),\\
+&K(1/\sqrt 2), K(\sqrt 3/2), E(1/\sqrt 2), E(\sqrt 3/2), \pi^2, \zeta(3)\}
+\end{aligned}
+\]
+all return \texttt{None}. Thus V\_quad is best stated as a conjectural arithmetic obstruction supported by reproducible Heun-linked evidence.
+
+\begin{conjecture}[V\_quad arithmetic obstruction]\label{conj:vquad-outline}
+The V\_quad constant is not representable by a single algebraic Gauss value $C\,{}_2F_1(a,b;c;z_0)$ and is more naturally associated with a confluent-Heun / Stokes-type sector.
+\end{conjecture}
+
+\subsection{Ap\'ery d=3 obstruction (conditional / modular)}\label{subsec:apery-outline}
+The isolated Ap\'ery row from the taxonomy is governed by the recurrence
+\[
+  p_n = (34n^3+51n^2+27n+5)p_{n-1} - n^6 p_{n-2},
+\]
+with the experimentally verified value
+\[
+  V_{\mathrm{Ap}} = \frac{6}{\zeta(3)}.
+\]
+Let
+\[
+  \lambda_+ = 17+12\sqrt2, \qquad \lambda_- = 17-12\sqrt2 = \lambda_+^{-1},
+\]
+and normalize by
+\[
+  p_n = \lambda_+^n (n!)^3 n^{3/2} q_n.
+\]
+Then one obtains the exact recurrence
+\[
+  q_n = A_n q_{n-1} + B_n q_{n-2},
+\]
+where
+\[
+  A_n = \frac{(n-1)^{3/2}(34n^3+51n^2+27n+5)}{\lambda_+ n^{9/2}},
+  \qquad
+  B_n = -\frac{n^{3/2}(n-2)^{3/2}}{\lambda_+^2 (n-1)^3}.
+\]
+Expanding at infinity gives
+\[
+  A_n = \bigl(1+\lambda_+^{-2}\bigr) - \frac{147}{4\lambda_+ n^2} - \frac{57}{4\lambda_+ n^3} + O(n^{-4}),
+\]
+\[
+  B_n = -\lambda_+^{-2} + \frac{3}{2\lambda_+^2 n^2} + \frac{3}{\lambda_+^2 n^3} + O(n^{-4}).
+\]
+Hence the limiting characteristic equation is
+\[
+  r^2 - \bigl(1+\lambda_+^{-2}\bigr)r + \lambda_+^{-2} = (r-1)(r-\lambda_+^{-2}) = 0,
+\]
+with distinct roots $1$ and $\lambda_+^{-2} = \lambda_-^2$. Thus the Ap\'ery sector is \emph{not} Catalan-like: there is no repeated-root Frobenius resonance and no forced logarithmic term at the dominant asymptotic level. In this sense it is a clean higher-rank obstruction, analogous to V\_quad but now in the balanced $d=3$ regime.
+
+\paragraph{Picard--Fuchs form.}
+After the factorial-cube Borel normalization, the companion generating function $U(z)$ is governed by the classical Ap\'ery operator
+\[
+  \Bigl[\theta^3 - z(2\theta+1)(17\theta^2+17\theta+5) + z^2(\theta+1)^3\Bigr]U(z)=0,
+  \qquad \theta = z\frac{d}{dz}.
+\]
+This is a third-order Fuchsian Picard--Fuchs equation, not a plain Gauss ${}_2F_1$ equation and not an ordinary HeunG equation. The natural arithmetic interpretation is therefore modular / Ap\'ery-type rather than degree-one hypergeometric or degree-two Heun-like.
+
+\paragraph{420-digit PSLQ evidence.}
+At 420 digits, PSLQ on the expanded basis
+\[
+\begin{aligned}
+\{&1, V_{\mathrm{Ap}}, \pi, \log 2, \log 3, G, \sqrt2, \sqrt3, \sqrt5, \sqrt{11},\\
+&\Gamma(1/3), \Gamma(2/3), \Gamma(1/4), \Gamma(3/4), K(1/\sqrt2), E(1/\sqrt2), \pi^2, \pi^3\}
+\end{aligned}
+\]
+returns \texttt{None}; only after adjoining $1/\zeta(3)$ does PSLQ recover the exact relation
+\[
+  -V_{\mathrm{Ap}} + \frac{6}{\zeta(3)} = 0.
+\]
+So the obstruction is not one of simple nonexistence of a closed form, but rather that the correct closed form lies in a genuinely Ap\'ery / Picard--Fuchs sector outside the lower-rank Gauss and Heun templates.
+
+\begin{conjecture}[Ap\'ery modular obstruction]\label{conj:apery-obstruction}
+The Ap\'ery row is not reducible to a single algebraic Gauss value $C\,{}_2F_1(a,b;c;z_0)$, nor to the clean $d=2$ confluent-Heun sector of V\_quad. Its correct home is a balanced $d=3$ Picard--Fuchs / modular class.
+\end{conjecture}
+
+\section{Conjectures and open problems}
+\begin{itemize}
+  \item Extend the taxonomy beyond the current seed set.
+  \item Determine whether every arithmetic sector is controlled by a hypergeometric orbit, a logarithmic Frobenius defect, or a higher-rank Stokes datum.
+  \item Prove or disprove the V\_quad obstruction conjecture.
+  \item Develop a full obstruction theory for $d \ge 2$ families.
+\end{itemize}
+
+\section{Appendix: verification scripts}\label{app:verification}
+\begin{itemize}
+  \item \texttt{spectral\_class\_phase1.py}
+  \item \texttt{spectral\_class\_phase2\_congruence.py}
+  \item \texttt{vquad\_connection\_matrix.py}
+  \item \texttt{vquad\_heun\_connection\_check.py}
+  \item \texttt{results/generate\_spectral\_visualizations.py}
+\end{itemize}
+
+\subsection{Visualizations of Spectral Classes}\label{app:visuals}
+The appendix figures provide a compact visual summary of the 37-family taxonomy and make the two main structural messages easy to see at a glance: the Cohen elliptic block forms a coherent low-$d$ cluster, while the V\_quad rows remain isolated by their unusually large convergence-rate parameter $\rho$.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.88\linewidth]{figures/taxonomy_rho_vs_d.png}
+\caption{Scatter plot of the estimated Wallis convergence rate $\rho$ against spectral degree $d$, colored by arithmetic sector. The highlighted labels mark the V\_quad obstruction candidate and the newest Cohen additions, including the elliptic specializations \texttt{cohen-4D1-k=1/2}, \texttt{cohen-4D1.7-k=1/2}, \texttt{cohen-4D4-k=1/2}, \texttt{cohen-4D6-k=1/2}, and the direct Gauss row \texttt{cohen-5.2.7.4-c=3/2-z=1/2}.}
+\label{fig:taxonomy-rho-vs-d}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.84\linewidth]{figures/taxonomy_lambda_distribution.png}
+\caption{Distribution of the normalized root $\Lambda$ across the main regimes. The $d=1$ balanced sector contains the logarithmic and $1/\pi$ ladders; the $d=2$ sector contains both the V\_quad obstruction family and the new Cohen logarithmic/elliptic witnesses; the $d=3$ sector includes the Ap\'ery and elliptic-square examples.}
+\label{fig:taxonomy-lambda-distribution}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.88\linewidth]{figures/convergence_representatives.png}
+\caption{Representative convergence curves $\log_{10}(\mathrm{error})$ versus depth for a log-ladder row, a $\pi$-family row, the V\_quad obstruction candidate, one Cohen elliptic example, and one Cohen ${}_2F_1$ specialization. The contrast emphasizes both the stability of the classical hypergeometric sectors and the numerically distinctive behavior of V\_quad.}
+\label{fig:convergence-representatives}
+\end{figure}
+
+\section*{Data Availability}
+All numerical data supporting the results of this study were generated 
+computationally using Python/mpmath and are fully reproducible from the 
+algorithms described in the manuscript. Computation scripts are publicly 
+available at \url{https://github.com/papanokechi/pcf-spectral-classes}.
+
+\section*{Conflict of Interest}
+The author declares no conflicts of interest.
+
+\section*{Funding}
+This research received no external funding. The work was conducted 
+independently by the author.
+
+\section*{Acknowledgments}
+We acknowledge Henri Cohen for making the 2024 polynomial-continued-fraction database publicly available; the Cohen block now supplies a valuable elliptic and Gauss-hypergeometric comparison layer for the present taxonomy.
+
+Computational work in this paper was conducted using the SIARC
+v6.5 pipeline with AI assistance from GitHub Copilot and
+Anthropic Claude. All mathematical claims and conclusions are
+the author's own.
+
+\bibliographystyle{amsplain}
+\bibliography{pcf_spectral_refs}
+
+\end{document}
