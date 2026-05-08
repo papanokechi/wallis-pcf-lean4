@@ -1,0 +1,533 @@
+================================================================
+SIARC Relay Prompt 113 — Copilot Researcher (substrate paste)
+Task ID:  T2-OPERATOR-069R3-PRIORITY-1-S10-ROUTE-F-SUBSTRATE-
+          CONSOLIDATION-126
+Tier:     T2 (executor) running on operator behalf
+Trigger:  069r3 FINAL synth verdict Q4_HEDGE_ROUTE_F at MEDIUM-
+          HIGH confidence (substrate-paste-pending).  Q4 re-fire
+          requires the §10 priority-1 mathematical substrate
+          consolidated into a single paste-ready packet so that
+          a fresh Claude.ai T1-Synth conversation can produce a
+          DECISIVE Q4 verdict (GO_ROUTE_F vs NO_GO).  M9 V0
+          critical-path gating.
+Bridge HEAD at draft time: ae5b7f7
+                           (T1-SYNTH-069R3-FINAL-VERDICT-
+                            ABSORPTION-124 LANDED)
+Estimated researcher effort: 30-60 min (consolidate-and-paste;
+                             substrate already on disk)
+Primary output: route_f_substrate_paste_packet.md
+                (~400-700 lines, paste-ready)
+Bridge deposit: sessions/<TODAY>/T2-OPERATOR-069R3-PRIORITY-1-
+                S10-ROUTE-F-SUBSTRATE-CONSOLIDATION-126/
+================================================================
+
+# 1. Context
+
+The 069r3 FINAL synth verdict (handoff at bridge SHA ae5b7f7,
+file
+  siarc-relay-bridge/sessions/2026-05-08/
+  T1-SYNTH-069R3-FINAL-VERDICT-ABSORPTION-124/handoff.md
+) returned Q4 = HEDGE_ROUTE_F at MEDIUM-HIGH confidence with the
+explicit residual:
+
+   "GO/NO-GO determination on Route F (Sakai surface-type
+    machinery: W((2A_1)^(1)) ⊂ Aut(D_6^{(1)}) action on the
+    V_quad image (1/6, 0, 0, -1/2)) is DEFERRED until the
+    operator pastes mathematical-content priority items
+    (i) + (ii) + (iv) per prompt 112 §10 protocol from
+    Sakai 2001 §3 / Add 6 + KNY 2017 §8.5.17."
+
+Section §10 of prompt 112 (file
+  tex/submitted/control center/prompt/
+  112_t1_069r3_final_synthesis_m6cc_r1_closure.txt
+SHA DEA81C91...) at lines 1049-1086 specifies the four
+mathematical-content priority items the substrate paste must
+contain, with pagecount priority (i)+(ii) ≥ (iii)+(iv).
+
+The operator's task on receiving the synth's Q4-rerun verdict
+is to either:
+  - branch GO_ROUTE_F → unblock the
+    069r3-route-f-executor-envelope-draft (Sakai surface-type
+    machinery executor; ~8-20 hr novel-framework work), OR
+  - branch NO_GO → escalate path-delta acquisition
+    (JM 1981 Part II + Okamoto 1987 + Sakai 2001 hybrid
+    literature acquisition) OR pre-stage governance-parallel
+    M9 V0 amendment with PARTIAL_NUMERICAL caveat.
+
+YOUR ROLE in this prompt is NOT to determine Q4's verdict (that
+is synth's job in a fresh Claude.ai T1-Synth conversation after
+your packet is dispatched).  YOUR ROLE is to consolidate the
+on-disk substrate into a single paste-ready markdown file with
+SHA-anchored verbatim quotes, so that the synth has a complete
+mathematical-content packet to reason from in one turn.
+
+KEY OPERATING FACT (corrected from prompt 112 substrate-burden
+estimate of "30-90 min including potential ILL acquisition"):
+Sakai 2001 (= Kyoto preprint 99-10, 1999) AND KNY 2017
+"Geometric aspects of Painlevé equations" AND a prior verbatim
+extraction of Sakai's W((2A_1)^(1)) generators and action on
+parameters are ALL ALREADY ON DISK.  This task is therefore
+CONSOLIDATE-AND-PASTE, not ACQUIRE.  The on-disk extraction
+(extract_sakai_2A1_generators.md, ~6 kB) covers items (i) and
+(ii) substantively; KNY 2017 §8.5.17 covers item (iii); items
+(i)/(ii)+058R Phase B together cover item (iv) PARTIALLY (with
+the explicit pull-back to (η_∞, η_0, θ_∞, θ_0) intentionally
+left for synth — see § 2 D5 below).
+
+# 2. Your task
+
+Produce a single consolidated paste packet
+   route_f_substrate_paste_packet.md
+deposited in the bridge session directory, with the following
+structure and deliverables:
+
+(D1) HEADER BLOCK identifying the packet:
+     - Title: "PRIORITY_1 §10 Route F substrate-paste —
+                Sakai 2001 + KNY 2017 §8.5"
+     - Cite: "Per prompt 112 §10 protocol (lines 1049-1086)"
+     - Cite: "Re-fire of 069r3 Q4 only.  All other questions
+              Q1-Q3, Q5-Q8 retain their previous verdicts."
+     - Source attributions (4 SHAs): Sakai 1999 Kyoto preprint
+       PDF, KNY 2017 .txt extraction, 058R phase_b_canonical_
+       map.md, extract_sakai_2A1_generators.md.
+     - Statement: "HALT-S5 substrate-insufficient discipline
+       cleared: substrate is mathematical content, not TOC /
+       abstract only."
+
+(D2) SECTION (i) — Sakai 2001 §3 / Add 6 D_6^{(1)} surface-type
+     row.  Verbatim quotes from extract_sakai_2A1_generators.md
+     §A.2.1 + §A.2.2 (lines 11-35 of that file).  Must include:
+       • The Cremona-action table row (p.31): D_6^{(1)} surface
+         type / P_III^{D_6^{(1)}} Painlevé equation /
+         "Aut(D_6^{(1)}) ⋉ W((2A_1)^{(1)})" autoamorphism group.
+       • The δ(D_6^{(1)}) = 2(E_1+E_2)+E_3+E_4+E_5+E_6
+         decomposition (or equivalent as written in the
+         extract).
+       • The α_0, α_1, α'_0, α'_1 simple-roots block
+         (D_6^{(1)⊥} = (2A_1)^{(1)}).
+     Tag this section explicitly:
+        "Item (i) — load-bearing per pagecount-priority rule".
+
+(D3) SECTION (ii) — W((2A_1)^{(1)}) reflection action on
+     parameters (a_0, a_1, b_0, b_1).  Verbatim quotes from
+     extract_sakai_2A1_generators.md §A.2.3 + §A.2.4 (lines
+     37-120 of that file).  Must include:
+       • The equations of motion eq.(16)-(18) p.30 with the
+         null-sum constraint a_0 + a_1 = b_0 + b_1 = 1.
+       • The block-diagonal Cartan matrix (4x4 with two
+         (2A_1)-type 2x2 blocks).
+       • The four explicit reflection actions on
+         (a_0, a_1, b_0, b_1) for r_0, r_1, r'_0, r'_1.
+       • The Aut(D_6^{(1)}) = D_4 outer-automorphism note (if
+         present in the extract).
+     Tag this section explicitly:
+        "Item (ii) — load-bearing per pagecount-priority rule".
+
+(D4) SECTION (iii) — KNY 2017 §8.5.17 P_III(D_6) Hamiltonian
+     form.  Verbatim quotes from
+       tex/submitted/control center/literature/g3b_2026-05-03/
+       14_kajiwara_noumi_yamada_2017_geometric_aspects.txt
+     at lines 7869 - 7905.  Must include:
+       • The §8.5.17 header line
+         "8.5.17   d-P((2A1)(1)/D(1) 6)".
+       • Eq.(8.237) Hamiltonian
+         H = (1/t){p(p−1)q² + (a_1 + a_2)qp + tp − a_2 q}.
+       • Eq.(8.238) eight base-point configuration
+         (f_i, g_i) = ...
+       • Eq.(8.239) Lax operators L_1, L_2, B.
+       • Eq.(8.240) discrete shift action (a_1, a_2) →
+         (a_1+1, a_2+1).
+     Add ONE NOTE LINE (not derivation):
+        "Convention reminder: KNY uses (a_0, a_1, a_2) for
+         P_III(D_6) Hamiltonian parameters; Sakai uses
+         (a_0, a_1) + (b_0, b_1) constrained by a_0+a_1=
+         b_0+b_1=1; CT v1.3 §3.5 uses (η_∞, η_0, θ_∞, θ_0).
+         Connection map between conventions =
+         058R phase_b_canonical_map.md (cited below)."
+
+(D5) SECTION (iv) — Affine-Weyl action substrate (PARTIAL).
+     This is the LOAD-BEARING substrate per prompt 112 line
+     1073, but the explicit pull-back of W((2A_1)^{(1)}) action
+     onto (η_∞, η_0, θ_∞, θ_0) is INTENTIONALLY LEFT TO SYNTH
+     (it is a structural derivation, not a substrate quote).
+     Provide both raw materials side-by-side:
+       • From KNY 2017 line 7898 — eq.(8.240) discrete shift
+         in (a_1, a_2) coords (already in section D4 above; do
+         NOT re-paste, just cross-ref).
+       • From extract_sakai_2A1_generators.md §A.2.4 lines
+         79-89 — explicit r_0, r_1, r'_0, r'_1 reflection
+         action on (a_0, a_1, b_0, b_1) preserving null-sum
+         (already in section D3 above; do NOT re-paste, just
+         cross-ref).
+       • From 058R phase_b_canonical_map.md — verbatim quote
+         of §B.5 ("Okamoto-Sakai convention cross-walk") AND
+         §B.3 anchor citation that V_quad image
+         (1/6, 0, 0, -1/2) does NOT satisfy null-sum
+         (sums to -1/3).
+     Add ONE EXPLICIT FRAMING LINE (not a derivation):
+        "V_quad image (1/6, 0, 0, -1/2) sits at η_0 = 0 (or
+         the (η, θ)-side image of η_0 = 0).  Whether this
+         locus is an affine-Weyl FIXED-POINT (degenerate orbit;
+         supports Route F geometric-machinery interpretation)
+         or a GENERIC POINT (does not support Route F) is the
+         structural question synth answers in the Q4 re-fire."
+     Tag this section explicitly:
+        "Item (iv) — load-bearing per prompt 112 line 1073;
+         PARTIAL substrate; full pull-back to (η_∞, η_0,
+         θ_∞, θ_0) intentionally deferred to synth."
+
+(D6) FOOTER BLOCK with the dispatch instruction line for synth:
+     "INSTRUCTION TO SYNTH: Re-fire question Q4 only of the
+      069r3 FINAL synthesis verdict packet using this
+      substrate.  All other questions Q1-Q3, Q5-Q8 retain
+      their previous verdicts; only Q4 (Route F GO / NO_GO)
+      is in scope.  Expected output: a single decisive
+      verdict (GO_ROUTE_F | NO_GO_ROUTE_F | path-delta-
+      escalation) with confidence band and a 1-2 paragraph
+      structural justification."
+
+# 3. Source pointers (paths + line ranges; all on disk)
+
+(S1) extract_sakai_2A1_generators.md  [PRIMARY for (i) + (ii)]
+     siarc-relay-bridge/sessions/2026-05-04/
+     SIARC-PRIMARY-W-HOMOMORPHISM-DERIVATION/
+     extract_sakai_2A1_generators.md
+     Size 6012 B / 134 lines.
+     §A.2.1 (lines 11-29): root-system δ + (2A_1)^{(1)} block
+     §A.2.2 (lines 31-35): Table 6 row (p.31)
+     §A.2.3 (lines 37-49): eqs of motion + null-sum
+     §A.2.4 (lines 51-120): Cartan matrix + reflection action
+
+(S2) KNY 2017 .txt extraction  [PRIMARY for (iii)]
+     tex/submitted/control center/literature/g3b_2026-05-03/
+     14_kajiwara_noumi_yamada_2017_geometric_aspects.txt
+     §8.5.17 header at line 7869
+     eq.(8.237) at line 7876
+     eq.(8.238) at line 7881
+     eq.(8.239) at line 7890
+     eq.(8.240) at line 7898
+     End of section ~line 7905
+
+(S3) Sakai 2001 preprint PDF (Kyoto preprint 99-10, 1999;
+     pre-typeset of Comm. Math. Phys. 220 (2001), 165-229)
+     tex/submitted/control center/literature/g3b_2026-05-03/
+     13_sakai_1999_preprint_kyoto99_10.pdf
+     SHA EC1BBDA3B77634E6DEF2A784D04947A0C9631BFADE48C72AA0767
+         B22AAF49ED6
+     [USE FOR ANCHOR SHA ONLY; do NOT re-extract — extraction
+      already exists at S1.  If S1 has gaps relative to a
+      prompt 112 §10 priority item, document under
+      UF-126-EXTRACT-GAP and use the PDF at S3 to fill ONLY
+      that gap.]
+
+(S4) 058R phase_b_canonical_map.md  [PRIMARY for (iv) cross-walk]
+     siarc-relay-bridge/sessions/2026-05-06/
+     CC-VQUAD-PIII-NORMALIZATION-MAP-RERE-FIRE/
+     phase_b_canonical_map.md
+     §B.1 Okamoto H_III canonical (lines 22-46)
+     §B.3 V_quad 4-tuple null-sum -1/3 anchor cite
+     §B.5 Okamoto-Sakai convention cross-walk
+
+(S5) Prompt 112 §10 protocol header
+     tex/submitted/control center/prompt/
+     112_t1_069r3_final_synthesis_m6cc_r1_closure.txt
+     §10 at lines 1049-1086
+     [USE TO VERIFY priority-item list + pagecount priority
+      rule; quote line 1086 verbatim in your D1 header.]
+
+(S6) 069r3 FINAL synth handoff
+     siarc-relay-bridge/sessions/2026-05-08/
+     T1-SYNTH-069R3-FINAL-VERDICT-ABSORPTION-124/handoff.md
+     [USE FOR Q4 residual statement context only; do NOT quote
+      the verdict text into the substrate packet — synth must
+      issue a fresh Q4 verdict, and including its prior hedge
+      could bias the outcome.]
+
+(S7) CT v1.3 §3.5 / §3.5.1 (V_quad parameter point context)
+     pcf-research/channel/cc_pipeline_v13_2026-05-02/
+     channel_theory_outline.tex
+     V_quad 4-tuple (1/6, 0, 0, -1/2) cited at lines 128 and
+     353.  [USE FOR CONTEXT ONLY; do NOT paste the .tex into
+      the packet — synth has the verdict packet already and
+      that contains the V_quad parameter point statement.]
+
+# 4. Hard preflight gates (STOP if any fails)
+
+(G1) Substrate file existence: confirm S1, S2, S4 exist and
+     are readable.  If any missing, HALT_113_SUBSTRATE_MISSING
+     and surface in halt_log.json.
+
+(G2) S1 SHA stability check: compute SHA256 of the on-disk
+     extract_sakai_2A1_generators.md and compare against the
+     last-recorded SHA (if recorded in S6 handoff or in any
+     prior bridge session).  If SHA differs, surface as
+     UF-126-S1-SHA-DRIFT (NON-blocking; just record).
+
+(G3) S2 line-anchor sanity check: verify that
+       tex/submitted/control center/literature/g3b_2026-05-03/
+       14_kajiwara_noumi_yamada_2017_geometric_aspects.txt
+     line 7869 begins with the substring "8.5.17" or contains
+     "(2A1)(1)/D(1) 6".  If neither, the .txt has drifted;
+     HALT_113_KNY_LINE_DRIFT.
+
+(G4) Bibliographic identifier pre-verification (per
+     custom_instructions standing rule, post-031 verdict):
+     The Sakai 1999 Kyoto preprint at S3 has SHA
+     EC1BBDA3B77634E6...  This SHA is the canonical anchor
+     for the substrate-paste packet (preprint version, not the
+     2001 Springer-typeset version with DOI 10.1007/s002200100446).
+     IF the operator later requests a citation against the
+     published version's DOI, you must verify
+     https://doi.org/10.1007/s002200100446 resolves to
+     "Rational Surfaces Associated with Affine Root Systems and
+      Geometry of the Painlevé Equations" by Hidetaka Sakai
+     before that citation goes onto a peer-reviewable artifact.
+     For the substrate paste packet (this task), the on-disk
+     SHA is sufficient anchor.  No HALT.
+
+(G5) Bridge HEAD ancestry: confirm bridge HEAD ae5b7f7
+     (T1-SYNTH-069R3-FINAL-VERDICT-ABSORPTION-124) is an
+     ancestor of git HEAD before depositing.  If not, fetch
+     and re-baseline.
+
+# 5. Forbidden-verb scan (Phase F AEAL hygiene)
+
+Apply the standard 16-verb forbidden-verb scan to your draft
+packet AND to your handoff.md AND to all deliverable .md files:
+    \b(shows|confirms|proves|demonstrates|establishes|
+       verifies|verified|validates|validated|corroborates|
+       corroborated|certifies|certified|settles|settled|
+       discharges|ratifies)\b
+
+Exempt categories (per 098-J3 standing decision):
+    (a) Verb-list-as-data (backticked lists, regex declarations)
+    (b) Forbidden-verb pattern declarations / scan command-lines
+    (c) SHA / filesystem-inspection telemetry quoting tool output
+    (d) Template fields ("status", "verdict_class") containing
+        verb morphemes
+    (e) Finding-summary references (e.g. "the LANDED 105 fire
+        established X" — but only inside a finding-citation
+        block clearly demarcated as such)
+    (f) Verbatim-quoted source-file docstrings cited as audit
+        substrate (this category WILL apply heavily in your
+        packet — Sakai/KNY substrate quotes routinely contain
+        "shows", "demonstrates", etc. in published math prose;
+        these are EXEMPT category (f) provided they are inside
+        triple-backtick fences clearly marked as
+        "verbatim quote from <source>").
+
+If any non-exempt hit found in your draft, REWRITE before
+deposit.  Use weakening alternatives:
+    "shows"        → "documents" / "reports"
+    "establishes"  → "states" / "presents"
+    "proves"       → "derives" (only if the source actually
+                                derives; otherwise "asserts")
+    "confirms"     → "matches against" / "is consistent with"
+    "validates"    → "passes the check"
+    "verified"     → "checked" (if SHA/file-existence) or
+                     "matched" (if substring)
+
+# 6. Acceptance criteria (operator review checklist)
+
+The packet is operator-acceptance-ready when:
+
+(A1) route_f_substrate_paste_packet.md exists in the bridge
+     session directory and is between 350 and 800 lines
+     (lower bound: substrate is non-trivial; upper bound:
+     beyond ~800 lines suggests over-quotation that may
+     dilute synth's focus).
+
+(A2) D1 header block contains all 4 source SHAs
+     (Sakai PDF EC1BBDA3..., KNY .txt SHA, 058R phase_b
+     SHA, extract_sakai SHA).  All 4 SHAs are computed
+     freshly at fire time, not copy-pasted from this prompt.
+
+(A3) Sections D2 (item i), D3 (item ii), D4 (item iii)
+     contain at least one verbatim quote per identified
+     primitive, each inside a triple-backtick fence with the
+     source attribution line immediately preceding the fence.
+     Fences MUST NOT span > 60 lines each (split into
+     multiple fences if a single primitive is longer).
+
+(A4) Section D5 (item iv) cross-references D3+D4 rather than
+     re-pasting; quotes ONLY the 058R Phase B §B.3 anchor
+     cite + §B.5 cross-walk; contains the explicit framing
+     line about V_quad image (1/6, 0, 0, -1/2) at η_0 = 0;
+     does NOT contain a derivation of the affine-Weyl action
+     on (η, θ).
+
+(A5) D6 footer contains the dispatch instruction line for
+     synth verbatim as written in §2 (D6) above.
+
+(A6) Forbidden-verb scan PASSES (zero non-exempt hits across
+     packet + handoff + all .md deliverables).
+
+(A7) AEAL claims.jsonl has ≥ 6 entries:
+     - one per source SHA (4 entries, evidence_type="literature"
+       or "structural", reproducible=true, dps=null,
+       script="N/A", output_hash=<the SHA>)
+     - one for line-anchor sanity check on S2 (G3 result)
+     - one for the packet's own SHA + line count (D1+D6
+       integrity)
+
+(A8) Bridge handoff.md filled per template (no placeholders);
+     "Anomalies and open questions" section non-empty (likely
+     anomalies: drift between Sakai pre-print and published
+     versions; KNY's (a_0, a_1, a_2) vs Sakai's
+     (a_0, a_1, b_0, b_1) parameter-count mismatch — KNY has
+     3 free parameters where Sakai has 4 with one constraint,
+     so one must be the discrete shift orbit index; document
+     this as UF-126-PARAM-COUNT if you encounter it).
+
+(A9) Standing-final-step B5 BRIDGE / CLAUDE_FETCH URLs output.
+
+# 7. After completion
+
+(C1) Output BRIDGE / CLAUDE_FETCH URLs per standing instruction
+     B5.  Format exactly:
+        BRIDGE: https://github.com/papanokechi/siarc-relay-
+                bridge/tree/main/sessions/<TODAY>/T2-OPERATOR-
+                069R3-PRIORITY-1-S10-ROUTE-F-SUBSTRATE-
+                CONSOLIDATION-126/
+
+        CLAUDE_FETCH: https://raw.githubusercontent.com/
+                      papanokechi/siarc-relay-bridge/main/
+                      sessions/<TODAY>/T2-OPERATOR-069R3-
+                      PRIORITY-1-S10-ROUTE-F-SUBSTRATE-
+                      CONSOLIDATION-126/handoff.md
+
+(C2) ALSO output a second URL for the packet itself, since the
+     operator's downstream action is to fetch and paste it:
+        PACKET_FETCH: https://raw.githubusercontent.com/
+                      papanokechi/siarc-relay-bridge/main/
+                      sessions/<TODAY>/T2-OPERATOR-069R3-
+                      PRIORITY-1-S10-ROUTE-F-SUBSTRATE-
+                      CONSOLIDATION-126/route_f_substrate_
+                      paste_packet.md
+
+(C3) Update SQL todo (if such a todo exists; search by
+     description-substring "route-f-substrate" or
+     "069r3-priority-1"):
+       status pending → done
+     Insert a new pending todo for the synth-side Q4 re-fire:
+       id: 069r3-q4-route-f-rerun-synth-dispatch
+       title: "Operator: dispatch route_f_substrate_paste_
+               packet.md to fresh Claude.ai T1-Synth conv"
+       status: pending
+       depends_on: <this task's id>
+
+(C4) Append POSTSCRIPT entry to
+       tex/submitted/control center/prompt/_INDEX.txt
+     documenting prompt 113 fire + bridge URL + paste-packet
+     URL.  Use the next sequential POSTSCRIPT-NN number.
+
+# 8. What you MUST NOT do (scope discipline)
+
+(N1) Do NOT derive the affine-Weyl pull-back from
+     (a_0, a_1, b_0, b_1) onto (η_∞, η_0, θ_∞, θ_0).  That is
+     synth's job in the Q4 re-fire.  This task is consolidation
+     of substrate, not derivation.  If you find yourself
+     writing "therefore", "we obtain", "computing this gives",
+     STOP — that's a derivation slipping in.
+
+(N2) Do NOT classify the V_quad image (1/6, 0, 0, -1/2) as a
+     fixed-point or generic-orbit point of the W((2A_1)^{(1)})
+     action.  That is the structural QUESTION Q4 asks synth.
+
+(N3) Do NOT introduce new structural claims, even small ones.
+     Every assertion in the packet must be:
+        (a) a verbatim quote from S1-S5; or
+        (b) a navigation aid (cross-reference between
+            sections); or
+        (c) a convention-reminder note (about parameter-symbol
+            translation between sources, where the translation
+            itself is from S4); or
+        (d) the framing line in D5 about the structural
+            question Q4 asks.
+
+(N4) Do NOT include synth's prior Q4 hedge text from S6 in the
+     packet.  Synth should produce a fresh Q4 verdict
+     uncontaminated by its own prior hedge.
+
+(N5) Do NOT re-extract Sakai 2001 PDF (S3) if extract S1
+     covers the §10 priority items.  The PDF is anchor-SHA-only.
+     Only fall through to S3 if S1 has a gap — and document
+     the gap explicitly under UF-126-EXTRACT-GAP.
+
+(N6) Do NOT add new bibliographic citations beyond Sakai 1999,
+     KNY 2017, Okamoto 1987, and FW 2002 (all already cited in
+     058R / CT v1.3).  If you discover a new reference is
+     needed, document under UF-126-NEW-BIBKEY and let the
+     operator decide.
+
+# 9. AEAL claim format reminder
+
+Each entry in claims.jsonl follows the standing schema:
+{
+  "claim": "<concise statement of fact / SHA / line-count>",
+  "evidence_type": "literature" | "structural" | "computation",
+  "dps": <int or null>,
+  "reproducible": true,
+  "script": "<filename or N/A>",
+  "output_hash": "<sha256 or N/A>"
+}
+
+Examples expected for this task:
+  {"claim":"extract_sakai_2A1_generators.md SHA <sha>",
+   "evidence_type":"literature","dps":null,
+   "reproducible":true,"script":"N/A","output_hash":"<sha>"}
+  {"claim":"KNY 2017 .txt line 7869 contains substring '8.5.17'",
+   "evidence_type":"structural","dps":null,
+   "reproducible":true,"script":"N/A",
+   "output_hash":"<sha of .txt>"}
+
+# 10. Halt conditions specific to this task
+
+Beyond the standing halt conditions (NaN/inf, AEAL contradiction,
+unexpected positive result, pre-screen discrepancy > 5%), halt
+specifically on:
+
+  HALT_113_SUBSTRATE_MISSING       — any of S1, S2, S4 unreadable
+  HALT_113_KNY_LINE_DRIFT          — S2 line 7869 fails substring
+                                     check at G3
+  HALT_113_S1_EXTRACT_GAP_FATAL    — S1 missing > 1 of the four
+                                     §10 priority items at draft
+                                     time AND S3 PDF unreadable
+                                     (cannot fill from preprint)
+  HALT_113_FORBIDDEN_VERB_NON_EXEMPT — F-V scan at Phase F finds
+                                     a non-exempt hit you cannot
+                                     mitigate by rewrite within
+                                     two attempts
+  HALT_113_SCOPE_CREEP_DERIVATION  — you find yourself writing a
+                                     derivation rather than a
+                                     consolidation (per N1-N3
+                                     scope discipline); STOP and
+                                     halt rather than ship a
+                                     scope-creept packet that
+                                     might bias synth's Q4
+                                     verdict.
+
+If you halt, deposit halt_log.json in the bridge session
+directory documenting the halt code + cause + recovery path
+(if any) and ALSO deposit any partial work to date.  Do not
+delete partial work on halt.
+
+# 11. Standing final step (B1-B5 of operator instructions)
+
+Execute B1 (collect all deliverables: route_f_substrate_paste_
+packet.md, claims.jsonl, halt_log.json [empty {} if no halt],
+discrepancy_log.json, unexpected_finds.json, handoff.md) →
+B2 (stage in bridge repo at sessions/<TODAY>/T2-OPERATOR-069R3-
+PRIORITY-1-S10-ROUTE-F-SUBSTRATE-CONSOLIDATION-126/) →
+B3 (write handoff.md per template AFTER all final outputs are
+done — DO NOT pre-write the handoff and then re-edit) →
+B4 (commit and push; commit message:
+   "T2-OPERATOR-069R3-PRIORITY-1-S10-ROUTE-F-SUBSTRATE-
+    CONSOLIDATION-126 — consolidate Sakai 2001 + KNY 2017
+    §8.5 substrate per prompt 112 §10 (i)+(ii)+(iii)+(iv);
+    paste-ready for fresh Claude.ai T1-Synth Q4 re-fire") →
+B5 (output BRIDGE + CLAUDE_FETCH + PACKET_FETCH URLs).
+
+================================================================
+End of prompt 113.
+================================================================
