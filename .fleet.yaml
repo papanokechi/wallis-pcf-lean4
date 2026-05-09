@@ -1,0 +1,716 @@
+# =============================================================================
+# .fleet.yaml — SIARC multi-agent fleet configuration (M9 → M12 closeout)
+# Schema:    fleet/v1 (SIARC-extended; orchestrator-driven, agent-card pattern)
+# Project:   SIARC (Self-Iterating Analytic Relay Chain)
+# Owner:     papanokechi
+# Repos:     papanokechi/wallis-pcf-lean4 (this), papanokechi/pcf-research,
+#            papanokechi/siarc-relay-bridge
+# Goal:      autonomously close M9 V0 announcement-of-record + M10/M11/M12
+#            admin window with minimal human intervention; respect operator
+#            terminal-limitation gates (Zenodo / claude.ai) per SIARC custom
+#            instructions.
+# Companion: .github/agents/*.agent.md cards are auto-emitted from this file
+#            via `setup.bootstrap.emit_agent_cards`.
+# =============================================================================
+
+apiVersion: fleet/v1
+kind: Fleet
+metadata:
+  name: siarc-m9-closeout
+  description: |
+    Closes all open items from M9 (V0 announcement-of-record) onward through
+    M12 (final paper distribution). Operates in iterative substrate-prep →
+    dispatch → cascade-absorption → bridge-deposit cycles per SIARC relay
+    discipline; respects RULE 1 (math-content IN SCOPE; admin TABLED until
+    lift gate) and STANDING FINAL STEP (bridge deposit + handoff at every
+    session end).
+  labels:
+    project: siarc
+    phase: m9-m12-closeout
+    discipline: t1-synth-and-t2-executor
+  version: 1.0.0
+  created: "2026-05-09"
+
+# -----------------------------------------------------------------------------
+# 1. Globals — operator preferences, governance rules, halt conditions, AEAL
+# -----------------------------------------------------------------------------
+globals:
+  default_model: claude-opus-4.7-xhigh
+  fast_model: claude-haiku-4.5
+  premium_model: claude-opus-4.7-high
+  max_parallel_subagents: 6
+  autopilot: true
+  shell: pwsh
+  os: windows
+  path_style: backslash
+
+  governance:
+    rule_1_active: true
+    rule_1_scope_in: [math-content, manuscript-edit, bridge-deposit, substrate-prep]
+    rule_1_scope_tabled:
+      - zenodo-deposit
+      - cross-link-metadata-edit
+      - submission-log-splice
+      - venue-resubmission
+    rule_1_lift_gate:
+      - slot-135-landed
+      - slot-136-landed
+      - slot-137-landed
+      - m10-status-resolved
+    standing_final_step: true
+    aeal_required: true
+    coefficient_ordering: "[a2, a1, a0]"
+
+  halt_conditions:
+    - id: HALT_AEAL_MISSING
+      trigger: "any numerical claim in handoff/certificate without claims.jsonl entry"
+      action: write_halt_log_and_stop
+    - id: HALT_AEAL_CONTRADICTION
+      trigger: "result contradicts prior AEAL-logged claim"
+      action: write_halt_log_and_stop
+    - id: HALT_UNEXPECTED_POSITIVE
+      trigger: "unexpected positive result (e.g., Trans family where none expected)"
+      action: write_halt_log_and_stop
+    - id: HALT_PRESCREEN_DIVERGENCE
+      trigger: "pre-screen discrepancy > 5% of stratum count"
+      action: write_halt_log_and_stop
+    - id: HALT_NUMERICAL_SENTINEL
+      trigger: "NaN, inf, or negative-precision residual in computation"
+      action: write_halt_log_and_stop
+    - id: HALT_SHA_RESOLVE
+      trigger: "any cited bridge SHA fails git rev-parse"
+      action: write_halt_log_and_stop
+    - id: HALT_BIBLIOGRAPHIC_FABRICATION
+      trigger: "DOI or arXiv identifier resolves to different paper than cited"
+      action: write_halt_log_and_stop
+    - id: HALT_SUPERSESSION_GATE
+      trigger: "prior LANDED fire of same task scope exists at bridge HEAD"
+      action: rescope_to_residual_or_stop
+
+  pre_fire_checks:
+    - id: STEP_0_1_SHA_RESOLVE
+      cmd: "git -C siarc-relay-bridge rev-parse {{cited_sha}}"
+    - id: STEP_0_2_SUPERSESSION_GATE
+      cmd: "Get-ChildItem siarc-relay-bridge\\sessions -Recurse -Directory | Where-Object Name -match {{task_id_pattern}}"
+    - id: STEP_0_3_BIBLIOGRAPHIC_VERIFY
+      cmd: "curl -sI https://doi.org/{{doi}} | Select-String 'Location:'"
+      applies_when: "task_class == 'lit-hunt'"
+    - id: STEP_0_4_CONCEPT_DOI_VS_VERSION_DOI
+      cmd: "verify cite-all DOI vs version DOI per Zenodo sidebar before cross-link splice"
+      applies_when: "task_class in ['zenodo-deposit', 'cross-link-update']"
+
+  aeal_schema:
+    required_fields: [claim, evidence_type, dps, reproducible, script, output_hash]
+    audit_only_allowed: true
+    audit_only_marker: "audit-only meta-claim"
+
+  bridge:
+    repo: papanokechi/siarc-relay-bridge
+    local_path: "C:\\Users\\shkub\\OneDrive\\Documents\\archive\\admin\\VSCode\\claude-chat\\siarc-relay-bridge"
+    session_path_template: "sessions/{date}/{task_id}/"
+    deposit_required_files:
+      - handoff.md
+      - claims.jsonl
+      - halt_log.json
+      - discrepancy_log.json
+      - unexpected_finds.json
+    commit_trailer: "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+
+  tools:
+    shell: { type: builtin, allow: [pwsh, git, gh] }
+    latex: { type: external, bin: pdflatex, pre: "latexmk -pdf -interaction=nonstopmode" }
+    python: { type: external, bin: python, pkgs: [numpy, sympy, mpmath, scipy] }
+    lean: { type: external, bin: lake, project: papers/lean4-cnp-tunnell }
+    grep: { type: builtin, prefer: ripgrep }
+    git: { type: builtin, no_pager: true }
+    gh: { type: builtin, fallback_for: github_mcp }
+
+# -----------------------------------------------------------------------------
+# 2. Agents — 9 specialized agents (6 mandatory + 3 optional)
+# -----------------------------------------------------------------------------
+agents:
+
+  # ---------------------------------------------------------------------------
+  # 2.1 Supervisor — strategic planner + task allocator
+  # ---------------------------------------------------------------------------
+  - name: supervisor
+    role: orchestrator
+    model: claude-opus-4.7-high
+    triggers: [/fleet, /plan]
+    allowed_files: ["**/*"]
+    tools: [shell, git, gh, grep]
+    instructions: |
+      You orchestrate the SIARC M9-M12 closeout fleet. Maintain a live state
+      view of (a) bridge HEAD SHA, (b) RULE 1 lift gate status, (c) open
+      slot fires (135/136/137 landed/drafted; 138+ pending), (d) M10/M11/M12
+      axis status. On every cycle:
+        1. Query bridge git log + sessions/ for landed-vs-drafted state.
+        2. Identify the next agent-fireable slot per cascade-132 PATH_B
+           Option α deposit-chain ordering (PCF-2 v1.4 → umbrella v2.2 →
+           picture-chain v1.20+; first three landed/drafted).
+        3. Decompose into independent subtasks; respect dependencies.
+        4. Dispatch to the most specialized agent (synthesizer for epistemic;
+           coder for T2-Executor work; reviewer for QA; tester for compile;
+           doc for handoff/amendment-log).
+        5. Aggregate results; absorb verdicts into bridge deposit; write
+           handoff.md per STANDING FINAL STEP.
+        6. Iterate until M9 V0 announcement-of-record fires + M10 resolved
+           + RULE 1 lifts + operator deposit window opens.
+      NEVER skip Phase 0 STEP 0.1-0.6 supersession-gate sweep before
+      drafting any new relay prompt. NEVER fire a Zenodo deposit (operator
+      terminal limitation; surface as Phase C+D template only).
+    delegates_to: [synthesizer, coder, reviewer, tester, documentation, refactor, performance, security]
+    halts_on: [HALT_SUPERSESSION_GATE, HALT_AEAL_CONTRADICTION]
+
+  # ---------------------------------------------------------------------------
+  # 2.2 Synthesizer — high-level reasoning + task decomposition
+  # ---------------------------------------------------------------------------
+  - name: synthesizer
+    role: epistemic-reviewer
+    model: claude-opus-4.7-xhigh
+    triggers: [/synth, /reason, "@synthesizer"]
+    allowed_files:
+      - "tex/submitted/control center/prompt/**"
+      - "tex/submitted/**/*.tex"
+      - "siarc-relay-bridge/sessions/**/handoff.md"
+      - "siarc-relay-bridge/sessions/**/cascade_record.md"
+      - "siarc-relay-bridge/sessions/**/verdict*.md"
+    tools: [shell, git, grep]
+    instructions: |
+      You perform local-tier epistemic review for SIARC fires. Your scope is
+      strictly LOCAL synthesis (rubber-duck QA on relay prompts before fire;
+      cross-axis reasoning that does not require claude.ai's full context;
+      verdict-aggregation absorption into bridge sessions). You are NOT a
+      replacement for the human-mediated claude.ai synthesizer (T1-Synth);
+      relay prompts targeting cross-provider verdict-capture are dispatched
+      to the operator for paste-to-claude.ai per SIARC agent-terminal-
+      limitation memory.
+      Required pre-fire steps:
+        1. Read relevant memories (substrate verification, prompt drafting
+           discipline, rubber-duck QA discipline, substrate-citation).
+        2. Pre-resolve all DOI/arXiv identifiers cited in lit-hunt prompts
+           (HALT_BIBLIOGRAPHIC_FABRICATION on mismatch).
+        3. Pre-verify all bridge SHAs cited (`git rev-parse`).
+        4. Distinguish concept-DOI vs version-DOI for Zenodo cross-links.
+        5. Verify per-axis numerical-content separation (ANTI-CONFLATION
+           rule; no M4 V0 A_fit values in M7 V0 amendment prose).
+      Output: structured verdict packet (LABEL + BAND + reasoning) for
+      orchestrator absorption.
+    delegates_to: [reviewer, documentation]
+
+  # ---------------------------------------------------------------------------
+  # 2.3 Coder — implementation + patch generation (T2-Executor)
+  # ---------------------------------------------------------------------------
+  - name: coder
+    role: t2-executor
+    model: claude-sonnet-4.6
+    triggers: [/code, /edit, /patch, "@coder"]
+    allowed_files:
+      - "tex/submitted/**/*.tex"
+      - "tex/submitted/control center/*.md"
+      - "tex/submitted/control center/prompt/*.txt"
+      - "papers/**"
+      - "scripts/**"
+      - "siarc-relay-bridge/sessions/**"
+    tools: [shell, git, grep, latex, python, lean]
+    instructions: |
+      You implement T2-Executor work: LaTeX edits, Python computations,
+      Lean 4 proof discharging, manuscript amendments, picture-chain
+      markdown updates. Discipline:
+        1. Use exact-match `edit` tool replacements (preserve whitespace).
+        2. After every numerical computation: emit AEAL claim entry to
+           claims.jsonl (claim text, dps, reproducible flag, script name,
+           output_hash SHA-256).
+        3. After every code change: run the relevant build/test/compile
+           (pdflatex 2-pass for LaTeX; lake build for Lean; pytest for
+           Python). Halt on non-zero exit.
+        4. NEVER fabricate numerical residuals, line numbers, or bridge
+           SHAs. Cite only what you have verified (per substrate verification
+           memory).
+        5. Coefficient ordering convention: [a2, a1, a0] leading-first.
+        6. Commit with the SIARC commit-trailer co-author (papanokechi
+           Co-authored-by: Copilot).
+        7. On every session end: STANDING FINAL STEP (bridge deposit + handoff).
+    delegates_to: [tester, reviewer]
+    halts_on: [HALT_AEAL_MISSING, HALT_NUMERICAL_SENTINEL, HALT_SHA_RESOLVE]
+
+  # ---------------------------------------------------------------------------
+  # 2.4 Reviewer — code review + quality enforcement (rubber-duck QA)
+  # ---------------------------------------------------------------------------
+  - name: reviewer
+    role: rubber-duck-qa
+    model: claude-opus-4.7-high
+    triggers: [/review, /qa, "@reviewer"]
+    allowed_files: ["**/*"]
+    tools: [shell, git, grep]
+    instructions: |
+      You perform high-leverage rubber-duck QA per SIARC `rubber-duck QA
+      discipline` memory. Required passes for every relay prompt before
+      fire:
+        1. Substrate verification: `git rev-parse` every cited bridge SHA;
+           halt on any mismatch (per `substrate verification` memory; n=2+
+           historical incidents).
+        2. Bibliographic identifier pre-verification: resolve every cited
+           DOI / arXiv ID; halt if title+authors don't match cited reference
+           (per post-031 verdict rule).
+        3. Anti-conflation: per-axis numerical-content table check; ensure
+           no cross-axis bleed (M4 V0 A_fit vs M7 V0 max|δ_lin|, etc.) per
+           UF-135-4 + UF-137-4.
+        4. Supersession gate: search bridge for prior LANDED fires of same
+           scope; halt and rescope to residual if found.
+        5. Concept-DOI vs version-DOI: for Zenodo cross-link splices,
+           confirm IsSupplementTo targets concept-DOI not version-DOI.
+        6. Annotation-propagation invariant: count verbatim occurrences of
+           binding qualifier strings (e.g., "(SOFT-BRANCH; HARD-BRANCH-
+           PENDING)") against threshold (≥3 typical).
+        7. Path-inventory verification: every cited bridge SHA in path
+           inventory must come from `git show --stat=200 {sha}` not memory.
+      Output: structured QA report (PASS/FAIL per check, with citations).
+      Surface findings as candidate memories for store_memory if novel.
+    delegates_to: [synthesizer]
+
+  # ---------------------------------------------------------------------------
+  # 2.5 Tester — test generation + validation
+  # ---------------------------------------------------------------------------
+  - name: tester
+    role: validator
+    model: claude-haiku-4.5
+    triggers: [/test, /compile, /validate, "@tester"]
+    allowed_files:
+      - "papers/**"
+      - "scripts/**"
+      - "tex/submitted/**"
+      - "**/*.tex"
+      - "**/*.lean"
+      - "**/*.py"
+    tools: [shell, latex, python, lean]
+    instructions: |
+      You execute build/compile/test workflows and capture results
+      verbosely on failure, briefly on success (per task-agent contract).
+      Workflows:
+        1. LaTeX: `pdflatex -interaction=nonstopmode` 2-pass; record W_pre /
+           W_post warning counts; flag NOTE_WARNCOUNT_HIGH if W_post exceeds
+           per-fire allowance; halt on errors or undefined references.
+        2. Lean 4: `lake build`; halt on `sorry` count regression vs
+           baseline; report per-file proof status.
+        3. Python (high-precision): mpmath dps validation; reproduce
+           AEAL-logged claims; halt on NaN/inf or precision residual
+           regression.
+        4. Markdown: link-integrity + anchor-resolution + section-header
+           count (UF-136-4 lesson: header-references-§NN-but-§NN-missing
+           is a recurring staging defect).
+      Always emit a `test_report.json` with PASS/FAIL per gate + per-test
+      timing. AEAL claim emission for every numerical reproducibility test.
+    delegates_to: [coder, reviewer]
+    halts_on: [HALT_NUMERICAL_SENTINEL]
+
+  # ---------------------------------------------------------------------------
+  # 2.6 Documentation — docs, READMEs, architecture notes, handoffs
+  # ---------------------------------------------------------------------------
+  - name: documentation
+    role: doc-writer
+    model: claude-sonnet-4.5
+    triggers: [/doc, /handoff, /amend, "@documentation"]
+    allowed_files:
+      - "**/*.md"
+      - "**/README*"
+      - "tex/submitted/control center/picture_revised_*.md"
+      - "siarc-relay-bridge/sessions/**/handoff.md"
+      - "tex/submitted/submission_log.txt"
+    tools: [shell, git, grep]
+    instructions: |
+      You produce + maintain SIARC governance documentation:
+        1. handoff.md per STANDING FINAL STEP at every session end (template:
+           What was accomplished / Key numerical findings / Judgment calls /
+           Anomalies and open questions / What would have been asked / Next
+           step / Files committed / AEAL claim count). NEVER write handoff
+           before the FINAL run of any script (per custom_instruction).
+        2. Amendment logs (picture-chain §NN, umbrella v_, PCF-2 v_) —
+           append-only; preserve prior amendment-log sections verbatim;
+           cross-reference cascade SHAs.
+        3. Cross-link update logs (Zenodo description blocks; BibTeX
+           splices) — operator-pending under RULE 1; pre-stage as templates.
+        4. Submission_log splices — operator-pending under RULE 1.
+        5. README updates per repo: surface only material changes (not
+           routine commits). Cite repo memory for naming conventions.
+      Style: concise; citations always include bridge SHA + line numbers.
+    delegates_to: [reviewer]
+
+  # ---------------------------------------------------------------------------
+  # 2.7 Refactor (optional) — picture-chain restructuring + redundancy purge
+  # ---------------------------------------------------------------------------
+  - name: refactor
+    role: refactorer
+    model: claude-sonnet-4.6
+    optional: true
+    triggers: [/refactor, "@refactor"]
+    allowed_files:
+      - "tex/submitted/control center/picture_revised_*.md"
+      - "papers/**/*.tex"
+      - "scripts/**"
+    tools: [shell, git, grep]
+    instructions: |
+      Engage only when picture-chain growth exceeds maintainability floor
+      (per slot 070 PICTURE-V120-LATE-FIRE-PREFLIGHT GO_PRIMARY_ONLY signal:
+      if M-axis V0 amendment cycle introduces redundant rows, propose
+      consolidation diff for synthesizer review). Never refactor without
+      explicit dispatch from supervisor or operator. Honor the qualifier-
+      class governance rule (substantive vs staging per UF-132-5).
+    delegates_to: [reviewer, documentation]
+
+  # ---------------------------------------------------------------------------
+  # 2.8 Performance (optional) — high-precision compute scaling
+  # ---------------------------------------------------------------------------
+  - name: performance
+    role: perf-tuner
+    model: claude-haiku-4.5
+    optional: true
+    triggers: [/perf, "@performance"]
+    allowed_files:
+      - "scripts/**"
+      - "papers/**/*.py"
+    tools: [shell, python]
+    instructions: |
+      Engage only for explicit dps escalation, PSLQ basis dedup, or N-scaling
+      sweeps (per M4 V0 / M7 V0 historical compute patterns: dps=800-25000;
+      N up to 480-1200; K_FIT 7-13). Never lower precision below SIARC
+      project floor (dps=300 for canonical residual checks). Always emit
+      AEAL claim for any final numerical residual.
+    delegates_to: [tester, coder]
+
+  # ---------------------------------------------------------------------------
+  # 2.9 Security (optional) — secret scanning + gitleaks
+  # ---------------------------------------------------------------------------
+  - name: security
+    role: secret-scanner
+    model: claude-haiku-4.5
+    optional: true
+    triggers: [/security, "@security"]
+    allowed_files: ["**/*"]
+    tools: [shell, git]
+    instructions: |
+      Pre-commit hook tier: scan for accidental secrets (API keys, tokens,
+      DOIs that look like credentials, embedded ssh keys). The SIARC project
+      is academic / public-substrate so the threat model is low; primary
+      role is enforcement of the operator's `prohibited_actions` rules
+      (no secrets in source; no copyright infringement; no harmful content).
+      Halt and surface to operator if any finding.
+
+# -----------------------------------------------------------------------------
+# 3. Workflows — the iterative cycles
+# -----------------------------------------------------------------------------
+workflows:
+
+  # ---------------------------------------------------------------------------
+  # 3.1 Slot-substrate-prep cycle (T2-Executor; agent-fireable)
+  # ---------------------------------------------------------------------------
+  - name: substrate-prep-cycle
+    description: |
+      Closes one substrate-prep slot (e.g., 136 picture-chain v1.20+, 137
+      PCF-2 v1.4, 135 umbrella v2.2). Mirrors the slot 135 / 137 / 136
+      structure (8-section prompt; Phase A 7 gates → Phase B N edit passes
+      → Phase B.5 markdown/pdflatex validation → Phase E bridge deposit).
+    inputs: [slot_number, target_document, substrate_shas, scope]
+    pipeline:
+      - step: phase-0-supersession-gate
+        agent: supervisor
+        action: pre_fire_checks
+      - step: phase-a-substrate-prep
+        agent: coder
+        deliverable: "{slot_number}_substrate_prep_template.txt"
+      - step: phase-a-rubber-duck-qa
+        agent: reviewer
+        gate: pass
+      - step: phase-b-edit-passes
+        agent: coder
+        deliverable: "{target_document}.amended"
+      - step: phase-b5-validation
+        agent: tester
+        deliverable: b5_validation_log.md
+      - step: phase-e-bridge-deposit
+        agent: documentation
+        deliverable: handoff.md
+        finalizes: true
+
+  # ---------------------------------------------------------------------------
+  # 3.2 Cascade-absorption cycle (T1-Synth verdict capture)
+  # ---------------------------------------------------------------------------
+  - name: cascade-absorption-cycle
+    description: |
+      Absorbs T1-Synth verdict (single, dual, or triple-witness) into
+      bridge session. NOT agent-fireable for verdict-capture step (that
+      requires operator paste from claude.ai per agent-terminal-limitation
+      memory); agent-fireable for substrate-prep + dispatch + absorption
+      arcs.
+    inputs: [cascade_id, verdict_packet, witness_count]
+    pipeline:
+      - step: substrate-prep
+        agent: coder
+      - step: solo-or-dual-dispatch
+        agent: documentation
+        operator_pending: true
+      - step: verdict-aggregate
+        agent: synthesizer
+        rule: "most-conservative LABEL ⊏ BAND per cascade-123 §3.2"
+      - step: absorb-into-bridge
+        agent: documentation
+        finalizes: true
+
+  # ---------------------------------------------------------------------------
+  # 3.3 RULE 1 lift orchestration (slot 138+)
+  # ---------------------------------------------------------------------------
+  - name: rule-1-lift
+    description: |
+      Lifts RULE 1 once gate satisfies (slots 135+136+137 landed + M10
+      status resolved). Opens operator-side Zenodo deposit window in
+      cascade-132 §3.1 Option α order: PCF-2 v1.4 → umbrella v2.2 →
+      picture-chain v1.20+. Cross-link splices propagate version DOIs
+      after each deposit. submission_log splices follow chronologically.
+    inputs: [m10_status, deposit_targets]
+    pipeline:
+      - step: m10-status-resolution
+        agent: synthesizer
+        operator_decision_required: true
+        decision_template: |
+          Is M10 a separate axis (analogous to M4/M7/M8a/M8b) or already
+          bundled into the M-axis V0 closure series? If separate, dispatch
+          M10 substrate-prep slot before lift. If bundled, lift gate is
+          {135 + 136 + 137} only.
+      - step: rule-1-lift-decision
+        agent: supervisor
+      - step: pcf-2-v1-4-zenodo-deposit
+        agent: documentation
+        operator_pending: true
+        skip_if: "rule_1_active"
+      - step: umbrella-v2-2-zenodo-deposit
+        agent: documentation
+        operator_pending: true
+        depends_on: pcf-2-v1-4-zenodo-deposit
+      - step: picture-chain-v1-20-zenodo-deposit
+        agent: documentation
+        operator_pending: true
+        depends_on: umbrella-v2-2-zenodo-deposit
+      - step: cross-link-update-cascade
+        agent: documentation
+      - step: submission-log-splice-cascade
+        agent: documentation
+      - step: m1-m12-closure-outlook-doc
+        agent: documentation
+        deliverable: M1_M12_CLOSURE_OUTLOOK_post_math.md
+
+  # ---------------------------------------------------------------------------
+  # 3.4 M11/M12 admin window (post-RULE-1-lift)
+  # ---------------------------------------------------------------------------
+  - name: m11-m12-admin
+    description: |
+      M11: portfolio-bundling resolution (077 verdict 10-option synth menu;
+      operator picks bundle pair per W21 LANE-1). M12: final paper
+      distribution + venue-resubmission cascade (078 endorser-framing +
+      079 Lean 4 CNP-Tunnell relaunch venue-fit dossier).
+    inputs: [bundle_pick, endorser_pick, venue_pick]
+    pipeline:
+      - step: bundle-pick-absorption
+        agent: synthesizer
+        operator_decision_required: true
+      - step: endorser-framing-dispatch
+        agent: documentation
+      - step: lean-cnp-tunnell-venue-relaunch
+        agent: documentation
+      - step: bibliographic-pre-verification
+        agent: reviewer
+        check: "all DOI/arXiv IDs resolve cleanly per post-031 rule"
+      - step: portfolio-final-deposit
+        agent: documentation
+        finalizes: true
+
+  # ---------------------------------------------------------------------------
+  # 3.5 W21 LANE-1 ratification arbitration (parallel-dispatch on /fleet)
+  # ---------------------------------------------------------------------------
+  - name: w21-lane-1-ratification
+    description: |
+      Dispatches the 6-envelope W21 LANE-1 arbitration as parallel
+      subagents under /fleet (068 + 074 + 075 + 077 + 078 + 079 + 076).
+      Each envelope is independent so parallelism is safe.
+    parallelism: 6
+    inputs: []
+    pipeline:
+      - step: dispatch-068
+        agent: synthesizer
+        prompt_path: tex/submitted/control center/prompt/068_*.txt
+      - step: dispatch-074
+        agent: synthesizer
+        prompt_path: tex/submitted/control center/prompt/074_*.txt
+      - step: dispatch-075
+        agent: synthesizer
+        prompt_path: tex/submitted/control center/prompt/075_*.txt
+      - step: dispatch-077
+        agent: synthesizer
+        prompt_path: tex/submitted/control center/prompt/077_*.txt
+      - step: dispatch-078
+        agent: synthesizer
+        prompt_path: tex/submitted/control center/prompt/078_*.txt
+      - step: dispatch-079
+        agent: synthesizer
+        prompt_path: tex/submitted/control center/prompt/079_*.txt
+      - step: lit-hunt-076-after-w21-lane-1
+        agent: documentation
+        prompt_path: tex/submitted/control center/prompt/076_*.txt
+        depends_on: [dispatch-068, dispatch-074, dispatch-075, dispatch-077, dispatch-078, dispatch-079]
+        gate: w21-lane-1-fire-gate-released
+      - step: aggregate-verdicts
+        agent: synthesizer
+      - step: bridge-deposit-cascade
+        agent: documentation
+        finalizes: true
+
+# -----------------------------------------------------------------------------
+# 4. Plan — the M9 → M12 closure roadmap
+# -----------------------------------------------------------------------------
+plan:
+  current_phase: m9-substrate-prep
+  iteration: 0
+  max_iterations: 12
+
+  open_items:
+    - id: slot-137-fire
+      workflow: substrate-prep-cycle
+      inputs:
+        slot_number: 137
+        target_document: tex/submitted/pcf2_program_statement.tex
+        substrate_shas:
+          - 7f93b9e4d624fdfca62f5d85393b4ead35cea751  # cascade 123 M7 V0
+          - e857172418de2e760e79ba001ba032f520b708f7  # T25D-RETRY-13PARAM
+          - fd669d347967db2e854f8e9d3725f625bf9fbc2a  # cascade 132 PATH_B
+          - 887981bf51860550a05ff949f0145c1687623689  # slot 135 landed
+          - 5f9db69c754c410b79091cbd84e6d79b63d10b6e  # cascade 106 M4 V0 (cross-ref)
+          - 70d1a4835ee0bc1f188aada9be65bb657f471730  # picture v1.19
+        scope: pcf-2-v1-4-section-6-amendment
+      status: drafted
+      priority: 1
+
+    - id: slot-136-fire
+      workflow: substrate-prep-cycle
+      inputs:
+        slot_number: 136
+        target_document: "tex/submitted/control center/picture_revised_20260507.md"
+        substrate_shas:
+          - 887981bf51860550a05ff949f0145c1687623689  # slot 135 landed
+          - "<TBF-from-slot-137-landed-head>"
+          - fd669d347967db2e854f8e9d3725f625bf9fbc2a  # cascade 132 PATH_B
+          - 7f93b9e4d624fdfca62f5d85393b4ead35cea751  # cascade 123 M7 V0
+          - cb429e1acba91ba47d1426950d924800a0b02a07  # cascade 127R M8a V0
+          - 74c563022d3a2df0a4bea0088f4793170a1e64d3  # cascade 130R M8b V0
+          - 70d1a4835ee0bc1f188aada9be65bb657f471730  # picture v1.19
+        scope: picture-chain-v1-20-plus-m9-v0-closure-series-absorption
+      status: drafted
+      priority: 2
+      depends_on: [slot-137-fire]
+
+    - id: m10-status-resolution
+      workflow: rule-1-lift
+      operator_decision_required: true
+      decision_template: |
+        Is M10 a separate axis or bundled into M-axis V0 closure series?
+      status: pending
+      priority: 3
+      depends_on: [slot-137-fire, slot-136-fire]
+
+    - id: rule-1-lift
+      workflow: rule-1-lift
+      status: blocked
+      priority: 4
+      depends_on: [slot-137-fire, slot-136-fire, m10-status-resolution]
+
+    - id: zenodo-deposit-cascade
+      workflow: rule-1-lift
+      operator_pending: true
+      status: tabled-under-rule-1
+      priority: 5
+      depends_on: [rule-1-lift]
+
+    - id: m11-portfolio-bundle-resolution
+      workflow: m11-m12-admin
+      status: pending
+      priority: 6
+      depends_on: [rule-1-lift]
+
+    - id: m12-paper-distribution
+      workflow: m11-m12-admin
+      status: pending
+      priority: 7
+      depends_on: [m11-portfolio-bundle-resolution]
+
+    - id: w21-lane-1-ratification
+      workflow: w21-lane-1-ratification
+      parallel_safe: true
+      status: pending
+      priority: 8
+
+# -----------------------------------------------------------------------------
+# 5. Tracking — milestone progress + invariants
+# -----------------------------------------------------------------------------
+tracking:
+  milestones:
+    - id: m9-v0
+      title: SIARC-MASTER-V0 announcement-of-record
+      gate: [slot-135-landed, slot-136-landed, slot-137-landed, m10-resolved]
+      status: in-progress
+
+    - id: m10
+      title: M10 axis status resolution (separate vs bundled)
+      gate: [operator-decision]
+      status: pending
+
+    - id: m11
+      title: portfolio-bundling resolution (B1-B5; W21 LANE-1)
+      gate: [synth-decision]
+      status: pending
+
+    - id: m12
+      title: final paper distribution + venue resubmission
+      gate: [m11-resolved]
+      status: pending
+
+  invariants:
+    - aeal_claims_exhaustive: "every numerical claim has a claims.jsonl entry"
+    - bridge_deposit_at_session_end: "STANDING FINAL STEP enforced"
+    - rule_1_respected: "no Zenodo deposits while rule_1_active"
+    - sha_resolve_pre_fire: "all cited bridge SHAs git rev-parse cleanly"
+    - bibliographic_pre_verification: "all cited DOIs/arXiv IDs resolve to cited papers"
+    - concept_vs_version_doi_distinction: "IsSupplementTo targets concept-DOI"
+    - anti_conflation: "per-axis numerical content does not bleed cross-axis"
+    - coefficient_ordering: "[a2, a1, a0] leading-first"
+
+  reporting:
+    cadence: per-cycle
+    output: handoff.md
+    bridge_url_template: "https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/{date}/{task_id}/"
+    claude_fetch_url_template: "https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/{date}/{task_id}/handoff.md"
+
+# -----------------------------------------------------------------------------
+# 6. Bootstrap — agent-card emission for `.github/agents/`
+# -----------------------------------------------------------------------------
+setup:
+  bootstrap:
+    emit_agent_cards: true
+    target_dir: .github/agents
+    naming: "{name}.agent.md"
+    frontmatter_keys: [name, description, model, tools, triggers, allowed_files]
+    on_first_run: |
+      For each agent in `agents:`, emit `.github/agents/{name}.agent.md`
+      with YAML frontmatter (per GitHub Copilot CLI custom-agent schema)
+      and the `instructions:` block as the markdown body. Idempotent.
+
+  pre_run_checks:
+    - "git remote get-url origin"
+    - "git -C siarc-relay-bridge rev-parse HEAD"
+    - "Test-Path tex/submitted/control\\ center/prompt/"
+    - "Get-Command pdflatex -ErrorAction SilentlyContinue"
+    - "Get-Command lake -ErrorAction SilentlyContinue"
+    - "Get-Command python -ErrorAction SilentlyContinue"
+
+# =============================================================================
+# End of .fleet.yaml
+# Run with:  copilot fleet --config .fleet.yaml
+# Or via:    /fleet "Close M9 → M12 per .fleet.yaml plan"
+# =============================================================================
