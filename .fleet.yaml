@@ -585,8 +585,22 @@ plan:
           - 5f9db69c754c410b79091cbd84e6d79b63d10b6e  # cascade 106 M4 V0 (cross-ref)
           - 70d1a4835ee0bc1f188aada9be65bb657f471730  # picture v1.19
         scope: pcf-2-v1-4-section-6-amendment
-      status: drafted
+      status: landed
       priority: 1
+      landed:
+        bridge_sha: 45e236c2d3f3ff690ede65762cfbfae482cd7560
+        landed_at: "2026-05-09T21:52:09+09:00"
+        deliverable_count: 14
+        pdf_pages: 23
+        manuscript_size_bytes: 80244
+        diff_lines: "+107/-25"
+        acceptance: A1-A8 ALL PASS
+        anti_conflation: CLEAN
+        halts: 0
+        discrepancies: 5  # 1 MED remediated + 4 INFO
+        unexpected_finds: 7  # all INFO
+        bridge_url: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-09/T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137/
+        cascade_132_realization_order: 2  # SECOND realization of Option α (slot 135 first; slot 136 third)
 
     - id: slot-136-fire
       workflow: substrate-prep-cycle
@@ -595,16 +609,39 @@ plan:
         target_document: "tex/submitted/control center/picture_revised_20260507.md"
         substrate_shas:
           - 887981bf51860550a05ff949f0145c1687623689  # slot 135 landed
-          - "<TBF-from-slot-137-landed-head>"
+          - 45e236c2d3f3ff690ede65762cfbfae482cd7560  # slot 137 landed 2026-05-09 21:52 JST
           - fd669d347967db2e854f8e9d3725f625bf9fbc2a  # cascade 132 PATH_B
           - 7f93b9e4d624fdfca62f5d85393b4ead35cea751  # cascade 123 M7 V0
           - cb429e1acba91ba47d1426950d924800a0b02a07  # cascade 127R M8a V0
           - 74c563022d3a2df0a4bea0088f4793170a1e64d3  # cascade 130R M8b V0
           - 70d1a4835ee0bc1f188aada9be65bb657f471730  # picture v1.19
         scope: picture-chain-v1-20-plus-m9-v0-closure-series-absorption
-      status: drafted
-      priority: 2
+      status: landed
+      priority: 1
       depends_on: [slot-137-fire]
+      landed:
+        bridge_sha: b9aa881c53566926390d6f48c2b8a10243c67267
+        landed_at: "2026-05-10T06:30:16+09:00"
+        path_chosen: alpha  # PATH_α (extend v1.20 in place); PATH_β not taken
+        deliverable_count: 14
+        manuscript_size_bytes: 344753
+        manuscript_lines: 3893
+        line_drift: 222  # (3671 -> 3893; within [80, 250] PATH_α band)
+        diff_size_bytes: 18831
+        acceptance: A1-A8 ALL PASS
+        annotation_propagation_hits: 9  # A4: §4=4 + §5=3 + §28.B=2 (line 2 + §28.C)
+        substrate_sha_hits: 24  # A5: across 7 SHAs
+        unicode_geq_roundtrip: 6  # A8 d≥3 (U+2265) round-trip via [System.IO.File] explicit UTF-8
+        anti_conflation: CLEAN
+        fv_scan: PASS  # diff-restricted; post 1 in-fire remediation (establishes -> records in §28.C; D-136-3)
+        halts: 0
+        discrepancies: 6  # 5 INFO + 1 MED (D-136-6 PowerShell-redirect-mojibake remediated)
+        unexpected_finds: 7  # incl. UF-136-3 cross-doc propagation FIRST + UF-136-4 §28 staging-defect silent fix + UF-136-6 PS redirect risk class
+        bridge_url: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-09/T2-EXECUTOR-PICTURE-V120-M9-V0-AMENDMENT-PREP-136/
+        cascade_132_realization_order: 3  # THIRD and FINAL realization (slot 135 first; slot 137 second; slot 136 closes the chain)
+        s28_silent_fix: true  # picture v1.20 staging defect silently fixed (header-references-§28-but-§28-does-not-exist)
+        uf_132_5_absorbed: true  # qualifier-class governance rule absorbed into source-of-record per §28.C
+      blocking_resolved: "operator confirmed PATH_α 2026-05-10; slot 137 substrate at 45e236c (2026-05-09 21:52 JST) consumed; slot 136 LANDED at b9aa881 (2026-05-10 06:30 JST) — cascade-132 PATH_B Option α deposit chain 3/3 COMPLETE"
 
     - id: m10-status-resolution
       workflow: rule-1-lift
