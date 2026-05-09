@@ -1,0 +1,5 @@
+# Preserve LF on machine-emitted artefacts so that
+# `python scripts/emit_agent_cards.py --check` remains idempotent
+# across fresh checkouts on platforms with core.autocrlf=true.
+.github/agents/*.agent.md text eol=lf
+scripts/emit_agent_cards.py text eol=lf
