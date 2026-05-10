@@ -1,0 +1,676 @@
+# T1-SYNTH-M10-V0-OPEN-ITEMS-CONSULTATION -- slot 149 prompt (substrate-inlined)
+#
+# Purpose:  Single-witness T1-Synth consultation on 7 open items surfaced by
+#           slot 143R verdict absorption + slot 148 prompt drafting:
+#             Q1 -- D-143-1 sorry-count forward-resolution ratification
+#             Q2 -- Pattern alpha mathematical soundness (with full Thm66 source now inlined)
+#             Q3 -- R6 theorem-strength preservation review template adequacy (slot 148 TASK 6)
+#             Q4 -- D-143-4 B5 confidence band amendment + verification protocol
+#             Q5 -- 141C substrate amendment routing (C-143-1 / C-143-2 / C-143-3)
+#             Q6 -- Slot 148 dispatch path safety tradeoff (CLI in-repo vs claude.ai delegation)
+#             Q7 -- Iteration ladder calibration (iter-13 active; ladder heartbeat at 18)
+#
+# Authority chain:
+#   - slot 143R T1-Synth verdict ENDORSE_WITH_AMENDMENTS at MEDIUM-HIGH (bridge bc641a0)
+#   - slot 148 T2-Executor prompt drafted at claude-chat 1eb92fe (THM66-AXIOM-RESHAPE)
+#   - POST_DISCHARGE_PLAN outlook (claude-chat 7981750) sec 7 Anomalies absorbed
+#   - operator authorization 2026-05-10 ~12:43 JST: "help with prompt to consult with
+#     principal synthesizer on unclear and open items"
+#
+# Drafted:  2026-05-10 ~12:50 JST (papanokechi/wallis-pcf-lean4 repo session)
+# Bridge folder:  sessions/2026-05-10/T1-SYNTH-M10-V0-OPEN-ITEMS-CONSULTATION-149/
+# Confidence claim: agent draft is informational; synth verdict band TBD by synth executor (target: MEDIUM-HIGH)
+# Iteration:  single-witness fire-internal iteration count starts at 1
+# Witness mode:  single-witness (T1-Synth, claude.ai web Claude Opus 4.7 expected)
+#
+# ============================================================================
+# COPY EVERYTHING BELOW THE LINE INTO THE NEXT CLAUDE.AI WEB SESSION
+# ============================================================================
+
+# T1-Synth: M10 V0 open-items consultation (post 143R + post 148-draft)
+
+You are firing slot 149 in the SIARC pipeline. This is a T1-Synth single-witness consultation on 7 specific open items left over from slot 143R verdict absorption and slot 148 prompt drafting. All required substrate is INLINED as APPENDIX A through APPENDIX E below; you do NOT need filesystem or repo access to answer the questions. Read sec 0 pre-flight FULLY before answering Q1-Q7.
+
+================================================================================
+sec 0 -- pre-flight (mandatory; halt if any step fails)
+================================================================================
+
+STEP 0.1 -- SHA verification (paper-only acceptance authorized per slot 143R precedent)
+
+CLI agent has pre-verified the following SHAs at fire-time 2026-05-10 ~12:50 JST. Synth re-verification is NOT required (claude.ai web has no git CLI). Treat the SHAs as standing ground-truth.
+
+  siarc-relay-bridge:
+    bc641a0  -- slot 143R verdict deposit (originating amendments)
+    8dc8628  -- slot 143 halt deposit (predecessor halt)
+    2e36e0f  -- slot 141C build-error triage substrate
+    ce5d9e9  -- slot 141B M10 substrate scaffold
+
+  papanokechi/wallis-pcf-lean4:
+    1eb92fe  -- slot 148 prompt drafted (THM66-AXIOM-RESHAPE; subject of Q2-Q3-Q6)
+    7981750  -- POST_DISCHARGE_PLAN outlook (governance for amendments + R6 risk)
+    3fab474  -- slot 143 prompt _HALTED rename
+    a6a1857  -- slot 143R substrate-inlined re-fire prompt
+    21aea4d  -- slot 144 prompt commit (functional precedent)
+
+If you have any reason to believe a SHA is hallucinated: declare HALT_149_SHA_DOUBT in your response, do not author a verdict.
+
+STEP 0.2 -- supersession gate
+
+If you have prior knowledge of any other M10 V0 OPEN-ITEMS-CONSULTATION fire dated 2026-05-10 (other than this one): declare HALT_149_SUPERSEDED. Otherwise: proceed. (CLI agent verified at fire-time that slot 149 is the only such fire scheduled.)
+
+STEP 0.3 -- RULE 1 directive
+
+RULE 1 (operator-supplied 2026-05-09 ~11:17 JST) is in force: admin / distribution work TABLED until M1-M12 mathematical / foundational closure. This consultation is math-axis (M10 V0); within RULE 1 scope. No Zenodo / endorsement / venue work touched. Decline any answer that drifts.
+
+STEP 0.4 -- substrate availability check
+
+All required substrate is inlined below. Substrate path mapping:
+
+  APPENDIX A: Lean source `lean/Thm66_ApparentSingularity.lean` HEAD (155 lines / 6282 bytes; full file)
+                -- Q2 axiom signature + use-site analysis
+                -- Q3 R6 review template grounding
+  APPENDIX B: `lean/build_errors_iter13.log` (24 lines / 1103 bytes; summary level)
+                -- Q4 D-143-4 B5 confidence; note: this is summary-level, NOT full goal-print
+  APPENDIX C: slot 148 prompt sec TASK 2 + TASK 6 (verbatim; ~80 lines)
+                -- Q3 R6 review template specifics
+                -- Q2 Pattern alpha applicability test (synth's own slot 143R recommendation)
+  APPENDIX D: slot 143R `discrepancy_log.json` (4 entries; ~80 lines)
+                -- Q1 D-143-1 + Q4 D-143-4 source-of-truth
+  APPENDIX E: `POST_DISCHARGE_PLAN_outlook` sec 3 risk register R1-R6 (~25 lines)
+                -- Q3 R6 risk specifics + Q7 R2 iteration ladder
+
+If any APPENDIX appears truncated or empty: declare HALT_149_SUBSTRATE_TRUNCATED.
+
+NOTE on Unicode: APPENDIX A is the actual Lean source file with Unicode operators (ℂ, ℝ, →, ≠, ρ, s₁, s₂, ∀, ↔, etc.). This is intentional: synth must see the actual Unicode forms to do meaningful Q2 axiom analysis. Earlier 143R substrate-inlining was ASCII-pure because it inlined JSON / markdown only; this prompt body is Unicode-preserving for APPENDIX A specifically. Other appendices (B / C / D / E) remain primarily ASCII.
+
+STEP 0.5 -- anti-fabricated-math note
+
+For any question where you would otherwise want to cite a Lean lemma name or Mathlib namespace path that you cannot read directly in APPENDIX A: do NOT cite. Instead, recommend an operator-side verification protocol (e.g., "operator runs `#check Lemma.Name` and reports the result"). This mirrors slot 143R Q3 fabricated-math-risk discipline.
+
+================================================================================
+sec 1 -- background context
+================================================================================
+
+The M10 V0 axis is the sole open math axis (per POST_DISCHARGE_PLAN outlook sec 1 scoreboard). Per slot 143R verdict + slot 148 draft, the operational discharge plan is:
+
+  Phase C.1: build-repair (5 blockers B1-B5 enumerated; routing per 141C + 143R lemma family recommendations)
+  Phase C.2: sorry-routing (S1+S2 reframed as architectural artifact; route to C.3++)
+  Phase C.3: green build + commit
+  Phase C.3+: 4-step gate (lake build / lake test / sorry-count==0 / toolchain pin)
+  Phase C.3++: slot 148 fire (THM66-AXIOM-RESHAPE; Pattern alpha)
+  Phase C.4: slot 145 substrate-prep + slot 146 solo-dispatch + slot 147 cascade absorption
+  Phase C.5: M10 V0 deposited; M-axis closure series complete
+
+Slot 148 is now drafted (claude-chat 1eb92fe) but not fired. The 7 questions below address open items that should be settled BEFORE slot 148 fires, OR that should be settled to refine governance going forward.
+
+================================================================================
+sec 2 -- questions
+================================================================================
+
+Q1 -- D-143-1 forward-resolution ratification (substrate: APPENDIX A + APPENDIX D entry 1)
+
+CLI agent's slot 148 ground-truth read of `lean/Thm66_ApparentSingularity.lean` and `lean/proof_targets.lean` (the latter not in APPENDIX A; full file unavailable but agent reports via grep) identifies:
+
+  - 2 active sorry instances at lean/Thm66_ApparentSingularity.lean:L118 and :L120 (both visible in APPENDIX A)
+  - 1 sorry MENTION at lean/proof_targets.lean:L2 inside a comment narrative (`-- Iteration 12 replaces the generated sorry placeholders with concrete...`)
+
+Hence: active sorry count in lean/ subtree = 2, not 3. The slot 144 / slot 141C mismatch (D-141C-1 / D-143-1) resolves with canonical interpretation = "comment-only mention" hypothesis (one of the three D-143-1 candidates).
+
+Q1 question: Does synth ratify this forward-resolution? If so, recommend status: D-143-1 RESOLVED with this interpretation. If not, what is the counter-interpretation?
+
+Q2 -- Pattern alpha mathematical soundness (substrate: APPENDIX A axiom block at L88-96 + use sites L113-120; APPENDIX C TASK 2 auxiliary diagnostic)
+
+Slot 143R Q4 analysis (without source access) recommended Pattern alpha = delete redundant `h_exact` parameter from `frobenius_double_root_at_apparent_singularity` axiom. The claim: `h_exact` reduces to `a' = a` (generically false), hence vestigial. With APPENDIX A now providing the actual axiom signature directly:
+
+  axiom frobenius_double_root_at_apparent_singularity
+      (a c : C -> C) (s : C)
+      (ha_root : a s = 0)
+      (ha_simple : deriv a s != 0)
+      (h_exact : forall x, HasDerivAt (fun x => a x * deriv (fun y => y) x)
+                           (a x) x) :
+      IndicialPoly a s = fun rho => rho ^ 2
+
+Q2 question: Does the actual axiom signature ratify the slot 143R analysis at HIGH confidence (instead of MEDIUM-HIGH at slot 143R; D-143-3 dependence resolved)? Are there caveats not visible in the slot 143R substrate (e.g., the unused `c` parameter, the unused `ha_root` w.r.t. h_exact, the auxiliary lemmas at L31-89 that establish `b(x) = a'(x)` and root structure of `a`)? Specifically: is the conclusion `IndicialPoly a s = fun rho => rho^2` actually a Frobenius-theory consequence of {ha_root, ha_simple} alone, or is there a substantive reason the axiom-author included h_exact (e.g., a captured "exactness" condition tied to the c-coefficient)?
+
+Q3 -- R6 theorem-strength preservation review template adequacy (substrate: APPENDIX A + APPENDIX C TASK 6 + APPENDIX E R6)
+
+Slot 148 TASK 6 specifies a 5-step argument that the AFTER axiom (h_exact deleted) is strictly stronger than (or equal in conclusion-strength to) the BEFORE axiom:
+
+  (1) Both axioms have identical conclusion: `IndicialPoly a s = fun rho => rho ^ 2`
+  (2) AFTER has fewer hypotheses (4 vs 5), so AFTER is strictly stronger as a claim.
+  (3) Therefore any downstream theorem reachable via AFTER is also reachable via BEFORE
+  (4) Conclusion: theorem strength of `apparent_singularity_thm_i` (lean/Thm66:113) is preserved or strengthened post-edit.
+  (5) AEAL status: axiom remains tagged `mathlib_gap: Frobenius ODE theory`; the math-content claim is the standard Frobenius result independent of the vestigial h_exact parameter.
+
+R6 risk per POST_DISCHARGE_PLAN sec 3 (APPENDIX E): "Pattern alpha refactor introduces theorem-statement weakening. Mitigation: spec-level review required before commit."
+
+Q3 question: Is this 5-step template sufficient to catch theorem-weakening cases? Are there subtle scenarios where the template would PASS but theorem strength has actually degraded? For example: (a) if AFTER's conclusion type-checks differently due to elaboration order; (b) if AFTER's stronger claim contradicts a previously-derived consequence elsewhere in lean/; (c) if h_exact was load-bearing for type-class inference at some use site even though logically vacuous. Recommend specific additional safety checks if needed.
+
+Q4 -- D-143-4 B5 confidence band amendment + verification protocol (substrate: APPENDIX B + APPENDIX D entry 4)
+
+Slot 143R Q1 recommended downgrade B5 confidence MEDIUM -> LOW-MEDIUM, gated on operator-side iter-13 build_errors_iter13.log L243/L285 cast-print inspection. APPENDIX B is the iter-13 log: it contains only a 24-line summary, NOT a full goal-print. Specifically L243/L285 surface as:
+
+  WallisFamily.lean:243, 285
+    `linarith` and rewrite failures in limit propagation / closed-form step
+
+(no goal-shape detail, no cast-print). Hence operator-side iter-13 inspection cannot directly resolve D-143-4.
+
+Q4 question: Given the limited build-log granularity, what is the recommended verification protocol for the operator? Options include:
+
+  (4a) Wait for iter-14+ build attempt with full `lake build --verbose` or `lake env lean WallisFamily.lean` output (provides full goal print)
+  (4b) Operator runs `#check` of `Nat.centralBinom_succ` against the active Mathlib pin to confirm/refute lemma existence (independent of L243/L285)
+  (4c) Operator inspects WallisFamily.lean L243/L285 source directly (visible diff against pre-edit OK)
+  (4d) Defer D-143-4 resolution to slot 145 substrate-prep fire (where the lemma family is exercised; if it fails, retry with explicit field_simp + push_cast + linarith fallback per slot 143R Q3 lemma_family_recommendations entry B5)
+
+Recommend a primary path and any fallback. This affects whether B5 confidence band update should propagate to POST_DISCHARGE_PLAN sec 4.
+
+Q5 -- 141C substrate amendment routing for C-143-1 / C-143-2 / C-143-3 (substrate: 143R verdict structure inferred from APPENDIX D + agent report)
+
+Slot 143R amendments C-143-1, C-143-2, C-143-3 target ALREADY-LANDED bridge artefacts at `2e36e0f` (slot 141C deposit). Specifically:
+
+  C-143-1: add `head_state_at_2026-05-10` field to blockers.json schema
+  C-143-2: rewrite B2 reasoning anchor in blockers.json (from `(by omega)` to `linear_combination` ansatz)
+  C-143-3: rewrite S1+S2 entries in sorries.json (split confidence into direct_discharge + reformulation; add routing_target = "slot 142-class")
+
+CLI agent has not yet applied these. Three candidate paths:
+
+  (5a) Re-deposit at separate folder `T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C-AMENDED/` with synth-recommended edits applied. Pros: preserves original 141C as immutable substrate (consistent with "do not modify ratified bridge artefacts" pattern). Cons: introduces a parallel artefact that 143R verdict references inconsistently (verdict cites 141C original).
+
+  (5b) Outlook-as-governance only: no new bridge artefact. Reference C-143-1 / C-143-2 / C-143-3 via POST_DISCHARGE_PLAN sec 7 anomalies-absorbed. Pros: simplest. Cons: machine-readable amendments live in synth verdict prose; downstream tools cannot ingest.
+
+  (5c) Forward-roll into slot 148 fire's `axiom_reshape_report.md`. Pros: natural successor's reporting absorbs predecessors' amendments. Cons: scope-creep on slot 148; conflates structural-edit fire with substrate-amendment work.
+
+Q5 question: Which path does synth recommend? Are there hybrid paths (e.g., (5a)+(5c) for partial machine-readability + scope-discipline)?
+
+Q6 -- Slot 148 dispatch path safety tradeoff (substrate: APPENDIX A + APPENDIX C)
+
+Slot 148 prompt envisions two dispatch paths:
+
+  (6a) CLI agent in-repo direct fire (default). Full file read/write on lean/. Can run `lake build` and `lake test` directly. Single-witness. R6 review by the executing agent.
+
+  (6b) claude.ai web delegation (substrate-inlining required like slot 143R). Cannot run `lake build`. R6 review by synth, build verification by operator post-handoff. Different model perspective on R6.
+
+For a structural axiom edit + R6 theorem-strength preservation review, which dispatch is safer? Considerations:
+  - (6a) closes the loop in one fire; faster turnaround; CLI agent has full context visibility on file structure
+  - (6b) gets a second-witness perspective on R6 review; protects against single-agent-blind-spots; but adds substrate-inlining overhead and breaks build verification atomicity
+
+Q6 question: Recommend (6a) or (6b) for the slot 148 fire. If (6b), specify substrate-inlining scope. If (6a), specify what additional safety checks (beyond slot 148 TASK 6) should the CLI agent run for R6.
+
+Q7 -- Iteration ladder calibration (substrate: APPENDIX E R2)
+
+POST_DISCHARGE_PLAN sec 3 R2 (per slot 143R Q6(a)) specifies iteration ladder:
+  iteration-18: heartbeat (re-run 141C triage class with iter-18 log; check whether routes are correct)
+  iteration-24: alarm (T1-Synth re-consultation; consider Pattern beta or scope re-evaluation)
+  iteration-30: ceiling (halt + escalate; consider 141D-class scope contraction)
+
+Currently iter-13 active (per build_errors_iter13.log). Slot 148 fire is independent of operator C.1 build-repair iteration; it targets only the axiom-reshape (different file, different intervention class). Question on calibration:
+
+Q7 question: Is the iteration ladder counting (a) absolute build-attempt count starting from operator's iter-1 (so slot 148 fire-internal iteration count is 14, 15, ... up to ceiling at 30); OR (b) per-fire-internal counter (slot 148 starts at 1, ceiling at internal-30); OR (c) some hybrid? In particular: if slot 148 fire has its own 1-2 iteration estimate but operator's WallisFamily.lean build-repair work is at iter-13, when does R2 heartbeat trigger? Recommend a formal calibration rule that resolves this.
+
+================================================================================
+sec 3 -- verdict format requirements
+================================================================================
+
+Output a verdict structured as follows:
+
+  sec 1 -- Verdict header
+    LABEL: { ENDORSE | ENDORSE_WITH_AMENDMENTS | RECOMMEND_REVISION | OBJECT | DEFER }
+    BAND: { HIGH | MEDIUM-HIGH | MEDIUM | LOW-MEDIUM | LOW }
+    One-line takeaway
+
+  sec 2 -- Per-question summary table (Q1 through Q7)
+
+  sec 3 -- Structured change list (if any; format C-149-N similar to C-143-N)
+
+  sec 4 -- Anomalies / discrepancies (D-149-N format; severity HIGH/MEDIUM/LOW/INFO; blocking yes/no)
+
+  sec 5 -- Cross-reference table (cite SHAs from sec 0.1)
+
+  sec 6 -- Confidence-band justification
+
+  sec 7 -- Counting note (if any minor counting drift)
+
+Aim for MEDIUM-HIGH confidence band absent dual-witness corroboration. If any answer requires fabricated-math (citing a Lean lemma name not visible in APPENDIX A): self-flag explicitly.
+
+If you cannot answer a question without fabrication: leave the answer as NO_ANSWER and explain why. Do not author a verdict on remaining questions if NO_ANSWER count >= 4 of 7; declare HALT_149_INSUFFICIENT_GROUNDING instead.
+
+================================================================================
+sec 4 -- handoff format requirements
+================================================================================
+
+After authoring the verdict (or halt), produce a one-paragraph standing-final-step-equivalent summary that the CLI agent can absorb into a bridge handoff.md. Include:
+  - LABEL + BAND
+  - Q1-Q7 per-question disposition
+  - Any C-149-N amendments
+  - Any D-149-N anomalies
+  - Recommended next step
+
+================================================================================
+sec 5 -- confidence band guidance
+================================================================================
+
+Single-witness; default cap is MEDIUM-HIGH per slot 144 sec 3.2 LABEL-rule (also applies to slot 143R). Conditions for HIGH:
+  - All 7 questions answered without fabricated-math self-flag
+  - No structural recommendations (C-149-N count = 0)
+  - No anomalies above LOW severity
+
+Conditions to drop below MEDIUM-HIGH:
+  - Any structural recommendation (C-149-N) that conflicts with already-landed POST_DISCHARGE_PLAN governance: drop to MEDIUM
+  - Any HIGH-severity anomaly: drop to LOW-MEDIUM
+  - Any HALT condition fired: NO BAND (halt instead)
+
+================================================================================
+sec 6 -- cross-reference table (verbatim from STEP 0.1; copy into your sec 5)
+================================================================================
+
+  bc641a0  -- slot 143R verdict deposit (originating amendments; bridge)
+  8dc8628  -- slot 143 halt deposit (predecessor halt; bridge)
+  2e36e0f  -- slot 141C build-error triage substrate (bridge)
+  ce5d9e9  -- slot 141B M10 substrate scaffold (bridge)
+  1eb92fe  -- slot 148 prompt drafted (claude-chat; subject of Q2-Q3-Q6)
+  7981750  -- POST_DISCHARGE_PLAN outlook (claude-chat)
+  3fab474  -- slot 143 prompt _HALTED rename (claude-chat)
+  a6a1857  -- slot 143R substrate-inlined re-fire prompt (claude-chat)
+  21aea4d  -- slot 144 prompt commit (claude-chat; functional precedent)
+
+================================================================================
+sec 7 -- closing
+================================================================================
+
+This is a focused operational consultation, NOT a roadmap revision. Slot 144 (strategic) and slot 143R (operational discharge plan) are the parent verdicts; slot 149 settles refinement-tier questions left over from those.
+
+The closing-loop expectation: CLI agent absorbs your verdict into a slot 149 bridge deposit and either:
+  - propagates Q1 ratification into slot 148 prompt + bridge state
+  - applies Q2 ratification to elevate Pattern alpha confidence (HIGH if synth ratifies; remain MEDIUM-HIGH if synth caveats)
+  - augments slot 148 TASK 6 with any Q3 additional safety checks
+  - selects Q4 verification protocol primary path (4a/4b/4c/4d) and updates POST_DISCHARGE_PLAN if needed
+  - executes Q5 routing (5a/5b/5c or hybrid)
+  - selects Q6 dispatch path (6a/6b)
+  - applies Q7 calibration formally to POST_DISCHARGE_PLAN sec 3 R2 (and slot 148 sec 4 if needed)
+
+CLI agent will not interpret missing answers as endorsement. If synth omits an answer to any of Q1-Q7, CLI agent will halt slot 149 absorption and request clarification via re-fire (operator-routed).
+
+# ============================================================================
+# APPENDIX A -- lean/Thm66_ApparentSingularity.lean (full file; HEAD)
+# ============================================================================
+
+/-
+  Theorem 6.6: Apparent Singularity Exclusion for V_quad
+  ======================================================
+  SIARC RELAY — TRACK B — Task ID: LEAN4-THM66
+  From the PCF Arithmetic Stratification paper.
+-/
+import Mathlib.Analysis.Calculus.Deriv.Basic
+import Mathlib.Analysis.Calculus.Deriv.Add
+import Mathlib.Analysis.Calculus.Deriv.Pow
+import Mathlib.Analysis.Calculus.Deriv.Mul
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Data.Matrix.Basic
+import Mathlib.Data.Complex.Basic
+
+noncomputable section
+
+open Real Complex Polynomial
+
+/-! ## Section 1: Definitions -/
+
+def a_coeff (x : ℝ) : ℝ := 3 * x ^ 2 + x + 1
+def c_coeff (x : ℝ) : ℝ := -(x ^ 2)
+def b_coeff (x : ℝ) : ℝ := 6 * x + 1
+def a_coeff_c (z : ℂ) : ℂ := 3 * z ^ 2 + z + 1
+def c_coeff_c (z : ℂ) : ℂ := -(z ^ 2)
+noncomputable def s₁ : ℂ := (-1 + I * (Real.sqrt 11 : ℝ)) / 6
+noncomputable def s₂ : ℂ := (-1 - I * (Real.sqrt 11 : ℝ)) / 6
+
+/-! ## Section 2: Lemma 1 — b(x) = a'(x) -/
+
+/-- **Lemma 1**: HasDerivAt certificate for a(x) = 3x²+x+1. -/
+theorem hasDerivAt_a_coeff (x : ℝ) :
+    HasDerivAt a_coeff (b_coeff x) x := by
+  unfold a_coeff b_coeff
+  have h1 := (hasDerivAt_pow 2 x).const_mul (3 : ℝ)
+  have h2 := hasDerivAt_id' x
+  have h3 := hasDerivAt_const x (1 : ℝ)
+  have h12 := HasDerivAt.add h1 h2
+  have h123 := HasDerivAt.add h12 h3
+  exact HasDerivAt.congr_deriv h123 (by push_cast; ring)
+
+/-- **Lemma 1** (deriv form): deriv a_coeff x = b_coeff x = 6x+1. -/
+theorem b_eq_deriv_a (x : ℝ) : deriv a_coeff x = b_coeff x :=
+  (hasDerivAt_a_coeff x).deriv
+
+/-- a is differentiable everywhere. -/
+theorem differentiable_a_coeff : Differentiable ℝ a_coeff :=
+  fun x => (hasDerivAt_a_coeff x).differentiableAt
+
+/-! ## Section 3: Lemma 2 — Roots of a -/
+
+/-- **Lemma 2a**: a(x) > 0 for all real x (no real roots).
+    Proof: 3x²+x+1 = 3(x+1/6)² + 11/12 > 0. -/
+theorem a_coeff_pos (x : ℝ) : a_coeff x > 0 := by
+  unfold a_coeff
+  have h : 3 * x ^ 2 + x + 1 = 3 * (x + 1 / 6) ^ 2 + 11 / 12 := by ring
+  linarith [sq_nonneg (x + 1 / 6)]
+
+/-- (√11)² = 11 -/
+theorem sqrt_11_sq : Real.sqrt 11 ^ 2 = 11 :=
+  Real.sq_sqrt (by norm_num : (11 : ℝ) ≥ 0)
+
+-- SORRY: Complex root verification.
+-- Proof: 3·((-1+i√11)/6)² + ((-1+i√11)/6) + 1
+--   = 3·(1-2i√11-11)/36 + (-1+i√11)/6 + 1 = 0
+-- AEAL-status: blocked (complex arithmetic automation slow)
+axiom root_s1 : a_coeff_c s₁ = 0
+axiom root_s2 : a_coeff_c s₂ = 0
+
+/-! ## Section 4: Lemma 3 — ODE Exactness (Product Rule) -/
+
+/-- **Lemma 3**: The ODE is exact — d/dx[a(x)y'] = a(x)y'' + a'(x)y'. -/
+theorem ode_is_exact
+    (f : ℝ → ℝ) (f' f'' : ℝ → ℝ) (x : ℝ)
+    (_ : HasDerivAt f (f' x) x)
+    (hf' : HasDerivAt f' (f'' x) x) :
+    HasDerivAt (fun x => a_coeff x * f' x)
+      (a_coeff x * f'' x + b_coeff x * f' x) x :=
+  HasDerivAt.congr_deriv (HasDerivAt.mul (hasDerivAt_a_coeff x) hf') (by ring)
+
+/-! ## Section 5: Lemma 4 — Indicial Equation (Frobenius) -/
+
+/-- Indicial polynomial at a simple root s of a(z).
+    For the exact ODE d/dx[a(x)y'] + c(x)y = 0, at a simple root s of a,
+    the Frobenius indicial polynomial is ρ ↦ ρ². -/
+def IndicialPoly (a : ℂ → ℂ) (s : ℂ) : ℂ → ℂ := fun ρ => ρ ^ 2
+
+-- AXIOM: Frobenius theory gives indicial polynomial = ρ² at apparent singularity.
+-- AEAL-status: blocked | mathlib_gap: Frobenius ODE theory
+axiom frobenius_double_root_at_apparent_singularity
+    (a c : ℂ → ℂ) (s : ℂ)
+    (ha_root : a s = 0)
+    (ha_simple : deriv a s ≠ 0)
+    (h_exact : ∀ x, HasDerivAt (fun x => a x * deriv (fun y => y) x)
+                     (a x) x) :
+    IndicialPoly a s = fun ρ => ρ ^ 2
+
+-- Corollary: indicial root is 0 with multiplicity 2.
+theorem indicial_root_is_zero (a c : ℂ → ℂ) (s : ℂ)
+    (h : IndicialPoly a s = fun ρ => ρ ^ 2) :
+    ∀ ρ : ℂ, IndicialPoly a s ρ = 0 ↔ ρ = 0 := by
+  intro ρ
+  simp [IndicialPoly]
+
+-- AXIOM: Complex derivative evaluation (routine).
+-- AEAL-status: blocked (routine computation)
+axiom a_deriv_s1_ne_zero : deriv a_coeff_c s₁ ≠ 0
+axiom a_deriv_s2_ne_zero : deriv a_coeff_c s₂ ≠ 0
+
+/-! ## Section 6: Theorem 5 — Indicial Exponents at s₁, s₂ -/
+
+/-- **Theorem 5** (part i): At both s₁, s₂, indicial polynomial is ρ². -/
+theorem apparent_singularity_thm_i :
+    (IndicialPoly a_coeff_c s₁ = fun ρ => ρ ^ 2) ∧
+    (IndicialPoly a_coeff_c s₂ = fun ρ => ρ ^ 2) := by
+  constructor
+  · exact frobenius_double_root_at_apparent_singularity
+      a_coeff_c c_coeff_c s₁ root_s1 a_deriv_s1_ne_zero (by sorry)
+  · exact frobenius_double_root_at_apparent_singularity
+      a_coeff_c c_coeff_c s₂ root_s2 a_deriv_s2_ne_zero (by sorry)
+
+/-! ## Section 7: Theorem 6 — Monodromy Structure -/
+
+/-- A 2×2 matrix is unipotent if it has form [[1,c],[0,1]]. -/
+def IsUnipotent (M : Matrix (Fin 2) (Fin 2) ℂ) : Prop :=
+  M 0 0 = 1 ∧ M 1 0 = 0 ∧ M 1 1 = 1
+
+/-- Unipotent matrix action on vector, first component. -/
+theorem unipotent_fixes_first_component
+    (M : Matrix (Fin 2) (Fin 2) ℂ) (hM : IsUnipotent M) (v : Fin 2 → ℂ) :
+    (M.mulVec v) 0 = v 0 + M 0 1 * v 1 := by
+  obtain ⟨h00, _, _⟩ := hM
+  simp [Matrix.mulVec, h00]
+
+-- AXIOM: Full monodromy theory not in Mathlib4.
+-- AEAL-status: blocked | mathlib_gap: Monodromy of linear ODE
+axiom monodromy_unipotent_from_double_root
+    (a c : ℂ → ℂ) (s : ℂ)
+    (ha_root : a s = 0) (ha_simple : deriv a s ≠ 0)
+    (h_indicial : IndicialPoly a s = fun ρ => ρ ^ 2) :
+    ∃ M : Matrix (Fin 2) (Fin 2) ℂ, IsUnipotent M
+
+/-- **Corollary**: V_quad invariant under monodromy at each sₖ. -/
+theorem vquad_monodromy_invariant :
+    ∀ s ∈ ({s₁, s₂} : Set ℂ),
+      a_coeff_c s = 0 →
+      ∃ M : Matrix (Fin 2) (Fin 2) ℂ, IsUnipotent M := by
+  intro s hs _
+  rcases hs with rfl | rfl
+  · exact monodromy_unipotent_from_double_root a_coeff_c c_coeff_c s₁
+      root_s1 a_deriv_s1_ne_zero apparent_singularity_thm_i.1
+  · exact monodromy_unipotent_from_double_root a_coeff_c c_coeff_c s₂
+      root_s2 a_deriv_s2_ne_zero apparent_singularity_thm_i.2
+
+end
+
+
+# ============================================================================
+# APPENDIX B -- lean/build_errors_iter13.log (full file)
+# ============================================================================
+
+Iteration 13 T4-LEAN-REPAIR status
+
+Verified repairs:
+- WallisFamily/ShiftConsistency.lean now compiles in isolation (exit code 0).
+- WallisFamily/CasoratianPi4.lean now compiles in isolation (exit code 0).
+
+Project-wide lake build status:
+- BLOCKED by new errors in WallisFamily.lean, so per relay instructions the repair pass halts here.
+
+Observed new blockers from full `lake build`:
+1) WallisFamily.lean:58:4
+   - `WallisFamily.Solves` has already been declared
+2) WallisFamily.lean:114-118
+   - unsolved goals / malformed use of `hu (k + 2) (by omega)` in `intertwining_lemma`
+3) WallisFamily.lean:171-177
+   - positivity / rational identity failure in `ratio_step_m0`
+4) WallisFamily.lean:216-312
+   - unknown / unimported neighborhood notation `𝓝` causing multiple `Filter.Tendsto` target failures
+5) WallisFamily.lean:243, 285
+   - `linarith` and rewrite failures in limit propagation / closed-form step
+
+JNT readiness line:
+- NOT READY for clean Lean build yet; the original two legacy blockers are repaired, but the main Wallis file now needs a separate scoped pass.
+
+
+# ============================================================================
+# APPENDIX C -- slot 148 prompt sec TASK 2 + sec TASK 6 (verbatim)
+# ============================================================================
+
+TASK 2 -- Pattern alpha applicability test
+
+Pattern alpha is applicable iff BOTH:
+
+  (alpha-a) `h_exact` is structurally redundant: the axiom conclusion is reachable
+       from {ha_root, ha_simple} alone (or from a model satisfying just those two).
+       This is the case for Frobenius indicial-polynomial theorem, where the
+       conclusion `IndicialPoly a s = fun rho => rho^2` is a standard ODE-theory
+       result depending only on `a` having a simple zero at `s`.
+
+  (alpha-b) Removing `h_exact` does NOT weaken the conclusion. (It strengthens
+       the axiom: fewer hypotheses required to reach the same conclusion.)
+       This is auto-satisfied: the conclusion is a closed term not parameterized
+       by `h_exact`.
+
+Auxiliary diagnostic: examine the `h_exact` hypothesis itself:
+       `forall x, HasDerivAt (fun x => a x * deriv (fun y => y) x) (a x) x`
+  Note `deriv (fun y => y) x = 1` for any `x`, so the LHS function is
+  `fun x => a x * 1 = a x`, and the claim becomes `forall x, HasDerivAt a (a x) x`.
+  This says `a` has derivative `a(x)` at `x` for every `x`, i.e., `a' = a`.
+  This is FALSE for general `a` (only true for exponentials a*e^x and zero).
+  For the specific `a_coeff_c` coefficient used at L118/L120, this hypothesis
+  is generically unsatisfiable. Hence h_exact is not a meaningful Frobenius
+  hypothesis; it is a vestigial parameter.
+
+If (alpha-a) FAIL: HALT_148_PATTERN_ALPHA_INAPPLICABLE; deposit halt; request
+  operator decision on Pattern beta (replace h_exact with dischargeable
+  hypothesis like `a s != 0 AND deriv a s != 0`, which is already present
+  via ha_simple; so Pattern beta would collapse to Pattern alpha by
+  redundancy; net same outcome -- but document the path).
+If (alpha-b) FAIL: HALT_148_THEOREM_WEAKENED; this is a theorem-statement
+  weakening signal; do NOT proceed; revert any partial edit; request
+  operator review.
+
+TASK 3 -- axiom signature edit
+
+Replace the axiom block (lean/Thm66_ApparentSingularity.lean:90-96) with:
+
+  axiom frobenius_double_root_at_apparent_singularity
+      (a c : C -> C) (s : C)
+      (ha_root : a s = 0)
+      (ha_simple : deriv a s != 0) :
+      IndicialPoly a s = fun rho => rho ^ 2
+
+  (Use the actual Unicode forms in the file -- C with double-strike, Greek rho,
+  arrow ->, not-equal symbol -- preserved verbatim from the original.)
+
+The AEAL-status comment block at L88-89 stays unchanged; the `mathlib_gap`
+reference remains the AEAL justification for the axiom assumption.
+
+TASK 4 -- use-site cleanup
+
+For each of the two use sites:
+
+  Original (L117-118):
+        . exact frobenius_double_root_at_apparent_singularity
+            a_coeff_c c_coeff_c s_1 root_s1 a_deriv_s1_ne_zero (by sorry)
+
+  After (L117-118):
+        . exact frobenius_double_root_at_apparent_singularity
+            a_coeff_c c_coeff_c s_1 root_s1 a_deriv_s1_ne_zero
+
+  Original (L119-120):
+        . exact frobenius_double_root_at_apparent_singularity
+            a_coeff_c c_coeff_c s_2 root_s2 a_deriv_s2_ne_zero (by sorry)
+
+  After (L119-120):
+        . exact frobenius_double_root_at_apparent_singularity
+            a_coeff_c c_coeff_c s_2 root_s2 a_deriv_s2_ne_zero
+
+Cross-check: search lean/ for ANY other use site of the axiom:
+
+  grep -rn 'frobenius_double_root_at_apparent_singularity' lean/
+
+Expected: 3 matches in Thm66_ApparentSingularity.lean (the axiom decl + 2 use sites).
+If ANY use site is found in WallisFamily.lean / CardEvenOfInvolution.lean /
+proof_targets.lean / lakefile.lean: HALT_148_UNEXPECTED_USE_SITE; deposit
+halt with the unexpected location(s); request operator review.
+
+TASK 5 -- build verification (post-edit)
+
+In order:
+
+  (a) cd lean && lake build 2>&1 | tee build_log.txt
+      Expected: exit 0; no errors; no warnings about missing axioms.
+      If FAIL: HALT_148_BUILD_REGRESSION (a); deposit halt with build_log.txt;
+        revert if appropriate (operator decides revert vs forward-fix).
+
+  (b) cd lean && lake test 2>&1 | tee test_log.txt
+      Expected: exit 0; or "no test target" message logged as NO_TEST_TARGET
+        (depends on whether `lakefile.lean` defines a test target).
+      If FAIL (other than NO_TEST_TARGET): HALT_148_BUILD_REGRESSION (b).
+
+  (c) Sorry-count assertion:
+      grep -rn '\bsorry\b' lean/ --include='*.lean' | grep -v '^[^:]*:[0-9]*:--'
+      Expected: 0 matches (the proof_targets.lean:L2 comment is filtered by
+        the `grep -v '\.--$'` pattern; the L118/L120 sites have been edited).
+      Alternative literal-match: grep -rn 'by sorry\|:= sorry\|by_extensionality.*sorry'
+      If non-zero: HALT_148_SORRY_COUNT_REGRESSION; deposit halt.
+
+  (d) toolchain pin still valid: cat lean/lean-toolchain
+      Expected: identical to pre-edit value (no edit was made to this file).
+      If diverged: HALT_148_TOOLCHAIN_DRIFT.
+
+TASK 6 -- R6 theorem-strength preservation review (CRITICAL; per POST_DISCHARGE_PLAN sec 3 R6)
+
+Produce in handoff a side-by-side BEFORE / AFTER theorem-statement comparison:
+
+  BEFORE: full axiom signature (5 explicit params + 1 conclusion, including h_exact)
+  AFTER: full axiom signature (4 explicit params + 1 conclusion, h_exact deleted)
+
+  Argument that AFTER is strictly stronger than (or equal in conclusion-strength to)
+  BEFORE:
+
+  (1) Both axioms have identical conclusion: `IndicialPoly a s = fun rho => rho ^ 2`
+  (2) AFTER has fewer hypotheses (4 vs 5), so AFTER is strictly stronger as a claim.
+  (3) Therefore any downstream theorem reachable via AFTER is also reachable via BEFORE
+      (with the additional h_exact hypothesis -- but h_exact is generically
+      unsatisfiable for a_coeff_c, so the BEFORE invocation was vacuous).
+  (4) Conclusion: theorem strength of `apparent_singularity_thm_i` (lean/Thm66:113)
+      is preserved or strengthened post-edit. Strict strengthening because
+      pre-edit invocation depended on a hypothesis that operator-side discharge
+      attempts repeatedly failed to provide.
+  (5) AEAL status: axiom remains tagged `mathlib_gap: Frobenius ODE theory`;
+      the math-content claim is the standard Frobenius result independent of
+      the vestigial h_exact parameter.
+
+If any step (1)-(5) fails analysis: HALT_148_THEOREM_WEAKENED; revert + halt.
+
+
+# ============================================================================
+# APPENDIX D -- siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143R/discrepancy_log.json (verbatim)
+# ============================================================================
+
+[
+  {
+    "id": "D-143-1",
+    "severity": "INFO",
+    "title": "Sorry-count discrepancy carries forward from D-141C-1",
+    "description": "APPENDIX A sec 6 Q1 + APPENDIX E surface D-141C-1 (slot 144 says 3 sorries; triage finds 2). 143R verdict cannot resolve canonical interpretation; operator must select. Three candidate resolutions (comment-only mention, iter-13 transient, GoldbachHelfgott axiom-stub) all plausible. Recommend closing D-141C-1 with explicit operator choice before slot 142-class fire (since slot 142 will commit a sorry-count change and D-141C-1 ambiguity propagates into the commit message).",
+    "remediation": "Operator selects one of the three candidate resolutions in APPENDIX A sec 6 Q1; documents in next outlook successor or as inline comment in `m10_documented_commitment.md`.",
+    "blocking": false
+  },
+  {
+    "id": "D-143-2",
+    "severity": "INFO",
+    "title": "dependency_map.json should explicitly note M10 build-graph closure",
+    "description": "Per Q5, M10 7-node build-graph has no cross-axis edges (no imports of M2/M7/M8/M9 substrate; only Mathlib externals). Currently this property is implicit in dependency_map.json (must be inferred from absence of cross-axis paths). Adding an explicit `cross_axis_edges: []` field with a `closure_check_passed: true` flag would make the property machine-checkable for future cross-axis-impact assessments.",
+    "remediation": "Add field `cross_axis_closure: {edges: [], note: 'M10 build-graph imports only Mathlib externals; no project-axis cross-references'}` to dependency_map.json schema.",
+    "blocking": false
+  },
+  {
+    "id": "D-143-3",
+    "severity": "LOW",
+    "title": "Lean source not inlined in 143R substrate; some Q3/Q4 recommendations are conditional",
+    "description": "Per sec 0.4 substrate path mapping, `lean/WallisFamily.lean` and `lean/Thm66_ApparentSingularity.lean` are reference-only, not inlined. Q3 lemma family recommendations (especially B5 candidate `Nat.centralBinom_succ`) and Q4 axiom-refactor strategy (Pattern alpha vs beta) are conditional on operator-side source verification. CLI agent's recommended 'NOT INLINED -- reference only' decision for these files is reasonable (size constraint), but means MEDIUM-HIGH band on this verdict cannot be elevated to HIGH without follow-up inspection.",
+    "remediation": "If CLI agent fires a 143R-followup with Lean source attached for Q3/Q4 grounding, this verdict can be re-fired with HIGH band aspiration. Otherwise, operator-side `#check` verification of every named Mathlib candidate before commit closes the gap.",
+    "blocking": false
+  },
+  {
+    "id": "D-143-4",
+    "severity": "LOW",
+    "title": "B5 confidence band amendment requires operator confirmation",
+    "description": "Per Q1, B5 confidence is recommended for downgrade from MEDIUM to LOW-MEDIUM. This is a single-witness judgment based on cast-normalization fragility patterns; operator with ground-truth visibility into the specific iter-13 goal printout at L243 / L285 may have evidence supporting MEDIUM. If operator disagrees with the downgrade, escalate to dual-witness confirmation per sec 0.5 ladder.",
+    "remediation": "Operator inspects iter-13 build_errors_iter13.log for L243 / L285 specific goal-print; if cast shape is clean (`(m+1 : R)` consistent throughout), MEDIUM is correct; if shape is ambiguous or has multiple competing cast forms, LOW-MEDIUM is correct.",
+    "blocking": false
+  }
+]
+
+
+# ============================================================================
+# APPENDIX E -- POST_DISCHARGE_PLAN outlook sec 3 risk register R1-R6 (verbatim)
+# ============================================================================
+
+## sec 3 -- Risk register (REVISED per slot 143R Q6(a) graduated ladder)
+
+  | # | Risk | Probability | Severity | Mitigation |
+  |:-:|---|:--:|:--:|---|
+  | R1 | Operator commitment-fill drift (Phase A.1) | HIGH | LOW | time-box Phase A; escalate to T1-Synth paragraph-drafting consultation if operator-side fill exceeds {N} hours |
+  | **R2** | **M10 V0 iteration overrun (graduated trigger ladder)** (REVISED per Q6(a)) | MEDIUM | MEDIUM | **iteration-18 heartbeat** (re-run 141C triage class with iter-18 log; check whether routes are correct); **iteration-24 alarm** (T1-Synth re-consultation; consider Pattern beta or scope re-evaluation); **iteration-30 ceiling** (halt + escalate; consider 141D-class scope contraction). Currently iteration-13 active per `build_errors_iter13.log`; 5 iterations remain to heartbeat. |
+  | R3 | RULE-1 leakage via commitment paragraph | LOW | MEDIUM | Phase A.1.5 synth-review (existing); paragraph must not reference Zenodo timelines, endorsement plans, or venue-resubmission cadence |
+  | R4 | Parallel-CLI fire collision n=5+ instance during Phase C | MEDIUM | LOW | standing Phase 0 supersession-gate per fire; Q22 cleanup at `ece6c32` was n=4 (cleanly halted; positive forensic signal) |
+  | R5 | Lean toolchain drift between iteration-13 and C.5 | LOW | HIGH | pin toolchain version in C.3 commit; validate at C.3+ via 4-step gate (toolchain pin sub-check NEW per Q6(b)) |
+  | **R6** | **Pattern alpha refactor introduces theorem-statement weakening** (NEW per slot 143R Q4 self-flag) | LOW | HIGH | slot 142-class fire (C.3++) MUST verify post-refactor theorem statement is no weaker than pre-refactor; spec-level review required before commit. If h_exact param removal weakens the conclusion of `frobenius_double_root_at_apparent_singularity`, fall back to Pattern beta (reformulate h_exact with dischargeable hypothesis). |
+
+---
+
+# ============================================================================
+# END OF SLOT 149 PROMPT
+# ============================================================================
