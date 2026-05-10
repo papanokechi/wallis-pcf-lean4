@@ -1,0 +1,340 @@
+# Slot 161 — T2-Executor amendment-overlay for slot 137 `zenodo_v14_description_block.md`
+
+**Task ID:** `T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161`
+**Class:** T2-Executor amendment-overlay (single-deliverable scope; analogous to slot 158's role for cascade-132 §3.1)
+**Band ceiling:** LOW-MEDIUM
+**RULE 1:** clean — operator-side document edit; no Zenodo deposit until F6 + this both land
+**Dispatch model:** CLI-agent direct execution (no claude.ai web round-trip required)
+
+---
+
+## §1 Background
+
+Slot 160 (`T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160`, bridge `012736f`) locked the SIARC v1 Zenodo metadata schema with `LABEL=SCHEMA_LOCK_INLINE / BAND=MEDIUM-HIGH / Q5 binary = NO-FIRE`. The verdict mandates two concrete downstream amendment-overlays:
+
+- **Target 2** (per slot 160 `amendment_overlay_targets.md` §Target 2): edit slot 137 `zenodo_v14_description_block.md` to add a 5th Layer 1 row + insert PCF-2 v1.4 axis-coverage table per the locked schema.
+- **Target 1** (F6 Umbrella v2.3 substrate-prep): blocked on `D-156-1` V0+ vs V1 resolution; not in scope for slot 161.
+
+Slot 161 executes Target 2.
+
+The current state of slot 137 `zenodo_v14_description_block.md` (verified 2026-05-10 ~20:55 JST):
+
+- **Layer 1 row count:** 4 rows (`IsNewVersionOf` v1.3 / `IsSupplementTo` PCF-1 concept / `Cites` PCF-1 concept). Missing: paired `IsSupplementTo` + `Cites` for Umbrella concept (per slot 160 §Q1a final 5-row pattern).
+- **Layer 2 axis-coverage table:** ABSENT. Description body has no M1-M12 axis-coverage table.
+- **Schema authority citation:** ABSENT.
+
+Slot 161 brings the description block into compliance with `locked_schema_v1.md` v1.
+
+---
+
+## §2 Phase 0 (executor self-gate, mandatory)
+
+### STEP 0.1 — Supersession check
+Confirm no prior LANDED `T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-*` session exists in `siarc-relay-bridge/sessions/<any-date>/`. If a prior session exists, halt and revisit scope.
+
+### STEP 0.2 — SHA pre-flight (full 40-char rev-parse + ancestor-of-`origin/main`)
+
+| Short SHA | Expected role | Full 40-char (verify) | Ancestor of `origin/main`? |
+|---|---|---|---|
+| `012736f` | Slot 160 verdict bridge SHA (schema authority) | `012736f121b2859ac3d782206ca0261f1332b31e` | YES (verified 2026-05-10 ~20:55 JST) |
+| `961b828` | Slot 159 canonical outlook source-of-record | `961b828d78082a18288866af0f0c306bc8fd75ce` | YES |
+| `45e236c` | Slot 137 substrate (the file being amended) | `45e236c2d3f3ff690ede65762cfbfae482cd7560` | YES |
+| `228e757` | Slot 158 cascade-132 amendment-overlay | `228e757ec347c7dcc320dea5fd3c29793865a804` | YES |
+| `34563a6` | Slot 157 framing-consultation | `34563a6ced29acb545985eb3815a7983f0d2444e` | YES |
+| `fd669d3` | Cascade 132 PATH_B Option α decision | `fd669d347967db2e854f8e9d3725f625bf9fbc2a` | YES |
+
+Also pre-resolve M-axis V0 closure cascade SHAs (cited inline in axis-coverage table prose):
+
+| Short SHA | Expected role |
+|---|---|
+| `5f9db69` | M4 V0 closure (cascade 106) |
+| `7f93b9e` | M7 V0 closure (cascade 123) |
+| `cb429e1` | M8a V0 closure (cascade 127R) |
+| `74c5630` | M8b V0 closure (cascade 130R) |
+| `b9aa881` | Picture-chain v1.20+ (slot 136; M9 PARTIAL substrate) |
+
+### STEP 0.3 — Concept-DOI memory-cite (live-resolve deferred to deposit time per slot 116 J2 sidebar precedent + slot 160 UF-160-3)
+
+| Concept-DOI | Anchor | Source memory |
+|---|---|---|
+| `10.5281/zenodo.19931635` | PCF-1 | repo memory `substrate verification` |
+| `10.5281/zenodo.19936297` | PCF-2 | repo memory `substrate verification` |
+| `10.5281/zenodo.19941678` | Channel Theory | `pcf-research/channel/cc_pipeline_v13_2026-05-02/channel_theory_outline.tex` |
+| `10.5281/zenodo.19996689` | D2-NOTE | slot 159 outlook §5 |
+| `10.5281/zenodo.19885550` | Umbrella | slot 137 `zenodo_v14_description_block.md` §1 (existing IsSupplementTo row) |
+| `10.5281/zenodo.19963298` | PCF-2 v1.3 (version-DOI; `IsNewVersionOf` exception per slot 160 §Q1c) | slot 137 substrate cross-check |
+
+### STEP 0.4 — Band ceiling honoured
+LOW-MEDIUM. The amendment-overlay edits a single file; introduces no new mathematical claims; does not deposit to Zenodo; does not modify any LANDED bridge artifact. RULE 1 fire-eligibility: clean.
+
+### STEP 0.5 — Deliverable schema (declare upfront)
+
+8 deliverables in `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161/`:
+
+1. `amended_description_block.md` — the edited PCF-2 v1.4 Zenodo description block (full file, post-amendment); future deposit-time copy-paste source.
+2. `amendment_diff.md` — unified-diff style record of the 3 concrete edits applied vs slot 137 baseline.
+3. `axis_coverage_snapshot.md` — standalone snapshot of the PCF-2 v1.4 axis-coverage table (citable as a separate artifact for the slot 160 schema-authority chain).
+4. `claims.jsonl` — AEAL audit-meta entries (≥6 expected).
+5. `halt_log.json` — empty `{}` if no halt.
+6. `discrepancy_log.json` — empty `{}` if no discrepancy.
+7. `unexpected_finds.json` — INFO/LOW finds; empty `{ "unexpected_finds": [] }` acceptable.
+8. `handoff.md` — Standing Final Step structured deliverable.
+
+### STEP 0.6 — Fire-eligibility check (5/5 must pass)
+1. Single-file scope confirmed.
+2. No new mathematical claims.
+3. No LANDED bridge artifact modified.
+4. RULE 1 fire-eligibility: clean (no Zenodo deposit; agent-D-157-9 default applies).
+5. Predecessor SHAs (`012736f`, `45e236c`) verified ancestors of `origin/main`.
+
+If any STEP 0.x fails → write `halt_log.json` with code `HALT_161_PHASE_0_<step>` and stop.
+
+---
+
+## §3 Concrete edits (Phase A — apply to baseline)
+
+The baseline is slot 137 `zenodo_v14_description_block.md` at bridge SHA `45e236c`. The amendment-overlay produces `amended_description_block.md` in this slot's bridge folder; the original at `45e236c` is NOT modified (LANDED bridge artifacts are immutable).
+
+### Edit 1 — Add 5th Layer 1 row (paired `Cites Umbrella concept`)
+
+**Locate:** §2 "Related identifiers" table, after the existing `Cites PCF-1 concept` row.
+
+**Existing rows (verbatim from baseline):**
+```
+| Relation         | Identifier (DOI)                          | Resource type | Description                                                       |
+|------------------|-------------------------------------------|---------------|-------------------------------------------------------------------|
+| `IsNewVersionOf` | `10.5281/zenodo.19963298` (PCF-2 v1.3)    | Publication   | This v1.4 amendment supersedes v1.3                               |
+| `IsSupplementTo` | `10.5281/zenodo.19931635` (PCF-1 concept) | Publication   | Cubic extension of the PCF-1 framework (degree-2 progenitor)      |
+| `Cites`          | `10.5281/zenodo.19931635` (PCF-1 concept) | Publication   | PCF-1 v1.3 §5 d=2 split (sole known anomaly to Conjecture B4)     |
+```
+
+**Action:** add the following two rows (paired `IsSupplementTo` + `Cites` for Umbrella concept, mirroring the PCF-1 pattern per slot 160 §Q1a):
+
+```
+| `IsSupplementTo` | `10.5281/zenodo.19885550` (Umbrella concept) | Publication   | PCF-2 v1.4 supplements the SIARC umbrella program (Option α' deposit cascade per slot 157 §Q4b) |
+| `Cites`          | `10.5281/zenodo.19885550` (Umbrella concept) | Publication   | Umbrella program-statement carrier (axis-coverage cross-references)                              |
+```
+
+Final row count: **5 rows** (matches `locked_schema_v1.md` §Layer 1 reference).
+
+### Edit 2 — Insert PCF-2 v1.4 axis-coverage table (Layer 2)
+
+**Locate:** §2 "Description (paste into Zenodo description field, MARKDOWN preserved)" — the markdown block fenced by triple-backticks.
+
+**Action:** append a new section to the markdown block, BEFORE the closing triple-backtick. Insert verbatim:
+
+```markdown
+
+---
+
+**M1–M12 program-axis coverage (snapshot at PCF-2 v1.4 deposit time):**
+
+| Axis | Status | Primary substrate |
+|---|---|---|
+| M1 | external | D2-NOTE concept `10.5281/zenodo.19996689` |
+| M2 | tabled (RULE 1) | — |
+| M3 | tabled (RULE 1) | — |
+| M4 | closed (V0; folded) | bridge cascade `5f9db69` (cascade 106) |
+| M5 | tabled (RULE 1) | — |
+| M6.CC | closed (retired into Channel Theory) | Channel Theory concept `10.5281/zenodo.19941678` |
+| M7 | closed (V0; folded) | bridge cascade `7f93b9e` (cascade 123) |
+| M8a | closed (V0; folded) | bridge cascade `cb429e1` (cascade 127R) |
+| M8b | closed (V0; folded) | bridge cascade `74c5630` (cascade 130R; d≥3 caveat in Umbrella v2.3 Appendix C iii) |
+| M9 | partial | bridge cascade `b9aa881` (slot 136 picture v1.20+) |
+| M10 | partial | Lean sorry discharge work-stream; SAFE phrasing in Umbrella v2.3 Appendix C ii |
+| M11 | tabled (RULE 1) | — |
+| M12 | tabled (RULE 1) | — |
+
+The axis-coverage table follows the SIARC v1 schema locked by slot 160 verdict (siarc-relay-bridge cascade `012736f`); status vocabulary and atomic listing are normative. Bridge cascade SHAs are content-addressed persistent identifiers; URLs may decay if the `siarc-relay-bridge` repository is renamed but SHAs remain recoverable from any clone.
+```
+
+(The "—" em-dash in `tabled (RULE 1)` rows is intentional and matches `locked_schema_v1.md`.)
+
+### Edit 3 — Add schema authority citation footer
+
+**Locate:** below §2 "Related identifiers" table, before §2 "Communities" subsection.
+
+**Action:** insert verbatim:
+
+```markdown
+
+**Schema authority**: the related-identifiers row pattern (5 rows; paired `IsSupplementTo` + `Cites` for each cross-link target) and the M1–M12 axis-coverage table format follow the SIARC v1 Zenodo metadata schema locked by slot 160 verdict (`T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160`, bridge SHA `012736f`, 2026-05-10). Concept-DOI vs version-DOI discipline: cross-links target concept-DOIs; `IsNewVersionOf` is the documented exception (version-to-version relation; targets v1.3 version-DOI `19963298`).
+```
+
+---
+
+## §4 Anti-edits (do NOT change)
+
+Per slot 160 §Q1a explicit anti-rules:
+
+1. **Do NOT add Layer 1 rows for Channel Theory** (`19941678`), **D2-NOTE** (`19996689`), or **picture v1.19** (`70d1a48`-substrate). Their relation to PCF-2 v1.4 is axis-mediated, expressed via the Layer 2 axis-coverage table only.
+2. **Do NOT replace concept-DOIs with version-DOIs** in `IsSupplementTo`/`Cites` rows. Concept-DOI discipline is preserved; only `IsNewVersionOf` row 1 uses a version-DOI, by design.
+3. **Do NOT add cascade SHA references as Related-identifier `References` rows.** Cascade SHA citations stay in Description-body prose (per slot 160 §Q1b + UF-160-2).
+4. **Do NOT modify §1 Concept-DOI / version-DOI taxonomy table**, §3 Post-deposit operator actions, the Title field, the Authors field, or the Files-to-upload section. Only the Description markdown block + Related-identifiers table + a new schema-authority footer are touched.
+5. **Do NOT touch the slot 137 baseline file at bridge `45e236c`.** Edits land in `amended_description_block.md` in this slot's bridge folder. The slot 137 file remains the immutable LANDED predecessor.
+6. **Do NOT recompute or change** any of the existing numerical content (max |δ_lin| = 3.09 × 10^{-23}; PSLQ basis cardinality 17/18; etc.). All v1.3 mathematical content is preserved verbatim.
+
+---
+
+## §5 Phase B — produce `axis_coverage_snapshot.md`
+
+Standalone snapshot artifact. Content: just the Layer 2 axis-coverage table from Edit 2 (verbatim) plus a one-paragraph header citing slot 160 schema authority. This file exists so future operators (e.g., F6 Umbrella v2.3 substrate-prep authoring its own axis-coverage snapshot) have a citable reference at deposit-time-shape granularity.
+
+Header template:
+```markdown
+# PCF-2 v1.4 axis-coverage snapshot
+
+**Schema authority:** Slot 160 (`T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160`, bridge `012736f`).
+**Snapshot context:** PCF-2 v1.4 Zenodo deposit description block, post-amendment-overlay slot 161.
+**Date:** 2026-05-10.
+
+[Layer 2 axis-coverage table verbatim from amended_description_block.md Edit 2]
+```
+
+---
+
+## §6 Phase C — produce `amendment_diff.md`
+
+Record the 3 concrete edits in unified-diff style:
+
+```
+--- a/zenodo_v14_description_block.md (slot 137 / 45e236c baseline)
++++ b/amended_description_block.md (slot 161 / amendment-overlay)
+@@ Edit 1 — Layer 1 row count 4 -> 5 @@
+[two new rows for IsSupplementTo + Cites Umbrella concept]
+@@ Edit 2 — Layer 2 axis-coverage table inserted in Description markdown @@
+[12-row M1-M12 table]
+@@ Edit 3 — Schema authority citation footer inserted @@
+[paragraph citing slot 160 verdict bridge 012736f]
+```
+
+The diff is for human-audit; not machine-applied (since the baseline file is immutable LANDED).
+
+---
+
+## §7 Phase D — Standing Final Step (B1-B5)
+
+### B1 — Collect deliverables
+8 files listed in §2 STEP 0.5; all in `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161/`.
+
+### B2 — Stage in bridge repo
+```powershell
+cd "C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge"
+git pull origin main
+mkdir -p sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161
+[copy 8 deliverables into folder]
+```
+
+### B3 — Write `handoff.md` (per Standing Final Step template)
+Sections (all required):
+- What was accomplished
+- Key numerical findings (here: row counts, table cardinality, edit count)
+- Judgment calls made
+- Anomalies and open questions
+- What would have been asked (if bidirectional)
+- Recommended next step
+- Files committed
+- AEAL claim count
+
+### B4 — Folder-scoped commit + push (UF-138-2 / slot 150 lesson)
+```powershell
+git add "sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161/"
+git diff --cached --name-only   # MUST be exactly 8
+git commit -m "T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161 -- amend slot 137 description block per slot 160 schema v1" `
+           -m "[detailed body]" `
+           -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+git push origin main
+```
+
+### B5 — Emit URLs
+```
+BRIDGE: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161/
+
+CLAUDE_FETCH: https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161/handoff.md
+```
+
+After bridge land, rename in claude-chat:
+```powershell
+cd "C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat"
+git mv "tex/submitted/control center/prompt/161_t2_executor_amendment_overlay_pcf2_v14_description_block.txt" `
+       "tex/submitted/control center/prompt/161_t2_executor_amendment_overlay_pcf2_v14_description_block_EXECUTED.txt"
+git commit -m "T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161 -- rename slot 161 prompt _EXECUTED post-bridge-commit <bridge-SHA>" `
+           -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+git push origin (git rev-parse --abbrev-ref HEAD)
+```
+
+---
+
+## §8 Verification invariants (run before B4 commit)
+
+After Phase A/B/C produce the 3 substantive deliverables, verify:
+
+- **I1**: `amended_description_block.md` carries exactly 5 Layer 1 rows.
+- **I2**: `amended_description_block.md` carries a 12-row M1–M12 axis-coverage table.
+- **I3**: `amended_description_block.md` cites slot 160 verdict bridge SHA `012736f` as schema authority.
+- **I4**: `amended_description_block.md` does NOT contain any `Cites` row for Channel Theory / D2-NOTE / picture v1.19.
+- **I5**: `amended_description_block.md` does NOT contain any `References` row pointing at a GitHub URL.
+- **I6**: `amended_description_block.md` preserves the v1.3 mathematical content (max |δ_lin| = 3.09 × 10^{-23} verbatim).
+- **I7**: `axis_coverage_snapshot.md` table content is byte-identical to `amended_description_block.md` Edit 2 table content.
+- **I8**: `amendment_diff.md` enumerates exactly 3 edits (Edit 1 / Edit 2 / Edit 3).
+
+If any I_x fails → halt with `HALT_161_INVARIANT_<n>` and revisit edits before proceeding to B4.
+
+---
+
+## §9 Halt conditions specific to slot 161
+
+In addition to standing halt conditions (numerical contradictions / unexpected positives / >5% pre-screen discrepancy / NaN-Inf-negative-precision):
+
+- **HALT_161_BASELINE_DRIFT**: if slot 137 `zenodo_v14_description_block.md` content at bridge `45e236c` differs from §3 Edit 1 "Existing rows (verbatim from baseline)" snapshot in this prompt — would indicate the baseline has been silently amended elsewhere; revisit before proceeding.
+- **HALT_161_DOI_DRIFT**: if any concept-DOI in §2 STEP 0.3 fails live-resolve at deposit-time-precursor verification (operator may run live-resolve before B4 if desired; not mandatory per slot 160 UF-160-3).
+- **HALT_161_SCHEMA_AUTHORITY_MISSING**: if locked_schema_v1.md is not present in `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160/` at fire time — would indicate slot 160 absorption is not actually landed; revisit before proceeding.
+
+---
+
+## §10 Recommended `handoff.md` "Recommended next step" content
+
+After slot 161 lands, the recommended next-step branches are:
+
+- **Branch X (default):** F6 Umbrella v2.3 substrate-prep — STILL BLOCKED on `D-156-1` V0+ vs V1 resolution. Operator decision required.
+- **Branch Y:** Issue `OP_DP0` RULE 1 lift directive — opens Zenodo deposit window; PCF-2 v1.4 deposit becomes operator-fireable using `amended_description_block.md` from slot 161.
+- **Branch Z:** Defer to next session.
+
+Slot 161 itself does not unblock anything currently blocked; it pre-stages PCF-2 v1.4 deposit-time material so that when RULE 1 lifts, operator paste-execution is single-file copy-paste from `amended_description_block.md`.
+
+---
+
+## §11 Predecessor / successor edge table
+
+| Edge | Type | Counterparty | Bridge SHA | Notes |
+|---|---|---|---|---|
+| Slot 161 ← Slot 160 | predecessor (schema authority) | T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160 | `012736f` | Cited as schema-lock authority |
+| Slot 161 ← Slot 137 | predecessor (baseline) | T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137 | `45e236c` | Baseline file source |
+| Slot 161 ← Slot 159 | predecessor (axis-status snapshot) | T2-EXECUTOR-CANONICAL-M1-M12-OUTLOOK-SOURCE-OF-RECORD-159 | `961b828` | Axis-coverage table draws status from outlook §5 |
+| Slot 161 ← Slot 158 | sibling (cascade-132 §3.1 amendment-overlay) | T1-SYNTH-CASCADE-132-AMENDMENT-OVERLAY-158 | `228e757` | Same amendment-overlay class pattern |
+| Slot 161 ← Slot 157 | grandparent (Option α' deposit cascade specification) | T1-SYNTH-ZENODO-DEPOSIT-FRAMING-CONSULTATION-157 | `34563a6` | Option α' is the deposit-cascade ordering |
+| F6 ← Slot 161 | successor (potential schema-precedent reuse) | F6 Umbrella v2.3 substrate-prep | (TBD) | F6 may copy axis-coverage table format pattern |
+| PCF-2 v1.4 deposit ← Slot 161 | successor (deposit-time consumer) | operator-side Zenodo deposit | (TBD; post-RULE-1-lift) | `amended_description_block.md` is the copy-paste source |
+
+---
+
+## §12 Dispatch instructions
+
+This is a CLI-agent direct-execution prompt. No claude.ai web round-trip required.
+
+**Operator instructions:**
+1. Confirm slot 161 fire is desired.
+2. Either fire from this CLI session (autopilot agent picks up after operator confirmation), or paste this prompt body into a fresh CLI session bootstrap.
+3. Agent executes Phase 0 → Phase A → Phase B → Phase C → §8 verification → Standing Final Step B1-B5.
+4. Expected runtime: ~10-15 minutes (file edits only; no computation).
+
+**Agent self-instructions:**
+- Phase 0 STEP 0.x must complete before any deliverable composition.
+- Folder-scoped staging is mandatory at B4 commit (UF-138-2 / slot 150 lesson; bridge working tree carries 100+ pre-existing dirty entries).
+- Do NOT modify `.fleet.yaml`, `.github/agents/*.agent.md`, or any LANDED bridge artifact.
+- Do NOT fire any Zenodo deposit (RULE 1 still in force).
+- Do NOT modify the slot 137 baseline file at bridge `45e236c`.
+
+---
+
+**End of slot 161 prompt body.**
