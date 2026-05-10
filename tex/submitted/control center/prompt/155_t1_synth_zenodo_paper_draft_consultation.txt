@@ -1,0 +1,404 @@
+================================================================================
+T1-SYNTH-ZENODO-PAPER-DRAFT-CONSULTATION-155
+T1-Synth content-generation consultation: Zenodo deposit paper draft + metadata
+================================================================================
+Drafted: 2026-05-10 ~16:55 JST
+Drafter: GitHub Copilot CLI (claude-opus-4.7-xhigh)
+Class:   single-witness content-generation; MEDIUM-HIGH self-assessed band ceiling;
+         dual-witness escalation if substantive amendment of mathematical
+         content is recommended (load-bearing prose changes -> dual-witness)
+Slot ID: 155
+Task ID: T1-SYNTH-ZENODO-PAPER-DRAFT-CONSULTATION-155
+Bridge folder: sessions/2026-05-10/T1-SYNTH-ZENODO-PAPER-DRAFT-CONSULTATION-155/
+
+================================================================================
+TARGET_PAPER VARIABLE (operator MUST set before fire)
+================================================================================
+
+  TARGET_PAPER = ____________________________   (operator fills; see options)
+
+  Options (cascade-132 sec 3.1 Option α 3-step deposit cascade):
+    OPTION_A:  PCF-2_v1.4
+               substrate-prep slot 137 / bridge 45e236c
+               existing artefacts: pcf-research/pcf2/release_v12_2026-05-01/
+                 pcf2_program_statement.{tex,pdf}, zenodo_description_v1.2.txt,
+                 zenodo_notes_v1.2.txt
+               concept-DOI: 10.5281/zenodo.19936297
+               status: artefacts ARE Zenodo-targeted; consultation = final-polish
+                 + post-S153 closure-narrative integration + version-DOI
+                 generation prep
+               recommended for FIRST fire (cascade-132 sec 3.1 step 1)
+
+    OPTION_B:  Umbrella_v2.2
+               substrate-prep slot 135 / bridge 887981b
+               existing artefacts: tex/submitted/umbrella_program_paper/
+                 umbrella_v21.{tex,pdf}, b_amendment_v22.diff
+               concept-DOI: TBD (operator verifies pre-fire)
+               status: v2.2 amendment exists as diff over v2.1; consultation =
+                 final assembly (apply b_amendment_v22.diff -> umbrella_v22.tex
+                 -> umbrella_v22.pdf) + S153 quad-witness CONFIRM_CLOSURE
+                 narrative integration + Zenodo metadata
+               recommended for SECOND fire (cascade-132 sec 3.1 step 2)
+
+    OPTION_C:  Picture_chain_v1.20+
+               substrate-prep slot 136 / bridge b9aa881
+               existing artefacts: tex/submitted/control center/picture/
+                 M1_M12_CLOSURE_OUTLOOK_*.md (multiple closure-outlook documents)
+               concept-DOI: NEW (no prior Zenodo deposit for picture-chain)
+               status: deposit class is unclear (closure-outlook v
+                 consolidated-narrative); consultation = scaffold a deposit
+                 artefact from the OUTLOOK_*.md series + recommend whether
+                 picture-chain merits a standalone Zenodo deposit OR should
+                 be subsumed into umbrella_v2.2 (cross-reference Q1a in
+                 slot 154 consultation)
+               recommended for THIRD fire (cascade-132 sec 3.1 step 3) OR
+                 declined per slot 154 Q1a synth recommendation
+
+  Default if operator does not specialize: OPTION_A (PCF-2_v1.4) -- lowest
+  effort, highest readiness, anchors the deposit cascade.
+
+================================================================================
+SECTION 0 -- PHASE 0 SUPERSESSION + SHA VERIFICATION GATE (mandatory)
+================================================================================
+
+STEP 0.1 -- supersession check.
+  Search siarc-relay-bridge sessions/2026-05-10/ for any prior LANDED fire
+  with task scope "Zenodo paper draft for {TARGET_PAPER}". Expected: NO
+  PRIOR LANDED FIRE on this scope at the {TARGET_PAPER} version specified.
+  If a prior LANDED fire exists, halt with HALT_155_SUPERSEDED.
+
+STEP 0.2 -- precondition check.
+  Required state at fire time:
+    (a) {TARGET_PAPER} substrate-prep deposit landed in bridge
+    (b) RULE 1 lift status: not strictly required for consultation
+        (consultation can fire pre-lift as advisory; operator decides)
+    (c) S153 quad-witness CONFIRM_CLOSURE landed at bridge 4761392
+        (provides closure-narrative substrate for paper integration)
+  If (a) or (c) is missing, HALT_155_PRECONDITION_NOT_MET.
+
+STEP 0.3 -- SHA pre-verification.
+  Verify all cited bridge SHAs exist before fire:
+
+    | Reference                              | SHA       | Status |
+    |----------------------------------------|-----------|--------|
+    | S153 quad-witness CONFIRM_CLOSURE      | 4761392   | LANDED |
+    | OP-A2 fleet.yaml flip                  | 7786a67   | LANDED |
+    | M9 V0 substrate slot 135 (umbrella)    | 887981b   | LANDED |
+    | M9 V0 substrate slot 136 (picture)     | b9aa881   | LANDED |
+    | M9 V0 substrate slot 137 (PCF-2)       | 45e236c   | LANDED |
+    | Cascade-132 PATH_B Option α            | fd669d3   | LANDED |
+    | M4 V0                                   | 5f9db69   | LANDED |
+    | M7 V0                                   | 7f93b9e   | LANDED |
+    | M8a V0                                  | cb429e1   | LANDED |
+    | M8b V0                                  | 74c5630   | LANDED |
+
+STEP 0.4 -- band ceiling reminder.
+  Synth ceiling = MEDIUM-HIGH. If synth recommends substantive math-content
+  amendment to {TARGET_PAPER} (not formatting / not metadata / not narrative
+  integration), halt with HALT_155_LOAD_BEARING_AMENDMENT and request
+  dual-witness escalation. Load-bearing changes require T1-Synth ratification
+  cascade (precedent: cascade 123 / 127R / 130R / S152).
+
+STEP 0.5 -- output schema reminder.
+  Verdict must include all 7 question responses (Q1-Q7) + AMENDMENTS +
+  ANOMALIES + ABSORPTION_GUIDANCE + ONE-LINE TAKEAWAY.
+
+STEP 0.6 -- fire-eligibility checklist.
+  [ ] TARGET_PAPER variable set
+  [ ] STEP 0.1 supersession check passed
+  [ ] STEP 0.2 precondition check passed
+  [ ] STEP 0.3 SHA pre-verification: all 10 SHAs PASS
+  [ ] STEP 0.4 ceiling reminder communicated to synth
+  [ ] STEP 0.5 schema reminder included
+
+================================================================================
+SECTION 1 -- BACKGROUND
+================================================================================
+
+## 1.1 RULE 1 (operator-supplied 2026-05-09 ~11:17 JST; verbatim)
+
+> "HOLD -- rule 1; table everything that is not a hard requirement to complete
+>  M1-M12 (zenodo, endorsement should all be tabled)"
+
+## 1.2 Zenodo deposit cascade (cascade-132 sec 3.1 Option α)
+
+3-step deposit chain unblocked by RULE 1 lift:
+  step 1: PCF-2 v1.4         (substrate-prep slot 137; bridge 45e236c)
+  step 2: Umbrella v2.2      (substrate-prep slot 135; bridge 887981b)
+  step 3: Picture-chain v1.20+ (substrate-prep slot 136; bridge b9aa881)
+
+Each deposit produces:
+  - Zenodo concept-DOI (or version increment of existing concept-DOI)
+  - Zenodo version-DOI (per-version identifier)
+  - IsSupplementTo / IsContinuedBy / IsSupplementedBy graph metadata
+  - Cross-citation discipline (concept-DOI not version-DOI per
+    "substrate verification" memory)
+
+## 1.3 M1-M12 closure narrative substrate (post-S153)
+
+Per S153 cascade_record.md (bridge 4761392) -- 4-witness CONFIRM_CLOSURE:
+
+  - 8 axes closed/absorbed: M2 / M3 / M4 / M5 / M6.CC / M7 / M8a / M8b
+  - 1 V0 substrate-source-of-record CLOSED: M9
+  - 1 deferred-with-documented-commitment: M10 (status report 2026-08-02)
+  - 3 admin-only TABLED post-lift: M1 / M11 / M12
+
+Highest-risk axis (Q4 stress-test, 3/4 witnesses): **M8b**
+  -> d>=3-CAVEAT-CARRIED-FORWARD; preservation discipline = explicit caveat
+     tagging in deposit metadata + venue cover letter + reproduction
+     checklist; structurally box as "future-work" not V0-retraction.
+
+Secondary documented residuals:
+  - M7 HARD-BRANCH-PENDING (annotation preserved verbatim)
+  - M10 sorry-discharge work-stream OPEN (post-lift; bound by 2026-08-02)
+
+Governance discipline (D-153-3): tooling-state vs math-content distinction
+must be preserved in any post-lift artefact discussing M10. SAFE phrasings
+treat M10 as Lean-formalization-state work-stream; UNSAFE phrasings re-
+characterize M10 as a math-content closure claim.
+
+## 1.4 Existing {TARGET_PAPER} artefacts inventory
+
+(operator confirms / synth reads to scaffold draft)
+
+  IF TARGET_PAPER == PCF-2_v1.4:
+    - pcf-research/pcf2/release_v12_2026-05-01/pcf2_program_statement.tex
+    - pcf-research/pcf2/release_v12_2026-05-01/pcf2_program_statement.pdf
+    - pcf-research/pcf2/release_v12_2026-05-01/zenodo_description_v1.2.txt
+    - pcf-research/pcf2/release_v12_2026-05-01/zenodo_notes_v1.2.txt
+    - pcf-research/pcf2/release_v12_2026-05-01/submission_log_patch_item15.txt
+    - pcf-research/pcf2/release_v12_2026-05-01/handoff.md (slot 137 sec 6)
+    - claims.jsonl + halt_log.json + unexpected_finds.json + discrepancy_log.json
+    - rubber_duck_critique.md
+    - (these are bumped to v1.4 with minor diff over v1.2; operator confirms)
+
+  IF TARGET_PAPER == Umbrella_v2.2:
+    - tex/submitted/umbrella_program_paper/umbrella_v21.tex (baseline)
+    - tex/submitted/umbrella_program_paper/umbrella_v21.pdf (baseline)
+    - tex/submitted/umbrella_program_paper/b_amendment_v22.diff (amendment)
+    - tex/submitted/umbrella_program_paper/main_v20_baseline.tex.bak (v2.0 archive)
+
+  IF TARGET_PAPER == Picture_chain_v1.20+:
+    - tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_*.md (8 files)
+    - tex/submitted/control center/picture/M1_M12_OPERATOR_RUNBOOK_20260510.md
+    - tex/submitted/control center/picture/m10_documented_commitment.md
+    - (consultation may recommend NOT depositing standalone; subsume into
+      Umbrella v2.2 instead per slot 154 Q1a)
+
+## 1.5 Concept-DOI cross-citation discipline (verbatim per "substrate verification" memory)
+
+  PCF-1 concept-DOI:  10.5281/zenodo.19931635   (NOT v1.3 19937196)
+  PCF-2 concept-DOI:  10.5281/zenodo.19936297   (NOT v1.3 19963298)
+  Umbrella concept-DOI: TBD (operator verifies)
+
+  Cross-link IsSupplementTo MUST target concept-DOI not version-DOI.
+
+================================================================================
+SECTION 2 -- QUESTIONS (Q1-Q7)
+================================================================================
+
+## Q1 -- Section-by-section outline (or polish-pass for already-drafted artefact)
+
+**Q1a:** For {TARGET_PAPER}, produce a section-by-section outline. If the
+artefact is already substantively drafted (PCF-2 v1.4 case), produce a
+polish-pass review identifying:
+  - sections requiring updates given S153 quad-witness CONFIRM_CLOSURE
+    landed AFTER substrate-prep
+  - sections requiring D-153-3 governance-discipline review (any M10
+    discussion)
+  - sections requiring M8b d>=3 caveat preservation review
+  - sections that can be left unchanged
+
+**Q1b:** Identify load-bearing math content that the synth should NOT
+modify (constants, theorem statements, V0 anchor values, residual
+catalogue). Treat these as substrate-frozen; consultation produces
+narrative wrapping only.
+
+## Q2 -- Abstract draft (full text)
+
+**Q2a:** Produce a full abstract (~200-300 words) for {TARGET_PAPER} that:
+  - frames the paper's mathematical contribution
+  - integrates the S153 quad-witness CONFIRM_CLOSURE narrative (where
+    applicable to the paper's scope)
+  - preserves D-153-3 tooling-state vs math-content distinction (M10
+    framed as "Lean formalization work-stream" not "M10 closed")
+  - preserves M8b d>=3 caveat language ("numerical foreclosure achieved
+    in the documented dimensional regime; d>=3 carried forward as
+    future-work scope")
+  - preserves M7 HARD-BRANCH-PENDING annotation (where applicable)
+
+**Q2b:** Identify 5-8 keywords for Zenodo deposit metadata.
+
+## Q3 -- Introduction with M1-M12 closure narrative
+
+**Q3a:** Produce an introduction section (~800-1500 words) that:
+  - establishes mathematical context for {TARGET_PAPER}
+  - narrates the M1-M12 closure trajectory (axis-by-axis or grouped)
+  - cites bridge SHAs as governance-evidentiary anchors (4761392 for
+    S153, 5f9db69 for M4 V0, 7f93b9e for M7 V0, cb429e1 for M8a V0,
+    74c5630 for M8b V0, fd669d3 for cascade-132 PATH_B)
+  - threads the SIARC pipeline narrative without leaking confidential
+    operator-side material
+
+**Q3b:** Determine whether the introduction should anchor on the SIARC
+pipeline as the methodological frame, or on the mathematical content
+itself with SIARC as a footnote / appendix.
+
+## Q4 -- Result statement(s)
+
+**Q4a:** Produce per-section result statements that align with {TARGET_PAPER}'s
+mathematical scope. Each result statement must include:
+  - what is proven / numerically established
+  - what is NOT proven (caveats / boundaries / future-work scope)
+  - V0 anchor SHA citation
+  - residual catalogue (if applicable: HARD-BRANCH-PENDING for M7-related
+    results; d>=3-CAVEAT-CARRIED-FORWARD for M8b-related results)
+
+**Q4b:** Cross-citation graph: which other papers in the SIARC pipeline
+should this paper cite, and at what concept-DOI? Produce the IsSupplementTo
+/ IsContinuedBy / IsSupplementedBy metadata block.
+
+## Q5 -- Caveat / residual / boundary language
+
+**Q5a:** Produce caveat-language templates (not full sections; just verbatim
+phrasings the operator can paste into the paper):
+  - M8b d>=3 caveat: long form (paragraph) + short form (footnote)
+  - M7 HARD-BRANCH-PENDING: annotation block
+  - M10 sorry-discharge work-stream: SAFE phrasing for any M10 mention
+    (per D-153-3); template a 2026-08-02 status-report forward-reference
+  - M2 Q22 final-disposition note: low-stakes formal residual; phrasing
+    that records collapse-to-no-op cleanly
+
+**Q5b:** Reproduction Appendix template (per S153 Q4(4c) mitigation):
+  - numerical scripts location (cite repo paths)
+  - parameter ranges
+  - exact M4 V0 anchor values (do NOT modify; cite verbatim from cascade
+    106 bridge 5f9db69)
+  - software / library versions used
+  - reproducibility scope statement
+
+## Q6 -- Zenodo metadata block
+
+**Q6a:** Full Zenodo deposit metadata block for {TARGET_PAPER}, including:
+  - title (final)
+  - creators (papanokechi as primary; ORCID 0009-0000-6192-8273)
+  - description (Zenodo body; can be longer than abstract; ~400-800 words)
+  - keywords (from Q2b)
+  - license (recommend CC-BY-4.0 or CC0; synth advises)
+  - related_identifiers list:
+    * IsSupplementTo concept-DOI cross-links
+    * IsContinuedBy / IsContinuationOf relationships
+    * IsSupplementedBy reverse-links (if applicable)
+  - publication_date (operator sets at upload time)
+  - resource_type (publication / softwarePackage / dataset / etc.)
+  - communities (Zenodo communities to submit to)
+
+**Q6b:** Concept-DOI vs version-DOI handling:
+  - If {TARGET_PAPER} has prior concept-DOI (PCF-2 case), produce
+    version-bump metadata (new version-DOI under existing concept-DOI)
+  - If new concept-DOI (Picture-chain v1.20+ case), produce initial
+    deposit metadata
+  - Cross-citation discipline: IsSupplementTo MUST target other papers'
+    concept-DOIs not version-DOIs (per "substrate verification" memory)
+
+## Q7 -- Cover letter / deposit description
+
+**Q7a:** Produce a deposit cover letter / submission notes block (for
+the Zenodo deposit description body, NOT for journal cover letter --
+journal cover letter is M12 work-stream covered in slot 154 Q3).
+
+**Q7b:** Produce a project-side submission_log.txt entry template (per
+existing format in tex/submitted/submission_log.txt items 1-10):
+  - Filename
+  - Title
+  - Submitted on (operator fills at upload)
+  - Status (To be Published on Zenodo / Published on Zenodo)
+  - Submission ID (operator fills at upload)
+  - Concept DOI
+  - Version
+  - Notes
+
+================================================================================
+SECTION 3 -- OUTPUT SCHEMA
+================================================================================
+
+Synth must produce verdict packet with:
+
+  LABEL: PAPER_DRAFT_PRODUCED (or _WITH_AMENDMENT, _WITH_RESERVATIONS,
+         DEFER, OBJECT)
+  BAND:  LOW / LOW-MEDIUM / MEDIUM / MEDIUM-HIGH (ceiling)
+  WITNESS: single-witness <model-vendor>-<date>
+  TARGET_PAPER: <verbatim from operator setting>
+
+  Q1_RESPONSE through Q7_RESPONSE (substantive content per question)
+
+  AMENDMENTS: list with rationale (HALT if any are load-bearing math)
+  ANOMALIES: any unexpected substrate-state observations
+  ABSORPTION_GUIDANCE: how CLI agent absorbs (file artefacts to write,
+    SQL todo updates, follow-up fires)
+
+  ONE-LINE TAKEAWAY: <80 chars
+
+================================================================================
+SECTION 4 -- ENVELOPE
+================================================================================
+
+  Witness mode:        single-witness (default); dual-witness if synth
+                       wants to recommend load-bearing math amendment
+                       (HALT_155_LOAD_BEARING_AMENDMENT triggers)
+  Self-assessed band:  ceiling MEDIUM-HIGH
+  Halt codes:          HALT_155_SUPERSEDED
+                       HALT_155_PRECONDITION_NOT_MET
+                       HALT_155_BAND_CEILING_EXCEEDED
+                       HALT_155_LOAD_BEARING_AMENDMENT
+                       HALT_155_TARGET_PAPER_UNSET
+
+  Substrate inlined:   minimal (sec 1.2 cascade structure + sec 1.3
+                       closure-narrative + sec 1.4 artefact inventory
+                       + sec 1.5 concept-DOI table)
+  Substrate referenced: full closure context via S153 cascade_record.md
+                       at bridge 4761392; existing {TARGET_PAPER} artefacts
+                       at paths in sec 1.4 (synth reads as needed)
+
+================================================================================
+SECTION 5 -- BRIDGE DELIVERABLES + STANDING FINAL STEP
+================================================================================
+
+CLI agent absorbs synth verdict to bridge folder:
+  sessions/2026-05-10/T1-SYNTH-ZENODO-PAPER-DRAFT-CONSULTATION-155/
+
+If multiple TARGET_PAPER fires, suffix folder name to disambiguate:
+  ...155-PCF2-V14/
+  ...155-UMBRELLA-V22/
+  ...155-PICTURE-CHAIN-V120/
+
+Required deliverables:
+
+  1. verdict.md          (verbatim synth packet)
+  2. cascade_record.md   (n=1 single-witness; trivial aggregation)
+  3. claims.jsonl        (~12-18 audit-tier AEAL meta-claims)
+  4. discrepancy_log.json (any DIRTY signals)
+  5. halt_log.json       ({} if no halt)
+  6. unexpected_finds.json (UF-155-N if any)
+  7. handoff.md          (per B3 template)
+  8. drafted_paper_artefacts/ (subfolder containing the synth-produced
+                               text artefacts: abstract.md, introduction.md,
+                               results.md, caveats.md, zenodo_metadata.json,
+                               cover_letter.md, submission_log_entry.txt)
+
+If synth produces load-bearing math amendments (HALT_155_LOAD_BEARING_
+AMENDMENT), CLI agent MUST NOT auto-apply; surface to operator for
+dual-witness ratification cascade decision.
+
+Commit + push pattern (path-specific staging):
+
+  git add sessions/2026-05-10/T1-SYNTH-ZENODO-PAPER-DRAFT-CONSULTATION-155.../
+  git status --porcelain ...
+  git commit -m "T1-SYNTH-ZENODO-PAPER-DRAFT-CONSULTATION-155 -- {TARGET_PAPER} draft <LABEL> (<BAND>)"
+  git push origin main
+
+Output BRIDGE + CLAUDE_FETCH URLs per standing final step B5.
+
+================================================================================
+END OF SLOT 155 PROMPT
+================================================================================
