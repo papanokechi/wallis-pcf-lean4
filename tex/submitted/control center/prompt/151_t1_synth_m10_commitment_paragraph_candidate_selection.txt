@@ -1,0 +1,461 @@
+================================================================
+PROMPT 151 -- T1-SYNTH M10 COMMITMENT-PARAGRAPH CANDIDATE-SELECTION CONSULTATION
+================================================================
+Drafted:   2026-05-10 ~15:20 JST
+Slot:      151 (between OP_A1 Phase 4 LANDED and OP_A1 Phase 5 application)
+Class:     T1-Synth (single-witness; LOW-MEDIUM band; pre-fill content judgment)
+Scope:     review 3 OP_A1 candidate paragraphs and recommend selection
+M-axis:    M10 (commitment governance; gates M9 V0 announcement-flag flip)
+RULE 1:    ALIGNED (math-axis governance; review is procedural; subject matter
+                    is M10 sorry-discharge formalization work, which is math)
+Bridge HEAD at draft: fe5e48f (OP_A1 Phase 4 deposit LANDED 2026-05-10 ~15:16 JST)
+Repo HEAD at draft:   0d05c81 (S148R wrapper + slot 148 _HALTED rename)
+Predecessor: OP_A1 Phases 0-4 LANDED at bridge fe5e48f
+              folder: sessions/2026-05-10/OP-A1-M10-COMMITMENT-PARAGRAPH-DRAFT-20260510/
+Successor:   slot 152 (POST-fill paragraph audit; pre-staged at claude-chat 29183ae)
+              and OP_A1 Phase 5 application (operator-gated)
+
+Distinction from slot 152:
+  - slot 151 (THIS prompt): PRE-fill content judgment (which candidate to select)
+  - slot 152 (PRE-STAGED):  POST-fill structural audit (token-scan + FV-discipline + cascade-132 shape check on filled paragraph)
+  Slots 151 and 152 are NOT redundant: 151 selects content; 152 verifies the applied content lands clean.
+
+Draft-time supersession audit: PASS
+  - No prior slot 151 fires
+  - No prior `*M10*COMMITMENT*PARAGRAPH*SELECTION*` or
+              `*COMMITMENT*PARAGRAPH*CANDIDATE*` bridge folders
+
+================================================================
+
+OPERATOR INSTRUCTIONS (read before fire):
+
+This prompt is fully self-contained. All 3 candidates are inlined verbatim
+in sec 2. No substitution markers needed. Synth executor reads this prompt
+directly in claude.ai web; no file attachments required (substrate may be
+attached as supplement if synth requests).
+
+================================================================
+sec 0 -- PHASE 0 PRE-FLIGHT (synth executor runs in claude.ai web)
+================================================================
+
+STEP 0.1 -- SHA verification (paper-only acceptance authorized at single-witness LOW-MEDIUM band)
+
+  SHA                                            Repo / context
+  fe5e48f                                        siarc-relay-bridge (OP_A1 Phase 0-4 deposit; canonical substrate)
+  e8866fc                                        siarc-relay-bridge (OP_A bridge; predecessor remediation)
+  9838501                                        siarc-relay-bridge (slot 149 absorption; canonical post-open-items)
+  fd669d347967db2e854f8e9d3725f625bf9fbc2a       siarc-relay-bridge (cascade-132 PATH_B Option alpha precedent)
+  72bb2c299f6462e3b5da3beec70624f6ce5ca4ef       siarc-relay-bridge (slot 139 BUNDLED-DEFERRED-NOTE verdict)
+  bc641a0                                        siarc-relay-bridge (slot 143R; Pattern alpha + R6 sub-checks substrate)
+  2e36e0f                                        siarc-relay-bridge (slot 141C iter-13 5-blocker triage substrate)
+
+  If any FAIL: HALT_151_SHA_DOUBT.
+
+STEP 0.2 -- supersession-gate
+
+  Get-ChildItem -Recurse -Directory -Path 'siarc-relay-bridge/sessions' `
+    -Filter '*M10*COMMITMENT*SELECTION*' -ErrorAction SilentlyContinue
+  Get-ChildItem -Recurse -Directory -Path 'siarc-relay-bridge/sessions' `
+    -Filter '*COMMITMENT*PARAGRAPH*CANDIDATE*' -ErrorAction SilentlyContinue
+
+  Expected: zero matches in both. If any match: HALT_151_SUPERSEDED.
+
+STEP 0.3 -- RULE 1 directive (verbatim; standing in force)
+  > Operator (2026-05-09 ~11:17 JST): "rule1. table everything that
+  > does not contribute to closing M1-M12 for now (endorsements,
+  > zenodo etc)."
+  RULE 1 status at this fire time: IN FORCE.
+  This consultation is itself RULE-1-aligned (procedural; subject is
+  M10 sorry-discharge math axis).
+
+STEP 0.4 -- substrate availability check
+
+  All required substrate is INLINED in sec 1 + sec 2 below. Synth executor
+  may request additional substrate if needed (e.g., full m10_documented_commitment.md
+  or slot 149 verdict packet); operator will attach on request.
+
+  Required substrate (inlined):
+    - sec 1: project posture + iter-13 build state summary
+    - sec 2: 3 candidate paragraphs verbatim from OP_A1 Phase 2
+
+  Optional substrate (synth may request):
+    - cascade-132 sec 5 verbatim text (precedent for documented-commitment shape)
+    - slot 139 verdict sec 4 (BUNDLED-DEFERRED-NOTE tooling-state framing)
+    - slot 143R Q4 + slot 149 C-149-1 R6 sub-checks (Pattern alpha / Pattern beta context)
+    - lean/build_errors_iter13.log (5 blocker enumeration)
+    - slot 141C triage (sorries.json + blockers.json)
+
+================================================================
+sec 1 -- CONTEXT AND SUBSTRATE
+================================================================
+
+1.1 -- project posture (canonical)
+
+  Operator: papanokechi (independent mathematical researcher, Yokohama)
+  Project axis posture as of 2026-05-10:
+    - Solo principal contributor; no current external collaborators on Lean-4 axis
+    - Iteration cadence: weekday-evening + weekend blocks (working hypothesis)
+    - 11.5 / 12 math axes closed-or-retired; M10 V0 sole open math axis
+    - RULE 1 (admin / Zenodo / endorsement / venue work tabled) IN FORCE
+    - M9 V0 close gated on M10 commitment-paragraph DOCUMENTED-COMMITMENT shape
+      per cascade-132 PATH_B Option alpha (bridge fd669d3 sec 5)
+
+1.2 -- iter-13 build state summary (per slot 141C bridge 2e36e0f triage)
+
+  Pre-S148R (Pattern alpha refactor) state:
+    - 5 enumerated build blockers in lean/WallisFamily.lean (B1-B5)
+    - 2 active sorries in lean/Thm66_ApparentSingularity.lean (L118 + L120;
+      both in `frobenius_double_root_at_apparent_singularity` h_exact arg)
+    - lake build exit non-zero on `lean/`
+    - lean/Thm66_ApparentSingularity.lean now tracked (post-OP_A 611edee)
+    - iter-13 mid-pass changes preserved at stash@{0} on vquad/handoff-2026-04-16
+
+  Post-S148R (Pattern alpha LANDED) projected state:
+    - 0 sorries in lean/Thm66_ApparentSingularity.lean (closed by axiom-signature
+      deletion of redundant h_exact parameter)
+    - 5 blockers remain in lean/WallisFamily.lean (B1-B5; iter-14+ work)
+    - Pattern beta fallback active IF slot 149 C-149-1 R6 sub-checks 3a/3b/3c trigger
+      (h_exact replaced with math-content-equivalent dischargeable hypothesis)
+    - Realistic solo-throughput estimate at weekday-evening pace:
+      3-5 weeks for B1-B5 closure; more if R6 weakening triggers
+
+1.3 -- cascade-132 sec 5 precedent (verbatim text from bridge fd669d3)
+
+  "Operator-discretion permits lift before M10 with documented commitment."
+
+  Required shape (per OP_A1 prompt sec 2.B):
+    (2.B.i)   commitment is to SPECIFIC ACTION (sorry-discharge / build-repair),
+              not vague aspirational language
+    (2.B.ii)  commitment has TIME ANCHOR (delivery date OR report-status-by date),
+              not open-ended
+    (2.B.iii) commitment has CLEAR DELEGATION (self / specific-collaborator /
+              external-team), not ambiguous-attribution
+
+1.4 -- slot 139 BUNDLED-DEFERRED-NOTE verdict family (cited per bridge 72bb2c2)
+
+  Verdict label: BUNDLED-DEFERRED-NOTE
+  Variant for M10 axis: DEFERRED-OUT-OF-M9-SCOPE
+  Tooling-state framing: M10 commitment is to STATE-OF-THE-TOOLING checkpoint,
+                         not to mathematical-content-completion assertion
+  Implication: "report-status-by" semantics satisfy the precedent; "complete-by"
+               also satisfies but commits to a stronger outcome
+
+================================================================
+sec 2 -- CANDIDATE PARAGRAPHS (verbatim from OP_A1 Phase 2; bridge fe5e48f)
+================================================================
+
+2.A -- Candidate A: AGGRESSIVE (6-week complete-by, self-delegated)
+
+```
+COMMITMENT (operator-issued):
+  delivery: complete-by-2026-06-21
+  delegation: self
+  notes: M10 sorry-discharge / formalization work-stream landed via cascade-132
+    sec 5 documented-commitment-lift precedent and slot 139 BUNDLED-DEFERRED-NOTE
+    verdict (DEFERRED-OUT-OF-M9-SCOPE variant). Plan: (a) slot 148 Pattern alpha
+    axiom-signature refactor at lean/Thm66_ApparentSingularity.lean L118 + L120;
+    (b) iter-13 -> iter-15 scoped repair on lean/WallisFamily.lean against the 5
+    blockers in build_errors_iter13.log. Iter-counter tracked against R2 ladder
+    (iter-18 heartbeat, iter-24 alarm, iter-30 ceiling); Pattern beta fallback
+    retained if slot 149 C-149-1 R6 sub-checks 3a/3b/3c trigger.
+  status: COMMITTED-2026-05-10
+```
+(Line count: 12. Date arithmetic: +6wk from 2026-05-10 = 2026-06-21.)
+
+---
+
+2.B -- Candidate B: CONSERVATIVE (12-week report-status-by, self-delegated)
+
+```
+COMMITMENT (operator-issued):
+  delivery: report-status-by-2026-08-02
+  delegation: self
+  notes: M10 sorry-discharge / formalization work-stream landed via cascade-132
+    sec 5 documented-commitment-lift precedent and slot 139 BUNDLED-DEFERRED-NOTE
+    verdict (DEFERRED-OUT-OF-M9-SCOPE variant). Conservative path: attempt slot
+    148 Pattern alpha refactor at lean/Thm66_ApparentSingularity.lean L118 + L120,
+    falling back to Pattern beta (h_exact replaced with a math-content-equivalent
+    dischargeable hypothesis) if slot 149 C-149-1 R6 sub-checks 3a/3b/3c trigger.
+    The +12wk checkpoint is a status-of-the-tooling report only (not a closure
+    assertion); covers iter-progression on lean/WallisFamily.lean against the
+    5 blockers in build_errors_iter13.log plus any axis-level re-scoping (e.g.
+    SEPARATE-AXIS-DEFERRED downgrade per slot 140 sec 5 outlook).
+  status: COMMITTED-2026-05-10
+```
+(Line count: 14. Date arithmetic: +12wk from 2026-05-10 = 2026-08-02.)
+
+---
+
+2.C -- Candidate C: COLLABORATOR-DELEGATED (8-week complete-by OR 12-week status, external-team)
+
+```
+COMMITMENT (operator-issued):
+  delivery: complete-by-2026-07-05  OR  report-status-by-2026-08-02
+  delegation: external-team
+  notes: M10 sorry-discharge / formalization work-stream landed via cascade-132
+    sec 5 documented-commitment-lift precedent and slot 139 BUNDLED-DEFERRED-NOTE
+    verdict (DEFERRED-OUT-OF-M9-SCOPE variant). Operator to engage one external
+    contributor; profile: Lean-4 Mathlib contributor with prior work on
+    apparent-singularity / Frobenius-method formalization, Filter.Tendsto +
+    neighborhood-notation hygiene, and Wallis-class PCF identities. Scope:
+    (a) slot 148 Pattern alpha axiom refactor at Thm66_ApparentSingularity.lean
+    L118 + L120 (Pattern beta fallback if slot 149 C-149-1 R6 sub-checks trigger);
+    (b) iter-progression on WallisFamily.lean against the 5 blockers in
+    build_errors_iter13.log. 8-week complete-by if engagement lands within +2wk;
+    else 12-week status-only fallback report.
+  status: COMMITTED-2026-05-10
+```
+(Line count: 15. Date arithmetic: +8wk = 2026-07-05; +12wk = 2026-08-02; +2wk engagement window = 2026-05-24.)
+
+================================================================
+sec 3 -- QUESTIONS (5 questions; structured response required)
+================================================================
+
+Q1 -- iter-13 timeline realism per candidate
+
+  Given:
+    - iter-13 state: 5 blockers in WallisFamily.lean + 2 sorries in Thm66 (slot 141C)
+    - S148R Pattern alpha removes 2 sorries by axiom-signature deletion (post-S148R: 0 sorries / 5 blockers remain)
+    - Operator working hypothesis: weekday-evening + weekend blocks (solo)
+    - Pattern beta fallback consumes additional iteration ceiling if R6 weakening triggers
+    - Slot 143R Q4 confidence: HIGH-direction / MEDIUM-implementation (Pattern alpha)
+    - Slot 149 R6 sub-checks 3a/3b/3c: KNOWN-fallback-trigger conditions
+
+  For EACH candidate, assess timeline realism:
+
+  Q1.A -- AGGRESSIVE 6-week complete-by-2026-06-21:
+    Plausible if iter-13 -> iter-15 progression hits no surprises and Pattern alpha
+    lands first try. Implausible if R6 weakening triggers Pattern beta + iter-18+
+    heartbeat / iter-24 alarm consumption. Synth's read?
+
+  Q1.B -- CONSERVATIVE 12-week report-status-by-2026-08-02:
+    Plausible across most outcome distributions including R6-weakening scenarios.
+    Status-report semantics permit honest "Pattern beta active; X of 5 blockers
+    closed; estimated remaining Y" content rather than completion assertion.
+    Synth's read?
+
+  Q1.C -- COLLABORATOR 8-week complete-by-2026-07-05 OR 12-week status fallback:
+    Plausible for the 8-week complete-by ONLY IF external contributor engaged
+    within 2-week window (by 2026-05-24); collaborator must match profile (Lean-4
+    Mathlib contributor with apparent-singularity / Frobenius / Wallis-PCF priors).
+    Synth's read on engagement-feasibility?
+
+  Reasoning required: per-candidate plausibility (PLAUSIBLE | PLAUSIBLE-WITH-CAVEAT |
+  IMPLAUSIBLE) + 1-2 sentence justification each.
+
+Q2 -- cascade-132 sec 5 documented-commitment shape adequacy per candidate
+
+  Reference: cascade-132 sec 5 verbatim text in sec 1.3.
+  Required shape: (2.B.i) specific action / (2.B.ii) time anchor / (2.B.iii) clear delegation.
+
+  For EACH candidate, verify:
+    Q2.A.i / Q2.A.ii / Q2.A.iii   -- shape components for Candidate A
+    Q2.B.i / Q2.B.ii / Q2.B.iii   -- shape components for Candidate B
+    Q2.C.i / Q2.C.ii / Q2.C.iii   -- shape components for Candidate C
+
+  Note: Candidate C has a TWO-PRONG delivery (8-week-OR-12-week conditional on
+  engagement); does this satisfy (2.B.ii) time-anchor requirement, or does the
+  conditional weaken commitment shape below precedent?
+
+  Reasoning required: PASS | PASS-WITH-NOTE | FAIL per (i)/(ii)/(iii) per candidate.
+
+Q3 -- project posture coherence (solo independent researcher; self vs external)
+
+  Operator project posture (sec 1.1):
+    - Solo principal contributor, no current external collaborators on Lean-4 axis
+    - Independent mathematical researcher in Yokohama
+    - Working with weekday-evening + weekend cadence
+
+  For EACH candidate, evaluate posture-coherence:
+
+  Q3.A -- AGGRESSIVE self-delegated:   coherent with posture? Solo self-completion
+                                        in 6 weeks under stated cadence -- realistic
+                                        commitment level?
+
+  Q3.B -- CONSERVATIVE self-delegated:  coherent with posture? Solo self-status-report
+                                        in 12 weeks -- realistic commitment level?
+
+  Q3.C -- COLLABORATOR external-team:   coherent with posture? Operator currently has
+                                        no external Lean-4 collaborator; commitment to
+                                        external-team requires recruitment within
+                                        +2wk engagement window (by 2026-05-24).
+                                        How realistic is this engagement-window?
+
+  Reasoning required: COHERENT | COHERENT-WITH-CAVEAT | INCOHERENT per candidate
+  with 1-2 sentence justification.
+
+Q4 -- asymmetric public-miss risk + reversibility
+
+  Public-miss cost analysis: a publicly-stated commitment that is not met has
+  credibility cost. Quantify per candidate:
+
+  Q4.A -- AGGRESSIVE 6-week complete-by:
+    miss scenario: not closed by 2026-06-21
+    miss visibility: HIGH (binary closure assertion)
+    reversibility: LOW (re-stating later as conservative reads as walking back)
+
+  Q4.B -- CONSERVATIVE 12-week status-report:
+    miss scenario: status-report not delivered by 2026-08-02 OR delivered with
+                   "0 of 5 blockers closed" content
+    miss visibility: LOW (status-report semantics absorb adverse content)
+    reversibility: HIGH (status report can be brief; can lead to extension)
+
+  Q4.C -- COLLABORATOR conditional:
+    miss scenario: engagement-window 2026-05-24 missed -> auto-fall to 12-week status
+    miss visibility: MEDIUM (engagement absence visible if status report enumerates)
+    reversibility: MEDIUM (already has fallback; engagement absence is recoverable)
+
+  Reasoning required: per-candidate (HIGH | MEDIUM | LOW) miss-cost + reversibility-rating
+  with 1-sentence justification each.
+
+Q5 -- overall synth recommendation
+
+  Given Q1-Q4 analysis, synth issues a RECOMMENDED-SELECTION:
+
+    SELECT_A | SELECT_B | SELECT_C |
+    SELECT_WITH_AMENDMENT_<X> (specify amendments per slot 144 Change format) |
+    DEFER (specify what additional substrate / decision-input is needed)
+
+  Synth must also state CONFIDENCE in the selection: HIGH | MEDIUM-HIGH | MEDIUM | LOW-MEDIUM | LOW.
+  Note that Q5 is content-judgment territory; LOW-MEDIUM is the natural ceiling
+  for single-witness synth on operator-personal commitment-shape decisions
+  (operator owns content authority; synth provides structured analysis only).
+
+================================================================
+sec 4 -- VERDICT FORMAT (structured; required for absorption)
+================================================================
+
+Required output format:
+
+  LABEL: SELECT_A | SELECT_B | SELECT_C | SELECT_WITH_AMENDMENT_<X> | DEFER
+  BAND:  HIGH | MEDIUM-HIGH | MEDIUM | LOW-MEDIUM | LOW
+  WITNESS: single-witness <synth identifier>
+
+  Q1_RESPONSES:
+    Q1.A: {PLAUSIBLE | PLAUSIBLE-WITH-CAVEAT | IMPLAUSIBLE} -- {1-2 sentence justification}
+    Q1.B: {PLAUSIBLE | PLAUSIBLE-WITH-CAVEAT | IMPLAUSIBLE} -- {1-2 sentence justification}
+    Q1.C: {PLAUSIBLE | PLAUSIBLE-WITH-CAVEAT | IMPLAUSIBLE} -- {1-2 sentence justification}
+
+  Q2_RESPONSES (per-candidate shape audit):
+    Q2.A: (i) {PASS | FAIL} / (ii) {PASS | FAIL} / (iii) {PASS | FAIL}
+    Q2.B: (i) {PASS | FAIL} / (ii) {PASS | FAIL} / (iii) {PASS | FAIL}
+    Q2.C: (i) {PASS | FAIL} / (ii) {PASS | FAIL} / (iii) {PASS | FAIL}
+
+  Q3_RESPONSES (posture-coherence):
+    Q3.A: {COHERENT | COHERENT-WITH-CAVEAT | INCOHERENT} -- {justification}
+    Q3.B: {COHERENT | COHERENT-WITH-CAVEAT | INCOHERENT} -- {justification}
+    Q3.C: {COHERENT | COHERENT-WITH-CAVEAT | INCOHERENT} -- {justification}
+
+  Q4_RESPONSES (miss-cost + reversibility):
+    Q4.A: miss-cost {HIGH | MEDIUM | LOW} / reversibility {HIGH | MEDIUM | LOW} -- {justification}
+    Q4.B: miss-cost {HIGH | MEDIUM | LOW} / reversibility {HIGH | MEDIUM | LOW} -- {justification}
+    Q4.C: miss-cost {HIGH | MEDIUM | LOW} / reversibility {HIGH | MEDIUM | LOW} -- {justification}
+
+  Q5_RESPONSE:
+    SELECTED: {A | B | C}
+    CONFIDENCE: {HIGH | MEDIUM-HIGH | MEDIUM | LOW-MEDIUM | LOW}
+    JUSTIFICATION: {3-5 sentence paragraph synthesizing Q1-Q4}
+    AMENDMENTS (if SELECT_WITH_AMENDMENT_<X>): C-151-1 ... C-151-N
+                (specify text edits per slot 144 Change format)
+
+  ANOMALIES (if any; structured per slot 149 D-N format):
+    D-151-1 ... D-151-N
+
+  ABSORPTION_GUIDANCE:
+    {2-3 sentences for CLI agent absorption fire on operator's behalf}
+
+  ONE-LINE TAKEAWAY:
+    "T1-SYNTH-M10-COMMITMENT-PARAGRAPH-CANDIDATE-SELECTION-151 -- {LABEL} -- {one-line summary}"
+
+================================================================
+sec 5 -- HALT CONDITIONS
+================================================================
+
+  HALT_151_SHA_DOUBT                       STEP 0.1 fail
+  HALT_151_SUPERSEDED                      STEP 0.2 fail
+  HALT_151_SUBSTRATE_INSUFFICIENT          synth requests additional substrate
+                                           beyond sec 1 + sec 2 inlining
+                                           (operator attaches; synth resumes)
+  HALT_151_QUESTION_UNANSWERABLE           synth cannot answer Q1/Q2/Q3/Q4/Q5
+                                           even with additional substrate;
+                                           surface what's missing
+  HALT_151_CANDIDATES_ALL_DEFICIENT        synth determines NONE of A/B/C is
+                                           acceptable even with amendment;
+                                           routes back to OP_A1 re-fire territory
+
+================================================================
+sec 6 -- BAND ENVELOPE
+================================================================
+
+This consultation's confidence band is NATURALLY LOW-MEDIUM:
+  - Q1 timeline realism: MEDIUM (analytical; bounded by iter-13 enumeration)
+  - Q2 shape audit: HIGH (mechanical token + structure check)
+  - Q3 posture coherence: MEDIUM (bounded by sec 1.1 posture statement)
+  - Q4 miss-cost analysis: MEDIUM (judgment-tier but well-defined dimensions)
+  - Q5 overall recommendation: LOW-MEDIUM (operator-personal commitment territory;
+    synth provides analysis, operator retains content authority)
+
+Aggregate band: LOW-MEDIUM (most-conservative-of-five per slot 130R Q3 LABEL-rule
+sub-band asymmetry permission). If synth chooses to upgrade to MEDIUM in Q5
+because Q1-Q4 converge sharply, justify in verdict packet.
+
+NOTE: synth's Q5 recommendation is ADVISORY. Operator may select differently and
+that is not a violation of synth's authority -- operator owns commitment-content
+authority. Synth's value here is: (a) structured analysis across 4 dimensions,
+(b) convergent recommendation across that analysis, (c) explicit caveat surfacing.
+
+================================================================
+sec 7 -- STANDING FINAL STEP (CLI agent runs at absorption time)
+================================================================
+
+After verdict received, CLI agent:
+
+  1. Bridge deposit at:
+     siarc-relay-bridge/sessions/2026-05-XX/T1-SYNTH-M10-COMMITMENT-PARAGRAPH-CANDIDATE-SELECTION-151/
+
+  2. Deliverables:
+     - synth_verdict_raw.txt   (verbatim verdict paste)
+     - verdict.md              (structured per-question summary)
+     - q1_q4_analysis.md       (extended reasoning if synth provides)
+     - amendments.json         (C-151-N entries if any)
+     - discrepancy_log.json    (D-151-N entries if any)
+     - unexpected_finds.json   ([] if none)
+     - halt_log.json           ({} if clean)
+     - claims.jsonl            (audit-tier meta-claims)
+     - cascade_record.md       (single-witness n=1)
+     - handoff.md              (status COMPLETE | PARTIAL | HALTED)
+
+  3. Update SQL ledger:
+     - mark slot-151-fire  -> done
+     - update m10-commitment-paragraph-fill description with SELECTED candidate
+
+  4. If LABEL = SELECT_<X>:
+     - Surface to operator: synth selected Candidate <X> with band <BAND>;
+       operator confirms or overrides
+     - On confirmation: execute OP_A1 Phase 5 application:
+         a. edit tex/submitted/control center/picture/m10_documented_commitment.md sec 3
+            with verbatim block 2.<X> from this prompt sec 2
+         b. commit on claude-chat with message "OP_A1 Phase 5: fill m10 sec 3 with Candidate <X> per slot 151 verdict"
+         c. push origin HEAD
+         d. record commit SHA as {OP_A1_COMMIT_SHA}
+     - Then fire S152 (post-fill audit) with substitution markers filled
+
+  5. If LABEL = SELECT_WITH_AMENDMENT_<X>:
+     - Apply amendments to candidate <X> verbatim text (operator-confirmed)
+     - Then proceed as point 4
+
+  6. If LABEL = DEFER:
+     - Do NOT fire OP_A1 Phase 5
+     - Surface what additional substrate / input synth requires
+     - Operator decides whether to attach + re-fire slot 151 OR re-fire OP_A1 with adjusted spec
+
+  7. If LABEL = HALT_151_CANDIDATES_ALL_DEFICIENT:
+     - Re-fire OP_A1 with synth's diagnostic feedback (e.g., "drop self-delegation
+       constraint" or "extend timeline ceiling beyond 12 weeks")
+
+  8. BRIDGE / CLAUDE_FETCH URL output per copilot-instructions standing
+     final step.
+
+================================================================
+EOF
+================================================================
