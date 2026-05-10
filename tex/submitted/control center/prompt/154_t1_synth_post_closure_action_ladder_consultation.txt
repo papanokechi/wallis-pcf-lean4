@@ -1,0 +1,357 @@
+================================================================================
+T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154
+T1-Synth advisory consultation: post-RULE-1-lift action ladder
+================================================================================
+Drafted: 2026-05-10 ~16:55 JST
+Drafter: GitHub Copilot CLI (claude-opus-4.7-xhigh)
+Class:   single-witness advisory; MEDIUM-HIGH self-assessed band ceiling;
+         dual-witness escalation if synth self-assesses HIGH or wants to OBJECT
+Slot ID: 154
+Task ID: T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154
+Bridge folder: sessions/2026-05-10/T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154/
+
+================================================================================
+SECTION 0 -- PHASE 0 SUPERSESSION + SHA VERIFICATION GATE (mandatory)
+================================================================================
+
+STEP 0.1 -- supersession check (per "prompt drafting discipline" memory).
+  Search siarc-relay-bridge sessions/2026-05-10/ for any prior LANDED fire
+  with task scope "post-closure action ladder" or "post-lift cascade
+  ordering". Expected result: NO PRIOR LANDED FIRE on this scope. If a
+  prior LANDED fire exists, halt with HALT_154_SUPERSEDED and scope this
+  fire as residual-discharge instead.
+
+STEP 0.2 -- precondition check.
+  Required state at fire time:
+    (a) S153 quad-witness CONFIRM_CLOSURE landed at bridge 4761392        [LANDED 2026-05-10 ~16:45 JST]
+    (b) OP-DP0 evidence packet landed at bridge c7c0562                   [LANDED 2026-05-10 ~16:55 JST; HALTED at Phase 2]
+    (c) Operator has resolved or is in the process of resolving
+        UF-OP-DP0-1 (Path A literal-trigger vs Path B documented-
+        commitment-lift) -- see OP-DP0 packet handoff for taxonomy
+  If (a) or (b) is missing, HALT_154_PRECONDITION_NOT_MET.
+
+STEP 0.3 -- SHA pre-verification (per "substrate verification" memory).
+  Verify all cited bridge SHAs exist via `git rev-parse --verify <SHA>^{commit}`
+  before fire. SHAs cited in this prompt:
+
+    | Reference                              | SHA       | Expected status |
+    |----------------------------------------|-----------|-----------------|
+    | S153 quad-witness CONFIRM_CLOSURE      | 4761392   | LANDED          |
+    | OP-DP0 evidence packet (HALTED)        | c7c0562   | LANDED          |
+    | OP-A2 fleet.yaml flip                  | 7786a67   | LANDED          |
+    | M9 V0 substrate slot 135 umbrella v2.2 | 887981b   | LANDED          |
+    | M9 V0 substrate slot 136 picture v1.20+| b9aa881   | LANDED          |
+    | M9 V0 substrate slot 137 PCF-2 v1.4    | 45e236c   | LANDED          |
+    | Cascade-132 PATH_B Option α            | fd669d3   | LANDED          |
+    | M4 V0 (cascade 106)                    | 5f9db69   | LANDED          |
+    | M7 V0 (cascade 123)                    | 7f93b9e   | LANDED          |
+    | M8a V0 (cascade 127R)                  | cb429e1   | LANDED          |
+    | M8b V0 (cascade 130R)                  | 74c5630   | LANDED          |
+
+STEP 0.4 -- fire-time witness self-assessment.
+  Synth must self-assess band before generating verdict. Ceiling = MEDIUM-HIGH.
+  If synth wants to claim HIGH or above, halt with HALT_154_BAND_CEILING_EXCEEDED
+  and request dual-witness escalation.
+
+STEP 0.5 -- output schema reminder.
+  Verdict must include: LABEL (advisory class) + BAND + WITNESS line + Q1-Q5
+  responses + AMENDMENTS + ANOMALIES + ABSORPTION_GUIDANCE + ONE-LINE TAKEAWAY.
+
+STEP 0.6 -- fire-eligibility checklist (operator pre-fire only).
+  [ ] STEP 0.1 supersession check passed
+  [ ] STEP 0.2 precondition check passed
+  [ ] STEP 0.3 SHA pre-verification: all 11 SHAs PASS
+  [ ] STEP 0.4 ceiling reminder communicated to synth
+  [ ] STEP 0.5 schema reminder included
+
+================================================================================
+SECTION 1 -- BACKGROUND
+================================================================================
+
+## 1.1 RULE 1 (operator-supplied 2026-05-09 ~11:17 JST; verbatim)
+
+> "HOLD -- rule 1; table everything that is not a hard requirement to complete
+>  M1-M12 (zenodo, endorsement should all be tabled)"
+
+## 1.2 M1-M12 closure state (post-S153 quad-witness)
+
+Per S153 cascade_record.md (bridge 4761392):
+
+  | Axis  | Closure verdict (4-witness aggregate)                                      |
+  |:-----:|----------------------------------------------------------------------------|
+  | M1    | CONFIRM_TABLED_POST_LIFT (admin: Zenodo deposit)                           |
+  | M2    | CONFIRM_SUBSTANTIVELY_ABSORBED (slot 137 sec 6 op:j-zero-amplitude-h6)     |
+  | M3    | CONFIRM_RETIRED_INTO_M4                                                    |
+  | M4    | CONFIRM_CLOSED (V0 cascade 106 bridge 5f9db69)                             |
+  | M5    | CONFIRM_RETIRED_INTO_M6.CC                                                 |
+  | M6.CC | CONFIRM_SUBSTANTIVELY_ABSORBED                                             |
+  | M7    | CONFIRM_CLOSED (V0 cascade 123 bridge 7f93b9e; HARD-BRANCH-PENDING)        |
+  | M8a   | CONFIRM_CLOSED (V0 cascade 127R bridge cb429e1; STOKES delegated to M8b)   |
+  | M8b   | CONFIRM_CLOSED (V0 cascade 130R bridge 74c5630; d>=3-CAVEAT-CARRIED)       |
+  | M9    | CONFIRM_CLOSED (substrate triple 887981b + b9aa881 + 45e236c)              |
+  | M10   | CONFIRM_DEFERRED_WITH_COMMITMENT (status report by 2026-08-02; binding)    |
+  | M11   | CONFIRM_TABLED_POST_LIFT (admin: arXiv math.NT endorsement)                |
+  | M12   | CONFIRM_TABLED_POST_LIFT (admin: 4-paper resubmission cadence)             |
+
+Q4 highest-risk axis (3 of 4 witnesses): **M8b** (d>=3 caveat).
+Q4(4c) mitigation theme (RULE-1-aligned): preserve caveat/residual language
+verbatim in post-lift admin/distribution artefacts; structurally box as
+"future-work" rather than V0-retraction; reproduction checklist in deposit
+metadata; status-report cadence for M10.
+
+## 1.3 OP-DP0 status (RULE 1 lift directive; operator-only)
+
+Bridge c7c0562: HALTED at Phase 2 due to literal-trigger ambiguity
+(UF-OP-DP0-1 MED). Path A literal trigger requires "S147 RATIFY +
+M10-V0-RATIFICATION-CASCADE-ABSORPTION SHA" which does not exist in bridge.
+Path B = documented-commitment-lift per cascade-132 sec 5 + slot 139 + slot
+152 RATIFY_WITH_AMENDMENT (bridge 7a8948a) + OP-A2 (bridge 7786a67 commit
+message annotates "m10-resolved TRUE"). Three prior synth verdicts (139 /
+143R / 149) explicitly recommend Path B. Operator adjudication pending.
+
+This consultation is **conditional on RULE 1 lift via Path B**: the synth
+should produce a recommended action ladder for the post-lift admin window,
+treating the lift as forthcoming.
+
+## 1.4 Distribution-class workstreams unblocked by RULE 1 lift
+
+  (1) **Zenodo deposit cascade** (cascade-132 sec 3.1 Option α 3-step):
+      - Step 1: PCF-2 v1.4 deposit (substrate-prep slot 137; bridge 45e236c)
+        - Existing artefacts: pcf-research/pcf2/release_v12_2026-05-01/
+          pcf2_program_statement.{tex,pdf}, zenodo_description_v1.2.txt,
+          zenodo_notes_v1.2.txt, submission_log_patch_item15.txt
+        - PCF-2 concept-DOI: 10.5281/zenodo.19936297 (NOT 19937196 = PCF-1 v1.3)
+      - Step 2: Umbrella v2.2 deposit (substrate-prep slot 135; bridge 887981b)
+        - Existing artefacts: tex/submitted/umbrella_program_paper/
+          umbrella_v21.{tex,pdf}, b_amendment_v22.diff (amendment over v2.1)
+        - Umbrella concept-DOI: see umbrella_v21 deposit record (TBD verify)
+      - Step 3: Picture-chain v1.20+ deposit (substrate-prep slot 136; bridge b9aa881)
+        - Existing artefacts: tex/submitted/control center/picture/
+          M1_M12_CLOSURE_OUTLOOK_*.md (multiple); umbrella consolidation
+        - Picture-chain deposit class is unclear (closure-outlook v
+          consolidated-narrative); see Q1.
+
+  (2) **M11 arXiv endorsement workstream** (math.NT category):
+      - Status: tabled per RULE 1; substrate prep in cli_log/2026-W19.md
+        and elsewhere (operator-side tracking).
+      - Endorsement requires: existing arXiv account or endorser introduction;
+        accumulation of preprint candidates in math.NT.
+
+  (3) **M12 4-paper resubmission cadence** (per submission_log.txt items 7-10):
+      - Item 7: AI Peer Review Founding Position (zenodo 19717115)
+      - Item 8: Finite-depth transient rigidity rigidity_entropy_expmath_R2 (zenodo 19755968)
+      - Item 9: t2a degree-(4,2) stratum (zenodo 19774029)
+      - Item 10: t2b degree-(2,1) Trans-stratum (zenodo 19915689; concept 19783311)
+      - All currently Zenodo-deposited; "resubmission" refers to journal
+        venue submission (ExpMath / Compositio / IJNT / etc.) post-lift.
+
+  (4) **M10 sorry-discharge maintenance** (post-lift; bound by 2026-08-02):
+      - 3 outstanding sorries: Thm66_ApparentSingularity.lean (2) +
+        proof_targets.lean (1).
+      - WallisFamily.lean build repair: 5 enumerated blockers per
+        build_errors_iter13.log.
+      - Status report due 2026-08-02 (~12 weeks post-lift).
+
+## 1.5 Constraints (post-lift governance discipline)
+
+Per S153 D-153-3 (preserved post-lift):
+  - **Tooling-state vs math-content distinction must be preserved**.
+    M10 messaging in any post-lift artefact (Zenodo description, cover
+    letter, abstract, intro) must not re-characterize M10 as a math-content
+    closure claim. M10 is a Lean-formalization-state axis with a 2026-08-02
+    status-report commitment; its discharge is post-lift work-stream
+    progression, not a pre-lift V0 closure substrate.
+
+Per S153 Q4(4c):
+  - **M8b d>=3 caveat preservation**: explicit caveat tagging in deposit
+    metadata + venue cover letter; reproduction checklist (numerical scripts
+    links, parameter ranges, exact M4 V0 anchor values).
+  - **M7 HARD-BRANCH-PENDING**: annotation preserved verbatim in any
+    artefact citing M7 V0.
+
+================================================================================
+SECTION 2 -- QUESTIONS (Q1-Q5)
+================================================================================
+
+## Q1 -- Zenodo deposit cascade ordering and cadence
+
+**Context:** cascade-132 sec 3.1 Option α specifies 3-step deposit chain
+(PCF-2 v1.4 -> umbrella v2.2 -> picture-chain v1.20+), but does not bind
+absolute cadence (intervals between deposits) or pre-deposit final-polish
+requirements.
+
+**Q1a:** Confirm or revise the deposit ordering. Are there governance,
+content, or cross-citation reasons to reorder? Should picture-chain v1.20+
+be deposited at all (it is a closure-outlook artefact, not a peer-review
+paper) -- or should it be subsumed into the umbrella v2.2 amendment?
+
+**Q1b:** Recommended cadence between deposits (same-day / 24h / longer).
+Note: each deposit triggers a Zenodo concept-DOI / version-DOI generation
+that may want to settle before cross-linking the next deposit's
+IsSupplementTo metadata.
+
+**Q1c:** Required final-polish actions for each deposit before upload:
+  - PCF-2 v1.4: existing artefacts at release_v12_2026-05-01/ already
+    Zenodo-targeted; what (if any) updates are required given S153 quad-
+    witness CONFIRM_CLOSURE landed AFTER substrate-prep slot 137?
+  - Umbrella v2.2: b_amendment_v22.diff exists over umbrella_v21.tex;
+    does v2.2 need final assembly (apply diff -> generate v22.tex/pdf)
+    before deposit?
+  - Picture-chain v1.20+: which file(s) constitute the deposited artefact?
+    The OUTLOOK_*.md series? A newly-assembled summary? Or no separate
+    deposit (subsume into umbrella)?
+
+**Q1d:** Cross-citation discipline (PCF-1 / PCF-2 concept-DOI):
+  - PCF-2 concept-DOI = 10.5281/zenodo.19936297 (NOT version-DOI 19963298)
+  - PCF-1 concept-DOI = 10.5281/zenodo.19931635 (NOT v1.3 19937196)
+  - Per "substrate verification" memory: cross-link IsSupplementTo must
+    target concept-DOI not version-DOI.
+  Confirm the IsSupplementTo graph for the 3-step cascade.
+
+## Q2 -- M11 arXiv endorsement workstream
+
+**Q2a:** Recommended timing for M11 endorsement-acquisition push (immediately
+post-lift / after Zenodo cascade settles / longer delay)?
+
+**Q2b:** Endorsement-pathway recommendation given the t2b paper is the
+strongest math.NT-aligned existing artefact (zenodo 19915689, concept
+19783311) -- is it the natural endorsement-request anchor? Are there other
+preprint candidates the synth would surface?
+
+**Q2c:** Risk: arXiv endorsement is a one-shot first-impression artefact
+with the math.NT moderation team. What pre-submission discipline (final-
+polish, abstract framing, M-axis closure narrative tactics) would the synth
+recommend to maximize endorsement-acceptance probability?
+
+## Q3 -- M12 4-paper resubmission cadence (venue submissions)
+
+**Q3a:** Recommended ordering for journal resubmission of submission_log
+items 7-10 (currently Zenodo preprints). Consider: subject-area fit, prior
+rejection history (e.g., AFM 8-min desk-reject memory), venue cycle times,
+cross-citation bootstrap (does paper N benefit from paper M being in-review?).
+
+**Q3b:** Venue recommendation for each of the 4 papers. Surface specific
+journal options (ExpMath, Compositio, IJNT, JNT, Ramanujan Journal, etc.)
+with rationale.
+
+**Q3c:** Risk catalogue: which paper is highest-risk for desk-rejection or
+adverse review? What pre-submission discipline reduces that risk
+(per AFM Episciences desk-reject pattern memory: 8-minute snap rejection
+without review).
+
+## Q4 -- M10 sorry-discharge workstream maintenance
+
+**Q4a:** Recommended cadence for M10 progress markers between OP-A2
+(2026-05-10) and 2026-08-02 status-report deadline. Examples: monthly
+build-status check / weekly Lean compile attempts / per-blocker discharge
+log? What artefacts does the synth recommend producing at each interval?
+
+**Q4b:** Toolchain decisions: WallisFamily.lean has 5 enumerated build
+blockers per build_errors_iter13.log. Recommended approach to discharge
+(systematic blocker-by-blocker / parallel branches / Mathlib version pin
+upgrade / fallback to axiom-mode for residual sorries)? Should the synth
+explicitly recommend a Pattern alpha (refactor) vs Pattern beta (hypothesis
+replacement) approach for the 3 outstanding sorries (per slot 139 framing)?
+
+**Q4c:** 2026-08-02 status-report content discipline: what minimum content
+satisfies the cascade-132 PATH_B Option α commitment? What scope should
+the report cover (numerical-only, Lean-only, both)? Suggest a status-
+report template.
+
+## Q5 -- Q4(4c) mitigation execution + D-153-3 governance discipline (post-lift)
+
+**Q5a:** Concrete language templates for M8b d>=3 caveat preservation in
+each post-lift artefact class:
+  - Zenodo deposit description (PCF-2 v1.4 / umbrella v2.2)
+  - Venue cover letter (M12 resubmission cadence)
+  - arXiv submission abstract (M11 endorsement)
+  - Conference talk / poster (if applicable)
+
+**Q5b:** D-153-3 tooling-state vs math-content distinction discipline:
+provide a "linguistic firewall" template that the operator can apply when
+discussing M10 in any post-lift artefact. Distinguish:
+  - SAFE phrasings: "M10 sorry-discharge work-stream is on track for
+    2026-08-02 status-report milestone"
+  - UNSAFE phrasings: "M10 closed" or "M10 V0 achieved" (re-characterizes
+    tooling-state as math-content closure)
+
+**Q5c:** Reproduction checklist content for Q4(4c) mitigation (numerical
+scripts links, parameter ranges, exact M4 V0 anchor values). Template
+this as a "Reproduction Appendix" that can be appended to each Zenodo
+deposit description.
+
+================================================================================
+SECTION 3 -- OUTPUT SCHEMA
+================================================================================
+
+Synth must produce verdict packet with:
+
+  LABEL: ACTION_LADDER_RECOMMENDATION (or _WITH_AMENDMENT, _WITH_RESERVATIONS,
+         DEFER, OBJECT)
+  BAND:  LOW / LOW-MEDIUM / MEDIUM / MEDIUM-HIGH (ceiling)
+  WITNESS: single-witness <model-vendor>-<date>
+
+  Q1_RESPONSE through Q5_RESPONSE (substantive answers per question)
+
+  AMENDMENTS: list with rationale
+  ANOMALIES: any unexpected substrate-state observations
+  ABSORPTION_GUIDANCE: how CLI agent should absorb this verdict (file
+    artefacts to write, SQL todo updates, follow-up fires triggered)
+
+  ONE-LINE TAKEAWAY: <80 chars
+
+================================================================================
+SECTION 4 -- ENVELOPE
+================================================================================
+
+  Witness mode:        single-witness (default); dual-witness on synth request
+  Self-assessed band:  ceiling MEDIUM-HIGH
+  Halt codes:          HALT_154_BAND_CEILING_EXCEEDED
+                       HALT_154_PRECONDITION_NOT_MET
+                       HALT_154_SUPERSEDED
+                       HALT_154_ABSORPTION_GAP
+
+  Substrate inlined:   minimal (sec 1.2 12-axis scoreboard +
+                       sec 1.4 workstream inventory + sec 1.5 constraints)
+  Substrate referenced: full context via S153 cascade_record.md at bridge
+                       4761392 (https://raw.githubusercontent.com/papanokechi/
+                       siarc-relay-bridge/main/sessions/2026-05-10/
+                       T1-SYNTH-M1-M12-CLOSURE-CONFIRMATION-153/cascade_record.md)
+                       + OP-DP0 evidence packet at bridge c7c0562
+                       (https://raw.githubusercontent.com/papanokechi/
+                       siarc-relay-bridge/main/sessions/2026-05-10/
+                       OP-DP0-RULE-1-LIFT-DIRECTIVE-PACKET-20260510/
+                       dp0_evidence_packet.md)
+
+================================================================================
+SECTION 5 -- BRIDGE DELIVERABLES + STANDING FINAL STEP
+================================================================================
+
+CLI agent absorbs synth verdict to bridge folder:
+  sessions/2026-05-10/T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154/
+
+Required deliverables (per standing instructions B1-B5):
+
+  1. verdict.md          (verbatim synth packet)
+  2. cascade_record.md   (n=1 single-witness; LABEL/BAND aggregation rule
+                          per cascade 123 sec 3.2; trivial for n=1)
+  3. claims.jsonl        (~10-15 audit-tier AEAL meta-claims)
+  4. discrepancy_log.json (any DIRTY signals from synth)
+  5. halt_log.json       ({} if no halt)
+  6. unexpected_finds.json (UF-154-N if any)
+  7. handoff.md          (per B3 template)
+
+Commit + push pattern (path-specific staging per UF-138-2 / parallel-CLI
+shared-clone gotcha memory):
+
+  git add sessions/2026-05-10/T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154/
+  git status --porcelain sessions/2026-05-10/T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154/
+  git diff --cached --name-only | <verify only my-folder paths staged>
+  git commit -m "T1-SYNTH-POST-CLOSURE-ACTION-LADDER-CONSULTATION-154 -- absorb <LABEL> (<BAND>)"
+  git push origin main
+
+Output BRIDGE + CLAUDE_FETCH URLs per standing final step B5.
+
+================================================================================
+END OF SLOT 154 PROMPT
+================================================================================
