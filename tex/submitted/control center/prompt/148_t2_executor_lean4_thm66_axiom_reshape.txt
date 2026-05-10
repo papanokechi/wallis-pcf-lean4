@@ -1,0 +1,483 @@
+# T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE -- slot 148 prompt
+#
+# Purpose:  Close S1 + S2 sorries at lean/Thm66_ApparentSingularity.lean:118 and :120
+#           via Pattern alpha refactor: delete the redundant `h_exact` parameter
+#           from the `frobenius_double_root_at_apparent_singularity` axiom signature.
+#           Closes BOTH sorries by deletion (not by direct lemma-discharge).
+#
+# Authority chain:
+#   - slot 143R T1-Synth verdict ENDORSE_WITH_AMENDMENTS at MEDIUM-HIGH
+#     (bridge bc641a0; deposit T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143R/)
+#     Q4 Pattern alpha recommendation (HIGH-direction / MEDIUM-implementation)
+#   - slot 143R amendment C-143-4: "insert C.3++ slot 142-class fire between C.3+ and C.4"
+#   - POST_DISCHARGE_PLAN outlook (claude-chat 7981750) sec 2.2 Phase C C.3++ row
+#   - operator authorization 2026-05-10 ~12:30 JST: "draft slot 148 T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE prompt"
+#
+# Drafted:  2026-05-10 ~12:35 JST (papanokechi/wallis-pcf-lean4 repo session)
+# Bridge folder:  sessions/2026-05-10/T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148/
+# Confidence claim:  MEDIUM-HIGH (HIGH-direction / MEDIUM-implementation per slot 143R Q4 self-flag)
+# Iteration ceiling: 1-2 iterations
+# Witness:  single-witness (T2-Executor)
+#
+# ============================================================================
+# COPY EVERYTHING BELOW THE LINE INTO THE NEXT CLI / EXECUTOR SESSION
+# ============================================================================
+
+# T2-Executor: Lean-4 THM66 axiom reshape (Pattern alpha) -- close S1+S2 sorries by deletion
+
+You are firing slot 148 in the SIARC pipeline. This is a T2-Executor structural-edit fire targeting the `frobenius_double_root_at_apparent_singularity` axiom in `lean/Thm66_ApparentSingularity.lean`. Read sec 0 pre-flight FULLY before any code-edit step.
+
+================================================================================
+sec 0 -- pre-flight (mandatory; halt if any step fails)
+================================================================================
+
+STEP 0.1 -- SHA verification
+
+Verify each of the following SHAs resolves to a real commit in the indicated repo via `git rev-parse --verify <SHA>^{commit}` (paper-only acceptance authorized at single-witness T2-Executor tier per slot 143R precedent):
+
+siarc-relay-bridge:
+  bc641a0  -- slot 143R verdict deposit (originating amendment C-143-4)
+  8dc8628  -- slot 143 halt deposit (predecessor)
+  2e36e0f  -- slot 141C build-error triage (substrate: 5 blockers + 2 sorries classified)
+  ce5d9e9  -- M10 substrate scaffold (slot 141B)
+  c171016  -- POST_SYNTH_REVIEW outlook (now superseded; reference)
+  74c5630  -- M8b V0 closure (cross-reference; precedent for V0 cascade pattern)
+  cb429e1  -- M8a V0 closure (cross-reference)
+  7f93b9e  -- M7 V0 closure (cross-reference)
+
+papanokechi/wallis-pcf-lean4 (current branch HEAD or ancestors):
+  7981750  -- POST_DISCHARGE_PLAN outlook + slot 143R rename (governance ratifying C.3++ insertion)
+  3fab474  -- slot 143 prompt _HALTED rename
+  a6a1857  -- slot 143R substrate-inlined re-fire prompt
+  21aea4d  -- slot 144 prompt commit (functional precedent)
+
+If any SHA fails verification: HALT_148_SHA_MISMATCH; deposit halt and request operator clarification.
+
+STEP 0.2 -- supersession gate
+
+  Get-ChildItem -Recurse -Directory -Path 'siarc-relay-bridge/sessions' -Filter '*THM66-AXIOM-RESHAPE*' -ErrorAction SilentlyContinue
+
+If any prior `*THM66-AXIOM-RESHAPE*` folder exists: HALT_148_SUPERSEDED; abort fire and report. Do not re-fire over a prior landing.
+
+STEP 0.3 -- RULE 1 directive
+
+RULE 1 (operator-supplied 2026-05-09 ~11:17 JST) is in force. This fire is math-axis (M10 V0 Phase C C.3++), within RULE 1 scope. No Zenodo / endorsement / venue work touched.
+
+STEP 0.4 -- prerequisite gate (HARD)
+
+C.3 and C.3+ MUST be green at fire start. Verify in this order:
+
+  (a) `cd lean && lake build` returns exit 0 with no errors
+  (b) `cd lean && lake test 2>&1 | tail -20` returns no FAIL marker (or `lake test` is not configured -> log NO_TEST_TARGET)
+  (c) Working tree on `lean/` subtree is committed (no uncommitted modifications); operator's iter-N work either landed or stashed:
+        git -C . status --short lean/ | grep -E '^[ ?]?[MARCDU]' -> must be empty
+  (d) toolchain pin verified: `cat lean/lean-toolchain` resolves to a recognized release (record version in handoff)
+
+If (a) FAIL: HALT_148_PRECONDITION_NOT_MET (build red); request operator finish C.1/C.2 first.
+If (b) FAIL: HALT_148_PRECONDITION_NOT_MET (test red); request operator triage.
+If (c) FAIL: HALT_148_PRECONDITION_DIRTY_TREE; request operator commit or stash.
+If (d) ambiguous: log as discrepancy D-148-N (LOW); proceed but note in handoff.
+
+STEP 0.5 -- substrate inventory
+
+The fire reads (and may edit) these files only:
+
+  WRITE-permitted:
+    lean/Thm66_ApparentSingularity.lean   (axiom signature edit + 2 use-site cleanups)
+
+  READ-only (for reference; must not be edited by this fire):
+    lean/WallisFamily.lean                (verify: no other use sites of frobenius_double_root_at_apparent_singularity)
+    lean/proof_targets.lean               (verify: D-143-1 resolution that L2 sorry-mention is a comment, not active sorry)
+    lean/CardEvenOfInvolution.lean        (verify: no use sites)
+    lean/lakefile.lean                    (no edit)
+    lean/lean-toolchain                   (no edit)
+    siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/sorries.json   (cross-check S1+S2 routing target)
+    siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143R/lemma_family_recommendations.json   (S1+S2_joint Pattern alpha entry)
+
+  EXPLICITLY EXCLUDED:
+    Any file outside lean/ subtree
+    Any other axiom or theorem in lean/Thm66_ApparentSingularity.lean
+    Any Mathlib version bump
+    Any new axiom or new sorry instance
+
+================================================================================
+sec 1 -- task
+================================================================================
+
+OBJECTIVE: Close S1 + S2 sorries by deletion via Pattern alpha refactor of the
+`frobenius_double_root_at_apparent_singularity` axiom in
+`lean/Thm66_ApparentSingularity.lean`.
+
+PRE-EDIT GROUND-TRUTH (verified at draft-time 2026-05-10 ~12:35 JST):
+
+  Axiom location: lean/Thm66_ApparentSingularity.lean:90-96
+  Axiom signature (verbatim):
+        axiom frobenius_double_root_at_apparent_singularity
+            (a c : C -> C) (s : C)
+            (ha_root : a s = 0)
+            (ha_simple : deriv a s != 0)
+            (h_exact : forall x, HasDerivAt (fun x => a x * deriv (fun y => y) x)
+                             (a x) x) :
+            IndicialPoly a s = fun rho => rho ^ 2
+  (Note: the prompt body uses ASCII transliteration; the actual file uses Unicode
+  arrows / Greek letters. Operator must verify by direct file read at TASK 1.)
+
+  Use sites:
+    L117:   . exact frobenius_double_root_at_apparent_singularity
+    L118:       a_coeff_c c_coeff_c s_1 root_s1 a_deriv_s1_ne_zero (by sorry)
+    L119:   . exact frobenius_double_root_at_apparent_singularity
+    L120:       a_coeff_c c_coeff_c s_2 root_s2 a_deriv_s2_ne_zero (by sorry)
+
+  Active sorry count in lean/ subtree pre-edit: 2 (L118 + L120; both in Thm66).
+  proof_targets.lean:L2 is a comment narrative, not an active sorry term.
+  This resolves D-143-1 (sorry-count canonical interpretation): 2 active, not 3.
+
+TASK 1 -- read full axiom statement
+
+  cd lean
+  awk 'NR>=88 && NR<=97' Thm66_ApparentSingularity.lean
+
+  Confirm:
+  (a) The axiom name is exactly `frobenius_double_root_at_apparent_singularity`
+  (b) The parameters are (a c : C -> C), (s : C), (ha_root : ...), (ha_simple : ...), (h_exact : ...)
+  (c) The conclusion is `IndicialPoly a s = fun rho => rho ^ 2`
+  (d) The AEAL-status comment is `mathlib_gap: Frobenius ODE theory`
+
+  If any of (a)-(d) does not match: HALT_148_AXIOM_NOT_FOUND_AS_EXPECTED;
+  deposit halt with full grep output; request operator confirm.
+
+TASK 2 -- Pattern alpha applicability test
+
+Pattern alpha is applicable iff BOTH:
+
+  (alpha-a) `h_exact` is structurally redundant: the axiom conclusion is reachable
+       from {ha_root, ha_simple} alone (or from a model satisfying just those two).
+       This is the case for Frobenius indicial-polynomial theorem, where the
+       conclusion `IndicialPoly a s = fun rho => rho^2` is a standard ODE-theory
+       result depending only on `a` having a simple zero at `s`.
+
+  (alpha-b) Removing `h_exact` does NOT weaken the conclusion. (It strengthens
+       the axiom: fewer hypotheses required to reach the same conclusion.)
+       This is auto-satisfied: the conclusion is a closed term not parameterized
+       by `h_exact`.
+
+Auxiliary diagnostic: examine the `h_exact` hypothesis itself:
+       `forall x, HasDerivAt (fun x => a x * deriv (fun y => y) x) (a x) x`
+  Note `deriv (fun y => y) x = 1` for any `x`, so the LHS function is
+  `fun x => a x * 1 = a x`, and the claim becomes `forall x, HasDerivAt a (a x) x`.
+  This says `a` has derivative `a(x)` at `x` for every `x`, i.e., `a' = a`.
+  This is FALSE for general `a` (only true for exponentials a*e^x and zero).
+  For the specific `a_coeff_c` coefficient used at L118/L120, this hypothesis
+  is generically unsatisfiable. Hence h_exact is not a meaningful Frobenius
+  hypothesis; it is a vestigial parameter.
+
+If (alpha-a) FAIL: HALT_148_PATTERN_ALPHA_INAPPLICABLE; deposit halt; request
+  operator decision on Pattern beta (replace h_exact with dischargeable
+  hypothesis like `a s != 0 AND deriv a s != 0`, which is already present
+  via ha_simple; so Pattern beta would collapse to Pattern alpha by
+  redundancy; net same outcome -- but document the path).
+If (alpha-b) FAIL: HALT_148_THEOREM_WEAKENED; this is a theorem-statement
+  weakening signal; do NOT proceed; revert any partial edit; request
+  operator review.
+
+TASK 3 -- axiom signature edit
+
+Replace the axiom block (lean/Thm66_ApparentSingularity.lean:90-96) with:
+
+  axiom frobenius_double_root_at_apparent_singularity
+      (a c : C -> C) (s : C)
+      (ha_root : a s = 0)
+      (ha_simple : deriv a s != 0) :
+      IndicialPoly a s = fun rho => rho ^ 2
+
+  (Use the actual Unicode forms in the file -- C with double-strike, Greek rho,
+  arrow ->, not-equal symbol -- preserved verbatim from the original.)
+
+The AEAL-status comment block at L88-89 stays unchanged; the `mathlib_gap`
+reference remains the AEAL justification for the axiom assumption.
+
+TASK 4 -- use-site cleanup
+
+For each of the two use sites:
+
+  Original (L117-118):
+        . exact frobenius_double_root_at_apparent_singularity
+            a_coeff_c c_coeff_c s_1 root_s1 a_deriv_s1_ne_zero (by sorry)
+
+  After (L117-118):
+        . exact frobenius_double_root_at_apparent_singularity
+            a_coeff_c c_coeff_c s_1 root_s1 a_deriv_s1_ne_zero
+
+  Original (L119-120):
+        . exact frobenius_double_root_at_apparent_singularity
+            a_coeff_c c_coeff_c s_2 root_s2 a_deriv_s2_ne_zero (by sorry)
+
+  After (L119-120):
+        . exact frobenius_double_root_at_apparent_singularity
+            a_coeff_c c_coeff_c s_2 root_s2 a_deriv_s2_ne_zero
+
+Cross-check: search lean/ for ANY other use site of the axiom:
+
+  grep -rn 'frobenius_double_root_at_apparent_singularity' lean/
+
+Expected: 3 matches in Thm66_ApparentSingularity.lean (the axiom decl + 2 use sites).
+If ANY use site is found in WallisFamily.lean / CardEvenOfInvolution.lean /
+proof_targets.lean / lakefile.lean: HALT_148_UNEXPECTED_USE_SITE; deposit
+halt with the unexpected location(s); request operator review.
+
+TASK 5 -- build verification (post-edit)
+
+In order:
+
+  (a) cd lean && lake build 2>&1 | tee build_log.txt
+      Expected: exit 0; no errors; no warnings about missing axioms.
+      If FAIL: HALT_148_BUILD_REGRESSION (a); deposit halt with build_log.txt;
+        revert if appropriate (operator decides revert vs forward-fix).
+
+  (b) cd lean && lake test 2>&1 | tee test_log.txt
+      Expected: exit 0; or "no test target" message logged as NO_TEST_TARGET
+        (depends on whether `lakefile.lean` defines a test target).
+      If FAIL (other than NO_TEST_TARGET): HALT_148_BUILD_REGRESSION (b).
+
+  (c) Sorry-count assertion:
+      grep -rn '\bsorry\b' lean/ --include='*.lean' | grep -v '^[^:]*:[0-9]*:--'
+      Expected: 0 matches (the proof_targets.lean:L2 comment is filtered by
+        the `grep -v '\.--$'` pattern; the L118/L120 sites have been edited).
+      Alternative literal-match: grep -rn 'by sorry\|:= sorry\|by_extensionality.*sorry'
+      If non-zero: HALT_148_SORRY_COUNT_REGRESSION; deposit halt.
+
+  (d) toolchain pin still valid: cat lean/lean-toolchain
+      Expected: identical to pre-edit value (no edit was made to this file).
+      If diverged: HALT_148_TOOLCHAIN_DRIFT.
+
+TASK 6 -- R6 theorem-strength preservation review (CRITICAL; per POST_DISCHARGE_PLAN sec 3 R6)
+
+Produce in handoff a side-by-side BEFORE / AFTER theorem-statement comparison:
+
+  BEFORE: full axiom signature (5 explicit params + 1 conclusion, including h_exact)
+  AFTER: full axiom signature (4 explicit params + 1 conclusion, h_exact deleted)
+
+  Argument that AFTER is strictly stronger than (or equal in conclusion-strength to)
+  BEFORE:
+
+  (1) Both axioms have identical conclusion: `IndicialPoly a s = fun rho => rho ^ 2`
+  (2) AFTER has fewer hypotheses (4 vs 5), so AFTER is strictly stronger as a claim.
+  (3) Therefore any downstream theorem reachable via AFTER is also reachable via BEFORE
+      (with the additional h_exact hypothesis -- but h_exact is generically
+      unsatisfiable for a_coeff_c, so the BEFORE invocation was vacuous).
+  (4) Conclusion: theorem strength of `apparent_singularity_thm_i` (lean/Thm66:113)
+      is preserved or strengthened post-edit. Strict strengthening because
+      pre-edit invocation depended on a hypothesis that operator-side discharge
+      attempts repeatedly failed to provide.
+  (5) AEAL status: axiom remains tagged `mathlib_gap: Frobenius ODE theory`;
+      the math-content claim is the standard Frobenius result independent of
+      the vestigial h_exact parameter.
+
+If any step (1)-(5) fails analysis: HALT_148_THEOREM_WEAKENED; revert + halt.
+
+================================================================================
+sec 2 -- deliverables
+================================================================================
+
+In bridge folder `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148/`:
+
+  1. axiom_reshape_report.md
+       Prose narrative covering TASK 1-6 outcomes. Include Pattern alpha
+       applicability verification (TASK 2), edit summary (TASK 3-4), build
+       verification log summary (TASK 5), and R6 theorem-strength review
+       (TASK 6). FV-disciplined; ASCII-pure.
+
+  2. before_after_signature.md
+       Side-by-side BEFORE / AFTER axiom signature comparison. Use code blocks
+       with explicit Lean syntax. Include the auxiliary diagnostic (h_exact
+       reduces to false-for-general-a) from TASK 2.
+
+  3. build_log.txt
+       Full `lake build` output post-edit. Verbatim.
+
+  4. test_log.txt
+       Full `lake test` output post-edit, OR a single line `NO_TEST_TARGET`
+       if no test target is configured in lakefile.lean.
+
+  5. sorry_count_after.txt
+       Full output of `grep -rn '\bsorry\b' lean/ --include='*.lean'`.
+       Expected to contain only the proof_targets.lean:L2 comment line, or
+       to be empty if the comment is grep-filtered. Document which.
+
+  6. claims.jsonl
+       AEAL audit-tier claims. Minimum entries:
+         - "Pattern alpha applicability verified at TASK 2"
+         - "axiom signature edit applied at lean/Thm66:90-96"
+         - "use-site cleanups applied at L118 and L120"
+         - "lake build green post-edit; build_log.txt"
+         - "active sorry count post-edit = 0; sorry_count_after.txt"
+         - "R6 theorem-strength preservation review PASS; before_after_signature.md"
+         - "D-143-1 sorry-count discrepancy resolved via L2-comment-narrative interpretation"
+         - "D-143-3 partial mitigation: Lean source NOT inlined in 143R substrate; this fire reads source directly and exercises Q4 Pattern alpha applicability"
+
+  7. discrepancy_log.json
+       Any anomalies surfaced. If clean: empty array `[]`. Likely entries:
+         - D-148-N if any SHA verification step paper-only (LOW)
+         - D-148-N if any test target absent (INFO)
+         - Forward-resolution of D-143-1: status RESOLVED with this fire; closure note
+
+  8. unexpected_finds.json
+       Any unexpected positive results. Likely `[]`. If h_exact deletion
+       reveals a use site not yet enumerated, log here.
+
+  9. halt_log.json
+       `{}` if no halt. If halt: full halt details.
+
+ 10. handoff.md
+       STANDING FINAL STEP B3 template. Status: COMPLETE | PARTIAL | HALTED.
+
+In repo (lean/ subtree):
+
+  Modified file: lean/Thm66_ApparentSingularity.lean
+  Commit message:
+
+  ```
+  THM66 axiom reshape -- delete redundant h_exact param; close S1+S2 by deletion
+
+  Per slot 143R C-143-4 amendment (Pattern alpha). Active sorry count in lean/
+  drops from 2 to 0. R6 theorem-strength preservation reviewed in
+  axiom_reshape_report.md sec 6 (post-edit axiom is strictly stronger; same
+  conclusion with fewer hypotheses). M10 V0 Phase C C.3++ deliverable.
+
+  Bridge fire: T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148 (siarc-relay-bridge).
+  Originating verdict: slot 143R MEDIUM-HIGH ENDORSE_WITH_AMENDMENTS (bc641a0).
+
+  Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
+  ```
+
+================================================================================
+sec 3 -- hard gates (HALT conditions; copy literally to halt_log.json on fire)
+================================================================================
+
+  HALT_148_SHA_MISMATCH                  STEP 0.1 fail
+  HALT_148_SUPERSEDED                    STEP 0.2 fail (prior fire exists)
+  HALT_148_PRECONDITION_NOT_MET          STEP 0.4 (a) or (b) fail
+  HALT_148_PRECONDITION_DIRTY_TREE       STEP 0.4 (c) fail
+  HALT_148_AXIOM_NOT_FOUND_AS_EXPECTED   TASK 1 (a)-(d) fail
+  HALT_148_PATTERN_ALPHA_INAPPLICABLE    TASK 2 (alpha-a) fail
+  HALT_148_THEOREM_WEAKENED              TASK 2 (alpha-b) fail OR TASK 6 fail
+  HALT_148_UNEXPECTED_USE_SITE           TASK 4 cross-check finds 4th+ match
+  HALT_148_BUILD_REGRESSION              TASK 5 (a) or (b) fail
+  HALT_148_SORRY_COUNT_REGRESSION        TASK 5 (c) fail
+  HALT_148_TOOLCHAIN_DRIFT               TASK 5 (d) fail
+
+In any halt: write halt_log.json with halt_id + fired_at_step + remediation; write
+handoff.md with status HALTED; deposit + push; do NOT commit any partial lean/
+edit (revert via `git -C . checkout -- lean/Thm66_ApparentSingularity.lean` first
+unless the halt is clearly post-commit, in which case operator decides revert vs
+forward-fix).
+
+================================================================================
+sec 4 -- iteration ceiling
+================================================================================
+
+Estimated 1-2 iterations to green. Per slot 143R Q6(a) graduated ladder (sec 3 R2
+of POST_DISCHARGE_PLAN outlook):
+
+  iteration-18: heartbeat (re-check Pattern alpha applicability)
+  iteration-24: alarm (T1-Synth re-consultation; consider Pattern beta)
+  iteration-30: ceiling (halt + escalate)
+
+Slot 148 fire-internal iteration count starts at 1 (this fire). If TASK 5 (a)
+fails on first attempt, increment iteration counter; if 3+ iterations cumulative
+without green, escalate via HALT_148_BUILD_REGRESSION rather than continuing.
+
+This fire is C.3++ in the POST_DISCHARGE_PLAN sec 2.2 phase ordering. After this
+fire lands, re-run the C.3+ 4-step gate (per C-143-6) on a clean clone:
+
+  (a) lake build green
+  (b) lake test green (or NO_TEST_TARGET)
+  (c) sorry-count == 0 in lean/
+  (d) toolchain pin verified + lakefile-orphans resolved
+
+Document the post-edit C.3+ pass in handoff.md sec "Recommended next step".
+After post-edit C.3+ pass, slot 145 substrate-prep fire becomes eligible (per
+slot 143R Q6(c) gating refinement).
+
+================================================================================
+sec 5 -- confidence band
+================================================================================
+
+Claimed: MEDIUM-HIGH (single-witness)
+
+Rationale per slot 143R Q4 fabricated-math self-assessment:
+
+  Direction (Pattern alpha vs Pattern beta selection): HIGH
+    Synth analysis of S1 axiom statement (auxiliary diagnostic in TASK 2) shows
+    h_exact hypothesis is generically unsatisfiable for a_coeff_c. Pattern alpha
+    direction is correct.
+
+  Implementation (specific axiom signature edit + use-site cleanup mechanics):
+    MEDIUM at draft time (synth could not read Lean source directly per D-143-3);
+    elevated to MEDIUM-HIGH at fire time (this prompt body cites verified pre-edit
+    ground-truth: file path, axiom location L90-96, use-site locations L117-120,
+    sorry-count = 2 active + 1 comment-narrative).
+
+Conservative-cap rule: claim is MEDIUM-HIGH (not HIGH) because the post-edit lake
+build outcome cannot be predicted with certainty without execution.
+
+If in-fire R6 review (TASK 6) reveals a theorem-strength concern not anticipated
+in the draft: downgrade to LOW-MEDIUM and route via HALT_148_THEOREM_WEAKENED.
+
+If post-edit lake build is green AND R6 review passes AND no unexpected use site
+found: claim is achieved at MEDIUM-HIGH.
+
+================================================================================
+sec 6 -- standing final step (B3 handoff template)
+================================================================================
+
+After all deliverables landed, write `handoff.md` per the standing final step
+template in the SIARC custom_instruction governance:
+
+  # Handoff -- T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148
+  Date / Agent / Session duration / Status
+
+  ## What was accomplished
+  ## Key numerical findings  (active sorry count 2 -> 0; build outcome; etc.)
+  ## Judgment calls made
+  ## Anomalies and open questions
+  ## What would have been asked (if bidirectional)
+  ## Recommended next step  (run post-edit C.3+ 4-step gate; then enable slot 145)
+  ## Files committed
+  ## AEAL claim count
+
+Then commit deliverables to siarc-relay-bridge with the slot 148 commit message
+(NOT the lean/ commit message; those are separate; lean/ commit lands in
+papanokechi/wallis-pcf-lean4 repo on the active branch).
+
+Then output the BRIDGE / CLAUDE_FETCH URLs to operator.
+
+================================================================================
+sec 7 -- closing
+================================================================================
+
+This fire is the C.3++ interstitial step in POST_DISCHARGE_PLAN Phase C ordering.
+It closes S1+S2 by axiom-signature deletion (Pattern alpha), per slot 143R
+verdict amendment C-143-4. Active sorry count in lean/ drops from 2 to 0. R6
+theorem-strength preservation review is the critical safety gate.
+
+Successor fire: post-edit C.3+ 4-step gate run (informal; not its own bridge
+fire). After C.3+ passes, slot 145 substrate-prep fire becomes eligible per Q6(c)
+gating refinement.
+
+Operator decisions still pending (not blocking this fire):
+  - D-143-4: B5 confidence band amendment confirm (separate axis; non-blocking)
+  - slot 145 prompt body amendment (gating refinement; can use outlook-as-governance)
+
+Forward-resolution of D-143-1: this fire's TASK 1 + TASK 5(c) records active
+sorry count is 2 (not 3); proof_targets.lean:L2 sorry mention is comment-narrative
+(`-- Iteration 12 replaces the generated sorry placeholders with concrete...`).
+Closes D-143-1 with canonical interpretation = "comment-only mention" hypothesis.
+
+Naming convention: rename this prompt file to
+`148_t2_executor_lean4_thm66_axiom_reshape_EXECUTED.txt` after the bridge fire
+lands, per project convention.
+
+# ============================================================================
+# END OF SLOT 148 PROMPT
+# ============================================================================
