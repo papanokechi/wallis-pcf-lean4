@@ -1,0 +1,162 @@
+================================================================================
+PROMPT 124 — T1-SYNTH M2 Q22 PATH-(a)-vs-PATH-(b) MATH ARBITRATION
+================================================================================
+Drafted: 2026-05-09 ~11:25 JST
+Slot:    124 (third slate of 2026-05-09)
+Class:   T1-Synth (substrate-direct derivation packet for operator decision)
+Scope:   Q22 path-(a) vs path-(b) decision affects PCF-2 v1.4 manuscript
+         CONTENT (math-foundational under RULE 1; the Zenodo deposit step
+         itself remains TABLED)
+M-axis:  M2
+RULE 1:  ALIGNED (decision packet is math content; deposit operations are
+         tabled until M-closure)
+Bridge HEAD at draft: 8ebd1eb
+Concurrency: parallel-safe with 120-123 (M6.CC + M7) — no shared substrate
+================================================================================
+
+§1. PURPOSE
+-----------
+
+The Q22 question (path-(a) vs path-(b)) governs which mathematical content
+goes into PCF-2 v1.4 manuscript. Per plan.md:3231 it has been an outstanding
+operator decision blocking M2 closure.
+
+Under RULE 1, the Zenodo deposit of PCF-2 v1.4 is TABLED, but the
+underlying math arbitration (which content lands in the manuscript) IS a
+hard requirement for M2 axis closure.
+
+This prompt fires a T1-Synth substrate-direct derivation packet that lays
+out path-(a) and path-(b) consequences side-by-side and emits a
+recommendation for the operator decision.
+
+§2. SUBSTRATE TO READ
+---------------------
+
+Required (in priority order):
+
+  1. PCF-2 v1.3 manuscript (current canonical):
+     [path TBD — verify via SQL search for pcf2-v1-3 + grep p13/p14]
+
+  2. SQL todo: q22-014-stretch-goal-arbitrate (M2 axis)
+     - Read description for Q22 framing
+
+  3. Bridge sessions referencing Q22:
+     - grep -r "Q22" siarc-relay-bridge/sessions/
+
+  4. CMB.txt and cmb_open_questions.txt entries for Q22
+
+  5. plan.md:3231 (Outstanding operator decisions list)
+
+  6. Picture v1.19 M2 row entry (if present)
+
+§3. PHASE 0 — SUPERSESSION AUDIT + GATES
+----------------------------------------
+
+STEP 0.1: Bridge HEAD pre-verify
+  - HEAD must be ≥ 8ebd1eb
+
+STEP 0.2: Check for prior Q22 arbitration fires
+  - Get-ChildItem siarc-relay-bridge/sessions/ -Recurse | grep -i "Q22\|m2-.*arbit"
+  - If a prior arbitration fire LANDED with verdict: HALT_124_PRIOR_
+    ARBITRATION_EXISTS; supersede or absorb
+
+STEP 0.3: Confirm Q22 SQL todo still pending
+  - SQL: SELECT status FROM todos WHERE id LIKE '%q22%' OR id LIKE '%q-22%'
+  - If already done: HALT_124_Q22_ALREADY_RESOLVED
+
+STEP 0.4: Confirm RULE 1 still active per outlook §0
+
+§4. PHASE A — Q22 STATEMENT + PATH DESCRIPTIONS
+-----------------------------------------------
+
+In `q22_arbitration_packet.md`, write:
+
+  ## §1 Q22 statement
+  - Verbatim quotation from CMB / plan.md
+  - Context: why this question exists, what manuscript section it affects
+
+  ## §2 path-(a) full description
+  - Mathematical content of path-(a)
+  - Manuscript implications (which sections change)
+  - Substrate citations (prior fires + literature)
+
+  ## §3 path-(b) full description
+  - Mathematical content of path-(b)
+  - Manuscript implications
+  - Substrate citations
+
+§5. PHASE B — TRADE-OFF MATRIX
+------------------------------
+
+In §4 trade-off matrix:
+
+  ## §4 trade-off matrix
+  | Criterion | path-(a) | path-(b) |
+  |---|---|---|
+  | Mathematical scope | ... | ... |
+  | Substrate strength | ... | ... |
+  | Manuscript-content delta from v1.3 → v1.4 | ... | ... |
+  | Compatibility with M9 V0 announcement | ... | ... |
+  | Risk of opening UF / discrepancy chain | ... | ... |
+  | Time-to-close (math content only; deposit tabled) | ... | ... |
+
+§6. PHASE C — RECOMMENDATION
+----------------------------
+
+In §5 recommendation:
+
+  ## §5 synth recommendation
+  Recommended path: <(a) | (b) | DEFER>
+  Confidence band: <HIGH | MEDIUM | LOW>
+  Reasoning: <3-5 paragraphs>
+
+  Caveats: <any open substrate gaps that would shift the recommendation>
+
+  Operator decision required: yes (this is a math arbitration packet,
+  not a unilateral verdict; final decision is operator's per RULE 1
+  protocol on M-axis closure forks)
+
+§7. ACCEPTANCE CRITERIA
+-----------------------
+
+  A1: §1-§5 all written; no template placeholders left
+  A2: §2 + §3 each cite ≥1 substrate file from §2 of this prompt
+  A3: §4 matrix has all 6 rows + (a)/(b) cells filled
+  A4: §5 recommends one of {(a), (b), DEFER} with explicit reasoning
+  A5: Forbidden-verb scan clean
+  A6: AEAL: 1-2 claims (any numerical comparison if applicable + 1 meta-
+      claim for the arbitration methodology)
+  A7: Bridge deposit per B1-B5
+  A8: handoff explicitly notes that M2 Zenodo deposit step remains TABLED
+      under RULE 1 even after operator picks the path
+
+§8. STANDING FINAL STEP B1-B5
+-----------------------------
+
+Bridge:    sessions/{TODAY}/T1-SYNTH-M2-Q22-MATH-ARBITRATION-{NUM}/
+Closes:    none directly (this is a decision packet; Q22 closes when
+           operator picks the path)
+Deposits:  q22_arbitration_packet.md, claims.jsonl, halt_log.json,
+           discrepancy_log.json, unexpected_finds.json, handoff.md
+New SQL:   q22-arbitration-packet-NNN-completed (done)
+           q22-operator-decision-NNN+1 (pending; operator-side; no fire)
+Commit:    "{TASK_ID} — Q22 path-(a)-vs-path-(b) math arbitration packet:
+           recommends path-{(a)|(b)|DEFER} at confidence {BAND}; M2 Zenodo
+           deposit step remains TABLED under RULE 1"
+
+§9. CROSS-REFERENCES
+--------------------
+
+- RULE 1 outlook: tex/submitted/control center/picture/M1_M12_CLOSURE_
+  OUTLOOK_20260509_RULE1.md
+- Q22 origin: cmb_open_questions.txt + plan.md:3231
+- Concurrency note: parallel-safe with 120 (M6.CC triage) and 121-123
+  (M7 ratification 3-arc) — no shared substrate
+- Successor: q22-operator-decision (no fire; operator action only) →
+  if (a) or (b): umbrella v2.1 + PCF-2 v1.4 manuscript-content amendment
+  fire (slot TBD; queued post-decision)
+
+§10. END
+--------
+END PROMPT 124
+================================================================================
