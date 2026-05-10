@@ -1,0 +1,347 @@
+# T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143
+
+**Tier:** T1-Synth (principal synthesizer; claude.ai web; recommend Claude Opus 4.7 single-witness; dual-witness optional if BAND returns LOW)
+**Class:** operational-tier consultation on M10 V0 discharge plan (NOT a strategic-roadmap consultation; NOT a closure cascade; NOT a sorry-discharge fire)
+**Session date:** 2026-05-10
+**Operator-supplied trigger:** post-141C-triage-landing (2026-05-10 ~11:40 JST) operator request for synth-tier review of the discharge plan that follows from the 141C triage outputs
+**Predecessor (functional):** slot 144 single-witness MEDIUM-HIGH `ENDORSE_WITH_AMENDMENTS` strategic-roadmap consultation (cascade SHA `2330437`); broad scope. Slot 143 is narrower scope (operational-tier; M10 V0 discharge plan only).
+**Witness mode:** single-witness DEFAULT; operator may upgrade to dual-witness if any answer returns LOW band or surfaces structural revision.
+
+---
+
+## sec 0 -- PHASE 0 PRE-FLIGHT (mandatory; halt cleanly on any FAIL)
+
+### 0.1 -- SHA verification (14 bridge + 6 claude-chat)
+
+Run `git rev-parse --verify <SHA>^{commit}` on every SHA below. ALL must PASS.
+
+**Bridge SHAs (siarc-relay-bridge):**
+
+  | Tag | Full SHA | Role |
+  |---|---|---|
+  | 2e36e0f | `2e36e0fe1e81413ddc0969bd8b65dc99c48ee2bd` | slot 141C triage landing (PRIMARY substrate this consultation) |
+  | 2330437 | `23304375c3610afa0ed38e28b7909bde7bad0012` | slot 144 strategic-roadmap consultation landing (functional predecessor) |
+  | ece6c32 | `ece6c323747dd5cb5719a77e9ce9d6486894d72d` | Q22 cleanup tactical landing |
+  | ce5d9e9 | `ce5d9e90456ca2d2f1493602bd700a0b39932836` | slot 141B M10 documented-commitment scaffold |
+  | 6a063a7 | `6a063a713d9f4c1d0d63526dd3c70bba7207697e` | slot 140 POST_LEAN_REALITY outlook |
+  | 72bb2c2 | `72bb2c299f6462e3b5da3beec70624f6ce5ca4ef` | slot 139 BEST-NEXT-MOVE consultation |
+  | b9aa881 | `b9aa881c53566926390d6f48c2b8a10243c67267` | slot 136 picture-chain v1.20+ (M9 V0 chain 3/3) |
+  | 45e236c | `45e236c2d3f3ff690ede65762cfbfae482cd7560` | slot 137 PCF-2 v1.4 (M9 V0 chain 2/3) |
+  | 887981b | `887981bf51860550a05ff949f0145c1687623689` | slot 135 umbrella v2.2 (M9 V0 chain 1/3) |
+  | 74c5630 | `74c563022d3a2df0a4bea0088f4793170a1e64d3` | M8b V0 closure cascade 130R (template for Q5) |
+  | cb429e1 | `cb429e1acba91ba47d1426950d924800a0b02a07` | M8a V0 closure cascade 127R (template for Q5) |
+  | 7f93b9e | `7f93b9e4d624fdfca62f5d85393b4ead35cea751` | M7 V0 closure cascade 123 (template for Q5) |
+  | 5f9db69 | `5f9db69c754c410b79091cbd84e6d79b63d10b6e` | M4 V0 closure cascade 106 (cross-ref only per ANTI-CONFLATION) |
+  | fd669d3 | `fd669d347967db2e854f8e9d3725f625bf9fbc2a` | cascade-132 PATH_B Option alpha decision substrate |
+
+**Claude-chat SHAs (papanokechi/wallis-pcf-lean4):**
+
+  | Tag | Full SHA | Role |
+  |---|---|---|
+  | e450b13 | `e450b131f96fc6d7b0d894589f3624308cef38be` | slot 145 M10 V0 substrate-prep prompt drafted (forward-reference for Q6) |
+  | a5a6647 | `a5a66476d639de862070147077c20b4ef80c32e3` | slot 141C prompt commit (the prompt that produced 2e36e0f) |
+  | c171016 | `c171016f08ddd467fc8813d3c32bc9bf83de2a3b` | POST_SYNTH_REVIEW outlook (slot 144 absorption) |
+  | efc12e5 | `efc12e51db15ff05e4fe716afb34bf465795f0bd` | slot 141B repo-side commit |
+  | 5e89f9a | `5e89f9ab57ff16af8d08fafbddaed6c345512ad2` | slot 140 repo-side commit |
+  | 0295aee | `0295aee16458a3c9bdd1bf498dc492e4a9353649` | Q22 cleanup repo-side; branch `vquad/handoff-2026-04-16` |
+
+CLI agent has pre-verified all 20 SHAs at fire time 2026-05-10 ~11:47 JST (PASS x20). Synth executor must re-run.
+
+### 0.2 -- Supersession gate
+
+Search bridge for prior `*M10-V0-DISCHARGE-PLAN*` or `*DISCHARGE-PLAN-CONSULTATION*` folders:
+
+```pwsh
+Get-ChildItem -Recurse -Directory -Path sessions -Filter '*M10-V0-DISCHARGE-PLAN*'
+Get-ChildItem -Recurse -Directory -Path sessions -Filter '*DISCHARGE-PLAN-CONSULTATION*'
+```
+
+Expected: 0 prior matches (this is the first M10-discharge-plan consultation in the project's history). Note: slot 144 was a strategic-roadmap consultation (different scope); slot 143 is operational-tier on the actual blocker / sorry routing. If matches found, halt with `HALT_143_PRIOR_DISCHARGE_PLAN_CONSULTATION_EXISTS` and supersession-memo.
+
+### 0.3 -- RULE 1 directive verbatim (operator-supplied 2026-05-09 ~11:17 JST; reaffirmed 2026-05-10 ~10:24 JST)
+
+> "HOLD -- rule 1; table everything that is not a hard requirement to complete M1-M12 (zenodo, endorsement should all be tabled)"
+>
+> Reaffirmation 2026-05-10 ~10:24 JST: "rule1. table everything that does not contribute to closing M1-M12 for now (endorsements, zenodo etc)."
+
+Synth must keep all answers strictly within M10 axis math content. Any drift toward Zenodo / endorsement / venue resubmission scope must be flagged as RULE-1 leakage and self-corrected.
+
+### 0.4 -- Substrate availability check
+
+Verify these paths are readable in the bridge / claude-chat working tree:
+
+  | Path | Role |
+  |---|---|
+  | `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/triage_report.md` | PRIMARY substrate (TASK 4 prose) |
+  | `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/blockers.json` | TASK 5 JSON tuples (B1-B5) |
+  | `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/sorries.json` | TASK 5 JSON tuples (S1, S2) |
+  | `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/dependency_map.json` | M10 node-set adjacency + lakefile audit |
+  | `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/handoff.md` | triage handoff (anomalies + open questions) |
+  | `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md` | governance outlook (sec 2.2 Phase C readiness gates; sec 3 risk register) |
+  | `tex/submitted/control center/prompt/145_t2_executor_m10_v0_ratification_substrate_prep.txt` | forward-reference (Phase C.4 substrate-prep prompt; gated on C.3) |
+
+If any path FAIL Test-Path, halt with `HALT_143_SUBSTRATE_MISSING_<file>`.
+
+### 0.5 -- T2-Executor exclusion review (sec 2 of slot 144 verdict Change 2)
+
+Slot 144 Change 2 imposed an EXPLICIT EXCLUSION on the slot 141C T2-Executor: agent must NOT generate sorry-discharge candidate proofs (classify-and-route only) per Searcher's Fatigue / fabricated-math failure mode.
+
+This consultation (slot 143) is at T1-Synth tier, not T2-Executor tier. The Searcher's Fatigue rule does NOT apply at synth tier because verdict-tier scrutiny (DEFER / OBJECT / amendment-list) is the safety mechanism. Synth MAY produce concrete proof-shape recommendations and Mathlib lemma family suggestions. Operator-side verification before commit is the operative safeguard.
+
+This boundary is itself part of the consultation: synth should self-assess whether any of its concrete proof-shape recommendations cross into fabricated-math territory and flag those as such.
+
+---
+
+## sec 1 -- CONTEXT
+
+### 1.1 -- Why this consultation
+
+Slot 141C T2-Executor Lean-4 build-error triage landed on bridge `2e36e0f` 2026-05-10 ~11:40 JST. The triage classified-and-routed 5 build-blockers (B1-B5) and 2 sorries (S1, S2) but per slot 144 Change 2 EXPLICIT EXCLUSION, did NOT produce sorry-discharge candidate proofs or specific Mathlib lemma family routing.
+
+Operator (papanokechi) is now requesting principal synthesizer (claude.ai web) review of:
+  - (i) Whether the B1-B5 + S1-S2 classification is correct
+  - (ii) Concrete Mathlib lemma family recommendations for B3-B5 (the tactic-strategy ones)
+  - (iii) Concrete proof-shape strategy for S1 / S2 (the `frobenius_double_root_at_apparent_singularity` h_exact arg)
+  - (iv) Cross-axis dependency check (anything touching M9 substrate at `45e236c` or slot 137 sec 6?)
+  - (v) Iteration ceiling re-estimate given concrete blocker shapes
+  - (vi) Phase C.3+ gate-recommendation refinement
+
+This consultation directly lowers POST_SYNTH_REVIEW outlook sec 3 Risk R2 (M10 V0 iteration overrun beyond 6-10 estimate; MEDIUM/MEDIUM at slot 144 fire time). It is operational-tier; not strategic-tier (slot 144 covered the latter).
+
+### 1.2 -- 141C triage outputs verbatim summary (synth must read full files)
+
+**5 build-blockers (blockers.json):**
+
+  | ID | Location (claude-chat HEAD) | Classification | Confidence | Triage routing |
+  |---|---|---|---|---|
+  | B1 | `lean/WallisFamily.lean:58:4` | trivial-repair | HIGH | duplicate decl name |
+  | B2 | `lean/WallisFamily.lean:114-118` | tactic-strategy | MEDIUM-HIGH | `(by omega)` arg to `intertwining_lemma`; needs `linarith` or explicit term |
+  | B3 | `lean/WallisFamily.lean:171-177` | tactic-strategy | MEDIUM-HIGH | `ratio_step_m0` discharge; needs ring or field lemma |
+  | B4 | `lean/WallisFamily.lean:216-312` | trivial-repair | HIGH | unknown `nhds` notation; namespace import |
+  | B5 | `lean/WallisFamily.lean:243+285` | tactic-strategy | MEDIUM | linarith failures; needs explicit hypothesis manipulation |
+
+**2 sorries (sorries.json):**
+
+  | ID | Location (claude-chat HEAD) | Confidence | Triage routing |
+  |---|---|---|---|
+  | S1 | `lean/Thm66_ApparentSingularity.lean:118` | LOW | `h_exact` arg to `frobenius_double_root_at_apparent_singularity`; needs axiom-shape reformulation, NOT direct discharge |
+  | S2 | `lean/Thm66_ApparentSingularity.lean:120` | LOW | same shape as S1; routed as joint discharge unit |
+
+**dependency_map.json highlights:**
+  - 7 files in M10 node set; 2 intra-set import edges; 0 circular imports
+  - 2 lakefile orphans: `proof_targets.lean`, `CardEvenOfInvolution.lean`
+  - 1 possibly-dead import: `WallisFamily/CasoratianPi4` (UF-141C-3)
+  - Toolchain pin: `leanprover/lean4:v4.30.0-rc1`; Mathlib pin: same
+
+**Anomalies surfaced (handoff.md sec Anomalies):**
+  - **D-141C-1:** Sorry-count discrepancy (slot 144 said 3; triage finds 2). Three candidate resolutions; operator selects canonical interpretation. Non-blocking (INFO).
+  - **UF-141C-1:** Iter-13 log staleness vs HEAD source. B2 / B4 confidence may be elevated.
+  - **UF-141C-2:** Lakefile orphans (proof_targets.lean, CardEvenOfInvolution.lean).
+  - **UF-141C-3:** Possibly-dead `CasoratianPi4` import.
+
+### 1.3 -- Closure scoreboard at fire time (2026-05-10 ~11:47 JST; unchanged from slot 144)
+
+  | Tier | Axis | State | Closure substrate |
+  |:--:|:--:|:--:|---|
+  | retired | M3 | folded into M4 | n/a |
+  | retired | M5 | folded into M6.CC | n/a |
+  | V0 closed | M4 | foundation | cascade `5f9db69` (cross-ref only) |
+  | residuals absorbed | M6.CC | V_quad to P_III chart-map | covered by 123 / 130R; per POST_SYNTH_REVIEW sec 5 explicit-absorption note |
+  | V0 closed | M7 | post-M4 axis | cascade `7f93b9e` |
+  | V0 closed | M8a | post-M4 axis | cascade `cb429e1` |
+  | V0 closed | M8b | post-M4 axis | cascade `74c5630` |
+  | substrate-source-of-record closed | M9 | V0 announcement | `887981b` + `45e236c` + `b9aa881` |
+  | substrate-prep stage | M10 | Lean-4 sorry-discharge | scaffold `ce5d9e9`; triage `2e36e0f` |
+  | substantive substrate landed | M2 | PCF-2 v1.4 + Q22 | substrate `45e236c`; cleanup `ece6c32` |
+  | TABLED | M1 / M11 / M12 | post-lift | -- |
+
+Net: **9.5 of 12 axes closed-or-retired**. Sole open math axis: M10.
+
+### 1.4 -- SQL ledger snapshot (CLI session this turn)
+
+  | Status | Count |
+  |---|---|
+  | done | 29 |
+  | pending | 2 (`m10-v0-lean-sorry-discharge`, `slot-142-amendment-decision`) |
+  | blocked | 11 (Phase C.3+ chain) |
+  | TOTAL | 42 |
+
+---
+
+## sec 2 -- CONSULTATION QUESTIONS (6 numbered questions; synth must answer each)
+
+**Q1 -- B1-B5 classification validation.** For each of B1-B5 (blockers.json), is the classification (`trivial-repair` vs `tactic-strategy`) correct? Is the confidence band correct? In particular: per UF-141C-1, B2 and B4 may have elevated confidence due to iter-13 log staleness vs HEAD source. Should B2 or B4 be downgraded?
+
+**Q2 -- S1 / S2 sorry classification + routing.** Sorries.json routes S1 and S2 as a joint unit requiring axiom-shape reformulation rather than direct discharge. Is this routing correct, or is one of these sorries dischargeable directly without architectural surgery? Is the LOW confidence band appropriate, or should it be MEDIUM-LOW given the specific h_exact argument shape?
+
+**Q3 -- Mathlib lemma family recommendations for B3-B5.** For each of B3 (`ratio_step_m0` discharge), B4 (`nhds` notation), B5 (linarith failures), recommend specific Mathlib lemma families or namespaces that would discharge or substantially advance the blocker. Do not produce full proofs; produce (lemma_namespace, candidate_lemma_names[], operator_verification_path) triples. Self-flag any candidate that crosses into fabricated-math territory per sec 0.5.
+
+**Q4 -- S1 / S2 proof-shape strategy.** Provide a high-level proof-shape strategy for the `frobenius_double_root_at_apparent_singularity` h_exact argument. Two sub-questions:
+  - (a) Is the axiom-shape reformulation that triage-report.md hints at the right framing, or is there a Mathlib-native proof-shape that avoids axiom changes?
+  - (b) Should S1 + S2 be discharged before or after Phase C.3 (lean/ committed)? Triage handoff recommends after; do you concur?
+
+  Self-flag any concrete proof-shape recommendation that crosses into fabricated-math territory per sec 0.5.
+
+**Q5 -- Cross-axis dependency check.** Does any of B1-B5 or S1-S2 touch:
+  - (a) M9 substrate at `45e236c` (PCF-2 v1.4) or `b9aa881` (picture-chain v1.20+)?
+  - (b) Slot 137 PCF-2 sec 6 substantive content (M2 substrate)?
+  - (c) M7 / M8a / M8b V0 closure substrate (`7f93b9e` / `cb429e1` / `74c5630`)?
+  - (d) M4 foundation `5f9db69` (cross-ref only per ANTI-CONFLATION; do not re-use the SHA elsewhere)?
+
+  If yes for any, that elevates the blocker's coupling severity and changes Phase C ordering. Identify which dependency-map.json edges (or missing edges) carry the cross-axis load.
+
+**Q6 -- Iteration ceiling re-estimate + Phase C.3+ gate refinement.** POST_SYNTH_REVIEW outlook sec 3 Risk R2 estimates 6-10 fires for Phase C; iteration-13 already on file; slot 144 R2 mitigation set ceiling at iteration-20. Given concrete blocker shapes (B1-B5 + S1-S2), refine:
+  - (a) Refined iteration ceiling (e.g., "expect iteration-20 to green; 25 = re-evaluate; 30 = halt and re-triage")
+  - (b) Recommended Phase C.3+ reproducibility check refinements (POST_SYNTH_REVIEW outlook adds C.3+ gate per sec 3 change 3; is the clean-clone build the right check, or should it include a `lake test` step?)
+  - (c) Recommendation on whether slot 145 (M10 V0 substrate-prep; drafted at claude-chat `e450b13`; gated on C.3) should fire as soon as C.3 lands, or wait for additional gating
+
+---
+
+## sec 3 -- OUTPUT FORMAT (synth deposit conventions; mirror slot 144)
+
+### 3.1 -- Verdict structure
+
+  - sec 1: verdict header (LABEL + BAND)
+    - LABEL = one of: `ENDORSE_AS_AUTHORED`, `ENDORSE_WITH_AMENDMENTS`, `RECOMMEND_REVISION`, `OBJECT`
+    - BAND = one of: `LOW`, `MEDIUM`, `MEDIUM-HIGH`, `HIGH`
+  - sec 2: per-question answer (Q1 through Q6)
+    - Each answer: (a) verdict on the 141C triage classification or roadmap claim, (b) reasoning citation (substrate SHA + line if applicable), (c) recommended change if any, (d) self-flag for fabricated-math risk per sec 0.5 if applicable
+  - sec 3: structured change list (if LABEL is `ENDORSE_WITH_AMENDMENTS` or `RECOMMEND_REVISION`)
+    - Format: `(target_artefact, change_type, change_content, justification)`
+  - sec 4: anomalies / discrepancies surfaced during review
+    - Format: `(anomaly_id, severity LOW/INFO/MEDIUM/HIGH, description, blocking? Y/N)`
+  - sec 5: cross-reference table (substrate SHAs cited in verdict)
+  - sec 6: confidence-band justification (one paragraph)
+
+### 3.2 -- Confidence-band rule (per slot 130R cascade-record sec 6.3 LABEL-rule extension)
+
+If recommendation requires structural revision (architectural reshape of S1 / S2 proof; or restructuring of B-block routing), BAND ceiling is MEDIUM-HIGH unless multi-witness corroboration. Single-witness LABEL `OBJECT` MUST cite at least 2 substrate SHAs as conflicting evidence.
+
+### 3.3 -- Discrepancy / anomaly format (verbatim from cascade-132 sec 7)
+
+```json
+{
+  "id": "D-143-N",
+  "severity": "INFO|LOW|MEDIUM|HIGH",
+  "title": "<short title>",
+  "description": "<full description with substrate citations>",
+  "remediation": "<remediation if any>",
+  "blocking": false
+}
+```
+
+### 3.4 -- Recommended-change format (if applicable)
+
+```json
+{
+  "target_artefact": "blockers.json | sorries.json | dependency_map.json | triage_report.md | POST_SYNTH_REVIEW outlook | slot 145 prompt | slot 142 prompt",
+  "change_type": "rewrite|reorder|add|remove|merge|split|reclassify",
+  "change_content": "<verbatim replacement or insertion text>",
+  "justification": "<short justification with substrate citations>"
+}
+```
+
+### 3.5 -- Mathlib lemma family format (Q3 / Q4)
+
+```json
+{
+  "blocker_or_sorry_id": "B3 | B4 | B5 | S1 | S2",
+  "lemma_namespace": "Mathlib.Topology.Basic | Mathlib.Tactic.Linarith | ...",
+  "candidate_lemmas": ["lemma_name_1", "lemma_name_2"],
+  "operator_verification_path": "what the operator runs to confirm; e.g., `lake env lean -- WallisFamily.lean` after import addition",
+  "fabricated_math_risk": "NONE | LOW | MEDIUM | HIGH; explain if non-NONE"
+}
+```
+
+---
+
+## sec 4 -- SUBSTRATE INVENTORY (pre-verified; synth may rely on these without re-verification beyond sec 0.1)
+
+  | Path | Role |
+  |---|---|
+  | `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/` | PRIMARY substrate (9 deliverables; bridge SHA `2e36e0f`) |
+  | `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144/roadmap_consultation_verdict.md` | functional-predecessor verdict (slot 144) |
+  | `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md` | governance outlook |
+  | `tex/submitted/control center/prompt/141C_t2_executor_lean4_m10_build_error_triage.txt` | the prompt that produced 141C outputs |
+  | `tex/submitted/control center/prompt/145_t2_executor_m10_v0_ratification_substrate_prep.txt` | forward-reference (Phase C.4 substrate-prep) |
+  | `tex/submitted/control center/picture/m10_documented_commitment.md` | slot 141B substrate (sec 3 BLANK; orthogonal to discharge plan but cited for Phase A.1.5 context) |
+  | `siarc-relay-bridge/sessions/2026-05-09/T1-SYNTH-M9-V0-CLOSURE-PATH-CONSULTATION-CASCADE-132/m9_v0_closure_path_decision.md` | cascade-132 substrate (RULE 1 lift documented-commitment precedent at sec 5) |
+  | `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-M7-RATIFICATION-SUBSTRATE-PREP-121/` | M7 substrate-prep template (Q5 cross-axis check / Q6 ceiling re-estimate) |
+  | `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-M8A-RATIFICATION-SUBSTRATE-PREP-125/` | M8a substrate-prep template (same role) |
+  | `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-M8B-RATIFICATION-SUBSTRATE-PREP-128/` | M8b substrate-prep template (same role) |
+
+---
+
+## sec 5 -- CROSS-REFERENCES / ANTECEDENTS
+
+  - **Functional predecessor:** slot 144 single-witness MEDIUM-HIGH `ENDORSE_WITH_AMENDMENTS` strategic-roadmap consultation (`2330437`); broad scope; 6 structured amendments + 3 anomalies. Slot 143 is the operational follow-up on Phase C concrete substance.
+  - **PRIMARY substrate (this consultation):** slot 141C T2-Executor build-error triage (`2e36e0f`); 5 blockers + 2 sorries classified-and-routed; classify-and-route only per slot 144 Change 2 EXPLICIT EXCLUSION.
+  - **M-axis V0 closure series template:** M7 (`7f93b9e`) / M8a (`cb429e1`) / M8b (`74c5630`); all green-build-then-V0-cascade pattern; relevant to Q5 and Q6 estimation.
+  - **M9 V0 substrate-source-of-record:** cascade-132 PATH_B Option alpha 3/3 chain = `887981b` + `45e236c` + `b9aa881`; relevant to Q5(a) cross-axis dependency check.
+  - **Cascade-132 operative substrate:** `fd669d3` (RULE 1 lift documented-commitment precedent at sec 5); referenced by slot 144 verdict Q2 audit-trail risk.
+  - **Repo-memory citations relevant to this consultation:**
+    - `prompt drafting discipline` (path-inventory pre-verification + supersession-gate Phase 0 STEP 0.1-0.6)
+    - `substrate verification` (SHA pre-verify; line-number pre-verify if synth quotes specific lines from triage outputs)
+    - `dual-witness M-axis cascade` (LABEL + BAND aggregation rules; n=3 cascades 123 / 127R / 130R)
+    - `agent terminal limitations` (agent-cannot-run-`lake build`; relevant to UF-141C-1 staleness handling and Q6(b) reproducibility check)
+
+---
+
+## sec 6 -- OPERATOR-SIDE CONTEXT (read-only; do not edit)
+
+### 6.1 -- RULE 1 directive verbatim (operator-supplied 2026-05-09 ~11:17 JST)
+
+  > "HOLD -- rule 1; table everything that is not a hard requirement to complete M1-M12 (zenodo, endorsement should all be tabled)"
+
+### 6.2 -- RULE 1 reaffirmation verbatim (operator-supplied 2026-05-10 ~10:24 JST)
+
+  > "rule1. table everything that does not contribute to closing M1-M12 for now (endorsements, zenodo etc).
+  > now provide high-level roadmap to M1-M12 full closure"
+
+### 6.3 -- Operator-prompted scope frame for this consultation (verbatim 2026-05-10 ~11:45 JST)
+
+  > "suggest next prompt to execute"
+
+CLI agent's interpretation of the scope frame: with 141C just landed (`2e36e0f`) and slot 144 amendments absorbed (POST_SYNTH_REVIEW outlook `c171016`), the highest-leverage agent fire that stays within RULE 1 scope and advances the sole open math axis is a synth-tier review of the 141C triage outputs; this directly mitigates Risk R2 (iteration overrun beyond 6-10 estimate). Slot 145 (substrate-prep) is gated on operator-side Phase C.3; slot 142 (RULE 1 lift) is gated on operator commitment-paragraph fill. Slot 143 fits the gap.
+
+### 6.4 -- T2-Executor exclusion boundary (slot 144 Change 2 verbatim)
+
+  > "All triage output must be machine-readable JSON tuples of form (blocker_id, location, error_class, fix_vector_candidates[]) in addition to prose narrative. EXPLICIT EXCLUSION: agent must NOT generate sorry-discharge candidate proofs; classify-and-route to Mathlib lemma families only. Confidence claim downgraded from HIGH to MEDIUM-HIGH given Lean-4 specificity and read-only access model."
+
+Slot 143 lifts the exclusion at synth tier per sec 0.5 reasoning; verdict-tier scrutiny (DEFER / OBJECT / amendment-list) is the operative safeguard. Operator-side verification before commit closes the loop.
+
+---
+
+## sec 7 -- BRIDGE DEPOSIT CONVENTIONS (synth executor)
+
+After verdict is authored (sec 3 format), deposit to bridge per STANDING FINAL STEP B1-B5:
+
+  - **Bridge folder:** `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143/`
+  - **Mandatory deliverables:**
+    - `handoff.md` (STANDING FINAL STEP B3 template)
+    - `discharge_plan_verdict.md` (the structured sec 3 output)
+    - `synth_verdicts_raw.txt` (Q1-Q6 raw verbatim verdict)
+    - `cascade_record.md` (n=1 single-witness or n>=2 multi-witness; LABEL + BAND aggregation if multi-witness)
+    - `lemma_family_recommendations.json` (Q3 + Q4 sec 3.5 format; consolidated)
+    - `claims.jsonl` (audit-tier meta-claims)
+    - `discrepancy_log.json` (any D-143-N anomalies surfaced)
+    - `unexpected_finds.json` (any UF-143-N surfaced; `candidate_memory_status` for each)
+    - `halt_log.json` (`{}` if no halts)
+  - **Commit message format:** `T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143 -- {LABEL}; {BAND}; {one-line takeaway}`
+  - **Co-authored-by trailer:** `Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>` (per repo standing instructions)
+
+---
+
+## sec 8 -- CLOSING NOTES
+
+This is an **operational-tier consultation** on the M10 V0 discharge plan. Synth's job is to evaluate the 141C triage classifications + provide concrete Mathlib lemma family routing for B3-B5 and proof-shape strategy for S1 / S2, without crossing into fabricated-math territory (sec 0.5).
+
+If LABEL = `ENDORSE_AS_AUTHORED`, CLI agent will absorb the verdict into a successor outlook only if material new information is surfaced; otherwise the verdict serves as substrate for operator's iteration-14+ work directly.
+
+If LABEL = `ENDORSE_WITH_AMENDMENTS` / `RECOMMEND_REVISION`, CLI agent will cut a successor outlook (`M1_M12_CLOSURE_OUTLOOK_20260510_POST_DISCHARGE_PLAN.md`) absorbing the structured changes, mirror the slot 144 absorption pattern, and update slot 141C triage outputs (or supersede with 141D-class re-triage) as needed before slot 145 fires.
+
+CLI agent will not interpret missing answers as endorsement. If synth omits an answer to any of Q1-Q6, CLI agent will halt deposit absorption and request clarification.
+
+Stays within RULE 1: this consultation is purely M10 axis math content; no admin / Zenodo / endorsement scope. Synth must self-correct any drift per sec 0.3.
+
+*End of T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143 prompt. ASCII-only modulo project-convention section markers; FV-disciplined; SHA pre-verified at fire time 2026-05-10 ~11:47 JST.*
