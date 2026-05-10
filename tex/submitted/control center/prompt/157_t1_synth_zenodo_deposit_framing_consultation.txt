@@ -1,0 +1,485 @@
+================================================================================
+T1-SYNTH-ZENODO-DEPOSIT-FRAMING-CONSULTATION-157
+T1-Synth strategic consultation: how to frame M1-M12 closure as Zenodo deposit(s)
+================================================================================
+Drafted: 2026-05-10 ~18:35 JST
+Drafter: GitHub Copilot CLI (claude-opus-4.7-xhigh)
+Class:   single-witness strategic; MEDIUM-HIGH self-assessed band ceiling;
+         dual-witness escalation if synth recommends superseding cascade-132
+         Option α (HIGH-impact governance change) or HIGH self-assessment
+
+Slot ID: 157
+Task ID: T1-SYNTH-ZENODO-DEPOSIT-FRAMING-CONSULTATION-157
+Bridge folder: sessions/2026-05-10/T1-SYNTH-ZENODO-DEPOSIT-FRAMING-CONSULTATION-157/
+
+RULE 1 SCOPE NOTE: this consultation discusses Zenodo deposit STRATEGY. RULE 1
+(operator-supplied 2026-05-09 ~11:17 JST) tables Zenodo DEPOSITS until M1-M12
+math closure complete. STRATEGY consultation is META work that can fire under
+RULE 1 because (a) no deposit is made, (b) no admin window opens, (c) the
+output is advisory substrate that informs the post-lift cascade. Operator may
+defer fire until just-before-lift if preferred; consultation is fire-eligible
+under RULE 1 by interpretation, not blocking.
+
+RECONSIDERATION NOTE: cascade-132 sec 3.1 Option α (the operative substrate
+fd669d3) selected a 3-step deposit cascade {PCF-2 v1.4, Umbrella v2.2,
+Picture-chain v1.20+} as the M1-M12 closure deposit framing. This consultation
+EXPLICITLY RECONSIDERS that decision in light of: (a) S153 quad-witness
+CONFIRM_CLOSURE landing 4761392 (Option α was ratified BEFORE S153 fired),
+(b) S154 quad-witness ACTION_LADDER landing 26d7bf5 (D-154-1 picture-chain
+disposition flagged as unresolved), (c) full M-axis V0 closure series complete
+with new deposit-relevant material (M8b V0 carry-forwards at 74c5630).
+Synth output may RATIFY Option α (no change), recommend AMENDMENT (revised
+framing within cascade-132 spirit), or recommend SUPERSESSION (replace
+Option α with a different framing entirely — HIGH-impact, dual-witness
+escalation required).
+
+================================================================================
+SECTION 0 -- PHASE 0 SUPERSESSION + SHA VERIFICATION GATE (mandatory)
+================================================================================
+
+STEP 0.1 -- supersession check (per "prompt drafting discipline" memory).
+  Search siarc-relay-bridge sessions/ for any prior LANDED fire with task
+  scope "Zenodo deposit framing" or "M1-M12 deposit packaging strategy"
+  or "consolidated vs split Zenodo upload". Expected result: NO PRIOR
+  LANDED FIRE on this strategic-framing scope (cascade-132 fd669d3 was
+  the original framing decision but did not consult-out the meta question
+  of whether 3-step is optimal vs 1-paper / N-paper / community framings).
+  S153 4761392 confirmed CLOSURE; S154 26d7bf5 recommended ACTION LADDER
+  but did NOT reconsider deposit framing. Slot 155 PRESUPPOSES Option α
+  3-deposit framing (operator chooses TARGET_PAPER from 3 options).
+  Slot 156 is independent (math content, not framing).
+  If a prior LANDED framing-reconsideration fire exists, halt with
+  HALT_157_SUPERSEDED and scope this fire as residual-discharge instead.
+
+STEP 0.2 -- precondition check.
+  Required state at fire time:
+    (a) cascade-132 sec 3.1 Option α decision substrate landed at fd669d3
+                                                              [LANDED]
+    (b) Substrate-prep for all 3 Option α targets landed:
+        - slot 137 PCF-2 v1.4    bridge 45e236c               [LANDED]
+        - slot 135 Umbrella v2.2 bridge 887981b               [LANDED]
+        - slot 136 Picture v1.20+ bridge b9aa881              [LANDED]
+    (c) S153 quad-witness CONFIRM_CLOSURE landed at 4761392   [LANDED]
+    (d) S154 quad-witness ACTION_LADDER landed at 26d7bf5     [LANDED]
+        (D-154-1 picture-chain disposition unresolved at S154 fire time;
+         this consultation is one route to its resolution)
+    (e) RULE 1 lift status: NOT REQUIRED for fire (consultation is
+        advisory; no deposit is created)
+  If (a)-(d) is missing, HALT_157_PRECONDITION_NOT_MET.
+
+STEP 0.3 -- SHA pre-verification (per "substrate verification" memory).
+  Verify all cited bridge SHAs exist via `git rev-parse --verify <SHA>^{commit}`.
+  All SHAs verified at draft time (2026-05-10 ~18:30 JST):
+
+    | Reference                                | SHA       | Status |
+    |------------------------------------------|-----------|--------|
+    | Cascade-132 PATH_B Option α              | fd669d3   | LANDED |
+    | Slot 135 Umbrella v2.2 substrate-prep    | 887981b   | LANDED |
+    | Slot 136 Picture v1.20+ substrate-prep   | b9aa881   | LANDED |
+    | Slot 137 PCF-2 v1.4 substrate-prep       | 45e236c   | LANDED |
+    | OP-DP0 evidence packet (RULE 1 lift)     | c7c0562   | LANDED |
+    | OP-A2 fleet.yaml flip                    | 7786a67   | LANDED |
+    | M4 V0 cascade (106)                      | 5f9db69   | LANDED |
+    | M7 V0 cascade (123)                      | 7f93b9e   | LANDED |
+    | M8a V0 cascade (127R)                    | cb429e1   | LANDED |
+    | M8b V0 cascade (130R)                    | 74c5630   | LANDED |
+    | S153 quad-witness CONFIRM_CLOSURE        | 4761392   | LANDED |
+    | S154 quad-witness ACTION_LADDER          | 26d7bf5   | LANDED |
+
+STEP 0.4 -- fire-time witness self-assessment.
+  Synth must self-assess band before generating verdict. Ceiling = MEDIUM-HIGH.
+  This is a STRATEGIC consultation; the synth is asked to recommend a
+  framing. HIGH band requires:
+    - novel structural recommendation (not enumerated below), OR
+    - SUPERSEDE recommendation (replacing cascade-132 Option α with a
+      different framing) -- in which case dual-witness escalation is
+      strongly recommended
+  Halt with HALT_157_BAND_CEILING_EXCEEDED if HIGH self-assessed.
+
+STEP 0.5 -- output schema reminder.
+  Verdict must include: LABEL + BAND + WITNESS line + Q1-Q5 responses +
+  AMENDMENTS + ANOMALIES + ABSORPTION_GUIDANCE + ONE-LINE TAKEAWAY.
+
+  LABEL family for this fire:
+    - FRAMING_RATIFY                   (Option α stands; minor amendments OK)
+    - FRAMING_AMEND                    (Option α stands but with material amendments)
+    - FRAMING_SUPERSEDE                (replace Option α; dual-witness recommended)
+    - DEFER                            (premature; needs more substrate)
+    - OBJECT                           (the framing question is malformed)
+
+STEP 0.6 -- fire-eligibility checklist (operator pre-fire only).
+  [ ] STEP 0.1 supersession check passed
+  [ ] STEP 0.2 precondition check passed
+  [ ] STEP 0.3 SHA pre-verification: all 12 SHAs PASS
+  [ ] STEP 0.4 ceiling reminder communicated to synth
+  [ ] STEP 0.5 schema reminder included
+
+================================================================================
+SECTION 1 -- BACKGROUND
+================================================================================
+
+## 1.1 RULE 1 (operator-supplied 2026-05-09 ~11:17 JST; verbatim)
+
+> "HOLD -- rule 1; table everything that is not a hard requirement to complete
+>  M1-M12 (zenodo, endorsement should all be tabled)"
+
+## 1.2 The cascade-132 Option α decision (operative substrate fd669d3)
+
+Cascade-132 PATH_B sec 3.1 Option α is a THREE-STEP Zenodo deposit cascade:
+
+  step 1: PCF-2 v1.4         (substrate-prep slot 137; bridge 45e236c)
+  step 2: Umbrella v2.2      (substrate-prep slot 135; bridge 887981b)
+  step 3: Picture-chain v1.20+ (substrate-prep slot 136; bridge b9aa881)
+
+Each step produces an independent Zenodo deposit with its own concept-DOI and
+version-DOI. Cross-linking via IsSupplementTo / IsContinuedBy / IsSupplementedBy
+graph metadata.
+
+This decision was made BEFORE:
+  - S153 quad-witness CONFIRM_CLOSURE (2026-05-10 ~16:45 JST; bridge 4761392)
+  - S154 quad-witness ACTION_LADDER     (2026-05-10 ~18:00 JST; bridge 26d7bf5)
+  - Picture-chain v1.19 milestone deposit (already on bridge: 70d1a48)
+
+## 1.3 Current artefact inventory (factual file-system state 2026-05-10 ~18:30 JST)
+
+### 1.3.1 PCF-2 v1.4 deposit target (`pcf-research/pcf2/release_v12_2026-05-01/`)
+
+  - pcf2_program_statement.tex / .pdf       (BAKED MANUSCRIPT; ready)
+  - zenodo_description_v1.2.txt              (Zenodo description; bumps to v1.4)
+  - zenodo_notes_v1.2.txt                    (curator notes; bumps to v1.4)
+  - submission_log_patch_item15.txt          (cross-link discipline)
+  - claims.jsonl + halt_log.json + unexpected_finds.json + discrepancy_log.json
+  - rubber_duck_critique.md
+  - handoff.md (slot 137 §6 substantive integration)
+
+  Status: substantive manuscript exists; v1.2 → v1.4 diff is M7 §6 amendment +
+  S153 closure-narrative wrapping. Highest deposit-readiness of the three.
+
+### 1.3.2 Umbrella v2.2 deposit target (`tex/submitted/umbrella_program_paper/`)
+
+  - umbrella_v22.tex / .pdf                  (COMPILED MANUSCRIPT; ready)
+  - umbrella_v21.tex / .pdf                  (baseline)
+  - b_amendment_v22.diff                     (v2.1 → v2.2 amendment diff)
+  - main_v20_baseline.tex.bak                (v2.0 archive)
+  - siarc_portfolio_map.png                  (figure asset)
+
+  Status: v2.2 fully compiled; assembled 2026-05-09 ~19:43 (per work-done
+  notes in prior session). Second-highest deposit-readiness.
+
+### 1.3.3 Picture-chain v1.20+ deposit target (`tex/submitted/control center/picture/`)
+
+  - M1_M12_CLOSURE_OUTLOOK_20260509.md         (closure outlook; markdown)
+  - M1_M12_CLOSURE_OUTLOOK_20260509_RULE1.md   (RULE 1 variant)
+  - M1_M12_CLOSURE_OUTLOOK_20260510.md         (current outlook)
+  - M1_M12_CLOSURE_OUTLOOK_20260510_PATH_B_COMPLETE.md
+  - M1_M12_CLOSURE_OUTLOOK_20260510_POST_DISCHARGE_PLAN.md
+  - M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md
+  - M1_M12_CLOSURE_OUTLOOK_20260510_POST_OPEN_ITEMS.md
+  - M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md
+  - M1_M12_CLOSURE_ROADMAP_PROMPT_SERIES_20260510.md
+  - M1_M12_OPERATOR_RUNBOOK_20260510.md
+  - m10_documented_commitment.md
+  - RESUME_NEW_CLI_*.txt                       (operator session-bootstrap docs)
+
+  Status: NO BAKED MANUSCRIPT. 8 markdown outlook documents + operator runbook
+  + M10 commitment paragraph. The "deposit" would require either:
+    (a) writing a new .tex/.pdf manuscript synthesising the outlook series, OR
+    (b) packaging the markdown documents as a Zenodo "documentation" deposit,
+        OR
+    (c) declining the standalone deposit and folding contents into Umbrella
+        v2.2 (per S154 D-154-1 alternative).
+  Lowest deposit-readiness; highest framing ambiguity. D-154-1 unresolved.
+
+## 1.4 Pre-existing Zenodo deposits (concept-DOI inventory)
+
+  PCF-1 v1.3        concept-DOI 10.5281/zenodo.19931635   version 19937196
+  PCF-2 v1.3        concept-DOI 10.5281/zenodo.19936297   version 19963298
+  Picture v1.19     concept-DOI TBD (operator verifies)   bridge 70d1a48 milestone
+
+(IsSupplementTo cross-links MUST target concept-DOI not version-DOI per
+"substrate verification" memory.)
+
+## 1.5 What "M1-M12 closure" deposit needs to convey
+
+Closure narrative substrate (from S153 cascade_record.md at bridge 4761392):
+
+  - 8 axes closed/absorbed: M2 / M3 / M4 / M5 / M6.CC / M7 / M8a / M8b
+  - 1 V0 substrate-source-of-record CLOSED: M9
+  - 1 deferred-with-documented-commitment: M10 (status report 2026-08-02)
+  - 3 admin-only TABLED post-lift: M1 / M11 / M12
+
+Highest-risk axis (S154 Q4a, 3/4 witnesses): M8b -- d≥3 caveat preservation
+required in any deposit metadata + venue cover letter + reproduction checklist.
+
+D-153-3 governance discipline: tooling-state vs math-content distinction
+must be preserved in any post-lift artefact discussing M10. SAFE phrasings
+treat M10 as Lean-formalization-state work-stream; UNSAFE phrasings re-
+characterize M10 as a math-content closure claim.
+
+================================================================================
+SECTION 2 -- RESEARCH QUESTIONS (Q1-Q5)
+================================================================================
+
+## Q1. Is the cascade-132 Option α 3-deposit framing optimal as-is?
+
+Q1a. Given the current artefact state (§1.3) and the closure narrative
+     substrate (§1.5), is the existing 3-deposit framing {PCF-2 v1.4,
+     Umbrella v2.2, Picture-chain v1.20+} the right packaging for
+     M1-M12 closure dissemination? Argue both for and against.
+
+Q1b. Does the picture-chain target's lack of a baked manuscript (§1.3.3)
+     argue for or against keeping it as an independent deposit?
+
+Q1c. Does the existence of two pre-existing Zenodo concept-DOIs (PCF-1
+     19931635, PCF-2 19936297) argue for keeping the PCF-2 v1.4 deposit
+     as a version increment of the existing PCF-2 concept-DOI (vs
+     subsuming PCF-2 into a new consolidated deposit which would
+     orphan the existing concept-DOI lineage)?
+
+## Q2. Enumerate alternative framings (A through G+)
+
+For each framing below, the synth should specify: (i) deposit count;
+(ii) per-deposit content scope; (iii) cross-link graph; (iv) which
+existing artefacts are reused vs new; (v) rough effort multiplier
+relative to Option α; (vi) discoverability vs citation-friction profile.
+
+Q2a. **Framing A -- Consolidated single manuscript (1 deposit)**
+     A new META-PAPER absorbing PCF-2 v1.4 + Umbrella v2.2 + Picture-chain
+     content into a single document, deposited as one Zenodo upload. This
+     creates a fresh concept-DOI; existing PCF-2 concept-DOI (19936297)
+     becomes IsSupersededBy or IsContinuedBy the new one.
+     - Tradeoff: maximum coherence, but huge composition effort + orphans
+       existing concept-DOI lineage.
+     - Lifts D-154-1 picture-chain disposition.
+
+Q2b. **Framing B -- Cascade-132 Option α (3 deposits; status quo)**
+     Reaffirm the existing 3-step cascade.
+     - Tradeoff: lowest effort (artefacts mostly exist), but picture-chain
+       composition gap remains.
+
+Q2c. **Framing C -- Two-deposit framing (drop or fold picture-chain)**
+     Deposit PCF-2 v1.4 + Umbrella v2.2 only; fold picture-chain
+     content into Umbrella v2.2 as an appendix or supplementary
+     section (D-154-1 resolution path).
+     - Tradeoff: removes picture-chain composition gap; reduces
+       deposit count to 2; preserves PCF-2 concept-DOI lineage.
+
+Q2d. **Framing D -- Tiered framing (anchor + supplements)**
+     One ANCHOR deposit (e.g., a new M1-M12 closure narrative paper)
+     + N supporting SUPPLEMENT deposits for individual program
+     papers (PCF-2 v1.4, Umbrella v2.2). Cross-link via
+     IsSupplementTo + IsSupplementedBy.
+     - Tradeoff: high coherence + preserves individual paper identity;
+       adds the anchor-paper composition cost on top of existing work.
+
+Q2e. **Framing E -- Zenodo Community + per-deposit records**
+     Create a Zenodo Community (e.g., "SIARC" or "Polynomial Continued
+     Fractions Program"); deposit PCF-2 v1.4 + Umbrella v2.2 +
+     Picture-chain (or A/C/D variant) into the community. Community
+     landing page becomes the program-level entry point.
+     - Tradeoff: adds program-level discoverability + future-deposit
+       continuity; requires community admin overhead.
+
+Q2f. **Framing F -- Atomic-axis framing (N≥4 deposits, one per axis)**
+     Per-axis Zenodo records: M4 V0, M7 V0, M8a V0, M8b V0, M9 V0
+     each as independent deposits. Plus PCF-2 v1.4 + Umbrella v2.2
+     as program-level anchors.
+     - Tradeoff: maximum auditability per-axis; increases deposit
+       count and cross-link complexity; overlaps with existing
+       artefacts (each axis already has a bridge cascade record).
+
+Q2g. **Framing G -- arXiv-first then Zenodo**
+     Submit a consolidated paper to arXiv first (M11 endorsement
+     workflow); use the arXiv ID as the canonical reference; deposit
+     to Zenodo subsequently for archival permanence + supplementary
+     materials.
+     - Tradeoff: arXiv visibility >> Zenodo visibility, but arXiv
+       endorsement is gated (M11 axis); RULE 1 currently tables M11.
+
+Q2h. **Framing H -- a framing the synth identifies that we have NOT
+     enumerated above** (e.g., journal submission as primary +
+     Zenodo as supplementary; bibliographic-record-only deposits;
+     etc.).
+
+## Q3. Tradeoff analysis matrix
+
+For the candidate framings A-H, produce a tradeoff analysis matrix
+scoring each on:
+
+  - **Discoverability**:        program-level visibility on Zenodo
+  - **Citation friction**:      ease of citing "the program" vs "an axis"
+  - **Composition workload**:   effort relative to Option α baseline (=1)
+  - **Versioning flexibility**: ease of versioning per-axis post-deposit
+  - **Audit-trail clarity**:    per-axis traceability to bridge SHAs
+  - **Existing-artefact reuse**: % of current §1.3 artefacts reused
+  - **Concept-DOI lineage preservation**: do existing PCF-1 / PCF-2
+    concept-DOIs remain canonical?
+  - **D-154-1 resolution**:     does the framing settle picture-chain disposition?
+
+Score each axis qualitatively (LOW / MEDIUM / HIGH) or with brief
+justification. Highlight any framing that PARETO-DOMINATES Option α.
+
+## Q4. Recommended framing + migration path
+
+Q4a. Which framing does the synth RECOMMEND? Cite the specific axes
+     where it Pareto-dominates Option α (or argue acceptably-
+     dominated tradeoffs).
+
+Q4b. If the recommendation is FRAMING_AMEND (Option α stands but
+     with material amendments), specify the amendments precisely
+     (e.g., "drop step 3 picture-chain; fold into step 2 umbrella
+     as Appendix C").
+
+Q4c. If the recommendation is FRAMING_SUPERSEDE (replace Option α),
+     specify: (i) new framing label A-H; (ii) migration path from
+     current substrate-prep state; (iii) which existing artefacts
+     are repurposed vs deprecated; (iv) which substrate-prep slot
+     work (135 / 136 / 137) is preserved vs superseded.
+
+Q4d. What is the EXPECTED EFFORT (order of magnitude) of the
+     recommended framing relative to Option α baseline (=1.0×)?
+
+Q4e. What is the recommended FIRST DEPOSIT in the new ordering?
+
+## Q5. Implications for downstream prompts and decisions
+
+Q5a. Slot 155 (Zenodo paper-draft consultation) presupposes Option α
+     3-deposit framing via TARGET_PAPER selection from {PCF-2 v1.4,
+     Umbrella v2.2, Picture-chain v1.20+}. If the synth recommends
+     a non-α framing, what should slot 155 do? Options:
+       (i) Re-purpose with adjusted TARGET_PAPER list
+       (ii) Deprecate; replace with new content-generation prompt
+       (iii) Keep but fire selectively
+       (iv) Other
+
+Q5b. Slot 156 (M8b complete-closeout pathway consultation) is
+     framing-independent (math content). Confirm that slot 156
+     stands regardless of framing recommendation. (Sanity check.)
+
+Q5c. D-154-1 (picture-chain disposition; flagged at S154 26d7bf5):
+     does the recommended framing RESOLVE D-154-1 directly, or
+     does D-154-1 remain a separate operator decision?
+
+Q5d. Per S154 Q4a unanimous identification of M8b as highest math-axis
+     risk, the recommended framing must support M8b d≥3 caveat
+     preservation in deposit metadata + venue cover letter +
+     reproduction checklist. Does the recommended framing satisfy
+     this constraint by construction?
+
+Q5e. Per D-153-3 (tooling-state vs math-content distinction; M10
+     framing discipline), the recommended framing must support
+     M10 SAFE phrasings (Lean-formalization-state work-stream).
+     Does the recommended framing satisfy this constraint by
+     construction?
+
+Q5f. Implication for cascade-132 sec 3.1 substrate (fd669d3): if
+     synth recommends supersession, does cascade-132 require an
+     amendment fire (analogous to umbrella v2.1 → v2.2 amendment
+     pattern), or does the framing-supersession verdict itself
+     supersede cascade-132 sec 3.1?
+
+================================================================================
+SECTION 3 -- OUTPUT FORMAT (mandatory schema)
+================================================================================
+
+Witness must produce a verdict packet matching this schema:
+
+    LABEL:    [FRAMING_RATIFY | FRAMING_AMEND | FRAMING_SUPERSEDE |
+               DEFER | OBJECT]
+    BAND:     [LOW | LOW-MEDIUM | MEDIUM | MEDIUM-HIGH]
+              (HIGH ceiling-violation; halt with HALT_157_BAND_CEILING_EXCEEDED)
+    WITNESS:  single-witness <model-name>-<provider>-<YYYY-MM-DD>
+
+    ### Q1_RESPONSE -- Is Option α optimal?
+        (Q1a-Q1c)
+
+    ### Q2_RESPONSE -- Alternative framings
+        (Q2a-Q2h, with structured table per framing:
+         deposit-count | scope | cross-links | reuse | effort | profile)
+
+    ### Q3_RESPONSE -- Tradeoff analysis matrix
+        (8 rows × 8+ framings, plus PARETO-DOMINATION call-outs)
+
+    ### Q4_RESPONSE -- Recommendation + migration path
+        (Q4a-Q4e with concrete deliverables)
+
+    ### Q5_RESPONSE -- Downstream implications
+        (Q5a-Q5f with explicit slot 155 / slot 156 / D-154-1 directives)
+
+    ### AMENDMENTS
+        (any amendments to the artefact inventory §1.3, the framing
+         enumeration §Q2, or the tradeoff axes §Q3)
+
+    ### ANOMALIES
+        (anything unexpected, uncertain, or that should be reviewed by
+         operator before agent-fireable next-step)
+
+    ### ABSORPTION_GUIDANCE
+        (CLI agent absorption recommendations: SQL todo updates, follow-up
+         fires, candidate memory promotions, slot 155 disposition,
+         D-154-1 disposition)
+
+    ### ONE-LINE TAKEAWAY
+
+================================================================================
+SECTION 4 -- AGGREGATION RULE (if dual/quad-witness)
+================================================================================
+
+If this consultation is fired as dual-witness (recommended for
+FRAMING_SUPERSEDE) or quad-witness, aggregate per cascade-123-§3.2-
+extended-to-n>=2 (general rule per UF-154-1 candidate memory promotion
+at bridge `26d7bf5`):
+
+    LABEL ordering (most-conservative wins):
+        FRAMING_RATIFY ⊏ FRAMING_AMEND ⊏ FRAMING_SUPERSEDE ⊏ DEFER ⊏ OBJECT
+
+    BAND ordering (most-conservative wins):
+        LOW ⊏ LOW-MEDIUM ⊏ MEDIUM ⊏ MEDIUM-HIGH
+
+Note: FRAMING_SUPERSEDE is more conservative than FRAMING_AMEND in this
+lattice because supersession is a HIGHER-IMPACT change (replaces the
+Option α decision) and thus is the more-cautious-against-silent-inheritance
+position. If reviewers split RATIFY vs SUPERSEDE, aggregate to SUPERSEDE
+and require dual-witness escalation to confirm.
+
+================================================================================
+SECTION 5 -- DEPOSIT EXPECTATION
+================================================================================
+
+Bridge folder to be created post-fire:
+  sessions/2026-05-10/T1-SYNTH-ZENODO-DEPOSIT-FRAMING-CONSULTATION-157/
+
+Required deliverables (per Standing Final Step B1):
+  - verdict.md (or verdict_witness_N_<provider>.md if multi-witness)
+  - cascade_record.md (if multi-witness; aggregation logic per Section 4)
+  - claims.jsonl (~10-15 audit-tier AEAL entries)
+  - discrepancy_log.json
+  - halt_log.json (= {} if no halt)
+  - unexpected_finds.json
+  - handoff.md (per B3)
+  - tradeoff_matrix.md or .csv (Q3 output, structured)
+  - migration_plan.md (only if FRAMING_AMEND or FRAMING_SUPERSEDE)
+
+================================================================================
+SECTION 6 -- CITATION INVENTORY (full 40-char SHAs; pre-verified)
+================================================================================
+
+  fd669d347967db2e854f8e9d3725f625bf9fbc2a   Cascade-132 PATH_B Option α
+  887981bf51860550a05ff949f0145c1687623689   Slot 135 Umbrella v2.2 substrate-prep
+  b9aa881c53566926390d6f48c2b8a10243c67267   Slot 136 Picture v1.20+ substrate-prep
+  45e236c2d3f3ff690ede65762cfbfae482cd7560   Slot 137 PCF-2 v1.4 substrate-prep
+  c7c05624572c972dd9418320ac57f1154702d0eb   OP-DP0 evidence packet
+  7786a675122dd6eeacf779ac129a6946817635d4   OP-A2 fleet.yaml flip
+  5f9db69c754c410b79091cbd84e6d79b63d10b6e   M4 V0 cascade (106)
+  7f93b9e4d624fdfca62f5d85393b4ead35cea751   M7 V0 cascade (123)
+  cb429e1acba91ba47d1426950d924800a0b02a07   M8a V0 cascade (127R)
+  74c563022d3a2df0a4bea0088f4793170a1e64d3   M8b V0 cascade (130R)
+  47613929c2b84ea122bbc134ffa45b792c072f45   S153 quad-witness CONFIRM_CLOSURE
+  26d7bf56410e9b31cdf2899311024413cae14de5   S154 quad-witness ACTION_LADDER
+
+All SHAs verified via `git rev-parse --verify <abbrev>^{commit}` against
+siarc-relay-bridge clone at draft time (2026-05-10 ~18:35 JST).
+
+================================================================================
+END OF PROMPT
+================================================================================
