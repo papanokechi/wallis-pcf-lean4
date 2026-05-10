@@ -12,7 +12,14 @@
 
 Slot 161 (`T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161`, bridge `8906519`) executed the first application of slot 160 schema v1 against PCF-2 v1.4. Slot 162 executes the analogous amendment-overlay against the Umbrella v2.2 description block (slot 135 substrate at bridge `887981b`).
 
-**However**, during slot 162 pre-flight a substantive substrate-DOI drift was discovered (see §2.4 below): the umbrella v2.2 baseline cites umbrella concept-DOI = `10.5281/zenodo.19885550`, but doi.org ground-truth resolution shows that DOI is actually the umbrella **v1.0** concept-DOI; the correct **v2 lineage** concept-DOI is `10.5281/zenodo.19885549`. The operator deliberately deposited v2.0 as a NEW Zenodo record with its own concept (`19885549`) rather than as a new version of v1, as documented in the v2.0 description body itself ("v1 (April 2026, concept DOI 10.5281/zenodo.19885550) anchored the program in PSL_2(Z)..."). The error has propagated across multiple LANDED bridge artefacts (slot 116, 133, 135, 137, 160, 161). Slot 116 (2026-05-09) flagged the drift as `DISCREPANCY-116-CONCEPT-DOI` INFO but reasoned biased toward tex-source `19885550` — it picked the wrong fork.
+**However**, during slot 162 pre-flight a substantive substrate-DOI drift was discovered (see §2.4 below), and the operator subsequently provided ground-truth evidence from the Zenodo native version-listing UI sidebar (paste 2026-05-10 ~22:43 JST). The umbrella program is a **single Zenodo concept** (concept-DOI `10.5281/zenodo.19885549` = the "Cite all versions" / latest-resolving DOI) with two published versions:
+
+- **v1.0** (Apr 29, 2026): version-DOI `10.5281/zenodo.19885550`
+- **v2.0** (May 2, 2026): version-DOI `10.5281/zenodo.19965041`
+
+The contamination class is a **version-vs-concept misclassification**: 5+ LANDED bridge artefacts cite `19885550` and label it "concept DOI", but `19885550` is actually v1.0's **version-DOI** (within the umbrella concept `19885549`). The actual concept-DOI was never `19885550`; the source-of-truth Zenodo "Cite all versions" line is `19885549`. Even the v2.0 record's own description body perpetuates the misclassification (cites `19885550` as "concept DOI" of v1; this is wrong — `19885550` is v1's version-DOI).
+
+The error has propagated across multiple LANDED bridge artefacts (slot 116, 133, 135, 137, 160, 161). Slot 116 (2026-05-09) flagged the discrepancy between picture.md cross-walks (`19885549`, the actual concept) and tex-source (`19885550`, mislabeled) but resolved the wrong way — picked the tex-source value as canonical.
 
 Slot 162 corrects the umbrella concept-DOI in the Umbrella v2.2 description block (using the **doi.org-verified** value `19885549`) AND deposits a new audit artefact `DOI_CORRECTION_AUDIT.md` enumerating the propagation scope so that future slots 163+ (e.g., schema-v1 amendment-overlay; slot 161 amended block correction) can act on the audit with full evidence in hand. **LANDED bridge artefacts are NOT modified** (immutability preserved); the correction lives in slot 162's deposit only.
 
@@ -64,17 +71,18 @@ Also pre-resolve M-axis V0 closure cascade SHAs (cited inline in axis-coverage t
 | `10.5281/zenodo.19936297` | PCF-2 | ✅ doi.org → PCF-2 concept |
 | `10.5281/zenodo.19941678` | Channel Theory | ✅ doi.org → CT concept |
 | `10.5281/zenodo.19996689` | D2-NOTE | (cited only in axis-coverage table for M1; not in Layer 1) |
-| **`10.5281/zenodo.19885549`** | **Umbrella (v2 lineage)** | ✅ **doi.org → Umbrella v2.0 published 2026-05-02; CORRECTED from baseline's `19885550`** |
+| **`10.5281/zenodo.19885549`** | **Umbrella (concept-DOI; "Cite all versions")** | ✅ **Zenodo sidebar 2026-05-10: concept-DOI represents all versions, resolves to latest; CORRECTED from baseline's `19885550` (which is actually v1.0 version-DOI)** |
 | `10.5281/zenodo.19783311` | T2B | ✅ doi.org → T2B v3.0 (concept; redirects to latest version) |
 | `10.5281/zenodo.19965041` | Umbrella v2.0 (version-DOI; for `IsNewVersionOf` exception per schema v1 §Q1c) | ✅ doi.org → Umbrella v2.0 |
 | `(picture-chain v1.20+ concept)` | Picture-chain | TO_BE_RESOLVED at deposit time (slot 136 has not yet completed Zenodo deposit; placeholder retained per slot 116 J2 sidebar precedent) |
 
 **Anti-DOIs (do NOT use these in amended block):**
-- `10.5281/zenodo.19885550` — umbrella v1.0 concept-DOI (different lineage; appears in baseline + several LANDED artefacts in error)
+- `10.5281/zenodo.19885550` — umbrella **v1.0 version-DOI** (NOT a concept; lives within umbrella concept `19885549`; mislabeled as "concept DOI" in baseline + several LANDED artefacts)
 - `10.5281/zenodo.19937196` — PCF-1 v1.3 version-DOI (NOT concept; baseline has this in IsSupplementTo row by error)
 - `10.5281/zenodo.19963298` — PCF-2 v1.3 version-DOI (NOT concept; baseline has this in IsSupplementTo row by error)
 - `10.5281/zenodo.19951331` — CT v1.2 version-DOI (NOT concept; baseline has this in IsSupplementTo row by error)
 - `10.5281/zenodo.19915689` — T2B v3.0 version-DOI (NOT concept; baseline has this in IsSupplementTo row by error)
+- `10.5281/zenodo.19801038` — T2B v2.0 version-DOI (NOT concept; previously-unknown intermediate version; cited only for completeness — not currently in any LANDED artefact)
 - `10.5281/zenodo.19783312` — T2B v1.0 version-DOI (NOT concept; mislabeled "concept DOI" in picture.md cross-walk by error)
 
 ### STEP 0.4 — doi.org pre-resolve mandate (NEW IN SLOT 162; generalizes slot 116 lesson)
@@ -130,7 +138,7 @@ The baseline is slot 135 `zenodo_v22_description_block.md` at bridge SHA `887981
 ```
 | Relation            | Identifier                                                          | Description                                                  |
 |---------------------|---------------------------------------------------------------------|--------------------------------------------------------------|
-| `IsNewVersionOf`    | `10.5281/zenodo.19885550` (concept DOI)                            | umbrella v1 / v2.0 [VIOLATION-1: wrong DOI; should be v2.0 version-DOI per schema v1 §Q1c. ALSO VIOLATION-1b: 19885550 is umbrella v1 concept; v2 concept = 19885549] |
+| `IsNewVersionOf`    | `10.5281/zenodo.19885550` (concept DOI)                            | umbrella v1 / v2.0 [VIOLATION-1: wrong DOI; should be v2.0 version-DOI per schema v1 §Q1c. ALSO VIOLATION-1b: 19885550 is mislabeled "concept DOI" — it is actually umbrella v1.0 version-DOI within concept 19885549; concept-DOI = 19885549] |
 | `IsSupplementTo`    | `10.5281/zenodo.19937196` (PCF-1 v1.3)                             | Companion paper PCF-1 v1.3 [VIOLATION-2: targets version-DOI; should be PCF-1 concept 19931635] |
 | `IsSupplementTo`    | `10.5281/zenodo.19963298` (PCF-2 v1.3 — REPLACE WITH v1.4 IF v1.4 IS DEPOSITED FIRST PER CASCADE-132 §3.1 UNANIMOUS OPTION α) | Companion paper PCF-2 (v1.3 or v1.4) [VIOLATION-2: targets version-DOI; should be PCF-2 concept 19936297; ambiguity resolved by targeting concept] |
 | `IsSupplementTo`    | `10.5281/zenodo.19951331` (Channel Theory v1.2)                    | Companion paper CT v1.2 [VIOLATION-2: targets version-DOI; should be CT concept 19941678] |
@@ -210,7 +218,7 @@ The axis-coverage table follows the SIARC v1 schema locked by slot 160 verdict (
 
 The §4 related-identifier row pattern (11 rows: 1 `IsNewVersionOf` + 5×2 paired `IsSupplementTo` + `Cites` for each program-tier companion target) and the §2.5 M1–M12 axis-coverage table format follow the SIARC v1 Zenodo metadata schema locked by slot 160 verdict (`T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160`, bridge SHA `012736f`, 2026-05-10). Concept-DOI vs version-DOI discipline: cross-links target concept-DOIs; `IsNewVersionOf` is the documented exception (version-to-version relation; targets v2.0 version-DOI `19965041`).
 
-**DOI correction note**: the Umbrella concept-DOI was corrected during slot 162 pre-flight from `10.5281/zenodo.19885550` (the v1 lineage concept) to `10.5281/zenodo.19885549` (the v2 lineage concept; doi.org-verified at slot 162 STEP 0.4 to resolve to "Umbrella v2.0 published 2026-05-02"). The umbrella v2.2 deposit creates a new version on the v2 lineage (concept `19885549`), not a new version on the v1 lineage. See `DOI_CORRECTION_AUDIT.md` in this slot's bridge folder for the full propagation scope and recommended slot 163+ amendment-overlays.
+**DOI correction note**: the Umbrella concept-DOI was corrected during slot 162 pre-flight from `10.5281/zenodo.19885550` to `10.5281/zenodo.19885549`. The umbrella program is a single Zenodo concept (`19885549` = the "Cite all versions" DOI per Zenodo native version-listing UI 2026-05-10) with two versions: v1.0 = version-DOI `19885550` (Apr 29 2026); v2.0 = version-DOI `19965041` (May 2 2026). The previously-cited `19885550` was a version-DOI mislabeled as a concept-DOI; the umbrella v2.2 deposit creates a new version (v2.2) within the existing concept `19885549`. See `DOI_CORRECTION_AUDIT.md` in this slot's bridge folder for the full propagation scope and recommended slot 163+ amendment-overlays.
 ```
 
 ---
@@ -227,7 +235,7 @@ Per slot 160 §Q1a anti-rules (umbrella-scoped interpretation per Edit 1 anchor-
 6. **Do NOT touch the slot 161 amended block at bridge `8906519`.** Slot 161 amended block contains the same umbrella concept-DOI error (`19885550` in Layer 1 rows 4-5); it is LANDED and immutable. Future slot 164+ may produce a slot-161-amended-block-correction; slot 162 only enumerates the issue in `DOI_CORRECTION_AUDIT.md`.
 7. **Do NOT touch the slot 160 `locked_schema_v1.md` at bridge `012736f`.** Schema-v1 line 20 contains the same umbrella concept-DOI error; future slot 163 schema-v1-amendment-overlay may correct it; slot 162 only enumerates the issue.
 8. **Do NOT recompute or change** any of the existing v2.0 mathematical content. v2.2 is provenance-tier, not content-tier.
-9. **Do NOT change the umbrella v1.0 concept-DOI `19885550` references in DOI_CORRECTION_AUDIT.md to `19885549`.** The audit MUST preserve the original wrong values verbatim (in quoted-baseline form) so the audit trail is verifiable. The corrected value `19885549` appears in the audit recommendations only.
+9. **Do NOT change the umbrella v1.0 version-DOI `19885550` references in DOI_CORRECTION_AUDIT.md to `19885549`.** The audit MUST preserve the original wrong-context values verbatim (in quoted-baseline form) so the audit trail is verifiable. The corrected concept-DOI `19885549` appears in the audit recommendations only.
 
 ---
 
@@ -270,25 +278,58 @@ The diff is for human-audit; not machine-applied (since the baseline file is imm
 NEW deliverable. Structure:
 
 ```markdown
-# DOI Correction Audit — Umbrella concept-DOI v1-vs-v2 lineage drift
+# DOI Correction Audit — Umbrella concept-DOI vs v1.0 version-DOI misclassification
 
 **Discovered:** Slot 162 pre-flight (2026-05-10).
 **Severity:** HIGH (substrate-citation contamination across multiple LANDED artefacts).
-**Ground truth:** doi.org live-resolution at slot 162 STEP 0.4.
+**Ground truth:** Zenodo native version-listing UI sidebar (operator pastes 2026-05-10 ~22:43 + ~22:50 JST: umbrella + T2B records) + doi.org live-resolution at slot 162 STEP 0.4.
 
-## §1 Ground truth (doi.org-verified)
+## §1 Ground truth (Zenodo sidebar + doi.org-verified)
 
-| DOI | Resolves to | Lineage |
+### §1.1 Umbrella record (single concept, two versions)
+
+| DOI | Role | Resolves to |
 |---|---|---|
-| `10.5281/zenodo.19885549` | Umbrella v2.0 (published 2026-05-02) | v2 lineage CONCEPT-DOI |
-| `10.5281/zenodo.19885550` | Umbrella v1.0 (published 2026-04-29) | v1 lineage CONCEPT-DOI (separate concept) |
-| `10.5281/zenodo.19965041` | Umbrella v2.0 (published 2026-05-02) | v2 lineage VERSION-DOI |
+| `10.5281/zenodo.19885549` | **CONCEPT-DOI** ("Cite all versions"; latest-resolving) | currently → v2.0 |
+| `10.5281/zenodo.19885550` | **v1.0 VERSION-DOI** (within concept 19885549) | v1.0 (Apr 29, 2026) |
+| `10.5281/zenodo.19965041` | **v2.0 VERSION-DOI** (within concept 19885549) | v2.0 (May 2, 2026) |
 
-The operator deposited v2.0 as a new Zenodo record with its own concept-DOI (`19885549`), not as a new version of v1. This is documented in the v2.0 description body itself: "v1 (April 2026, concept DOI 10.5281/zenodo.19885550) anchored the program in PSL_2(Z)..." — explicitly distinguishing v1 (`19885550`) from v2 (`19885549`).
+Source: Zenodo native version-listing UI sidebar (operator paste 2026-05-10 21:43:37 JST):
+> Versions
+> Version 2.0 — 10.5281/zenodo.19965041 — May 2, 2026
+> Version 1.0 — 10.5281/zenodo.19885550 — Apr 29, 2026
+> Cite all versions? You can cite all versions by using the DOI 10.5281/zenodo.19885549. This DOI represents all versions, and will always resolve to the latest one.
+
+### §1.2 T2B record (single concept, three versions)
+
+| DOI | Role | Resolves to |
+|---|---|---|
+| `10.5281/zenodo.19783311` | **CONCEPT-DOI** ("Cite all versions"; latest-resolving) | currently → v3.0 |
+| `10.5281/zenodo.19783312` | **v1.0 VERSION-DOI** (within concept 19783311) | v1.0 (Apr 26, 2026) |
+| `10.5281/zenodo.19801038` | **v2.0 VERSION-DOI** (within concept 19783311) | v2.0 (Apr 27, 2026) |
+| `10.5281/zenodo.19915689` | **v3.0 VERSION-DOI** (within concept 19783311) | v3.0 (Apr 30, 2026) |
+
+Source: Zenodo native version-listing UI sidebar (operator paste 2026-05-10 ~22:50 JST):
+> Versions
+> Version 3.0 — 10.5281/zenodo.19915689 — Apr 30, 2026
+> Version 2.0 — 10.5281/zenodo.19801038 — Apr 27, 2026
+> Version 1.0 — 10.5281/zenodo.19783312 — Apr 26, 2026
+> Cite all versions? You can cite all versions by using the DOI 10.5281/zenodo.19783311. This DOI represents all versions, and will always resolve to the latest one.
+
+### §1.3 Common contamination class
+
+Both records exhibit the same **version-vs-concept misclassification** pattern: a v1.0 version-DOI was repeatedly written into LANDED artefacts and labeled "concept DOI", but the actual concept-DOI is a *separate* Zenodo identifier (the "Cite all versions" DOI from the native UI sidebar).
+
+- Umbrella: `19885550` (v1.0 version-DOI) was mislabeled "concept DOI"; correct concept = `19885549`.
+- T2B: `19783312` (v1.0 version-DOI) was mislabeled "concept DOI" in picture.md; correct concept = `19783311`. *Note*: schema v1 (`locked_schema_v1.md` slot 160) cites T2B concept correctly as `19783311`; the picture.md error did NOT propagate into schema v1 or slot 161 amended block.
+
+The umbrella mislabeling is the more severe propagation (5+ LANDED bridge sessions); the T2B mislabeling is contained (1 LANDED artefact: picture.md line 158).
+
+Even the umbrella v2.0 record's own description body perpetuates the umbrella misclassification ("v1 (April 2026, concept DOI 10.5281/zenodo.19885550) anchored the program..."); this is wrong — `19885550` is v1.0's version-DOI, not a concept-DOI. Future umbrella v3.0+ revisions should fix this description text.
 
 ## §2 Propagation across LANDED bridge artefacts
 
-Files citing umbrella concept-DOI `19885550` in v2 context (WRONG):
+Files citing umbrella DOI `19885550` and labeling it "concept DOI" (WRONG: `19885550` is v1.0 version-DOI; correct concept = `19885549`):
 
 - `siarc-relay-bridge/sessions/2026-05-09/T1-EXECUTOR-116-UMBRELLA-V21-M9-V0-DEPOSIT-133/`: `umbrella_v21.tex`, `submission_log_item11_splice.diff`, `zenodo_v21_deposit_log.md`, `b_amendment.diff`, `discrepancy_log.json` (DISCREPANCY-116-CONCEPT-DOI INFO; the resolution heuristic was inverted), `unexpected_finds.json` (UF-116-CONCEPT-DOI-DRIFT INFO), `handoff.md`
 - `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-UMBRELLA-V22-M9-V0-DEPOSIT-PREP-135/`: `zenodo_v22_description_block.md`, `umbrella_v22.tex`, `zenodo_v22_deposit_log.md`, `submission_log_item12_splice.diff`, `b_amendment_v22.diff`
@@ -301,9 +342,22 @@ Files citing umbrella concept-DOI `19885549` correctly:
 - `siarc-relay-bridge/sessions/2026-05-02/STRATEGIC-PICTURE-REVISED/picture.md` (lines 160 + 1073; the early authoritative registry)
 - `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-PICTURE-V120-M9-V0-AMENDMENT-PREP-136/picture_revised_20260507.md`
 
+### §2.5 T2B propagation (separate, contained)
+
+Files citing T2B DOI `19783312` and labeling it "concept DOI" (WRONG: `19783312` is v1.0 version-DOI; correct concept = `19783311`):
+
+- `siarc-relay-bridge/sessions/2026-05-02/STRATEGIC-PICTURE-REVISED/picture.md` (line 158: "T2B v3.0 (channel theory bibliography) | `10.5281/zenodo.19915689` | `10.5281/zenodo.19783312` | — | published" — concept-DOI column has v1.0 version-DOI)
+
+Files citing T2B concept-DOI `19783311` correctly:
+
+- `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160/locked_schema_v1.md` (§Anchor deposits §Reference table)
+- `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161/amended_description_block.md` (Layer 2 axis-coverage table inheritance)
+
+The T2B mislabeling is contained to picture.md only; the schema-v1 + slot-161 chain has T2B concept-DOI correct from the start.
+
 ## §3 Why the wrong fork was picked
 
-Slot 116 (2026-05-09) discovered the discrepancy and logged it as `DISCREPANCY-116-CONCEPT-DOI` INFO. The slot 116 resolution: *"Picture cross-walks and the tex source differ by exactly 1 (49 vs 50). This is most likely an OCR / typo class error in the picture spreadsheet that propagated."* This heuristic was wrong: picture.md is the early authoritative registry from 2026-05-02 (the day Umbrella v2.0 was deposited), and its `19885549` value is the correct doi.org-verified v2 concept-DOI. The tex-source `19885550` (originally pasted into umbrella v1 source, propagated forward to v2.0+v2.1+v2.2 sources) is the v1 concept that was never updated when the operator started a new v2 lineage on 2026-05-02.
+Slot 116 (2026-05-09) discovered the discrepancy and logged it as `DISCREPANCY-116-CONCEPT-DOI` INFO. The slot 116 resolution: *"Picture cross-walks and the tex source differ by exactly 1 (49 vs 50). This is most likely an OCR / typo class error in the picture spreadsheet that propagated."* This heuristic was wrong: picture.md is the early authoritative registry from 2026-05-02 (the day Umbrella v2.0 was deposited), and its `19885549` value is the actual umbrella concept-DOI (the "Cite all versions" DOI per Zenodo native UI). The tex-source `19885550` (likely originally pasted from v1.0's version-DOI URL when the v1.0 record was first deposited) was carried forward into v2.0+v2.1+v2.2 sources mislabeled as "concept DOI" rather than being updated to the actual concept `19885549`. Compounding factor: the v2.0 record's own description body also mislabels `19885550` as "concept DOI" of v1, providing apparent (but wrong) substrate confirmation for the tex-source value.
 
 This is exactly the failure pattern the project memory `Bibliographic identifier pre-verification` (post-031 verdict) was designed to prevent — DOIs cited in deposit-runbook artefacts must be doi.org-verified before the relay prompt fires.
 
@@ -327,11 +381,16 @@ Bridge SHAs NOT touched (operator-pending; outside slot 162 scope):
 - `8906519` itself (LANDED; slot 164 to amend)
 
 doi.org-resolutions cited:
-- `https://doi.org/10.5281/zenodo.19885549` — slot 162 STEP 0.4 verified (Umbrella v2.0)
-- `https://doi.org/10.5281/zenodo.19885550` — slot 162 STEP 0.4 verified (Umbrella v1.0)
-- `https://doi.org/10.5281/zenodo.19965041` — slot 162 STEP 0.4 verified (Umbrella v2.0 version-DOI; redirects same as concept v2)
-- `https://doi.org/10.5281/zenodo.19783311` — slot 162 STEP 0.4 verified (T2B concept; redirects to v3.0)
+- `https://doi.org/10.5281/zenodo.19885549` — slot 162 STEP 0.4 verified (Umbrella concept-DOI; resolves to latest = v2.0)
+- `https://doi.org/10.5281/zenodo.19885550` — slot 162 STEP 0.4 verified (resolves to Umbrella v1.0 record page; this is v1.0 version-DOI, NOT concept)
+- `https://doi.org/10.5281/zenodo.19965041` — slot 162 STEP 0.4 verified (Umbrella v2.0 version-DOI)
+- `https://doi.org/10.5281/zenodo.19783311` — slot 162 STEP 0.4 verified (T2B concept-DOI; resolves to latest = v3.0)
+- `https://doi.org/10.5281/zenodo.19801038` — slot 162 STEP 0.4 verified (T2B v2.0 version-DOI)
 - `https://doi.org/10.5281/zenodo.19783312` — slot 162 STEP 0.4 verified (T2B v1.0 version-DOI)
+
+Zenodo native version-listing UI sidebar pastes (ground truth):
+- Umbrella record sidebar — operator paste 2026-05-10 21:43:37 JST
+- T2B record sidebar — operator paste 2026-05-10 ~22:50 JST
 
 **End of DOI_CORRECTION_AUDIT.md.**
 ```
@@ -415,7 +474,7 @@ If any I_x fails → halt with `HALT_162_INVARIANT_<n>` and revisit edits before
 In addition to standing halt conditions (numerical contradictions / unexpected positives / >5% pre-screen discrepancy / NaN-Inf-negative-precision):
 
 - **HALT_162_BASELINE_DRIFT**: if slot 135 `zenodo_v22_description_block.md` content at bridge `887981b` differs from §3 Edit 1 "Existing rows (verbatim from baseline)" snapshot in this prompt — would indicate the baseline has been silently amended elsewhere; revisit before proceeding.
-- **HALT_162_DOI_DRIFT**: if any concept-DOI in §2.3 STEP 0.3 fails the STEP 0.4 doi.org live-resolve check — would indicate further substrate errors beyond the umbrella incident; revisit before proceeding. *Specifically*: if `19885549` does NOT resolve to "Umbrella v2.0 published 2026-05-02 by papanokechi" (or close variant), or if `19885550` does NOT resolve to "Umbrella v1.0 published 2026-04-29 by papanokechi", halt and surface — the DOI universe has shifted in a way the prompt didn't anticipate.
+- **HALT_162_DOI_DRIFT**: if any concept-DOI in §2.3 STEP 0.3 fails the STEP 0.4 doi.org live-resolve check — would indicate further substrate errors beyond the umbrella incident; revisit before proceeding. *Specifically*: if `19885549` does NOT resolve to the umbrella record (latest version v2.0), or if `19885550` does NOT resolve to "Umbrella v1.0 published 2026-04-29 by papanokechi", halt and surface — the DOI universe has shifted in a way the prompt didn't anticipate. Cross-check with the Zenodo native version-listing UI sidebar (Versions panel; Cite-all-versions line) for ground truth.
 - **HALT_162_SCHEMA_AUTHORITY_MISSING**: if `locked_schema_v1.md` is not present in `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160/` at fire time — would indicate slot 160 absorption is not actually landed; revisit before proceeding.
 - **HALT_162_RULE_1_LIFT_REVOKED**: if the claude-chat HEAD does not contain the empty marker commit `bfcfd92` ("RULE 1 LIFTED -- math-axis closure complete...") — would indicate operator revoked the lift; slot 162 should still proceed (the file edit is operator-side runbook, not a Zenodo fire), but the §6 RULE 1 lift gate text in the amended block needs to be flagged.
 
