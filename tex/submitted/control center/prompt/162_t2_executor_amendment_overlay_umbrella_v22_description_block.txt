@@ -1,0 +1,476 @@
+# Slot 162 — T2-Executor amendment-overlay for slot 135 `zenodo_v22_description_block.md`
+
+**Task ID:** `T2-EXECUTOR-AMENDMENT-OVERLAY-UMBRELLA-V22-DESCRIPTION-BLOCK-162`
+**Class:** T2-Executor amendment-overlay (single-deliverable scope; analogous to slot 161 for PCF-2 v1.4; second application of slot 160 schema v1)
+**Band ceiling:** LOW-MEDIUM
+**RULE 1:** LIFTED 2026-05-10 via Path B documented-commitment lift (claude-chat `bfcfd92`); this slot is now Zenodo-cascade prep (operator-side runbook) rather than tabled
+**Dispatch model:** CLI-agent direct execution (no claude.ai web round-trip required)
+
+---
+
+## §1 Background
+
+Slot 161 (`T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161`, bridge `8906519`) executed the first application of slot 160 schema v1 against PCF-2 v1.4. Slot 162 executes the analogous amendment-overlay against the Umbrella v2.2 description block (slot 135 substrate at bridge `887981b`).
+
+**However**, during slot 162 pre-flight a substantive substrate-DOI drift was discovered (see §2.4 below): the umbrella v2.2 baseline cites umbrella concept-DOI = `10.5281/zenodo.19885550`, but doi.org ground-truth resolution shows that DOI is actually the umbrella **v1.0** concept-DOI; the correct **v2 lineage** concept-DOI is `10.5281/zenodo.19885549`. The operator deliberately deposited v2.0 as a NEW Zenodo record with its own concept (`19885549`) rather than as a new version of v1, as documented in the v2.0 description body itself ("v1 (April 2026, concept DOI 10.5281/zenodo.19885550) anchored the program in PSL_2(Z)..."). The error has propagated across multiple LANDED bridge artefacts (slot 116, 133, 135, 137, 160, 161). Slot 116 (2026-05-09) flagged the drift as `DISCREPANCY-116-CONCEPT-DOI` INFO but reasoned biased toward tex-source `19885550` — it picked the wrong fork.
+
+Slot 162 corrects the umbrella concept-DOI in the Umbrella v2.2 description block (using the **doi.org-verified** value `19885549`) AND deposits a new audit artefact `DOI_CORRECTION_AUDIT.md` enumerating the propagation scope so that future slots 163+ (e.g., schema-v1 amendment-overlay; slot 161 amended block correction) can act on the audit with full evidence in hand. **LANDED bridge artefacts are NOT modified** (immutability preserved); the correction lives in slot 162's deposit only.
+
+This is consistent with the project memory `Bibliographic identifier pre-verification` (post-031 verdict) — DOIs cited in deposit-runbook artefacts must be doi.org-verified before the relay prompt fires. Slot 162 generalizes the rule by adding a mandatory **STEP 0.4 doi.org pre-resolve** for all 6 concept-DOIs to the executor self-gate.
+
+The current state of slot 135 `zenodo_v22_description_block.md` (verified 2026-05-10 ~22:30 JST):
+
+- **§4 Layer 1 row count:** 7 rows (1 IsNewVersionOf + 5 IsSupplementTo + 1 IsCitedBy + 1 "Cites bridge" GitHub URL row).
+- **§4 schema-v1 violations:** (i) IsNewVersionOf row targets concept-DOI `19885550` instead of v2.0 version-DOI per schema v1 §Q1c; (ii) all 5 IsSupplementTo rows target version-DOIs instead of concept-DOIs per schema v1 §Layer 1 paired-pattern; (iii) `Cites bridge` GitHub URL row violates schema v1 §References anti-rule (per slot 160 §Q1b + UF-160-2); (iv) missing paired `Cites` companion rows for each `IsSupplementTo` per schema v1 §Layer 1 paired pattern; (v) umbrella IsNewVersionOf concept-DOI itself wrong (see DOI drift above).
+- **§2 Layer 2 axis-coverage table:** ABSENT.
+- **§7 schema authority citation:** ABSENT.
+
+Slot 162 brings the description block into compliance with `locked_schema_v1.md` v1 with the corrected umbrella concept-DOI baked in.
+
+---
+
+## §2 Phase 0 (executor self-gate, mandatory)
+
+### STEP 0.1 — Supersession check
+Confirm no prior LANDED `T2-EXECUTOR-AMENDMENT-OVERLAY-UMBRELLA-V22-DESCRIPTION-BLOCK-*` session exists in `siarc-relay-bridge/sessions/<any-date>/`. If a prior session exists, halt and revisit scope.
+
+### STEP 0.2 — SHA pre-flight (full 40-char rev-parse + ancestor-of-`origin/main`)
+
+| Short SHA | Expected role | Full 40-char (verify) | Ancestor of `origin/main`? |
+|---|---|---|---|
+| `887981b` | Slot 135 substrate (the file being amended) | `887981bf51860550a05ff949f0145c1687623689` | YES (verified 2026-05-10) |
+| `012736f` | Slot 160 verdict bridge SHA (schema authority) | `012736f121b2859ac3d782206ca0261f1332b31e` | YES |
+| `8906519` | Slot 161 amendment-overlay (precedent / pattern reference) | `89065193d29df768945d3788295569caebf07305` | YES (verified 2026-05-10) |
+| `961b828` | Slot 159 canonical outlook source-of-record | `961b828d78082a18288866af0f0c306bc8fd75ce` | YES |
+| `45e236c` | Slot 137 cross-pattern reference (PCF-2 v1.4 substrate; cited indirectly) | `45e236c2d3f3ff690ede65762cfbfae482cd7560` | YES |
+| `b9aa881` | Slot 136 picture-chain v1.20+ | `b9aa881c53566926390d6f48c2b8a10243c67267` | YES |
+| `bfcfd92` | RULE 1 lift directive (claude-chat; cited in §6) | `bfcfd9252353dff2c771e26fde128b3a353df513` | (claude-chat repo; verify ancestor of claude-chat HEAD) |
+| `fd669d3` | Cascade 132 PATH_B Option α decision | `fd669d347967db2e854f8e9d3725f625bf9fbc2a` | YES |
+
+Also pre-resolve M-axis V0 closure cascade SHAs (cited inline in axis-coverage table prose):
+
+| Short SHA | Expected role |
+|---|---|
+| `5f9db69` | M4 V0 closure (cascade 106) |
+| `7f93b9e` | M7 V0 closure (cascade 123) |
+| `cb429e1` | M8a V0 closure (cascade 127R) |
+| `74c5630` | M8b V0 closure (cascade 130R) |
+
+### STEP 0.3 — Concept-DOI table (doi.org-VERIFIED at slot 162 pre-flight; evidence in §2.4)
+
+| Concept-DOI | Anchor | Verified status |
+|---|---|---|
+| `10.5281/zenodo.19931635` | PCF-1 | ✅ doi.org → PCF-1 concept |
+| `10.5281/zenodo.19936297` | PCF-2 | ✅ doi.org → PCF-2 concept |
+| `10.5281/zenodo.19941678` | Channel Theory | ✅ doi.org → CT concept |
+| `10.5281/zenodo.19996689` | D2-NOTE | (cited only in axis-coverage table for M1; not in Layer 1) |
+| **`10.5281/zenodo.19885549`** | **Umbrella (v2 lineage)** | ✅ **doi.org → Umbrella v2.0 published 2026-05-02; CORRECTED from baseline's `19885550`** |
+| `10.5281/zenodo.19783311` | T2B | ✅ doi.org → T2B v3.0 (concept; redirects to latest version) |
+| `10.5281/zenodo.19965041` | Umbrella v2.0 (version-DOI; for `IsNewVersionOf` exception per schema v1 §Q1c) | ✅ doi.org → Umbrella v2.0 |
+| `(picture-chain v1.20+ concept)` | Picture-chain | TO_BE_RESOLVED at deposit time (slot 136 has not yet completed Zenodo deposit; placeholder retained per slot 116 J2 sidebar precedent) |
+
+**Anti-DOIs (do NOT use these in amended block):**
+- `10.5281/zenodo.19885550` — umbrella v1.0 concept-DOI (different lineage; appears in baseline + several LANDED artefacts in error)
+- `10.5281/zenodo.19937196` — PCF-1 v1.3 version-DOI (NOT concept; baseline has this in IsSupplementTo row by error)
+- `10.5281/zenodo.19963298` — PCF-2 v1.3 version-DOI (NOT concept; baseline has this in IsSupplementTo row by error)
+- `10.5281/zenodo.19951331` — CT v1.2 version-DOI (NOT concept; baseline has this in IsSupplementTo row by error)
+- `10.5281/zenodo.19915689` — T2B v3.0 version-DOI (NOT concept; baseline has this in IsSupplementTo row by error)
+- `10.5281/zenodo.19783312` — T2B v1.0 version-DOI (NOT concept; mislabeled "concept DOI" in picture.md cross-walk by error)
+
+### STEP 0.4 — doi.org pre-resolve mandate (NEW IN SLOT 162; generalizes slot 116 lesson)
+
+Before composing any deliverable in Phase A/B/C, the executor MUST live-resolve each concept-DOI in §2.3 (excluding TO_BE_RESOLVED placeholder) via `https://doi.org/<DOI>` and confirm:
+- (i) the resolved record's title + first-author surname match the cited anchor (e.g., `19885549` resolves to "An Arithmetic Stratification..." Version 2.0 by papanokechi);
+- (ii) the resolved version label matches the cited classification (concept vs version);
+- (iii) the publication date ordering is plausible (v2.0 ≥ v1.0).
+
+If any DOI fails the live-resolve check → halt with `HALT_162_DOI_DRIFT` and surface; no Phase A composition until operator-side decision.
+
+If all 6 DOIs pass → log Phase 0 STEP 0.4 PASS in claims.jsonl with a single audit-meta claim per DOI (6 claims).
+
+This step IS **mandatory** for slot 162 specifically because of the umbrella concept-DOI propagation incident; it generalizes to a reusable template for future amendment-overlay slots.
+
+### STEP 0.5 — Band ceiling honoured
+LOW-MEDIUM. The amendment-overlay edits a single source-of-truth file; introduces no new mathematical claims; does not deposit to Zenodo (operator runs Phase C deposit post-RULE-1-lift, which is now LIFTED — but slot 162 itself stays runbook-only); does not modify any LANDED bridge artifact. RULE 1 fire-eligibility: lifted 2026-05-10 per claude-chat `bfcfd92`; this slot is Zenodo-cascade prep, fully fire-eligible.
+
+### STEP 0.6 — Deliverable schema (declare upfront)
+
+**9 deliverables** (one more than slot 161; the additional file is `DOI_CORRECTION_AUDIT.md`) in `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-UMBRELLA-V22-DESCRIPTION-BLOCK-162/`:
+
+1. `amended_description_block.md` — the edited Umbrella v2.2 Zenodo description block (full file, post-amendment); future deposit-time copy-paste source.
+2. `amendment_diff.md` — unified-diff style record of the 3 concrete edits applied vs slot 135 baseline.
+3. `axis_coverage_snapshot.md` — standalone snapshot of the Umbrella v2.2 axis-coverage table (citable as a separate artifact for the slot 160 schema-authority chain; second instance after slot 161's `axis_coverage_snapshot.md`).
+4. **`DOI_CORRECTION_AUDIT.md`** — NEW: enumerates the umbrella concept-DOI drift across LANDED bridge artefacts; cites doi.org-verified ground truth; lists artefacts that require future amendment-overlay (slot 163+); explicit recommendation to the operator.
+5. `claims.jsonl` — AEAL audit-meta entries (≥10 expected; 6 doi.org pre-resolve audits + Phase 0 PASS + I1-I8 PASS).
+6. `halt_log.json` — empty `{}` if no halt.
+7. `discrepancy_log.json` — `D-162-1 UMBRELLA-CONCEPT-DOI-DRIFT-PROPAGATION` HIGH discrepancy expected (with full propagation table).
+8. `unexpected_finds.json` — INFO/LOW finds; empty `{ "unexpected_finds": [] }` acceptable.
+9. `handoff.md` — Standing Final Step structured deliverable.
+
+### STEP 0.7 — Fire-eligibility check (5/5 must pass)
+1. Single-file scope confirmed (plus DOI audit deliverable; both within slot 162 folder).
+2. No new mathematical claims.
+3. No LANDED bridge artifact modified.
+4. RULE 1 fire-eligibility: lifted (claude-chat `bfcfd92`); fully fire-eligible.
+5. Predecessor SHAs (`012736f`, `887981b`, `8906519`) verified ancestors of `origin/main`.
+
+If any STEP 0.x fails → write `halt_log.json` with code `HALT_162_PHASE_0_<step>` and stop.
+
+---
+
+## §3 Concrete edits (Phase A — apply to baseline)
+
+The baseline is slot 135 `zenodo_v22_description_block.md` at bridge SHA `887981b`. The amendment-overlay produces `amended_description_block.md` in this slot's bridge folder; the original at `887981b` is NOT modified (LANDED bridge artifacts are immutable).
+
+### Edit 1 — Re-paint §4 Layer 1 table to schema v1 paired-concept-DOI pattern
+
+**Locate:** §4 "Companion-paper cross-link metadata" table (lines 47-56 in baseline).
+
+**Existing rows (verbatim from baseline, with schema-v1 violations annotated):**
+```
+| Relation            | Identifier                                                          | Description                                                  |
+|---------------------|---------------------------------------------------------------------|--------------------------------------------------------------|
+| `IsNewVersionOf`    | `10.5281/zenodo.19885550` (concept DOI)                            | umbrella v1 / v2.0 [VIOLATION-1: wrong DOI; should be v2.0 version-DOI per schema v1 §Q1c. ALSO VIOLATION-1b: 19885550 is umbrella v1 concept; v2 concept = 19885549] |
+| `IsSupplementTo`    | `10.5281/zenodo.19937196` (PCF-1 v1.3)                             | Companion paper PCF-1 v1.3 [VIOLATION-2: targets version-DOI; should be PCF-1 concept 19931635] |
+| `IsSupplementTo`    | `10.5281/zenodo.19963298` (PCF-2 v1.3 — REPLACE WITH v1.4 IF v1.4 IS DEPOSITED FIRST PER CASCADE-132 §3.1 UNANIMOUS OPTION α) | Companion paper PCF-2 (v1.3 or v1.4) [VIOLATION-2: targets version-DOI; should be PCF-2 concept 19936297; ambiguity resolved by targeting concept] |
+| `IsSupplementTo`    | `10.5281/zenodo.19951331` (Channel Theory v1.2)                    | Companion paper CT v1.2 [VIOLATION-2: targets version-DOI; should be CT concept 19941678] |
+| `IsSupplementTo`    | `10.5281/zenodo.19915689` (T2B v3.0)                               | Companion paper T2B v3.0 [VIOLATION-2: targets version-DOI; should be T2B concept 19783311] |
+| `IsSupplementTo`    | `(picture-chain v1.20+ DOI; TO_BE_ASSIGNED at slot 136 deposit)`   | Picture-chain v1.20+ [acceptable as TO_BE_RESOLVED placeholder] |
+| `IsCitedBy`         | `(submission_log Item 12 series 2; if applicable)`                 | Operator splice at deposit time [acceptable as deposit-time placeholder] |
+| `Cites` (bridge)    | `https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-09/T2-EXECUTOR-UMBRELLA-V22-M9-V0-DEPOSIT-PREP-135/` | Bridge session for this fire (substrate-prep) [VIOLATION-3: GitHub URL in Cites row; schema v1 §References anti-rule per slot 160 §Q1b + UF-160-2; SHA citations belong in Description-body prose only] |
+```
+
+**Action:** REPLACE the entire 8-row table (7 data rows + the GitHub URL row) with the following 11-row schema-v1-compliant table:
+
+```
+| Relation            | Identifier (DOI)                                          | Resource type | Description                                                                |
+|---------------------|-----------------------------------------------------------|---------------|----------------------------------------------------------------------------|
+| `IsNewVersionOf`    | `10.5281/zenodo.19965041` (Umbrella v2.0 version-DOI)     | Publication   | This v2.2 supersedes v2.0 (v2.1 internal staging only; not deposited)      |
+| `IsSupplementTo`    | `10.5281/zenodo.19931635` (PCF-1 concept)                 | Publication   | Companion paper PCF-1 (degree-2 progenitor of the SIARC series)            |
+| `Cites`             | `10.5281/zenodo.19931635` (PCF-1 concept)                 | Publication   | Companion paper PCF-1 (paired schema v1 §Layer 1 row)                      |
+| `IsSupplementTo`    | `10.5281/zenodo.19936297` (PCF-2 concept)                 | Publication   | Companion paper PCF-2 (cubic / degree-3 extension)                         |
+| `Cites`             | `10.5281/zenodo.19936297` (PCF-2 concept)                 | Publication   | Companion paper PCF-2 (paired schema v1 §Layer 1 row)                      |
+| `IsSupplementTo`    | `10.5281/zenodo.19941678` (Channel Theory concept)        | Publication   | Companion paper Channel Theory (formal asymptotic-channels framework)      |
+| `Cites`             | `10.5281/zenodo.19941678` (Channel Theory concept)        | Publication   | Companion paper Channel Theory (paired schema v1 §Layer 1 row)             |
+| `IsSupplementTo`    | `10.5281/zenodo.19783311` (T2B concept)                   | Publication   | Companion paper T2B (Trans-Stratum dichotomy; degree-(2,1) integer PCFs)   |
+| `Cites`             | `10.5281/zenodo.19783311` (T2B concept)                   | Publication   | Companion paper T2B (paired schema v1 §Layer 1 row)                        |
+| `IsSupplementTo`    | `(picture-chain v1.20+ concept; TO_BE_RESOLVED post slot-136-deposit)` | Publication   | Companion picture-chain v1.20+ (program-tier visual carrier)               |
+| `Cites`             | `(picture-chain v1.20+ concept; TO_BE_RESOLVED post slot-136-deposit)` | Publication   | Companion picture-chain v1.20+ (paired schema v1 §Layer 1 row)             |
+```
+
+Final row count: **11 rows** (1 IsNewVersionOf + 5×2 paired IsSupplementTo+Cites companions). The IsCitedBy submission_log row from baseline is dropped from the prompt-defined table; operator may re-add it at deposit time as a deposit-time-resolved row.
+
+**Anchor-deposit notes (umbrella v2.2 specific; differs from PCF-2 v1.4 anti-rule):**
+- Schema v1 §Q1a anti-rule states "no `Cites`/`IsSupplementTo` for axis-mediated siblings (e.g., Channel Theory, D2-NOTE, picture v1.19) **in PCF-2 v1.4**". The "in PCF-2 v1.4" qualifier is critical: it scopes the anti-rule to non-program-tier deposits.
+- For Umbrella v2.2 (which IS the program-tier carrier), Channel Theory + T2B + picture-chain are program-tier paired companions, NOT axis-mediated siblings; the anti-rule does NOT apply. All 5 companions (PCF-1, PCF-2, CT, T2B, picture-chain) carry paired Layer 1 rows.
+- D2-NOTE is correctly excluded from Layer 1 because the D2-NOTE record is not yet deposited; it appears only in the Layer 2 axis-coverage table for M1.
+
+### Edit 2 — Insert Umbrella v2.2 axis-coverage table (Layer 2) as new §2.5
+
+**Locate:** Between current §2 "Version-difference description text" (lines 25-33; including the "Expanded variant" subsection) and §3 "Picture-chain v1.20+ deposit accompaniment note" (line 35).
+
+**Action:** insert verbatim a new section:
+
+```markdown
+
+## §2.5 M1–M12 program-axis coverage (snapshot at Umbrella v2.2 deposit time)
+
+| Axis | Status | Primary substrate |
+|---|---|---|
+| M1 | external | D2-NOTE concept `10.5281/zenodo.19996689` |
+| M2 | tabled (RULE 1) | — |
+| M3 | tabled (RULE 1) | — |
+| M4 | closed (V0; folded) | bridge cascade `5f9db69` (cascade 106) |
+| M5 | tabled (RULE 1) | — |
+| M6.CC | closed (retired into Channel Theory) | Channel Theory concept `10.5281/zenodo.19941678` |
+| M7 | closed (V0; folded) | bridge cascade `7f93b9e` (cascade 123) |
+| M8a | closed (V0; folded) | bridge cascade `cb429e1` (cascade 127R) |
+| M8b | closed (V0; folded) | bridge cascade `74c5630` (cascade 130R; d≥3 caveat in Umbrella v2.3 Appendix C iii) |
+| M9 | partial | bridge cascade `b9aa881` (slot 136 picture v1.20+) |
+| M10 | partial | Lean sorry discharge work-stream; SAFE phrasing in Umbrella v2.3 Appendix C ii |
+| M11 | tabled (RULE 1) | — |
+| M12 | tabled (RULE 1) | — |
+
+The axis-coverage table follows the SIARC v1 schema locked by slot 160 verdict (siarc-relay-bridge cascade `012736f`); status vocabulary and atomic listing are normative. Bridge cascade SHAs are content-addressed persistent identifiers; URLs may decay if the `siarc-relay-bridge` repository is renamed but SHAs remain recoverable from any clone.
+
+**Per-deposit semantics**: Umbrella v2.2 absorbs the V0-closure cascade via the v2.2 §Closure Cascade and Bridge Provenance amendment (cf. §2 "Expanded variant" above). The 4 V0-closed axes (M4, M7, M8a, M8b) and the M6.CC retirement are program-tier provenance for the Umbrella program statement, not new mathematical content; this is the semantic distinction between Umbrella v2.2 (provenance-tier amendment) and Umbrella v2.3 (mathematical content amendment, F6-blocked on D-156-1).
+```
+
+(The "—" em-dash in `tabled (RULE 1)` rows is intentional and matches `locked_schema_v1.md` and slot 161 `amended_description_block.md` Edit 2.)
+
+### Edit 3 — Add §7 schema authority citation footer
+
+**Locate:** below §6 "RULE 1 lift gate" (line 79; end of file). The new §7 is the final section.
+
+**Action:** insert verbatim:
+
+```markdown
+
+## §7 Schema authority
+
+The §4 related-identifier row pattern (11 rows: 1 `IsNewVersionOf` + 5×2 paired `IsSupplementTo` + `Cites` for each program-tier companion target) and the §2.5 M1–M12 axis-coverage table format follow the SIARC v1 Zenodo metadata schema locked by slot 160 verdict (`T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160`, bridge SHA `012736f`, 2026-05-10). Concept-DOI vs version-DOI discipline: cross-links target concept-DOIs; `IsNewVersionOf` is the documented exception (version-to-version relation; targets v2.0 version-DOI `19965041`).
+
+**DOI correction note**: the Umbrella concept-DOI was corrected during slot 162 pre-flight from `10.5281/zenodo.19885550` (the v1 lineage concept) to `10.5281/zenodo.19885549` (the v2 lineage concept; doi.org-verified at slot 162 STEP 0.4 to resolve to "Umbrella v2.0 published 2026-05-02"). The umbrella v2.2 deposit creates a new version on the v2 lineage (concept `19885549`), not a new version on the v1 lineage. See `DOI_CORRECTION_AUDIT.md` in this slot's bridge folder for the full propagation scope and recommended slot 163+ amendment-overlays.
+```
+
+---
+
+## §4 Anti-edits (do NOT change)
+
+Per slot 160 §Q1a anti-rules (umbrella-scoped interpretation per Edit 1 anchor-deposit note above):
+
+1. **Do NOT add Layer 1 rows for D2-NOTE** (`19996689`). D2-NOTE is not yet deposited on Zenodo; appears only in §2.5 axis-coverage table for M1.
+2. **Do NOT replace concept-DOIs with version-DOIs** in `IsSupplementTo`/`Cites` rows. Concept-DOI discipline is preserved; only `IsNewVersionOf` row 1 uses a version-DOI (`19965041`), by design.
+3. **Do NOT add cascade SHA references as Related-identifier `References` rows.** Cascade SHA citations stay in Description-body prose (per slot 160 §Q1b + UF-160-2). The previous baseline `Cites bridge` GitHub URL row is REMOVED, not replaced.
+4. **Do NOT modify §1 Deposit metadata** (Title field, Author field, Date field, Resource type), §3 Picture-chain accompaniment note, §5 Operator deposit checklist, OR §6 RULE 1 lift gate text. Only §4 Layer 1 table replacement (Edit 1) + §2.5 insertion (Edit 2) + §7 footer addition (Edit 3) are touched.
+5. **Do NOT touch the slot 135 baseline file at bridge `887981b`.** Edits land in `amended_description_block.md` in this slot's bridge folder. The slot 135 file remains the immutable LANDED predecessor.
+6. **Do NOT touch the slot 161 amended block at bridge `8906519`.** Slot 161 amended block contains the same umbrella concept-DOI error (`19885550` in Layer 1 rows 4-5); it is LANDED and immutable. Future slot 164+ may produce a slot-161-amended-block-correction; slot 162 only enumerates the issue in `DOI_CORRECTION_AUDIT.md`.
+7. **Do NOT touch the slot 160 `locked_schema_v1.md` at bridge `012736f`.** Schema-v1 line 20 contains the same umbrella concept-DOI error; future slot 163 schema-v1-amendment-overlay may correct it; slot 162 only enumerates the issue.
+8. **Do NOT recompute or change** any of the existing v2.0 mathematical content. v2.2 is provenance-tier, not content-tier.
+9. **Do NOT change the umbrella v1.0 concept-DOI `19885550` references in DOI_CORRECTION_AUDIT.md to `19885549`.** The audit MUST preserve the original wrong values verbatim (in quoted-baseline form) so the audit trail is verifiable. The corrected value `19885549` appears in the audit recommendations only.
+
+---
+
+## §5 Phase B — produce `axis_coverage_snapshot.md`
+
+Standalone snapshot artifact. Content: just the Layer 2 axis-coverage table from Edit 2 (verbatim) plus a one-paragraph header citing slot 160 schema authority. This file exists so future operators (e.g., F6 Umbrella v2.3 substrate-prep authoring its own axis-coverage snapshot) have a citable reference at deposit-time-shape granularity.
+
+Header template:
+```markdown
+# Umbrella v2.2 axis-coverage snapshot
+
+**Schema authority:** Slot 160 (`T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160`, bridge `012736f`).
+**Snapshot context:** Umbrella v2.2 Zenodo deposit description block, post-amendment-overlay slot 162.
+**Date:** 2026-05-10.
+
+[Layer 2 axis-coverage table verbatim from amended_description_block.md Edit 2]
+```
+
+---
+
+## §6 Phase C — produce `amendment_diff.md` AND `DOI_CORRECTION_AUDIT.md`
+
+### `amendment_diff.md`
+Record the 3 concrete edits in unified-diff style:
+
+```
+--- a/zenodo_v22_description_block.md (slot 135 / 887981b baseline)
++++ b/amended_description_block.md (slot 162 / amendment-overlay)
+@@ Edit 1 — §4 Layer 1 table re-paint (8 rows -> 11 rows; concept-DOI discipline + paired pattern + GitHub-URL-row removed) @@
+[full table replacement with corrected umbrella concept 19885549]
+@@ Edit 2 — §2.5 12-row M1-M12 axis-coverage table inserted @@
+[12-row table + per-deposit-semantics paragraph]
+@@ Edit 3 — §7 Schema authority footer added @@
+[paragraph citing slot 160 verdict bridge 012736f + DOI correction note]
+```
+
+The diff is for human-audit; not machine-applied (since the baseline file is immutable LANDED).
+
+### `DOI_CORRECTION_AUDIT.md`
+NEW deliverable. Structure:
+
+```markdown
+# DOI Correction Audit — Umbrella concept-DOI v1-vs-v2 lineage drift
+
+**Discovered:** Slot 162 pre-flight (2026-05-10).
+**Severity:** HIGH (substrate-citation contamination across multiple LANDED artefacts).
+**Ground truth:** doi.org live-resolution at slot 162 STEP 0.4.
+
+## §1 Ground truth (doi.org-verified)
+
+| DOI | Resolves to | Lineage |
+|---|---|---|
+| `10.5281/zenodo.19885549` | Umbrella v2.0 (published 2026-05-02) | v2 lineage CONCEPT-DOI |
+| `10.5281/zenodo.19885550` | Umbrella v1.0 (published 2026-04-29) | v1 lineage CONCEPT-DOI (separate concept) |
+| `10.5281/zenodo.19965041` | Umbrella v2.0 (published 2026-05-02) | v2 lineage VERSION-DOI |
+
+The operator deposited v2.0 as a new Zenodo record with its own concept-DOI (`19885549`), not as a new version of v1. This is documented in the v2.0 description body itself: "v1 (April 2026, concept DOI 10.5281/zenodo.19885550) anchored the program in PSL_2(Z)..." — explicitly distinguishing v1 (`19885550`) from v2 (`19885549`).
+
+## §2 Propagation across LANDED bridge artefacts
+
+Files citing umbrella concept-DOI `19885550` in v2 context (WRONG):
+
+- `siarc-relay-bridge/sessions/2026-05-09/T1-EXECUTOR-116-UMBRELLA-V21-M9-V0-DEPOSIT-133/`: `umbrella_v21.tex`, `submission_log_item11_splice.diff`, `zenodo_v21_deposit_log.md`, `b_amendment.diff`, `discrepancy_log.json` (DISCREPANCY-116-CONCEPT-DOI INFO; the resolution heuristic was inverted), `unexpected_finds.json` (UF-116-CONCEPT-DOI-DRIFT INFO), `handoff.md`
+- `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-UMBRELLA-V22-M9-V0-DEPOSIT-PREP-135/`: `zenodo_v22_description_block.md`, `umbrella_v22.tex`, `zenodo_v22_deposit_log.md`, `submission_log_item12_splice.diff`, `b_amendment_v22.diff`
+- `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137/`: `pcf2_program_statement_v14.tex`
+- `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160/`: `locked_schema_v1.md` (line 20 in §Anchor deposits §Reference table), `verdict.md`, `amendment_overlay_targets.md`, `unexpected_finds.json`
+- `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161/`: `amended_description_block.md` (paired Umbrella IsSupplementTo + Cites rows; lines ~138-139), `amendment_diff.md`, `unexpected_finds.json`, `handoff.md`
+
+Files citing umbrella concept-DOI `19885549` correctly:
+
+- `siarc-relay-bridge/sessions/2026-05-02/STRATEGIC-PICTURE-REVISED/picture.md` (lines 160 + 1073; the early authoritative registry)
+- `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-PICTURE-V120-M9-V0-AMENDMENT-PREP-136/picture_revised_20260507.md`
+
+## §3 Why the wrong fork was picked
+
+Slot 116 (2026-05-09) discovered the discrepancy and logged it as `DISCREPANCY-116-CONCEPT-DOI` INFO. The slot 116 resolution: *"Picture cross-walks and the tex source differ by exactly 1 (49 vs 50). This is most likely an OCR / typo class error in the picture spreadsheet that propagated."* This heuristic was wrong: picture.md is the early authoritative registry from 2026-05-02 (the day Umbrella v2.0 was deposited), and its `19885549` value is the correct doi.org-verified v2 concept-DOI. The tex-source `19885550` (originally pasted into umbrella v1 source, propagated forward to v2.0+v2.1+v2.2 sources) is the v1 concept that was never updated when the operator started a new v2 lineage on 2026-05-02.
+
+This is exactly the failure pattern the project memory `Bibliographic identifier pre-verification` (post-031 verdict) was designed to prevent — DOIs cited in deposit-runbook artefacts must be doi.org-verified before the relay prompt fires.
+
+## §4 Recommended remediation slots
+
+- **Slot 163** (recommended, LOW; T2-Executor): amendment-overlay against `locked_schema_v1.md` (slot 160 LANDED `012736f`) — single-line edit replacing `19885550` with `19885549` in the §Anchor deposits §Reference table umbrella row. Schema authority is the highest-leverage correction; downstream amendment-overlays will inherit the correct value.
+- **Slot 164** (recommended, LOW; T2-Executor): amendment-overlay against slot 161 `amended_description_block.md` (slot 161 LANDED `8906519`) — replace `19885550` with `19885549` in the 2 paired Umbrella IsSupplementTo+Cites rows. Optional: also produce a `slot_161_DOI_correction_notes.md` artefact with the diff summary.
+- **Slot 165+** (optional, LOW): per-artefact corrections for the slots-133/135/137 source files. These are tex-source files that influence the actual Zenodo deposit at deposit time; if the operator catches the DOI at deposit-time-paste, the source file errors are recoverable. Recommended path: bake the correction into the next-version source files as they are authored, NOT retroactive amendment-overlay slots.
+- **Picture.md T2B concept-DOI**: picture.md line 158 lists T2B concept = `19783312` (which is actually T2B v1.0 version-DOI per doi.org). Schema v1 + slot 161 use `19783311` (the correct T2B concept). No correction needed for schema-side; picture.md may want a parallel correction in a future picture-chain amendment-overlay (slot 166+ or rolled into slot 136 deposit-time review).
+
+## §5 Audit-trail summary
+
+Bridge SHAs touched by this audit (read-only):
+- `887981b` (slot 135 baseline; baseline cited verbatim in §4 of this audit)
+- `012736f` (slot 160 schema authority; cited as schema-amendment target in slot 163)
+- `8906519` (slot 161 amended block; cited as content-amendment target in slot 164)
+
+Bridge SHAs NOT touched (operator-pending; outside slot 162 scope):
+- `887981b` itself (LANDED; immutable)
+- `012736f` itself (LANDED; slot 163 to amend)
+- `8906519` itself (LANDED; slot 164 to amend)
+
+doi.org-resolutions cited:
+- `https://doi.org/10.5281/zenodo.19885549` — slot 162 STEP 0.4 verified (Umbrella v2.0)
+- `https://doi.org/10.5281/zenodo.19885550` — slot 162 STEP 0.4 verified (Umbrella v1.0)
+- `https://doi.org/10.5281/zenodo.19965041` — slot 162 STEP 0.4 verified (Umbrella v2.0 version-DOI; redirects same as concept v2)
+- `https://doi.org/10.5281/zenodo.19783311` — slot 162 STEP 0.4 verified (T2B concept; redirects to v3.0)
+- `https://doi.org/10.5281/zenodo.19783312` — slot 162 STEP 0.4 verified (T2B v1.0 version-DOI)
+
+**End of DOI_CORRECTION_AUDIT.md.**
+```
+
+---
+
+## §7 Phase D — Standing Final Step (B1-B5)
+
+### B1 — Collect deliverables
+9 files listed in §2 STEP 0.6; all in `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-UMBRELLA-V22-DESCRIPTION-BLOCK-162/`.
+
+### B2 — Stage in bridge repo
+```powershell
+cd "C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge"
+git pull origin main
+mkdir -p sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-UMBRELLA-V22-DESCRIPTION-BLOCK-162
+[copy 9 deliverables into folder]
+```
+
+### B3 — Write `handoff.md` (per Standing Final Step template)
+Sections (all required):
+- What was accomplished
+- Key numerical findings (here: row counts, table cardinality, edit count, doi.org-resolution count)
+- Judgment calls made (autonomous DOI correction; schema-v1 + slot 161 errors enumerated but not retroactively amended)
+- Anomalies and open questions (DOI propagation scope; recommended slot 163+ remediation)
+- What would have been asked (if bidirectional)
+- Recommended next step (slot 163 schema-v1 amendment-overlay)
+- Files committed (9 files)
+- AEAL claim count (≥10)
+
+### B4 — Folder-scoped commit + push (UF-138-2 / slot 150 lesson)
+```powershell
+git add "sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-UMBRELLA-V22-DESCRIPTION-BLOCK-162/"
+git diff --cached --name-only   # MUST be exactly 9
+git commit -m "T2-EXECUTOR-AMENDMENT-OVERLAY-UMBRELLA-V22-DESCRIPTION-BLOCK-162 -- amend slot 135 description block per slot 160 schema v1 + corrected umbrella concept-DOI" `
+           -m "[detailed body covering 3 edits + DOI_CORRECTION_AUDIT.md scope]" `
+           -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+git push origin main
+```
+
+### B5 — Emit URLs
+```
+BRIDGE: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-UMBRELLA-V22-DESCRIPTION-BLOCK-162/
+
+CLAUDE_FETCH: https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-05-10/T2-EXECUTOR-AMENDMENT-OVERLAY-UMBRELLA-V22-DESCRIPTION-BLOCK-162/handoff.md
+```
+
+After bridge land, rename in claude-chat:
+```powershell
+cd "C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat"
+git mv "tex/submitted/control center/prompt/162_t2_executor_amendment_overlay_umbrella_v22_description_block.txt" `
+       "tex/submitted/control center/prompt/162_t2_executor_amendment_overlay_umbrella_v22_description_block_EXECUTED.txt"
+git commit -m "T2-EXECUTOR-AMENDMENT-OVERLAY-UMBRELLA-V22-DESCRIPTION-BLOCK-162 -- rename slot 162 prompt _EXECUTED post-bridge-commit <bridge-SHA>" `
+           -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+git push origin (git rev-parse --abbrev-ref HEAD)
+```
+
+---
+
+## §8 Verification invariants (run before B4 commit)
+
+After Phase A/B/C produce the 4 substantive deliverables (`amended_description_block.md`, `amendment_diff.md`, `axis_coverage_snapshot.md`, `DOI_CORRECTION_AUDIT.md`), verify:
+
+- **I1**: `amended_description_block.md` §4 carries exactly 11 Layer 1 rows (1 IsNewVersionOf + 10 paired-pattern rows).
+- **I2**: `amended_description_block.md` §2.5 carries a 12-row M1–M12 axis-coverage table.
+- **I3**: `amended_description_block.md` §7 cites slot 160 verdict bridge SHA `012736f` as schema authority.
+- **I4**: `amended_description_block.md` does NOT contain any `Cites` row pointing at a GitHub URL (the slot 135 baseline row at line 56 is REMOVED).
+- **I5**: `amended_description_block.md` does NOT cite `10.5281/zenodo.19885550` anywhere in §4 (the wrong umbrella concept-DOI is fully eliminated). The DOI may appear in §7 ONLY in the explicit "DOI correction note" paragraph as a quoted prior value.
+- **I6**: `amended_description_block.md` cites `10.5281/zenodo.19885549` (the corrected v2 concept-DOI) in §7 schema authority footer; `10.5281/zenodo.19965041` (the v2.0 version-DOI) appears in §4 IsNewVersionOf row.
+- **I7**: `axis_coverage_snapshot.md` table content is byte-identical to `amended_description_block.md` §2.5 table content.
+- **I8**: `amendment_diff.md` enumerates exactly 3 edits (Edit 1 / Edit 2 / Edit 3).
+- **I9**: `DOI_CORRECTION_AUDIT.md` enumerates ≥18 LANDED artefacts citing `19885550` in v2 context (§2 propagation table is non-empty across 5 distinct bridge sessions).
+- **I10**: `claims.jsonl` carries ≥6 entries from STEP 0.4 doi.org pre-resolves (1 per concept-DOI).
+
+If any I_x fails → halt with `HALT_162_INVARIANT_<n>` and revisit edits before proceeding to B4.
+
+---
+
+## §9 Halt conditions specific to slot 162
+
+In addition to standing halt conditions (numerical contradictions / unexpected positives / >5% pre-screen discrepancy / NaN-Inf-negative-precision):
+
+- **HALT_162_BASELINE_DRIFT**: if slot 135 `zenodo_v22_description_block.md` content at bridge `887981b` differs from §3 Edit 1 "Existing rows (verbatim from baseline)" snapshot in this prompt — would indicate the baseline has been silently amended elsewhere; revisit before proceeding.
+- **HALT_162_DOI_DRIFT**: if any concept-DOI in §2.3 STEP 0.3 fails the STEP 0.4 doi.org live-resolve check — would indicate further substrate errors beyond the umbrella incident; revisit before proceeding. *Specifically*: if `19885549` does NOT resolve to "Umbrella v2.0 published 2026-05-02 by papanokechi" (or close variant), or if `19885550` does NOT resolve to "Umbrella v1.0 published 2026-04-29 by papanokechi", halt and surface — the DOI universe has shifted in a way the prompt didn't anticipate.
+- **HALT_162_SCHEMA_AUTHORITY_MISSING**: if `locked_schema_v1.md` is not present in `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160/` at fire time — would indicate slot 160 absorption is not actually landed; revisit before proceeding.
+- **HALT_162_RULE_1_LIFT_REVOKED**: if the claude-chat HEAD does not contain the empty marker commit `bfcfd92` ("RULE 1 LIFTED -- math-axis closure complete...") — would indicate operator revoked the lift; slot 162 should still proceed (the file edit is operator-side runbook, not a Zenodo fire), but the §6 RULE 1 lift gate text in the amended block needs to be flagged.
+
+---
+
+## §10 Recommended `handoff.md` "Recommended next step" content
+
+After slot 162 lands, the recommended next-step branches are:
+
+- **Branch X (default; recommended):** Slot 163 schema-v1 amendment-overlay — corrects `locked_schema_v1.md` line 20 umbrella concept-DOI from `19885550` to `19885549`. Single-line surgical edit; ~5-10 min agent work. After slot 163 lands, the schema authority is unambiguous for all future amendment-overlays.
+- **Branch Y:** Slot 164 slot-161-amended-block correction — corrects the 2 paired Umbrella IsSupplementTo+Cites rows in `amended_description_block.md` from `19885550` to `19885549`. Surgical 2-row edit; ~5-10 min agent work. Defer-or-combine: if slot 163 fires and corrects the schema, slot 164 can be tied in immediately afterward (combined slot 163+164 fire OK at LOW band).
+- **Branch Z:** F6 Umbrella v2.3 substrate-prep — STILL BLOCKED on `D-156-1` V0+ vs V1 resolution. Operator decision required.
+- **Branch W:** Operator-side Zenodo deposit cascade (RULE 1 lifted; window OPEN). Operator can now paste-deposit PCF-2 v1.4 (using slot 161 `amended_description_block.md` plus slot 164 correction once landed) + Umbrella v2.2 (using slot 162 `amended_description_block.md`) + picture-chain v1.20+ (substrate from slot 136). This is operator-side work; agent stays in monitor-only mode.
+
+Slot 162 itself unblocks the Umbrella v2.2 Zenodo deposit (operator paste-source ready post-RULE-1-lift) AND surfaces the DOI propagation scope so slots 163 + 164 can act efficiently.
+
+---
+
+## §11 Predecessor / successor edge table
+
+| Edge | Type | Counterparty | Bridge SHA | Notes |
+|---|---|---|---|---|
+| Slot 162 ← Slot 160 | predecessor (schema authority) | T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160 | `012736f` | Cited as schema-lock authority |
+| Slot 162 ← Slot 135 | predecessor (baseline) | T2-EXECUTOR-UMBRELLA-V22-M9-V0-DEPOSIT-PREP-135 | `887981b` | Baseline file source |
+| Slot 162 ← Slot 161 | sibling (amendment-overlay precedent) | T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DESCRIPTION-BLOCK-161 | `8906519` | Same amendment-overlay class pattern; second instance |
+| Slot 162 ← Slot 159 | predecessor (axis-status snapshot) | T2-EXECUTOR-CANONICAL-M1-M12-OUTLOOK-SOURCE-OF-RECORD-159 | `961b828` | Axis-coverage table draws status from outlook §5 |
+| Slot 162 ← OP_DP0 | predecessor (RULE 1 lift) | claude-chat empty marker commit | `bfcfd92` | RULE 1 lifted; deposit window open |
+| Slot 162 ← Slot 116 | grandparent (DOI drift first flagged) | T1-EXECUTOR-116-UMBRELLA-V21-M9-V0-DEPOSIT-133 | `(slot 133 SHA — verify)` | DISCREPANCY-116-CONCEPT-DOI inverted; slot 162 corrects |
+| Slot 163 ← Slot 162 | successor (schema-v1 amendment-overlay) | T2-EXECUTOR-AMENDMENT-OVERLAY-SCHEMA-V1-DOI-CORRECTION-163 | (TBD) | Recommended; ~5-10 min agent work |
+| Slot 164 ← Slot 162 | successor (slot 161 amended-block correction) | T2-EXECUTOR-AMENDMENT-OVERLAY-PCF2-V14-DOI-CORRECTION-164 | (TBD) | Recommended; can combine with slot 163 |
+| Umbrella v2.2 deposit ← Slot 162 | successor (deposit-time consumer) | operator-side Zenodo deposit | (TBD; post-RULE-1-lift; lift LANDED at `bfcfd92`) | `amended_description_block.md` is the copy-paste source |
+
+---
+
+## §12 Dispatch instructions
+
+This is a CLI-agent direct-execution prompt. No claude.ai web round-trip required.
+
+**Operator instructions:**
+1. Confirm slot 162 fire is desired.
+2. Either fire from this CLI session (autopilot agent picks up after operator confirmation), or paste this prompt body into a fresh CLI session bootstrap.
+3. Agent executes Phase 0 (with mandatory STEP 0.4 doi.org pre-resolve) → Phase A → Phase B → Phase C → §8 verification → Standing Final Step B1-B5.
+4. Expected runtime: ~15-20 minutes (file edits + 6 doi.org live-resolves + new DOI_CORRECTION_AUDIT.md authoring; longer than slot 161 due to STEP 0.4 + 9th deliverable).
+
+**Agent self-instructions:**
+- Phase 0 STEP 0.x must complete before any deliverable composition.
+- STEP 0.4 doi.org pre-resolve is MANDATORY for slot 162 — no exceptions; failure to resolve any DOI = HALT_162_DOI_DRIFT.
+- Folder-scoped staging is mandatory at B4 commit (UF-138-2 / slot 150 lesson; bridge working tree may carry pre-existing dirty entries).
+- Do NOT modify `.fleet.yaml`, `.github/agents/*.agent.md`, or any LANDED bridge artifact.
+- RULE 1 is LIFTED (claude-chat `bfcfd92`); however, slot 162 itself does NOT fire any Zenodo deposit — it produces the operator paste-source + audit deliverable only.
+- Do NOT modify the slot 135 baseline file at bridge `887981b` (immutable LANDED).
+- Do NOT modify the slot 160 `locked_schema_v1.md` at bridge `012736f` (immutable LANDED; slot 163 will amend).
+- Do NOT modify the slot 161 `amended_description_block.md` at bridge `8906519` (immutable LANDED; slot 164 will amend).
+- DOI_CORRECTION_AUDIT.md is the canonical audit-trail; preserve original wrong values verbatim in the §2 propagation table; the corrected value `19885549` appears only in §1 ground truth + §3 reasoning + §4 recommendations.
+
+---
+
+**End of slot 162 prompt body.**
