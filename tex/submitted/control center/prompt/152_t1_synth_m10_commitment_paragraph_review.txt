@@ -17,22 +17,25 @@ Draft-time supersession audit: PASS
   - No prior `*M10*COMMITMENT*REVIEW*` or `*M9*V0*COMMITMENT*REVIEW*` bridge folders
 ================================================================
 
-OPERATOR INSTRUCTIONS (READ BEFORE FIRE):
+FILLED 2026-05-10 (post Phase 5 application; ready for dispatch):
 
-This prompt has 4 substitution markers that operator MUST fill before
-dispatching to claude.ai web (synth):
+  OP_A1 commit SHA      -> 755b446b9d49ebb9b18f90370b31640033bf1a2f
+  OP_A1 date            -> 20260510
+  selected candidate    -> B (CONSERVATIVE; report-status-by-2026-08-02; self)
+  sec 3 verbatim block  -> filled inline at sec 0 STEP 0.5
 
-  {OP_A1_COMMIT_SHA}      -- SHA of OP_A1 commit (filled m10_documented_commitment.md)
-  {OP_A1_DATE_YYYYMMDD}   -- date in commitment status field
-  {SEC_3_VERBATIM}        -- verbatim block from m10_documented_commitment.md sec 3
-                             post-OP_A1-fill, between BEGIN_SEC_3 and END_SEC_3 markers
-  {SELECTED_CANDIDATE}    -- A | B | C (researcher's candidate label operator selected)
-
-Pre-flight verification (CLI agent runs before dispatching):
-  - claude-chat HEAD includes OP_A1 commit
-  - m10_documented_commitment.md sec 3 contains no `{...}` placeholders
+Pre-flight verification (CLI agent ran 2026-05-10 ~15:48 JST):
+  - claude-chat HEAD = 755b446 includes Phase 5 commit (M10-COMMITMENT-FILLED)
+  - m10_documented_commitment.md sec 3: 0 residual {...} placeholders; 0 non-ASCII
   - .fleet.yaml commitments[0].status STILL `COMMITMENT-PARAGRAPH-PENDING-OPERATOR`
-    (S152 pre-OP_A2; OP_A2 only fires after S152 RATIFY)
+    (correct pre-OP_A2 state; OP_A2 fires only after S152 RATIFY)
+  - bridge state: dd91b56 (S151 SELECT_B absorption LANDED)
+
+Authority chain for fire:
+  - S151 verdict SELECT_B (LOW-MEDIUM) at bridge dd91b56 (2026-05-10 ~15:35 JST)
+  - operator confirmation 2026-05-10 ~15:46 JST: "confirm B"
+  - Phase 5 mechanical paste-in executed at claude-chat 755b446 (2026-05-10 ~15:48 JST)
+  - this S152 fire is the post-fill audit gate before OP_A2
 
 ================================================================
 sec 0 -- PHASE 0 PRE-FLIGHT (synth executor runs in claude.ai web)
@@ -43,7 +46,7 @@ STEP 0.1 -- SHA verification
   in the appropriate repo:
 
     SHA                                            Repo / context
-    {OP_A1_COMMIT_SHA}                             claude-chat (OP_A1 commit; filled paragraph)
+    755b446b9d49ebb9b18f90370b31640033bf1a2f       claude-chat (OP_A1 commit; filled paragraph)
     fd669d347967db2e854f8e9d3725f625bf9fbc2a       siarc-relay-bridge (cascade-132 PATH_B precedent)
     72bb2c299f6462e3b5da3beec70624f6ce5ca4ef       siarc-relay-bridge (slot 139 BUNDLED-DEFERRED-NOTE verdict)
     ce5d9e9                                        siarc-relay-bridge (slot 141B M10 scaffold)
@@ -82,7 +85,22 @@ STEP 0.4 -- substrate availability check
 STEP 0.5 -- inline substrate (m10_documented_commitment.md sec 3, verbatim post-OP_A1)
 
 BEGIN_SEC_3
-{SEC_3_VERBATIM}
+```
+COMMITMENT (operator-issued):
+  delivery: report-status-by-2026-08-02
+  delegation: self
+  notes: M10 sorry-discharge / formalization work-stream landed via cascade-132
+    sec 5 documented-commitment-lift precedent and slot 139 BUNDLED-DEFERRED-NOTE
+    verdict (DEFERRED-OUT-OF-M9-SCOPE variant). Conservative path: attempt slot
+    148 Pattern alpha refactor at lean/Thm66_ApparentSingularity.lean L118 + L120,
+    falling back to Pattern beta (h_exact replaced with a math-content-equivalent
+    dischargeable hypothesis) if slot 149 C-149-1 R6 sub-checks 3a/3b/3c trigger.
+    The +12wk checkpoint is a status-of-the-tooling report only (not a closure
+    assertion); covers iter-progression on lean/WallisFamily.lean against the
+    5 blockers in build_errors_iter13.log plus any axis-level re-scoping (e.g.
+    SEPARATE-AXIS-DEFERRED downgrade per slot 140 sec 5 outlook).
+  status: COMMITTED-2026-05-10
+```
 END_SEC_3
 
   Also inline the full m10_documented_commitment.md sec 1, 2, 4, 5 content if practical
@@ -99,9 +117,9 @@ Option alpha precedent at bridge fd669d3 sec 5: "Operator-discretion permits
 lift before M10 with documented commitment."
 
 OP_A1 (Copilot Researcher fire 2026-05-10 ~XX:XX JST) drafted three candidate
-paragraphs and operator selected Candidate {SELECTED_CANDIDATE} (with or
+paragraphs and operator selected Candidate B (with or
 without edits). The selected candidate was committed at claude-chat
-{OP_A1_COMMIT_SHA} on {OP_A1_DATE_YYYYMMDD}.
+755b446b9d49ebb9b18f90370b31640033bf1a2f on 20260510.
 
 This synth-review verifies the filled paragraph satisfies three constraints
 (see sec 2 questions). Outcome unblocks OP_A2 (.fleet.yaml status flip) which
@@ -148,7 +166,7 @@ Q3 -- commitment timing appropriateness vs M10 V0 closure trajectory
 
   Read iter-13 build state (slot 141B sec 2.3 -- 5 enumerated blockers in
   WallisFamily.lean) and slot 149 verdict Q2 sub-band HIGH ratification of
-  Pattern alpha (closes Thm66 S1+S2 by deletion).
+  Pattern alpha (removes Thm66 S1+S2 by axiom-signature deletion).
 
   Is the filled commitment delivery / report-status-by date plausible given
   the iter-13 -> Pattern-alpha-refactor -> iter-15-target trajectory?
@@ -257,7 +275,7 @@ After verdict received, CLI agent:
 
   4. If LABEL = RATIFY_WITH_AMENDMENT:
      - apply amendments to m10_documented_commitment.md sec 3 (operator-confirmed)
-     - re-commit; update {OP_A1_COMMIT_SHA} reference
+     - re-commit; update 755b446b9d49ebb9b18f90370b31640033bf1a2f reference
      - then unblock OP_A2
 
   5. If LABEL = OBJECT or DEFER:
