@@ -6,7 +6,7 @@ verdict sec 4 (single-witness MEDIUM-HIGH, Claude Opus 4.7 via claude.ai web)
 **Authorizing precedent:** cascade-132 sec 5 (bridge `fd669d3...`) -- "Operator
 discretion permits lift before M10 with documented commitment."
 **Scaffold deposited:** 2026-05-10 (slot 141B; fire pending below)
-**Current sec 3 state:** PLACEHOLDER -- awaits operator fill
+**Current sec 3 state:** COMMITTED-2026-05-10 (Candidate B = CONSERVATIVE; report-status-by-2026-08-02; self-delegated)
 
 ---
 
@@ -141,13 +141,20 @@ Total uncommitted-line delta in tracked lean/ files: +72 / -48.
 > SECTION B-B "NEXT SLOTS" guidance.
 
 ```
-COMMITMENT (operator to fill):
-  delivery: complete-by-{YYYY-MM-DD}  OR  report-status-by-{YYYY-MM-DD}
-  delegation: {self / specific-collaborator / external-team}
-  notes: {free-form}
-  status: COMMITTED-{YYYY-MM-DD}     # set this when filling; replaces
-                                     # COMMITMENT-PARAGRAPH-PENDING-OPERATOR
-                                     # in .fleet.yaml commitments: block
+COMMITMENT (operator-issued):
+  delivery: report-status-by-2026-08-02
+  delegation: self
+  notes: M10 sorry-discharge / formalization work-stream landed via cascade-132
+    sec 5 documented-commitment-lift precedent and slot 139 BUNDLED-DEFERRED-NOTE
+    verdict (DEFERRED-OUT-OF-M9-SCOPE variant). Conservative path: attempt slot
+    148 Pattern alpha refactor at lean/Thm66_ApparentSingularity.lean L118 + L120,
+    falling back to Pattern beta (h_exact replaced with a math-content-equivalent
+    dischargeable hypothesis) if slot 149 C-149-1 R6 sub-checks 3a/3b/3c trigger.
+    The +12wk checkpoint is a status-of-the-tooling report only (not a closure
+    assertion); covers iter-progression on lean/WallisFamily.lean against the
+    5 blockers in build_errors_iter13.log plus any axis-level re-scoping (e.g.
+    SEPARATE-AXIS-DEFERRED downgrade per slot 140 sec 5 outlook).
+  status: COMMITTED-2026-05-10
 ```
 
 Once the four fields above are filled, slot 142 RULE 1 lift authorization
@@ -206,7 +213,7 @@ tooling-state nature of M10; reference here is for taxonomy clarity only.
 
 ## Section 5 -- Status flag
 
-**Current scaffold state:** PLACEHOLDER. Sec 3 commitment block UNFILLED.
+**Current scaffold state:** SEC-3-FILLED-2026-05-10 (Candidate B). `.fleet.yaml` status flip pending OP_A2 fire post-S152-RATIFY.
 **Effect on RULE 1 lift gate:** still 4/4 hard SHAs met (slot 135 + 136 + 137 +
 slot 141B scaffold landing); `m10-resolved` flag flips to true ONLY after sec 3
 is filled by operator and `.fleet.yaml` `commitments[].status` is updated from
