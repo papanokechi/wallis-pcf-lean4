@@ -1,0 +1,1219 @@
+# T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143R (substrate-inlined re-fire)
+
+**Tier:** T1-Synth (principal synthesizer; claude.ai web; recommend Claude Opus 4.7 single-witness; dual-witness optional if BAND returns LOW)
+**Class:** operational-tier consultation on M10 V0 discharge plan (NOT a strategic-roadmap consultation; NOT a closure cascade; NOT a sorry-discharge fire)
+**Session date:** 2026-05-10
+**Re-fire trigger:** original slot 143 (`f1d608b`) returned `HALT_143_SUBSTRATE_MISSING_PRIMARY` at Phase 0 STEP 0.4 (synth had no repo / attachment access). Halt deposited at bridge `8dc8628` in `T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143-HALT-NO-VERDICT/`. Recovery path B: substrate inlined as APPENDIX A-F at end of this prompt.
+**Operator-supplied trigger:** post-141C-triage-landing (2026-05-10 ~11:40 JST) operator request for synth-tier review of the discharge plan that follows from the 141C triage outputs
+**Predecessor (functional):** slot 144 single-witness MEDIUM-HIGH `ENDORSE_WITH_AMENDMENTS` strategic-roadmap consultation (cascade SHA `2330437`); broad scope. Slot 143 is narrower scope (operational-tier; M10 V0 discharge plan only).
+**Witness mode:** single-witness DEFAULT; operator may upgrade to dual-witness if any answer returns LOW band or surfaces structural revision.
+
+---
+
+## sec 0 -- PHASE 0 PRE-FLIGHT (mandatory; halt cleanly on any FAIL)
+
+### 0.1 -- SHA verification (14 bridge + 6 claude-chat)
+
+**143R amendment:** synth executor (claude.ai web) has no `git` CLI. Paper-only acceptance is authorized at synth tier for this re-fire: CLI agent's pre-fire SHA verification (PASS x20 at 2026-05-10 ~11:47 JST) is taken as standing. Synth must inspect the SHA values for syntactic well-formedness (40-character hex) but is not required to run `git rev-parse`. If syntactic anomaly detected, halt with `HALT_143R_SHA_MALFORMED_<SHA>`.
+
+Run `git rev-parse --verify <SHA>^{commit}` on every SHA below (CLI agent did this; synth may skip). ALL pre-verified PASS.
+
+**Bridge SHAs (siarc-relay-bridge):**
+
+  | Tag | Full SHA | Role |
+  |---|---|---|
+  | 2e36e0f | `2e36e0fe1e81413ddc0969bd8b65dc99c48ee2bd` | slot 141C triage landing (PRIMARY substrate this consultation) |
+  | 2330437 | `23304375c3610afa0ed38e28b7909bde7bad0012` | slot 144 strategic-roadmap consultation landing (functional predecessor) |
+  | ece6c32 | `ece6c323747dd5cb5719a77e9ce9d6486894d72d` | Q22 cleanup tactical landing |
+  | ce5d9e9 | `ce5d9e90456ca2d2f1493602bd700a0b39932836` | slot 141B M10 documented-commitment scaffold |
+  | 6a063a7 | `6a063a713d9f4c1d0d63526dd3c70bba7207697e` | slot 140 POST_LEAN_REALITY outlook |
+  | 72bb2c2 | `72bb2c299f6462e3b5da3beec70624f6ce5ca4ef` | slot 139 BEST-NEXT-MOVE consultation |
+  | b9aa881 | `b9aa881c53566926390d6f48c2b8a10243c67267` | slot 136 picture-chain v1.20+ (M9 V0 chain 3/3) |
+  | 45e236c | `45e236c2d3f3ff690ede65762cfbfae482cd7560` | slot 137 PCF-2 v1.4 (M9 V0 chain 2/3) |
+  | 887981b | `887981bf51860550a05ff949f0145c1687623689` | slot 135 umbrella v2.2 (M9 V0 chain 1/3) |
+  | 74c5630 | `74c563022d3a2df0a4bea0088f4793170a1e64d3` | M8b V0 closure cascade 130R (template for Q5) |
+  | cb429e1 | `cb429e1acba91ba47d1426950d924800a0b02a07` | M8a V0 closure cascade 127R (template for Q5) |
+  | 7f93b9e | `7f93b9e4d624fdfca62f5d85393b4ead35cea751` | M7 V0 closure cascade 123 (template for Q5) |
+  | 5f9db69 | `5f9db69c754c410b79091cbd84e6d79b63d10b6e` | M4 V0 closure cascade 106 (cross-ref only per ANTI-CONFLATION) |
+  | fd669d3 | `fd669d347967db2e854f8e9d3725f625bf9fbc2a` | cascade-132 PATH_B Option alpha decision substrate |
+
+**Claude-chat SHAs (papanokechi/wallis-pcf-lean4):**
+
+  | Tag | Full SHA | Role |
+  |---|---|---|
+  | e450b13 | `e450b131f96fc6d7b0d894589f3624308cef38be` | slot 145 M10 V0 substrate-prep prompt drafted (forward-reference for Q6) |
+  | a5a6647 | `a5a66476d639de862070147077c20b4ef80c32e3` | slot 141C prompt commit (the prompt that produced 2e36e0f) |
+  | c171016 | `c171016f08ddd467fc8813d3c32bc9bf83de2a3b` | POST_SYNTH_REVIEW outlook (slot 144 absorption) |
+  | efc12e5 | `efc12e51db15ff05e4fe716afb34bf465795f0bd` | slot 141B repo-side commit |
+  | 5e89f9a | `5e89f9ab57ff16af8d08fafbddaed6c345512ad2` | slot 140 repo-side commit |
+  | 0295aee | `0295aee16458a3c9bdd1bf498dc492e4a9353649` | Q22 cleanup repo-side; branch `vquad/handoff-2026-04-16` |
+
+CLI agent has pre-verified all 20 SHAs at fire time 2026-05-10 ~11:47 JST (PASS x20). Synth executor must re-run.
+
+### 0.2 -- Supersession gate
+
+Search bridge for prior `*M10-V0-DISCHARGE-PLAN*` or `*DISCHARGE-PLAN-CONSULTATION*` folders:
+
+```pwsh
+Get-ChildItem -Recurse -Directory -Path sessions -Filter '*M10-V0-DISCHARGE-PLAN*'
+Get-ChildItem -Recurse -Directory -Path sessions -Filter '*DISCHARGE-PLAN-CONSULTATION*'
+```
+
+Expected: 0 prior matches (this is the first M10-discharge-plan consultation in the project's history). Note: slot 144 was a strategic-roadmap consultation (different scope); slot 143 is operational-tier on the actual blocker / sorry routing. If matches found, halt with `HALT_143_PRIOR_DISCHARGE_PLAN_CONSULTATION_EXISTS` and supersession-memo.
+
+### 0.3 -- RULE 1 directive verbatim (operator-supplied 2026-05-09 ~11:17 JST; reaffirmed 2026-05-10 ~10:24 JST)
+
+> "HOLD -- rule 1; table everything that is not a hard requirement to complete M1-M12 (zenodo, endorsement should all be tabled)"
+>
+> Reaffirmation 2026-05-10 ~10:24 JST: "rule1. table everything that does not contribute to closing M1-M12 for now (endorsements, zenodo etc)."
+
+Synth must keep all answers strictly within M10 axis math content. Any drift toward Zenodo / endorsement / venue resubmission scope must be flagged as RULE-1 leakage and self-corrected.
+
+### 0.4 -- Substrate availability check
+
+**143R amendment:** the 5 PRIMARY substrate files plus the POST_SYNTH_REVIEW outlook are inlined as APPENDIX A-F at the end of this prompt. Synth executor must scroll to APPENDIX section (after sec 8) and verify each appendix is present and non-truncated. Substrate path mapping:
+
+  | Original path | 143R inlined location |
+  |---|---|
+  | `.../141C/triage_report.md` | APPENDIX A |
+  | `.../141C/blockers.json` | APPENDIX B |
+  | `.../141C/sorries.json` | APPENDIX C |
+  | `.../141C/dependency_map.json` | APPENDIX D |
+  | `.../141C/handoff.md` | APPENDIX E |
+  | `M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md` | APPENDIX F |
+  | `lean/WallisFamily.lean` (HEAD) | NOT INLINED -- reference only; synth flags need on Q3/Q4 if material |
+  | `lean/Thm66_ApparentSingularity.lean` (HEAD) | NOT INLINED -- reference only; synth flags need on Q4 if material |
+  | `145_t2_executor_m10_v0_ratification_substrate_prep.txt` | NOT INLINED -- forward-reference at claude-chat `e450b13`; not strictly required for Q1-Q5 |
+
+If any APPENDIX is missing or truncated in synth's read, halt with `HALT_143R_APPENDIX_MISSING_<letter>` and request operator re-paste. If Lean source is needed for Q3 / Q4 grounding beyond what triage_report.md provides, flag in answer body and CLI agent will fire follow-up with Lean source attached (do NOT halt; proceed with reduced confidence band on the affected question).
+
+### 0.5 -- T2-Executor exclusion review (sec 2 of slot 144 verdict Change 2)
+
+Slot 144 Change 2 imposed an EXPLICIT EXCLUSION on the slot 141C T2-Executor: agent must NOT generate sorry-discharge candidate proofs (classify-and-route only) per Searcher's Fatigue / fabricated-math failure mode.
+
+This consultation (slot 143) is at T1-Synth tier, not T2-Executor tier. The Searcher's Fatigue rule does NOT apply at synth tier because verdict-tier scrutiny (DEFER / OBJECT / amendment-list) is the safety mechanism. Synth MAY produce concrete proof-shape recommendations and Mathlib lemma family suggestions. Operator-side verification before commit is the operative safeguard.
+
+This boundary is itself part of the consultation: synth should self-assess whether any of its concrete proof-shape recommendations cross into fabricated-math territory and flag those as such.
+
+---
+
+## sec 1 -- CONTEXT
+
+### 1.1 -- Why this consultation
+
+Slot 141C T2-Executor Lean-4 build-error triage landed on bridge `2e36e0f` 2026-05-10 ~11:40 JST. The triage classified-and-routed 5 build-blockers (B1-B5) and 2 sorries (S1, S2) but per slot 144 Change 2 EXPLICIT EXCLUSION, did NOT produce sorry-discharge candidate proofs or specific Mathlib lemma family routing.
+
+Operator (papanokechi) is now requesting principal synthesizer (claude.ai web) review of:
+  - (i) Whether the B1-B5 + S1-S2 classification is correct
+  - (ii) Concrete Mathlib lemma family recommendations for B3-B5 (the tactic-strategy ones)
+  - (iii) Concrete proof-shape strategy for S1 / S2 (the `frobenius_double_root_at_apparent_singularity` h_exact arg)
+  - (iv) Cross-axis dependency check (anything touching M9 substrate at `45e236c` or slot 137 sec 6?)
+  - (v) Iteration ceiling re-estimate given concrete blocker shapes
+  - (vi) Phase C.3+ gate-recommendation refinement
+
+This consultation directly lowers POST_SYNTH_REVIEW outlook sec 3 Risk R2 (M10 V0 iteration overrun beyond 6-10 estimate; MEDIUM/MEDIUM at slot 144 fire time). It is operational-tier; not strategic-tier (slot 144 covered the latter).
+
+### 1.2 -- 141C triage outputs verbatim summary (synth must read full files)
+
+**5 build-blockers (blockers.json):**
+
+  | ID | Location (claude-chat HEAD) | Classification | Confidence | Triage routing |
+  |---|---|---|---|---|
+  | B1 | `lean/WallisFamily.lean:58:4` | trivial-repair | HIGH | duplicate decl name |
+  | B2 | `lean/WallisFamily.lean:114-118` | tactic-strategy | MEDIUM-HIGH | `(by omega)` arg to `intertwining_lemma`; needs `linarith` or explicit term |
+  | B3 | `lean/WallisFamily.lean:171-177` | tactic-strategy | MEDIUM-HIGH | `ratio_step_m0` discharge; needs ring or field lemma |
+  | B4 | `lean/WallisFamily.lean:216-312` | trivial-repair | HIGH | unknown `nhds` notation; namespace import |
+  | B5 | `lean/WallisFamily.lean:243+285` | tactic-strategy | MEDIUM | linarith failures; needs explicit hypothesis manipulation |
+
+**2 sorries (sorries.json):**
+
+  | ID | Location (claude-chat HEAD) | Confidence | Triage routing |
+  |---|---|---|---|
+  | S1 | `lean/Thm66_ApparentSingularity.lean:118` | LOW | `h_exact` arg to `frobenius_double_root_at_apparent_singularity`; needs axiom-shape reformulation, NOT direct discharge |
+  | S2 | `lean/Thm66_ApparentSingularity.lean:120` | LOW | same shape as S1; routed as joint discharge unit |
+
+**dependency_map.json highlights:**
+  - 7 files in M10 node set; 2 intra-set import edges; 0 circular imports
+  - 2 lakefile orphans: `proof_targets.lean`, `CardEvenOfInvolution.lean`
+  - 1 possibly-dead import: `WallisFamily/CasoratianPi4` (UF-141C-3)
+  - Toolchain pin: `leanprover/lean4:v4.30.0-rc1`; Mathlib pin: same
+
+**Anomalies surfaced (handoff.md sec Anomalies):**
+  - **D-141C-1:** Sorry-count discrepancy (slot 144 said 3; triage finds 2). Three candidate resolutions; operator selects canonical interpretation. Non-blocking (INFO).
+  - **UF-141C-1:** Iter-13 log staleness vs HEAD source. B2 / B4 confidence may be elevated.
+  - **UF-141C-2:** Lakefile orphans (proof_targets.lean, CardEvenOfInvolution.lean).
+  - **UF-141C-3:** Possibly-dead `CasoratianPi4` import.
+
+### 1.3 -- Closure scoreboard at fire time (2026-05-10 ~11:47 JST; unchanged from slot 144)
+
+  | Tier | Axis | State | Closure substrate |
+  |:--:|:--:|:--:|---|
+  | retired | M3 | folded into M4 | n/a |
+  | retired | M5 | folded into M6.CC | n/a |
+  | V0 closed | M4 | foundation | cascade `5f9db69` (cross-ref only) |
+  | residuals absorbed | M6.CC | V_quad to P_III chart-map | covered by 123 / 130R; per POST_SYNTH_REVIEW sec 5 explicit-absorption note |
+  | V0 closed | M7 | post-M4 axis | cascade `7f93b9e` |
+  | V0 closed | M8a | post-M4 axis | cascade `cb429e1` |
+  | V0 closed | M8b | post-M4 axis | cascade `74c5630` |
+  | substrate-source-of-record closed | M9 | V0 announcement | `887981b` + `45e236c` + `b9aa881` |
+  | substrate-prep stage | M10 | Lean-4 sorry-discharge | scaffold `ce5d9e9`; triage `2e36e0f` |
+  | substantive substrate landed | M2 | PCF-2 v1.4 + Q22 | substrate `45e236c`; cleanup `ece6c32` |
+  | TABLED | M1 / M11 / M12 | post-lift | -- |
+
+Net: **9.5 of 12 axes closed-or-retired**. Sole open math axis: M10.
+
+### 1.4 -- SQL ledger snapshot (CLI session this turn)
+
+  | Status | Count |
+  |---|---|
+  | done | 29 |
+  | pending | 2 (`m10-v0-lean-sorry-discharge`, `slot-142-amendment-decision`) |
+  | blocked | 11 (Phase C.3+ chain) |
+  | TOTAL | 42 |
+
+---
+
+## sec 2 -- CONSULTATION QUESTIONS (6 numbered questions; synth must answer each)
+
+**Q1 -- B1-B5 classification validation.** For each of B1-B5 (blockers.json), is the classification (`trivial-repair` vs `tactic-strategy`) correct? Is the confidence band correct? In particular: per UF-141C-1, B2 and B4 may have elevated confidence due to iter-13 log staleness vs HEAD source. Should B2 or B4 be downgraded?
+
+**Q2 -- S1 / S2 sorry classification + routing.** Sorries.json routes S1 and S2 as a joint unit requiring axiom-shape reformulation rather than direct discharge. Is this routing correct, or is one of these sorries dischargeable directly without architectural surgery? Is the LOW confidence band appropriate, or should it be MEDIUM-LOW given the specific h_exact argument shape?
+
+**Q3 -- Mathlib lemma family recommendations for B3-B5.** For each of B3 (`ratio_step_m0` discharge), B4 (`nhds` notation), B5 (linarith failures), recommend specific Mathlib lemma families or namespaces that would discharge or substantially advance the blocker. Do not produce full proofs; produce (lemma_namespace, candidate_lemma_names[], operator_verification_path) triples. Self-flag any candidate that crosses into fabricated-math territory per sec 0.5.
+
+**Q4 -- S1 / S2 proof-shape strategy.** Provide a high-level proof-shape strategy for the `frobenius_double_root_at_apparent_singularity` h_exact argument. Two sub-questions:
+  - (a) Is the axiom-shape reformulation that triage-report.md hints at the right framing, or is there a Mathlib-native proof-shape that avoids axiom changes?
+  - (b) Should S1 + S2 be discharged before or after Phase C.3 (lean/ committed)? Triage handoff recommends after; do you concur?
+
+  Self-flag any concrete proof-shape recommendation that crosses into fabricated-math territory per sec 0.5.
+
+**Q5 -- Cross-axis dependency check.** Does any of B1-B5 or S1-S2 touch:
+  - (a) M9 substrate at `45e236c` (PCF-2 v1.4) or `b9aa881` (picture-chain v1.20+)?
+  - (b) Slot 137 PCF-2 sec 6 substantive content (M2 substrate)?
+  - (c) M7 / M8a / M8b V0 closure substrate (`7f93b9e` / `cb429e1` / `74c5630`)?
+  - (d) M4 foundation `5f9db69` (cross-ref only per ANTI-CONFLATION; do not re-use the SHA elsewhere)?
+
+  If yes for any, that elevates the blocker's coupling severity and changes Phase C ordering. Identify which dependency-map.json edges (or missing edges) carry the cross-axis load.
+
+**Q6 -- Iteration ceiling re-estimate + Phase C.3+ gate refinement.** POST_SYNTH_REVIEW outlook sec 3 Risk R2 estimates 6-10 fires for Phase C; iteration-13 already on file; slot 144 R2 mitigation set ceiling at iteration-20. Given concrete blocker shapes (B1-B5 + S1-S2), refine:
+  - (a) Refined iteration ceiling (e.g., "expect iteration-20 to green; 25 = re-evaluate; 30 = halt and re-triage")
+  - (b) Recommended Phase C.3+ reproducibility check refinements (POST_SYNTH_REVIEW outlook adds C.3+ gate per sec 3 change 3; is the clean-clone build the right check, or should it include a `lake test` step?)
+  - (c) Recommendation on whether slot 145 (M10 V0 substrate-prep; drafted at claude-chat `e450b13`; gated on C.3) should fire as soon as C.3 lands, or wait for additional gating
+
+---
+
+## sec 3 -- OUTPUT FORMAT (synth deposit conventions; mirror slot 144)
+
+### 3.1 -- Verdict structure
+
+  - sec 1: verdict header (LABEL + BAND)
+    - LABEL = one of: `ENDORSE_AS_AUTHORED`, `ENDORSE_WITH_AMENDMENTS`, `RECOMMEND_REVISION`, `OBJECT`
+    - BAND = one of: `LOW`, `MEDIUM`, `MEDIUM-HIGH`, `HIGH`
+  - sec 2: per-question answer (Q1 through Q6)
+    - Each answer: (a) verdict on the 141C triage classification or roadmap claim, (b) reasoning citation (substrate SHA + line if applicable), (c) recommended change if any, (d) self-flag for fabricated-math risk per sec 0.5 if applicable
+  - sec 3: structured change list (if LABEL is `ENDORSE_WITH_AMENDMENTS` or `RECOMMEND_REVISION`)
+    - Format: `(target_artefact, change_type, change_content, justification)`
+  - sec 4: anomalies / discrepancies surfaced during review
+    - Format: `(anomaly_id, severity LOW/INFO/MEDIUM/HIGH, description, blocking? Y/N)`
+  - sec 5: cross-reference table (substrate SHAs cited in verdict)
+  - sec 6: confidence-band justification (one paragraph)
+
+### 3.2 -- Confidence-band rule (per slot 130R cascade-record sec 6.3 LABEL-rule extension)
+
+If recommendation requires structural revision (architectural reshape of S1 / S2 proof; or restructuring of B-block routing), BAND ceiling is MEDIUM-HIGH unless multi-witness corroboration. Single-witness LABEL `OBJECT` MUST cite at least 2 substrate SHAs as conflicting evidence.
+
+### 3.3 -- Discrepancy / anomaly format (verbatim from cascade-132 sec 7)
+
+```json
+{
+  "id": "D-143-N",
+  "severity": "INFO|LOW|MEDIUM|HIGH",
+  "title": "<short title>",
+  "description": "<full description with substrate citations>",
+  "remediation": "<remediation if any>",
+  "blocking": false
+}
+```
+
+### 3.4 -- Recommended-change format (if applicable)
+
+```json
+{
+  "target_artefact": "blockers.json | sorries.json | dependency_map.json | triage_report.md | POST_SYNTH_REVIEW outlook | slot 145 prompt | slot 142 prompt",
+  "change_type": "rewrite|reorder|add|remove|merge|split|reclassify",
+  "change_content": "<verbatim replacement or insertion text>",
+  "justification": "<short justification with substrate citations>"
+}
+```
+
+### 3.5 -- Mathlib lemma family format (Q3 / Q4)
+
+```json
+{
+  "blocker_or_sorry_id": "B3 | B4 | B5 | S1 | S2",
+  "lemma_namespace": "Mathlib.Topology.Basic | Mathlib.Tactic.Linarith | ...",
+  "candidate_lemmas": ["lemma_name_1", "lemma_name_2"],
+  "operator_verification_path": "what the operator runs to confirm; e.g., `lake env lean -- WallisFamily.lean` after import addition",
+  "fabricated_math_risk": "NONE | LOW | MEDIUM | HIGH; explain if non-NONE"
+}
+```
+
+---
+
+## sec 4 -- SUBSTRATE INVENTORY (pre-verified; synth may rely on these without re-verification beyond sec 0.1)
+
+  | Path | Role |
+  |---|---|
+  | `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/` | PRIMARY substrate (9 deliverables; bridge SHA `2e36e0f`) |
+  | `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144/roadmap_consultation_verdict.md` | functional-predecessor verdict (slot 144) |
+  | `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md` | governance outlook |
+  | `tex/submitted/control center/prompt/141C_t2_executor_lean4_m10_build_error_triage.txt` | the prompt that produced 141C outputs |
+  | `tex/submitted/control center/prompt/145_t2_executor_m10_v0_ratification_substrate_prep.txt` | forward-reference (Phase C.4 substrate-prep) |
+  | `tex/submitted/control center/picture/m10_documented_commitment.md` | slot 141B substrate (sec 3 BLANK; orthogonal to discharge plan but cited for Phase A.1.5 context) |
+  | `siarc-relay-bridge/sessions/2026-05-09/T1-SYNTH-M9-V0-CLOSURE-PATH-CONSULTATION-CASCADE-132/m9_v0_closure_path_decision.md` | cascade-132 substrate (RULE 1 lift documented-commitment precedent at sec 5) |
+  | `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-M7-RATIFICATION-SUBSTRATE-PREP-121/` | M7 substrate-prep template (Q5 cross-axis check / Q6 ceiling re-estimate) |
+  | `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-M8A-RATIFICATION-SUBSTRATE-PREP-125/` | M8a substrate-prep template (same role) |
+  | `siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-M8B-RATIFICATION-SUBSTRATE-PREP-128/` | M8b substrate-prep template (same role) |
+
+---
+
+## sec 5 -- CROSS-REFERENCES / ANTECEDENTS
+
+  - **Functional predecessor:** slot 144 single-witness MEDIUM-HIGH `ENDORSE_WITH_AMENDMENTS` strategic-roadmap consultation (`2330437`); broad scope; 6 structured amendments + 3 anomalies. Slot 143 is the operational follow-up on Phase C concrete substance.
+  - **PRIMARY substrate (this consultation):** slot 141C T2-Executor build-error triage (`2e36e0f`); 5 blockers + 2 sorries classified-and-routed; classify-and-route only per slot 144 Change 2 EXPLICIT EXCLUSION.
+  - **M-axis V0 closure series template:** M7 (`7f93b9e`) / M8a (`cb429e1`) / M8b (`74c5630`); all green-build-then-V0-cascade pattern; relevant to Q5 and Q6 estimation.
+  - **M9 V0 substrate-source-of-record:** cascade-132 PATH_B Option alpha 3/3 chain = `887981b` + `45e236c` + `b9aa881`; relevant to Q5(a) cross-axis dependency check.
+  - **Cascade-132 operative substrate:** `fd669d3` (RULE 1 lift documented-commitment precedent at sec 5); referenced by slot 144 verdict Q2 audit-trail risk.
+  - **Repo-memory citations relevant to this consultation:**
+    - `prompt drafting discipline` (path-inventory pre-verification + supersession-gate Phase 0 STEP 0.1-0.6)
+    - `substrate verification` (SHA pre-verify; line-number pre-verify if synth quotes specific lines from triage outputs)
+    - `dual-witness M-axis cascade` (LABEL + BAND aggregation rules; n=3 cascades 123 / 127R / 130R)
+    - `agent terminal limitations` (agent-cannot-run-`lake build`; relevant to UF-141C-1 staleness handling and Q6(b) reproducibility check)
+
+---
+
+## sec 6 -- OPERATOR-SIDE CONTEXT (read-only; do not edit)
+
+### 6.1 -- RULE 1 directive verbatim (operator-supplied 2026-05-09 ~11:17 JST)
+
+  > "HOLD -- rule 1; table everything that is not a hard requirement to complete M1-M12 (zenodo, endorsement should all be tabled)"
+
+### 6.2 -- RULE 1 reaffirmation verbatim (operator-supplied 2026-05-10 ~10:24 JST)
+
+  > "rule1. table everything that does not contribute to closing M1-M12 for now (endorsements, zenodo etc).
+  > now provide high-level roadmap to M1-M12 full closure"
+
+### 6.3 -- Operator-prompted scope frame for this consultation (verbatim 2026-05-10 ~11:45 JST)
+
+  > "suggest next prompt to execute"
+
+CLI agent's interpretation of the scope frame: with 141C just landed (`2e36e0f`) and slot 144 amendments absorbed (POST_SYNTH_REVIEW outlook `c171016`), the highest-leverage agent fire that stays within RULE 1 scope and advances the sole open math axis is a synth-tier review of the 141C triage outputs; this directly mitigates Risk R2 (iteration overrun beyond 6-10 estimate). Slot 145 (substrate-prep) is gated on operator-side Phase C.3; slot 142 (RULE 1 lift) is gated on operator commitment-paragraph fill. Slot 143 fits the gap.
+
+### 6.4 -- T2-Executor exclusion boundary (slot 144 Change 2 verbatim)
+
+  > "All triage output must be machine-readable JSON tuples of form (blocker_id, location, error_class, fix_vector_candidates[]) in addition to prose narrative. EXPLICIT EXCLUSION: agent must NOT generate sorry-discharge candidate proofs; classify-and-route to Mathlib lemma families only. Confidence claim downgraded from HIGH to MEDIUM-HIGH given Lean-4 specificity and read-only access model."
+
+Slot 143 lifts the exclusion at synth tier per sec 0.5 reasoning; verdict-tier scrutiny (DEFER / OBJECT / amendment-list) is the operative safeguard. Operator-side verification before commit closes the loop.
+
+---
+
+## sec 7 -- BRIDGE DEPOSIT CONVENTIONS (synth executor)
+
+After verdict is authored (sec 3 format), deposit to bridge per STANDING FINAL STEP B1-B5:
+
+  - **Bridge folder:** `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143/`
+  - **Mandatory deliverables:**
+    - `handoff.md` (STANDING FINAL STEP B3 template)
+    - `discharge_plan_verdict.md` (the structured sec 3 output)
+    - `synth_verdicts_raw.txt` (Q1-Q6 raw verbatim verdict)
+    - `cascade_record.md` (n=1 single-witness or n>=2 multi-witness; LABEL + BAND aggregation if multi-witness)
+    - `lemma_family_recommendations.json` (Q3 + Q4 sec 3.5 format; consolidated)
+    - `claims.jsonl` (audit-tier meta-claims)
+    - `discrepancy_log.json` (any D-143-N anomalies surfaced)
+    - `unexpected_finds.json` (any UF-143-N surfaced; `candidate_memory_status` for each)
+    - `halt_log.json` (`{}` if no halts)
+  - **Commit message format:** `T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143 -- {LABEL}; {BAND}; {one-line takeaway}`
+  - **Co-authored-by trailer:** `Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>` (per repo standing instructions)
+
+---
+
+## sec 8 -- CLOSING NOTES
+
+This is an **operational-tier consultation** on the M10 V0 discharge plan. Synth's job is to evaluate the 141C triage classifications + provide concrete Mathlib lemma family routing for B3-B5 and proof-shape strategy for S1 / S2, without crossing into fabricated-math territory (sec 0.5).
+
+If LABEL = `ENDORSE_AS_AUTHORED`, CLI agent will absorb the verdict into a successor outlook only if material new information is surfaced; otherwise the verdict serves as substrate for operator's iteration-14+ work directly.
+
+If LABEL = `ENDORSE_WITH_AMENDMENTS` / `RECOMMEND_REVISION`, CLI agent will cut a successor outlook (`M1_M12_CLOSURE_OUTLOOK_20260510_POST_DISCHARGE_PLAN.md`) absorbing the structured changes, mirror the slot 144 absorption pattern, and update slot 141C triage outputs (or supersede with 141D-class re-triage) as needed before slot 145 fires.
+
+CLI agent will not interpret missing answers as endorsement. If synth omits an answer to any of Q1-Q6, CLI agent will halt deposit absorption and request clarification.
+
+Stays within RULE 1: this consultation is purely M10 axis math content; no admin / Zenodo / endorsement scope. Synth must self-correct any drift per sec 0.3.
+
+*End of T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143R prompt body. ASCII-only modulo project-convention section markers; FV-disciplined; SHA pre-verified at fire time 2026-05-10 ~11:47 JST. APPENDIX A-F follows.*
+
+==============================================================================
+APPENDIX A -- triage_report.md (verbatim from bridge `2e36e0f`)
+==============================================================================
+
+# Triage Report -- T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C
+
+**Date:** 2026-05-10
+**Slot:** 141C
+**Class:** T2-Executor (read-only triage; classify-and-route only)
+**M-axis:** M10
+**Confidence band:** MEDIUM-HIGH (per slot 144 Change 2, 2330437)
+**Bridge HEAD at draft:** 23304375 (slot 144 absorption)
+**Lean toolchain:** leanprover/lean4:v4.30.0-rc1
+**Mathlib pin:** v4.30.0-rc1
+
+---
+
+## Section 1 -- Executive summary
+
+The M10 V0 substrate-prep stage (POST_SYNTH_REVIEW outlook sec 2.2 Phase C.1)
+shows iteration-13 of an in-flight Lean-4 fix loop on `lean/WallisFamily.lean`.
+Five enumerated build-blockers are reported by `build_errors_iter13.log`. Read-only
+inspection at HEAD finds two project-side `sorry` sites (both in
+`Thm66_ApparentSingularity.lean`, lines 118 and 120, both supplying the
+`h_exact` argument to the `frobenius_double_root_at_apparent_singularity`
+axiom). The slot 144 verdict reported a sorry count of 3; this triage finds 2
+under the regex `\bsorry\b` after excluding comment-only mentions and
+`lean/.lake/` package files. The discrepancy of 1 is logged in
+`discrepancy_log.json` as item D-141C-1 (non-blocking; see Section 6).
+
+Per-blocker classification:
+
+| ID | Location | Class | Confidence |
+| -- | -------- | ----- | ---------- |
+| B1 | WallisFamily.lean:58 | trivial-repair | HIGH |
+| B2 | WallisFamily.lean:114-118 | tactic-strategy | MEDIUM-HIGH |
+| B3 | WallisFamily.lean:171-177 | tactic-strategy | MEDIUM-HIGH |
+| B4 | WallisFamily.lean:216-312 (`nhds` notation) | trivial-repair | HIGH |
+| B5 | WallisFamily.lean:243, 285 | tactic-strategy | MEDIUM |
+
+Per-sorry classification:
+
+| ID | Location | Routing | Confidence |
+| -- | -------- | ------- | ---------- |
+| S1 | Thm66_ApparentSingularity.lean:118 | axiom-shape reformulation (not direct discharge) | LOW |
+| S2 | Thm66_ApparentSingularity.lean:120 | symmetric to S1 | LOW |
+
+The triage outputs `blockers.json`, `sorries.json`, and `dependency_map.json`
+as machine-readable input for the operator's iteration-14 discharge pass.
+
+M10 V0 readiness state: not green; iteration-14+ build-fix iterations remain
+the gating activity for Phase C.3 (commit) and Phase C.3+ (reproducibility check).
+
+---
+
+## Section 2 -- Per-blocker analysis
+
+### B1 -- duplicate `WallisFamily.Solves` declaration (line 58:4)
+
+The iter-13 log reports that `WallisFamily.Solves` has already been declared
+when WallisFamily.lean reaches line 58. At HEAD, the file shows only
+`def SolvesShifted` at lines 54-58 (the longer name), and the imported
+sibling `WallisFamily.Solves` lives in `WallisFamily/ShiftConsistency.lean:45`.
+A literal duplicate `def Solves` is not visible in the read-only inspection
+of WallisFamily.lean at the current commit. The most parsimonious account is
+that iter-13 captured a transient intermediate state in which the duplicate
+had been re-introduced and then partially backed out. The fix-vector is to
+ensure exactly one definition site for `WallisFamily.Solves` exists; if a
+local variant is intended in WallisFamily.lean, rename to `SolvesAlt`. This
+is a name-resolution repair, not a math-content gap. Confidence: HIGH.
+
+### B2 -- malformed `hu (k+2) (by omega)` in `intertwining_lemma` (lines 114-118)
+
+The iter-13 log indicates an unsolved-goals failure in `intertwining_lemma`
+attributed to a malformed application of the recurrence hypothesis with an
+`(by omega)` side argument. Inspection at HEAD shows the proof using
+`hu k` and `hu (k+1)` directly with no inequality side argument, which
+matches the type signature of `Solves m u = forall n : N, pcf_rec m n u`
+imported from ShiftConsistency.lean. If the iter-13 working tree carried an
+older shape, repairing to the visible HEAD shape resolves the literal
+`omega`-argument issue. A residual unsolved-goals shape may then surface
+from the `linear_combination` ansatz coefficients on line 125 or from
+`simp only [Lm, intertwinerA, intertwinerB, ...]` not unfolding through
+the `n+1` constructor branch of `Lm`. Recommended diagnostic: enable
+`set_option pp.all true` on the failing goal to inspect the unreduced term.
+This is a tactic-strategy issue rather than a missing math lemma.
+Confidence: MEDIUM-HIGH.
+
+### B3 -- `positivity` / rational identity failure in `ratio_step_m0` (lines 171-177)
+
+`ratio_step_m0` shows three `positivity` goals (`(2*k+1) != 0`,
+`(2*k+3) != 0`, and a factored form via `mul_ne_zero` on `(4*(k+1)^2 - 1) != 0`),
+followed by `field_simp; push_cast; ring`. The iter-13 log marks this region
+as a positivity / rational identity failure. The likely failure mode is that
+`positivity` is presented with a goal where the natural cast `(k : R)` has
+been absorbed into a more complex term and Mathlib's positivity extension
+loses sight of `Nat.cast_nonneg`. Fix-vectors: replace `positivity` with
+explicit `linarith [Nat.cast_nonneg (k : N)]`; or swap order to
+`push_cast; field_simp; ring` (cast normalization first). Routing target:
+`Nat.cast_nonneg`, `Nat.cast_pos`. Confidence: MEDIUM-HIGH.
+
+### B4 -- unknown / unimported `nhds` notation (lines 216-312)
+
+The iter-13 log flags multiple `Filter.Tendsto` target failures from an
+unresolved scoped-Topology notation in the L216-312 region. At HEAD the file
+opens `scoped Topology` at line 11 (after `namespace WallisFamily` at line 9),
+and all visible Tendsto lemmas in that region (L218, L226, L261, L262, L265,
+L276, L324) use the spelled-out `nhds` form rather than the scoped notation.
+If iter-13 introduced the scoped notation in a fresh region without it being
+in scope at the use site, the lowest-effort repair is uniform replacement
+back to the spelled-out form. Alternatively, ensuring `open scoped Topology`
+sits inside the namespace block addresses the resolution. Import chain check:
+`import Mathlib` at line 1 is broad enough to bring `Mathlib.Topology.Basic`
+into scope; no import is missing. Confidence: HIGH (lowest-effort blocker).
+
+### B5 -- `linarith` and rewrite failures at lines 243 and 285
+
+Line 243 sits inside the body of `reciprocalWallis_succ`, where the goal
+shape involves casts of `Nat.centralBinom` and the predecessor identity
+`Nat.succ_mul_centralBinom_succ`. Line 285 sits in the bridging step between
+the induction step and the closed-form lemma. Both line numbers are in the
+cast-normalization glue rather than in the math-content of the recurrence.
+The likely failure mode is mismatched `(m+1 : R)` vs `((m : R) + 1)` casts
+across the `simpa` call. Fix-vector: extract a stand-alone lemma
+`centralBinom_cast_succ` with proof `field_simp; push_cast; ring`, then
+rewrite at the failing site. This is a tactic-strategy issue.
+Confidence: MEDIUM (the proof structure is correct in shape but the cast
+plumbing is fragile).
+
+---
+
+## Section 3 -- Per-sorry analysis
+
+### S1 -- Thm66_ApparentSingularity.lean:118
+
+The sorry supplies the `h_exact` hypothesis in the `frobenius_double_root_at_apparent_singularity` axiom application
+for the first indicial root `s_1`. Per the iteration-12 fix_pass_log entry:
+the goal `forall x, HasDerivAt (fun x => a x * deriv id x) (a x) x` is an
+artefact of the axiom formulation and cannot be discharged for the specific
+`a = a_coeff_c` (it would require `a(x) = C * exp(x)`). Routing target is
+NOT direct sorry discharge; routing target is axiom reformulation: split
+`frobenius_double_root_at_apparent_singularity` into a version that takes
+only `(ha_root, ha_simple)` and absorbs the derivative-shape hypothesis
+internally. Mathlib lemma family for the eventual reformulated proof:
+`Mathlib.Analysis.Calculus.Deriv.Basic`, `Deriv.Mul`, `Deriv.Pow`. AEAL-status:
+blocked-by-design at the axiom layer. Confidence: LOW.
+
+### S2 -- Thm66_ApparentSingularity.lean:120
+
+Symmetric counterpart of S1 for the second indicial root `s_2`. Same
+structural blocker (axiom-shape mismatch). Treat S1 and S2 as a single
+discharge unit, not two independent ones: the axiom reformulation that
+closes S1 closes S2 by the same edit. Confidence: LOW.
+
+---
+
+## Section 4 -- Dependency map prose summary
+
+The M10-relevant node set comprises seven `.lean` files: `WallisFamily.lean`
+(top-level), three sibling files under `WallisFamily/`
+(`ShiftConsistency.lean`, `CasoratianPi4.lean`, `LemmaK.lean`),
+`Thm66_ApparentSingularity.lean`, `proof_targets.lean`, and
+`CardEvenOfInvolution.lean`.
+
+Within the node set, the only intra-set imports are: `WallisFamily.lean ->
+{ShiftConsistency, CasoratianPi4}` and `proof_targets.lean -> {LemmaK}`.
+The remaining files are leaves. There are no circular imports.
+
+The lakefile declares two relevant `lean_lib` targets: a `WallisFamily`
+default-target (covering `WallisFamily.lean` and `WallisFamily/*`) and a
+`Thm66` target with root `Thm66_ApparentSingularity`. Two project-side
+files (`proof_targets.lean` and `CardEvenOfInvolution.lean`) are not
+declared in any `lean_lib` root, suggesting they are staging or
+unit-test-style files reached only via explicit invocation.
+
+A possibly-dead import: `WallisFamily.lean` imports
+`WallisFamily/CasoratianPi4` but no symbol from CasoratianPi4
+(`raw_casoratian_step`, `reduced_casoratian_step`, `casoratian_closed_form`,
+`pi4_series_of_bridge`) is referenced by name in the visible body of
+`WallisFamily.lean` at HEAD. The import may be retained for future use or
+may be removable. Removal is OUT OF SCOPE for this triage (per E5).
+
+`WallisFamily/LemmaK.lean` is a leaf in the M10 graph and is not on the
+critical build path of the `WallisFamily` lean_lib target. Build failures
+in `WallisFamily.lean` cannot be caused by `LemmaK.lean`. Conversely,
+`proof_targets.lean` depends on `LemmaK.lean` compiling, so a green
+WallisFamily build does not transitively imply a green proof_targets.
+
+---
+
+## Section 5 -- Prioritized fix-plan
+
+Recommended fix-order, trivial-first heuristic:
+
+1. **B4 (HIGH, trivial-repair):** Replace any `nhds` scoped-notation usage
+   in WallisFamily.lean L216-312 with spelled-out `nhds`, or move
+   `open scoped Topology` inside the namespace block. Should resolve the
+   most numerous error count per the iter-13 log ("multiple Filter.Tendsto
+   target failures").
+
+2. **B1 (HIGH, trivial-repair):** Audit WallisFamily.lean for any duplicate
+   `def Solves`. Either remove the duplicate or rename. Single-line repair.
+
+3. **B2 (MEDIUM-HIGH, tactic-strategy):** Verify that `intertwining_lemma`
+   uses `hu k` / `hu (k+1)` directly (not `hu (k+2) (by omega)`). If the
+   shape is already correct at HEAD, run with `set_option pp.all true` to
+   inspect any residual unsolved-goals shape from the `linear_combination`
+   coefficients.
+
+4. **B3 (MEDIUM-HIGH, tactic-strategy):** Address the positivity / rational
+   identity failure in `ratio_step_m0` by reordering `push_cast; field_simp;
+   ring` or by replacing `positivity` with explicit
+   `linarith [Nat.cast_nonneg (k : N)]`.
+
+5. **B5 (MEDIUM, tactic-strategy):** Extract a `centralBinom_cast_succ`
+   lemma discharged once with `field_simp; push_cast; ring`, then rewrite at
+   the L243 and L285 sites. This is the most fragile of the five blockers.
+
+Sorry-discharge plan (separate from build-fix iteration):
+
+- S1 + S2 together require axiom reformulation in
+  `Thm66_ApparentSingularity.lean`. This is a SEPARATE work item from the
+  WallisFamily build-fix loop and need not block iteration-14. Suggested
+  ordering: green WallisFamily first (Phase C.1), then commit (Phase C.3),
+  then take up the axiom reformulation as a follow-up sorry-discharge fire
+  (slot 142-class agent fire).
+
+---
+
+## Section 6 -- Open questions for operator
+
+### Q1. Sorry-count discrepancy
+
+Slot 144 verdict (line 51 of `synth_verdicts_raw.txt`) reports
+"Sorry count = 0 across project-side `.lean` files (currently 3)". This
+triage's regex `\bsorry\b` scan finds 2 project-side `by sorry` instances
+(Thm66:118, Thm66:120). Possibilities: (a) the slot 144 count includes a
+comment-only sorry mention as a count-bearing item (e.g., the `-- SORRY:`
+header at Thm66:63 or the `-- Iteration 12 replaces the generated sorry
+placeholders` comment at proof_targets.lean:2); (b) the slot 144 count was
+forward-looking under an iter-13 working-tree state that introduced a
+third sorry now removed; (c) the slot 144 count includes the
+`GoldbachHelfgott/Reduction.lean` axiom-stub which the file's own header
+notes is sorry-free in body. Open question: which interpretation does the
+operator regard as canonical? Logged as D-141C-1 in discrepancy_log.json.
+
+### Q2. CasoratianPi4 import in WallisFamily.lean
+
+`WallisFamily.lean` imports `WallisFamily/CasoratianPi4` but no symbol from
+CasoratianPi4 is referenced by name in the visible body at HEAD. Is this
+import intentional (future use) or removable? Removal is out of scope for
+this triage.
+
+### Q3. lakefile orphan files
+
+`proof_targets.lean` and `CardEvenOfInvolution.lean` are not declared in
+any `lean_lib` root. Are these files meant to be in the build path, or
+are they staging artefacts? If in scope, suggest adding to lakefile.lean.
+Not actionable here; surfaced for operator review.
+
+### Q4. Iteration-13 log staleness
+
+The HEAD source for `WallisFamily.lean` shows several details (e.g., the
+`hu k` calling convention without `omega`, spelled-out `nhds`) that appear
+to differ from the iter-13 build-error log. The agent cannot run
+`lake build` (per E3); pattern-matching from logs alone leaves residual
+uncertainty. Recommendation: operator should re-run `lake build` at the
+current working-tree state and compare the new error log against this
+triage; persistent blockers should be re-fired as 141D-class triage on
+the iteration-14 log.
+
+### Q5 (RULE-1-tabled note)
+
+The slot 144 verdict (line 60-70) and sec 4 of the POST_SYNTH_REVIEW outlook
+restrict 141C scope to "classify-and-route only" without sorry-discharge
+candidate proof generation. This triage observes the restriction. No
+candidate proofs for any sorry site appear in this report or in the
+JSON deliverables.
+
+---
+
+## Appendix A -- Inputs read (read-only)
+
+Governance:
+- `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md` (sec 4)
+- `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md`
+
+Build-error + iteration:
+- `lean/build_errors_iter13.log`
+- `lean/fix_pass_log.md`
+
+Lean source (read-only, no edits):
+- `lean/WallisFamily.lean`
+- `lean/WallisFamily/ShiftConsistency.lean`
+- `lean/WallisFamily/CasoratianPi4.lean`
+- `lean/WallisFamily/LemmaK.lean`
+- `lean/Thm66_ApparentSingularity.lean`
+- `lean/proof_targets.lean`
+- `lean/CardEvenOfInvolution.lean`
+- `lean/lakefile.lean`
+- `lean/lean-toolchain`
+
+Auxiliary substrate (best-effort; available):
+- `lean/sorry_log.json`, `lean/triage.json`, `lean/proof_status.json`,
+  `lean/lean4_claims.jsonl`, `lean/thm66_lean4_summary.md`,
+  `lean/lemma_k_scoping.md`, `lean/full_build.log`, `lean/build_errors.log`,
+  `lean/build_log.txt`, `lean/shift_build.log`
+
+Cross-reference:
+- `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144/synth_verdicts_raw.txt`
+
+No file under `lean/` was modified by this fire (per E2).
+No `lake build` / `lake check` / `lean --run` executed (per E3).
+
+
+==============================================================================
+APPENDIX B -- blockers.json (verbatim from bridge `2e36e0f`)
+==============================================================================
+
+{
+  "schema_version": "141C-1.0",
+  "task_id": "T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C",
+  "source_log": "lean/build_errors_iter13.log",
+  "iteration": 13,
+  "lean_toolchain": "leanprover/lean4:v4.30.0-rc1",
+  "mathlib_pin": "v4.30.0-rc1",
+  "main_file": "lean/WallisFamily.lean",
+  "blockers": [
+    {
+      "blocker_id": "B1",
+      "location": "WallisFamily.lean:58:4",
+      "error_class": "trivial-repair",
+      "error_symptom": "WallisFamily.Solves has already been declared",
+      "fix_vector_candidates": [
+        "Remove any local `def Solves` in WallisFamily.lean if a duplicate was reintroduced during an iteration-13 edit; rely solely on `WallisFamily.ShiftConsistency.Solves` (defined at WallisFamily/ShiftConsistency.lean:45).",
+        "If the local definition is intentionally distinct, rename to `SolvesAlt` or `SolvesLocal` to avoid namespace collision with the imported sibling.",
+        "Run `#check WallisFamily.Solves` after edit to confirm exactly one declaration site remains."
+      ],
+      "confidence": "HIGH",
+      "notes": "Read-only inspection at HEAD shows only `def SolvesShifted` at L54-58 and a use of `Solves` (imported) at L106 in `intertwining_lemma`. The duplicate flagged by iter13 may have been a transient state; if the working tree no longer carries the duplicate, blocker B1 may already be resolved by the operator. Pre-edit `grep -n '^def Solves' WallisFamily.lean` recommended."
+    },
+    {
+      "blocker_id": "B2",
+      "location": "WallisFamily.lean:114-118",
+      "error_class": "tactic-strategy",
+      "error_symptom": "unsolved goals / malformed use of `hu (k + 2) (by omega)` in `intertwining_lemma`",
+      "fix_vector_candidates": [
+        "Drop the `(by omega)` side argument. `Solves m u` (from WallisFamily/ShiftConsistency.lean:45) is `\u2200 n : \u2115, pcf_rec m n u` with no inequality precondition, so `hu (k+2)` (or `hu k`, `hu (k+1)`) is the correct application form.",
+        "Use the destructuring shape currently visible at HEAD (`have h\u2080 := hu k`; `have h\u2081 := hu (k+1)`) and follow with `simp only [pcf_rec] at h\u2080 h\u2081`.",
+        "If a third recurrence application is needed (consistent with the linear_combination ansatz), add `have h\u2082 := hu (k+2)` then `simp only [pcf_rec] at h\u2082` analogously."
+      ],
+      "confidence": "MEDIUM-HIGH",
+      "notes": "Current HEAD already uses the correct calling convention `hu k` / `hu (k+1)` without inequality, suggesting B2 may have been (partially) repaired. Residual `unsolved goals` may instead trace to the `linear_combination` coefficients on L125 or to `simp only [Lm, intertwinerA, intertwinerB, ...]` not unfolding through the `n+1` constructor branch of `Lm`. Recommend `set_option pp.all true` on the failing goal to inspect the unreduced term."
+    },
+    {
+      "blocker_id": "B3",
+      "location": "WallisFamily.lean:171-177",
+      "error_class": "tactic-strategy",
+      "error_symptom": "positivity / rational identity failure in `ratio_step_m0`",
+      "fix_vector_candidates": [
+        "Replace `positivity` on `(2 * (k : \u211d) + 1) \u2260 0` and `(2 * (k : \u211d) + 3) \u2260 0` with explicit `by linarith [Nat.cast_nonneg (k : \u2115)]` or `by have := (k : \u211d).cast_nonneg; linarith`.",
+        "For `((4 : \u211d) * (k+1)^2 - 1) \u2260 0`: keep the factorization `= (2k+1)*(2k+3)` then close with `mul_ne_zero` applied to the two component nonzero hypotheses rather than chaining `positivity`.",
+        "If the failure is at `field_simp [h1, h3, hq]` followed by `push_cast; ring`, swap order to `push_cast; field_simp [h1, h3, hq]; ring` (cast normalization first stabilizes the polynomial form fed to `ring`)."
+      ],
+      "confidence": "MEDIUM-HIGH",
+      "notes": "`positivity` should succeed on `2*k+1 \u2260 0` over \u211d when `k : \u2115` (via Nat.cast_nonneg). Failure suggests either the cast is not being unfolded or the goal has been rewritten into a shape where positivity loses sight of the natural cast. Mathlib lemma `Nat.cast_nonneg` and `Nat.cast_pos` are the routing targets."
+    },
+    {
+      "blocker_id": "B4",
+      "location": "WallisFamily.lean:216-312",
+      "error_class": "trivial-repair",
+      "error_symptom": "unknown / unimported neighborhood notation `\ud835\udcdd` causing multiple `Filter.Tendsto` target failures",
+      "fix_vector_candidates": [
+        "Add `open scoped Topology` (already present at L11) is necessary but in this file the explicit `nhds` is used at L218, L219, L226, L261, L262, L265, L276, L324; if a new lemma at L216-312 introduced `\ud835\udcdd` notation, switch it to spelled-out `nhds` for consistency with the existing style of the file.",
+        "Alternatively re-confirm that `open scoped Topology` is reachable at the use site; namespace `WallisFamily` may shadow the scoped notation in some contexts. Move `open scoped Topology` inside the `namespace WallisFamily` block if currently above it.",
+        "Verify the import chain: `import Mathlib` (L1) is broad enough; the `\ud835\udcdd` notation lives in `Mathlib.Topology.Basic` and is exported under `Topology` scope."
+      ],
+      "confidence": "HIGH",
+      "notes": "Current HEAD opens `scoped Topology` at L11, before `namespace WallisFamily` at L9. This IS inside the namespace block (open scoped after namespace). All visible Tendsto lemmas at L218-324 already use spelled-out `nhds` rather than `\ud835\udcdd`. If iter13 introduced `\ud835\udcdd` somewhere in L216-312 it should be uniformly replaced with `nhds`. This is the lowest-effort blocker."
+    },
+    {
+      "blocker_id": "B5",
+      "location": "WallisFamily.lean:243,285",
+      "error_class": "tactic-strategy",
+      "error_symptom": "`linarith` and rewrite failures in limit propagation / closed-form step",
+      "fix_vector_candidates": [
+        "L243 sits inside `reciprocalWallis_succ`. The `linarith [hcb]` on L243 closes a goal of shape `(centralBinom (m+1) : \u211d) = 2*(2m+1)*centralBinom m / (m+1)`. Replace with `field_simp [hm1] at hcb \u22a2; linarith` or with a direct calc step using `div_eq_iff hm1`.",
+        "L285 sits in `roadmap_closed_form` / between the induction step and `reciprocalWallis_succ`. `simpa [wallisStepFactor] using (reciprocalWallis_succ m).symm` may mismatch on `(m+1 : \u211d)` vs `((m : \u211d) + 1)` casts; add `push_cast` before `simpa` or rewrite with `mul_comm` / `mul_assoc` lemmas explicitly.",
+        "Mathlib routing: `Nat.succ_mul_centralBinom_succ` (already used at L235), `Nat.cast_succ`, `Nat.cast_mul`, `mul_div_assoc`."
+      ],
+      "confidence": "MEDIUM",
+      "notes": "Both line numbers fall inside computational glue between `Nat.succ_mul_centralBinom_succ` and `wallisStepFactor`. The likely failure mode is cast normalization rather than missing lemmas. Recommend extracting a stand-alone lemma `centralBinom_cast_succ : ((centralBinom (m+1) : \u211d)) = 2*(2m+1)/(m+1) * centralBinom m` proved once with `field_simp; push_cast; ring`, then `rw [centralBinom_cast_succ]` at the failing site."
+    }
+  ]
+}
+
+
+==============================================================================
+APPENDIX C -- sorries.json (verbatim from bridge `2e36e0f`)
+==============================================================================
+
+{
+  "schema_version": "141C-1.0",
+  "task_id": "T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C",
+  "scan_scope": "lean/*.lean and lean/WallisFamily/*.lean (excludes lean/.lake/)",
+  "scan_method": "regex `\\bsorry\\b` minus comment-only mentions and string-literal occurrences",
+  "project_sorry_count": 2,
+  "comment_only_mentions": 2,
+  "sorries": [
+    {
+      "sorry_id": "S1",
+      "location": "Thm66_ApparentSingularity.lean:118",
+      "context": "apparent_singularity_thm_i (proof of conjunct .1) -- supplies the `h_exact` argument to `frobenius_double_root_at_apparent_singularity` for s\u2081. Surrounding code: `exact frobenius_double_root_at_apparent_singularity a_coeff_c c_coeff_c s\u2081 root_s1 a_deriv_s1_ne_zero (by sorry)`",
+      "candidate_lemma_families": [
+        "Mathlib.Analysis.Calculus.Deriv.Basic",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Pow"
+      ],
+      "candidate_helpers": [
+        "Thm66_ApparentSingularity.lean::hasDerivAt_a_coeff (real-variable HasDerivAt for a; complex analogue would parallel)",
+        "Thm66_ApparentSingularity.lean::ode_is_exact (product-rule shape)"
+      ],
+      "confidence": "LOW",
+      "notes": "Per fix_pass_log.md `h_exact sorry note`: the goal `\u2200 x, HasDerivAt (fun x => a x * deriv id x) (a x) x` is an artefact of the axiom formulation `frobenius_double_root_at_apparent_singularity` and cannot be discharged for `a = a_coeff_c` without `a(x) = C\u00b7e^x`. AEAL-status: blocked-by-design. Routing target is to REFORMULATE the axiom rather than discharge the sorry. Suggest splitting `frobenius_double_root_at_apparent_singularity` into a version that takes only `(ha_root, ha_simple)` and absorbs the derivative-shape hypothesis internally."
+    },
+    {
+      "sorry_id": "S2",
+      "location": "Thm66_ApparentSingularity.lean:120",
+      "context": "apparent_singularity_thm_i (proof of conjunct .2) -- supplies the `h_exact` argument to `frobenius_double_root_at_apparent_singularity` for s\u2082. Surrounding code: `exact frobenius_double_root_at_apparent_singularity a_coeff_c c_coeff_c s\u2082 root_s2 a_deriv_s2_ne_zero (by sorry)`",
+      "candidate_lemma_families": [
+        "Mathlib.Analysis.Calculus.Deriv.Basic",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Pow"
+      ],
+      "candidate_helpers": [
+        "Thm66_ApparentSingularity.lean::hasDerivAt_a_coeff",
+        "Thm66_ApparentSingularity.lean::ode_is_exact"
+      ],
+      "confidence": "LOW",
+      "notes": "Symmetric counterpart of S1 for the second indicial root. Same structural blocker (axiom-shape mismatch). If S1 is closed by axiom reformulation, S2 closes by the same edit. Treat S1 + S2 as a single discharge unit, not two independent ones."
+    }
+  ]
+}
+
+
+==============================================================================
+APPENDIX D -- dependency_map.json (verbatim from bridge `2e36e0f`)
+==============================================================================
+
+{
+  "schema_version": "141C-1.0",
+  "task_id": "T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C",
+  "scope": "M10-relevant project-side .lean files (excludes lean/.lake/ and GoldbachHelfgott/)",
+  "node_set": [
+    "WallisFamily.lean",
+    "WallisFamily/ShiftConsistency.lean",
+    "WallisFamily/CasoratianPi4.lean",
+    "WallisFamily/LemmaK.lean",
+    "Thm66_ApparentSingularity.lean",
+    "proof_targets.lean",
+    "CardEvenOfInvolution.lean"
+  ],
+  "edges_in_node_set": {
+    "WallisFamily.lean": [
+      "WallisFamily/CasoratianPi4.lean",
+      "WallisFamily/ShiftConsistency.lean"
+    ],
+    "WallisFamily/ShiftConsistency.lean": [],
+    "WallisFamily/CasoratianPi4.lean": [],
+    "WallisFamily/LemmaK.lean": [],
+    "Thm66_ApparentSingularity.lean": [],
+    "proof_targets.lean": [
+      "WallisFamily/LemmaK.lean"
+    ],
+    "CardEvenOfInvolution.lean": []
+  },
+  "external_imports_per_node": {
+    "WallisFamily.lean": [
+      "Mathlib",
+      "Mathlib.Analysis.Real.Pi.Wallis"
+    ],
+    "WallisFamily/ShiftConsistency.lean": [
+      "Mathlib"
+    ],
+    "WallisFamily/CasoratianPi4.lean": [
+      "Mathlib"
+    ],
+    "WallisFamily/LemmaK.lean": [
+      "Mathlib"
+    ],
+    "Thm66_ApparentSingularity.lean": [
+      "Mathlib.Analysis.Calculus.Deriv.Basic",
+      "Mathlib.Analysis.Calculus.Deriv.Add",
+      "Mathlib.Analysis.Calculus.Deriv.Pow",
+      "Mathlib.Analysis.Calculus.Deriv.Mul",
+      "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+      "Mathlib.Data.Matrix.Basic",
+      "Mathlib.Data.Complex.Basic"
+    ],
+    "proof_targets.lean": [
+      "Mathlib"
+    ],
+    "CardEvenOfInvolution.lean": [
+      "Mathlib.Data.Finset.Card",
+      "Mathlib.Algebra.Group.Even",
+      "Mathlib.Logic.Function.Basic"
+    ]
+  },
+  "lakefile_targets": {
+    "WallisFamily": "default_target lean_lib (covers WallisFamily.lean + WallisFamily/*)",
+    "Thm66": "lean_lib with roots = [Thm66_ApparentSingularity]",
+    "GoldbachHelfgott": "lean_lib with roots = [Basic, Statement, Reduction, Certificate, Main] (out of 141C scope)"
+  },
+  "lakefile_orphans": [
+    "proof_targets.lean (not declared in any lean_lib root in lakefile.lean; relies on default-target globbing or explicit invocation)",
+    "CardEvenOfInvolution.lean (not declared in any lean_lib root in lakefile.lean; appears to be staging file)"
+  ],
+  "circular_imports": [],
+  "unused_imports_in_node_set": [
+    "WallisFamily.lean: imports CasoratianPi4 and ShiftConsistency; CasoratianPi4 helpers (raw_casoratian_step, reduced_casoratian_step, casoratian_closed_form, pi4_series_of_bridge) are NOT referenced by name in WallisFamily.lean's visible body, suggesting CasoratianPi4 import may be dead at HEAD",
+    "WallisFamily.lean: ShiftConsistency import is live (uses `Solves`, `pcf_rec`)"
+  ],
+  "missing_imports_relative_to_blockers": [
+    "B4 (`nhds` notation): no missing import; `import Mathlib` (L1) is broad enough; the issue is open-scope ordering not import absence",
+    "B2 (intertwining_lemma): `Solves` is reachable via WallisFamily.ShiftConsistency import; no missing import"
+  ],
+  "notes": "WallisFamily/LemmaK.lean is unreferenced by WallisFamily.lean and is only imported by proof_targets.lean. It is a leaf in the M10 graph and not on the critical build path of the WallisFamily lean_lib target. Build failures in WallisFamily.lean cannot be caused by LemmaK.lean. Conversely, proof_targets.lean depends on LemmaK.lean compiling, so a green WallisFamily build does not transitively imply a green proof_targets.lean."
+}
+
+
+==============================================================================
+APPENDIX E -- handoff.md (verbatim from bridge `2e36e0f`)
+==============================================================================
+
+# Handoff -- T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C
+**Date:** 2026-05-10
+**Agent:** GitHub Copilot (VS Code)
+**Session duration:** ~25 minutes
+**Status:** COMPLETE
+
+## What was accomplished
+
+Read-only Lean-4 build-error triage on `lean/WallisFamily.lean` and the
+M10-relevant node set, supporting the operator-side iteration-13 fix
+loop. Five enumerated build-blockers (B1-B5) and two project-side `by sorry`
+sites (S1, S2) are classified and routed. Machine-readable JSON tuples
+(blockers.json, sorries.json, dependency_map.json) and a prose triage
+report (triage_report.md) feed the operator's iteration-14 discharge pass.
+Confidence band claim: MEDIUM-HIGH per slot 144 Change 2 (read-only access
+model; agent cannot run `lake build`).
+
+## Key numerical findings
+
+- 5 enumerated build-blockers per `build_errors_iter13.log`: B1 trivial-repair
+  (HIGH), B2 tactic-strategy (MEDIUM-HIGH), B3 tactic-strategy (MEDIUM-HIGH),
+  B4 trivial-repair (HIGH), B5 tactic-strategy (MEDIUM)
+- 2 project-side `by sorry` sites under regex `\bsorry\b` (excluding
+  `lean/.lake/` and comment-only mentions): both at
+  `Thm66_ApparentSingularity.lean:118` and `:120`, both for the `h_exact`
+  argument to `frobenius_double_root_at_apparent_singularity`. Both LOW
+  confidence; require axiom-shape reformulation rather than direct discharge.
+- 2 comment-only sorry mentions (proof_targets.lean:2, Thm66:63);
+  do not contribute to sorry count
+- Lean toolchain pin: `leanprover/lean4:v4.30.0-rc1`
+- Mathlib pin: `v4.30.0-rc1`
+- M10 node set: 7 files; 2 intra-set import edges; 0 circular imports
+- 2 lakefile-orphan files: `proof_targets.lean`, `CardEvenOfInvolution.lean`
+
+## Judgment calls made
+
+1. **Sorry-count discrepancy resolution.** Slot 144 verdict reports
+   `currently 3` project-side sorries; this triage finds 2 literal `by sorry`
+   instances. Logged as D-141C-1 (INFO, non-blocking) and surfaced for
+   operator review in triage_report.md sec 6 Q1. No re-fire requested;
+   triage proceeded with the 2-sorry count.
+2. **Iter-13 log staleness handling.** Several details in
+   build_errors_iter13.log do not match the visible HEAD source (B2's
+   `(by omega)` argument, B4's `nhds` notation). Per E3, the agent cannot
+   run `lake build` to verify. Each blocker entry's `notes` field records
+   the discrepancy and recommends operator re-runs `lake build` against
+   the iteration-14 working tree. Logged as UF-141C-1.
+3. **CasoratianPi4 import status.** The import `WallisFamily/CasoratianPi4`
+   appears dead at HEAD (no symbol referenced in WallisFamily.lean's body).
+   Surfaced as UF-141C-3; not removed (out of scope per E5).
+4. **Sorry-discharge decoupling.** S1 and S2 are routed as a single
+   discharge unit requiring axiom reformulation, not as two independent
+   sorry-fills. Recommended deferral until after Phase C.1 (green build) +
+   C.3 (commit) land.
+
+## Anomalies and open questions
+
+- **D-141C-1:** Sorry-count discrepancy (slot 144 says 3; triage finds 2).
+  Logged in discrepancy_log.json. Three candidate resolutions surfaced;
+  operator selects which interpretation is canonical.
+- **UF-141C-1:** Iter-13 log staleness relative to HEAD source. Pattern
+  suggests partial repair has already happened on the operator-side
+  working tree. Recommendation: re-run `lake build` and re-fire 141D-class
+  triage if persistent blockers remain.
+- **UF-141C-2:** Lakefile orphans (`proof_targets.lean`,
+  `CardEvenOfInvolution.lean`). Not declared in any `lean_lib` root.
+  Operator decides whether to add to lakefile or move to staging.
+- **UF-141C-3:** Possibly-dead `WallisFamily/CasoratianPi4` import in
+  `WallisFamily.lean`. Not removed in this fire (E5: no speculative
+  refactoring).
+- **Confidence-band justification:** MEDIUM-HIGH per slot 144 Change 2.
+  Per-blocker confidences vary (HIGH for B1+B4, MEDIUM-HIGH for B2+B3,
+  MEDIUM for B5). Per-sorry confidences are LOW (axiom-shape blocker
+  rather than missing-lemma blocker).
+
+## What would have been asked (if bidirectional)
+
+1. Is the slot 144 sorry-count of 3 inclusive of comment-only mentions or
+   the GoldbachHelfgott axiom-stub? (D-141C-1 candidate resolutions)
+2. Is iter-13 log the canonical reference for triage, or should the agent
+   wait for an iter-14 log before triaging? (the staleness signals affect
+   B2 and B4 confidences)
+3. Is the `CasoratianPi4` import in `WallisFamily.lean` reserved for a
+   pending future use, or can it be removed?
+4. Are `proof_targets.lean` and `CardEvenOfInvolution.lean` intended for
+   the WallisFamily build path, or are they scratch / staging files?
+
+## Recommended next step
+
+Operator runs `lake build` at the iteration-14 working tree. If green:
+proceed to Phase C.3 (commit) per POST_SYNTH_REVIEW outlook sec 2.2. If
+new errors surface, re-fire as **141D-class** (T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141D)
+with the iteration-14 log as primary input. Sorry-discharge for S1 + S2
+should be queued as a separate **142-class** fire (T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-142)
+after the WallisFamily build greens, since axiom reformulation is
+architecturally separable from build-fix iteration.
+
+## Files committed
+
+Under `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/`:
+
+1. `triage_report.md` (TASK 4 prose; 6 sections + appendix)
+2. `blockers.json` (TASK 5 schema; 5 entries B1-B5)
+3. `sorries.json` (TASK 5 schema; 2 entries S1-S2)
+4. `dependency_map.json` (TASK 3 adjacency list + lakefile audit)
+5. `claims.jsonl` (9 audit-tier meta-claims)
+6. `discrepancy_log.json` (1 entry: D-141C-1)
+7. `unexpected_finds.json` (3 entries: UF-141C-1, UF-141C-2, UF-141C-3)
+8. `halt_log.json` (`{}` -- COMPLETE status; no halt fired)
+9. `handoff.md` (this file)
+
+QA pass results:
+- All JSON files parse via `python -m json.tool`: OK
+- claims.jsonl parses per-line: OK
+- All deliverables ASCII-pure (0 non-ASCII bytes per file)
+- triage_report.md FV-discipline scan: 0 hits across the 11 forbidden-verb
+  patterns
+- ANTI-CONFLATION scan (5.978, 7.954, "M4 V0", 5f9db69): 0 hits
+
+No file under `lean/` was modified by this fire (E2 honored).
+No `lake build` / `lake check` / `lean --run` executed (E3 honored).
+
+## AEAL claim count
+
+9 entries written to `claims.jsonl` this session (audit-tier meta-claims;
+no novel mathematical claims, since the fire is read-only triage).
+
+
+==============================================================================
+APPENDIX F -- M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md (verbatim from claude-chat `c171016`)
+==============================================================================
+
+# M1-M12 closure outlook -- POST_SYNTH_REVIEW (slot 144 verdict amendments absorbed)
+
+**Cut at:** 2026-05-10 ~10:50 JST
+**Bridge HEAD at cut time:** `ece6c32` (Q22 cleanup tactical landing)
+**Repo HEAD at cut time:** `21aea4d` (slot 144 prompt commit)
+**Predecessor:** `M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md` (preserved unedited)
+**Originating verdict:** slot 144 single-witness MEDIUM-HIGH `ENDORSE_WITH_AMENDMENTS` (6 changes; 3 anomalies; 0 blocking)
+**Status:** strategic outlook snapshot -- RULE 1 still in force; roadmap structure endorsed; 6 amendments absorbed
+
+---
+
+## SUPERSESSION NOTICE
+
+> This document supersedes `M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md`
+> for the Phase B placement (now Phase D-prime), Phase A new sub-step A.1.5,
+> Phase C new gate C.3+, slot 141C scope tightening, risk-register addition,
+> and explicit M6.CC absorption note. M-axis state-of-closure scoreboard
+> (sec 1) and substrate inventory remain unchanged.
+>
+> Triggered by slot 144 single-witness MEDIUM-HIGH `ENDORSE_WITH_AMENDMENTS`
+> verdict (synth verdict at `synth_verdicts_raw.txt` in bridge folder
+> `T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144`).
+
+---
+
+## sec 1 -- M-axis closure scoreboard (unchanged from POST_LEAN_REALITY)
+
+| Tier | Axis | State | Closure substrate |
+|:--:|:--:|:--:|---|
+| retired | M3 | folded into M4 | n/a |
+| retired | M5 | folded into M6.CC | n/a |
+| V0 closed | M4 | foundation borderline-ansatz | cascade `5f9db69` (cross-ref only per ANTI-CONFLATION) |
+| residuals absorbed | M6.CC | V_quad to P_III chart-map | cascades 123 / 130R; **no V0 cascade required** (sec 5) |
+| V0 closed | M7 | post-M4 axis | cascade `7f93b9e` |
+| V0 closed | M8a | post-M4 axis | cascade `cb429e1` |
+| V0 closed | M8b | post-M4 axis | cascade `74c5630` |
+| substrate-source-of-record closed | M9 | V0 announcement | cascade-132 PATH_B 3/3 = `887981b` + `45e236c` + `b9aa881` |
+| substrate-prep stage | M10 | Lean-4 sorry-discharge | scaffold `ce5d9e9`; commitment-paragraph + math both pending |
+| substantive substrate landed | M2 | PCF-2 v1.4 + Q22 absorbed | substrate `45e236c`; Q22 cleanup `ece6c32` |
+| TABLED | M1 | D2-NOTE Zenodo deposit | post-lift admin |
+| TABLED | M11 | math.NT arXiv endorsement | post-lift admin |
+| TABLED | M12 | 4-paper resubmission | post-lift admin |
+
+Net: 9.5 of 12 axes closed-or-retired. Open: M10. Tabled: M1 / M11 / M12 + admin tails.
+
+---
+
+## sec 2 -- 4-phase roadmap (REVISED per slot 144 verdict)
+
+### sec 2.1 -- Phase A: operator commitment-fill + synth-review
+
+  | # | Action | Owner | Triggers |
+  |:-:|---|:-:|---|
+  | A.1 | Fill `m10_documented_commitment.md` sec 3 commitment paragraph | operator | unblocks A.1.5 |
+  | **A.1.5** | **Synth-review of commitment paragraph for RULE-1 leakage** (NEW per slot 144 Change 5) | T1-Synth | unblocks A.2; verifies paragraph does not reference Zenodo timelines, endorsement plans, or venue-resubmission cadence |
+  | A.2 | Set `.fleet.yaml commitments[0].status = COMMITTED-{YYYY-MM-DD}` | operator | unblocks Phase C |
+
+**Note:** A.3 (RULE 1 lift directive issuance) is **deferred to Phase D-prime preamble** per slot 144 Change 1; no longer in Phase A.
+
+### sec 2.2 -- Phase C: M10 V0 math closure (with new gate C.3+)
+
+  | # | Action | Estimated fires | Notes |
+  |:-:|---|:-:|---|
+  | C.1 | Repair `WallisFamily.lean` build (5 enumerated blockers per `build_errors_iter13.log`) | 1-3 build-fix iterations | operator-side; agent supports via slot 141C triage (revised scope per sec 4) |
+  | C.2 | Discharge 3 sorries (`Thm66_ApparentSingularity.lean = 2`, `proof_targets.lean = 1`) | 1-3 sorry-discharge iterations | per repo memory `LEAN4-THM66-FIX -- discharge N sorries` recurring fire-class |
+  | C.3 | Green build + commit `lean/` working tree | 1 commit | hardens substrate before Phase D-prime fire |
+  | **C.3+** | **`lake build` reproducibility check on clean clone** (NEW per slot 144 Change 3) | 0 fires (validation only) | certifies substrate is not local-state-dependent; matches M7/M8a/M8b green-build precedent |
+  | C.4 | Fire M10 V0 substrate-prep + closure-cascade (3-arc template: substrate-prep -> solo-dispatch -> cascade-absorption) | 3 fires | mirrors M7 / M8a / M8b cadence |
+  | C.5 | M10 V0 closure deposited; M-axis closure series complete | -- | terminal state for math-only path |
+
+Phase C total: ~6-10 fires + operator math work. Range driven by C.1 / C.2 iteration count. Iteration-20 ceiling per sec 3 risk R2.
+
+### sec 2.3 -- Phase D-prime: RULE 1 lift authorization (REORDERED; was Phase B)
+
+Re-labeled per slot 144 Change 1. Fires AFTER C.3 lands (green build + commit) so the documented-commitment lift is backed by hardened substrate evidence rather than commitment-paragraph evidence alone.
+
+  | # | Action | Owner | Artefact / output |
+  |:-:|---|:-:|---|
+  | D'.0 | Operator issues RULE 1 lift directive (was Phase A.3) | operator | one-line operator instruction |
+  | D'.1 | Fire prompt 142 (drafted; ASCII-clean; 14.4 KB / 282 lines) | agent | bridge fire `T2-EXECUTOR-RULE-1-LIFT-AUTHORIZATION-142`; cuts `M1_M12_CLOSURE_OUTLOOK_20260510_POST_LIFT.md` superseding this outlook |
+
+After D'.1 lands: RULE 1 status flips to LIFTED in the outlook chain. Admin window opens but per RULE 1 reaffirmation those items remain TABLED for math-only path. Phase C C.4-C.5 closure cascade continues as math-axis work.
+
+### sec 2.4 -- Phase D: math-axis terminal state (12/12 closed-or-retired)
+
+Once C.5 lands, M-axis closure series COMPLETE. The math-only path is exhausted; everything remaining is administrative or distribution work outside RULE 1 scope.
+
+### sec 2.5 -- Tabled queue inventory (DO NOT FIRE under RULE 1; unchanged)
+
+  - 3-step Zenodo deposit cascade (PCF-2 v1.4 -> umbrella v2.2 -> picture-chain v1.20+)
+  - umbrella v2.2 / picture-chain v1.20+ / PCF-2 v1.4 individual Zenodo deposits
+  - D2-NOTE Zenodo deposit (M1)
+  - Lean venue submission (M10; awaits Phase C completion)
+  - Garoufalidis / Mazzocco arXiv endorsement (M11)
+  - arXiv endorsement-handle acquisition (M11)
+  - 4-paper resubmission packaging (M12)
+  - Compositio follow-up (M12)
+  - Ramanujan-J resubmission (M12)
+  - iscitedby polish (M12)
+  - AFM desk-reject alternate-venue picks (M12)
+  - 5 arXiv mirror records (M11 / M12)
+  - `.fleet.yaml` standalone commit (meta; working-tree carry, low-risk)
+
+---
+
+## sec 3 -- Risk register (NEW per slot 144 Change 4)
+
+  | # | Risk | Probability | Severity | Mitigation |
+  |:-:|---|:--:|:--:|---|
+  | R1 | Operator commitment-fill drift (Phase A.1) | HIGH | LOW | time-box Phase A; escalate to T1-Synth paragraph-drafting consultation if operator-side fill exceeds {N} hours |
+  | R2 | M10 V0 iteration overrun beyond 6-10 fires | MEDIUM | MEDIUM | iteration-20 ceiling; re-evaluate scope at iteration-20 (currently iteration-13 active per `build_errors_iter13.log`) |
+  | R3 | RULE-1 leakage via commitment paragraph | LOW | MEDIUM | Phase A.1.5 synth-review (new step); paragraph must not reference Zenodo timelines, endorsement plans, or venue-resubmission cadence |
+  | R4 | Parallel-CLI fire collision n=5 instance during Phase C | MEDIUM | LOW | standing Phase 0 supersession-gate per fire; Q22 cleanup at `ece6c32` was n=4 (cleanly halted at supersession-gate; positive forensic signal) |
+  | R5 | Lean toolchain drift between iteration-13 and C.5 | LOW | HIGH | pin toolchain version in C.3 commit; validate at C.3+ via `lake build` reproducibility check |
+
+---
+
+## sec 4 -- Slot 141C revised scope (per slot 144 Change 2)
+
+CLI agent's recommended next agent fire under RULE 1 (while operator does Phase A):
+
+  - **Slot 141C scope:** T2-Executor Lean-4 build-error triage on M10
+  - **Access model:** READ-ONLY on `lean/` working tree (uncommitted state preserved; agent must not modify operator's iteration-13 in-flight work)
+  - **TASK 1:** Survey `lean/build_errors_iter13.log` + 3 modified + 5 untracked `.lean` files; classify blockers into categories (type-checker errors, missing lemmas, tactic-failure patterns, unification mismatches)
+  - **TASK 2:** For each of the 5 enumerated blockers in `WallisFamily.lean`, produce `(blocker_id, location, error_class, fix_vector_candidates[])` triples. Distinguish (a) trivial repairs (imports / name-resolution), (b) genuine math gaps requiring lemma proof, (c) tactic-strategy issues
+  - **TASK 3:** For the 3 outstanding sorries, produce sorry-discharge **strategy-routing-only** (NOT discharge-candidates): match each sorry to a Mathlib lemma family or to a project-side helper that *might* close it; do NOT generate candidate proofs
+  - **TASK 4:** Output a triage report and a prioritized fix-plan; no live code edits to `lean/` (operator-side change scope)
+  - **TASK 5 (NEW per Change 2):** All triage output produced as machine-readable JSON tuples in addition to prose narrative. Schema: `{"blocker_id": "string", "location": "file:line", "error_class": "trivial-repair|math-gap|tactic-strategy", "fix_vector_candidates": ["string"]}` for blockers; `{"sorry_id": "string", "location": "file:line", "candidate_lemma_families": ["string"], "candidate_helpers": ["string"]}` for sorries. Prose narrative retained for context.
+  - **EXPLICIT EXCLUSION:** agent must NOT generate sorry-discharge candidate proofs; classify-and-route only. Avoids Searcher's Fatigue / fabricated-math failure mode.
+  - **Confidence claim:** **MEDIUM-HIGH** (downgraded from HIGH per slot 144 Q5(d)); Lean-4 build-error pattern-matching from logs without `lake build` execution capability carries enough uncertainty that HIGH overstates.
+  - **Bridge folder:** `T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/`
+
+CLI agent rationale: Slot 141C is the only agent-fireable prompt that
+  - directly advances the sole open math axis (M10 V0)
+  - requires no operator unblocking
+  - stays strictly within RULE 1 scope
+  - yields actionable substrate for the operator's next sorry-discharge pass
+
+---
+
+## sec 5 -- M6.CC explicit absorption note (per slot 144 Change 6)
+
+> M6.CC = residuals-absorbed via cascades 123 / 130R; no V0 cascade required.
+>
+> The V_quad to P_III chart-map content is deposited via picture-chain v1.20+
+> (`b9aa881`) and PCF-2 v1.4 substrate (`45e236c`). M6.CC closure-equivalent
+> is achieved at the math-content level. No re-litigation expected.
+
+---
+
+## sec 6 -- Critical-path summary (REVISED)
+
+> Operator fills M10 commitment paragraph (Phase A.1) -> synth-reviews paragraph for RULE-1 leakage (A.1.5) -> operator updates `.fleet.yaml commitments[0].status` (A.2) -> Phase C math closure (C.1 build-repair -> C.2 sorry-discharge -> C.3 commit -> C.3+ reproducibility check) -> operator issues lift directive (D'.0) -> Phase D-prime fires slot 142 RULE 1 lift authorization (D'.1) -> Phase C continues C.4 V0 substrate-prep -> C.5 V0 closure cascade -> Phase D 12/12 closed-or-retired -> admin window thaws (out of RULE 1 scope).
+
+Net change vs POST_LEAN_REALITY critical path: Phase D-prime (lift fire) shifted from "post-A.3" to "post-C.3"; A.1.5 synth-review gate inserted; C.3+ reproducibility gate added.
+
+---
+
+## sec 7 -- Anomalies absorbed (slot 144 verdict sec 4)
+
+  | ID | Severity | Title | Absorption status |
+  |---|:--:|---|---|
+  | D-144-1 | LOW | Phase B labeling inconsistency | RESOLVED via re-label to Phase D-prime (sec 2.3); D-144-1 closed |
+  | D-144-2 | INFO | Iteration-count estimate optimism | NOTED; iteration-20 ceiling added to risk R2 (sec 3); D-144-2 closed |
+  | D-144-3 | INFO | Slot 141C confidence claim mismatch | RESOLVED via downgrade to MEDIUM-HIGH (sec 4); D-144-3 closed |
+
+No HIGH-severity anomalies. No blocking anomalies. Roadmap proceeds.
+
+---
+
+## sec 8 -- Cross-references / antecedents
+
+  - **Predecessor outlook (preserved unedited):** `M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md`
+  - **Originating verdict:** slot 144 single-witness MEDIUM-HIGH `ENDORSE_WITH_AMENDMENTS` (claude.ai web; Claude Opus 4.7); deposit at `T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144` bridge folder
+  - **Functional precedent:** slot 139 single-witness MEDIUM-HIGH `BEST-NEXT-MOVE` (`72bb2c2`); narrow-scope predecessor
+  - **M-axis V0 closure series:** M4 (`5f9db69`; cross-ref only) -> M7 (`7f93b9e`) -> M8a (`cb429e1`) -> M8b (`74c5630`)
+  - **M9 V0 substrate chain:** slot 135 (`887981b`) + slot 137 (`45e236c`) + slot 136 (`b9aa881`)
+  - **Cascade-132 lift-mechanics precedent:** `fd669d3` sec 5 ("Operator-discretion permits lift before M10 with documented commitment.")
+  - **Q22 cleanup outcome:** parallel-CLI tactical fire 2026-05-10 ~10:24 JST (`ece6c32` / `0295aee`); REFINED Outcome A; n=4 instance of parallel-CLI-fire collision pattern (cleanly halted at supersession-gate; positive forensic signal)
+  - **Slot 141B substrate scaffold:** `ce5d9e9` / `efc12e5`; `m10_documented_commitment.md` sec 3 commitment-paragraph PENDING; `.fleet.yaml commitments[0].status = COMMITMENT-PARAGRAPH-PENDING-OPERATOR`
+
+---
+
+## sec 9 -- Versioning rule
+
+If the underlying state changes materially (operator fills commitment paragraph; Phase C iteration-20 ceiling reached; RULE 1 lifts; parallel-CLI fire surfaces; cascade-132 chain re-opens via amendment), supersede this file with a dated successor (e.g., `M1_M12_CLOSURE_OUTLOOK_20260510_POST_LIFT.md` once RULE 1 lifts; `_<YYYYMMDD>_<TAG>.md` for any other material delta). Do NOT edit this file in place; do NOT edit the predecessor `_POST_LEAN_REALITY.md` either.
+
+---
+
+## sec 10 -- Closing note
+
+The slot 144 verdict endorses the roadmap structure at MEDIUM-HIGH single-witness confidence with 6 tightening-and-clarifying amendments now absorbed. The math-foundational pipeline remains: one operator-only commitment-fill + synth-review (Phase A), then the M10 V0 math axis (Phase C), with the RULE 1 lift authorization fire (Phase D-prime) inserted post-C.3 to ensure documented-commitment evidence is backed by green-build substrate. Agent has slot 141C (Lean-4 build-error triage; revised scope per sec 4) as the next agent-fireable work item under RULE 1; awaits operator authorization to draft.
+
+*End of outlook. Cuts at 2026-05-10 ~10:50 JST. ASCII-pure; FV-disciplined; ANTI-CONFLATION-clean (cross-ref-only enumeration row).*
+
+
+==============================================================================
+END OF APPENDICES
+==============================================================================
+
