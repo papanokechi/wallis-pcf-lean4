@@ -1,0 +1,719 @@
+================================================================
+SIARC -- M1-M12 closure operator-action runbook
+6 Copilot Researcher prompts (one per OP_* item)
+================================================================
+Drafted: 2026-05-10 ~14:50 JST
+Class: Copilot Researcher (cloud agent) prompts
+Companion to: M1_M12_OPERATOR_RUNBOOK_20260510.md (concrete commands)
+Companion to: M1_M12_CLOSURE_ROADMAP_PROMPT_SERIES_20260510.md (sequencing)
+Repo HEAD at draft: d3d7189
+================================================================
+
+USAGE: each section below is a self-contained Copilot Researcher
+prompt. Copy-paste the section between BEGIN/END markers into the
+researcher dispatch UI. Sections are sequenced per dependency
+(OP_A and OP_A1 fire-eligible immediately; others are gated).
+
+DELEGATION CLASSES:
+  - MECHANICAL-DELEGABLE: researcher executes end-to-end; no
+    operator content judgment required. Includes OP_C3, OP_C3PLUS,
+    OP_A2.
+  - JUDGMENT-ASSISTED: researcher prepares evidence/draft; operator
+    reviews and authorizes. Includes OP_A (commit-vs-stash decision),
+    OP_A1 (commitment-paragraph content authorship), OP_DP0 (lift
+    directive issuance).
+
+================================================================
+================================================================
+SECTION 1 -- OP_A researcher prompt
+================================================================
+
+BEGIN_OP_A_PROMPT
+================================================================
+SIARC Copilot Researcher Prompt -- OP_A
+Task ID: OP-A-LEAN-WORKING-TREE-REMEDIATION-20260510
+Tier: T2 (executor; mechanical with operator judgment-call)
+Class: JUDGMENT-ASSISTED (researcher proposes; operator selects A.i vs A.ii)
+Triggered by: slot 148 first-fire HALT_148_PRECONDITION_DIRTY_TREE
+              at bridge ba81582 (2026-05-10 12:48:19 JST)
+Predecessor: none (fire-eligible immediately)
+Unblocks: slot 148 re-fire (S148R)
+Repo: papanokechi/wallis-pcf-lean4
+Estimated researcher effort: 15-30 min
+================================================================
+
+# 1. Context
+
+The slot 148 (Pattern alpha axiom-reshape of frobenius_double_root_at_apparent_singularity) first-fire halted at STEP 0.4(c) PRECONDITION_DIRTY_TREE. The lean/ subtree is mid-iter-13 with:
+
+  - 3 tracked-modified files: lean/WallisFamily.lean (+62/-46),
+    lean/lakefile.lean (+9/-1), lean/lean-toolchain (+1/-1)
+  - 1 untracked target file: lean/Thm66_ApparentSingularity.lean
+    (slot 148 needs to edit this; must be tracked)
+  - ~20 other untracked files (logs, intermediates, .lake/)
+
+Slot 148 re-fire requires clean tracked state on:
+  lean/WallisFamily.lean, lean/lakefile.lean, lean/lean-toolchain,
+  lean/Thm66_ApparentSingularity.lean
+
+# 2. Your task
+
+Phase 0 -- pre-flight:
+
+  Run `git status --porcelain -- lean/` and capture output verbatim.
+  If output matches exactly the pattern from slot 148 halt log
+  (3 ` M` lines + `?? lean/Thm66_ApparentSingularity.lean`),
+  proceed. If different, halt with HALT_OP_A_UNEXPECTED_TREE_STATE
+  and surface diff to operator.
+
+Phase 1 -- assess iter-13 work coherence:
+
+  Run `git diff --stat -- lean/WallisFamily.lean lean/lakefile.lean lean/lean-toolchain` and capture.
+  Run `cat lean/build_errors_iter13.log` (or equivalent latest iter log)
+  and summarize iter-13 state in 3-5 bullets.
+
+  Decision recommendation:
+  - If iter-13 build_errors log shows a coherent partial state
+    (i.e., halt was at a semantically-meaningful intermediate),
+    recommend OPTION_A_I (COMMIT).
+  - If iter-13 build_errors log shows mid-tactic-rewrite or
+    inconsistent state, recommend OPTION_A_II (STASH).
+
+  Surface recommendation to operator with one-paragraph justification.
+
+Phase 2 -- await operator selection:
+
+  Operator replies with OPTION_A_I or OPTION_A_II.
+  Researcher MUST NOT execute Phase 3 without operator selection.
+
+Phase 3 -- execute selection:
+
+  If OPTION_A_I:
+    git add lean/WallisFamily.lean lean/lakefile.lean lean/lean-toolchain lean/Thm66_ApparentSingularity.lean
+    git commit -m "M10 iter-13 mid-pass commit + add Thm66_ApparentSingularity.lean to tracking" -m "Pre-slot-148 OPT_A remediation. WallisFamily.lean +62/-46; lakefile +9/-1; lean-toolchain +1/-1. Tracking added for Thm66_ApparentSingularity.lean (slot 148 target)."
+    git push origin <current-branch>
+
+  If OPTION_A_II:
+    git stash push -u -m "M10 iter-13 mid-pass stash; OPT_A pre-slot-148" -- lean/WallisFamily.lean lean/lakefile.lean lean/lean-toolchain
+    git add lean/Thm66_ApparentSingularity.lean
+    git commit -m "Add Thm66_ApparentSingularity.lean to tracking (pre-slot-148)" -m "OPT_A remediation; WallisFamily / lakefile / toolchain changes stashed."
+    git push origin <current-branch>
+
+Phase 4 -- acceptance check:
+
+  Run: `git status --porcelain -- lean/WallisFamily.lean lean/lakefile.lean lean/lean-toolchain lean/Thm66_ApparentSingularity.lean`
+  Expected: empty output.
+  If non-empty, halt HALT_OP_A_ACCEPTANCE_FAIL and surface.
+
+# 3. Deliverables
+
+  - op_a_phase0_status.txt: verbatim git status output
+  - op_a_phase1_assessment.md: 3-5 bullet iter-13 state summary +
+    OPTION_A_I vs OPTION_A_II recommendation + justification
+    paragraph
+  - op_a_phase3_commit_sha.txt: post-execution commit SHA + push status
+  - op_a_acceptance_log.txt: phase 4 verification output
+  - handoff.md: one-paragraph summary
+
+# 4. Halt conditions
+
+  HALT_OP_A_UNEXPECTED_TREE_STATE: phase 0 unexpected tree
+  HALT_OP_A_NO_OPERATOR_SELECTION: operator did not reply within timeout
+  HALT_OP_A_GIT_PUSH_FAIL: phase 3 push fails
+  HALT_OP_A_ACCEPTANCE_FAIL: phase 4 git status non-empty
+
+# 5. Boundary
+
+Researcher MUST NOT:
+  - select between OPTION_A_I and OPTION_A_II without operator input
+  - modify lean/Thm66_ApparentSingularity.lean content (only adds to tracking)
+  - commit any non-lean/ paths
+  - rebase, force-push, or rewrite history
+
+================================================================
+END_OP_A_PROMPT
+
+
+================================================================
+================================================================
+SECTION 2 -- OP_A1 researcher prompt
+================================================================
+
+BEGIN_OP_A1_PROMPT
+================================================================
+SIARC Copilot Researcher Prompt -- OP_A1
+Task ID: OP-A1-M10-COMMITMENT-PARAGRAPH-DRAFT-20260510
+Tier: T2 (executor + drafting on operator behalf)
+Class: JUDGMENT-ASSISTED (researcher drafts; operator selects + edits)
+Triggered by: M10 documented-commitment scaffold sec 3 placeholder
+              pending fill (slot 141B fire bridge ce5d9e9)
+Predecessor: none (fire-eligible immediately; parallel to OP_A)
+Unblocks: S152 (synth-review of paragraph)
+Repo: claude-chat (this repo)
+Estimated researcher effort: 30-60 min
+================================================================
+
+# 1. Context
+
+The M10 axis (Lean-4 sorry-discharge / formalization) is gated for V0 closure on a documented-commitment paragraph that follows the cascade-132 PATH_B Option alpha precedent at bridge fd669d3 sec 5: "Operator discretion permits lift before M10 with documented commitment."
+
+The scaffold at `tex/submitted/control center/picture/m10_documented_commitment.md` Section 3 contains a placeholder block requesting four fields:
+
+  delivery: complete-by-{YYYY-MM-DD}  OR  report-status-by-{YYYY-MM-DD}
+  delegation: {self / specific-collaborator / external-team}
+  notes: {free-form}
+  status: COMMITTED-{YYYY-MM-DD}
+
+Operator must fill these. Researcher prepares 3 candidate drafts to accelerate operator selection.
+
+CRITICAL CONSTRAINT (RULE 1 leakage): paragraph MUST NOT reference any of: Zenodo, endorsement, arXiv, Compositio, Ramanujan, AFM, venue, journal-name. Synth-review at S152 will reject on any such token.
+
+# 2. Your task
+
+Phase 0 -- substrate read:
+
+  Read in full:
+  - tex/submitted/control center/picture/m10_documented_commitment.md (sec 1-5)
+  - siarc-relay-bridge/sessions/2026-05-09/T1-SYNTH-M9-V0-CLOSURE-PATH-CONSULTATION-CASCADE-132/m9_v0_closure_path_decision.md (sec 5 precedent)
+  - tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_OPEN_ITEMS.md sec 2.1 (Phase A)
+
+Phase 1 -- iter-13 / build state context:
+
+  Read lean/build_errors_iter13.log (latest iter log) and summarize:
+  - current iteration count
+  - 5 enumerated blockers (per slot 141B sec 2.3)
+  - Thm66 sorry-count = 2 at L118 + L120 (per slot 149 verdict Q1)
+
+Phase 2 -- draft three candidate paragraphs:
+
+  Each candidate is a fully-filled Section 3 block. Vary along these axes:
+  - Candidate A: AGGRESSIVE timeline (delivery: complete-by-{6-week date}; delegation: self; notes: emphasize iter-13->iter-15 path via slot 148 Pattern alpha refactor)
+  - Candidate B: CONSERVATIVE timeline (delivery: report-status-by-{12-week date}; delegation: self; notes: emphasize R6 weakening risk + Pattern beta fallback option)
+  - Candidate C: COLLABORATOR-DELEGATED (delivery: complete-by-{8-week date} OR report-status-by-{12-week date}; delegation: external-team; notes: identifies a specific collaborator profile e.g. "Lean-4 Mathlib contributor with experience in apparent-singularity formalization")
+
+  Each candidate MUST:
+  - Use only ASCII characters
+  - Be 3-15 lines for sec 3 block
+  - Contain zero RULE 1 leakage tokens (Zenodo / endorsement / arXiv / Compositio / Ramanujan / AFM / venue / journal-name)
+  - Reference cascade-132 sec 5 precedent and slot 139 BUNDLED-DEFERRED-NOTE verdict
+  - Include `status: COMMITTED-2026-05-10` (today's date)
+
+Phase 3 -- self-review:
+
+  For each candidate, run a token-scan for RULE 1 leakage.
+  Run an FV-discipline scan (per project FV-prohibited verb list).
+  Surface scan results.
+
+Phase 4 -- present to operator:
+
+  Output the three candidates side-by-side in a comparison table + the full text of each.
+  Do NOT write to m10_documented_commitment.md. Operator reviews, edits if needed, applies selected candidate manually OR instructs researcher to apply.
+
+Phase 5 -- await operator selection (OPTIONAL):
+
+  If operator says "apply candidate X":
+    - edit `tex/submitted/control center/picture/m10_documented_commitment.md` Section 3
+    - replace placeholder block with selected candidate (operator-edited if needed)
+    - commit + push:
+      git add 'tex/submitted/control center/picture/m10_documented_commitment.md'
+      git commit -m "M10-COMMITMENT-FILLED -- operator-issued delivery commitment" -m "Section 3 filled per operator selection of Candidate {A|B|C}; cascade-132 PATH_B precedent (bridge fd669d3 sec 5)."
+
+# 3. Deliverables
+
+  - op_a1_phase1_iter13_summary.md: ~10-line iter-13 state summary
+  - op_a1_phase2_candidates.md: 3 fully-drafted Section 3 blocks
+  - op_a1_phase3_scan_results.md: per-candidate token-scan + FV-scan output
+  - op_a1_phase4_comparison.md: side-by-side table
+  - (optional, post-Phase-5) op_a1_commit_sha.txt
+  - handoff.md
+
+# 4. Halt conditions
+
+  HALT_OP_A1_RULE1_LEAKAGE: any candidate contains a leakage token after self-review
+  HALT_OP_A1_FV_FAIL: any candidate has FV-discipline hits
+  HALT_OP_A1_SCAFFOLD_DRIFTED: m10_documented_commitment.md sec 3 is no longer a placeholder (already filled by parallel session)
+
+# 5. Boundary
+
+Researcher MUST NOT:
+  - choose a candidate (operator chooses)
+  - commit a draft without operator selection (Phase 5 is operator-gated)
+  - reference admin work-streams (Zenodo / endorsement / venue)
+  - assert delivery dates without operator confirmation
+
+================================================================
+END_OP_A1_PROMPT
+
+
+================================================================
+================================================================
+SECTION 3 -- OP_A2 researcher prompt
+================================================================
+
+BEGIN_OP_A2_PROMPT
+================================================================
+SIARC Copilot Researcher Prompt -- OP_A2
+Task ID: OP-A2-FLEET-YAML-COMMITMENT-FLIP-20260510
+Tier: T1 (mechanical edit; YAML-validate; commit)
+Class: MECHANICAL-DELEGABLE (researcher executes end-to-end)
+Triggered by: S152 verdict RATIFY (or RATIFY_WITH_AMENDMENT
+              with operator-applied amendments)
+Predecessor: OP_A1 LANDED + S152 RATIFY
+Unblocks: OP_DP0 (RULE 1 lift directive eligibility)
+Repo: claude-chat (this repo)
+Estimated researcher effort: 5-10 min
+================================================================
+
+# 1. Context
+
+After OP_A1 fills `m10_documented_commitment.md` sec 3 and S152 ratifies, the M10 commitment status flag in `.fleet.yaml` must flip from `COMMITMENT-PARAGRAPH-PENDING-OPERATOR` to `COMMITTED-{YYYY-MM-DD}` where `{YYYY-MM-DD}` matches the date used in m10_documented_commitment.md sec 3 status field.
+
+This flips the `m10-resolved` flag in `.fleet.yaml` tracking.milestones.m9-v0.gate, satisfying the M9 V0 announcement-of-record gate.
+
+# 2. Your task
+
+Phase 0 -- pre-flight:
+
+  Read m10_documented_commitment.md sec 3, extract the `status:` field value (expected pattern `COMMITTED-\d{4}-\d{2}-\d{2}`).
+  If sec 3 still contains `{...}` placeholders, halt HALT_OP_A2_OP_A1_NOT_LANDED.
+
+  Read .fleet.yaml line 689-697 (commitments[0] block).
+  Confirm current status field is `COMMITMENT-PARAGRAPH-PENDING-OPERATOR`.
+  If different, halt HALT_OP_A2_FLEET_YAML_DRIFTED and surface.
+
+Phase 1 -- read S152 verdict (predecessor evidence):
+
+  Locate S152 bridge folder: `siarc-relay-bridge/sessions/2026-05-XX/T1-SYNTH-M9-V0-COMMITMENT-PARAGRAPH-REVIEW-152/handoff.md`
+  Confirm verdict label is `RATIFY` or `RATIFY_WITH_AMENDMENT`.
+  If `OBJECT` or `DEFER`, halt HALT_OP_A2_S152_NOT_RATIFY.
+
+Phase 2 -- edit .fleet.yaml:
+
+  Replace exactly:
+    OLD:    status: COMMITMENT-PARAGRAPH-PENDING-OPERATOR
+    NEW:    status: COMMITTED-{YYYY-MM-DD}    # date from sec 3
+
+  Preserve indentation (4 spaces) and trailing newline.
+
+Phase 3 -- YAML re-validation:
+
+  Run: python -c "import yaml; yaml.safe_load(open('.fleet.yaml', 'r', encoding='utf-8').read()); print('YAML OK')"
+  If fails, restore .fleet.yaml from git and halt HALT_OP_A2_YAML_INVALID.
+
+Phase 4 -- commit + push:
+
+  git add .fleet.yaml
+  git commit -m "M10 commitment status COMMITTED-{YYYY-MM-DD} -- post S152 RATIFY" -m "OP_A2 .fleet.yaml flip; m10-resolved flag now true; M9 V0 milestone gate satisfied. Predecessor: S152 verdict at bridge {S152-SHA}."
+  git push origin HEAD
+
+Phase 5 -- acceptance:
+
+  Run: grep -c 'status: COMMITTED-' .fleet.yaml
+  Expected: at least 1.
+  Run: grep -c 'COMMITMENT-PARAGRAPH-PENDING-OPERATOR' .fleet.yaml
+  Expected: 0.
+
+# 3. Deliverables
+
+  - op_a2_phase1_s152_evidence.md: S152 verdict label + SHA
+  - op_a2_phase3_yaml_validation.txt: YAML validation output
+  - op_a2_phase4_commit_sha.txt: commit SHA + push status
+  - op_a2_phase5_acceptance.txt: grep counts
+  - handoff.md
+
+# 4. Halt conditions
+
+  HALT_OP_A2_OP_A1_NOT_LANDED
+  HALT_OP_A2_FLEET_YAML_DRIFTED
+  HALT_OP_A2_S152_NOT_RATIFY
+  HALT_OP_A2_YAML_INVALID
+  HALT_OP_A2_GIT_PUSH_FAIL
+
+# 5. Boundary
+
+Researcher MUST NOT:
+  - flip status without S152 RATIFY evidence
+  - edit any .fleet.yaml line other than commitments[0].status
+  - issue the RULE 1 lift directive (that is OP_DP0; operator-only)
+
+================================================================
+END_OP_A2_PROMPT
+
+
+================================================================
+================================================================
+SECTION 4 -- OP_C3 researcher prompt
+================================================================
+
+BEGIN_OP_C3_PROMPT
+================================================================
+SIARC Copilot Researcher Prompt -- OP_C3
+Task ID: OP-C3-LEAN-GREEN-BUILD-COMMIT-20260510
+Tier: T2 (executor; build + commit)
+Class: MECHANICAL-DELEGABLE (researcher executes end-to-end)
+Triggered by: S148R LANDED with build green + Pattern alpha closing S1+S2 by deletion
+Predecessor: S148R LANDED
+Unblocks: OP_C3PLUS (clean-clone reproducibility check)
+Repo: papanokechi/wallis-pcf-lean4
+Estimated researcher effort: 10-20 min
+================================================================
+
+# 1. Context
+
+After slot 148 re-fire (S148R) lands, the lean/ subtree reflects Pattern alpha refactor:
+  - lean/Thm66_ApparentSingularity.lean: redundant h_exact parameter removed from frobenius_double_root_at_apparent_singularity axiom; sorries at L118 + L120 closed by deletion (no longer needed)
+  - any associated lake artefact updates
+
+Operator/researcher commits the post-refactor state.
+
+# 2. Your task
+
+Phase 0 -- substrate read:
+
+  Read S148R bridge handoff.md to extract:
+  - Pattern alpha confirmation (frobenius_double_root_at_apparent_singularity h_exact removed)
+  - sorry-count claim (expected 0)
+  - lake build claim (expected exit 0)
+  - any R6 weakening flags (if present, halt HALT_OP_C3_R6_WEAKENING_FLAG)
+
+Phase 1 -- build verification (clean):
+
+  cd <wallis-pcf-lean4-repo-root>
+  lake build
+  Capture exit code. If != 0, halt HALT_OP_C3_BUILD_FAIL.
+
+Phase 2 -- sorry-count assertion (literal-match per slot 149 sec 8):
+
+  grep -rn 'by sorry\|:= sorry' lean/ --include='*.lean'
+  Capture full output.
+  If any matches, halt HALT_OP_C3_SORRY_NOT_ZERO and surface match list.
+
+Phase 3 -- toolchain pin verification:
+
+  cat lean/lean-toolchain
+  Capture value. If different from pre-S148R pin (read pre-S148R from S148R handoff or m10_documented_commitment.md sec 2.1), halt HALT_OP_C3_TOOLCHAIN_DRIFT.
+
+Phase 4 -- commit + push:
+
+  git status -s -- lean/
+  git add lean/Thm66_ApparentSingularity.lean lean/WallisFamily.lean lean/lakefile.lean lean/lean-toolchain lean/lake-manifest.json
+  # add other files updated by S148R as appropriate (review git status output)
+
+  git commit -m "M10 C.3 -- green build + Pattern alpha closes S1+S2 by deletion" -m "Post-S148R lean/ tree commit. lake build exit 0; sorry-count 0; toolchain pin {version} unchanged from pre-refactor. S148R bridge SHA: {S148R-SHA}."
+  git push origin <current-branch>
+
+Phase 5 -- acceptance:
+
+  git status --porcelain -- lean/
+  Expected: only untracked logs/intermediates (no `M`, no `D`).
+
+# 3. Deliverables
+
+  - op_c3_phase0_s148r_evidence.md: Pattern alpha + sorry-count + build claims
+  - op_c3_phase1_build_log.txt: lake build full output
+  - op_c3_phase2_sorry_grep.txt: grep output
+  - op_c3_phase3_toolchain.txt: toolchain pin value
+  - op_c3_phase4_commit_sha.txt: commit SHA + push status
+  - handoff.md
+
+# 4. Halt conditions
+
+  HALT_OP_C3_R6_WEAKENING_FLAG: S148R surfaced theorem-statement weakening
+  HALT_OP_C3_BUILD_FAIL: lake build exit != 0
+  HALT_OP_C3_SORRY_NOT_ZERO: literal-match grep returned matches
+  HALT_OP_C3_TOOLCHAIN_DRIFT: toolchain changed unexpectedly
+  HALT_OP_C3_GIT_PUSH_FAIL
+
+# 5. Boundary
+
+Researcher MUST NOT:
+  - modify any .lean file (read-only this phase)
+  - skip any of phase 1 / 2 / 3 (all 3 must PASS before commit)
+
+================================================================
+END_OP_C3_PROMPT
+
+
+================================================================
+================================================================
+SECTION 5 -- OP_C3PLUS researcher prompt
+================================================================
+
+BEGIN_OP_C3PLUS_PROMPT
+================================================================
+SIARC Copilot Researcher Prompt -- OP_C3PLUS
+Task ID: OP-C3PLUS-CLEAN-CLONE-4-STEP-GATE-20260510
+Tier: T2 (executor; clean-clone reproducibility check)
+Class: MECHANICAL-DELEGABLE (researcher executes end-to-end)
+Triggered by: OP_C3 LANDED (lean/ green-build commit pushed)
+Predecessor: OP_C3
+Unblocks: S145 (M10 V0 substrate-prep fire G6 + G7 gates)
+Repo: fresh clone of papanokechi/wallis-pcf-lean4 at OP_C3 commit
+Estimated researcher effort: 15-30 min
+================================================================
+
+# 1. Context
+
+Per slot 143R verdict C-143-6 4-step gate (and slot 145 STEP 0.3 G7 per slot 150 amendment), the OP_C3 commit must pass clean-clone reproducibility check before S145 fires:
+
+  (a) lake build exit 0
+  (b) lake test exit 0 (or single-line NO_TEST_TARGET acceptable)
+  (c) sorry-count assertion (literal-match grep) returns 0
+  (d) toolchain pin verification + lakefile-orphan resolution
+
+# 2. Your task
+
+Phase 0 -- substrate read:
+
+  Read OP_C3 commit SHA from `op_c3_phase4_commit_sha.txt` (from OP_C3 deliverables) OR from claude-chat git log if researcher executed both.
+
+Phase 1 -- clean clone:
+
+  $tmp = "$env:TEMP\wallis-c3plus-$(Get-Date -Format yyyyMMdd-HHmmss)"
+  git clone https://github.com/papanokechi/wallis-pcf-lean4.git $tmp
+  cd $tmp
+  git checkout <OP_C3-commit-SHA>
+
+Phase 2 -- step (a) lake build:
+
+  lake build 2>&1 | Tee-Object -FilePath c3plus_step_a.log
+  if ($LASTEXITCODE -eq 0) { "STEP a PASS" } else { "STEP a FAIL"; halt HALT_OP_C3PLUS_STEP_A_FAIL }
+
+Phase 3 -- step (b) lake test:
+
+  lake test 2>&1 | Tee-Object -Variable testOut -FilePath c3plus_step_b.log
+  if ($LASTEXITCODE -eq 0) { "STEP b PASS" }
+  elseif ($testOut -match "no test target|NO_TEST_TARGET|unknown command") { "STEP b PASS (NO_TEST_TARGET)" }
+  else { "STEP b FAIL"; halt HALT_OP_C3PLUS_STEP_B_FAIL }
+
+Phase 4 -- step (c) sorry-count:
+
+  $matches = Select-String -Path lean/*.lean,lean/**/*.lean -Pattern 'by sorry|:= sorry' -ErrorAction SilentlyContinue
+  $count = ($matches | Measure-Object).Count
+  $matches | Out-File c3plus_step_c.log
+  if ($count -eq 0) { "STEP c PASS" } else { "STEP c FAIL ($count matches)"; halt HALT_OP_C3PLUS_STEP_C_FAIL }
+
+Phase 5 -- step (d) toolchain pin + lakefile-orphans:
+
+  $tc = Get-Content lean/lean-toolchain -Raw
+  Compare $tc to pre-S148R toolchain (read from m10_documented_commitment.md sec 2.4 or OP_C3 phase 3 deliverable).
+  If different, halt HALT_OP_C3PLUS_STEP_D_TOOLCHAIN_DRIFT.
+
+  Check lakefile orphans:
+    - lean/proof_targets.lean: must be either added to lean_lib root in lakefile.lean OR moved to staging dir
+    - lean/CardEvenOfInvolution.lean: same constraint
+  Inspect lakefile.lean lean_lib block. If orphans present and unresolved, halt HALT_OP_C3PLUS_STEP_D_ORPHAN.
+
+Phase 6 -- aggregate:
+
+  Write c3plus_pass_log.md with:
+    - STEP a: PASS/FAIL + log excerpt
+    - STEP b: PASS/FAIL/NO_TEST_TARGET + log excerpt
+    - STEP c: PASS/FAIL + count
+    - STEP d: PASS/FAIL + toolchain value + orphan resolution status
+    - aggregate: PASS only if all 4 PASS
+    - clean-clone HEAD SHA
+    - timestamp
+
+# 3. Deliverables
+
+  - c3plus_step_a.log
+  - c3plus_step_b.log
+  - c3plus_step_c.log
+  - c3plus_step_d_toolchain.txt
+  - c3plus_pass_log.md (referenced by S145 STEP 0.3 G7)
+  - handoff.md
+
+# 4. Halt conditions
+
+  HALT_OP_C3PLUS_STEP_A_FAIL: lake build exit != 0
+  HALT_OP_C3PLUS_STEP_B_FAIL: lake test exit != 0 AND not NO_TEST_TARGET
+  HALT_OP_C3PLUS_STEP_C_FAIL: sorry-count > 0
+  HALT_OP_C3PLUS_STEP_D_TOOLCHAIN_DRIFT
+  HALT_OP_C3PLUS_STEP_D_ORPHAN
+  HALT_OP_C3PLUS_CLONE_FAIL: git clone failed
+
+# 5. Boundary
+
+Researcher MUST NOT:
+  - run on the dirty working clone (clean clone is mandatory)
+  - skip any of 4 steps
+  - modify the cloned repo (read-only)
+
+================================================================
+END_OP_C3PLUS_PROMPT
+
+
+================================================================
+================================================================
+SECTION 6 -- OP_DP0 researcher prompt
+================================================================
+
+BEGIN_OP_DP0_PROMPT
+================================================================
+SIARC Copilot Researcher Prompt -- OP_DP0
+Task ID: OP-DP0-RULE-1-LIFT-DIRECTIVE-PACKET-20260510
+Tier: T1 (governance-evidence assembly)
+Class: JUDGMENT-ASSISTED (researcher assembles evidence;
+       operator authorizes + issues)
+Triggered by: S147 LANDED (M10 V0 cascade-absorption complete) AND
+              OP_A2 LANDED (.fleet.yaml COMMITTED status)
+Predecessor: S147 + OP_A2
+Unblocks: S142 (RULE 1 lift authorization fire)
+Repo: claude-chat (this repo)
+Estimated researcher effort: 15-30 min
+================================================================
+
+# 1. Context
+
+The RULE 1 lift directive is the operator-issued governance instruction that flips the project from `RULE_1_IN_FORCE` (math-axis closure only; admin tabled) to `RULE_1_LIFTED` (admin work-streams unblocked).
+
+The directive is operator-issued. Researcher's role: assemble the predecessor evidence packet, draft a recommended directive verbiage, and present to operator. Operator reviews and issues.
+
+# 2. Your task
+
+Phase 0 -- substrate read (predecessor evidence):
+
+  Verify all M-axis V0 closures landed:
+  - M4 V0: bridge 5f9db69 (cross-ref only)
+  - M7 V0: bridge 7f93b9e (cascade 123)
+  - M8a V0: bridge cb429e1 (cascade 127R)
+  - M8b V0: bridge 74c5630 (cascade 130R)
+  - M9 V0 substrate: 887981b + 45e236c + b9aa881 (PATH_B chain)
+  - M10 V0: S147 cascade-absorption SHA (read from latest bridge)
+
+  For each, run `git rev-parse --verify <SHA>^{commit}` in siarc-relay-bridge clone. Capture pass/fail.
+
+Phase 1 -- substrate read (commitment evidence):
+
+  Read .fleet.yaml line 689-697.
+  Extract commitments[0].status field.
+  Confirm matches pattern `COMMITTED-\d{4}-\d{2}-\d{2}`.
+  If still `COMMITMENT-PARAGRAPH-PENDING-OPERATOR`, halt HALT_OP_DP0_OP_A2_NOT_LANDED.
+
+  Read m10_documented_commitment.md sec 3.
+  Confirm no `{...}` placeholders.
+  Confirm zero RULE-1 leakage tokens (Zenodo / endorsement / arXiv / Compositio / Ramanujan / AFM / venue / journal-name).
+  If any found, halt HALT_OP_DP0_RULE1_LEAKAGE.
+
+Phase 2 -- substrate read (S147 verdict):
+
+  Locate S147 bridge folder: `siarc-relay-bridge/sessions/2026-05-XX/T1-SYNTH-M10-V0-RATIFICATION-CASCADE-ABSORPTION-147/`
+  Read verdict.md or handoff.md.
+  Confirm verdict label is `RATIFY` or equivalent (M-axis closure series complete).
+  If `OBJECT` / `DEFER` / `HALT`, halt HALT_OP_DP0_S147_NOT_RATIFY.
+
+Phase 3 -- assemble evidence packet:
+
+  Produce dp0_evidence_packet.md with:
+  - M-axis closure scoreboard (verbatim from latest outlook sec 1)
+  - 6 V0 cascade SHAs verified (Phase 0 results)
+  - .fleet.yaml commitments[0].status value (Phase 1)
+  - m10_documented_commitment.md sec 3 status field + RULE-1 token-scan result
+  - S147 verdict label + SHA (Phase 2)
+  - aggregate gate status (PASS only if all of above PASS)
+
+Phase 4 -- draft recommended directive:
+
+  Produce dp0_recommended_directive.md with:
+  - Recommended one-line directive text:
+    "RULE 1 lift authorized; proceed with admin / distribution work-streams (M1 D2-NOTE Zenodo, M11 endorsement, M12 resubmissions, Zenodo deposit cascade)."
+  - Recommended commit-form (empty marker commit) verbiage:
+    git commit --allow-empty -m "RULE 1 LIFTED -- math-axis closure complete; admin work-streams unblocked" -m "Predecessor: S147 (M10 V0 cascade-absorption SHA={S147-SHA}) + OP_A2 (.fleet.yaml COMMITTED-{YYYY-MM-DD}). Slot 142 RULE 1 lift authorization fire now pre-flight-eligible."
+
+Phase 5 -- present to operator:
+
+  Output evidence packet + directive draft.
+  Researcher MUST NOT issue the directive autonomously.
+
+Phase 6 -- await operator authorization (OPTIONAL):
+
+  If operator says "issue":
+    - apply empty marker commit + push
+    - record DP0 commit SHA in op_dp0_directive_sha.txt
+    - update SQL ledger (todo: rule-1-lift -> done)
+
+# 3. Deliverables
+
+  - dp0_phase0_sha_verification.txt: 6 V0 cascade SHA verifications
+  - dp0_phase1_commitment_evidence.md: .fleet.yaml + m10_documented_commitment.md status
+  - dp0_phase2_s147_verdict.md: S147 label + SHA
+  - dp0_evidence_packet.md: aggregate evidence packet
+  - dp0_recommended_directive.md: directive text + commit-form
+  - (optional, post-Phase-6) op_dp0_directive_sha.txt
+  - handoff.md
+
+# 4. Halt conditions
+
+  HALT_OP_DP0_M_AXIS_CLOSURE_INCOMPLETE: any V0 cascade SHA verification fails
+  HALT_OP_DP0_OP_A2_NOT_LANDED: .fleet.yaml status not flipped
+  HALT_OP_DP0_RULE1_LEAKAGE: m10_documented_commitment.md sec 3 contains leakage token
+  HALT_OP_DP0_S147_NOT_RATIFY
+  HALT_OP_DP0_NO_OPERATOR_AUTHORIZATION: operator did not authorize Phase 6
+
+# 5. Boundary
+
+Researcher MUST NOT:
+  - issue the RULE 1 lift directive without operator authorization (Phase 6 is operator-gated)
+  - modify .fleet.yaml or m10_documented_commitment.md (read-only)
+  - assert M-axis closure beyond what bridge SHAs document
+  - propose post-lift admin work-stream content (out of scope; that is S153/S154/S155/S156)
+
+================================================================
+END_OP_DP0_PROMPT
+
+
+================================================================
+================================================================
+APPENDIX -- dispatch order + shell-side notes
+================================================================
+
+DISPATCH ORDER (sequenced per dependency):
+
+  Stream 1 (math-closure track):
+    OP_A           [fire-eligible immediately; JUDGMENT-ASSISTED]
+    -> S148R (separate prompt; CLI agent self-fire OR researcher; not in this file)
+    -> OP_C3       [post-S148R; MECHANICAL-DELEGABLE]
+    -> OP_C3PLUS   [post-OP_C3; MECHANICAL-DELEGABLE]
+    -> S145 (separate prompt; not in this file)
+
+  Stream 2 (commitment track):
+    OP_A1          [fire-eligible immediately; JUDGMENT-ASSISTED]
+    -> S152 (separate prompt; not in this file)
+    -> OP_A2       [post-S152 RATIFY; MECHANICAL-DELEGABLE]
+
+  Merge:
+    OP_DP0         [post-S147 + post-OP_A2; JUDGMENT-ASSISTED]
+
+PARALLELIZATION: Stream 1 and Stream 2 are independent; OP_A and
+OP_A1 can fire simultaneously. OP_C3PLUS requires fresh clone so
+runs in temp dir; does not block any other concurrent work.
+
+SHELL ENVIRONMENT NOTES:
+  - All prompts assume PowerShell on Windows (operator's primary)
+  - For Linux/macOS researcher environments, adapt via:
+    - Get-Content -> cat
+    - Tee-Object -> tee
+    - Select-String -> grep
+  - git commands are platform-agnostic
+  - lake build is platform-agnostic
+  - Toolchain pin verification uses cat lean/lean-toolchain (works on all)
+
+REPO DISTINCTION (critical):
+  - claude-chat: holds .fleet.yaml, tex/, m10_documented_commitment.md
+    (OP_A1, OP_A2, OP_DP0 work here)
+  - papanokechi/wallis-pcf-lean4: holds lean/ subtree
+    (OP_A, OP_C3, OP_C3PLUS work here)
+  - siarc-relay-bridge: holds bridge SHAs for verification
+    (OP_DP0 reads here)
+
+AEAL DISCIPLINE:
+  - Each researcher fire produces a handoff.md per SIARC template
+  - claims.jsonl optional for OP_* fires (no numerical claims)
+  - halt_log.json mandatory ({} if clean)
+  - Bridge deposit at siarc-relay-bridge/sessions/2026-05-XX/OP-XX-{TASK_ID}/
+    (date the day the fire executes; XX = 2-digit op ID)
+
+================================================================
+EOF
+================================================================
