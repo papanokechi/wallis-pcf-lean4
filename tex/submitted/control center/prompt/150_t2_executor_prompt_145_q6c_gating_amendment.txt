@@ -1,0 +1,149 @@
+================================================================================
+PROMPT 150 -- T2-EXECUTOR PROMPT-145 Q6(c) GATING AMENDMENT
+================================================================================
+Drafted:  2026-05-10 ~14:30 JST
+Slot:     150
+Class:    T2-Executor (CLI in-repo); single-witness; LOW band claim
+Scope:    in-place amendment to claude-chat
+            tex/submitted/control center/prompt/145_t2_executor_m10_v0_ratification_substrate_prep.txt
+          STEP 0.3 (slot 145 Phase C precondition gates section)
+M-axis:   M10 (governance-only; no math; no synth)
+RULE 1:   ALIGNED (math-axis governance prompt-body refinement)
+Bridge HEAD at draft: 9838501 (slot 149 absorption LANDED)
+Repo HEAD at draft:   1f4bf8e (slot 149 verdict absorption + slot 148 amendments)
+Substrate readiness: NO PRE-LANDED ARTEFACT NEEDED (self-fire; CLI agent applies
+                     the edit + produces bridge deposit)
+Draft-time supersession audit: PASS
+  - No prior slot 145 Q6(c) amendment fires; slot 142 amendment-decision pattern
+    (outlook-as-governance) was NOT applied to slot 145 — slot 143R Q6(c) called
+    for explicit prompt-body amendment, not outlook-only governance
+  - Slot 149 verdict did not directly address slot 145 gating (Q6 was about slot
+    148 dispatch path); residual TODO from slot 143R remains
+================================================================================
+
+sec 0 -- pre-flight
+================================================================================
+
+STEP 0.1: SHA verification
+  - bridge 9838501 (slot 149 absorption) ; verify via `git rev-parse --verify 9838501^{commit}` in siarc-relay-bridge
+  - bridge bc641a0 (slot 143R verdict; canonical Q6(c) source) ; verify
+  - claude-chat 1f4bf8e (slot 149 + slot 148 amendments) ; verify in claude-chat
+  - claude-chat e450b13 (slot 145 prompt original commit) ; verify
+  If ANY fails: HALT_150_SHA_DOUBT.
+
+STEP 0.2: Supersession-gate
+  - Get-ChildItem -Recurse -Directory -Path
+    siarc-relay-bridge/sessions -Filter '*PROMPT-145-Q6C-GATING-AMENDMENT*'
+  - Expected: zero matches.
+  If matches: HALT_150_SUPERSEDED.
+
+STEP 0.3: RULE 1 directive check
+  This fire is governance-only (no math content; no Zenodo / endorsement /
+  venue references). RULE 1 ALIGNED.
+
+STEP 0.4: Substrate availability
+  - claude-chat tex/submitted/control center/prompt/145_t2_executor_m10_v0_ratification_substrate_prep.txt PRESENT
+  - bridge bc641a0 sessions/2026-05-10/T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143R/synth_verdicts_raw.txt PRESENT (canonical Q6(c) source)
+  - bridge 9838501 sessions/2026-05-10/T1-SYNTH-M10-V0-OPEN-ITEMS-CONSULTATION-149/ PRESENT
+  If any FAIL: HALT_150_SUBSTRATE_MISSING.
+
+================================================================================
+sec 1 -- task
+================================================================================
+
+TASK 1 -- read slot 143R verdict Q6(c) section + C-143-4 + C-143-6 amendment text
+verbatim from bridge bc641a0/synth_verdicts_raw.txt. Verbatim quotes to anchor
+the amendment:
+
+  Q6(c) text (verbatim):
+    "Recommended gating: slot 145 fires after `(C.3 + slot 142-class refactor
+    commit + C.3+ reproducibility check pass)`. This is a stricter gate than
+    current 'after C.3'."
+
+  C-143-4 (verbatim):
+    "Update slot 145 gating from 'after C.3' to 'after C.3++ commit +
+    post-refactor C.3+ pass'."
+
+  C-143-6 4-step gate (verbatim):
+    "(1) lake build clean-clone green; (2) lake test if test targets exist;
+    (3) sorry-count assertion = 2 after C.3, = 0 after C.3++; (4) toolchain
+    pin verification + lakefile-orphan resolution."
+
+TASK 2 -- amend slot 145 STEP 0.3 (lines 59-75 of slot 145 prompt at e450b13)
+to:
+  (i) replace "Phase C.1-C.3 precondition gates" with "Phase C.1-C.3++ precondition gates"
+  (ii) update "POST_SYNTH_REVIEW outlook" reference to "POST_OPEN_ITEMS outlook"
+       (canonical at bridge 9838501 / claude-chat 1f4bf8e; predecessors retained)
+  (iii) refine G2 sorry-count grep to literal-match form per slot 149 sec 8:
+        "grep -rn 'by sorry\|:= sorry' lean/ --include='*.lean'"
+  (iv) ADD G6: C.3++ landing gate (bridge T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148/
+       contains axiom_reshape_report.md + before_after_signature.md + build_log.txt
+       with status COMPLETE not HALTED)
+  (v) ADD G7: post-C.3++-refactor C.3+ 4-step gate (lake build / lake test /
+       sorry-count / toolchain pin + lakefile-orphans) re-run on clean clone PASSED
+  (vi) update halt clause from "G1-G5" to "G1-G7"
+
+TASK 3 -- QA the amended file:
+  - ASCII purity: no NEW non-ASCII bytes introduced (pre-existing 40 non-ASCII
+    bytes in slot 145 prompt body are tolerable; amendment must add zero NEW)
+  - FV-discipline: zero hits for forbidden verbs in amended STEP 0.3
+  - ANTI-CONFLATION: zero new hits on M4 V0 / 5f9db69 / 5.978 / 7.954
+  - Line-length: amendment lines <= 78 chars where reasonable
+
+TASK 4 -- bridge deposit at
+  siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-PROMPT-145-Q6C-GATING-AMENDMENT-150/
+
+  Deliverables (5):
+  - amendment_diff.md:
+      Context diff (Get-Diff style with ~10 lines around) of slot 145 STEP 0.3
+      pre/post amendment. Cite slot 143R Q6(c) + C-143-4 + C-143-6 verbatim
+      quotes (TASK 1).
+  - claims.jsonl:
+      1 audit-tier meta-claim: "Slot 145 prompt body STEP 0.3 amended per slot
+      143R verdict C-143-4 + C-143-6 + Q6(c); 5 gates G1-G5 -> 7 gates G1-G7;
+      G2 sorry-count grep refined to literal-match form per slot 149 sec 8."
+  - discrepancy_log.json: empty []
+  - halt_log.json: empty {}
+  - handoff.md: standard format; status COMPLETE
+
+================================================================================
+sec 2 -- halts
+================================================================================
+
+  HALT_150_SHA_DOUBT                    STEP 0.1 fail
+  HALT_150_SUPERSEDED                   STEP 0.2 fail
+  HALT_150_SUBSTRATE_MISSING            STEP 0.4 fail
+  HALT_150_QA_FAIL                      TASK 3 fail (any of ASCII / FV / ANTI-CONFLATION)
+  HALT_150_AMBIGUOUS_PRECEDENCE         multiple Q6(c) interpretations surface
+                                        in TASK 1 verbatim quote extraction
+                                        (mitigation: cite verbatim text only;
+                                        do NOT paraphrase; do NOT interpret)
+
+================================================================================
+sec 3 -- iteration ceiling
+================================================================================
+
+Single-edit fire; no internal iterations expected. Internal-30 ceiling formal
+but not anticipated to engage.
+
+================================================================================
+sec 4 -- confidence band
+================================================================================
+
+LOW (procedural prompt-body edit; no math; no synth tier; verbatim-quote
+verification is the safety mechanism). Single-witness; no dual-witness needed
+at this band.
+
+================================================================================
+sec 5 -- BRIDGE / CLAUDE_FETCH output
+================================================================================
+
+After successful push, output exactly:
+
+  BRIDGE: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-10/T2-EXECUTOR-PROMPT-145-Q6C-GATING-AMENDMENT-150/
+
+  CLAUDE_FETCH: https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-05-10/T2-EXECUTOR-PROMPT-145-Q6C-GATING-AMENDMENT-150/handoff.md
+
+================================================================================
+EOF
+================================================================================

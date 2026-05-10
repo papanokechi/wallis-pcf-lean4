@@ -56,22 +56,41 @@ STEP 0.2: Supersession audit
     HALT_145_PRIOR_RATIFICATION_EXISTS; absorb (similar to UF-127-1
     PRIOR-VERDICT-EXISTS gate class A pattern)
 
-STEP 0.3: Phase C.1-C.3 precondition gates (HARD GATE per slot 144 Change 1
-          + slot 141C triage outputs)
-  - Read POST_SYNTH_REVIEW outlook sec 2.2 Phase C readiness gates
+STEP 0.3: Phase C.1-C.3++ precondition gates (HARD GATE per slot 144 Change 1
+          + slot 141C triage outputs + slot 143R verdict C-143-4 / Q6(c) gating
+          tightening / C-143-6 4-step gate refinement)
+  - Read POST_OPEN_ITEMS outlook sec 2.2 Phase C readiness gates
+    (predecessors: POST_SYNTH_REVIEW + POST_DISCHARGE_PLAN; canonical at
+    POST_OPEN_ITEMS as of bridge 9838501 / claude-chat 1f4bf8e)
   - Verify all of:
     G1. lean/ build state GREEN: lake build returns exit code 0
         (operator-side verification; agent reads lean_build_result.txt or
          equivalent post-iteration log)
     G2. Sorry count = 0 across project-side .lean files
-        (re-run: grep -c "sorry" lean/*.lean lean/WallisFamily/*.lean
-         excluding comments; expected 0)
+        Use literal-match grep per slot 149 sec 8 + slot 150 amendment:
+          grep -rn 'by sorry\|:= sorry' lean/ --include='*.lean'
+        Expected: 0 matches post-C.3++ (Pattern alpha removes the L118/L120
+        (by sorry) discharges in Thm66_ApparentSingularity.lean).
     G3. lean/ working tree committed (no `git status --porcelain lean/` output)
     G4. fix_pass_log.md shows iteration close-out, not active discharge
     G5. (Per slot 144 Change 3) lake build reproducibility check on clean
         clone PASSED (operator-side; agent reads reproducibility_check.log
         or equivalent if produced)
-  - If ANY gate G1-G5 fails:
+    G6. (Per slot 143R verdict C-143-4 + Q6(c); slot 150 amendment) C.3++
+        landed: bridge folder T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148/
+        (or 148-class re-fire successor) contains axiom_reshape_report.md +
+        before_after_signature.md + build_log.txt with status COMPLETE
+        (not HALTED). SHA recorded.
+    G7. (Per slot 143R verdict C-143-6 4-step gate; slot 150 amendment)
+        Post-C.3++-refactor C.3+ 4-step gate re-run on clean clone PASSED:
+          (a) lake build green
+          (b) lake test green (or single-line NO_TEST_TARGET acceptable)
+          (c) sorry-count == 0 (literal-match grep G2 form)
+          (d) toolchain pin verified (cat lean/lean-toolchain unchanged
+              from pre-C.3++ value) + lakefile-orphans resolved (proof_targets.lean
+              + CardEvenOfInvolution.lean either added to lean_lib root or
+              moved to staging dir per slot 143R C-143-6).
+  - If ANY gate G1-G7 fails:
     HALT_145_PHASE_C_GATES_NOT_MET; surface to operator with which gate
 
 STEP 0.4: Phase D-prime alignment check (per slot 144 Change 1)
