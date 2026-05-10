@@ -1,0 +1,182 @@
+================================================================================
+PROMPT TACTICAL -- T2-EXECUTOR UF-139-3 PROMPT 124 CLEANUP + M2 Q22 FINAL DISPOSITION
+================================================================================
+
+Task ID:           T2-EXECUTOR-PROMPT-124-CLEANUP-Q22-DISPOSITION-TACTICAL
+Date drafted:      2026-05-10 ~09:30 JST
+Drafted by:        GitHub Copilot CLI (Claude Opus 4.7 xhigh)
+Authorized by:     UF-139-3 LOW + verdict A-139-1 LOW (slot 139 bridge 72bb2c2)
+                   + SQL todo m2-q22-final-disposition pending
+Estimated time:    15-20 min agent-side
+Fire mode:         T2-Executor (parallel-safe tactical; no math substrate edits)
+Dual-witness?      no (executor cleanup fire)
+
+PARALLEL-SAFETY: This fire is parallel-safe with slot 140 / 141 / 142. No
+  shared substrate; no commits to lean/ or .fleet.yaml; no closure SHAs
+  affected. Can fire any time after slot 139 lands.
+
+--------------------------------------------------------------------------------
+SECTION 0 -- PRE-FLIGHT
+--------------------------------------------------------------------------------
+
+STEP 0.1 -- Substrate SHA pre-verification:
+
+  72bb2c299f6462e3b5da3beec70624f6ce5ca4ef   slot 139 cascade SHA (UF-139-3 source)
+  45e236c2d3f3ff690ede65762cfbfae482cd7560   slot 137 PCF-2 v1.4 (suspected absorber of prompt 124)
+
+STEP 0.2 -- Supersession-gate check:
+
+  Get-ChildItem -Recurse -Directory -Path sessions -Filter '*PROMPT-124*'
+  Get-ChildItem -Recurse -Directory -Path sessions -Filter '*Q22*'
+  Get-ChildItem -Recurse -Directory -Path sessions -Filter '*143*'
+  Expected: 0 matches.
+
+STEP 0.3 -- Pre-existing prompt 124 file check:
+
+  Test-Path "tex/submitted/control center/prompt/124_t1_synth_m2_q22_math_arbitration.txt"
+  Test-Path "tex/submitted/control center/prompt/124_t1_synth_m2_q22_math_arbitration_EXECUTED.txt"
+  Test-Path "tex/submitted/control center/prompt/124_t1_synth_m2_q22_math_arbitration_ABSORBED_BY_137.txt"
+  Expected: exactly ONE returns True (the un-suffixed form per slot 139 inventory).
+
+--------------------------------------------------------------------------------
+SECTION 1 -- BACKGROUND
+--------------------------------------------------------------------------------
+
+UF-139-3 LOW (slot 139 unexpected_finds.json) flagged that prompt 124
+(`124_t1_synth_m2_q22_math_arbitration.txt`) sits in the prompt folder
+without an `_EXECUTED.txt` suffix. The verdict's view (slot 139 cascade_record
+sec 6 + verdict A-139-1) is that prompt 124 was likely absorbed by slot 137
+sec 6 (PCF-2 v1.4 substantive amendment), not separately fired.
+
+SQL todo m2-q22-final-disposition (pending) reflects an analogous open item:
+M2 Q22 may need a final-disposition note regardless of whether prompt 124 was
+absorbed.
+
+This fire resolves both: (a) verifies the absorption claim by direct grep
+against slot 137 substrate; (b) renames prompt 124 appropriately; (c) issues
+a Q22 final-disposition note if needed.
+
+--------------------------------------------------------------------------------
+SECTION 2 -- TASK SEQUENCE
+--------------------------------------------------------------------------------
+
+TASK 1 -- Read prompt 124 to identify Q22 arbitration questions:
+
+  view tex/submitted/control center/prompt/124_t1_synth_m2_q22_math_arbitration.txt
+  Identify:
+    - Q22 arbitration questions (Q22a / Q22b / etc.)
+    - Expected resolution-substrate location
+
+TASK 2 -- Verify absorption claim against slot 137 substrate:
+
+  Slot 137 deliverable to read (canonical):
+    siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-PCF2-V14-M7-V0-AMENDMENT-PREP-137/
+
+  Specifically: the PCF-2 v1.4 substrate amendment at
+    tex/submitted/pcf-2-paper/<the v1.4 substrate file -- locate via slot 137 handoff>
+  AND any sec 6 amendment-log entries.
+
+  Grep slot 137 substrate for each Q22 sub-question identified in TASK 1.
+  Expected: each sub-question has a corresponding addressed-by reference in
+  slot 137 sec 6, OR a substantive treatment in the v1.4 substrate body.
+
+  Document the matching as a table:
+    | Q22 sub-question | Slot 137 location | Substantive treatment? | Status |
+    |------------------|-------------------|------------------------|--------|
+
+  3 outcomes possible:
+    (A) ALL Q22 sub-questions absorbed by slot 137:
+        -> Rename prompt 124 to _ABSORBED_BY_137.txt
+        -> Q22 final-disposition note: "Q22 absorbed by slot 137 (bridge 45e236c sec 6); no further action required."
+    (B) PARTIAL absorption:
+        -> Keep prompt 124 as-is (un-suffixed); flag in disposition note.
+        -> Q22 final-disposition note: "Q22 partially absorbed by slot 137; remaining sub-questions {list} pending follow-up arbitration. Re-fire prompt 124 when bandwidth permits."
+    (C) NO absorption (prompt 124 was never fired or absorbed):
+        -> Keep prompt 124 as-is.
+        -> Q22 final-disposition note: "Prompt 124 drafted but not fired; Q22 awaiting arbitration. Defer to post-RULE-1-lift bandwidth."
+
+TASK 3 -- Issue Q22 final-disposition note:
+
+  Substrate location:
+    tex/submitted/control center/notes/M2_Q22_FINAL_DISPOSITION_20260510.md
+
+  Content (per outcome A / B / C above):
+    - sec 1: Q22 sub-question inventory (from TASK 1)
+    - sec 2: Slot 137 absorption matching table (from TASK 2)
+    - sec 3: Final disposition (one of A / B / C)
+    - sec 4: Cross-references (slot 139 UF-139-3; slot 137 cascade SHA; cascade-132 sec 5 if relevant)
+
+TASK 4 -- Rename prompt 124 (only if outcome A):
+
+  Outcome A:  Rename-Item to "124_t1_synth_m2_q22_math_arbitration_ABSORBED_BY_137.txt"
+  Outcome B:  No rename (un-suffixed form indicates pending)
+  Outcome C:  No rename
+
+  IMPORTANT: Verb-list-as-data exemption applies; the suffix _ABSORBED_BY_137 is
+  a status marker, not a forbidden verb usage.
+
+TASK 5 -- (Optional) Update SQL ledger:
+
+  Outcome A:
+    UPDATE todos SET status='done' WHERE id IN ('uf-139-3-prompt-124-status-cleanup', 'm2-q22-final-disposition');
+  Outcome B:
+    UPDATE todos SET status='done' WHERE id='m2-q22-final-disposition';
+    UPDATE todos SET title='Cleanup: prompt 124 partial absorption -- {N} sub-Qs pending', status='blocked' WHERE id='uf-139-3-prompt-124-status-cleanup';
+  Outcome C:
+    UPDATE todos SET status='done' WHERE id='m2-q22-final-disposition';
+    UPDATE todos SET status='blocked' WHERE id='uf-139-3-prompt-124-status-cleanup';
+
+--------------------------------------------------------------------------------
+SECTION 3 -- DELIVERABLES
+--------------------------------------------------------------------------------
+
+Substrate files (committed):
+  tex/submitted/control center/notes/M2_Q22_FINAL_DISPOSITION_20260510.md
+  [outcome A only] tex/submitted/control center/prompt/124_t1_synth_m2_q22_math_arbitration_ABSORBED_BY_137.txt
+                   (via Rename-Item from un-suffixed form)
+
+Bridge folder:
+  siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-PROMPT-124-CLEANUP-Q22-DISPOSITION-TACTICAL/
+
+Bridge deliverables:
+  1. handoff.md
+  2. claims.jsonl           (~3-5 meta-claims: absorption verification + outcome)
+  3. discrepancy_log.json
+  4. unexpected_finds.json
+  5. halt_log.json
+  6. q22_absorption_matching.md (verbatim TASK 2 matching table)
+  7. M2_Q22_FINAL_DISPOSITION_20260510.md (copy)
+
+--------------------------------------------------------------------------------
+SECTION 4 -- HARD GUARDRAILS
+--------------------------------------------------------------------------------
+
+DO NOT:
+  - re-fire prompt 124 in this fire (resolution is rename + disposition note,
+    not arbitration execution; if outcome B/C requires arbitration, defer to
+    a future T1-Synth fire)
+  - modify slot 137 substrate (45e236c is binding)
+  - touch lean/ / .fleet.yaml / closure SHAs / outlooks
+  - use forbidden verbs in agent-NEW prose
+
+DO:
+  - read prompt 124 carefully; identify ALL sub-questions before grep matching
+  - cite explicit slot 137 line numbers / section numbers in matching table
+  - use Rename-Item (not Move-Item) for the prompt rename
+  - update SQL ledger per outcome
+
+--------------------------------------------------------------------------------
+SECTION 5 -- STANDING FINAL STEP REMINDER
+--------------------------------------------------------------------------------
+
+Commit message format:
+  "T2-EXECUTOR-PROMPT-124-CLEANUP-Q22-DISPOSITION-TACTICAL -- resolve UF-139-3 +
+   m2-q22-final-disposition; outcome {A/B/C}: {one-line summary}
+   
+   Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+
+Output BRIDGE: + CLAUDE_FETCH: URLs at fire end.
+
+--------------------------------------------------------------------------------
+END PROMPT TACTICAL (cleanup)
+--------------------------------------------------------------------------------
