@@ -1,0 +1,256 @@
+# T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE -- slot 148R prompt (RE-FIRE post-OP_A)
+#
+# Purpose:  Re-fire of slot 148 (Pattern alpha refactor closing S1 + S2 sorries
+#           by deletion). First-fire HALTED at STEP 0.4(c) PRECONDITION_DIRTY_TREE.
+#           OP_A landed with OPTION_A_II (STASH) executed; lean/ tree clean for
+#           slot 148 re-fire eligibility. Body delegated by reference to the
+#           predecessor _HALTED prompt with two textual substitutions; sec 0
+#           replaced by sec 0R re-fire pre-flight.
+#
+# Predecessor (HALT):
+#   bridge ba81582  T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148 -- HALTED at STEP 0.4(c)
+#                    folder: sessions/2026-05-10/T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148/
+#                    8 deliverables landed (handoff.md / halt_log.json / etc.)
+#
+# Remediation (LANDED):
+#   bridge e8866fc  OP-A-LEAN-WORKING-TREE-REMEDIATION-20260510 -- COMPLETE
+#                    folder: sessions/2026-05-10/OP-A-LEAN-WORKING-TREE-REMEDIATION-20260510/
+#                    OPTION_A_II (STASH) executed; 4-path acceptance check empty
+#   wallis-pcf-lean4 611edee  "Add Thm66_ApparentSingularity.lean to tracking (pre-slot-148)"
+#                              on vquad/handoff-2026-04-16; iter-13 paths preserved at stash@{0}
+#
+# Drafted:  2026-05-10 ~15:09 JST (post-OP_A landing)
+# Bridge folder for THIS fire:  sessions/2026-05-10/T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148R/
+#                                (R suffix per slot 127R / 130R cascade re-fire convention)
+# Confidence band:  MEDIUM-HIGH (unchanged from predecessor; HIGH-direction / MEDIUM-implementation)
+# Iteration ceiling:  1-2 iterations (unchanged)
+# Witness:  single-witness T2-Executor (unchanged)
+# Source body:  148_t2_executor_lean4_thm66_axiom_reshape_HALTED.txt
+#               (predecessor, post-rename; sec 1 onward executed verbatim with sec 0R modifications below)
+# Operator authorization:  2026-05-10 ~15:08 JST "help with prompt for 148R"
+#
+# ============================================================================
+# COPY EVERYTHING BELOW THE LINE INTO THE NEXT CLI / EXECUTOR SESSION
+# ============================================================================
+
+# T2-Executor: Lean-4 THM66 axiom reshape (Pattern alpha) -- RE-FIRE post-OP_A
+
+You are firing slot 148R in the SIARC pipeline. This is a RE-FIRE of slot 148 after
+OP_A remediation. The task body lives at:
+
+  tex/submitted/control center/prompt/148_t2_executor_lean4_thm66_axiom_reshape_HALTED.txt
+
+Execute predecessor sec 1 onward verbatim. Sec 0 of the predecessor is REPLACED
+ENTIRELY by sec 0R below. Two textual substitutions (sec 1R) apply to all
+remaining sec 1+ content.
+
+================================================================================
+sec 0R -- RE-FIRE PRE-FLIGHT (replaces predecessor sec 0 in full)
+================================================================================
+
+STEP 0R.1 -- SHA verification (re-fire-aware)
+
+Verify each SHA resolves via `git rev-parse --verify <SHA>^{commit}` in the
+indicated repo (paper-only acceptance authorized at single-witness T2-Executor
+tier per slot 143R precedent):
+
+siarc-relay-bridge:
+  ba81582  -- slot 148 first-fire halt deposit          [PREDECESSOR ANCHOR]
+  e8866fc  -- OP_A bridge deposit (STASH; tree clean)   [REMEDIATION ANCHOR]
+  bc641a0  -- slot 143R verdict (originating amendment C-143-4)
+  9838501  -- slot 149 absorption (open-items canonical)
+  74c5630  -- M8b V0 closure (precedent for V0 cascade pattern)
+  cb429e1  -- M8a V0 closure (precedent)
+  7f93b9e  -- M7 V0 closure (precedent)
+
+papanokechi/wallis-pcf-lean4:
+  611edee  -- OP_A commit on vquad/handoff-2026-04-16
+              ("Add Thm66_ApparentSingularity.lean to tracking (pre-slot-148)")
+              MUST appear in current HEAD ancestry
+  29183ae  -- slot 152 pre-stage (predecessor of OP_A; reference)
+  e41af95  -- OP_ALL_RESEARCHER_PROMPTS dispatch (cross-reference)
+
+Halt codes:
+  HALT_148R_OP_A_REVERT          -- 611edee absent from HEAD ancestry
+  HALT_148R_REMEDIATION_DOUBT    -- e8866fc not resolvable
+  HALT_148R_SHA_MISMATCH         -- any other SHA fails verification
+
+STEP 0R.2 -- supersession gate (RE-FIRE-AWARE; predecessor folder is EXPECTED)
+
+  Get-ChildItem -Recurse -Directory -Path 'siarc-relay-bridge/sessions' `
+    -Filter '*THM66-AXIOM-RESHAPE*' -ErrorAction SilentlyContinue
+
+  EXPECTED entries (do NOT halt on these):
+    sessions/2026-05-10/T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148/
+      (predecessor halt deposit; bridge ba81582; 8 deliverables landed)
+
+  FORBIDDEN entries (halt on any match):
+    sessions/2026-05-XX/T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148R/
+      (any prior 148R re-fire deposit; this is the first 148R)
+    sessions/2026-05-XX/T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148-COMPLETE/
+    sessions/2026-05-XX/T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148-LANDED/
+      (any retro-renamed predecessor signaling completion)
+
+  If forbidden entries present -> HALT_148R_SUPERSEDED.
+
+STEP 0R.3 -- RULE 1 directive (unchanged from predecessor; in force)
+
+RULE 1 (operator-supplied 2026-05-09 ~11:17 JST) is in force. This fire is
+math-axis (M10 V0 Phase C C.3++), within RULE 1 scope. No Zenodo / endorsement /
+venue work touched.
+
+STEP 0R.4 -- prerequisite gate (HARD; supersedes predecessor STEP 0.4)
+
+  (a) cd lean && lake build  exit 0           [unchanged from predecessor]
+  (b) cd lean && lake test    no FAIL marker  [unchanged]
+        (or NO_TEST_TARGET; record in handoff)
+  (c) WORKING-TREE GATE (post-OP_A; this is the gate that originally halted):
+        git -C . status --porcelain -- `
+            lean/Thm66_ApparentSingularity.lean `
+            lean/WallisFamily.lean `
+            lean/lakefile.lean `
+            lean/lean-toolchain
+      EXPECTED: empty
+        (post-OP_A landing 611edee resolves predecessor halt; OP_A handoff
+         Phase 4 acceptance check confirmed empty 4-path status)
+      If non-empty -> HALT_148R_PRECONDITION_TREE_REGRESSION
+        (operator must determine whether iter-13 stash was inadvertently
+         re-applied or new uncommitted modifications appeared post-OP_A;
+         do NOT pop stash@{0} to fix this -- stash is for iter-14 future work)
+  (d) toolchain pin verified                  [unchanged]
+
+  NOTE: predecessor STEP 0.4(c) tested the broader `lean/` subtree via
+  `git status --short lean/ | grep ...`; sec 0R STEP 0R.4(c) narrows to the 4
+  paths actually relevant to S1+S2 closure. Other lean/ untracked files
+  (build_errors_iter13.log, fix_pass_log.md, etc.) are NOT blockers and SHALL
+  NOT halt this fire. Per OP_A acceptance log, these 4 paths are confirmed
+  empty at HEAD 611edee.
+
+STEP 0R.5 -- substrate inventory (unchanged from predecessor sec 0 STEP 0.5)
+
+Refer to predecessor STEP 0.5 verbatim. WRITE-permitted set, READ-only set, and
+EXPLICITLY EXCLUDED set are unchanged.
+
+STEP 0R.6 -- iter-13 stash recovery awareness (NEW; re-fire-specific)
+
+iter-13 mid-pass changes are preserved at:
+
+  git stash list  ->  stash@{0}: "M10 iter-13 mid-pass stash; OPT_A pre-slot-148"
+                       (on vquad/handoff-2026-04-16; created by OP_A Phase 3)
+
+This fire MUST NOT pop or apply this stash. Pattern alpha refactor on
+Thm66_ApparentSingularity.lean is independent of iter-13 work
+(WallisFamily.lean / lakefile.lean / lean-toolchain). iter-13 will be
+re-applied by a separate later fire (likely iter-14 fresh scope or S148R-followup)
+AFTER S148R lands.
+
+If for any reason this fire encounters the iter-13 stash applied (e.g.,
+accidentally popped between STEP 0R.4 verification and TASK 1 execution):
+HALT_148R_STASH_LEAKED. Re-stash and re-verify before retry.
+
+================================================================================
+sec 1R -- TASK BODY BY REFERENCE (with two textual substitutions)
+================================================================================
+
+Execute predecessor sec 1 onward verbatim from:
+
+  tex/submitted/control center/prompt/148_t2_executor_lean4_thm66_axiom_reshape_HALTED.txt
+
+with the following two textual substitutions applied throughout:
+
+  REPLACEMENT 1 -- bridge folder path (in STANDING FINAL STEP and any
+                   internal cross-references):
+    OLD: T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148/
+    NEW: T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148R/
+
+  REPLACEMENT 2 -- halt code namespace (in halt-condition definitions
+                   and any halt_log.json halt_id field):
+    OLD: HALT_148_*
+    NEW: HALT_148R_*
+    (preserves audit-trail distinction between predecessor halts logged
+     at bridge ba81582 and any new re-fire halts logged at THIS fire)
+
+All other content in the predecessor body -- TASK 1 through TASK N, expected
+deliverables, AEAL claims discipline, FV-discipline (PROHIBITED verbs),
+ANTI-CONFLATION discipline (M4 V0 numerics), and predecessor STANDING FINAL
+STEP -- are executed UNCHANGED.
+
+================================================================================
+sec 2R -- AUTHORITY CHAIN EXTENSION
+================================================================================
+
+Authority chain (chronological):
+
+  1. slot 143R T1-Synth verdict ENDORSE_WITH_AMENDMENTS at MEDIUM-HIGH
+     (bridge bc641a0; deposit T1-SYNTH-M10-V0-DISCHARGE-PLAN-CONSULTATION-143R/)
+     Q4 Pattern alpha recommendation (HIGH-direction / MEDIUM-implementation)
+
+  2. slot 143R amendment C-143-4 ("insert C.3++ slot 142-class fire between
+     C.3+ and C.4") -- already applied to predecessor body
+
+  3. slot 149 amendments C-149-1 / C-149-2 / C-149-5 / C-149-6 -- already applied
+     to predecessor body (sorry-count canonical interpretation D-143-1 RESOLVED;
+     literal-match grep form per slot 149 sec 8)
+
+  4. slot 148 first-fire HALTED 2026-05-10 ~12:50 JST at HALT_148_PRECONDITION_DIRTY_TREE
+     (bridge ba81582; folder T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148/)
+
+  5. OP_A LANDED 2026-05-10 ~14:55 JST with OPTION_A_II (STASH) executed
+     (bridge e8866fc; folder OP-A-LEAN-WORKING-TREE-REMEDIATION-20260510/;
+      wallis-pcf-lean4 commit 611edee on vquad/handoff-2026-04-16)
+
+  6. OPERATOR AUTHORIZATION re-fire 2026-05-10 ~15:08 JST: "help with prompt for 148R"
+
+================================================================================
+sec 3R -- ADDITIONAL HALT CODES (re-fire-specific; supplements predecessor)
+================================================================================
+
+  HALT_148R_OP_A_REVERT
+    Cause:        611edee absent from current HEAD ancestry
+    Diagnosis:    git log --oneline 611edee..HEAD || git merge-base --is-ancestor 611edee HEAD
+    Remediation:  operator restore OP_A commit before re-firing
+
+  HALT_148R_REMEDIATION_DOUBT
+    Cause:        bridge SHA e8866fc not resolvable in siarc-relay-bridge
+    Diagnosis:    git -C siarc-relay-bridge rev-parse --verify e8866fc^{commit}
+    Remediation:  operator paste OP_A handoff URL or pull bridge HEAD before fire
+
+  HALT_148R_PRECONDITION_TREE_REGRESSION
+    Cause:        4-path git status non-empty post-OP_A
+    Diagnosis:    git status --porcelain -- lean/Thm66... lean/WallisFamily.lean ...
+    Remediation:  operator triage; likely iter-13 stash inadvertently re-applied;
+                  do NOT auto-stash (would create stash@{1} divergence); operator decides
+
+  HALT_148R_SUPERSEDED
+    Cause:        prior `*148R*` or `*148-COMPLETE*` bridge folder exists
+    Remediation:  confirm prior 148R fire status; do not duplicate
+
+  HALT_148R_STASH_LEAKED
+    Cause:        iter-13 stash applied during fire execution
+    Diagnosis:    git stash list | grep -c "M10 iter-13 mid-pass stash"
+                  (expected: 1 entry post-OP_A; if 0 entries and lean/ tree dirty -> LEAKED)
+    Remediation:  re-stash via OPT_A_II command; verify clean before TASK 1 retry
+
+  HALT_148R_SHA_MISMATCH
+    Cause:        any STEP 0R.1 SHA fails resolution
+    Remediation:  pre-verify operator paste before re-fire
+
+  All HALT_148_* codes from predecessor sec 0 STEP 0.4 / sec STANDING (a) (b) (d)
+  remain operational, namespace-shifted to HALT_148R_* per REPLACEMENT 2.
+
+================================================================================
+sec 4R -- STANDING FINAL STEP (unchanged from predecessor; bridge folder updated)
+================================================================================
+
+Bridge deposit at:
+
+  siarc-relay-bridge/sessions/{TODAY_DATE}/T2-EXECUTOR-LEAN4-THM66-AXIOM-RESHAPE-148R/
+
+Deliverables identical to predecessor STANDING FINAL STEP. handoff.md MUST
+explicitly cite OP_A landing as remediation in section "What was accomplished".
+sec "Anomalies" should note any divergence from predecessor sec 1+ expected
+behavior (e.g., axiom signature drift, surprise use sites).
+
+================================================================================
+EOF (slot 148R re-fire wrapper)
+================================================================================
