@@ -1,0 +1,272 @@
+================================================================
+PROMPT 152 -- T1-SYNTH M10 V0 COMMITMENT-PARAGRAPH SYNTH-REVIEW
+================================================================
+Drafted:  2026-05-10 ~14:55 JST
+Slot:     152 (post-OP_A1-fire; pre-positioned for fire post-OP_A1-landing)
+Class:    T1-Synth (single-witness; LOW-MEDIUM band acceptable; targeted RULE-1 leakage check)
+Scope:    review M10 documented-commitment paragraph filled at OP_A1
+M-axis:   M10 (commitment governance; gates M9 V0 announcement-flag flip)
+RULE 1:   ALIGNED (math-axis governance; the review itself is procedural; the commitment
+                   subject is M10 sorry-discharge work, which is math)
+Bridge HEAD at draft: 9838501 (slot 149 absorption LANDED)
+Repo HEAD at draft:   e41af95 (OP_ALL_RESEARCHER_PROMPTS dispatch)
+Substrate readiness gate: BLOCKED at draft on OP_A1 commit landing.
+                          Pre-positioned now so fires as soon as OP_A1 lands.
+Draft-time supersession audit: PASS
+  - No prior slot 152 fires
+  - No prior `*M10*COMMITMENT*REVIEW*` or `*M9*V0*COMMITMENT*REVIEW*` bridge folders
+================================================================
+
+OPERATOR INSTRUCTIONS (READ BEFORE FIRE):
+
+This prompt has 4 substitution markers that operator MUST fill before
+dispatching to claude.ai web (synth):
+
+  {OP_A1_COMMIT_SHA}      -- SHA of OP_A1 commit (filled m10_documented_commitment.md)
+  {OP_A1_DATE_YYYYMMDD}   -- date in commitment status field
+  {SEC_3_VERBATIM}        -- verbatim block from m10_documented_commitment.md sec 3
+                             post-OP_A1-fill, between BEGIN_SEC_3 and END_SEC_3 markers
+  {SELECTED_CANDIDATE}    -- A | B | C (researcher's candidate label operator selected)
+
+Pre-flight verification (CLI agent runs before dispatching):
+  - claude-chat HEAD includes OP_A1 commit
+  - m10_documented_commitment.md sec 3 contains no `{...}` placeholders
+  - .fleet.yaml commitments[0].status STILL `COMMITMENT-PARAGRAPH-PENDING-OPERATOR`
+    (S152 pre-OP_A2; OP_A2 only fires after S152 RATIFY)
+
+================================================================
+sec 0 -- PHASE 0 PRE-FLIGHT (synth executor runs in claude.ai web)
+================================================================
+
+STEP 0.1 -- SHA verification
+  Verify each of the following SHAs resolves via `git rev-parse --verify <SHA>^{commit}`
+  in the appropriate repo:
+
+    SHA                                            Repo / context
+    {OP_A1_COMMIT_SHA}                             claude-chat (OP_A1 commit; filled paragraph)
+    fd669d347967db2e854f8e9d3725f625bf9fbc2a       siarc-relay-bridge (cascade-132 PATH_B precedent)
+    72bb2c299f6462e3b5da3beec70624f6ce5ca4ef       siarc-relay-bridge (slot 139 BUNDLED-DEFERRED-NOTE verdict)
+    ce5d9e9                                        siarc-relay-bridge (slot 141B M10 scaffold)
+    9838501                                        siarc-relay-bridge (slot 149 absorption; canonical post-open-items)
+
+  If any FAIL, halt HALT_152_SHA_DOUBT.
+
+STEP 0.2 -- supersession-gate
+  Get-ChildItem -Recurse -Directory -Path sessions
+    -Filter '*M10*COMMITMENT*REVIEW*'
+  Get-ChildItem -Recurse -Directory -Path sessions
+    -Filter '*M9*V0*COMMITMENT*REVIEW*'
+  Expected: zero matches in both.
+  If matches, halt HALT_152_SUPERSEDED.
+
+STEP 0.3 -- RULE 1 directive recall (verbatim; standing in force)
+  > Operator (2026-05-09 ~11:17 JST): "rule1. table everything that
+  > does not contribute to closing M1-M12 for now (endorsements,
+  > zenodo etc)."
+  RULE 1 status at this fire time: IN FORCE.
+  This review is itself RULE-1-aligned (procedural; subject is M10
+  sorry-discharge math axis).
+
+STEP 0.4 -- substrate availability check
+  Verify (paper-only acceptance OK at this band; synth executor cannot run filesystem checks
+  in claude.ai web environment, so operator pre-flights and attaches as needed):
+
+    Path                                                                           Status
+    tex/submitted/control center/picture/m10_documented_commitment.md              ATTACHED OR INLINED
+    siarc-relay-bridge sessions/2026-05-09/.../m9_v0_closure_path_decision.md      ATTACHED OR CITED VIA SHA fd669d3
+    siarc-relay-bridge sessions/2026-05-10/T1-SYNTH-BEST-NEXT-MOVE-CONSULTATION-139/  CITED VIA SHA 72bb2c2
+    tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_OPEN_ITEMS.md  ATTACHED OR INLINED
+
+  If any unavailable, halt HALT_152_SUBSTRATE_MISSING_<file>.
+
+STEP 0.5 -- inline substrate (m10_documented_commitment.md sec 3, verbatim post-OP_A1)
+
+BEGIN_SEC_3
+{SEC_3_VERBATIM}
+END_SEC_3
+
+  Also inline the full m10_documented_commitment.md sec 1, 2, 4, 5 content if practical
+  (~5-7 KB). If too large, attach as a file. Synth needs full context to evaluate
+  appropriateness vs commitment scope.
+
+================================================================
+sec 1 -- CONTEXT
+================================================================
+
+The M10 axis (Lean-4 sorry-discharge / formalization) is gated for V0 closure
+on a documented-commitment paragraph that follows the cascade-132 PATH_B
+Option alpha precedent at bridge fd669d3 sec 5: "Operator-discretion permits
+lift before M10 with documented commitment."
+
+OP_A1 (Copilot Researcher fire 2026-05-10 ~XX:XX JST) drafted three candidate
+paragraphs and operator selected Candidate {SELECTED_CANDIDATE} (with or
+without edits). The selected candidate was committed at claude-chat
+{OP_A1_COMMIT_SHA} on {OP_A1_DATE_YYYYMMDD}.
+
+This synth-review verifies the filled paragraph satisfies three constraints
+(see sec 2 questions). Outcome unblocks OP_A2 (.fleet.yaml status flip) which
+in turn unblocks OP_DP0 (RULE 1 lift directive) gate readiness.
+
+================================================================
+sec 2 -- QUESTIONS (3 questions; structured response required)
+================================================================
+
+Q1 -- RULE 1 leakage check
+
+  Does the filled sec 3 paragraph contain ANY of the following tokens
+  (case-insensitive substring match)?
+
+    Zenodo  endorsement  arXiv  Compositio  Ramanujan
+    AFM     venue        journal-name      math.NT      math.HO
+
+  Reasoning required: scan each line of sec 3 verbatim; quote any match
+  with line context. Single-line response: PASS or FAIL_<token>.
+
+  If FAIL: structured AMEND recommendation (specific phrasing change)
+  required in the verdict packet.
+
+Q2 -- cascade-132 PATH_B Option alpha precedent coherence
+
+  Read fd669d3 sec 5 (cited; substrate may be attached or referenced).
+  The precedent operative text:
+    "Operator-discretion permits lift before M10 with documented
+    commitment."
+
+  Does the filled sec 3 paragraph satisfy the precedent's documented-commitment
+  shape? Check:
+    (2a) commitment is to SPECIFIC ACTION (sorry-discharge work / build-repair),
+         not vague aspirational language
+    (2b) commitment has TIME ANCHOR (delivery date OR report-status-by date),
+         not open-ended
+    (2c) commitment has CLEAR DELEGATION (self / specific-collaborator /
+         external-team), not ambiguous-attribution
+
+  Reasoning required: cite which sec 3 line satisfies (2a) (2b) (2c) respectively.
+  If any sub-check FAILS, structured AMEND recommendation required.
+
+Q3 -- commitment timing appropriateness vs M10 V0 closure trajectory
+
+  Read iter-13 build state (slot 141B sec 2.3 -- 5 enumerated blockers in
+  WallisFamily.lean) and slot 149 verdict Q2 sub-band HIGH ratification of
+  Pattern alpha (closes Thm66 S1+S2 by deletion).
+
+  Is the filled commitment delivery / report-status-by date plausible given
+  the iter-13 -> Pattern-alpha-refactor -> iter-15-target trajectory?
+    (3a) AGGRESSIVE timeline (e.g., complete-by-{6-week date}): is
+         iter-13 -> green-build achievable within 6 weeks given 5 enumerated
+         blockers + R6 weakening risk on Pattern alpha?
+    (3b) CONSERVATIVE timeline (e.g., report-status-by-{12-week date}):
+         is the 12-week status-report point appropriately scoped or overly
+         deferred?
+    (3c) COLLABORATOR-DELEGATED: if external-team delegation, is the
+         specific collaborator profile achievable (Lean-4 Mathlib
+         contributor accessible to operator)?
+
+  Reasoning required: identify which timeline class the filled paragraph
+  matches (3a / 3b / 3c) and assess plausibility. Synth's role is sanity
+  check, not commitment-content authority -- operator owns content.
+
+================================================================
+sec 3 -- VERDICT FORMAT (structured; required for absorption)
+================================================================
+
+Required output format:
+
+  LABEL: RATIFY | RATIFY_WITH_AMENDMENT | OBJECT | DEFER
+  BAND:  HIGH | MEDIUM-HIGH | MEDIUM | LOW-MEDIUM | LOW
+  WITNESS: single-witness <synth identifier>
+
+  Q1_RESPONSE:
+    {PASS or FAIL_<token>}
+    {if FAIL: AMEND-recommendation paragraph}
+
+  Q2_RESPONSE:
+    {PASS or PASS-WITH-NOTE on (2a)/(2b)/(2c)}
+    {if any sub-FAIL: AMEND-recommendation paragraph}
+
+  Q3_RESPONSE:
+    {timeline class identified: 3a / 3b / 3c}
+    {plausibility assessment: PLAUSIBLE | PLAUSIBLE-WITH-CAVEAT | IMPLAUSIBLE}
+    {if IMPLAUSIBLE: AMEND-recommendation paragraph}
+
+  AMENDMENTS (if any; structured per slot 144 Change format):
+    C-152-1 ... C-152-N
+
+  ANOMALIES (if any; structured per slot 149 D-N format):
+    D-152-1 ... D-152-N
+
+  ABSORPTION_GUIDANCE:
+    {2-3 sentences for CLI agent absorption fire}
+
+  ONE-LINE TAKEAWAY:
+    "T1-SYNTH-M10-COMMITMENT-PARAGRAPH-SYNTH-REVIEW-152 -- {LABEL} -- {one-line summary}"
+
+================================================================
+sec 4 -- HALT CONDITIONS
+================================================================
+
+  HALT_152_SHA_DOUBT                      STEP 0.1 fail
+  HALT_152_SUPERSEDED                     STEP 0.2 fail
+  HALT_152_SUBSTRATE_MISSING_<file>       STEP 0.4 fail
+  HALT_152_QUESTION_UNANSWERABLE          synth cannot answer Q1/Q2/Q3 from
+                                          inlined substrate; surface what
+                                          additional substrate is needed
+  HALT_152_RULE1_LEAKAGE_BLOCKING         Q1 FAIL with no clean amend path;
+                                          paragraph requires re-draft (sends
+                                          back to OP_A1 re-fire territory)
+
+================================================================
+sec 5 -- BAND ENVELOPE
+================================================================
+
+This review's confidence band is NATURALLY LOW-MEDIUM:
+  - Q1 is a token-scan: HIGH-confidence answerable
+  - Q2 is structural shape comparison vs precedent: MEDIUM-HIGH-confidence answerable
+  - Q3 is timeline plausibility assessment: LOW-MEDIUM-confidence answerable
+    (operator owns content; synth's role is sanity check, not authority)
+
+Aggregate band: most-conservative-of-three = LOW-MEDIUM (per slot 130R Q3 LABEL-rule
+sub-band asymmetry permission).
+
+If synth chooses to upgrade band to MEDIUM or higher, justify in verdict packet.
+
+================================================================
+sec 6 -- STANDING FINAL STEP (CLI agent runs at absorption time)
+================================================================
+
+After verdict received, CLI agent:
+
+  1. Bridge deposit at:
+     siarc-relay-bridge/sessions/2026-05-XX/T1-SYNTH-M10-V0-COMMITMENT-PARAGRAPH-REVIEW-152/
+
+  2. Deliverables:
+     - synth_verdict_raw.txt  (verbatim verdict paste)
+     - verdict.md             (structured per-question summary)
+     - amendments.json        (C-152-N entries if any)
+     - discrepancy_log.json   (D-152-N entries if any)
+     - unexpected_finds.json  ([] if none)
+     - halt_log.json          ({} if clean)
+     - claims.jsonl           (audit-tier meta-claims)
+     - cascade_record.md      (single-witness n=1)
+     - handoff.md             (status COMPLETE | PARTIAL | HALTED)
+
+  3. If LABEL = RATIFY:
+     - mark slot-152-fire SQL todo as done
+     - unblock op-a2-researcher-fire SQL todo (status -> pending)
+     - notify operator OP_A2 fire-eligible
+
+  4. If LABEL = RATIFY_WITH_AMENDMENT:
+     - apply amendments to m10_documented_commitment.md sec 3 (operator-confirmed)
+     - re-commit; update {OP_A1_COMMIT_SHA} reference
+     - then unblock OP_A2
+
+  5. If LABEL = OBJECT or DEFER:
+     - re-draft sec 3 paragraph (route back to OP_A1 candidate selection)
+     - do NOT unblock OP_A2
+
+  6. BRIDGE / CLAUDE_FETCH URL output per copilot-instructions standing
+     final step.
+
+================================================================
+EOF
+================================================================
