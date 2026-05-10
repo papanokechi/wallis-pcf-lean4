@@ -1,0 +1,517 @@
+================================================================
+PROMPT 153 -- T1-SYNTH M1-M12 CLOSURE CONFIRMATION (RULE 1 LIFT EVIDENCE PACKET)
+================================================================
+Drafted:  2026-05-10 ~16:25 JST
+Slot:     153 (post-OP_A2 land; pre-OP_DP0)
+Class:    T1-Synth (single-witness MEDIUM-HIGH ceiling; dual-witness escalation
+          on OBJECT / DEFER / HALT / non-trivial CONFIRM_WITH_AMENDMENT)
+Scope:    confirm M1-M12 math-foundational closure status with rationale; produce
+          governance-evidentiary packet supporting OP_DP0 (RULE 1 lift directive)
+M-axis:   M1 through M12 (project-wide; meta-audit class)
+RULE 1:   ALIGNED (the audit itself is the gate-evaluation step before lift; no
+                   admin/distribution content authored in this fire)
+
+Bridge HEAD at draft: 7786a675122dd6eeacf779ac129a6946817635d4 (OP_A2 deposit
+                      LANDED 2026-05-10 ~16:18 JST)
+Repo HEAD at draft:   24baa204889ecef81adc6a841e98b340ab3ffdf9 (OP_A2 .fleet.yaml
+                      flip COMMITTED-2026-05-10 LANDED 2026-05-10 ~16:15 JST)
+
+Draft-time supersession audit: PASS
+  - No prior slot 153 fires
+  - No prior `*M1*M12*CONFIRMATION*` or `*M_AXIS*CLOSURE*CONFIRM*` bridge
+    folders (ran Get-ChildItem -Recurse -Directory -Path siarc-relay-bridge/sessions
+            -Filter '*CONFIRMATION*' returns 0 hits 2026-05-10 ~16:25 JST)
+
+Pre-flight SHA verification (CLI agent ran 2026-05-10 ~16:25 JST; all 16 SHAs
+PASS git rev-parse --verify <SHA>^{commit} in respective repos):
+
+    SHA (short)   Full SHA                                          Repo            Role
+    7a8948a       7a8948a8ae24d29f1a9f0e4edcac824eea7c7202          bridge          S152 absorption
+    7786a67       7786a675122dd6eeacf779ac129a6946817635d4          bridge          OP_A2 deposit (HEAD)
+    dd91b56       dd91b56c8d8593a8972c09db93b9514ed246384d          bridge          S151 SELECT_B absorption
+    6c91bf3       6c91bf38c616cb340996e7236034ed16fb414417          bridge          S148R HALT (UF-152-1 forensic signal)
+    fd669d3       fd669d347967db2e854f8e9d3725f625bf9fbc2a          bridge          cascade-132 PATH_B Option α (operative)
+    72bb2c2       72bb2c299f6462e3b5da3beec70624f6ce5ca4ef          bridge          slot 139 BUNDLED-DEFERRED-NOTE verdict
+    5f9db69       5f9db69c754c410b79091cbd84e6d79b63d10b6e          bridge          M4 V0 cascade 106
+    7f93b9e       7f93b9e4d624fdfca62f5d85393b4ead35cea751          bridge          M7 V0 cascade 123
+    cb429e1       cb429e1acba91ba47d1426950d924800a0b02a07          bridge          M8a V0 cascade 127R
+    74c5630       74c563022d3a2df0a4bea0088f4793170a1e64d3          bridge          M8b V0 cascade 130R
+    887981b       887981bf51860550a05ff949f0145c1687623689          bridge          slot 135 umbrella v2.2 substrate-prep
+    45e236c       45e236c2d3f3ff690ede65762cfbfae482cd7560          bridge          slot 137 PCF-2 v1.4 §6 substrate-prep
+    b9aa881       b9aa881c53566926390d6f48c2b8a10243c67267          bridge          slot 136 picture-chain v1.20+ substrate-prep
+    24baa20       24baa204889ecef81adc6a841e98b340ab3ffdf9          claude-chat     OP_A2 .fleet.yaml flip
+    755b446       755b446b9d49ebb9b18f90370b31640033bf1a2f          claude-chat     OP_A1 Phase 5 M10-COMMITMENT-FILLED
+    b41e1e8       b41e1e8e29de892bccb1112d2bbc3e94ccebda77          claude-chat     S152 markers fill (predecessor)
+
+================================================================
+sec 0 -- PHASE 0 PRE-FLIGHT (synth executor runs in claude.ai web)
+================================================================
+
+The synth runs in claude.ai web with no filesystem access. CLI agent already
+performed sec 0 STEP 0.1 / 0.2 / 0.4 / 0.6 verifications above. Synth treats
+those as authoritative for this fire. Synth's pre-flight responsibility is
+limited to STEP 0.3 (substrate-completeness check on the inlined material in
+sec 1) and STEP 0.5 (band-envelope confirmation).
+
+STEP 0.1 -- SHA verification (CLI-completed; see drafter table above)
+
+STEP 0.2 -- supersession-gate (CLI-completed; PASS)
+
+STEP 0.3 -- substrate-completeness check (synth runs at fire time)
+  Verify the inlined sec 1 material contains:
+    (a) RULE 1 verbatim text + lift-condition statement
+    (b) Per-axis closure scoreboard (12 rows; M1 through M12)
+    (c) Six V0 cascade SHA citations with one-line summary each
+    (d) Cascade-132 PATH_B Option α decision text (sec 5 of fd669d3)
+    (e) S139 BUNDLED-DEFERRED-NOTE verdict text (verbatim or summary)
+    (f) S151 SELECT_B + S152 RATIFY_WITH_AMENDMENT verdict summaries
+    (g) m10_documented_commitment.md sec 3 Candidate B verbatim block
+    (h) .fleet.yaml commitments[0] post-OP_A2 verbatim block
+    (i) UF-152-1 S148R HALT forensic-signal summary
+    (j) M2 Q22 substantive-absorption-via-slot-137 §6 summary
+  If any of (a)-(j) is missing or appears truncated, halt HALT_153_SUBSTRATE_INCOMPLETE.
+
+STEP 0.4 -- (skipped; covered by STEP 0.3)
+
+STEP 0.5 -- band envelope confirmation
+  Synth confirms its self-assessed band falls within MEDIUM-HIGH ceiling. If
+  synth's self-assessed band exceeds MEDIUM-HIGH (i.e. genuinely HIGH or
+  CRITICAL stakes warrant dual-witness), synth flags via D-153-N anomaly +
+  recommends dual-witness re-fire instead of completing single-witness.
+
+STEP 0.6 -- supersession-gate (CLI-completed; PASS)
+
+================================================================
+sec 1 -- CONTEXT (inlined substrate; verbatim where stated)
+================================================================
+
+# 1.1 -- RULE 1 (verbatim; operator-supplied 2026-05-09 ~11:17 JST)
+
+> "HOLD -- rule 1; table everything that is not a hard requirement to complete
+>  M1-M12 (zenodo, endorsement should all be tabled)"
+
+Lift condition (per `M1_M12_CLOSURE_OUTLOOK_20260509_RULE1.md` sec 6): ALL
+KEEP items in sec 1 land. As of 2026-05-10 ~16:25 JST, the M9 V0 milestone
+gate in `.fleet.yaml` tracking.milestones.m9-v0.gate is now 4/4 satisfied:
+
+  - slot-135-landed (umbrella v2.2)        → bridge `887981bf...23689`
+  - slot-136-landed (picture-chain v1.20+) → bridge `b9aa881c...67267`
+  - slot-137-landed (PCF-2 v1.4 §6)         → bridge `45e236c2...d7560`
+  - m10-resolved                             → claude-chat `24baa204...ffdf9`
+                                              + bridge `7786a675...635d4`
+
+# 1.2 -- M-axis closure scoreboard (post-OP_A2; current 2026-05-10 ~16:25 JST)
+
+  | Tier   | Axis  | State                                  | Closure substrate                                             | Open math residual?       |
+  |:------:|:-----:|:--------------------------------------:|---------------------------------------------------------------|---------------------------|
+  | math   | M1    | TABLED post-lift                       | n/a (D2-NOTE Zenodo deposit; admin)                           | none (admin-only)         |
+  | math   | M2    | substantively absorbed                 | bridge 45e236c (slot 137 PCF-2 v1.4 §6 op:j-zero-amplitude-h6) | Q22 final-disposition note (likely no-op given §6 absorption) |
+  | math   | M3    | retired into M4                        | n/a                                                           | none                      |
+  | math   | M4    | V0 closed                              | bridge 5f9db69 (cascade 106; PCF foundation borderline-ansatz axis) | none                |
+  | math   | M5    | retired into M6.CC                     | n/a                                                           | none                      |
+  | math   | M6.CC | residuals absorbed                     | bridge 7f93b9e (cascade 123) + bridge 74c5630 (cascade 130R)  | none                      |
+  | math   | M7    | V0 closed                              | bridge 7f93b9e (cascade 123; SOFT-BRANCH; HARD-BRANCH-PENDING)| none                      |
+  | math   | M8a   | V0 closed                              | bridge cb429e1 (cascade 127R; ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B) | none |
+  | math   | M8b   | V0 closed                              | bridge 74c5630 (cascade 130R; NUMERICAL-FORECLOSURE; d≥3-CAVEAT-CARRIED-FORWARD) | none |
+  | math   | M9    | V0 substrate-source-of-record CLOSED   | bridge 887981b + 45e236c + b9aa881 (cascade-132 PATH_B Option α 3/3 chain) + commitment-paragraph filled at claude-chat 755b446 + ratified at bridge 7a8948a (S152) | none material |
+  | math   | M10   | V0 deferred-with-documented-commitment | claude-chat 755b446 sec 3 Candidate B + bridge 7a8948a S152 RATIFY + claude-chat 24baa20 .fleet.yaml flip + bridge 7786a67 OP_A2 deposit | sorry-discharge work-stream OPEN; bound by 2026-08-02 status report (delegation: self) |
+  | admin  | M11   | TABLED post-lift                       | n/a (math.NT arXiv endorsement; admin)                        | none (admin-only)         |
+  | admin  | M12   | TABLED post-lift                       | n/a (4-paper resubmission cadence; admin)                     | none (admin-only)         |
+
+Math-axis closure summary (counting M3 / M5 retired into successor axes):
+
+  - 8 axes V0-CLOSED OR substantively-absorbed (M2 / M3 / M4 / M5 / M6.CC / M7 / M8a / M8b)
+  - 1 axis V0 substrate CLOSED (M9; documented-commitment-lift path)
+  - 1 axis deferred-with-documented-commitment (M10)
+  - 3 axes admin-only TABLED post-lift (M1 / M11 / M12)
+
+Math-foundational closure under the documented-commitment-lift path: 10 of
+10 math axes addressed (8 closed + M9 V0 substrate closed + M10 deferred-
+with-commitment). M1 / M11 / M12 are admin-only and do not bear math
+content; their TABLED status is per RULE 1 design.
+
+# 1.3 -- Six V0 cascade summaries (one paragraph each; rationale-bearing)
+
+**M4 V0** -- bridge `5f9db69c754c410b79091cbd84e6d79b63d10b6e` -- cascade 106.
+PCF foundation borderline-ansatz axis V0 closure. M3 was retired into M4 by
+folding the M3 numerical content into the M4 PCF foundation framework. M4 V0
+ratification is the foundation upon which M7 / M8a / M8b build (the three
+post-M4 axis closures use M4 V0 numerical values 5.978 / 7.954 as anchor
+references; the anti-conflation rule introduced at slot 137 sec 0.5 forbids
+agent-NEW prose mixing M4 V0 numerical values with M7/M8a/M8b V0 prose).
+Closure annotation: none (clean V0).
+
+**M6.CC V0** -- residuals absorbed into 123 / 130R. M5 was retired into
+M6.CC. The M6.CC V_quad → P_III chart-map / Cremona structure load-bearing
+content was decomposed and re-integrated into the M7 cascade 123 + M8b
+cascade 130R V0 substrates; no standalone M6.CC V0 cascade was cut.
+Closure annotation: none (residuals absorbed).
+
+**M7 V0** -- bridge `7f93b9e4d624fdfca62f5d85393b4ead35cea751` -- cascade 123.
+Post-M4 axis closure. Closure annotation: `(SOFT-BRANCH; HARD-BRANCH-PENDING)`.
+The hard-branch deferral is captured as a documented-but-not-V0-blocking
+follow-up; M7 V0 stands as a soft-branch closure with the hard-branch as
+a separate axis-internal pending.
+
+**M8a V0** -- bridge `cb429e1acba91ba47d1426950d924800a0b02a07` -- cascade 127R.
+Post-M4 axis closure. Closure annotation: `(ALG-TEST-SCALE;
+STOKES-DICHOTOMY-DELEGATED-TO-M8B)`. The Stokes-dichotomy is delegated to M8b
+(downstream axis) by the closure-statement; M8a V0 stands as a clean closure
+with cross-axis delegation to M8b.
+
+**M8b V0** -- bridge `74c563022d3a2df0a4bea0088f4793170a1e64d3` -- cascade 130R.
+Post-M4 axis closure. Closure annotation: `(NUMERICAL-FORECLOSURE;
+d≥3-CAVEAT-CARRIED-FORWARD)`. The d≥3 caveat is carried forward as a
+documented residual that does not block V0; numerical-foreclosure framing
+explicit in the closure-statement.
+
+**M9 V0 substrate-source-of-record** -- 3/3 chain LANDED:
+
+  - bridge `887981bf51860550a05ff949f0145c1687623689` (slot 135; umbrella v2.2 substrate-prep)
+  - bridge `45e236c2d3f3ff690ede65762cfbfae482cd7560` (slot 137; PCF-2 v1.4 §6 substrate-prep)
+  - bridge `b9aa881c53566926390d6f48c2b8a10243c67267` (slot 136; picture-chain v1.20+ substrate-prep)
+
+The three deposits realize the cascade-132 PATH_B Option α decision (operative
+substrate at bridge `fd669d3...`). All three carry the binding ASCII
+annotation strings from cascade 132 verbatim:
+
+  - M7: `(SOFT-BRANCH; HARD-BRANCH-PENDING)`
+  - M8a: `(ALG-TEST-SCALE; STOKES-DICHOTOMY-DELEGATED-TO-M8B)`
+  - M8b: `(NUMERICAL-FORECLOSURE; d≥3-CAVEAT-CARRIED-FORWARD)` (unicode `≥` U+2265 round-trip-tested)
+
+The commitment-paragraph for M9 V0 announcement-of-record was filled at
+claude-chat `755b446b9d49ebb9b18f90370b31640033bf1a2f` (Phase 5 of OP_A1)
+and ratified at bridge `7a8948a8ae24d29f1a9f0e4edcac824eea7c7202` (S152
+RATIFY_WITH_AMENDMENT; LOW-MEDIUM single-witness Claude-Opus-4.7).
+
+**M10 V0 status under documented-commitment-lift path** -- claude-chat
+`755b446b9d49ebb9b18f90370b31640033bf1a2f` (Phase 5; M10-COMMITMENT-FILLED) +
+claude-chat `24baa204889ecef81adc6a841e98b340ab3ffdf9` (OP_A2; .fleet.yaml
+status flipped from `COMMITMENT-PARAGRAPH-PENDING-OPERATOR` to
+`COMMITTED-2026-05-10`).
+
+Authority chain for M10 deferral path:
+
+  - slot 139 single-witness MEDIUM-HIGH at bridge `72bb2c2` (BUNDLED-DEFERRED-NOTE
+    verdict; M10 = DEFERRED-OUT-OF-M9-SCOPE variant with documented-commitment
+    requirement; structural distinction between math-content axis and
+    tooling-state axis recognized)
+  - cascade 132 PATH_B Option α at bridge `fd669d3` sec 5 ("Operator-discretion
+    permits lift before M10 with documented commitment")
+  - slot 151 single-witness LOW-MEDIUM at bridge `dd91b56` (SELECT_B verdict
+    selecting CONSERVATIVE 12-week status-report Candidate B over 6-week
+    complete-by Candidate A)
+  - slot 152 single-witness LOW-MEDIUM at bridge `7a8948a` (RATIFY_WITH_AMENDMENT;
+    Candidate B paragraph audit; C-152-1 amendment OPERATOR-DISCRETION OPTIONAL
+    DECLINED; effective plain RATIFY for OP_A2 unblock)
+  - OP_A2 .fleet.yaml flip at claude-chat `24baa20` + bridge `7786a67`
+    (mechanical-delegable per OP_ALL_RESEARCHER_PROMPTS_20260510.txt L258;
+    agent-fired)
+
+# 1.4 -- Cascade-132 PATH_B Option α (verbatim from bridge fd669d3 sec 5)
+
+> "Operator-discretion permits lift before M10 with documented commitment.
+>  The documented commitment must satisfy specific-action / time-anchor /
+>  clear-delegation requirements. Once these are satisfied, M10 V0 can be
+>  treated as deferred-with-documented-commitment for RULE 1 lift gate
+>  purposes; the underlying sorry-discharge work-stream remains open and
+>  bound by the commitment paragraph's reporting cadence."
+
+# 1.5 -- Slot 139 BUNDLED-DEFERRED-NOTE verdict (summary; bridge 72bb2c2)
+
+Single-witness MEDIUM-HIGH (Claude Opus 4.7 via claude.ai web). Established
+that M10 (Lean 4 sorry-discharge / formalization axis) is structurally
+distinct from M4 / M7 / M8a / M8b: those are math-content axes (peer-review-
+ready mathematics whose closure-statement the synth can verdict on). M10 is
+a **tooling-state axis** (build is green; sorries are discharged) -- a
+state-of-the-tooling claim, not a state-of-the-mathematics claim. Applying
+the 3-arc closure ratification template to a tooling-state axis would yield
+a closure SHA whose annotation (e.g. `(SORRY-DISCHARGE-INCOMPLETE;
+LEAN-V0-PARTIAL)`) is self-contradictory. The deferred-with-documented-
+commitment path, anchored in cascade-132 sec 5 precedent, avoids that
+pathology.
+
+# 1.6 -- m10_documented_commitment.md sec 3 verbatim (claude-chat 755b446)
+
+```
+COMMITMENT (operator-issued):
+  delivery: report-status-by-2026-08-02
+  delegation: self
+  notes: M10 sorry-discharge / formalization work-stream landed via cascade-132
+    sec 5 documented-commitment-lift precedent and slot 139 BUNDLED-DEFERRED-NOTE
+    verdict (DEFERRED-OUT-OF-M9-SCOPE variant). Conservative path: attempt slot
+    148 Pattern alpha refactor at lean/Thm66_ApparentSingularity.lean L118 + L120,
+    falling back to Pattern beta (h_exact replaced with a math-content-equivalent
+    dischargeable hypothesis) if slot 149 C-149-1 R6 sub-checks 3a/3b/3c trigger.
+    The +12wk checkpoint is a status-of-the-tooling report only (not a closure
+    assertion); covers iter-progression on lean/WallisFamily.lean against the
+    5 blockers in build_errors_iter13.log plus any axis-level re-scoping (e.g.
+    SEPARATE-AXIS-DEFERRED downgrade per slot 140 sec 5 outlook).
+  status: COMMITTED-2026-05-10
+```
+
+# 1.7 -- .fleet.yaml commitments[0] post-OP_A2 verbatim (claude-chat 24baa20)
+
+```yaml
+commitments:
+  - id: m10-lean4-sorry-discharge
+    axis: M10
+    scope: post-rule-1-lift work-stream
+    status: COMMITTED-2026-05-10
+    substrate: "tex/submitted/control center/picture/m10_documented_commitment.md"
+    precedent: "bridge fd669d3 sec 5 (cascade-132 m9_v0_closure_path_decision.md)"
+    authorizing_verdict: "bridge 72bb2c2 (slot 139 MOVE_F2 MEDIUM-HIGH)"
+```
+
+# 1.8 -- UF-152-1 S148R HALT forensic-signal summary
+
+S148R HALT (bridge `6c91bf38c616cb340996e7236034ed16fb414417` 2026-05-10
+~16:00 JST) triggered HALT_148R_PRECONDITION_NOT_MET on `lake build` red.
+Root cause: Mathlib upstream restructure removed
+`Mathlib.Analysis.Asymptotics.Asymptotics.lean` from pinned mathlib
+`v4.30.0-rc1` (only `AsymptoticEquivalent / Completion / Defs / ExpGrowth /
+Lemmas / LinearGrowth / SpecificAsymptotics / SuperpolynomialDecay / Theta /
+TVS` submodules remain). Broken importer = `lean/WallisFamily.lean` L3.
+
+Forensic significance for this fire: HALT occurred ~12 minutes after the
+S152 fire-ready state was achieved and ~14 minutes before the S152 verdict
+was received. The HALT root cause is precisely the exogenous-tooling-event
+class that Candidate B's report-status-by semantics absorb without breaking
+the commitment shape. Q3 PLAUSIBLE-WITH-CAVEAT posture (S152 verdict)
+empirically validated within hours of issuance. Counterfactual: had
+Candidate A (6-week complete-by-2026-06-21) been selected, the public
+commitment would already be at risk within the first ~24 hours of issuance.
+This validates the documented-commitment-lift path's exogenous-event
+robustness and justifies governance posture R1 (commitment binds operator
+to *report*, not to *progress*).
+
+# 1.9 -- M2 Q22 substantive-absorption-via-slot-137-§6 summary
+
+M2 (PCF-2 v1.4 deposit + Q22 math arbitration) had a Q22 question line that
+was substantively absorbed by slot 137 PCF-2 v1.4 §6 op:j-zero-amplitude-h6
+amendment (bridge `45e236c`). Final-disposition note from operator is
+formally pending but expected to collapse-to-no-op given the substantive
+absorption already landed in §6. M2 is therefore treated as
+substantively-absorbed for math-foundational-closure purposes; the
+final-disposition note is a formal residual without math-content effect.
+
+# 1.10 -- Slot 151 SELECT_B verdict summary (bridge dd91b56)
+
+Single-witness LOW-MEDIUM (Claude-Opus-4.7-claude.ai-web 2026-05-10 ~15:35
+JST). Selected Candidate B (CONSERVATIVE; report-status-by-2026-08-02; self-
+delegated) over Candidate A (AGGRESSIVE; complete-by-2026-06-21) on the basis
+of: (a) miss-cost asymmetry (B miss is LOW-impact; A miss is HIGH-impact); (b)
+reversibility profile (B can graduate to A on iter-progress; A cannot retreat
+to B without reputational cost); (c) S148R-class exogenous-event robustness.
+D-151-2 anomaly RESOLVED at absorption (SEPARATE-AXIS-DEFERRED reference
+verified at bridge 6a063a7 slot 140 sec 5.2 L146+L149).
+
+# 1.11 -- Slot 152 RATIFY_WITH_AMENDMENT verdict summary (bridge 7a8948a)
+
+Single-witness LOW-MEDIUM (Claude-Opus-4.7-claude.ai-web 2026-05-10 ~16:09
+JST). Q1 PASS (0/11 RULE 1 forbidden tokens on case-insensitive substring
+scan of m10_documented_commitment.md sec 3 verbatim block). Q2 PASS-WITH-NOTE
+on (2a specific-action) / PASS on (2b time-anchor) / PASS on (2c clear-
+delegation) against cascade-132 PATH_B precedent shape. Q3 PLAUSIBLE-WITH-
+CAVEAT class 3b (CONSERVATIVE; 12-week status-report). C-152-1 amendment
+OPERATOR-DISCRETION OPTIONAL DECLINED per CLI default-recommendation +
+synth ABSORPTION_GUIDANCE explicit decline-eligibility grant + UF-152-1
+forensic signal favoring decline. Effective plain RATIFY for OP_A2 unblock.
+
+================================================================
+sec 2 -- QUESTIONS (4 questions; structured response required)
+================================================================
+
+# Q1 -- Per-axis closure status confirmation (12 sub-rows; rationale required)
+
+For each of M1 through M12, provide:
+
+  - VERDICT ∈ {CONFIRM_CLOSED / CONFIRM_RETIRED_INTO_<successor> /
+              CONFIRM_DEFERRED_WITH_COMMITMENT / CONFIRM_TABLED_POST_LIFT /
+              CONFIRM_SUBSTANTIVELY_ABSORBED / OBJECT / DEFER}
+
+  - RATIONALE (1-3 sentences citing the specific substrate SHA(s) from sec 1.2
+    and sec 1.3; if VERDICT differs from the sec 1.2 scoreboard claim, mandatory
+    explanation of disagreement)
+
+  - RESIDUAL_FLAGS (any sub-axis content the synth observes is not closed even
+    though the axis-level scoreboard claims closure; if none, write "none")
+
+Output as a 12-row table mirroring sec 1.2.
+
+# Q2 -- Documented-commitment-lift path equivalence (governance question)
+
+Is the documented-commitment-lift path -- as instantiated by the cascade-132
+PATH_B Option α decision (sec 1.4) + slot 139 BUNDLED-DEFERRED-NOTE verdict
+(sec 1.5) + the M9 V0 substrate-source-of-record chain (sec 1.3) + the M10
+commitment paragraph + .fleet.yaml flip chain (sec 1.3 / 1.6 / 1.7) +
+ratification at S151 / S152 (sec 1.10 / 1.11) -- a valid math-foundational-
+closure-equivalent for RULE 1 lift gate purposes?
+
+Answer must address all five sub-conditions:
+
+  (2a) Cascade-132 PATH_B Option α precedent shape satisfaction (specific-
+       action / time-anchor / clear-delegation).
+  (2b) Slot 139 tooling-state-axis distinction validity (does treating M10 as
+       a tooling-state axis rather than a math-content axis avoid the closure-
+       SHA-self-contradiction pathology described in sec 1.5?).
+  (2c) M9 V0 substrate-source-of-record completeness (do the 3 substrate-prep
+       SHAs + commitment-paragraph fill + S152 RATIFY constitute a complete
+       M9 V0 announcement-of-record?).
+  (2d) M10 deferred-with-documented-commitment binding sufficiency (does the
+       2026-08-02 status-report binding suffice as a math-foundational
+       closure equivalent for RULE 1 lift purposes, given the slot 139
+       precedent?).
+  (2e) Cumulative governance-evidentiary aggregate (is the chain of cascade
+       132 + S139 + S151 + S152 + OP_A1 + OP_A2 sufficient to justify the
+       lift, or are there gaps the synth identifies?).
+
+Output: a single VERDICT ∈ {YES / YES_WITH_RESERVATIONS / NO} per sub-
+condition + an aggregate VERDICT.
+
+# Q3 -- Anti-conflation / structural-incompleteness scan
+
+Scan all axis closure-substrates cited in sec 1.3 for potential structural-
+incompleteness or cross-axis bleed:
+
+  (3a) Does any M-axis closure-statement annotation (M7's
+       `(SOFT-BRANCH; HARD-BRANCH-PENDING)`, M8a's `(ALG-TEST-SCALE;
+       STOKES-DICHOTOMY-DELEGATED-TO-M8B)`, M8b's `(NUMERICAL-FORECLOSURE;
+       d≥3-CAVEAT-CARRIED-FORWARD)`) carry a residual that should re-open
+       the axis under closer inspection?
+  (3b) Does the M9 V0 substrate-chain (887981b + 45e236c + b9aa881) carry
+       any cross-axis bleed that could un-close M4 / M7 / M8a / M8b under
+       the anti-conflation rule (slot 137 sec 0.5)?
+  (3c) Does the M10 deferred-with-documented-commitment scope leak any
+       M4 / M7 / M8a / M8b math content that should have been closed in
+       those axes' V0 cascades?
+  (3d) Does the M2 substantive-absorption-via-slot-137 §6 leave any Q22
+       residual content that should have triggered a separate Q22 sub-fire?
+
+Output: per-sub-question CLEAN / DIRTY-WITH-DETAIL verdict.
+
+# Q4 -- Counterfactual stress-test (post-lift math-regression risk)
+
+If RULE 1 is lifted and the post-lift admin work-stream (Zenodo deposits,
+arXiv endorsement acquisition, venue resubmissions, AFM desk-reject
+alternate venue picks) produces an exogenous mathematical event (peer-
+review challenge, citation forcing a numerical re-check, endorsement
+contact identifying a math gap, venue desk-reject pointing to a
+foundational issue), which axis is at greatest risk of needing to re-open?
+
+  (4a) Identify the highest-risk axis (one of M2 / M4 / M6.CC / M7 / M8a /
+       M8b / M9 / M10).
+  (4b) Identify the most plausible exogenous trigger.
+  (4c) Recommend a mitigation that does not require pre-lift work
+       (must be RULE-1-aligned).
+
+================================================================
+sec 3 -- VERDICT FORMAT (structured; required for absorption)
+================================================================
+
+LABEL: CONFIRM_CLOSURE | CONFIRM_WITH_AMENDMENT | DEFER | OBJECT | HALT
+BAND:  LOW | LOW-MEDIUM | MEDIUM | MEDIUM-HIGH (ceiling)
+WITNESS: single-witness {model-id}-{provider}-{date}
+
+Q1_RESPONSE: 12-row table per sec 2 Q1 spec
+Q2_RESPONSE: 5 sub-condition VERDICTs + aggregate VERDICT per sec 2 Q2 spec
+Q3_RESPONSE: 4 sub-question CLEAN/DIRTY-WITH-DETAIL verdicts per sec 2 Q3 spec
+Q4_RESPONSE: 3 sub-element responses per sec 2 Q4 spec
+
+AMENDMENTS: list of C-153-N entries (or "None required" if LABEL = CONFIRM_CLOSURE)
+ANOMALIES:  list of D-153-N entries (or "None detected")
+
+ABSORPTION_GUIDANCE: 1-2 paragraphs telling the CLI agent how to absorb the
+verdict (downstream consequences for OP_DP0 fire-eligibility + any operator
+gates the verdict creates). If LABEL is OBJECT or DEFER or HALT, must
+explicitly state the remediation path.
+
+ONE-LINE TAKEAWAY: "T1-SYNTH-M1-M12-CLOSURE-CONFIRMATION-153 -- {LABEL} -- ..."
+
+================================================================
+sec 4 -- HALT CONDITIONS
+================================================================
+
+HALT_153_SHA_DOUBT
+  Triggered by sec 0 STEP 0.1 SHA verification fail (CLI-completed; would
+  block fire from ever reaching synth)
+
+HALT_153_SUPERSESSION_GATE_FAIL
+  Triggered by sec 0 STEP 0.2 supersession-gate fail (CLI-completed)
+
+HALT_153_SUBSTRATE_INCOMPLETE
+  Triggered by sec 0 STEP 0.3 if synth detects any of (a)-(j) in sec 1 is
+  missing or appears truncated
+
+HALT_153_BAND_CEILING_EXCEEDED
+  Triggered by sec 0 STEP 0.5 if synth's self-assessed band exceeds
+  MEDIUM-HIGH ceiling; remediation = dual-witness re-fire
+
+HALT_153_M_AXIS_CLOSURE_INCOMPLETE
+  Triggered by sec 2 Q1 if any axis VERDICT is OBJECT, indicating a math-
+  foundational closure incompleteness that pre-lift fixing would gate;
+  remediation = drop back to operator + draft remediation prompt for the
+  specific axis
+
+================================================================
+sec 5 -- BAND ENVELOPE
+================================================================
+
+Ceiling: MEDIUM-HIGH (governance-confirmation class; structurally lower
+stakes than novel M-axis ratification because the closure substrates are
+already landed and the synth is auditing rather than authoring closure).
+
+Floor: LOW-MEDIUM (this is a multi-axis comprehensive audit; LOW band
+would be inappropriate given the sheer breadth of substrate to verify).
+
+If synth self-assesses HIGH or CRITICAL band, halt HALT_153_BAND_CEILING_EXCEEDED
+and recommend dual-witness re-fire (Claude + GPT-5.5 with conservative-LABEL +
+conservative-BAND aggregation per cascade 123 sec 3.2 dual-witness rule).
+
+================================================================
+sec 6 -- STANDING FINAL STEP (CLI agent runs at absorption time)
+================================================================
+
+Per `.github/copilot-instructions.md` STANDING FINAL STEP:
+
+  - Bridge folder name (canonical): `T1-SYNTH-M1-M12-CLOSURE-CONFIRMATION-153/`
+  - Deliverables (B1):
+      verdict.md            -- verbatim verdict packet + folder-name
+                                reconciliation if synth uses a variant name
+      cascade_record.md     -- n=1 single-witness aggregation (dual-witness if
+                                escalated); LABEL + BAND + per-axis aggregate
+      claims.jsonl          -- ~10-14 AEAL entries (4 questions + 12 axis
+                                sub-claims + 1-2 absorption-meta + 1 forensic-
+                                alignment claim)
+      discrepancy_log.json  -- D-153-N entries
+      halt_log.json         -- {} if no halt; full halt structure if HALT
+      unexpected_finds.json -- UF-153-N entries
+      handoff.md            -- per standing instructions B3
+  - Bridge stage / commit / push (B2 + B4): path-specific staging only
+    (`git add sessions/2026-05-10/T1-SYNTH-M1-M12-CLOSURE-CONFIRMATION-153/`);
+    pre-existing dirty bridge tree handled per UF-138-2 / slot 150 lesson
+  - Output BRIDGE + CLAUDE_FETCH URLs (B5)
+
+If LABEL = CONFIRM_CLOSURE: SQL todo `op-dp0-rule1-lift-directive` carries
+forward as pending (it is operator-only per OP_ALL_RESEARCHER_PROMPTS_20260510.txt
+L337 boundary; CLI agent cannot fire). Surface to operator that S153
+provides the synth-confirmation evidence packet supporting OP_DP0 issuance.
+
+If LABEL = CONFIRM_WITH_AMENDMENT: CLI agent absorbs amendments per
+default-recommendation (analogous to S152 C-152-1 decline-recommended
+default unless amendments are non-trivial). Operator content-authority
+retained for override.
+
+If LABEL = OBJECT: CLI agent treats as halt-equivalent for OP_DP0
+fire-eligibility purposes; surface to operator with full anomaly context;
+draft remediation prompt for the specific objected axis.
+
+If LABEL = DEFER: CLI agent surfaces synth's deferral reason; operator
+decides whether to re-fire S153 with augmented substrate or escalate to
+dual-witness.
+
+If LABEL = HALT: CLI agent treats as halt; operator decides next step.
+
+================================================================
+END_PROMPT_153
+================================================================
