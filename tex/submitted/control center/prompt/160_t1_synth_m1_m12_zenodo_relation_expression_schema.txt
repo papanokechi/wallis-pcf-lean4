@@ -1,0 +1,312 @@
+# Slot 160 — T1-Synth: M1–M12 relation expression for Zenodo deposits — schema-design consultation + slot-160-as-fire binary
+
+**Drafted:** 2026-05-10 ~20:33 JST (post slot 159 / `961b828` landing)
+**Task ID:** T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160
+**Class:** T1-Synth single-witness consultation (analogous to slot 157 framing-consultation)
+**Band ceiling:** MEDIUM-HIGH
+**Witness mode:** single-witness default (operator may elect dual-witness if desired)
+**RULE 1 status:** RULE-1-clean per agent D-157-9 default; consultation produces no Zenodo deposit
+**Predecessors:** slot 157 (`34563a6`) + slot 158 (`228e757`) + slot 159 (`961b828`)
+**Operator question class:** governance / metadata schema design; meta-question about whether slot 160 itself should fire
+
+---
+
+## §1 Background and motivation
+
+The SIARC project has 5 existing Zenodo deposits (PCF-1 concept `19931635`; PCF-2 concept `19936297`; Channel Theory concept `19941678`; D2-NOTE concept `19996689`; Umbrella concept `19885550`) and 12 program axes M1-M12 (per slot 159 canonical outlook `M1_M12_CLOSURE_OUTLOOK_20260510_POST_OPEN_ITEMS.md`). The axis-tier structure is finer-grained than the deposit graph:
+
+| Axis | Status (per v7 outlook §5) | Substrate location |
+|------|-----------------------------|---------------------|
+| M1   | external (D2-NOTE concept `19996689`) | own deposit |
+| M2 / M3 / M5 / M11 / M12 | NOT-YET-OPENED (RULE 1 tabled) | — |
+| M4   | V0 closed | bridge `5f9db69` cascade 106; folded into PCF-2 v1.4 |
+| M6.CC | retired into Channel Theory | external deposit `19941678` |
+| M7   | V0 closed | bridge `7f93b9e` cascade 123; folded into PCF-2 v1.4 |
+| M8a  | V0 closed | bridge `cb429e1` cascade 127R; Umbrella v2.3 Appendix C |
+| M8b  | V0 closed (d≥3 caveat) | bridge `74c5630` cascade 130R; Umbrella v2.3 Appendix C |
+| M9   | V0 PARTIAL | spans PCF-2 v1.4 + Umbrella v2.3 + (formerly picture v1.20+, now Appendix C) |
+| M10  | V0 OPEN | Lean sorry discharge work-stream (slot 148 first-halt); SAFE-phrased commitment in Umbrella v2.3 Appendix C ii |
+
+Slot 157 verdict §Q4b set the deposit cascade as Option α' (PCF-2 v1.4 → Umbrella v2.3) but did NOT prescribe how M-axis structure is expressed in deposit metadata. Existing slot 137 PCF-2 v1.4 substrate-prep (`zenodo_v14_description_block.md` §2) carries 3 Related-identifier rows (`IsNewVersionOf` PCF-2 v1.3; `IsSupplementTo` PCF-1 concept; `Cites` PCF-1 concept) and a v1.4 changelog paragraph that mentions M7 cascade `7f93b9e` in prose. There is no axis-coverage table.
+
+This consultation addresses three interlocking questions:
+
+1. Is the existing native-vocabulary pattern sufficient for the Option α' deposit cascade?
+2. Should an axis-coverage table with controlled vocabulary be standardized across all SIARC Zenodo deposits?
+3. Should slot 160 itself be a standalone schema-lock fire, or is the schema small enough to fold inline into F6 (Umbrella v2.3 substrate-prep) and PCF-2 v1.4 deposit description at deposit time?
+
+The agent's pre-consultation 3-layer scheme (sketched in session 2026-05-10 ~20:30 JST):
+- **Layer 1**: Native Zenodo Related-identifiers (paper-tier; machine-parseable)
+- **Layer 2**: Description-embedded "Program-axis coverage" table with controlled status vocabulary (axis-tier; human-readable)
+- **Layer 3**: SIARC Zenodo Community (program-tier; discoverability) — gated by F5 / D-157-7
+
+---
+
+## §2 Phase 0 gates (synth-side pre-fire verification)
+
+### STEP 0.1 supersession check
+No prior LANDED M1-M12 Zenodo metadata schema fire exists in `siarc-relay-bridge/sessions/`. Slot 157 is closely-related but its scope was deposit-cascade structure (3-deposit vs alternatives), not metadata schema. Slot 159 produced the canonical outlook source-of-record but did not address Zenodo metadata. Pass.
+
+### STEP 0.2 + 0.3 SHA pre-verification (12 SHAs)
+
+| SHA       | Long form                                  | Anchor                                          |
+|-----------|--------------------------------------------|-------------------------------------------------|
+| `961b828` | `961b828d78082a18288866af0f0c306bc8fd75ce` | slot 159 canonical M1-M12 outlook source-of-record |
+| `228e757` | `228e757ec347c7dcc320dea5fd3c29793865a804` | slot 158 cascade-132 amendment-overlay          |
+| `34563a6` | `34563a6ced29acb545985eb3815a7983f0d2444e` | slot 157 zenodo-deposit-framing-consultation    |
+| `fd669d3` | `fd669d347967db2e854f8e9d3725f625bf9fbc2a` | cascade-132 PATH_B Option α decision (operative)|
+| `45e236c` | `45e236c2d3f3ff690ede65762cfbfae482cd7560` | slot 137 PCF-2 v1.4 substrate-prep              |
+| `887981b` | `887981bf51860550a05ff949f0145c1687623689` | slot 135 umbrella v2.2 substrate-prep           |
+| `b9aa881` | `b9aa881c53566926390d6f48c2b8a10243c67267` | slot 136 picture-chain v1.20+ substrate-prep    |
+| `70d1a48` | `70d1a4835ee0bc1f188aada9be65bb657f471730` | PICTURE-V19-CONSOLIDATED-DEPOSIT (M9 PARTIAL ref) |
+| `5f9db69` | `5f9db69c754c410b79091cbd84e6d79b63d10b6e` | cascade 106 — M4 V0 closure                     |
+| `7f93b9e` | `7f93b9e4d624fdfca62f5d85393b4ead35cea751` | cascade 123 — M7 V0 closure                     |
+| `cb429e1` | `cb429e1acba91ba47d1426950d924800a0b02a07` | cascade 127R — M8a V0 closure                   |
+| `74c5630` | `74c563022d3a2df0a4bea0088f4793170a1e64d3` | cascade 130R — M8b V0 closure                   |
+
+All 12 SHAs `git rev-parse --verify`-confirmed at draft time and are ancestors of `origin/main`.
+
+### STEP 0.3 DOI pre-verification (5 SIARC concept-DOIs)
+
+| DOI                                | Resolved as                                | Verified |
+|------------------------------------|--------------------------------------------|----------|
+| `10.5281/zenodo.19931635`          | PCF-1 concept                              | per memory `substrate verification` |
+| `10.5281/zenodo.19936297`          | PCF-2 concept                              | per memory + slot 137 substrate     |
+| `10.5281/zenodo.19941678`          | Channel Theory concept                     | per `cc_pipeline_v13` substrate     |
+| `10.5281/zenodo.19996689`          | D2-NOTE concept                            | per slot 154 ACTION_LADDER          |
+| `10.5281/zenodo.19885550`          | Umbrella concept                           | per `umbrella_v22.tex` line 851     |
+
+(Synth: live-resolve check at deposit time per slot 116 J2 sidebar precedent if any DOI sidebar mismatch surfaces.)
+
+### STEP 0.4 band ceiling
+MEDIUM-HIGH — same class as slot 157 framing-consultation. This consultation's recommendation may amend governance practice (controlled vocabulary lock, slot 160 fire/no-fire decision). Verdict ceiling MEDIUM-HIGH; sub-band HIGH allowed for individual claims with tight substrate citation.
+
+### STEP 0.5 schema declaration
+Verdict packet schema: §6 below. Same shape as slot 157 verdict packet (LABEL / BAND / WITNESS / Q1..Q6 responses / AMENDMENTS / ANOMALIES / ABSORPTION_GUIDANCE / ONE-LINE TAKEAWAY).
+
+### STEP 0.6 fire-eligibility
+- [ ] Synth has read slot 157 verdict (`bridge/sessions/2026-05-10/T1-SYNTH-ZENODO-DEPOSIT-FRAMING-CONSULTATION-157/verdict.md`)
+- [ ] Synth has read slot 159 canonical_declaration + appendix_c_source_manifest
+- [ ] Synth has read slot 137 `zenodo_v14_description_block.md` (existing deposit substrate)
+- [ ] All 12 SHAs and 5 DOIs pre-verified
+
+---
+
+## §3 The 6 questions
+
+### Q1 — Native Zenodo Related-identifier vocabulary sufficiency
+
+The current slot 137 PCF-2 v1.4 description block carries 3 Related-identifier rows. After slot 157 Option α', a 4th row is implied:
+```
+IsNewVersionOf  10.5281/zenodo.19963298    PCF-2 v1.3
+IsSupplementTo  10.5281/zenodo.19931635    PCF-1 concept
+Cites           10.5281/zenodo.19931635    PCF-1 concept
+IsSupplementTo  10.5281/zenodo.19885550    Umbrella concept    ← NEW per Option α'
+```
+
+**Q1a.** Is this row set sufficient for PCF-2 v1.4 OR are additional rows required to express M-axis cross-references? If additional rows are required, enumerate them (e.g., `IsSupplementTo`/`Cites` rows for Channel Theory `19941678`, D2-NOTE `19996689`, picture v1.19 deposit at bridge `70d1a48`).
+
+**Q1b.** For axis-tier closure references (M4 cascade `5f9db69`, M7 cascade `7f93b9e`, etc.) — is `References` with a GitHub permalink (`https://github.com/papanokechi/siarc-relay-bridge/tree/<SHA>/sessions/...`) appropriate, or should these be expressed in the Description body only? Address GitHub URL stability concerns (rebase risk, repo rename risk) versus archival best practice.
+
+**Q1c.** Is the concept-DOI vs version-DOI discipline (per memory `substrate verification`: "Cross-link IsSupplementTo should target concept-DOI not version-DOI") correctly applied in the proposed row set? Are there any cases where version-DOI is the right target despite the general rule?
+
+### Q2 — Layer 2 axis-coverage table standardization
+
+**Q2a.** Should every SIARC Zenodo deposit Description embed a structured "Program-axis coverage" table (M1-M12 with status column)? Or is this redundant given Layer 1 already encodes paper-tier relations and the canonical outlook (slot 159) is citable?
+
+**Q2b.** If standardized, what is the minimal controlled vocabulary for the status column? Agent's pre-proposal:
+
+```
+covered (V0-closed; primary)    -- this deposit is the canonical home for the closed axis
+covered (V0-closed; folded)     -- this deposit absorbs the closed axis but a primary exists elsewhere
+partial                          -- this deposit covers part of the axis; full closure pending
+not in scope                     -- axis not addressed in this deposit
+external                         -- axis lives in a different deposit; cite that deposit
+tabled (RULE 1)                  -- axis is RULE-1-tabled; not yet opened
+retired (into Mx)                -- axis was retired into another axis (M3→M4, M5→M6.CC)
+```
+
+Synth: lock, amend, or replace this controlled set?
+
+**Q2c.** Granularity question: should the table list M1-M12 atomically, or group RULE-1-tabled axes (M2/M3/M5/M11/M12) as a single row?
+
+### Q3 — Layer 3 SIARC Zenodo Community
+
+**Q3a.** Is creating a SIARC Zenodo Community now (under RULE 1, since Community creation is admin-tier infrastructure not a deposit) appropriate, or should it be deferred to post-RULE-1-lift (`F5` blocked, `D-157-7` operator decision)? Re-evaluate D-157-7 with slot 159 canonical outlook context.
+
+**Q3b.** If/when created, should the Community description carry a master M1-M12 axis status snapshot (and update on axis flips), or should each deposit's Description carry the snapshot independently?
+
+### Q4 — Forward-compatibility
+
+**Q4a.** When M2 / M3 / M5 / M11 / M12 axes open post RULE 1 lift (currently 5 tabled axes), how should existing deposit metadata be amended? Options: (i) Zenodo "new version" with updated axis-coverage table; (ii) Description amendment via Zenodo edit (no version increment); (iii) leave existing deposits frozen and rely on newest-deposit table being authoritative.
+
+**Q4b.** What is the intended lifetime of bridge cascade SHA references (`References` rows pointing to GitHub commit URLs)? If `siarc-relay-bridge` is ever renamed or rebased, what is the migration path?
+
+### Q5 — Slot 160 fire/no-fire binary
+
+This is the meta-question. The agent's pre-consultation default position is **NO-FIRE**: fold the controlled vocabulary directly into F6 Umbrella v2.3 substrate-prep + amend PCF-2 v1.4 description block at deposit time. Rationale: schema is small (~15 lines markdown); standalone bridge fire is governance overhead with thin payoff.
+
+**Q5a.** Synth: confirm or contradict the NO-FIRE default. If FIRE is preferred, justify by enumerating the consumers + reusability gain.
+
+**Q5b.** If FIRE is preferred, what minimum-viable scope for the slot 160 fire? Three options:
+- **MIN**: just lock the Layer 2 controlled vocabulary (~1 markdown deliverable)
+- **MED**: Layer 2 vocabulary + reference Layer 1 row-pattern + Layer 3 deferral note (~3 deliverables)
+- **MAX**: Layer 1 + 2 + 3 full schema with sample tables for PCF-2 v1.4, Umbrella v2.3, and a future M1 D2-NOTE update (~5 deliverables)
+
+**Q5c.** If NO-FIRE is preferred, what minimum-viable artefact captures the schema in lieu of a fire? Options:
+- (i) inline schema in F6 prompt body (Umbrella v2.3 substrate-prep)
+- (ii) one-paragraph addendum to slot 137 `zenodo_v14_description_block.md` operator-side amendment
+- (iii) absorb into operator runbook only; no in-repo schema artefact
+
+### Q6 — Predecessor verdict consistency
+
+Slot 157 verdict §Q5e said "M10 SAFE phrasing (D-153-3): SATISFIED BY CONSTRUCTION" via Appendix C section (ii). Slot 157 verdict §Q4b-2 prescribed Appendix C with 4 sub-sections. Slot 159 §Phase C produced the Appendix C source manifest.
+
+**Q6.** Is the proposed 3-layer Zenodo metadata scheme consistent with slot 157 §Q4b commitments? Identify any conflicts where slot 160 schema would force a slot 157 amendment-overlay (analogous to slot 158's role for cascade-132 sec 3.1).
+
+---
+
+## §4 Pareto / tradeoff matrix (synth completes)
+
+Synth produces a tradeoff matrix analogous to slot 157 §Q3 with these axes:
+
+| Axis | Agent's pre-proposal: 3-layer hybrid | Native-only (status quo) | Layer 2 only (no Community) | Layer 1+3 (no axis table) | All three full (with slot 160 MAX fire) |
+|------|---------------------------------------|--------------------------|------------------------------|----------------------------|------------------------------------------|
+| Machine-parseability of paper-tier  | ? | ? | ? | ? | ? |
+| Human-readability of axis structure | ? | ? | ? | ? | ? |
+| Discoverability                     | ? | ? | ? | ? | ? |
+| Audit-trail completeness            | ? | ? | ? | ? | ? |
+| Composition cost                    | ? | ? | ? | ? | ? |
+| Amendment-ease as axes open         | ? | ? | ? | ? | ? |
+| Forward-compat (10-year horizon)    | ? | ? | ? | ? | ? |
+| RULE 1 fire-eligibility (slot 160)  | ? | ? | ? | ? | ? |
+
+Identify Pareto-dominated rows and Pareto-frontier rows. Recommend one.
+
+---
+
+## §5 Recommendation + migration path (synth produces)
+
+Following slot 157 §Q4 pattern:
+
+**Q4a (recommendation).** Synth selects one of: SCHEMA_LOCK_FIRE_NOW (slot 160 fires; specify scope) | SCHEMA_LOCK_INLINE (no slot 160; fold into F6 + deposit time) | SCHEMA_AMEND (different schema than the agent's 3-layer; specify) | SCHEMA_DEFER (defer the whole question to post-RULE-1-lift).
+
+**Q4b (specification).** If FIRE: enumerate slot 160 deliverables, scope, fire-eligibility gates, expected witness count.
+
+**Q4c (consistency).** Verify recommendation does not conflict with slot 157 §Q4b (Option α' deposit cascade) or slot 159 (canonical outlook). Surface any required slot 157 amendment-overlay.
+
+**Q4d (migration path).** For axes flipping out of "tabled (RULE 1)" status post-lift, specify update procedure.
+
+---
+
+## §6 Verdict packet schema (mandatory format)
+
+```
+LABEL:    SCHEMA_LOCK_FIRE_NOW | SCHEMA_LOCK_INLINE | SCHEMA_AMEND | SCHEMA_DEFER
+BAND:     LOW | LOW-MEDIUM | MEDIUM | MEDIUM-HIGH | HIGH
+WITNESS:  <model-id>-<vendor>-<YYYY-MM-DD>
+
+Phase 0 gates: STEP 0.1 supersession <pass/fail> | STEP 0.2 SHAs <12/12 pass> |
+               STEP 0.3 DOIs <5/5 pass> | STEP 0.4 ceiling <honoured> | STEP 0.5 schema <below>.
+
+---
+
+### Q1_RESPONSE
+Q1a. ...
+Q1b. ...
+Q1c. ...
+
+### Q2_RESPONSE
+Q2a. ...
+Q2b. <controlled vocabulary lock or amendment>
+Q2c. ...
+
+### Q3_RESPONSE
+Q3a. ...
+Q3b. ...
+
+### Q4_RESPONSE
+Q4a. ...
+Q4b. ...
+
+### Q5_RESPONSE  (slot 160 fire/no-fire BINARY)
+Q5a. <FIRE | NO-FIRE>; rationale.
+Q5b. <if FIRE: MIN | MED | MAX scope>
+Q5c. <if NO-FIRE: artefact location>
+
+### Q6_RESPONSE
+Q6. <consistent | requires slot 157 amendment-overlay; specify>
+
+---
+
+### TRADEOFF MATRIX  (§4 above; synth fills)
+[8-axis × 5-framing matrix with Pareto call-outs]
+
+---
+
+### RECOMMENDATION + MIGRATION  (§5 above)
+Q4a. <recommendation>
+Q4b. <specification>
+Q4c. <consistency>
+Q4d. <migration path>
+
+---
+
+### AMENDMENTS
+- <list of in-prompt items requiring amendment, with reason>
+
+### ANOMALIES
+- <severity-tagged anomalies; LOW / MED / HIGH>
+
+### ABSORPTION_GUIDANCE
+- SQL todo updates: <list>
+- Follow-up fires (priority order): <list>
+- Candidate memory promotions: <list>
+- Slot 137 / 135 substrate amendment requirements: <list>
+- D-157-7 (Community) status update: <update>
+- Dual-witness escalation: <required | not-required; reason>
+
+### ONE-LINE TAKEAWAY
+<single sentence>
+```
+
+---
+
+## §7 Predecessor / successor tracking
+
+| Edge | Source | Target | Type |
+|------|--------|--------|------|
+| Predecessor | slot 157 (`34563a6`) | slot 160 | semantic predecessor (deposit framing → metadata schema) |
+| Predecessor | slot 158 (`228e757`) | slot 160 | substrate predecessor (cascade-132 α' overlay) |
+| Predecessor | slot 159 (`961b828`) | slot 160 | substrate predecessor (canonical outlook) |
+| Predecessor | slot 137 (`45e236c`) | slot 160 | implementation substrate (existing PCF-2 v1.4 description block) |
+| Predecessor | slot 135 (`887981b`) | slot 160 | implementation substrate (umbrella v2.2 description block) |
+| Successor   | slot 160 | F6 Umbrella v2.3 substrate-prep | depends-on (if Q5 = FIRE) OR informs-prompt-body (if Q5 = NO-FIRE) |
+| Successor   | slot 160 | PCF-2 v1.4 deposit description | informs-amendment (slot 137 substrate-amend at deposit time) |
+| Successor   | slot 160 | F5 Zenodo Community decision | informs-decision (Q3 / Q4d) |
+
+---
+
+## §8 Operator instructions for synth dispatch
+
+1. Read slot 157 verdict, slot 159 canonical_declaration + appendix_c_source_manifest, slot 137 `zenodo_v14_description_block.md` (operator paste-blocks below if needed; OR provide bridge URL).
+2. Verify all 12 SHAs and 5 DOIs per §2 STEP 0.2 + 0.3 (synth-side cross-check).
+3. Produce verdict packet per §6 schema.
+4. Single-witness; dual-witness recommended only if Q5 = FIRE at MAX scope (justified in Q5b).
+5. CLI agent absorbs verdict per Standing Final Step B1-B5; bridge folder name `T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160`.
+
+---
+
+## §9 Standing Final Step B5 (post-absorption)
+
+After successful CLI absorption + bridge push:
+
+```
+BRIDGE: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-10/T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160/
+
+CLAUDE_FETCH: https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-05-10/T1-SYNTH-M1-M12-ZENODO-RELATION-EXPRESSION-SCHEMA-160/handoff.md
+```
+
+---
+
+**End of slot 160 prompt.**
