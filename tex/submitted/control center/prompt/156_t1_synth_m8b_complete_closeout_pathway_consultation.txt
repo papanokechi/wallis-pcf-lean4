@@ -1,0 +1,435 @@
+================================================================================
+T1-SYNTH-M8B-COMPLETE-CLOSEOUT-PATHWAY-CONSULTATION-156
+T1-Synth advisory consultation: pathways to complete M8b closeout
+================================================================================
+Drafted: 2026-05-10 ~18:25 JST
+Drafter: GitHub Copilot CLI (claude-opus-4.7-xhigh)
+Class:   single-witness advisory; MEDIUM-HIGH self-assessed band ceiling;
+         dual-witness escalation if synth self-assesses HIGH or wants to OBJECT
+Slot ID: 156
+Task ID: T1-SYNTH-M8B-COMPLETE-CLOSEOUT-PATHWAY-CONSULTATION-156
+Bridge folder: sessions/2026-05-10/T1-SYNTH-M8B-COMPLETE-CLOSEOUT-PATHWAY-CONSULTATION-156/
+
+RULE 1 SCOPE NOTE: this consultation is mathematical-content scope (M-axis
+math-foundational closure). It is NOT admin/distribution work and is NOT
+tabled under RULE 1. Fire-eligible immediately upon STEP-0 gate completion.
+
+================================================================================
+SECTION 0 -- PHASE 0 SUPERSESSION + SHA VERIFICATION GATE (mandatory)
+================================================================================
+
+STEP 0.1 -- supersession check (per "prompt drafting discipline" memory).
+  Search siarc-relay-bridge sessions/ for any prior LANDED fire with task
+  scope "M8b complete closeout" or "M8b V1 / V2 closure pathway" or
+  "M8b d≥3 caveat lift". Expected result: NO PRIOR LANDED FIRE on this
+  scope (M8b V0 was closed at 2026-05-09 cascade 130R bridge `74c5630`
+  with annotation `(NUMERICAL-FORECLOSURE; d≥3-CAVEAT-CARRIED-FORWARD)`;
+  no subsequent fire has scoped the carry-forward residuals). If a prior
+  LANDED fire exists, halt with HALT_156_SUPERSEDED and scope this fire
+  as residual-discharge instead.
+
+STEP 0.2 -- precondition check.
+  Required state at fire time:
+    (a) M8b V0 closure cascade landed at bridge 74c5630              [LANDED 2026-05-09 ~22:00 JST]
+    (b) S153 quad-witness CONFIRM_CLOSURE landed at bridge 4761392   [LANDED 2026-05-10 ~16:45 JST]
+    (c) S154 quad-witness ACTION_LADDER_RECOMMENDATION_WITH_AMENDMENT
+        landed at bridge 26d7bf5                                     [LANDED 2026-05-10 ~18:00 JST]
+        (S154 Q4(4a) unanimously identified M8b as highest math-axis
+         risk; S154 Q4(4b) flagged peer-review d≥3 numerical re-check
+         as the most plausible exogenous trigger)
+    (d) RULE 1 may or may not be lifted at fire time -- this fire
+        is math-content scope and is FIRE-ELIGIBLE in either regime
+  If (a) or (b) is missing, HALT_156_PRECONDITION_NOT_MET.
+
+STEP 0.3 -- SHA pre-verification (per "substrate verification" memory).
+  Verify all cited bridge SHAs exist via `git rev-parse --verify <SHA>^{commit}`
+  before fire. SHAs cited in this prompt:
+
+    | Reference                                | SHA       | Expected status |
+    |------------------------------------------|-----------|-----------------|
+    | M8b V0 closure cascade (130R)            | 74c5630   | LANDED          |
+    | M8b ratification substrate-prep (128)    | f02ab5d   | LANDED          |
+    | M8b dispatch packet (129)                | 6e605fc   | LANDED          |
+    | M8a V0 cascade (127R; delegates to M8b)  | cb429e1   | LANDED          |
+    | M7 V0 cascade (123)                      | 7f93b9e   | LANDED          |
+    | M4 V0 cascade (106)                      | 5f9db69   | LANDED          |
+    | 092 operative-closure substrate          | 14e6b09   | LANDED          |
+    | P-009 caveat language deposit            | 1873538   | LANDED          |
+    | 038 literature reconnaissance            | a26ab27   | LANDED          |
+    | Picture v1.19 milestone record           | 70d1a48   | LANDED          |
+    | Picture v1.20+ M9 V0 amendment (slot 136)| b9aa881   | LANDED          |
+    | S153 quad-witness CONFIRM_CLOSURE        | 4761392   | LANDED          |
+    | S154 quad-witness action ladder          | 26d7bf5   | LANDED          |
+
+STEP 0.4 -- fire-time witness self-assessment.
+  Synth must self-assess band before generating verdict. Ceiling = MEDIUM-HIGH.
+  This is a STRATEGY/PATHWAY consultation (not a CONFIRMATION or RATIFICATION),
+  so HIGH band would require novel synthesis evidence. If synth wants to
+  claim HIGH or above, halt with HALT_156_BAND_CEILING_EXCEEDED and request
+  dual-witness escalation.
+
+STEP 0.5 -- output schema reminder.
+  Verdict must include: LABEL (advisory class) + BAND + WITNESS line + Q1-Q5
+  responses + AMENDMENTS + ANOMALIES + ABSORPTION_GUIDANCE + ONE-LINE TAKEAWAY.
+
+  Recommended LABEL family for this fire:
+    - CLOSEOUT_PATHWAY_RECOMMENDATION (preferred)
+    - CLOSEOUT_PATHWAY_RECOMMENDATION_WITH_AMENDMENT
+    - DEFER (if synth thinks scope is premature; e.g., needs more substrate)
+    - OBJECT (if synth thinks complete closeout is structurally infeasible
+      and the existing V0 carry-forward annotation is the canonical end-state)
+
+STEP 0.6 -- fire-eligibility checklist (operator pre-fire only).
+  [ ] STEP 0.1 supersession check passed
+  [ ] STEP 0.2 precondition check passed
+  [ ] STEP 0.3 SHA pre-verification: all 13 SHAs PASS
+  [ ] STEP 0.4 ceiling reminder communicated to synth
+  [ ] STEP 0.5 schema reminder included
+
+================================================================================
+SECTION 1 -- BACKGROUND
+================================================================================
+
+## 1.1 What "M8b" is
+
+M8b is the milestone axis tracking the **PCF-1 §3 dichotomy** -- the empirical
+split where the WKB-decay exponent A takes the value 4 for sgn(Δ₂) > 0 vs 3
+for sgn(Δ₂) < 0 in degree-2 polynomial continued fractions -- and its
+underlying **alien-amplitude / Stokes-multiplier S₂** analytic substrate.
+
+The dichotomy was first observed empirically in PCF-1 v1.3 (Theorem 5,
+sharp WKB exponent at d=2 stratified by sgn(Δ₂)). M8a V0 (cascade 127R,
+bridge `cb429e1`) explicitly delegates the SUBSTANTIVE structural
+resolution of this dichotomy to the M8b axis with annotation
+`(STOKES-DICHOTOMY-DELEGATED-TO-M8B)`. M8b is therefore the axis where
+the dichotomy has to be either:
+  (a) numerically resolved by extracting |S₂| values that respect the
+      dichotomy at d=2; OR
+  (b) structurally resolved by a Birkhoff–Trjitzinsky-style descendant
+      analysis with full Stokes data; OR
+  (c) categorically foreclosed (which is what V0 does, by negative-result
+      acceptance).
+
+## 1.2 The current M8b V0 closure (bridge `74c5630`, 2026-05-09)
+
+M8b V0 was closed via **numerical-foreclosure-by-residual-acceptance** at
+the d=2 PCF Stokes-multiplier |S₂| scale, with annotation:
+
+    `(NUMERICAL-FORECLOSURE; d≥3-CAVEAT-CARRIED-FORWARD)`
+
+Closure was based on a 4-lens negative-result harvest:
+
+  - 017c polynomial-aware LSQ at dps=250, N=2000 -- failure
+  - 017e extended LSQ at dps=400, N=5000 -- failure
+  - 017m subtracted-high-order Borel-Padé (HALT_T37M_PADE_DIVERGENT
+    at M=200..800) -- failure
+  - 092 raw-low-order Borel-Padé (PERMANENT_RESIDUAL_G6b across 4 reps
+    at small (N,M) ∈ {6..18}, dps=300; 196/196 OK cells, 0/84 adjacent
+    pairs reaching the dps/4=75 digit threshold) -- failure
+
+|S₂| was reported as below the resolution floor of laptop-feasible
+Borel-Padé methodology. Mathematical content of S₂ was explicitly NOT
+falsified -- only the laptop-feasible numerical extraction was foreclosed.
+
+## 1.3 What "complete closeout" of M8b would mean (working definition)
+
+The M8b V0 closure is a **negative-result closure** at the cascade level.
+"Complete closeout" of M8b -- which we will alias as **M8b V1** for the
+purpose of this consultation -- would, in principle, require lifting one
+or more of the carry-forward annotations:
+
+  Carry-forward 1: `NUMERICAL-FORECLOSURE`
+    - V0 closes the laptop-feasible numerical channel by residual
+      acceptance.
+    - "V1" would replace residual acceptance with either:
+      (1.a) positive |S₂| extraction at d=2 via a methodology not yet
+            surveyed (e.g., the U2 uncharted-quadrant: small-(N,M)
+            subtracted Padé), OR
+      (1.b) a structural argument that subsumes the numerical extraction
+            (e.g., Birkhoff–Trjitzinsky descendant analysis providing a
+            closed-form |S₂| at d=2), OR
+      (1.c) an upper-bound proof on |S₂| compatible with the residual-
+            floor observation, supplying a mathematically rigorous
+            "below resolution floor" statement to replace methodological
+            acceptance.
+
+  Carry-forward 2: `d≥3-CAVEAT-CARRIED-FORWARD`
+    - V0 closes only at d=2; d≥3 is forward-pointed and not blocking.
+    - "V1" would require either:
+      (2.a) extending the numerical-foreclosure framework to d≥3 (i.e.,
+            running 4-lens harvest at d=3, d=4 at minimum), OR
+      (2.b) a structural argument addressing why d≥3 is not separately
+            reducible (i.e., why the d=2 foreclosure subsumes d≥3), OR
+      (2.c) dispatching the P-009 caveat active variant v1 (currently
+            `NOT_YET_DISPATCHED`) and either confirming or refuting the
+            d≥3 binding-window framing.
+
+  Carry-forward 3: U2 uncharted-quadrant (forward-pointer)
+    - The 4th of 4 methodological quadrants -- small-(N,M) subtracted
+      Padé -- is untested. R2's §5 amendment specification flags this
+      as a future pipeline-survey forward pointer.
+    - "V1" would test U2 and either:
+      (3.a) confirm foreclosure-in-U2, strengthening V0 by surveying
+            all 4 quadrants, OR
+      (3.b) discover a non-foreclosed quadrant, which would convert
+            M8b V0's foreclosure-by-residual-acceptance into a
+            partial-foreclosure-with-positive-extraction.
+
+  Residual annotation: M8a → M8b dichotomy delegation
+    - M8a V0 explicitly delegates the PCF-1 §3 A∈{3,4} dichotomy to
+      M8b. M8b V0 closes this delegation only at the numerical scale.
+    - "V1" would provide structural resolution of the dichotomy
+      (item 1.b above is the strongest path here).
+
+## 1.4 What is OUT of scope for this consultation
+
+  - Adjudicating Path A vs Path B for OP-DP0 (RULE 1 lift; OPERATOR-tier
+    decision, separately filed UF-OP-DP0-1 at bridge `c7c0562`)
+  - The picture-chain v1.20+ disposition decision (D-154-1; OPERATOR-tier)
+  - Modifications to existing M8b V0 closure language (V0 is closed-with-
+    amendment HIGH at `74c5630`; this consultation does NOT propose
+    re-opening V0)
+  - Lean formalisation of M8b (M10-axis scope)
+  - Rebuttal of the V0 negative-result framework (substantive convergence
+    achieved across 4 lenses + cross-provider dual-witness; this fire
+    asks how to GO BEYOND V0, not whether V0 stands)
+
+## 1.5 Strategic context: S153 + S154 verdicts on M8b
+
+S153 quad-witness CONFIRM_CLOSURE (bridge `4761392`) confirmed M8b as
+**CONFIRM_CLOSED** with residual flag `d≥3 caveat carried forward`.
+
+S154 quad-witness ACTION_LADDER_RECOMMENDATION_WITH_AMENDMENT (bridge
+`26d7bf5`) flagged M8b as the **highest math-axis risk** (Q4a, 3 of 4
+witnesses) for post-RULE-1-lift dissemination. The unanimous Q4b
+exogenous-trigger identified by all 4 witnesses was: a peer-review
+request or external citation forcing a numerical re-check in the d≥3
+regime.
+
+S154's Q5a M8b caveat template (now bridge `26d7bf5/templates/
+m8b_caveat_template.md`) is a **mitigation** for the carried-forward
+state, NOT a closeout. This consultation goes one step further and
+asks: what does it take to no longer NEED the caveat?
+
+================================================================================
+SECTION 2 -- RESEARCH QUESTIONS (Q1-Q5)
+================================================================================
+
+## Q1. What is "complete closeout" of M8b, structurally?
+
+Q1a. Is the working definition in §1.3 (M8b V1 = lifting one or more of
+     the three carry-forward annotations) the right operational target?
+     If not, propose a sharper definition.
+
+Q1b. Of the three carry-forward annotations (NUMERICAL-FORECLOSURE,
+     d≥3-CAVEAT-CARRIED-FORWARD, U2 uncharted-quadrant), are any of
+     them structurally INELIMINABLE (i.e., the V0 closure is the
+     canonical end-state and "complete closeout" is not a meaningful
+     target)? If so, which, and why?
+
+Q1c. Is there a meaningful intermediate state -- "M8b V0.5" or "M8b
+     V1-partial" -- that would lift exactly ONE of the three
+     carry-forwards? If so, which carry-forward is the cheapest to
+     lift independently?
+
+Q1d. Does "complete closeout" require a positive |S₂| extraction at
+     d=2 (replacing residual acceptance with a numerical value), or
+     can closeout be achieved via a structural / categorical argument
+     that obviates extraction?
+
+## Q2. Pathway space: what are the candidate routes to M8b V1?
+
+Enumerate and characterise the candidate pathways. For each pathway,
+specify: (i) what residual it lifts; (ii) the methodological tools
+required; (iii) computational/mathematical cost (order-of-magnitude);
+(iv) probability-of-success-given-substrate-state; (v) whether it
+requires substrate currently absent from the bridge.
+
+Candidate pathways (synth may add others):
+
+Q2a. **Pathway A -- U2 quadrant survey** (small-(N,M) subtracted Padé):
+     test the 4th methodological quadrant explicitly. Lifts which
+     residual? Cost? Risk?
+
+Q2b. **Pathway B -- Birkhoff–Trjitzinsky descendant analysis at d=2**:
+     full Stokes-data structural argument providing closed-form |S₂|
+     at d=2. Lifts which residual? Cost? Risk?
+
+Q2c. **Pathway C -- d≥3 numerical-foreclosure extension**: replicate
+     the 4-lens negative-result harvest at d=3 and d=4. Lifts which
+     residual? Cost? Risk?
+
+Q2d. **Pathway D -- Upper-bound proof on |S₂|**: rigorous bound
+     compatible with the residual-floor observation, replacing
+     residual acceptance with a mathematically rigorous statement.
+     Lifts which residual? Cost? Risk?
+
+Q2e. **Pathway E -- P-009 caveat active variant v1 dispatch**: dispatch
+     the d≥3 structural binding-window literature reconnaissance
+     currently in NOT_YET_DISPATCHED state. Lifts which residual?
+     Cost? Risk?
+
+Q2f. **Pathway F -- a path the synth identifies that we have NOT
+     enumerated above**.
+
+## Q3. Pathway prioritisation and ordering
+
+Q3a. Among the candidate pathways above, what is the recommended
+     PRIORITISED ORDERING (by some combination of cost, leverage,
+     and structural value)?
+
+Q3b. Are any of the pathways MUTUALLY DEPENDENT (i.e., pathway X
+     should be completed before pathway Y can fire)? Document the
+     dependency graph if non-trivial.
+
+Q3c. Is there a SINGLE pathway that, if successful, would
+     simultaneously lift ALL THREE carry-forward annotations and
+     deliver M8b V1 in one shot? If yes, identify it. If no, what
+     is the smallest BUNDLE of pathways that would deliver V1?
+
+Q3d. What is the recommended FIRST PATHWAY to fire (the lowest-
+     friction one with the highest expected information value)?
+
+## Q4. Cost, timeline, and pre-flight discipline
+
+Q4a. What is the order-of-magnitude wall-clock cost of the recommended
+     first pathway? (Hours / days / weeks of agent compute; or
+     "infeasible-on-laptop-substrate"?)
+
+Q4b. What pre-flight substrate (literature, prior bridge artefacts,
+     code substrate) needs to be confirmed in place before the
+     first pathway can fire?
+
+Q4c. Are there pre-existing artefacts in the bridge that already
+     partially address any of the pathways? (E.g., existing scripts
+     in the 092 / 017m / 017c / 017e folders that could be repurposed
+     for U2 with parameter changes.)
+
+Q4d. What is the expected halt-mode for the first pathway? (E.g.,
+     "halt if U2 returns same PERMANENT_RESIDUAL pattern as 092"
+     or "halt if Birkhoff–Trjitzinsky machinery cannot be located in
+     accessible literature within 2 hours of search.")
+
+## Q5. Counterfactual: should we attempt complete closeout at all?
+
+Q5a. Given that M8b V0 is closed at HIGH band and is NOT in the M9 V0
+     gating set (M9 gating = {M4, M6}), is "complete closeout of M8b"
+     a valuable target, or is the existing V0 carry-forward the
+     canonical end-state for the SIARC program? Argue both sides.
+
+Q5b. If complete closeout is NOT pursued, what is the recommended
+     long-term stewardship plan for the carry-forward annotations?
+     (E.g., do they get re-evaluated post-RULE-1-lift? Do they propagate
+     forever as caveats in dissemination artefacts? Is there a
+     "deprecation" pathway?)
+
+Q5c. Is there a third alternative -- "M8b V0+" -- that documents the
+     carry-forwards more precisely without lifting them, providing
+     stronger epistemic discipline without the cost of V1?
+
+Q5d. Per S154 Q4(4b) unanimous identification of "peer-review request
+     forcing d≥3 numerical re-check" as the most plausible exogenous
+     trigger, is there a defensive precondition (e.g., a "ready-to-
+     respond" stub for d≥3 questions) that would let the SIARC program
+     stay in V0 without exogenous-trigger fragility?
+
+================================================================================
+SECTION 3 -- OUTPUT FORMAT (mandatory schema)
+================================================================================
+
+Witness must produce a verdict packet matching this schema:
+
+    LABEL:    [CLOSEOUT_PATHWAY_RECOMMENDATION |
+               CLOSEOUT_PATHWAY_RECOMMENDATION_WITH_AMENDMENT |
+               DEFER | OBJECT]
+    BAND:     [LOW | LOW-MEDIUM | MEDIUM | MEDIUM-HIGH]
+              (HIGH ceiling-violation; halt with HALT_156_BAND_CEILING_EXCEEDED)
+    WITNESS:  single-witness <model-name>-<provider>-<YYYY-MM-DD>
+
+    ### Q1_RESPONSE -- Definition of complete closeout
+        (Q1a-Q1d, paragraph form acceptable)
+
+    ### Q2_RESPONSE -- Pathway space
+        (Q2a-Q2f, with structured table per pathway:
+         residual lifted | tools | cost | success-probability | substrate-gap)
+
+    ### Q3_RESPONSE -- Prioritisation
+        (Q3a-Q3d, with explicit ordered list + dependency graph)
+
+    ### Q4_RESPONSE -- Cost/timeline/pre-flight
+        (Q4a-Q4d, with explicit halt-mode specification)
+
+    ### Q5_RESPONSE -- Counterfactual
+        (Q5a-Q5d, both-sides-argued where applicable)
+
+    ### AMENDMENTS
+        (any amendments to the working definition in §1.3, the carry-forward
+         enumeration, or the pathway list)
+
+    ### ANOMALIES
+        (anything unexpected, uncertain, or that should be reviewed by
+         operator / Claude.ai before agent-fireable next-step)
+
+    ### ABSORPTION_GUIDANCE
+        (CLI agent absorption recommendations: SQL todo updates, follow-up
+         fires, candidate memory promotions)
+
+    ### ONE-LINE TAKEAWAY
+
+================================================================================
+SECTION 4 -- AGGREGATION RULE (if dual/quad-witness)
+================================================================================
+
+If this consultation is fired as dual-witness or quad-witness, aggregate
+per cascade-123-§3.2-extended-to-n>=2 (now general rule per UF-154-1
+candidate memory promotion at bridge `26d7bf5`):
+
+    LABEL ordering (most-conservative wins):
+        RECOMMENDATION ⊏ RECOMMENDATION_WITH_AMENDMENT ⊏ DEFER ⊏ OBJECT
+
+    BAND ordering (most-conservative wins):
+        LOW ⊏ LOW-MEDIUM ⊏ MEDIUM ⊏ MEDIUM-HIGH
+
+================================================================================
+SECTION 5 -- DEPOSIT EXPECTATION
+================================================================================
+
+Bridge folder to be created post-fire:
+  sessions/2026-05-10/T1-SYNTH-M8B-COMPLETE-CLOSEOUT-PATHWAY-CONSULTATION-156/
+
+Required deliverables (per Standing Final Step B1):
+  - verdict.md (or verdict_witness_N_<provider>.md if multi-witness)
+  - cascade_record.md (if multi-witness; aggregation logic per Section 4)
+  - claims.jsonl (~10-15 audit-tier AEAL entries)
+  - discrepancy_log.json
+  - halt_log.json (= {} if no halt)
+  - unexpected_finds.json
+  - handoff.md (per B3)
+  - any pathway-specific substrate or design documents the synth recommends
+    (e.g., a U2 quadrant survey design spec, a Birkhoff–Trjitzinsky
+    literature reconnaissance plan, etc.)
+
+================================================================================
+SECTION 6 -- CITATION INVENTORY (full 40-char SHAs)
+================================================================================
+
+  74c563022d3a2df0a4bea0088f4793170a1e64d3   M8b V0 closure cascade (130R)
+  cb429e1acba91ba47d1426950d924800a0b02a07   M8a V0 cascade (127R; delegates to M8b)
+  7f93b9e4d624fdfca62f5d85393b4ead35cea751   M7 V0 cascade (123)
+  5f9db69c754c410b79091cbd84e6d79b63d10b6e   M4 V0 cascade (106)
+  47613929c2b84ea122bbc134ffa45b792c072f45   S153 quad-witness CONFIRM_CLOSURE
+  26d7bf56410e9b31cdf2899311024413cae14de5   S154 quad-witness action ladder
+  14e6b093b187783ac3ca14f00333096889e2d590   092 operative-closure substrate
+  1873538ab9157fd0bfff1bf730d9295514eb2664   P-009 caveat language deposit
+  a26ab273200c639cf4444a05d1c9163b2308c657   038 literature reconnaissance
+  70d1a4835ee0bc1f188aada9be65bb657f471730   Picture v1.19 milestone record
+  b9aa881c53566926390d6f48c2b8a10243c67267   Picture v1.20+ M9 V0 amendment (slot 136)
+  f02ab5df56182a1071fd0883cb4c8e67e3f8ccbf   M8b ratification substrate-prep (128)
+  6e605fc9d743109450ceb24a12e5e6139e4d381f   M8b dispatch packet (129)
+
+All SHAs verified via `git rev-parse --verify <abbrev>^{commit}` against
+siarc-relay-bridge clone at draft time (2026-05-10 ~18:30 JST).
+
+================================================================================
+END OF PROMPT
+================================================================================
