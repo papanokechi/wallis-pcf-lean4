@@ -1,0 +1,330 @@
+================================================================================
+T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158
+T2-Executor agent-fireable amendment-overlay deposit (slot 157 F1+F3+D-157-8)
+================================================================================
+Drafted: 2026-05-10 ~19:43 JST
+Drafter: GitHub Copilot CLI (claude-opus-4.7-xhigh)
+Class:   T2-Executor agent-fireable; NO synth witness required (slot 157
+         verdict at bridge 34563a6 supplies all substantive content; this
+         fire only OPERATIONALIZES the verdict's amendment specification
+         per Q4b items 1-6 + Q5f overlay-fire pattern).
+Slot ID: 158
+Task ID: T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158
+Bridge folder: sessions/2026-05-10/T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158/
+
+Bundles (3 items in one fire per slot 157 ABSORPTION_GUIDANCE follow-up F1):
+  - F1: Cascade-132 sec 3.1 Option alpha -> Option alpha-prime amendment overlay
+  - F3: Picture v1.19 concept-DOI verification (Zenodo lookup for bridge 70d1a48)
+  - D-157-8: Slot 136 substrate-prep status reclassification
+            (REPURPOSED-AS-APPENDIX-SOURCE; no history rewrite)
+
+================================================================================
+SECTION 0 -- PHASE 0 SUPERSESSION + SHA VERIFICATION GATE (mandatory)
+================================================================================
+
+STEP 0.1 -- supersession check.
+  Search siarc-relay-bridge sessions/2026-05-10/ for any prior LANDED fire
+  with task scope "Cascade-132 sec 3.1 amendment-overlay" OR "Option alpha
+  -> Option alpha-prime overlay". Expected: NO PRIOR LANDED FIRE.
+  If a prior LANDED fire exists, halt with HALT_158_SUPERSEDED.
+
+STEP 0.2 -- precondition check.
+  Required state at fire time:
+    (a) cascade-132 PATH_B Option alpha decision LANDED at bridge fd669d3
+    (b) slot 157 FRAMING_AMEND verdict LANDED at bridge 34563a6
+    (c) slot 135 umbrella v2.2 substrate-prep LANDED at bridge 887981b
+    (d) slot 136 picture v1.20+ substrate-prep LANDED at bridge b9aa881
+    (e) slot 137 PCF-2 v1.4 substrate-prep LANDED at bridge 45e236c
+    (f) RULE 1 status: this fire is RULE-1-clean per agent assessment
+        (governance META; no Zenodo deposit produced; per slot 157 D-157-9
+        agent vs synth classification disagreement -- agent default).
+  If (a)-(e) any missing, HALT_158_PRECONDITION_NOT_MET.
+
+STEP 0.3 -- SHA pre-verification.
+  Verify all cited bridge SHAs exist before fire (pre-verified via
+  git rev-parse 2026-05-10 ~19:43 JST):
+
+    | Reference                              | SHA       | Status |
+    |----------------------------------------|-----------|--------|
+    | Cascade-132 PATH_B Option alpha        | fd669d3   | LANDED |
+    | Slot 157 FRAMING_AMEND verdict         | 34563a6   | LANDED |
+    | Slot 156 CLOSEOUT_PATHWAY_AMEND        | 607f9e8   | LANDED |
+    | Slot 135 umbrella v2.2 substrate-prep  | 887981b   | LANDED |
+    | Slot 136 picture v1.20+ substrate-prep | b9aa881   | LANDED |
+    | Slot 137 PCF-2 v1.4 substrate-prep     | 45e236c   | LANDED |
+    | Picture v1.19 milestone (DOI lookup)   | 70d1a48   | LANDED |
+
+STEP 0.4 -- band ceiling reminder.
+  This is a T2-Executor amendment-overlay fire; band ceiling = LOW-MEDIUM
+  (operationalization fire; substantive content = slot 157 verdict; this
+  fire produces a deposit overlay only). NO load-bearing math content
+  changes; NO substantive policy changes. If during execution any need
+  for substantive policy decision arises, halt with HALT_158_OUT_OF_SCOPE
+  and surface to operator (likely needs T1-Synth re-fire).
+
+STEP 0.5 -- output schema reminder.
+  Bridge deposit must include all 7 deliverables in SECTION 5 + ALL 3
+  bundled items operationalized in the deliverables.
+
+STEP 0.6 -- fire-eligibility checklist.
+  [ ] STEP 0.1 supersession check passed
+  [ ] STEP 0.2 precondition check passed (a-e LANDED + RULE 1 clean)
+  [ ] STEP 0.3 SHA pre-verification: all 7 SHAs PASS
+  [ ] STEP 0.4 ceiling reminder communicated
+  [ ] STEP 0.5 schema reminder included
+
+================================================================================
+SECTION 1 -- BACKGROUND
+================================================================================
+
+## 1.1 RULE 1 (operator-supplied 2026-05-09 ~11:17 JST; verbatim)
+
+> "HOLD -- rule 1; table everything that is not a hard requirement to complete
+>  M1-M12 (zenodo, endorsement should all be tabled)"
+
+Per agent D-157-9 assessment: this fire is RULE-1-clean (governance META;
+produces no Zenodo deposit; v2.1->v2.2 amendment-overlay pattern per
+slot 157 verdict Q5f; no concept-DOI / version-DOI / IsSupplementTo
+metadata generation; no manuscript composition). Synth classified F1-F4
+conservatively as "RULE-1-blocked from execution but draftable" (slot 157
+ABSORPTION_GUIDANCE point 2); agent default applies until operator
+re-classifies.
+
+## 1.2 Slot 157 verdict summary (the substantive substrate)
+
+LABEL: FRAMING_AMEND @ MEDIUM-HIGH
+WITNESS: claude-opus-4.7-anthropic-2026-05-10
+LANDED: bridge 34563a6 2026-05-10 ~18:55 JST
+
+Recommendation: Framing C -- drop step 3 picture-chain v1.20+ as standalone
+Zenodo deposit; fold picture-chain content into Umbrella v2.2 -> v2.3
+as Appendix C "M1-M12 Closure Narrative & Operator Runbook".
+Cascade-132 sec 3.1 Option alpha (3 deposits) -> Option alpha-prime
+(2 deposits).
+
+Pareto-dominance call-out: Framing C dominates Option alpha (Framing B)
+on Citation friction (LOW-MED vs MED), Discoverability (MED-HIGH vs MED),
+D-154-1 resolution (YES vs NO) at 1.1-1.3x composition cost vs 1.0x.
+
+Verdict Q5f explicit pattern: "Operative substrate fd669d3 stays canonical;
+amendment overlay is appended." -- this is exactly the pattern this fire
+operationalizes.
+
+## 1.3 What this fire produces (3 bundled items)
+
+### Item 1 (F1): Cascade-132 sec 3.1 amendment overlay
+
+Compose amendment_overlay.md documenting:
+  - Operative substrate: cascade-132 PATH_B Option alpha decision (bridge
+    fd669d3) STAYS CANONICAL; this overlay does NOT modify cascade-132
+    history.
+  - Amendment scope: Option alpha (3-deposit) -> Option alpha-prime
+    (2-deposit) per slot 157 verdict Q4b items 1-6.
+  - 6 specific amendment items per Q4b:
+      Q4b-1: Cascade-132 sec 3.1 Option alpha step 3 (Picture-chain v1.20+
+             standalone Zenodo deposit) is REMOVED.
+      Q4b-2: Umbrella v2.2 -> v2.3 scope extension; adds Appendix C
+             "M1-M12 Closure Narrative & Operator Runbook" with 4 sub-
+             sections (i)-(iv) per slot 157 verdict.
+      Q4b-3: Slot 135 Umbrella v2.2 substrate-prep PRESERVED on substrate
+             side; v2.2 -> v2.3 is content-side micro-bump.
+      Q4b-4: Slot 136 Picture v1.20+ substrate-prep REPURPOSED-AS-
+             APPENDIX-SOURCE (operationalized in Item 3 below).
+      Q4b-5: Slot 137 PCF-2 v1.4 substrate-prep FULLY PRESERVED (no
+             change); FIRST DEPOSIT per Q4e.
+      Q4b-6: Cross-link graph simplifies to PCF-2 v1.4 <-> Umbrella v2.3
+             via IsSupplementTo (concept-DOI level); both deposits
+             reference bridge cascade records.
+  - Amendment is FRAMING_AMEND class (slot 157 verdict label); not
+    SUPERSEDE; single-witness sufficient per slot 157 prompt Section 4
+    aggregation rule.
+  - Fire-eligibility note: fire was RULE-1-clean per agent assessment
+    (D-157-9); operator may re-classify retroactively if disagrees.
+
+### Item 2 (F3): Picture v1.19 concept-DOI verification
+
+Resolve UF-157-A2 / D-157-6 (LOW severity).
+
+Procedure:
+  (a) Lookup picture v1.19 milestone deposit at bridge 70d1a48:
+      - read bridge sessions/<date>/PICTURE-V19-CONSOLIDATED-DEPOSIT/
+        handoff.md (find folder under git log --diff-filter=A on 70d1a48)
+      - extract concept-DOI value if present
+      - fall back to grep over deposit metadata files
+        (zenodo_metadata.json, zenodo_description.txt, etc.)
+  (b) If concept-DOI exists:
+      - record value in picture_v119_doi_verification.md
+      - mark Umbrella v2.3 Appendix C cross-link target = picture v1.19
+        concept-DOI (IsSupplementTo)
+  (c) If concept-DOI does NOT exist (no Zenodo deposit ever made for v1.19):
+      - record absence in picture_v119_doi_verification.md
+      - mark Umbrella v2.3 Appendix C subsumes picture-chain entirely;
+        no IsSupplementTo cross-link to picture-chain
+  (d) If verification cannot be completed by agent (e.g., Zenodo API access
+      required and not available):
+      - record TBD-PENDING-OPERATOR-VERIFICATION in
+        picture_v119_doi_verification.md
+      - DO NOT halt; this is graceful degradation per slot 157 UF-157-A2
+        LOW severity classification
+
+### Item 3 (D-157-8): Slot 136 substrate-prep status reclassification
+
+Compose slot_136_status_overlay.md documenting:
+  - Slot 136 substrate-prep at bridge b9aa881 (LANDED 2026-05-10 06:30
+    JST) is RECLASSIFIED from "standalone Zenodo deposit substrate-prep"
+    to "REPURPOSED-AS-APPENDIX-SOURCE for Umbrella v2.3 Appendix C".
+  - Bridge folder sessions/2026-05-09/T2-EXECUTOR-PICTURE-V120-M9-V0-
+    AMENDMENT-PREP-136/ remains UNCHANGED (no history rewrite).
+  - Pre-S157 status: standalone deposit substrate (cascade-132 sec 3.1
+    Option alpha step 3).
+  - Post-S157 status: Umbrella v2.3 Appendix C source material (provides
+    M1-M12 closure outlook synthesis source for Appendix C section (i),
+    M10 documented-commitment paragraph for section (ii), M8b d>=3 caveat
+    preservation for section (iii)).
+  - Operator runbook reference: slot 136 deliverables continue to be
+    referenced by Umbrella v2.3 substrate-prep micro-bump (slot-157-
+    followup-f6) as Appendix C source material; no deprecation.
+
+================================================================================
+SECTION 2 -- TASK DESCRIPTION (T2-EXECUTOR FIRE PLAN)
+================================================================================
+
+The agent (CLI Copilot) executes this fire in-repo without external dispatch.
+Estimated duration: 15-25 minutes. No claude.ai web dispatch required.
+
+## Phase A: substrate read
+
+A.1. Read slot 157 verdict at bridge sessions/2026-05-10/T1-SYNTH-ZENODO-
+     DEPOSIT-FRAMING-CONSULTATION-157/verdict.md sections Q4b + Q5f.
+A.2. Read slot 157 migration_plan.md to confirm M1-M9 step structure.
+A.3. Read cascade-132 deliverables at bridge sessions/2026-05-09/T1-SYNTH-
+     M9-V0-CLOSURE-PATH-CONSULTATION-CASCADE-132/ (specifically the
+     Option alpha decision text in cascade_record.md or verdict.md).
+A.4. Locate picture v1.19 deposit folder via:
+       cd siarc-relay-bridge
+       git log --diff-filter=A --name-only 70d1a48 | head -50
+     Read handoff.md or deposit metadata to extract concept-DOI.
+
+## Phase B: deliverable composition
+
+B.1. Compose amendment_overlay.md per Section 1.3 Item 1 spec.
+B.2. Compose picture_v119_doi_verification.md per Section 1.3 Item 2
+     procedure (a)-(d). Include the exact lookup command output verbatim.
+B.3. Compose slot_136_status_overlay.md per Section 1.3 Item 3 spec.
+B.4. Compose claims.jsonl with 8-12 AEAL entries covering:
+     - amendment overlay scope (Items 1+2+3)
+     - cascade-132 sec 3.1 Option alpha -> alpha-prime delta
+     - F3 picture v1.19 concept-DOI verification result (whatever it is)
+     - slot 136 reclassification
+     - cross-link graph final state (PCF-2 v1.4 <-> Umbrella v2.3)
+     - RULE 1 fire-eligibility under agent assessment (D-157-9)
+B.5. Compose halt_log.json ({} if no halt; populated only if HALT
+     codes triggered during Phase B).
+B.6. Compose discrepancy_log.json (any DIRTY signals during execution;
+     {"discrepancies":[]} if none).
+B.7. Compose unexpected_finds.json (UF-158-N for any anomalies discovered
+     during F3 lookup or amendment composition; {"unexpected_finds":[]}
+     if none).
+B.8. Compose handoff.md per Standing Final Step B3 template (status =
+     COMPLETE, accomplished, judgment calls (likely 1-2: F3 concept-DOI
+     fallback path; D-157-9 fire-eligibility default), anomalies, files
+     committed, AEAL count).
+
+## Phase C: bridge commit + push
+
+C.1. cd siarc-relay-bridge
+C.2. Folder-scoped staging (per parallel-CLI shared-clone gotcha memory):
+       git add sessions/2026-05-10/T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158/
+C.3. Verify staging:
+       git diff --cached --name-only
+     Expected: only files in slot 158 folder (8 files).
+     If any other paths staged, run:
+       git restore --staged <path>
+     until only slot 158 paths remain.
+C.4. Commit:
+       git commit -m "T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158 -- ..."
+       (Co-authored-by trailer per project convention)
+C.5. Push:
+       git push origin main
+C.6. Record final bridge SHA for downstream reference.
+
+## Phase D: claude-chat post-execute
+
+D.1. Rename slot 158 prompt:
+       cd ..
+       git mv "tex/submitted/control center/prompt/158_t2_executor_cascade_132_amendment_overlay.txt" \
+              "tex/submitted/control center/prompt/158_t2_executor_cascade_132_amendment_overlay_EXECUTED.txt"
+D.2. Commit + push to vquad/handoff-2026-04-16.
+D.3. Standing Final Step B5: emit BRIDGE + CLAUDE_FETCH URLs.
+
+## Phase E: SQL absorption
+
+E.1. UPDATE todos SET status='done' for:
+     - slot-157-followup-f1-cascade-132-amendment-overlay
+     - slot-157-followup-f3-picture-v119-doi-verification (if F3 resolved)
+     OR keep F3 pending if Phase B.2 produced TBD-PENDING-OPERATOR-VERIFICATION.
+E.2. INSERT slot-158-fire (status=done) + slot-158-draft (status=done) for
+     audit trail.
+
+================================================================================
+SECTION 3 -- DELIVERABLES (8 files)
+================================================================================
+
+Bridge folder: sessions/2026-05-10/T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158/
+
+  1. amendment_overlay.md             (Item 1 / F1; ~3-4 KB)
+  2. picture_v119_doi_verification.md (Item 2 / F3; ~1-2 KB)
+  3. slot_136_status_overlay.md       (Item 3 / D-157-8; ~1-2 KB)
+  4. claims.jsonl                     (8-12 AEAL entries)
+  5. halt_log.json                    ({} expected)
+  6. discrepancy_log.json             ({"discrepancies":[]} expected)
+  7. unexpected_finds.json            ({"unexpected_finds":[]} or UF-158-N)
+  8. handoff.md                       (per B3 template)
+
+================================================================================
+SECTION 4 -- ENVELOPE
+================================================================================
+
+  Class:               T2-Executor agent-fireable; in-repo; NO synth dispatch
+  Witness mode:        none required (substantive content from slot 157
+                       verdict at bridge 34563a6; this fire only operationalizes)
+  Self-assessed band:  LOW-MEDIUM ceiling
+  Halt codes:          HALT_158_SUPERSEDED
+                       HALT_158_PRECONDITION_NOT_MET
+                       HALT_158_OUT_OF_SCOPE (if substantive policy decision
+                         needed; should NOT trigger for this fire)
+                       HALT_158_F3_VERIFICATION_BLOCKED (if Zenodo lookup
+                         requires API access not available; graceful fallback
+                         to TBD-PENDING-OPERATOR-VERIFICATION instead)
+
+  Substrate inlined:   slot 157 verdict Q4b spec items 1-6 (verbatim above)
+                       + Q5f overlay-fire pattern + cascade-132 fd669d3
+                       canonical-substrate fact
+  Substrate referenced: full slot 157 verdict at bridge 34563a6;
+                        cascade-132 PATH_B at bridge fd669d3;
+                        slot 135/136/137 substrate-prep at 887981b/b9aa881/
+                        45e236c
+
+================================================================================
+SECTION 5 -- BRIDGE DELIVERABLES + STANDING FINAL STEP
+================================================================================
+
+CLI agent absorbs to bridge folder:
+  sessions/2026-05-10/T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158/
+
+Folder-scoped staging (parallel-CLI shared-clone gotcha mitigation):
+  git add sessions/2026-05-10/T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158/
+  git diff --cached --name-only   # verify only 8 files staged
+  git commit -m "T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158 -- cascade-132 sec 3.1 Option alpha -> alpha' overlay (slot 157 F1+F3+D-157-8 bundle; RULE-1-clean per agent D-157-9 assessment)"
+  git push origin main
+
+After push:
+  - Rename slot 158 prompt to _EXECUTED.txt on claude-chat (vquad/handoff-2026-04-16)
+  - Output BRIDGE + CLAUDE_FETCH URLs per Standing Final Step B5:
+
+      BRIDGE:        https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-10/T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158/
+      CLAUDE_FETCH:  https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-05-10/T2-EXECUTOR-CASCADE-132-AMENDMENT-OVERLAY-158/handoff.md
+
+================================================================================
+END OF SLOT 158 PROMPT
+================================================================================
