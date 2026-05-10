@@ -1,0 +1,389 @@
+# T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144
+
+**Tier:** T1-Synth (principal synthesizer; claude.ai web; recommend Claude Opus 4.7 single-witness or dual-witness)
+**Class:** strategic-roadmap consultation (NOT a math arbitration; NOT a closure cascade)
+**Session date:** 2026-05-10
+**Operator-supplied trigger:** post-RULE-1-reaffirmation (2026-05-10 ~10:24 JST) operator request for synth review of CLI agent's 2026-05-10 ~10:35 JST M1-M12 closure roadmap
+**Predecessor (functional):** slot 139 single-witness MEDIUM-HIGH `BEST-NEXT-MOVE` consultation (cascade SHA `72bb2c2`); narrow scope (next-move only). Slot 144 is broader scope (full M1-M12 roadmap review).
+**Witness mode:** single-witness DEFAULT; operator may upgrade to dual- / triple-witness if confidence band returns LOW or BAND-DOWNGRADED.
+
+---
+
+## sec 0 -- PHASE 0 PRE-FLIGHT (mandatory; halt cleanly on any FAIL)
+
+### 0.1 -- SHA verification (12 bridge + 3 claude-chat)
+
+Run `git rev-parse --verify <SHA>^{commit}` on every SHA below. ALL must PASS.
+
+**Bridge SHAs (siarc-relay-bridge):**
+
+  | Tag | Full SHA |
+  |---|---|
+  | ece6c32 | `ece6c32` (Q22 cleanup tactical landing 2026-05-10) |
+  | ce5d9e9 | `ce5d9e9` (slot 141B M10 documented-commitment scaffold) |
+  | 6a063a7 | `6a063a7` (slot 140 POST_LEAN_REALITY outlook cut) |
+  | b9aa881 | `b9aa881c53566926390d6f48c2b8a10243c67267` (slot 136 picture-chain v1.20+) |
+  | 45e236c | `45e236c2d3f3ff690ede65762cfbfae482cd7560` (slot 137 PCF-2 v1.4 substrate) |
+  | 887981b | `887981bf51860550a05ff949f0145c1687623689` (slot 135 umbrella v2.2 substrate) |
+  | 74c5630 | `74c563022d3a2df0a4bea0088f4793170a1e64d3` (M8b V0 closure cascade 130R) |
+  | cb429e1 | `cb429e1acba91ba47d1426950d924800a0b02a07` (M8a V0 closure cascade 127R) |
+  | 7f93b9e | `7f93b9e4d624fdfca62f5d85393b4ead35cea751` (M7 V0 closure cascade 123) |
+  | 5f9db69 | `5f9db69c754c410b79091cbd84e6d79b63d10b6e` (M4 V0 closure cascade 106; cross-ref only per ANTI-CONFLATION) |
+  | fd669d3 | `fd669d347967db2e854f8e9d3725f625bf9fbc2a` (cascade-132 PATH_B Option alpha decision substrate) |
+  | 72bb2c2 | `72bb2c299f6462e3b5da3beec70624f6ce5ca4ef` (slot 139 BEST-NEXT-MOVE consultation; functional predecessor) |
+
+**Claude-chat SHAs:**
+
+  | Tag | Full SHA |
+  |---|---|
+  | 0295aee | `0295aee` (Q22 cleanup repo-side; branch `vquad/handoff-2026-04-16`) |
+  | efc12e5 | `efc12e5` (slot 141B repo-side commit) |
+  | 5e89f9a | `5e89f9a` (slot 140 repo-side commit) |
+
+CLI agent has pre-verified all 15 SHAs at fire time 2026-05-10 ~10:36 JST (PASS PASS PASS x15). Synth executor must re-run.
+
+### 0.2 -- Supersession gate
+
+Search bridge for prior `*ROADMAP-CONSULTATION*` or `*M1-M12-ROADMAP*` folders:
+
+```pwsh
+Get-ChildItem -Recurse -Directory -Path sessions -Filter '*ROADMAP-CONSULTATION*'
+Get-ChildItem -Recurse -Directory -Path sessions -Filter '*M1-M12-ROADMAP*'
+```
+
+Expected: 0 prior matches (this is the FIRST roadmap-consultation slot in the project's history). If matches found, halt with `HALT_144_PRIOR_ROADMAP_CONSULTATION_EXISTS` and supersession-memo.
+
+### 0.3 -- RULE 1 directive verbatim (operator-supplied 2026-05-09 ~11:17 JST; reaffirmed 2026-05-10 ~10:24 JST)
+
+> "HOLD -- rule 1; table everything that is not a hard requirement to complete M1-M12 (zenodo, endorsement should all be tabled)"
+>
+> Reaffirmation 2026-05-10 ~10:24 JST: "rule1. table everything that does not contribute to closing M1-M12 for now (endorsements, zenodo etc)."
+
+Synth must validate the roadmap under review (sec 2) does NOT propose any RULE-1-violating fires.
+
+### 0.4 -- Substrate availability check
+
+Verify these files are readable in the claude-chat working tree:
+
+  | Path | Role |
+  |---|---|
+  | `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md` | current outlook (post slot 140 cut) |
+  | `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_PATH_B_COMPLETE.md` | predecessor outlook (frozen) |
+  | `tex/submitted/control center/picture/m10_documented_commitment.md` | slot 141B substrate; sec 3 commitment-paragraph BLANK |
+  | `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-BEST-NEXT-MOVE-CONSULTATION-139/best_next_move_decision.md` | slot 139 verdict |
+  | `siarc-relay-bridge/sessions/2026-05-09/T1-SYNTH-M9-V0-CLOSURE-PATH-CONSULTATION-CASCADE-132/m9_v0_closure_path_decision.md` | cascade-132 substrate (RULE 1 lift documented-commitment precedent) |
+
+If any path FAIL Test-Path, halt with `HALT_144_SUBSTRATE_MISSING_<file>`.
+
+---
+
+## sec 1 -- CONTEXT
+
+### 1.1 -- Why this consultation
+
+The CLI agent (GitHub Copilot, this session) delivered a 4-phase M1-M12 closure roadmap on 2026-05-10 ~10:35 JST in response to operator's RULE 1 reaffirmation. The roadmap was authored without synth review. Operator (papanokechi) is requesting principal synthesizer (claude.ai web) review with explicit instruction to recommend changes if any. This is a strategic-direction consultation, not a math arbitration.
+
+### 1.2 -- Closure scoreboard at fire time (2026-05-10 ~10:36 JST)
+
+  | Tier | Axis | State | Closure substrate |
+  |:--:|:--:|:--:|---|
+  | retired | M3 | folded into M4 | n/a (foundational reorg) |
+  | retired | M5 | folded into M6.CC | n/a (foundational reorg) |
+  | V0 closed | M4 | foundation borderline-ansatz | cascade `5f9db69` (cross-ref only) |
+  | residuals absorbed | M6.CC | V_quad to P_III chart-map | covered by 123 / 130R |
+  | V0 closed | M7 | post-M4 axis | cascade `7f93b9e` |
+  | V0 closed | M8a | post-M4 axis | cascade `cb429e1` |
+  | V0 closed | M8b | post-M4 axis | cascade `74c5630` |
+  | substrate-source-of-record closed | M9 | V0 announcement | cascade-132 PATH_B 3/3 = `887981b` + `45e236c` + `b9aa881` |
+  | substrate-prep stage | M10 | Lean-4 sorry-discharge | scaffold `ce5d9e9` (slot 141B); commitment-paragraph + math both pending |
+  | substantive substrate landed | M2 | PCF-2 v1.4 + Q22 absorbed | substrate at `45e236c`; Q22 cleanup at `ece6c32` |
+  | TABLED | M1 | D2-NOTE Zenodo deposit | post-lift |
+  | TABLED | M11 | math.NT arXiv endorsement | post-lift |
+  | TABLED | M12 | 4-paper resubmission | post-lift |
+
+Net: **9.5 of 12 axes closed-or-retired**. Open: M10 (1 axis); tabled: M1 / M11 / M12 + admin tails.
+
+### 1.3 -- Recent landings (last ~24 hours)
+
+  | When | Slot | Landing | Bridge SHA | Repo SHA |
+  |---|---|---|---|---|
+  | 2026-05-09 ~21:11 JST | 138 | fleet-bootstrap agent cards | `4cf7252` (bridge-side) | `2b5b94e` |
+  | 2026-05-09 ~21:30 JST | M9 V0 deposit | umbrella v2.2 + PCF-2 v1.4 + picture-chain v1.20+ chain 3/3 | `887981b` + `45e236c` + `b9aa881` | various |
+  | 2026-05-10 ~08:15 JST | 139 | T1-Synth BEST-NEXT-MOVE consultation | `72bb2c2` | n/a |
+  | 2026-05-10 ~09:30 JST | 140 | POST_LEAN_REALITY outlook cut (MOVE_D5) | `6a063a7` | `5e89f9a` |
+  | 2026-05-10 ~10:00 JST | 141B | M10 documented-commitment scaffold (Branch B) | `ce5d9e9` | `efc12e5` |
+  | 2026-05-10 ~10:24 JST | tactical | Q22 cleanup landing (parallel-CLI fire) | `ece6c32` | `0295aee` |
+
+### 1.4 -- SQL ledger snapshot (CLI session this turn)
+
+  | Status | Count |
+  |---|---|
+  | done | 23 |
+  | pending | 1 (`m10-v0-lean-sorry-discharge`) |
+  | blocked | 5 (Phase B/C admin tabled under RULE 1) |
+  | TOTAL | 29 |
+
+---
+
+## sec 2 -- ROADMAP UNDER REVIEW (verbatim CLI agent 2026-05-10 ~10:35 JST)
+
+The four-phase roadmap below is the artefact synth must evaluate. CLI agent authored it without synth review; operator wants synth verdict on whether any changes are warranted before execution begins.
+
+### 2.1 -- RULE 1 lift gate (single binding criterion)
+
+> Lift gate: `[slot-135 AND slot-136 AND slot-137 AND m10-resolved]` -- currently 4/4 hard SHAs met; only `m10-resolved` remains.
+>
+> The `m10-resolved` predicate has two valid satisfying branches (Branch B chosen and partially executed at slot 141B):
+>
+> - **Branch B (CHOSEN; in flight):** documented-commitment lift via `m10_documented_commitment.md` sec 3 commitment paragraph + `.fleet.yaml commitments[0].status = COMMITTED-{date}`. Substrate scaffold landed `ce5d9e9` / `efc12e5`; only the commitment-paragraph content is missing.
+> - **Branch A alternative (not chosen):** fire a full M10 V0 closure cascade now (3-arc template mirroring M7/M8a/M8b). Premature per slot 139 verdict (`72bb2c2`) given mid-iteration `lean/` working tree.
+
+### 2.2 -- Phase A -- close the RULE 1 lift gate (operator-side; 1 step)
+
+  | # | Action | Owner | Triggers |
+  |:-:|---|:-:|---|
+  | A.1 | Fill `m10_documented_commitment.md` sec 3 commitment paragraph | operator | unblocks A.2 |
+  | A.2 | Set `.fleet.yaml commitments[0].status = COMMITTED-{YYYY-MM-DD}` | operator | unblocks A.3 |
+  | A.3 | Issue RULE 1 lift directive | operator | unblocks Phase B AND Phase C in parallel |
+
+Sole blocker: operator-only. Agent has no fireable work between now and operator returning with the commitment paragraph.
+
+### 2.3 -- Phase B -- RULE 1 lift authorization fire (1 agent fire)
+
+  | # | Action | Artefact / output |
+  |:-:|---|---|
+  | B.1 | Fire prompt 142 (drafted; ASCII-clean; 14.4 KB / 282 lines) | bridge fire `T2-EXECUTOR-RULE-1-LIFT-AUTHORIZATION-142`; cuts `M1_M12_CLOSURE_OUTLOOK_20260510_POST_LIFT.md` superseding the POST_LEAN_REALITY outlook |
+
+After B.1 lands: RULE 1 status flips to LIFTED in the outlook chain. Admin window opens but per RULE 1 reaffirmation those items remain TABLED for math-only path.
+
+### 2.4 -- Phase C -- M10 V0 math closure (the only remaining math work)
+
+This is THE math axis still open. Per slot 140 POST_LEAN_REALITY outlook (`6a063a7`), M10 holds at substrate-prep stage (NOT V0-closure-ready):
+
+  | Outstanding M10 work | Surveyed state at 2026-05-10 ~09:30 JST |
+  |---|---|
+  | Sorries to discharge | 3 across project-side `.lean` files: `Thm66_ApparentSingularity.lean = 2`, `proof_targets.lean = 1`, others = 0 |
+  | `WallisFamily.lean` build state | RED (5 enumerated blockers per `build_errors_iter13.log`) |
+  | Working-tree commit status | UNCOMMITTED (3 modified + ~22 untracked artefacts) |
+  | Active iteration evidence | `fix_pass_log.md` shows live sorry-discharge tracking; iteration 13 of an active fix loop |
+
+Trajectory:
+
+  | # | Action | Estimated fires | Notes |
+  |:-:|---|:-:|---|
+  | C.1 | Repair `WallisFamily.lean` build (clear 5 enumerated blockers) | 1-3 build-fix iterations | operator-side; agent can support diagnostic loops (cf. slot 141C below) |
+  | C.2 | Discharge 3 sorries (Thm66=2, proof_targets=1) | 1-3 sorry-discharge iterations | per repo-memory `LEAN4-THM66-FIX -- discharge N sorries` recurring fire-class |
+  | C.3 | Green build + commit `lean/` working tree | 1 commit | hardens substrate before V0 announce |
+  | C.4 | Fire M10 V0 substrate-prep + closure cascade (3-arc template: substrate-prep -> solo-dispatch -> cascade-absorption) | 3 fires | mirrors M7 / M8a / M8b cadence |
+  | C.5 | M10 V0 closure deposited; M-axis closure series complete | -- | terminal state for math-only path |
+
+Phase C total: ~6-10 fires + operator math work. Range driven by C.1 / C.2 iteration count.
+
+### 2.5 -- Phase D -- math-axis terminal state (12/12 closed-or-retired)
+
+Once C.5 lands, M-axis closure series COMPLETE. The math-only path is exhausted; everything remaining (M1 D2-NOTE / M11 endorsement / M12 venue resubmissions / Zenodo cascade / iscitedby polish) is administrative or distribution work outside RULE 1 scope.
+
+### 2.6 -- Tabled queue inventory (DO NOT FIRE under RULE 1)
+
+  - 3-step Zenodo deposit cascade (PCF-2 v1.4 -> umbrella v2.2 -> picture-chain v1.20+)
+  - umbrella v2.2 / picture-chain v1.20+ / PCF-2 v1.4 individual Zenodo deposits
+  - D2-NOTE Zenodo deposit (M1)
+  - Lean venue submission (M10; awaits Phase C completion)
+  - Garoufalidis / Mazzocco arXiv endorsement (M11)
+  - arXiv endorsement-handle acquisition (M11)
+  - 4-paper resubmission packaging (M12)
+  - Compositio follow-up (M12)
+  - Ramanujan-J resubmission (M12)
+  - iscitedby polish (M12)
+  - AFM desk-reject alternate-venue picks (M12)
+  - 5 arXiv mirror records (M11 / M12)
+  - `.fleet.yaml` standalone commit (meta; working-tree carry, low-risk; tabled)
+
+### 2.7 -- Critical-path summary
+
+> Operator fills M10 commitment paragraph -> fire prompt 142 -> M-axis closure resumes only at M10 V0 math (sorry-discharge + build-repair) -> 3-arc closure cascade -> 12/12 axes done -> admin window thaws (out of RULE 1 scope).
+
+### 2.8 -- Recommended next-prompt = slot 141C (Lean-4 build-error triage)
+
+CLI agent's recommended NEXT agent fire (under RULE 1, while operator does Phase A):
+
+  - **Slot 141C scope:** T2-Executor Lean-4 build-error triage on M10
+  - **TASK 1:** Survey `lean/build_errors_iter13.log` + 3 modified + 5 untracked `.lean` files; classify blockers into categories (type-checker errors, missing lemmas, tactic-failure patterns, unification mismatches)
+  - **TASK 2:** For each of the 5 enumerated blockers in `WallisFamily.lean`, produce `(blocker location, error class, candidate fix vector)` triples; distinguish (a) trivial repairs (imports / name-resolution), (b) genuine math gaps requiring lemma proof, (c) tactic-strategy issues
+  - **TASK 3:** For the 3 outstanding sorries, produce sorry-discharge candidate strategies; match each sorry to a Mathlib lemma family or to a project-side helper
+  - **TASK 4:** Output a triage report and a prioritized fix-plan; no live code edits to `lean/` (operator-side change scope)
+  - **Bridge folder:** `T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/`
+  - **Pre-flight:** lean/ working tree is uncommitted (3 modified + ~22 untracked); prompt would explicitly instruct read-only access
+  - **Confidence claim:** HIGH that this directly contributes to M10 V0 closure; advances Phase C C.1 + C.2
+
+CLI agent rationale: Slot 141C is the only agent-fireable prompt that
+  - directly advances the sole open math axis (M10 V0)
+  - requires no operator unblocking
+  - stays strictly within RULE 1 scope
+  - yields actionable substrate for the operator's next sorry-discharge pass
+
+---
+
+## sec 3 -- CONSULTATION QUESTIONS (10 numbered questions; synth must answer each)
+
+**Q1 -- Roadmap structure validation.** Is the 4-phase A-B-C-D structure the right decomposition for the M1-M12 endgame under RULE 1, or is there a cleaner phase boundary? Specifically: should Phase B (RULE 1 lift authorization) and Phase C (M10 V0 math) be re-ordered or run in parallel?
+
+**Q2 -- Phase sequencing.** Phase A is operator-only (commitment-fill); Phase B is one agent fire (slot 142); Phase C is operator-math + 3 agent fires. Is there a sequencing risk -- e.g., does firing slot 142 BEFORE M10 V0 math is meaningfully advanced create an audit-trail problem ("RULE 1 lifted on commitment-paragraph basis but math evidence not yet on file")?
+
+**Q3 -- Branch B retrospective.** Slot 139 verdict (`72bb2c2`) recommended Branch B (`DEFERRED-OUT-OF-M9-SCOPE`) at MEDIUM-HIGH confidence; slot 141B implemented it. Do you stand by that recommendation given the post-slot-140 lean reality survey (3 sorries, 5 build blockers, iteration-13 active fix loop)? Any case for retroactive pivot to Branch A (full M10 V0 closure cascade now, skip the documented-commitment route)?
+
+**Q4 -- M10 V0 readiness gate.** Slot 140 outlook (`6a063a7`) classifies M10 at substrate-prep stage (NOT V0-closure-ready) on grounds of (i) 3 outstanding sorries; (ii) RED build state; (iii) 22 untracked artefacts; (iv) `fix_pass_log.md` indicating live discharge tracking. Is this classification correct? What additional gates (if any) would graduate M10 from substrate-prep -> V0-closure-ready?
+
+**Q5 -- Slot 141C scope appropriateness.** Is the proposed Lean-4 build-error triage scope (sec 2.8) the right agent-fireable next move under RULE 1? Specific concerns:
+  - (a) Is read-only T2-Executor access to `lean/` the right access model?
+  - (b) Should the triage produce machine-readable output (JSON tables) in addition to / instead of prose?
+  - (c) Should the triage attempt sorry-discharge candidates, or strictly classify-and-route?
+  - (d) Is HIGH confidence appropriate for a triage fire, or should it land at MEDIUM-HIGH given Lean-4 specificity?
+
+**Q6 -- Risk register additions.** What risks does the roadmap NOT enumerate that synth thinks should be on the register? Examples to consider:
+  - operator commitment-fill drift (operator delays Phase A indefinitely; admin window stays closed)
+  - M10 V0 math turns out harder than 6-10-fire estimate (iteration-13 already; could iteration count exceed 20?)
+  - Branch B documented-commitment leaks RULE-1-tabled work back into scope (e.g., commitment paragraph references Zenodo timeline)
+  - Parallel-CLI fire collision n=5 instance during Phase C (same pattern as Q22 cleanup)
+
+**Q7 -- Tabled-item un-tabling.** Are any items in the tabled queue (sec 2.6) actually contributing to M-axis math closure that the CLI agent has mis-classified as admin? Specifically:
+  - `.fleet.yaml` commit timing -- is this admin or meta-infrastructure that supports M10 work?
+  - 5 arXiv mirror records -- any math-axis-closure dependency?
+  - `iscitedby polish` -- is this venue-admin or substrate-integrity?
+
+**Q8 -- Axis classification.** Are M3 / M5 retirement classifications still correct? M3 = "folded into M4"; M5 = "folded into M6.CC". Any case to re-open either axis given the cascade-132 PATH_B chain results? Is M6.CC "residuals absorbed into 123 / 130R" sufficient or does M6.CC need its own V0 closure?
+
+**Q9 -- Missing axes.** Are there axes in the original M1-M12 enumeration that the roadmap has dropped or under-weighted? Cross-check against the closure-outlook predecessor chain: `20260509.md` -> `20260509_RULE1.md` -> `20260510.md` -> `20260510_PATH_B_COMPLETE.md` -> `20260510_POST_LEAN_REALITY.md`.
+
+**Q10 -- Confidence band on the overall roadmap.** Provide an overall confidence band (LOW / MEDIUM / MEDIUM-HIGH / HIGH) for the roadmap as authored. If band is LOW or MEDIUM, what would graduate it to MEDIUM-HIGH? If MEDIUM-HIGH or HIGH, are there structural changes worth making despite the high band?
+
+---
+
+## sec 4 -- OUTPUT FORMAT (synth deposit conventions)
+
+### 4.1 -- Verdict structure
+
+  - sec 1: verdict header (LABEL + BAND)
+    - LABEL = one of: `ENDORSE_AS_AUTHORED`, `ENDORSE_WITH_AMENDMENTS`, `RECOMMEND_REVISION`, `OBJECT`
+    - BAND = one of: `LOW`, `MEDIUM`, `MEDIUM-HIGH`, `HIGH`
+  - sec 2: per-question answer (Q1 through Q10)
+    - Each answer: (a) verdict on the CLI roadmap claim, (b) reasoning citation (substrate SHA + line if applicable), (c) recommended change if any
+  - sec 3: structured change list (if LABEL is `ENDORSE_WITH_AMENDMENTS` or `RECOMMEND_REVISION`)
+    - Format: `(target sec, change type, change content, justification)`
+  - sec 4: anomalies / discrepancies surfaced during review
+    - Format: `(anomaly_id, severity LOW/INFO/MEDIUM/HIGH, description, blocking? Y/N)`
+  - sec 5: cross-reference table (substrate SHAs cited in verdict)
+  - sec 6: confidence-band justification (one paragraph)
+
+### 4.2 -- Confidence-band rule (per slot 130R cascade-record sec 6.3 LABEL-rule extension)
+
+If recommendation requires structural revision (sec-level rewrite), BAND ceiling is MEDIUM-HIGH unless multi-witness corroboration. Single-witness LABEL `OBJECT` MUST cite at least 2 substrate SHAs as conflicting evidence.
+
+### 4.3 -- Discrepancy / anomaly format (verbatim from cascade-132 sec 7)
+
+```json
+{
+  "id": "D-144-N",
+  "severity": "INFO|LOW|MEDIUM|HIGH",
+  "title": "<short title>",
+  "description": "<full description with substrate citations>",
+  "remediation": "<remediation if any>",
+  "blocking": false|true
+}
+```
+
+### 4.4 -- Recommended-change format (if applicable)
+
+```json
+{
+  "target_sec": "sec 2.4 / Phase C / step C.1",
+  "change_type": "rewrite|reorder|add|remove|merge|split",
+  "change_content": "<verbatim replacement or insertion text>",
+  "justification": "<short justification with substrate citations>"
+}
+```
+
+---
+
+## sec 5 -- SUBSTRATE INVENTORY (pre-verified; synth may rely on these without re-verification beyond sec 0.1)
+
+  | Path | Role |
+  |---|---|
+  | `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md` | current outlook (post slot 140 cut; subject of consultation) |
+  | `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_PATH_B_COMPLETE.md` | predecessor outlook (PATH_B 3/3 COMPLETE; preserved unedited) |
+  | `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510.md` | earlier predecessor (PATH_B 2/3 landed) |
+  | `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260509_RULE1.md` | RULE 1 directive substrate (verbatim operator quote sec 6) |
+  | `tex/submitted/control center/picture/m10_documented_commitment.md` | slot 141B substrate; sec 3 BLANK; awaiting operator fill |
+  | `tex/submitted/control center/notes/M2_Q22_FINAL_DISPOSITION_20260510.md` | Q22 cleanup outcome (REFINED Outcome A; absorbed via 099-124-halt-137 chain) |
+  | `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-BEST-NEXT-MOVE-CONSULTATION-139/` | slot 139 verdict + sub-recommendations |
+  | `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-POST-LEAN-REALITY-OUTLOOK-140/` | slot 140 deliverables |
+  | `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-M10-DOCUMENTED-COMMITMENT-SCAFFOLD-141B/` | slot 141B deliverables |
+  | `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-PROMPT-124-CLEANUP-Q22-DISPOSITION-TACTICAL/` | Q22 cleanup tactical fire (parallel-CLI landing 2026-05-10) |
+  | `siarc-relay-bridge/sessions/2026-05-09/T1-SYNTH-M9-V0-CLOSURE-PATH-CONSULTATION-CASCADE-132/` | cascade-132 substrate (RULE 1 lift documented-commitment precedent at sec 5) |
+
+---
+
+## sec 6 -- CROSS-REFERENCES / ANTECEDENTS
+
+  - **Functional predecessor:** slot 139 single-witness MEDIUM-HIGH `BEST-NEXT-MOVE` (`72bb2c2`); narrow scope (next-move only); MOVE_F2 = MOVE_D5 -> MOVE_E verdict
+  - **M-axis V0 closure series:** M4 (`5f9db69`; cross-ref only) -> M7 (`7f93b9e`) -> M8a (`cb429e1`) -> M8b (`74c5630`); 4 V0-closures landed 2026-05-08 / 2026-05-09
+  - **M9 V0 substrate-source-of-record:** cascade-132 PATH_B Option alpha 3/3 chain = slot 135 (`887981b`) + slot 137 (`45e236c`) + slot 136 (`b9aa881`)
+  - **Cascade-132 operative substrate:** `fd669d3` (RULE 1 lift documented-commitment precedent at sec 5: "Operator-discretion permits lift before M10 with documented commitment.")
+  - **Q22 cleanup:** parallel-CLI tactical fire 2026-05-10 ~10:24 JST (`ece6c32` / `0295aee`); REFINED Outcome A; n=4 instance of parallel-CLI-fire collision pattern (existing memory)
+  - **Repo-memory citations relevant to this consultation:**
+    - `prompt drafting discipline` (path-inventory pre-verification + supersession-gate Phase 0 STEP 0.1-0.6)
+    - `substrate verification` (SHA pre-verify + concept-DOI vs version-DOI)
+    - `dual-witness M-axis cascade` (LABEL + BAND aggregation rules; n=3 cascades 123 / 127R / 130R)
+    - `agent terminal limitations` (agent-cannot-fire-zenodo / cannot-drive-claude.ai-web; relevant to Phase A operator-only step)
+
+---
+
+## sec 7 -- OPERATOR-SIDE CONTEXT (read-only; do not edit)
+
+### 7.1 -- RULE 1 directive verbatim (operator-supplied 2026-05-09 ~11:17 JST)
+
+  > "HOLD -- rule 1; table everything that is not a hard requirement to complete M1-M12 (zenodo, endorsement should all be tabled)"
+
+### 7.2 -- RULE 1 reaffirmation verbatim (operator-supplied 2026-05-10 ~10:24 JST)
+
+  > "rule1. table everything that does not contribute to closing M1-M12 for now (endorsements, zenodo etc).
+  > now provide high-level roadmap to M1-M12 full closure"
+
+### 7.3 -- Operator-prompted scope frame for this consultation (verbatim 2026-05-10 ~10:36 JST)
+
+  > "help with a consultation prompt for our principal synthsizer on our roadmap to close out M1-M12, whether there should be any changes"
+
+---
+
+## sec 8 -- BRIDGE DEPOSIT CONVENTIONS (synth executor)
+
+After verdict is authored (sec 4 format), deposit to bridge per STANDING FINAL STEP B1-B5:
+
+  - **Bridge folder:** `siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144/`
+  - **Mandatory deliverables:**
+    - `handoff.md` (STANDING FINAL STEP B3 template)
+    - `roadmap_consultation_verdict.md` (the structured sec 4 output)
+    - `synth_verdicts_raw.txt` (Q1-Q10 raw verbatim verdict)
+    - `cascade_record.md` (n=1 single-witness or n>=2 multi-witness; LABEL + BAND aggregation if multi-witness)
+    - `claims.jsonl` (audit-tier meta-claims)
+    - `discrepancy_log.json` (any D-144-N anomalies surfaced)
+    - `unexpected_finds.json` (any UF-144-N surfaced; `candidate_memory_status` for each)
+    - `halt_log.json` (`{}` if no halts)
+  - **Commit message format:** `T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144 -- {LABEL}; {BAND}; {one-line takeaway}`
+  - **Co-authored-by trailer:** `Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>` (per repo standing instructions)
+
+---
+
+## sec 9 -- CLOSING NOTES
+
+This is a **strategic-roadmap consultation**, not an arbitration of a math question. The synth's job is to evaluate the CLI agent's plan against
+  - (i) the actual closure scoreboard;
+  - (ii) RULE 1 in force;
+  - (iii) the substrate evidence (slot 140 lean reality survey; slot 141B documented-commitment scaffold; cascade-132 operative substrate);
+  - (iv) the trajectory (one operator-only step + one agent fire + 6-10 math fires) to 12/12 closed-or-retired.
+
+Recommend changes at any granularity (single-step reorder; phase boundary shift; full re-decomposition). If LABEL = `ENDORSE_AS_AUTHORED`, the CLI agent will proceed to draft slot 141C as next agent fire. If LABEL = `ENDORSE_WITH_AMENDMENTS` / `RECOMMEND_REVISION`, the CLI agent will absorb the changes into a successor outlook (`M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md`) before proceeding.
+
+CLI agent will not interpret missing answers as endorsement. If synth omits an answer to any of Q1-Q10, CLI agent will halt deposit absorption and request clarification.
+
+*End of T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144 prompt. Length ~410 lines; ASCII-only; FV-disciplined; SHA pre-verified at fire time 2026-05-10 ~10:36 JST.*
