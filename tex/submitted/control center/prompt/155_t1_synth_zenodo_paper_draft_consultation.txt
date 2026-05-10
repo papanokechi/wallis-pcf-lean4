@@ -2,7 +2,11 @@
 T1-SYNTH-ZENODO-PAPER-DRAFT-CONSULTATION-155
 T1-Synth content-generation consultation: Zenodo deposit paper draft + metadata
 ================================================================================
-Drafted: 2026-05-10 ~16:55 JST
+Drafted:     2026-05-10 ~16:55 JST
+Re-purposed: 2026-05-10 ~19:00 JST per slot 157 F4 (FRAMING_AMEND absorbed
+             at bridge 34563a6) -- TARGET_PAPER list narrowed from 3 to 2
+             (Picture-chain v1.20+ DROPPED as standalone; folded into
+             Umbrella v2.3 Appendix C); Umbrella bumped v2.2 -> v2.3.
 Drafter: GitHub Copilot CLI (claude-opus-4.7-xhigh)
 Class:   single-witness content-generation; MEDIUM-HIGH self-assessed band ceiling;
          dual-witness escalation if substantive amendment of mathematical
@@ -17,45 +21,66 @@ TARGET_PAPER VARIABLE (operator MUST set before fire)
 
   TARGET_PAPER = ____________________________   (operator fills; see options)
 
-  Options (cascade-132 sec 3.1 Option α 3-step deposit cascade):
+  Options (cascade-132 sec 3.1 Option α' 2-step deposit cascade per slot 157
+           FRAMING_AMEND verdict; bridge 34563a6):
+
     OPTION_A:  PCF-2_v1.4
-               substrate-prep slot 137 / bridge 45e236c
+               substrate-prep slot 137 / bridge 45e236c (PRESERVED unchanged
+                 by slot 157 verdict Q4b item 5)
                existing artefacts: pcf-research/pcf2/release_v12_2026-05-01/
                  pcf2_program_statement.{tex,pdf}, zenodo_description_v1.2.txt,
                  zenodo_notes_v1.2.txt
-               concept-DOI: 10.5281/zenodo.19936297
+               concept-DOI: 10.5281/zenodo.19936297 (PCF-2 concept-DOI; v1.4
+                 will be a NEW VERSION-DOI under this concept, NOT v1.3
+                 19963298; cf. "substrate verification" memory)
                status: artefacts ARE Zenodo-targeted; consultation = final-polish
                  + post-S153 closure-narrative integration + version-DOI
                  generation prep
-               recommended for FIRST fire (cascade-132 sec 3.1 step 1)
+               recommended for FIRST fire (per slot 157 verdict Q4e: PCF-2 v1.4
+                 first deposit; unchanged from Option α)
 
-    OPTION_B:  Umbrella_v2.2
-               substrate-prep slot 135 / bridge 887981b
+    OPTION_B:  Umbrella_v2.3   (was v2.2; bumped per slot 157 Q4b item 2)
+               substrate-prep slot 135 / bridge 887981b (PRESERVED on substrate
+                 side; v2.2 -> v2.3 is content-side micro-bump tracked under
+                 slot-157-followup-f6)
                existing artefacts: tex/submitted/umbrella_program_paper/
                  umbrella_v21.{tex,pdf}, b_amendment_v22.diff
+               + NEW Appendix C source material to compose (slot 157 Q4b item 2):
+                   sec (i)   M1-M12 closure outlook synthesis (~3-5 polished
+                             pages; consolidated from 8 OUTLOOK_*.md variants
+                             -- canonical source-of-record per F2 fire)
+                   sec (ii)  M10 documented-commitment paragraph (D-153-3 SAFE
+                             phrasing: Lean-formalization-state, not math-
+                             content closure)
+                   sec (iii) M8b d>=3 caveat preservation block (S154 Q4a
+                             unanimous-risk axis; sensitive to D-156-1 V0+ vs
+                             V1 commitment decision)
+                   sec (iv)  reproduction-checklist pointer to bridge cascade
+                             records
+               + slot 136 substrate (bridge b9aa881) is REPURPOSED-AS-APPENDIX-
+                 SOURCE per slot 157 Q4b item 4 (NOT deprecated; markdown
+                 source feeds Appendix C)
                concept-DOI: TBD (operator verifies pre-fire)
-               status: v2.2 amendment exists as diff over v2.1; consultation =
-                 final assembly (apply b_amendment_v22.diff -> umbrella_v22.tex
-                 -> umbrella_v22.pdf) + S153 quad-witness CONFIRM_CLOSURE
-                 narrative integration + Zenodo metadata
-               recommended for SECOND fire (cascade-132 sec 3.1 step 2)
+               status: v2.3 = v2.1 baseline + b_amendment_v22.diff applied +
+                 Appendix C composed; consultation = final assembly +
+                 S153 quad-witness CONFIRM_CLOSURE narrative integration +
+                 Appendix C composition + Zenodo metadata
+               recommended for SECOND fire (cascade-132 sec 3.1 Option α' step 2);
+                 BLOCKED on F2 canonical-outlook-source identification and
+                 D-156-1 (V0+ vs V1 commitment) operator decisions
 
-    OPTION_C:  Picture_chain_v1.20+
-               substrate-prep slot 136 / bridge b9aa881
-               existing artefacts: tex/submitted/control center/picture/
-                 M1_M12_CLOSURE_OUTLOOK_*.md (multiple closure-outlook documents)
-               concept-DOI: NEW (no prior Zenodo deposit for picture-chain)
-               status: deposit class is unclear (closure-outlook v
-                 consolidated-narrative); consultation = scaffold a deposit
-                 artefact from the OUTLOOK_*.md series + recommend whether
-                 picture-chain merits a standalone Zenodo deposit OR should
-                 be subsumed into umbrella_v2.2 (cross-reference Q1a in
-                 slot 154 consultation)
-               recommended for THIRD fire (cascade-132 sec 3.1 step 3) OR
-                 declined per slot 154 Q1a synth recommendation
+    [DROPPED]  Picture_chain_v1.20+ standalone deposit
+               Per slot 157 verdict Q4b items 1+4: removed as independent
+               Zenodo deposit; folded into Umbrella v2.3 Appendix C.
+               Slot 136 substrate at bridge b9aa881 stays as appendix-source
+               material. Rationale (verdict Q1b + UF-157-2 promoted memory):
+               meta-substrate (closure outlook documents, operator runbooks,
+               governance memoranda) is appendix material to a program-level
+               paper, NOT standalone Zenodo deposit material; standalone
+               deposits require clear citation utility for outsiders.
 
-  Default if operator does not specialize: OPTION_A (PCF-2_v1.4) -- lowest
-  effort, highest readiness, anchors the deposit cascade.
+  Default if operator does not specialize: OPTION_A (PCF-2_v1.4) -- highest
+  readiness, anchors the deposit cascade per slot 157 Q4e.
 
 ================================================================================
 SECTION 0 -- PHASE 0 SUPERSESSION + SHA VERIFICATION GATE (mandatory)
@@ -91,6 +116,10 @@ STEP 0.3 -- SHA pre-verification.
     | M7 V0                                   | 7f93b9e   | LANDED |
     | M8a V0                                  | cb429e1   | LANDED |
     | M8b V0                                  | 74c5630   | LANDED |
+    | Slot 154 ACTION_LADDER_AMEND           | (operator verifies pre-fire)   |
+    | Slot 156 CLOSEOUT_PATHWAY_AMEND        | 607f9e8   | LANDED |
+    | Slot 157 FRAMING_AMEND (Option α')     | 34563a6   | LANDED |
+    | Picture v1.19 milestone (DOI TBD)      | 70d1a48   | LANDED |
 
 STEP 0.4 -- band ceiling reminder.
   Synth ceiling = MEDIUM-HIGH. If synth recommends substantive math-content
@@ -104,12 +133,19 @@ STEP 0.5 -- output schema reminder.
   ANOMALIES + ABSORPTION_GUIDANCE + ONE-LINE TAKEAWAY.
 
 STEP 0.6 -- fire-eligibility checklist.
-  [ ] TARGET_PAPER variable set
+  [ ] TARGET_PAPER variable set (PCF-2_v1.4 OR Umbrella_v2.3)
   [ ] STEP 0.1 supersession check passed
   [ ] STEP 0.2 precondition check passed
-  [ ] STEP 0.3 SHA pre-verification: all 10 SHAs PASS
+  [ ] STEP 0.3 SHA pre-verification: all 14 SHAs PASS (10 base + 156 + 157
+      FRAMING_AMEND + slot 154 ACTION_LADDER_AMEND verified at fire-time +
+      picture v1.19 70d1a48)
   [ ] STEP 0.4 ceiling reminder communicated to synth
   [ ] STEP 0.5 schema reminder included
+  [ ] (Umbrella_v2.3 fire only) F2 canonical-outlook-source-of-record fire
+      LANDED OR operator pre-decides canonical variant (default
+      20260510_PATH_B_COMPLETE per pre-S157 RESUME bootstrap)
+  [ ] (Umbrella_v2.3 fire only) D-156-1 (V0+ vs V1 commitment for M8b)
+      operator-decided -- determines Appendix C section (iii) wording
 
 ================================================================================
 SECTION 1 -- BACKGROUND
@@ -120,12 +156,21 @@ SECTION 1 -- BACKGROUND
 > "HOLD -- rule 1; table everything that is not a hard requirement to complete
 >  M1-M12 (zenodo, endorsement should all be tabled)"
 
-## 1.2 Zenodo deposit cascade (cascade-132 sec 3.1 Option α)
+## 1.2 Zenodo deposit cascade (cascade-132 sec 3.1 Option α' per slot 157)
 
-3-step deposit chain unblocked by RULE 1 lift:
-  step 1: PCF-2 v1.4         (substrate-prep slot 137; bridge 45e236c)
-  step 2: Umbrella v2.2      (substrate-prep slot 135; bridge 887981b)
-  step 3: Picture-chain v1.20+ (substrate-prep slot 136; bridge b9aa881)
+2-step deposit chain unblocked by RULE 1 lift (slot 157 FRAMING_AMEND
+@ MEDIUM-HIGH; bridge 34563a6 2026-05-10):
+
+  step 1: PCF-2 v1.4    (substrate-prep slot 137; bridge 45e236c; FIRST deposit
+                         per verdict Q4e)
+  step 2: Umbrella v2.3 (substrate-prep slot 135; bridge 887981b PRESERVED;
+                         v2.2 -> v2.3 micro-bump adds Appendix C; slot 136
+                         picture-chain substrate b9aa881 REPURPOSED as
+                         Appendix C source material)
+
+Cascade-132 fd669d3 stays canonical operative substrate per slot 157 Q5f;
+amendment-overlay deposit (lightweight; v2.1->v2.2 amendment-overlay pattern)
+is tracked under slot-157-followup-f1.
 
 Each deposit produces:
   - Zenodo concept-DOI (or version increment of existing concept-DOI)
@@ -172,18 +217,27 @@ characterize M10 as a math-content closure claim.
     - rubber_duck_critique.md
     - (these are bumped to v1.4 with minor diff over v1.2; operator confirms)
 
-  IF TARGET_PAPER == Umbrella_v2.2:
-    - tex/submitted/umbrella_program_paper/umbrella_v21.tex (baseline)
-    - tex/submitted/umbrella_program_paper/umbrella_v21.pdf (baseline)
-    - tex/submitted/umbrella_program_paper/b_amendment_v22.diff (amendment)
-    - tex/submitted/umbrella_program_paper/main_v20_baseline.tex.bak (v2.0 archive)
-
-  IF TARGET_PAPER == Picture_chain_v1.20+:
-    - tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_*.md (8 files)
-    - tex/submitted/control center/picture/M1_M12_OPERATOR_RUNBOOK_20260510.md
-    - tex/submitted/control center/picture/m10_documented_commitment.md
-    - (consultation may recommend NOT depositing standalone; subsume into
-      Umbrella v2.2 instead per slot 154 Q1a)
+  IF TARGET_PAPER == Umbrella_v2.3:
+    Manuscript baseline:
+      - tex/submitted/umbrella_program_paper/umbrella_v21.tex (baseline)
+      - tex/submitted/umbrella_program_paper/umbrella_v21.pdf (baseline)
+      - tex/submitted/umbrella_program_paper/b_amendment_v22.diff (v2.1 -> v2.2)
+      - tex/submitted/umbrella_program_paper/main_v20_baseline.tex.bak (v2.0 archive)
+    Appendix C source material (slot 157 Q4b item 2; slot 136 b9aa881 repurposed):
+      - tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_*.md
+        (8 version-stamped variants -- F2 canonical-source-of-record fire
+         must resolve which is canonical BEFORE v2.3 substrate-prep micro-bump
+         per slot-157-followup-f6 dependency on slot-157-followup-f2)
+      - tex/submitted/control center/picture/M1_M12_OPERATOR_RUNBOOK_20260510.md
+      - tex/submitted/control center/picture/m10_documented_commitment.md
+        (D-153-3 SAFE phrasing required; Lean-formalization-state framing)
+      - bridge cascade records as reproduction-checklist anchors:
+        S153 4761392, M4 5f9db69, M7 7f93b9e, M8a cb429e1, M8b 74c5630,
+        cascade-132 fd669d3, slot 157 34563a6
+    Concept-DOI (Picture v1.19 milestone bridge 70d1a48):
+      Status TBD per slot 157 UF-157-A2; F3 verification fire required to
+      resolve whether Umbrella v2.3 Appendix C IsSupplementTo links to
+      picture v1.19 concept-DOI (if exists) or Appendix C subsumes (if not).
 
 ## 1.5 Concept-DOI cross-citation discipline (verbatim per "substrate verification" memory)
 
@@ -213,6 +267,24 @@ polish-pass review identifying:
 modify (constants, theorem statements, V0 anchor values, residual
 catalogue). Treat these as substrate-frozen; consultation produces
 narrative wrapping only.
+
+**Q1c (Umbrella_v2.3 fire only):** Appendix C composition outline.
+Per slot 157 verdict Q4b item 2, produce a section-by-section outline for
+the new Appendix C "M1-M12 Closure Narrative & Operator Runbook" with all
+four required sub-sections:
+  (i)   M1-M12 closure outlook synthesis (~3-5 polished pages; consolidate
+        from canonical OUTLOOK_*.md source identified by F2 fire)
+  (ii)  M10 documented-commitment paragraph (D-153-3 SAFE phrasing:
+        Lean-formalization-state work-stream, not math-content closure;
+        forward-reference to 2026-08-02 status report)
+  (iii) M8b d>=3 caveat preservation block (S154 Q4a unanimous-risk axis;
+        wording sensitive to D-156-1 V0+ vs V1 commitment decision -- if
+        operator selects V0+, language emphasizes "open to upward
+        recovery"; if V1, language emphasizes "future-work scope")
+  (iv)  reproduction-checklist pointer to bridge cascade records
+        (S153 4761392, M4 5f9db69, M7 7f93b9e, M8a cb429e1, M8b 74c5630,
+        cascade-132 fd669d3, slot 154/156/157 amendment overlays)
+Word budget per sub-section + integration plan with main umbrella narrative.
 
 ## Q2 -- Abstract draft (full text)
 
@@ -257,6 +329,24 @@ mathematical scope. Each result statement must include:
 **Q4b:** Cross-citation graph: which other papers in the SIARC pipeline
 should this paper cite, and at what concept-DOI? Produce the IsSupplementTo
 / IsContinuedBy / IsSupplementedBy metadata block.
+
+  Expected (Option α' final cross-link graph per slot 157 verdict Q4b item 6):
+
+    PCF-2 v1.4 record:
+      - IsContinuationOf: PCF-2 v1.3 (10.5281/zenodo.19936297 concept;
+        v1.3 version 19963298)
+      - IsSupplementTo: Umbrella v2.3 (concept-DOI TBD)
+      - References: bridge cascade SHAs (M4/M7/M8a/M8b/S153/cascade-132/
+        slot 157)
+
+    Umbrella v2.3 record:
+      - IsSupplementTo: PCF-2 v1.4 (concept-DOI 19936297)
+      - IsSupplementTo: PCF-1 (concept-DOI 19931635)
+      - IsSupplementTo (CONDITIONAL on F3 verification): Picture v1.19
+        milestone (bridge 70d1a48; concept-DOI TBD)
+      - References: bridge cascade SHAs (same set as PCF-2 v1.4)
+      - Appendix C subsumes picture-chain v1.20+ content; no separate
+        picture-chain Zenodo deposit cross-link required
 
 ## Q5 -- Caveat / residual / boundary language
 
@@ -369,8 +459,9 @@ CLI agent absorbs synth verdict to bridge folder:
 
 If multiple TARGET_PAPER fires, suffix folder name to disambiguate:
   ...155-PCF2-V14/
-  ...155-UMBRELLA-V22/
-  ...155-PICTURE-CHAIN-V120/
+  ...155-UMBRELLA-V23/
+  (Picture-chain v1.20+ standalone option DROPPED per slot 157
+  FRAMING_AMEND verdict; folded into Umbrella v2.3 Appendix C.)
 
 Required deliverables:
 
@@ -385,6 +476,8 @@ Required deliverables:
                                text artefacts: abstract.md, introduction.md,
                                results.md, caveats.md, zenodo_metadata.json,
                                cover_letter.md, submission_log_entry.txt)
+                               + (Umbrella_v2.3 fire only) appendix_c.md
+                                 with sub-sections (i)-(iv) per Q1c outline
 
 If synth produces load-bearing math amendments (HALT_155_LOAD_BEARING_
 AMENDMENT), CLI agent MUST NOT auto-apply; surface to operator for
