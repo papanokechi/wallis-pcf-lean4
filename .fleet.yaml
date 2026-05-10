@@ -690,7 +690,7 @@ commitments:
   - id: m10-lean4-sorry-discharge
     axis: M10
     scope: post-rule-1-lift work-stream
-    status: COMMITMENT-PARAGRAPH-PENDING-OPERATOR
+    status: COMMITTED-2026-05-10
     substrate: "tex/submitted/control center/picture/m10_documented_commitment.md"
     precedent: "bridge fd669d3 sec 5 (cascade-132 m9_v0_closure_path_decision.md)"
     authorizing_verdict: "bridge 72bb2c2 (slot 139 MOVE_F2 MEDIUM-HIGH)"
