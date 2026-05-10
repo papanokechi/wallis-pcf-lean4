@@ -229,6 +229,18 @@ TASK 5 -- build verification (post-edit)
 
 In order:
 
+  (0) Dry-run preview (per slot 149 verdict C-149-2):
+      Before applying TASK 3 edit to disk, paste the full BEFORE and AFTER
+      axiom blocks side-by-side in handoff.md (or a draft handoff section).
+      Require operator confirmation in chat that the proposed edit matches
+      Pattern alpha intent before proceeding to TASK 5(a) lake build.
+      Rationale: 1-message overhead catches the rare case where synth/agent
+      understanding of the axiom diverges from operator's; safety-net for
+      single-witness CLI dispatch path (slot 149 Q6 (6a)).
+      If operator does not confirm: HALT_148_DRY_RUN_REJECTED; revert
+      pending edit; deposit halt with operator-cited reason for rejection.
+      If operator gives explicit go-ahead: proceed to TASK 5(a).
+
   (a) cd lean && lake build 2>&1 | tee build_log.txt
       Expected: exit 0; no errors; no warnings about missing axioms.
       If FAIL: HALT_148_BUILD_REGRESSION (a); deposit halt with build_log.txt;
@@ -239,11 +251,15 @@ In order:
         (depends on whether `lakefile.lean` defines a test target).
       If FAIL (other than NO_TEST_TARGET): HALT_148_BUILD_REGRESSION (b).
 
-  (c) Sorry-count assertion:
-      grep -rn '\bsorry\b' lean/ --include='*.lean' | grep -v '^[^:]*:[0-9]*:--'
-      Expected: 0 matches (the proof_targets.lean:L2 comment is filtered by
-        the `grep -v '\.--$'` pattern; the L118/L120 sites have been edited).
-      Alternative literal-match: grep -rn 'by sorry\|:= sorry\|by_extensionality.*sorry'
+  (c) Sorry-count assertion (per slot 149 sec 8 counting note recommendation):
+      Use literal-match grep as PRIMARY (more robust to indented comments):
+        grep -rn 'by sorry\|:= sorry\|by_extensionality.*sorry' lean/ --include='*.lean'
+      Expected: 0 matches (the L118/L120 sites have been edited; the
+        Thm66:63 '-- SORRY: Complex root verification.' comment-narrative
+        is a comment text, not a Lean sorry-keyword token, and is
+        excluded by the literal pattern).
+      Fallback alternative (column-zero-comment-filter; less robust):
+        grep -rn '\bsorry\b' lean/ --include='*.lean' | grep -v '^[^:]*:[0-9]*:--'
       If non-zero: HALT_148_SORRY_COUNT_REGRESSION; deposit halt.
 
   (d) toolchain pin still valid: cat lean/lean-toolchain
@@ -275,6 +291,47 @@ Produce in handoff a side-by-side BEFORE / AFTER theorem-statement comparison:
 
 If any step (1)-(5) fails analysis: HALT_148_THEOREM_WEAKENED; revert + halt.
 
+  (6) Subtle weakening checks (per slot 149 verdict C-149-1):
+      Add new sec-7 to before_after_signature.md (or extend axiom_reshape_report.md
+      as appropriate) running three explicit sub-checks. Each reports
+      PASS / FAIL / N/A. Any FAIL triggers HALT_148_THEOREM_WEAKENED with
+      the specific failed sub-check name.
+
+      (check-3a) Type-class inference probe.
+        Execute (in lean source as a one-shot or via lean --run):
+          set_option trace.Meta.synthInstance true in
+          #check apparent_singularity_thm_i
+        Compare the BEFORE and AFTER instance-search trace. If AFTER trace
+        shows new synthesis failures or instance-search-ambiguity errors that
+        BEFORE did not exhibit: FAIL. If trace is unchanged or shows fewer
+        goals: PASS. If trace cannot be produced (e.g., infrastructure issue):
+        N/A; document why.
+
+      (check-3b) h_exact identifier grep.
+        grep -rn 'h_exact' lean/ --include='*.lean'
+        Expected: matches only in
+        lean/Thm66_ApparentSingularity.lean at the (now-removed) axiom
+        signature line + at the (now-removed) use-site argument lines L118/L120.
+        If matches in any other file (or surviving after the edit): FAIL with
+        the unexpected match locations; HALT pending review.
+
+      (check-3c) Negation/contradiction grep.
+        grep -rn 'frobenius_double_root_at_apparent_singularity' lean/ \
+          --include='*.lean' | grep -E 'Not|neg|negation|absurd|<>|absurd|False'
+        Also grep for narrower patterns like literal `not`, `Not.intro`, or
+        `absurd` invocations referencing the axiom name. Expected: zero
+        matches. If non-zero: review whether the strengthened axiom turns a
+        previously-true derived theorem false; FAIL if so; HALT.
+
+      (check-3d, optional) Elaboration order.
+        Covered by TASK 5(a) lake build; no extra action.
+
+      Recommended sec-7 layout in before_after_signature.md (or
+      axiom_reshape_report.md): one bullet per check with status + one-line
+      evidence cite (file:line for greps; trace excerpt for 3a). After all
+      three (or four) report PASS / N/A: TASK 6 closes. Any FAIL: revert
+      pending TASK 3 edit if not yet committed; deposit halt; do NOT push.
+
 ================================================================================
 sec 2 -- deliverables
 ================================================================================
@@ -286,6 +343,18 @@ In bridge folder `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-THM66
        applicability verification (TASK 2), edit summary (TASK 3-4), build
        verification log summary (TASK 5), and R6 theorem-strength review
        (TASK 6). FV-disciplined; ASCII-pure.
+
+       Required follow-up flags section (per slot 149 verdict C-149-6):
+       Document the unused `c : C -> C` parameter in the axiom signature as
+       a follow-up cleanup candidate (slot 150-class). Slot 149 Q2 caveat-1
+       observes that `c` is also vestigial (the conclusion `IndicialPoly a s
+       = fun rho => rho^2` does not reference `c`), but Pattern alpha
+       targets `h_exact` only for scope discipline. Do NOT remove `c` in
+       this fire. Also document slot 149 Q2 caveat-4: `h_exact` was likely
+       a placeholder the original author intended to replace with the
+       product-rule content of `ode_is_exact` (lean/Thm66:75-82) but never
+       completed; this is stronger than slot 143R's "redundant" framing
+       and should be recorded as archival accuracy.
 
   2. before_after_signature.md
        Side-by-side BEFORE / AFTER axiom signature comparison. Use code blocks
@@ -300,9 +369,12 @@ In bridge folder `siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-THM66
        if no test target is configured in lakefile.lean.
 
   5. sorry_count_after.txt
-       Full output of `grep -rn '\bsorry\b' lean/ --include='*.lean'`.
-       Expected to contain only the proof_targets.lean:L2 comment line, or
-       to be empty if the comment is grep-filtered. Document which.
+       Full output of `grep -rn 'by sorry\|:= sorry' lean/ --include='*.lean'`
+       (slot 149 sec 8 recommended literal-match form). Expected to be
+       empty (no active sorry tokens after Pattern alpha removes the
+       L118/L120 (by sorry) discharges; the Thm66:63 '-- SORRY:' comment
+       narrative is excluded by the literal pattern). Document the file
+       contents verbatim.
 
   6. claims.jsonl
        AEAL audit-tier claims. Minimum entries:
@@ -386,6 +458,13 @@ of POST_DISCHARGE_PLAN outlook):
 Slot 148 fire-internal iteration count starts at 1 (this fire). If TASK 5 (a)
 fails on first attempt, increment iteration counter; if 3+ iterations cumulative
 without green, escalate via HALT_148_BUILD_REGRESSION rather than continuing.
+
+Counter independence (per slot 149 verdict C-149-5 + Q7): Slot 148 fire-internal
+iteration counter is INDEPENDENT of POST_DISCHARGE_PLAN R2 (which targets
+WallisFamily.lean / M10 V0 build-graph build-repair iterations only). Slot 148
+ladder ceiling for this fire is internal-30 with expected 1-2 iteration
+completion. Slot 148 successes/halts are noted as context in any R2 heartbeat
+re-triage but do NOT contribute to R2 iteration count.
 
 This fire is C.3++ in the POST_DISCHARGE_PLAN sec 2.2 phase ordering. After this
 fire lands, re-run the C.3+ 4-step gate (per C-143-6) on a clean clone:
