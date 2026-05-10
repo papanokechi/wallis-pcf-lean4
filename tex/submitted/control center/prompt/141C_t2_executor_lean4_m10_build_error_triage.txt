@@ -1,0 +1,344 @@
+================================================================================
+PROMPT 141C -- T2-EXECUTOR LEAN4 M10 BUILD-ERROR TRIAGE (read-only)
+================================================================================
+Drafted:  2026-05-10 ~11:00 JST
+Slot:     141C (downstream of slot 144 verdict ENDORSE_WITH_AMENDMENTS MEDIUM-HIGH)
+Class:    T2-Executor (read-only triage; classify-and-route only)
+Scope:    M10 V0 substrate-prep stage support -- Lean-4 build-error
+          + sorry triage on `lean/` working tree
+M-axis:   M10
+RULE 1:   ALIGNED (M10 axis closure is math-foundational; build-error
+          triage is the precondition for sorry-discharge and V0 cascade)
+Confidence band claim: MEDIUM-HIGH (per slot 144 Change 2; downgraded from HIGH)
+Bridge HEAD at draft: 2330437 (slot 144 absorption LANDED)
+Repo HEAD at draft:   c171016 (POST_SYNTH_REVIEW outlook + prompt 144 EXECUTED)
+Functional predecessor: slot 140 POST_LEAN_REALITY outlook (6a063a7)
+Governance reference:   M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md sec 4
+================================================================================
+
+§1. PURPOSE
+-----------
+
+The M10 axis is currently in substrate-prep stage per POST_SYNTH_REVIEW outlook
+sec 1: 3 outstanding sorries; RED build on `WallisFamily.lean`; ~22 untracked
+artefacts; live `fix_pass_log.md` iteration-13. The M10 V0 closure cascade
+(Phase C.4-C.5 per outlook sec 2.2) cannot fire until C.1 (build-repair),
+C.2 (sorry-discharge), C.3 (commit), C.3+ (reproducibility check) gates land.
+
+Operator-side iteration-13 fix loop is in flight. This prompt fires a
+READ-ONLY triage to support operator's discharge workflow without modifying
+the in-flight working tree. The triage produces:
+
+  - Classification of the 5 enumerated build-blockers in `WallisFamily.lean`
+    by error class (trivial-repair / math-gap / tactic-strategy)
+  - Routing of outstanding sorries to Mathlib lemma families or project-side
+    helpers (NOT discharge-candidate proofs)
+  - Machine-readable JSON tuples for downstream tooling
+  - Prose narrative for context
+
+This is NOT a sorry-discharge fire. This is NOT an in-place edit fire.
+This is NOT a V0 closure fire. It is a triage support artefact for the
+operator's iteration-{N} discharge passes.
+
+§2. SUBSTRATE TO READ (READ-ONLY)
+---------------------------------
+
+Required canonical sources:
+
+  1. POST_SYNTH_REVIEW outlook (governance + scope reference):
+     tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md
+     (sec 4 -- this prompt's revised scope per slot 144 Change 2)
+
+  2. Slot 140 POST_LEAN_REALITY outlook (predecessor reality survey):
+     tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md
+
+  3. Build-error log (5 enumerated blockers):
+     lean/build_errors_iter13.log (1.0 KB; iteration 13 status report)
+
+  4. Iteration log (discharge history through iteration 13):
+     lean/fix_pass_log.md
+
+  5. Lean source files (READ-ONLY; DO NOT EDIT):
+     lean/WallisFamily.lean                            (main file; RED build)
+     lean/WallisFamily/ShiftConsistency.lean           (compiles in isolation per iter13)
+     lean/WallisFamily/CasoratianPi4.lean              (compiles in isolation per iter13)
+     lean/WallisFamily/LemmaK.lean                     (third dependency)
+     lean/Thm66_ApparentSingularity.lean               (sorry sites at L118 + L120)
+     lean/proof_targets.lean                           (iteration-12 already replaced placeholders; verify)
+     lean/CardEvenOfInvolution.lean                    (untracked; check inclusion)
+     lean/lakefile.lean                                (modified; toolchain context)
+     lean/lean-toolchain                               (modified; pin context)
+
+  6. Auxiliary substrate (if present):
+     lean/sorry_log.json
+     lean/triage.json
+     lean/proof_status.json
+     lean/lean4_claims.jsonl
+     lean/thm66_lean4_summary.md
+     lean/lemma_k_scoping.md
+     lean/full_build.log
+     lean/build_errors.log
+     lean/build_log.txt
+     lean/shift_build.log
+
+  7. Slot 144 verdict (cross-reference for scope intent):
+     siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144/synth_verdicts_raw.txt
+
+§3. PHASE 0 -- SUPERSESSION AUDIT + PRECONDITION GATES
+------------------------------------------------------
+
+STEP 0.1: Bridge HEAD pre-verify
+  - HEAD must be >= 2330437 (slot 144 absorption LANDED)
+  - If less: HALT_141C_BRIDGE_HEAD_BEHIND
+
+STEP 0.2: Supersession-gate sweep
+  - Get-ChildItem siarc-relay-bridge/sessions/ -Recurse -Filter "*141C*"
+  - Get-ChildItem siarc-relay-bridge/sessions/ -Recurse -Filter "*LEAN4-M10-BUILD-ERROR*"
+  - Get-ChildItem siarc-relay-bridge/sessions/ -Recurse -Filter "*BUILD-ERROR-TRIAGE*"
+  - If any prior 141C / LEAN4-M10-BUILD-ERROR / BUILD-ERROR-TRIAGE fire exists:
+    HALT_141C_PRIOR_FIRE_EXISTS; surface to operator
+
+STEP 0.3: Substrate availability
+  - Test-Path on every file in §2.1-§2.5 (governance + outlooks + build log + iter log + 9 .lean files)
+  - Items in §2.6 are best-effort; missing items noted but not blocking
+  - If any §2.1-§2.5 item missing: HALT_141C_SUBSTRATE_MISSING
+
+STEP 0.4: Read-only access verify
+  - This fire MUST NOT write to any path under lean/
+  - Any write attempt to lean/ is a HALT condition: HALT_141C_WRITE_VIOLATION
+  - Allowed write targets: ONLY siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/
+
+STEP 0.5: RULE 1 status verify
+  - Read POST_SYNTH_REVIEW outlook header to confirm RULE 1 STILL IN FORCE
+  - This fire is RULE-1-ALIGNED (M10 math-axis support)
+  - If RULE 1 has lifted: continue (lift does not invalidate this fire's scope)
+
+§4. TASKS
+---------
+
+TASK 1: Build-blocker enumeration + classification
+  - Read lean/build_errors_iter13.log
+  - Survey lean/WallisFamily.lean line-by-line over ranges flagged in the log
+    (L58, L114-118, L171-177, L216-312, L243, L285)
+  - For each of the 5 enumerated blockers:
+    * Confirm location (line range)
+    * Reproduce the error symptom from the log
+    * Classify error_class as ONE of:
+        trivial-repair         (imports / name-resolution / notation re-exports)
+        math-gap               (genuine missing lemma; needs proof effort)
+        tactic-strategy        (tactic choice mismatch; lemma exists but tactic fails)
+    * Identify candidate fix-vectors (Mathlib lemma name / import path / tactic
+      replacement candidate). Multiple candidates per blocker permitted.
+
+TASK 2: Sorry-site enumeration + routing
+  - Survey lean/Thm66_ApparentSingularity.lean for sorry sites (expected: L118, L120)
+  - Survey lean/proof_targets.lean for sorry sites (expected: 0 per iteration-12 comment;
+    confirm or flag discrepancy with slot 144 verdict's "1 sorry" claim)
+  - Survey lean/WallisFamily.lean for sorry sites (any iteration-13 placeholders)
+  - For each sorry site:
+    * Record (file, line, surrounding context: theorem/def name + statement)
+    * Identify candidate Mathlib lemma family that COULD close it (e.g.,
+      `Mathlib.Analysis.Calculus.Deriv.*`, `Mathlib.NumberTheory.*`,
+      `Mathlib.Topology.Order.*`)
+    * Identify candidate project-side helpers (e.g., entries in
+      WallisFamily/ShiftConsistency.lean if relevant)
+  - DO NOT generate candidate proofs. Routing only.
+
+TASK 3: Cross-file dependency map
+  - Build a directed graph node-set for the M10-relevant files:
+    {WallisFamily.lean, WallisFamily/ShiftConsistency.lean, WallisFamily/CasoratianPi4.lean,
+     WallisFamily/LemmaK.lean, Thm66_ApparentSingularity.lean, proof_targets.lean,
+     CardEvenOfInvolution.lean}
+  - For each file: list `import` statements that reference siblings in the node-set
+  - Output as adjacency list + textual summary
+  - Note any circular imports / unused imports / missing-import patterns
+
+TASK 4: Triage report (prose narrative)
+  - Compose a triage_report.md in the bridge folder containing:
+    * §1 Executive summary (5 blockers + N sorries; M10 V0 readiness state)
+    * §2 Per-blocker analysis (1 paragraph per blocker)
+    * §3 Per-sorry analysis (1 paragraph per sorry)
+    * §4 Dependency map prose summary
+    * §5 Prioritized fix-plan (fix-order recommendation; trivial-first heuristic)
+    * §6 Open questions for operator
+  - Prose retained for context; JSON tuples per TASK 5 are the primary actionable output.
+
+TASK 5 (per slot 144 Change 2): Machine-readable JSON output
+  - Output two JSON files in the bridge folder:
+
+    blockers.json schema:
+    {
+      "blockers": [
+        {
+          "blocker_id": "B1" | "B2" | ... ,
+          "location": "WallisFamily.lean:58:4" | "WallisFamily.lean:114-118" | ...,
+          "error_class": "trivial-repair" | "math-gap" | "tactic-strategy",
+          "error_symptom": "<one-line summary from build_errors_iter13.log>",
+          "fix_vector_candidates": [
+            "<Mathlib lemma name OR import path OR tactic replacement>",
+            ...
+          ],
+          "confidence": "HIGH" | "MEDIUM-HIGH" | "MEDIUM" | "LOW",
+          "notes": "<optional clarifying note; may be empty>"
+        }
+      ]
+    }
+
+    sorries.json schema:
+    {
+      "sorries": [
+        {
+          "sorry_id": "S1" | "S2" | ... ,
+          "location": "Thm66_ApparentSingularity.lean:118" | ...,
+          "context": "<theorem/def name + 1-line statement>",
+          "candidate_lemma_families": [
+            "Mathlib.Analysis.Calculus.Deriv.<sub>",
+            ...
+          ],
+          "candidate_helpers": [
+            "WallisFamily/ShiftConsistency.lean::<lemma_name>",
+            ...
+          ],
+          "confidence": "HIGH" | "MEDIUM-HIGH" | "MEDIUM" | "LOW",
+          "notes": "<optional clarifying note>"
+        }
+      ]
+    }
+
+  - Both files MUST validate as JSON. Use `python -m json.tool blockers.json`
+    and `python -m json.tool sorries.json` to verify parseability before commit.
+
+§5. EXPLICIT EXCLUSIONS (per slot 144 Change 2)
+-----------------------------------------------
+
+The following are OUT OF SCOPE for this fire and constitute halt conditions
+if attempted:
+
+  E1. NO sorry-discharge candidate proof generation. Classification + routing
+      only. Per slot 144 Q5(c): producing candidate proofs risks fabricated-math
+      / Searcher's-Fatigue failure mode. If the agent feels strongly that a
+      specific sorry has an obvious one-liner discharge, surface it in TASK 4
+      §6 "Open questions for operator" as a NOTE, not as a candidate proof.
+
+  E2. NO writes to lean/ or any sub-path of lean/. The working tree is
+      uncommitted; operator's iteration-13 in-flight state must be preserved.
+      All output goes to the bridge folder.
+
+  E3. NO `lake build` / `lake check` / `lean --run` / any Lean toolchain
+      execution. The agent does not have build-validation capability in
+      this fire; pattern-matching from logs only. Per slot 144 Q5(d): this
+      is the basis for the MEDIUM-HIGH (not HIGH) confidence band.
+
+  E4. NO modification of `.fleet.yaml`, `lean/lean-toolchain`,
+      `lean/lakefile.lean`, or any other config / manifest file.
+
+  E5. NO speculative refactoring suggestions. Triage scope is strictly
+      the 5 enumerated blockers + outstanding sorries. Architecture-level
+      observations may be noted in TASK 4 §6 but must not propose
+      file-restructuring actions.
+
+§6. DELIVERABLES
+----------------
+
+Write to siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/:
+
+  1. triage_report.md                  (TASK 4 prose; ~6 sections)
+  2. blockers.json                     (TASK 5 schema; ~5 entries)
+  3. sorries.json                      (TASK 5 schema; ~2-3 entries)
+  4. dependency_map.json               (TASK 3 adjacency list)
+  5. claims.jsonl                      (audit-tier meta-claims; >= 5 entries)
+  6. discrepancy_log.json              (any in-fire discrepancies; min "{}")
+  7. unexpected_finds.json             (any UFs surfaced; min "{}")
+  8. halt_log.json                     (must be "{}" for COMPLETE status)
+  9. handoff.md                        (LAST per STANDING FINAL STEP B3)
+
+Confidence band per deliverable: MEDIUM-HIGH overall. Per-blocker / per-sorry
+confidence may vary; record in the JSON `confidence` field.
+
+§7. QA REQUIREMENTS
+-------------------
+
+Before commit:
+  - All 9 deliverables present
+  - blockers.json + sorries.json + dependency_map.json + claims.jsonl + halt_log.json
+    all parse as valid JSON / JSONL
+  - triage_report.md FV-discipline scan = 0
+    (forbidden verbs: establishes / established / proves / proven /
+     demonstrates / demonstrating / confirms / confirming / confirmed /
+     validates / validated)
+  - All deliverables ASCII-pure (0 non-ASCII bytes)
+  - ANTI-CONFLATION-clean: M4 V0 numerics (5.978, 7.954, "M4 V0", 5f9db69)
+    appear ONLY in cross-ref-only enumeration rows if at all
+
+§8. BRIDGE DEPOSIT CONVENTIONS
+-----------------------------
+
+Per project STANDING FINAL STEP:
+
+  B1: Collect deliverables. Exclude .venv/, __pycache__/, *.olean, *.ilean,
+      files >10MB.
+
+  B2: Stage in bridge.
+      cd siarc-relay-bridge && git pull origin main
+      mkdir -p sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C
+      [copy all deliverables]
+
+  B3: Write handoff.md LAST after all deliverables complete and JSON-parseability checked.
+      Status: COMPLETE | PARTIAL | HALTED.
+      Status MUST reflect actual final outputs.
+
+  B4: Commit + push.
+      git add sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/
+      git commit -m "T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C -- triage of 5 build-blockers + N sorries; classify-and-route only; MEDIUM-HIGH band"
+      Co-authored-by trailer required.
+      git push origin main
+
+  B5: Output BRIDGE: + CLAUDE_FETCH: URLs.
+
+  Parallel-CLI shared-clone gotcha (per repo memory):
+    - `git add <my-folder>/` may also stage parallel CLI's paths under a
+      shared bridge clone; recovery via
+      `git restore --staged <other-session-path>/` before commit.
+
+§9. POST-FIRE BEHAVIOR
+----------------------
+
+Status outcomes:
+
+  - COMPLETE: triage report + all JSONs present and parseable; 5 blockers +
+    all sorries enumerated; recommend operator's next sorry-discharge pass
+    use blockers.json + sorries.json as input.
+
+  - PARTIAL: some blockers / sorries enumerated but at least one missing or
+    classification incomplete. Surface in handoff.md Anomalies. Operator
+    proceeds with partial substrate.
+
+  - HALTED: any §3 STEP 0.X HALT condition. Write halt_log.json with reason.
+    Do NOT continue past halt condition.
+
+After this fire lands: operator has triage substrate to drive iteration-{14+}
+discharge passes. CLI agent's next agent-fireable work item depends on
+operator-side iteration-14+ outcome:
+
+  - If iteration-14 lands a green build + commit: Phase C.3 gate met;
+    Phase C.3+ reproducibility check (operator-side) -> Phase C.4 V0
+    substrate-prep (slot 145-class agent fire) becomes available.
+
+  - If iteration-14 does not green: re-fire of 141C-class triage on the
+    iteration-14 build error log may be useful (slot 141D-class).
+
+§10. RULE 1 ALIGNMENT
+---------------------
+
+This fire is RULE-1-ALIGNED. Math-foundational scope: M10 V0 axis support.
+No admin / distribution / venue / Zenodo work. No commitment-paragraph work.
+No lift authorization. Strictly read-only Lean-4 substrate triage.
+
+If during the fire the agent surfaces an action item that is RULE-1-tabled
+(e.g., venue-resubmission planning, Zenodo metadata polish), the agent MUST
+NOT pursue it; record in TASK 4 §6 "Open questions for operator" instead.
+
+================================================================================
+END PROMPT 141C. Confidence band claim: MEDIUM-HIGH per slot 144 Change 2.
+Read-only access model. Classify-and-route only. JSON tuples mandatory.
+================================================================================
