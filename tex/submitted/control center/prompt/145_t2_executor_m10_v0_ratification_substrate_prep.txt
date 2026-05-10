@@ -1,0 +1,287 @@
+================================================================================
+PROMPT 145 -- T2-EXECUTOR M10 V0 RATIFICATION SUBSTRATE-PREP (3-arc stage 1)
+================================================================================
+Drafted:  2026-05-10 ~11:25 JST
+Slot:     145 (post-141C-fire; pre-positioned for fire post-Phase-C.3-landing)
+Class:    T2-Executor (substrate-prep; mirror 121 / 125 / 128)
+Scope:    M10 V0 axis ratification -- substrate-prep 3-arc stage 1
+M-axis:   M10 (sole open math axis per POST_SYNTH_REVIEW outlook sec 1)
+RULE 1:   ALIGNED (M10 V0 closure is math-foundational)
+Bridge HEAD at draft: 2330437 (slot 144 absorption LANDED)
+Repo HEAD at draft:   a5a6647 (slot 141C drafted)
+Concurrency: parallel-safe with M9 V0 substrate-source-of-record (cascade-132
+             PATH_B 3/3 LANDED at 887981b + 45e236c + b9aa881)
+Substrate readiness gate: BLOCKED at draft time on Phase C.1-C.3 completion.
+                          Pre-positioned now so it can fire as soon as gates land.
+Draft-time supersession audit: PASS-WITH-NOTE
+  - Substantial M10 prior fires exist:
+    * slot 141 (M10 status resolution BRANCHED; Branch B selected)
+    * slot 141B (M10 documented-commitment scaffold; ce5d9e9)
+    * slot 141C (M10 build-error triage; current at draft time)
+    * slot 142 (RULE 1 lift authorization; drafted, gated on D-prime placement)
+  - None of the above is an "M10 V0 ratification" verdict; all are substrate
+    or pre-positioning. 3-arc cascade is appropriate; this fire is stage 1.
+================================================================================
+
+§1. PURPOSE
+-----------
+
+After Phase C.1-C.3 land (operator iteration: 5 enumerated build-blockers
+repaired, all sorries discharged, lean/ working tree committed), assemble the
+M10 V0 ratification dossier for solo-dispatch at slot 146 and cascade
+absorption at slot 147. This fire mirrors the 121 (M7) / 125 (M8a) / 128 (M8b)
+substrate-prep template adapted for the Lean-4-specific M10 axis.
+
+The executor's job is to consolidate (a) the committed lean/ working tree
+artefacts, (b) the slot 141C triage outputs (blockers.json + sorries.json +
+triage_report.md), (c) the slot 141B documented-commitment scaffold, (d) the
+slot 144 roadmap consultation verdict, (e) the POST_SYNTH_REVIEW outlook, and
+(f) any manuscript M10 references into a single dispatch-ready template.
+
+The deliverable is `m10_v0_ratification_template.md`. It does NOT discharge
+sorries, repair build errors, or write to lean/. Math closure must already
+have landed before this fire; this fire packages the closure for synth review.
+
+§2. PHASE 0 -- PRE-FIRE GATES + SUPERSESSION AUDIT
+--------------------------------------------------
+
+STEP 0.1: Bridge HEAD pre-verify
+  - HEAD must be >= 2330437 (slot 144 absorption LANDED)
+  - At fire time, HEAD will be substantially advanced; record actual.
+
+STEP 0.2: Supersession audit
+  - Get-ChildItem siarc-relay-bridge/sessions/ -Recurse -Directory -Filter "*M10-V0*"
+  - Get-ChildItem siarc-relay-bridge/sessions/ -Recurse -Directory -Filter "*M10-RATIF*"
+  - If any prior LANDED M10 V0 ratification verdict exists:
+    HALT_145_PRIOR_RATIFICATION_EXISTS; absorb (similar to UF-127-1
+    PRIOR-VERDICT-EXISTS gate class A pattern)
+
+STEP 0.3: Phase C.1-C.3 precondition gates (HARD GATE per slot 144 Change 1
+          + slot 141C triage outputs)
+  - Read POST_SYNTH_REVIEW outlook sec 2.2 Phase C readiness gates
+  - Verify all of:
+    G1. lean/ build state GREEN: lake build returns exit code 0
+        (operator-side verification; agent reads lean_build_result.txt or
+         equivalent post-iteration log)
+    G2. Sorry count = 0 across project-side .lean files
+        (re-run: grep -c "sorry" lean/*.lean lean/WallisFamily/*.lean
+         excluding comments; expected 0)
+    G3. lean/ working tree committed (no `git status --porcelain lean/` output)
+    G4. fix_pass_log.md shows iteration close-out, not active discharge
+    G5. (Per slot 144 Change 3) lake build reproducibility check on clean
+        clone PASSED (operator-side; agent reads reproducibility_check.log
+        or equivalent if produced)
+  - If ANY gate G1-G5 fails:
+    HALT_145_PHASE_C_GATES_NOT_MET; surface to operator with which gate
+
+STEP 0.4: Phase D-prime alignment check (per slot 144 Change 1)
+  - Slot 142 fire status: optional. Per outlook sec 2.3, D-prime fires post-C.3.
+    This fire (substrate-prep) may fire before, after, or in parallel with
+    slot 142. Record D-prime status in dossier §2 EVIDENCE for context.
+  - If RULE 1 has lifted (slot 142 LANDED): note in dossier.
+  - If RULE 1 still in force: note in dossier; substrate-prep proceeds
+    regardless (RULE-1-aligned; math-foundational scope).
+
+STEP 0.5: Bibliographic identifier pre-verify
+  - Any DOI / arXiv ID cited in the M10 V0 ratification template:
+    pre-resolve and verify per copilot-instructions.md
+    "Bibliographic identifier pre-verification" rule
+    (post-031 verdict; mandatory for lit-hunt-class fires)
+
+STEP 0.6: Substrate SHA pre-verification (per substrate verification
+          repo memory: `git rev-parse <SHA>` mandatory before citation)
+  - 887981b   slot 135 (umbrella v2.2; M9 V0 substrate chain 1/3)
+  - 45e236c   slot 137 (PCF-2 v1.4; M9 V0 substrate chain 2/3; M2 substantive)
+  - b9aa881   slot 136 (picture-chain v1.20+; M9 V0 substrate chain 3/3)
+  - fd669d3   cascade-132 PATH_B Option alpha decision
+  - 7f93b9e   cascade 123 M7 V0 closure (template precedent)
+  - cb429e1   cascade 127R M8a V0 closure (template precedent)
+  - 74c5630   cascade 130R M8b V0 closure (template precedent)
+  - 5f9db69   cascade 106 M4 V0 closure (cross-ref only per ANTI-CONFLATION)
+  - 2330437   slot 144 absorption LANDED (this fire's parent)
+  - <slot-141C-LANDED-SHA>   slot 141C build-error triage (resolve at fire time)
+  - <Phase-C.3-COMMIT-SHA>   lean/ working tree commit (resolve at fire time)
+
+§3. SUBSTRATE TO READ
+---------------------
+
+Required (in priority order; M10 has rich substrate from 141 / 141B / 141C
+chain plus operator-side iteration history):
+
+  1. POST_SYNTH_REVIEW outlook (governance):
+     tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md
+     (sec 2.2 Phase C; sec 3 risk register; sec 4 slot 141C scope; sec 5 M6.CC absorption)
+
+  2. Slot 141C triage outputs (PRIMARY math substrate per slot 141C deliverables):
+     siarc-relay-bridge/sessions/2026-05-10/T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/
+       triage_report.md          (TASK 4 prose narrative)
+       blockers.json             (TASK 5 5-blocker classification)
+       sorries.json              (TASK 5 sorry-site routing)
+       dependency_map.json       (TASK 3 cross-file graph)
+       handoff.md                (status COMPLETE expected)
+
+  3. Slot 141B documented-commitment scaffold:
+     tex/submitted/control center/picture/m10_documented_commitment.md
+     (sec 3 commitment paragraph; status FILLED + COMMITTED-{YYYY-MM-DD})
+
+  4. Slot 144 verdict (consultation reference):
+     siarc-relay-bridge/sessions/2026-05-10/T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144/
+       roadmap_consultation_verdict.md
+       synth_verdicts_raw.txt
+
+  5. lean/ committed tree (post-Phase-C.3):
+     lean/WallisFamily.lean                           (main file; expected GREEN)
+     lean/WallisFamily/ShiftConsistency.lean          (compiles in isolation)
+     lean/WallisFamily/CasoratianPi4.lean             (compiles in isolation)
+     lean/WallisFamily/LemmaK.lean                    (third dependency)
+     lean/Thm66_ApparentSingularity.lean              (sorry sites discharged)
+     lean/proof_targets.lean                          (sorry sites discharged)
+     lean/CardEvenOfInvolution.lean                   (committed)
+     lean/lakefile.lean                               (toolchain pinned per Change 3)
+     lean/lean-toolchain                              (toolchain pinned per Change 3)
+     lean/fix_pass_log.md                             (iteration close-out state)
+
+  6. Sibling V0 closure templates (mirror references):
+     siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-M7-RATIFICATION-SUBSTRATE-PREP-121/m7_v0_ratification_template.md
+     siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-M8A-RATIFICATION-SUBSTRATE-PREP-125/m8a_v0_ratification_template.md
+     siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-M8B-RATIFICATION-SUBSTRATE-PREP-128/m8b_v0_ratification_template.md
+
+  7. Manuscript M10 references (if any present):
+     tex/submitted/p1[2-4]_journal_main.tex (search for "M10" / Lean-4 references)
+     tex/submitted/control center/picture/picture_v1.20*.md (M10 row if present)
+
+  8. M9 V0 substrate (cross-axis dependency context):
+     siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-PICTURE-V120-M9-V0-AMENDMENT-PREP-136/handoff.md
+     siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-PCF2-V14-SUBSTRATE-PREP-137/handoff.md
+     siarc-relay-bridge/sessions/2026-05-09/T2-EXECUTOR-UMBRELLA-V22-SUBSTRATE-PREP-135/handoff.md
+
+§4. PHASE A -- TEMPLATE ASSEMBLY
+--------------------------------
+
+In `m10_v0_ratification_template.md`, write:
+
+  ## §1 SCOPE
+  - One-paragraph statement of M10 V0 axis post-Phase-C.3-landing
+    (M10 was substrate-prep stage at slot 144 verdict time; iteration-{N}
+    closed the math; sorry count = 0; build green; tree committed)
+  - Distinguish M10 V0 from M4 / M7 / M8a / M8b V0 closures (M10 is the
+    Lean-4-specific axis; others are analytical / representational)
+  - Note documented-commitment lift mechanics (per cascade-132 precedent;
+    slot 141B scaffold; slot 142 lift fire status -- LIFTED or PENDING)
+
+  ## §2 EVIDENCE
+  - Bridge SHA manifest of all M10 prior fires (>=4 expected):
+    * slot 141B (m10_documented_commitment.md scaffold)
+    * slot 141C (build-error triage)
+    * slot 142 (RULE 1 lift authorization; LANDED or PENDING)
+    * Phase C.3 commit SHA (operator-side; lean/ working tree)
+  - Lean-4 closure artefacts:
+    * fix_pass_log.md final iteration table
+    * lake build success log (post-Phase-C.3)
+    * Sorry count = 0 audit
+    * (Per slot 144 Change 3) reproducibility check log (clean clone build)
+  - Cross-axis dependencies:
+    * M4 V0 numerics (5f9db69; cross-ref only per ANTI-CONFLATION)
+    * M7 V0 closure (7f93b9e)
+    * M8a V0 closure (cb429e1)
+    * M8b V0 closure (74c5630)
+    * M9 V0 substrate-source-of-record (cascade-132 PATH_B 3/3 = 887981b + 45e236c + b9aa881)
+    * Document each dependency as DISCHARGED-PRE-M10
+  - 058R / 099 / 115 / 134 cross-references where M10 / Lean-4 is touched
+
+  ## §3 QUESTIONS
+  Q1. Does the lean/ committed tree (post-iteration-{N}) substrate suffice
+      for M10 V0 closure given (a) sorry count = 0, (b) lake build green,
+      (c) reproducibility check passed?
+  Q2. Does fix_pass_log.md iteration sequence demonstrate appropriate closure
+      per AEAL discipline (no fabricated math; no Searcher's-Fatigue
+      regression; iteration-{N} closure logic auditable)?
+  Q3. Are cross-axis dependencies (M4 / M7 / M8a / M8b / M9) discharged
+      such that M10 V0 closure is consistent with the M-axis cascade chain?
+  Q4. Is the lean-toolchain pinning (per slot 144 Change 3 risk R5 mitigation)
+      appropriate to prevent post-deposit reproducibility halt?
+  Q5. M10_V0_VERDICT: <RATIFY / RATIFY_WITH_AMENDMENT / DEFER / OBJECT>
+  Q6. If RATIFY_WITH_AMENDMENT: specify the amendment (commitment-paragraph
+      reference / iteration-count footnote / toolchain version note / etc.)
+
+  ## §4 DISPATCH-READY
+  - Standard dispatch-ready note (per 121 / 125 / 128 pattern)
+  - M10-specific instruction: "the synth must read the slot 141C triage
+    outputs (blockers.json + sorries.json + triage_report.md) before
+    answering Q1 / Q2; must read fix_pass_log.md final iteration table
+    before answering Q2; must read POST_SYNTH_REVIEW outlook sec 3 risk
+    register (especially R2 iteration-overrun + R5 toolchain-drift) before
+    answering Q4."
+  - Confidence band ceiling: MEDIUM-HIGH single-witness per outlook sec 6
+    versioning rule (graduates to HIGH on dual- or triple-witness re-fire).
+
+§5. ACCEPTANCE CRITERIA
+-----------------------
+
+  A1: m10_v0_ratification_template.md present + §1 / §2 / §3 / §4 sections
+  A2: §2 EVIDENCE cites >= 4 M10 prior-fire bridge SHAs (M10 chain is
+      141 / 141B / 141C / 142 / 145 = 5 minimum) AND >= 4 cross-axis SHAs
+      (M4 / M7 / M8a / M8b / M9) AND the Phase C.3 commit SHA
+  A3: §3 QUESTIONS Q1-Q6 written; Q1 explicitly references slot 141C triage
+      outputs; Q2 explicitly references fix_pass_log.md final iteration;
+      Q4 explicitly references slot 144 Change 3 reproducibility gate
+  A4: AEAL: 1 substrate-assembly meta-claim (audit-tier)
+  A5: Forbidden-verb scan clean on agent-authored content; ANTI-CONFLATION
+      rule observed (M4 numerics in cross-ref-only enumeration rows)
+  A6: Bridge deposit per B1-B5 STANDING FINAL STEP
+  A7: New SQL todo for slot 146 (M10 V0 solo-dispatch) inserted with
+      depends_on slot-145
+
+§6. STANDING FINAL STEP B1-B5
+-----------------------------
+
+Bridge:    sessions/{TODAY}/T2-EXECUTOR-M10-V0-RATIFICATION-SUBSTRATE-PREP-145/
+Closes:    slot-145-fire (this fire)
+Commit:    "T2-EXECUTOR-M10-V0-RATIFICATION-SUBSTRATE-PREP-145 -- M10 V0
+            ratification substrate-prep: template assembled with Lean-4
+            committed-tree threading + cross-axis-dependency manifest;
+            ready for solo-dispatch at slot 146"
+Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
+
+§7. EXPLICIT EXCLUSIONS
+-----------------------
+
+The following are OUT OF SCOPE for this fire and constitute halt conditions:
+
+  E1. NO writes to lean/. Math closure must already have landed (Phase C.3);
+      this fire is read-only on lean/.
+  E2. NO sorry-discharge work. If sorries remain at fire time, halt at
+      STEP 0.3 G2 instead of attempting discharge.
+  E3. NO build-error fixes. If lake build is RED at fire time, halt at
+      STEP 0.3 G1 instead of attempting fixes.
+  E4. NO V0 closure cascade firing. This fire is substrate-prep (stage 1
+      of 3); cascade absorption is slot 147.
+  E5. NO admin / distribution work. Per RULE 1: math-axis substrate-prep
+      only.
+
+§8. CROSS-REFERENCES
+--------------------
+
+- 121 (M7 substrate-prep mirror): siarc-relay-bridge/sessions/2026-05-09/
+  T2-EXECUTOR-M7-RATIFICATION-SUBSTRATE-PREP-121/
+- 125 (M8a substrate-prep sibling): siarc-relay-bridge/sessions/2026-05-09/
+  T2-EXECUTOR-M8A-RATIFICATION-SUBSTRATE-PREP-125/
+- 128 (M8b substrate-prep sibling): siarc-relay-bridge/sessions/2026-05-09/
+  T2-EXECUTOR-M8B-RATIFICATION-SUBSTRATE-PREP-128/
+- 105 (M4 V0 substrate-prep ancestor): siarc-relay-bridge/sessions/2026-05-08/
+  M4-RATIFICATION-SUBSTRATE-PREP-105/
+- 141B (M10 documented-commitment scaffold): tex/submitted/control center/
+  picture/m10_documented_commitment.md
+- 141C (M10 build-error triage): siarc-relay-bridge/sessions/2026-05-10/
+  T2-EXECUTOR-LEAN4-M10-BUILD-ERROR-TRIAGE-141C/
+- 144 (M1-M12 roadmap consultation): siarc-relay-bridge/sessions/2026-05-10/
+  T1-SYNTH-M1-M12-ROADMAP-CONSULTATION-144/
+- POST_SYNTH_REVIEW outlook (governance): tex/submitted/control center/
+  picture/M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md
+- Successor: slot 146 (M10 V0 solo-dispatch, T1-Synth)
+- Successor-2: slot 147 (M10 V0 cascade absorption, T1-Synth)
+
+§9. END
+-------
+END PROMPT 145
+================================================================================
