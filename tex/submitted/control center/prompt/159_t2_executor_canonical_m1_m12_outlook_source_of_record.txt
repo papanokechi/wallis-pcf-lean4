@@ -1,0 +1,262 @@
+# Slot 159 — T2-Executor: Canonical M1–M12 outlook source-of-record identification fire
+
+**Drafted:** 2026-05-10 ~20:00 JST (post slot 158 landing)
+**Task ID:** T2-EXECUTOR-CANONICAL-M1-M12-OUTLOOK-SOURCE-OF-RECORD-159
+**Class:** T2-Executor agent-fireable inventory + canonicalization fire
+**Band ceiling:** LOW-MEDIUM (inventory + tie-break; no math content; no Zenodo deposit)
+**Witness mode:** single-witness (in-repo agent execution only; no synth required)
+**RULE 1 status:** RULE-1-clean per agent D-157-9 default; produces no Zenodo deposit
+**Bundle scope:** F2 only (no parallel sibling-class items today)
+**Target resolution:** Slot 157 Anomaly A1 (canonical M1–M12 outlook source-of-record)
+**Substrate provenance:** slot 157 verdict (bridge `34563a6`) + slot 158 amendment-overlay (bridge `228e757`)
+**Predecessor:** slot 158 (cascade-132 amendment-overlay; F1 + F3 + D-157-8 bundle)
+**Successor:** F6 Umbrella v2.3 substrate-prep micro-bump (depends on this canonical declaration)
+
+---
+
+## §1 Background
+
+Slot 157 verdict §Q4b item 2 directs Umbrella v2.2 → v2.3 with a new Appendix C "M1–M12 Closure Narrative & Operator Runbook" (4 sub-sections) that consolidates the M1–M12 closure outlook material. Slot 157 Anomaly A1 (medium severity) flags that the 8 outlook markdown documents in the workspace require a canonical source-of-record declaration before Appendix C composition begins, because they evolve through a SUPERSESSION chain across the same day (2026-05-09 + 2026-05-10) with version-stamped variants (`POST_LEAN_REALITY`, `POST_SYNTH_REVIEW`, `POST_DISCHARGE_PLAN`, `POST_OPEN_ITEMS`).
+
+This fire produces a single canonical declaration + an Appendix C source manifest, so F6 substrate-prep has an unambiguous citation target.
+
+---
+
+## §2 Phase 0 gates (pre-fire verification)
+
+### STEP 0.1 supersession check
+
+```powershell
+cd "C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge"
+Get-ChildItem -Path "sessions\2026-05-10" -Directory | Where-Object {
+  $_.Name -match "CANONICAL|OUTLOOK.?SOURCE|F2|159"
+} | Select-Object Name
+```
+
+**Halt condition:** if any prior LANDED fire matching `CANONICAL.*OUTLOOK` exists for slot ≥159 today, halt cleanly per Phase 0 STEP 0.2 dependency-not-landed gate (class A: PRIOR-VERDICT-EXISTS).
+
+### STEP 0.2 + 0.3 bridge SHA pre-verification
+
+```powershell
+$shas = @("228e757","34563a6","fd669d3","b9aa881")
+foreach ($s in $shas) {
+  $r = git rev-parse --verify "$s^{commit}" 2>&1
+  "$s -> $r"
+}
+git fetch origin main
+foreach ($s in $shas) {
+  git merge-base --is-ancestor $s origin/main
+  "$s ancestor=$LASTEXITCODE"
+}
+```
+
+**Cited SHA inventory** (pre-verified at draft time 2026-05-10 ~20:00 JST):
+
+| SHA       | Long form                                  | Anchor                                                   |
+|-----------|--------------------------------------------|----------------------------------------------------------|
+| `228e757` | `228e757ec347c7dcc320dea5fd3c29793865a804` | slot 158 cascade-132 amendment-overlay (predecessor)    |
+| `34563a6` | `34563a6ced29acb545985eb3815a7983f0d2444e` | slot 157 zenodo-deposit-framing-consultation             |
+| `fd669d3` | `fd669d347967db2e854f8e9d3725f625bf9fbc2a` | cascade-132 PATH_B Option α decision (operative substr.)|
+| `b9aa881` | `b9aa881c53566926390d6f48c2b8a10243c67267` | slot 136 picture-chain v1.20+ substrate-prep             |
+
+**Halt condition:** any SHA fails to resolve OR is non-ancestor of `origin/main` → HALT and surface as `D-159-1-MED`.
+
+### STEP 0.4 band ceiling check
+
+This fire is class T2-Executor inventory + canonicalization. Ceiling = LOW-MEDIUM. No verdict produces; no math content; no Zenodo deposit. RULE-1-clean per agent D-157-9 default.
+
+### STEP 0.5 schema declaration
+
+Deliverable schema follows slot 158 pattern: 3 markdown deliverables + 5 logs + handoff.md = 8 files total in bridge folder.
+
+### STEP 0.6 fire-eligibility checklist
+
+- [ ] STEP 0.1 supersession PASS (no prior slot ≥159 canonical-outlook fire today)
+- [ ] STEP 0.2/0.3 SHAs all 4 resolve + ancestor of `origin/main`
+- [ ] STEP 0.4 band ceiling LOW-MEDIUM honoured
+- [ ] STEP 0.5 schema declared (8-file deliverable set)
+- [ ] No working-tree pickup risk: use folder-scoped `git add` (UF-138-2 / slot 150 lesson)
+
+---
+
+## §3 Phase A — Inventory the 10 candidate documents
+
+```powershell
+cd "C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\tex\submitted\control center\picture"
+Get-ChildItem -Filter "M1_M12_*" | Sort-Object LastWriteTime |
+  Select-Object Name, Length, LastWriteTime
+```
+
+**Expected 10-row table** (8 outlook + 1 roadmap + 1 operator runbook):
+
+| # | Filename (head) | Class | Cut time |
+|---|-----------------|-------|----------|
+| 1 | `M1_M12_CLOSURE_OUTLOOK_20260509.md` | outlook v0 | 2026-05-09 ~10:56 JST |
+| 2 | `M1_M12_CLOSURE_OUTLOOK_20260509_RULE1.md` | outlook v1 | 2026-05-09 ~11:18 JST |
+| 3 | `M1_M12_CLOSURE_OUTLOOK_20260510.md` | outlook v2 | 2026-05-10 ~06:23 JST |
+| 4 | `M1_M12_CLOSURE_OUTLOOK_20260510_PATH_B_COMPLETE.md` | outlook v3 | 2026-05-10 ~06:45 JST |
+| 5 | `M1_M12_CLOSURE_OUTLOOK_20260510_POST_LEAN_REALITY.md` | outlook v4 (M10 row only) | 2026-05-10 ~09:30 JST |
+| 6 | `M1_M12_CLOSURE_OUTLOOK_20260510_POST_SYNTH_REVIEW.md` | outlook v5 | 2026-05-10 ~10:50 JST |
+| 7 | `M1_M12_CLOSURE_OUTLOOK_20260510_POST_DISCHARGE_PLAN.md` | outlook v6 | 2026-05-10 ~12:30 JST |
+| 8 | `M1_M12_CLOSURE_OUTLOOK_20260510_POST_OPEN_ITEMS.md` | outlook v7 (latest) | 2026-05-10 ~13:13 JST |
+| 9 | `M1_M12_CLOSURE_ROADMAP_PROMPT_SERIES_20260510.md` | roadmap (companion class; NOT outlook) | 2026-05-10 ~14:35 JST |
+| 10 | `M1_M12_OPERATOR_RUNBOOK_20260510.md` | operator-runbook (companion class; NOT outlook) | 2026-05-10 ~14:45 JST |
+
+**Verification of supersession chain** — extract `Predecessor:` / `Supersedes:` / `Predecessor outlook:` headers from each candidate:
+
+```powershell
+foreach ($f in (Get-ChildItem -Filter "M1_M12_*" | Sort-Object LastWriteTime)) {
+  "===== $($f.Name) ====="
+  Get-Content $f.FullName | Select-String -Pattern "^\*\*(Supersedes|Predecessor|Predecessor outlook|Companion to|Class):" | Select-Object -First 2 | ForEach-Object { $_.Line }
+  ""
+}
+```
+
+**Expected chain:**
+```
+v0  →  v1  →  v2  →  v3  →  v4 (M10 row only) → v5 → v6 → v7
+                                                        ↓
+                                            (v7 is canonical)
+                                                        ↓
+        ┌───────────────────────────────────────────────┴─────────┐
+        ↓                                                         ↓
+  ROADMAP_PROMPT_SERIES (Predecessor outlook: v7)        OPERATOR_RUNBOOK (Companion to: ROADMAP)
+  Class: NOT-outlook (prompt-series planning)            Class: NOT-outlook (operator runbook)
+```
+
+---
+
+## §4 Phase B — Tie-break and canonical declaration
+
+### Decision rule
+
+**Canonical outlook source-of-record = v7 (`M1_M12_CLOSURE_OUTLOOK_20260510_POST_OPEN_ITEMS.md`)** — last in the supersession chain (no successor outlook found at inventory time).
+
+**Companion artefacts** (NOT canonical outlook, but in-scope for Appendix C source material):
+- `M1_M12_CLOSURE_ROADMAP_PROMPT_SERIES_20260510.md` — declares `Predecessor outlook: POST_OPEN_ITEMS.md` and `Class: strategic prompt-series planning artefact (NOT a verdict; NOT a closure cascade)`. In-scope for Appendix C sub-section (i) "M1-M12 closure outlook synthesis" reference list, NOT as canonical outlook.
+- `M1_M12_OPERATOR_RUNBOOK_20260510.md` — declares `Companion to: ROADMAP_PROMPT_SERIES` and `Class: operator-runbook artefact`. In-scope for Appendix C sub-section (iv) "reproduction-checklist pointer to bridge cascade records".
+
+### Halt conditions
+
+- HALT if v7 is missing from the inventory at fire time → `D-159-2-HIGH` (canonical candidate gone)
+- HALT if a successor outlook to v7 exists (file with `Predecessor outlook: POST_OPEN_ITEMS.md` AND `Class: outlook v8+` declared) → `D-159-3-MED` (chain extended without slot 157 visibility)
+
+### Tie-break verification
+
+If two outlook variants claim canonical status (e.g., parallel branches), break by:
+1. Latest `Cut at:` timestamp on the supersession chain (not file mtime — file mtimes can be touched by re-saves)
+2. Most recent successful Phase 0 PASS in handoff records
+3. If still tied: surface as `D-159-4-HIGH` and HALT for operator review
+
+For the current 8-document state: no tie. v7 is unambiguous canonical.
+
+---
+
+## §5 Phase C — Appendix C source manifest
+
+Produce a manifest mapping the 10 candidate documents into Appendix C composition roles:
+
+| Appendix C sub-section | Source role | Recommended primary | Recommended secondary |
+|------------------------|-------------|---------------------|------------------------|
+| (i) M1-M12 closure outlook synthesis (~3-5 polished pages) | content base | v7 (`POST_OPEN_ITEMS.md`) | v6 (`POST_DISCHARGE_PLAN.md`) for axis-by-axis status; ROADMAP for phase structure |
+| (ii) M10 documented-commitment paragraph (D-153-3 SAFE phrasing) | content base | v4 (`POST_LEAN_REALITY.md`) — first to absorb M10 reality | v7 for any subsequent SAFE-phrasing refinements |
+| (iii) M8b d≥3 caveat preservation block | content base | v6 (`POST_DISCHARGE_PLAN.md`) — M8b-axis treatment | sensitivity to D-156-1 V0+ vs V1 — operator decides at v2.3 substrate-prep |
+| (iv) reproduction-checklist pointer to bridge cascade records | content base | OPERATOR_RUNBOOK | ROADMAP §4 OP_* table for cross-reference |
+
+### Retire/archive recommendations for non-canonical outlooks
+
+**Recommendation: PRESERVE all 7 superseded outlooks (v0–v6) in place.**
+
+Rationale:
+- Each outlook is a SHA-anchored snapshot tied to a specific bridge state (`Bridge HEAD at freeze:` field) and originating verdict. Deleting them breaks reproducibility audits.
+- Supersession chain is documented in headers; canonical is unambiguous.
+- Disk cost is trivial (~120 KB total for all 7).
+- Operator may elect a future archive sweep into `tex/submitted/control center/picture/_archive_outlooks/` for tidiness; that is a separate `OP_*` item, not part of this fire.
+
+**Counter-recommendation considered and rejected: delete v0-v5, retain only v6 + v7.**
+- Rejected because v4 (`POST_LEAN_REALITY`) is the M10-axis first-absorption snapshot — material to (ii) source role.
+
+---
+
+## §6 Phase D — Bridge folder-scoped commit + push
+
+```powershell
+cd "C:\Users\shkub\OneDrive\Documents\archive\admin\VSCode\claude-chat\siarc-relay-bridge"
+New-Item -ItemType Directory -Force -Path "sessions\2026-05-10\T2-EXECUTOR-CANONICAL-M1-M12-OUTLOOK-SOURCE-OF-RECORD-159" | Select-Object FullName
+
+# (compose the 8 deliverables — see §7 below)
+
+# Folder-scoped staging only (UF-138-2 / slot 150 lesson)
+git add "sessions/2026-05-10/T2-EXECUTOR-CANONICAL-M1-M12-OUTLOOK-SOURCE-OF-RECORD-159/"
+git diff --cached --name-only
+"stagedCount=$((git diff --cached --name-only | Measure-Object).Count)"
+# expected stagedCount=8
+
+git commit -m "T2-EXECUTOR-CANONICAL-M1-M12-OUTLOOK-SOURCE-OF-RECORD-159 -- F2 canonical outlook declaration (POST_OPEN_ITEMS.md = canonical)" `
+           -m "Slot 157 Anomaly A1 RESOLVED. Canonical M1-M12 outlook source-of-record = M1_M12_CLOSURE_OUTLOOK_20260510_POST_OPEN_ITEMS.md (v7; cut 2026-05-10 ~13:13 JST; supersession chain v0->v7 verified). Companion artefacts: ROADMAP_PROMPT_SERIES (prompt-series planning) + OPERATOR_RUNBOOK (companion). Appendix C source manifest produced for F6 substrate-prep. 7 superseded outlooks PRESERVED in place (no retirement; separate OP_* item if operator elects archive sweep). RULE-1-clean per agent D-157-9 default; no Zenodo deposit. 8-file deposit; folder-scoped staging applied." `
+           -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+
+git push origin main
+git rev-parse HEAD
+```
+
+---
+
+## §7 Deliverables (8 files in bridge folder)
+
+| # | Filename | Class | Notes |
+|---|----------|-------|-------|
+| 1 | `canonical_outlook_inventory.md` | inventory | 10-row candidate table + supersession chain diagram + class taxonomy |
+| 2 | `canonical_declaration.md` | declaration | Single canonical = v7; tie-break method documented; halt conditions documented |
+| 3 | `appendix_c_source_manifest.md` | manifest | Maps 10 candidates → 4 Appendix C sub-sections; primary + secondary per sub-section |
+| 4 | `claims.jsonl` | AEAL | ~5–8 audit-meta claims (inventory + supersession verification + canonical declaration) |
+| 5 | `halt_log.json` | governance | empty `{}` (no halt triggers) |
+| 6 | `discrepancy_log.json` | governance | empty array `[]` if no D-159-* triggered; otherwise enumerated |
+| 7 | `unexpected_finds.json` | governance | enumerate any UF-159-* (e.g., outlook variants found beyond the expected 10) |
+| 8 | `handoff.md` | session record | full Standing Final Step B3 schema |
+
+---
+
+## §8 Acceptance criteria
+
+- [ ] All 8 deliverables present in `sessions/2026-05-10/T2-EXECUTOR-CANONICAL-M1-M12-OUTLOOK-SOURCE-OF-RECORD-159/`
+- [ ] Canonical declaration unambiguous: exactly one outlook variant declared canonical
+- [ ] Appendix C source manifest cites the canonical source for each of the 4 sub-sections
+- [ ] Bridge commit + push lands; final SHA captured
+- [ ] Slot 159 prompt renamed `_EXECUTED.txt` post-bridge-commit; claude-chat commit + push lands
+- [ ] B5 URLs emitted
+
+---
+
+## §9 Standing Final Step B5 (post-fire)
+
+After successful push, output exactly:
+
+```
+BRIDGE: https://github.com/papanokechi/siarc-relay-bridge/tree/main/sessions/2026-05-10/T2-EXECUTOR-CANONICAL-M1-M12-OUTLOOK-SOURCE-OF-RECORD-159/
+
+CLAUDE_FETCH: https://raw.githubusercontent.com/papanokechi/siarc-relay-bridge/main/sessions/2026-05-10/T2-EXECUTOR-CANONICAL-M1-M12-OUTLOOK-SOURCE-OF-RECORD-159/handoff.md
+```
+
+---
+
+## §10 Post-fire SQL updates (handled by absorbing agent)
+
+```sql
+UPDATE todos SET status='done' WHERE id='slot-157-followup-f2-canonical-outlook-source';
+-- F6 unblocker reduction: F2 done; only D-156-1 remains as F6 dependency
+INSERT INTO todos (id, title, description, status) VALUES
+  ('slot-159-fire', 'Slot 159 T2-Executor F2 canonical outlook source-of-record fire', 'Resolves slot 157 A1; canonical = POST_OPEN_ITEMS.md', 'done');
+```
+
+---
+
+## §11 Failure / halt remediation
+
+If Phase A inventory finds < 8 outlook variants OR > 10 total candidate documents → surface as `UF-159-1` and proceed (UF doesn't halt).
+If Phase B finds no canonical (no last-link-of-chain) → HALT; deposit `halt_log.json` with `HALT_159_NO_CANONICAL_FOUND`.
+If Phase D push fails → write halt log + zip deliverables per Standing Final Step "If git push fails" branch; output `BRIDGE_FAILED: zip saved at <local_path>`.
+
+---
+
+**End of slot 159 prompt.**
