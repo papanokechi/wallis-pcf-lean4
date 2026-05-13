@@ -1,0 +1,279 @@
+# PROMPT 214 -- T1-SYNTH ZENODO COVERAGE-GAP MINT-OR-WAIT CONSULTATION
+#               (Items 5 / 13 / 28: 3 in-flight manuscripts WITHOUT Zenodo backup)
+
+**Task ID:** T1-SYNTH-ZENODO-COVERAGE-GAP-MINT-OR-WAIT-CONSULTATION-214
+**Date:** 2026-05-14 ~08:10 JST (post Carneiro-fire dispatch 2026-05-13 17:39 JST + Item 23 NOT-SUBMITTED Hypothesis-2 closure + Zenodo audit cross-check delivered)
+**Bridge HEAD:** `efa68b4` (V212 endorsement-timing absorption; V213 verdict absorption deposit pending operator)
+**claude-chat HEAD:** `c3678d6` (V212 absorption + 7d silence-watch policy)
+**Witness class:** solo-witness Opus-class (claude.ai); cascade-123 §3.2 aggregation if escalated
+**Drafter:** Copilot CLI session `d0b490af-727d-4ff2-b51d-fbe079b0a718`
+**Aggregation rule:** cascade-123 §3.2 most-conservative LABEL + BAND if multi-witness
+**Capacity envelope:** consultation-class (1 round-trip; output schema §4)
+**Rubric applied:** `CONSULTATION_PROMPT_DRAFTING_RUBRIC.md` (STEPS 0.1-0.7 — see PRE-FIRE STATUS §6)
+
+---
+
+## PHASE 0 -- SUBSTRATE VERIFICATION (operator MUST pre-verify before fire)
+
+### STEP 0.1 -- Verify bridge SHAs exist (full 40-char)
+
+```
+git -C siarc-relay-bridge rev-parse efa68b4^{commit}   # bridge HEAD: V212 absorption
+git -C siarc-relay-bridge rev-parse 9d4b0aa^{commit}   # V211-CASCADE pass-3 (M1 D2-NOTE Zenodo Edit success)
+git -C siarc-relay-bridge rev-parse bfcfd92^{commit}   # RULE 1 LIFTED marker (2026-05-10 21:24 JST)
+git -C siarc-relay-bridge rev-parse 137730b^{commit}   # V211 absorption (predecessor)
+git -C siarc-relay-bridge rev-parse a15091c^{commit}   # PROMPT 205 verdict (Q-205-N redirect cascade substrate)
+git -C siarc-relay-bridge rev-parse fb6907c^{commit}   # PROMPT 206 verdict (Q-206-N venue scoring substrate)
+```
+
+If the V213 verdict absorption has landed by fire time (expected slot ~`T1-SYNTH-VERDICT-213-PAPERS-VENUES-ASSESSMENT-ABSORPTION`), substitute the new bridge HEAD into anchor citations.
+
+### STEP 0.2 -- Verify substrate files exist on claude-chat
+
+```
+git -C claude-chat ls-files "tex/submitted/control center/notes/PAPERS_VENUES_MATRIX_20260513.md"
+git -C claude-chat ls-files "tex/submitted/control center/notes/PORTFOLIO_INVENTORY_20260512.md"
+git -C claude-chat ls-files "tex/submitted/submission_log.txt"
+git -C claude-chat ls-files "tex/submitted/control center/notes/JDEA_NEXT_CANDIDATE_ANALYSIS_20260513.md"
+```
+
+### STEP 0.3 -- Closure-outlook staleness check
+
+```
+python scripts/outlook_emit.py --out "tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_CURRENT.md"
+```
+
+Expected: M1-M10 all 🟢/✅; **RULE 1 LIFTED marker present (`bfcfd92`)** — admin/distribution work eligible; M11 🟡 (Carneiro 2026-05-13 17:39 JST DISPATCHED; 7d silence-floor 2026-05-20 / 14d hard 2026-05-27); M12 🟡. RED if any axis status differs.
+
+### STEP 0.4 -- Supersession check
+
+Has any landed verdict resolved the Items 5/13/28 Zenodo-coverage question?
+
+```
+git -C siarc-relay-bridge log --oneline efa68b4..HEAD
+git -C siarc-relay-bridge log --oneline --all --grep="ZENODO-COVERAGE" --since="2026-05-12"
+git -C siarc-relay-bridge log --oneline --all --grep="ZENODO-MINT" --since="2026-05-12"
+git -C siarc-relay-bridge log --oneline --all --grep="PREPRINT-POLICY" --since="2026-05-12"
+git -C siarc-relay-bridge log --oneline --all --grep="ITEM-5\|ITEM-13\|ITEM-28" --since="2026-05-12"
+```
+
+Expected: no matching session. PROMPT 205 (`a15091c`) covered the redirect cascade for R4/R5/R7 but did NOT address Zenodo-backup decisions; PROMPT 206 (`fb6907c`) scored venue acceptance likelihood without addressing preprint deposit decisions. RED if any new match — re-scope to discharge residual.
+
+### STEP 0.5 -- Path-inventory citation discipline
+
+Per project memory `prompt drafting discipline` (path-inventory pre-verification rule), the prior verdict references below are substrate-source pointers, not deliverable claims:
+
+```
+git -C siarc-relay-bridge show --stat=200 a15091c | Select-String "handoff"   # Q-205 substrate
+git -C siarc-relay-bridge show --stat=200 fb6907c | Select-String "handoff"   # Q-206 substrate
+git -C siarc-relay-bridge show --stat=200 efa68b4 | Select-String "handoff"   # V212 substrate
+```
+
+### STEP 0.6 -- HALT GATES
+
+| Gate | Halt condition |
+|---|---|
+| G1 | Any STEP 0.1-0.2 SHA / file fails to resolve |
+| G2 | STEP 0.3 outlook re-emit shows any axis status delta vs §2 inventory below |
+| G3 | STEP 0.4 supersession check returns any matching session |
+| G4 | Any of Items 5 / 13 / 28 returns a verdict (accept/revise/reject) before this prompt fires → re-scope (verdict resolves part of the question) |
+| G5 | Operator-side Zenodo `/me/uploads` audit returns evidence of an existing-but-unrecorded deposit for any of Items 5 / 13 / 28 → re-scope (gap is documentation-only, not coverage) |
+
+### STEP 0.7 -- Rubber-duck QA (optional pre-fire spot-check)
+
+Recommended: spot-check §3 Q-LOCK options for namespace collisions with V212 (Carneiro endorsement-timing Q-LOCKs use α/β/γ/δ semantics for "fire window"; ensure Q-214 α/β/γ/δ for "mint window" don't import wrong semantics by mistake).
+
+---
+
+## §1 BACKGROUND
+
+### What just happened (2026-05-13 → 2026-05-14)
+
+- **2026-05-13 17:39 JST:** Carneiro cs.LO arXiv endorsement fire DISPATCHED (Q-212-1 δ realization); code PAKTUX; reply shkubo@outlook.jp; silence-floors 5/20 soft / 5/27 hard.
+- **2026-05-13 18:08 JST:** Monatshefte re-submission attempt → mofm.editorialmanager.com showed zero records → HARD HALT; pre-flight cross-ref caught Item 29 = T2B extended at JDEA → parallel-submission ethics risk; operator locked **Path Y** (standby until JDEA verdict).
+- **2026-05-13 18:48 JST:** **Item 23 Hypothesis 2 CONFIRMED — NEVER SUBMITTED** per operator inbox audit (zero EM acks, zero Monatshefte emails, zero spam hits, no editor reply to 2026-04-27 disclosure email); submission_log L183-188 + PAPERS_VENUES_MATRIX §1 row + footnote ¹ updated.
+- **2026-05-13 ~19:00 JST:** Operator asked: *"check if all papers are covered for past & future submissions from zenodo uploads"*. Agent delivered Zenodo coverage cross-check from internal records (submission_log §3 + PORTFOLIO_INVENTORY §B). **Three currently-in-flight manuscripts surfaced as having NO Zenodo backup** in any internal record: Items 5 / 13 / 28. This consultation addresses the mint-or-wait decision for those three.
+
+### Why this matters now
+
+- All **other** currently-in-flight manuscripts (Items 21/24/25/26/27/29) ARE Zenodo-backed with concept-DOI ↔ submitted-version mapping clear. The Items 5/13/28 gap is a portfolio-consistency outlier.
+- **RULE 1 has been LIFTED** (`bfcfd92` 2026-05-10 21:24 JST), so admin/distribution work — including new Zenodo deposits — is no longer governance-gated on M1-M12 closure.
+- **V213 ε BIFURCATE cycle-compression** (in force through 2026-05-27) still mandates no operator-only journal-INITIATION fires; per Q-213-5 ε reading, **agent-autonomous substrate-prep work IS eligible**. A Zenodo mint is substrate-prep-class if it does not require operator portal-attention beyond a single auth-confirm.
+- The 2026-05-15 evening JST **bridge deposit bundle window** is already scheduled (per V211 cascade + D-209-2 audit). It is the natural slot to bundle any Zenodo mints alongside the documentation-gap patch (7 missing entries in submission_log §3) and the PORTFOLIO_INVENTORY refresh.
+- Item 5 is 25d into ExpMath at 264514392 (5/18 nudge already drafted). Item 13 is 22d into JDE at JDEQ26-983 (5/21 nudge drafted). Item 28 is 2d into JNT at JNTH-D-26-00612. **Priority-anchoring marginal value declines with verdict proximity**: if any of these returns a positive verdict before mint, the journal's own DOI subsumes the priority claim; if any returns a rejection, the manuscript needs Zenodo anyway for the next route. The asymmetry argues for early-mint, but the cost is non-zero (~10-20 min auth + metadata per deposit).
+
+---
+
+## §2 SUBSTRATE INVENTORY (verified live; manuscripts in scope)
+
+### §2A — Items 5 / 13 / 28 manuscript metadata
+
+| Item | Title | Venue | Submission ID | Submitted | Days in | Verdict ETA |
+|---|---|---|---|---|---|---|
+| **5** | Khinchin-Signature PSLQ Null | **ExpMath** (T&F) | 264514392 | 2026-04-18 | 25d | 4-6mo typical |
+| **13** | Self-Adjoint PCF | **JDE** (Elsevier) | JDEQ26-983 | 2026-04-21 | 22d | 3-6mo typical |
+| **28** | R4 Spectral Classes (Hypergeometric Framework + Arithmetic Obstructions) | **JNT** (Elsevier) | JNTH-D-26-00612 | 2026-05-12 | 2d (editor assigned 2026-05-14: **Steven J. Miller, Ph.D.**) | 4-8mo typical |
+
+### §2B — Comparison set: other in-flight manuscripts WITH Zenodo
+
+| Item(s) | Manuscript | Venue | Zenodo concept | Zenodo version (= submitted) |
+|---|---|---|---|---|
+| 21/24/25 | Tunnell CNP Lean | JAR/AFM/JAdvRes (rejected/redirecting) | **19834824** | software-class single version |
+| 26 | R7 Finite-Depth Rigidity | JSC ⏳ | **19755968** | (sub-DOI per Items 6+20+26 lineage) |
+| 27 | R5 Ratio Universality / Meinardus | Compositio ⏳ | **19491666** | (sub-DOI per Items 1+17+27 lineage) |
+| 29 | T2B Extended (BT/Gauss-CF) | JDEA ⏳ | **19783311** | version **19915689** (v3.0) |
+
+Pattern: every other in-flight manuscript has Zenodo concept-DOI minted **before** journal verdict; v# version mapping clean.
+
+### §2C — Documentation gaps in submission_log §3 (separate from coverage question)
+
+PORTFOLIO_INVENTORY_20260512.md §B lists 18 live + 1 staged deposits. submission_log.txt §3 lists 11. The 7-deposit delta (Umbrella v2.2 19885549 / BT-Baseline TBD / D2-NOTE v2.1 19996689 / Channel v1.3 19941678 / PCF-1 v1.3 19931635 / Tunnell-software 19834824 / SIARC-PDE-software bridge-DOI) is a **logging gap**, NOT a coverage gap, and is scheduled for the 5/15 bundle patch. Flagged here because the Items 5/13/28 question intersects with the same documentation hygiene.
+
+### §2D — Journal preprint-policy posture (per agent's prior knowledge; synth to verify)
+
+| Journal | Preprint policy posture (agent's reading) | Confidence |
+|---|---|---|
+| ExpMath (T&F) | Permits author-deposited preprint at any stage; no prior-publication-bar | 0.85 |
+| JDE (Elsevier) | Elsevier preprint policy permits posting at submission and during peer review (Green OA); accepted-manuscript embargo 24mo after publication | 0.90 |
+| JNT (Elsevier) | Same Elsevier policy as JDE | 0.90 |
+
+If synth's reading of any of these policies differs (e.g., a less-permissive sub-policy applies to math.NT specifically), it inverts the Q-214-1 LOCK for that item.
+
+### §2E — Manuscript-version-divergence concern (Item 28 specifically)
+
+Item 28 (R4 Spectral Classes at JNT) is the **3rd venue** in a redirect cascade per PROMPT 205 verdict `a15091c`: Items 3 (ExpMath rejected) → 16 (RNT rejected) → 28 (JNT current). If a Zenodo deposit existed for Items 3 / 16, it would be stale relative to Item 28's currently-submitted version (anonymized manuscript_R4_JNT_anon.pdf + title_page_R4.pdf, build artefacts under `tex/submitted/_jnt_build/`). **Sub-question:** does the agent know whether a stale Zenodo for Items 3 / 16 exists? **Answer per cross-check:** NO Zenodo found for the spectral-classes manuscript at ANY historical point. So the gap is true-coverage, not just version-staleness. Confidence 0.75 (operator's Zenodo `/me/uploads` ground-truth is the only way to push to 1.0; covered by G5).
+
+---
+
+## §3 CONSULTATION QUESTIONS (6 Q-LOCKs)
+
+### Q-214-1 — Per-item mint-or-wait decision (3 separate locks bundled)
+
+For each of Items 5, 13, 28: should a Zenodo deposit be minted **NOW** (pre-verdict), or **WAIT** until a journal verdict / decision-point?
+
+Options (apply independently per item; expected to vote item-by-item):
+- **α: MINT NOW (pre-verdict)** — establish priority-anchor before any verdict; bundle into 5/15 evening JST window; consistent with Items 21/26/27/29 baseline practice.
+- **β: WAIT for first verdict** — defer until first editor decision; if accept, journal DOI suffices; if reject, mint as part of re-route substrate-prep.
+- **γ: WAIT for first nudge floor** — defer until nudge-eligibility floor for each item (5/18 ExpMath / 5/21 JDE / 6/11 JNT 30d); mint THEN as a coordinated bundle.
+- **δ: ASYMMETRIC — mint Item 5 + Item 13 NOW (high time-in-system); wait on Item 28 (2d in)** — recognizes the marginal-value-declines-with-verdict-proximity asymmetry.
+- **ε: MINT NEVER for these 3** — strategic choice to leave priority unanchored (would invert standing practice; expected only if synth flags strong preprint-policy concern at one of the journals).
+
+Anchoring concern: the prior-art baseline (Items 21/26/27/29) supports α. The cost-asymmetry (priority value declines with verdict proximity) supports δ. Item 28 specifically is the cleanest α candidate (2d in, max priority-anchor value); Items 5/13 the cleanest δ candidates.
+
+### Q-214-2 — Mint timing (if Q-214-1 ≠ ε for any item)
+
+For the items selected for minting, when should the deposit fire?
+
+Options:
+- **α: 2026-05-15 evening JST bundle window** (already scheduled; co-fire with submission_log §3 patch + PORTFOLIO_INVENTORY refresh + D-209-2 audit)
+- **β: 2026-05-17 / 2026-05-18 morning JST** (decouple from bundle window to reduce 5/15 fire density; pre-ExpMath-nudge timing)
+- **γ: 2026-05-21 evening JST** (co-fire with JDE Item-13 nudge; same-week amortization)
+- **δ: STAGGERED — 1 deposit per 2-day window** (preserve operator bandwidth; first deposit 5/15, second 5/17, third 5/19)
+- **ε: OPERATOR-DRIVEN — agent does substrate-prep (metadata YAML + abstract + concept-DOI plan); operator fires when convenient** (matches V213 Q-213-5 ε BIFURCATE cadence)
+
+### Q-214-3 — Manuscript-version-Zenodo mapping discipline
+
+For each minted item, what should the Zenodo version map to?
+
+Options:
+- **α: ANONYMIZED-AS-SUBMITTED** — deposit the exact anonymized PDF that's at the journal portal; matches Items 21/26/27/29 pattern; reviewer-blind preserved.
+- **β: DEANONYMIZED PRINT-READY** — deposit the author-named version with full affiliations; preserves discoverability; reviewer-blind risk if reviewer hits Zenodo and links back to author identity.
+- **γ: ASYMMETRIC** — α for items at single-blind venues (most math journals); β for items at non-blind venues (ExpMath single-blind typically). Recommend per-item.
+- **δ: BOTH — concept-DOI gets dual versions** — version A = anonymized (now); version B = deanonymized (post-acceptance / post-rejection). Two-step.
+
+Project memory `concept-DOI vs version-DOI discipline` applies: ensure concept-DOI mint is correct (NOT the version-DOI) for cross-references.
+
+### Q-214-4 — Item 28 Spectral-Classes Zenodo-coverage question (deep-dive)
+
+Item 28 R4 Spectral Classes is the 3rd venue in a redirect cascade (per PROMPT 205 verdict). Sub-question: is there any reason the spectral-classes manuscript has NEVER been Zenodo-deposited at any prior step (Items 3, 16, 28)? Implicit assumption is "no, just an oversight" but synth may have visibility into an explicit-suppression rationale.
+
+Options:
+- **α: NO REASON / OVERSIGHT** — mint now per Q-214-1 ruling.
+- **β: PRIOR SUPPRESSION RATIONALE EXISTS** — (e.g., earlier version had a flaw that was discovered post-submission; minting v3 first-time is fine, but be aware older versions exist in submission portals).
+- **γ: STRATEGIC DELIBERATE NON-DEPOSIT** — (e.g., synth had previously flagged this manuscript as one where priority-anchor value is dominated by some other consideration; surface that consideration).
+- **δ: CHECK ITEMS 3 + 16 SUBMISSION FILES FIRST** — verify the submitted manuscripts for Items 3 / 16 against Item 28's current substrate; if they were substantively different, a Zenodo mint of v3 only is the right call; if essentially-the-same, consider whether to mint v1 (with backdate metadata) or just v3.
+
+### Q-214-5 — Documentation gap patch coupling
+
+The 7-deposit submission_log §3 documentation gap (Umbrella v2.2 / BT-Baseline / D2-NOTE v2.1 / Channel v1.3 / PCF-1 v1.3 / Tunnell-software / SIARC-PDE-software) is scheduled for 5/15 bundle. Should the Items 5/13/28 mint (if Q-214-1 ≠ ε) be COUPLED with that patch or SEPARATE?
+
+Options:
+- **α: COUPLED — one 5/15 deposit covers everything** (logging hygiene + new mints + PORTFOLIO_INVENTORY refresh + D-209-2 audit). Minimum-touch.
+- **β: COUPLED with explicit separation in commit message** — single deposit, multiple sub-commits named so audit trail stays parseable.
+- **γ: SEPARATE — logging fix lands 5/15; new mints land 5/18 morning** — keeps each session focused on one class-of-change; cleaner cascade-123 §3.2 absorption pattern.
+- **δ: DECOUPLE EVEN FURTHER — logging fix 5/15; mints staggered per Q-214-2 δ** — maximum-separation; reduces any single-deposit blast radius.
+
+### Q-214-6 — Memory-promotion candidate: pre-verdict Zenodo-backup rule
+
+The Items 21/26/27/29 baseline (every in-flight manuscript Zenodo-backed BEFORE verdict) appears to be an unwritten project convention. Should it be formalized as a standing rule?
+
+Candidate rule text (synth: refine wording):
+> "Every manuscript submitted to a peer-reviewed venue must have a corresponding Zenodo concept-DOI minted within 7 days of journal-portal submission (anonymized version matching submitted manuscript), barring explicit per-paper exception logged in submission_log.txt with rationale. The concept-DOI provides priority-anchor and post-rejection re-route substrate; the version-DOI per deposit maps to the journal-submitted PDF."
+
+Options:
+- **α: PROMOTE AS-IS** — Items 5/13/28 are 25d/22d/2d in; rule absorption would require immediate mint of all 3 (resolves Q-214-1 → α).
+- **β: PROMOTE WITH MODIFIED THRESHOLD** — change 7d to 14d (more bandwidth); rule still applies to Items 5/13/28 retroactively.
+- **γ: PROMOTE BUT GRANDFATHER ITEMS 5/13/28** — rule takes effect for future submissions only; Items 5/13/28 stay verdict-gated per Q-214-1 β/γ/δ.
+- **δ: DO NOT PROMOTE** — pre-verdict mint stays a case-by-case decision; Q-214-1 LOCK is the only mint-or-wait answer needed.
+- **ε: PROMOTE A WEAKER VERSION** — (e.g., "recommend within 14d, optional in any case, mandatory before any post-rejection re-route") that codifies practice without binding force.
+
+---
+
+## §4 OUTPUT SCHEMA (verdict format expected)
+
+Per V212 verdict template; mirror exactly.
+
+For each Q-214-N:
+- LABEL: PROCEED / DEFER / OBJECT
+- BAND: HIGH / MEDIUM / LOW
+- LOCK: option letter (α / β / γ / δ / ε / hybrid)
+- Confidence: 0.0-1.0
+- Reasoning: 2-4 sentences
+- Sensitivity flag: condition under which LOCK inverts
+
+For Q-214-1 specifically: provide three sub-LOCKs (Q-214-1a Item 5; Q-214-1b Item 13; Q-214-1c Item 28) each with the schema above. Aggregate Q-214-1 LABEL/BAND = most-conservative of the three sub-LOCKs per cascade-123 §3.2.
+
+Followed by:
+- §5 Anomalies / open threads (REFINED vs discrepant per cascade-123 §3.2)
+- §6 AEAL summary table (per V212 §6 format)
+- §7 Memory-promotion candidates (synth confirms/rejects each; Q-214-6 candidate is the primary; secondary candidates §5 below)
+
+Aggregate verdict band: per cascade-123 §3.2 most-conservative across the 6 Q-LOCKs.
+
+---
+
+## §5 MEMORY PROMOTION CANDIDATES (verdict-time)
+
+Pre-flag candidates for synth to evaluate during verdict drafting:
+
+1. **Pre-verdict Zenodo-backup rule** (Q-214-6 primary; text above). If promoted, supersedes any per-paper case-by-case mint deliberation.
+2. **Submission_log §3 ↔ PORTFOLIO_INVENTORY §B reconciliation discipline:** "Every Zenodo deposit recorded in PORTFOLIO_INVENTORY §B must have a corresponding entry in submission_log §3 within 7 days of mint, regardless of whether the deposit is companion to a journal submission. Includes software-class deposits." (Inferred from 7-deposit gap discovery 2026-05-13 ~19:00 JST.)
+3. **Redirect-cascade Zenodo-mint timing rule:** "When a manuscript is in a journal-rejection redirect cascade (e.g., Items 3 → 16 → 28 spectral-classes), mint Zenodo at the FIRST submission, not at the Nth. Subsequent venues then use version-DOI to track manuscript revisions." (Inferred from Item 28 gap; UF-214-C candidate.)
+
+Synth: confirm/reject promotion of each.
+
+---
+
+## §6 PRE-FIRE STATUS (per CONSULTATION_PROMPT_DRAFTING_RUBRIC.md)
+
+* STEP 0.1 bridge SHAs: GREEN-EXPECTED (6 SHAs cited; all from 2026-05-10 or later landings; verify before fire)
+* STEP 0.2 substrate files: GREEN (4 files cited; PAPERS_VENUES_MATRIX + submission_log updated 2026-05-13 evening; PORTFOLIO_INVENTORY is 5/12-dated and known-stale — flagged in §2C)
+* STEP 0.3 outlook staleness: GREEN-EXPECTED (regen cmd in STEP 0.3 above; RULE 1 LIFTED state expected per `bfcfd92`)
+* STEP 0.4 supersession-gate: GREEN (no prior fires of "ZENODO-COVERAGE" / "ZENODO-MINT" / "PREPRINT-POLICY" / "ITEM-5|13|28" scope)
+* STEP 0.5 path-inventory: GREEN (cited prior verdict SHAs `a15091c` + `fb6907c` + `efa68b4` only as substrate-source pointers)
+* STEP 0.6 HALT GATES: G5 (operator Zenodo `/me/uploads` audit) is the most likely live-trigger — if operator's actual Zenodo profile contains an unrecorded Item 5/13/28 deposit, the consultation reduces to a documentation-fix and Q-214-1 becomes moot for that item.
+* STEP 0.7 rubber-duck QA: NOT YET RUN — operator may want to spot-check the Q-214-3 (manuscript-version mapping) and Q-214-4 (Item 28 deep-dive) options for completeness before fire.
+
+**RUBRIC version applied:** `CONSULTATION_PROMPT_DRAFTING_RUBRIC.md` @ commit `c3678d6` (claude-chat HEAD post-V212 absorption)
+
+---
+
+## §7 EXPECTED VERDICT RESPONSE LATENCY
+
+Solo-witness Opus (claude.ai) typical: 8-18 min for 6 Q-LOCKs + 3 sub-LOCKs at this complexity. Allow 25 min worst-case before re-issuing.
+
+If verdict surfaces a NEW preprint-policy concern at any of ExpMath/JDE/JNT not anticipated in §2D, halt the corresponding Q-214-1 sub-LOCK to ε (NEVER) until policy re-verified externally (T&F / Elsevier websites).
+
+---
+
+**END PROMPT 214.** Operator: pre-verify STEPS 0.1-0.6 → fire to claude.ai → absorb verdict to bridge slot `T1-SYNTH-VERDICT-214-ZENODO-COVERAGE-GAP-ABSORPTION`.
