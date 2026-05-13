@@ -93,6 +93,43 @@ gracefully degraded to FW 2005 substitute).
 
 ---
 
+## Closure-outlook staleness check (applies to every relay prompt)
+
+**Rule (post-V211 verdict, 2026-05-13):** Any relay prompt that cites
+the M1-M12 closure outlook (or any axis-status claim derived from it)
+as load-bearing substrate must verify the outlook is current before
+fire. Hand-maintained `M1_M12_CLOSURE_OUTLOOK_<DATE>_<TAG>.md` files
+go stale within hours of any bridge fire that changes axis state;
+citing a stale outlook as substrate is a substrate-contamination
+vector analogous to the hallucinated-identifier pattern.
+
+**Pre-verification procedure:**
+
+1. Re-emit the outlook from primary sources:
+   ```powershell
+   python scripts\outlook_emit.py --out "tex\submitted\control center\picture\M1_M12_CLOSURE_OUTLOOK_CURRENT.md"
+   ```
+2. Confirm the outlook the prompt cites is `M1_M12_CLOSURE_OUTLOOK_CURRENT.md`
+   (the live-generated file), NOT a frozen `M1_M12_CLOSURE_OUTLOOK_<DATE>_<TAG>.md`.
+3. If a frozen outlook is cited: diff against `M1_M12_CLOSURE_OUTLOOK_CURRENT.md`;
+   if any axis-status row differs, re-scope the prompt against the live state.
+4. If `outlook_emit.py` is unavailable or fails, fall back to the inline
+   STEP 0.6 stopgap rubric documented at
+   `tex/submitted/control center/notes/CONSULTATION_PROMPT_DRAFTING_RUBRIC.md`.
+
+**Scope:** applies to all consultation/relay prompts that cite axis-level
+state. Does not apply to in-flight task slots that only reference their
+own task-scope axis without making broader claims.
+
+**Anchoring:** V211 verdict (bridge HEAD `137730b` 2026-05-13;
+slot `sessions/2026-05-13/T1-SYNTH-VERDICT-211-M1-SAFE-CLOSURE-ABSORPTION/`).
+M1 D2-NOTE-DISPOSITION case (slot `1f48c69` 2026-05-13): the closure outlook
+frozen 2026-05-10 06:45 JST still said RULE 1 was in force, but the canonical
+RULE 1 lift commit landed claude-chat at `bfcfd92` 2026-05-10 21:24:16 JST —
+~3 days of staleness between freeze and use.
+
+---
+
 ## STANDING FINAL STEP — runs at the end of every relay session
 
 Do not skip this step even if earlier steps had partial failures.
