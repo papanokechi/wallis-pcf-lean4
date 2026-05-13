@@ -1,0 +1,220 @@
+# PROMPT 212 -- T1-SYNTH ENDORSEMENT-REQUEST TIMING CONSULTATION
+#               (M11 fire-sequencing under Garoufalidis silence-watch)
+
+**Task ID:** T1-SYNTH-ENDORSEMENT-REQUEST-TIMING-CONSULTATION-212
+**Date:** 2026-05-13 ~15:55 JST (post slot V211-CASCADE; M1 D2-NOTE S154 addendum LANDED)
+**Bridge HEAD:** `9d4b0aa` (V211-CASCADE pass-3 success record)
+**claude-chat HEAD:** `1ed1e91` (V211 5-commitment cascade execution)
+**Witness class:** solo-witness Opus-class (claude.ai); escalate to dual-witness if Q-212-4 locks γ or higher
+**Drafter:** Copilot CLI session `d0b490af-727d-4ff2-b51d-fbe079b0a718`
+**Aggregation rule:** cascade-123 §3.2 most-conservative LABEL + BAND if multi-witness
+**Capacity envelope:** consultation-class (1 round-trip; output schema §6)
+**Rubric applied:** CONSULTATION_PROMPT_DRAFTING_RUBRIC.md (STEPS 0.1-0.7 — see PRE-FIRE STATUS §7)
+
+---
+
+## PHASE 0 -- SUBSTRATE VERIFICATION (operator MUST pre-verify before fire)
+
+Per `substrate verification` memory + `Bibliographic identifier pre-verification` + the closure-outlook-staleness standing rule, pre-resolve all bridge SHAs and run the supersession check below. Halt if any step fails.
+
+### STEP 0.1 -- Verify bridge SHAs exist (full 40-char)
+
+```
+git -C siarc-relay-bridge rev-parse 9d4b0aa^{commit}   # bridge HEAD (V211 pass-3 success)
+git -C siarc-relay-bridge rev-parse 137730b^{commit}   # T1-SYNTH-VERDICT-211-M1-SAFE-CLOSURE-ABSORPTION
+git -C siarc-relay-bridge rev-parse 400a32e^{commit}   # V210-NEXT-STEP-ABSORPTION (immediate predecessor)
+git -C siarc-relay-bridge rev-parse 198e721^{commit}   # T1-SYNTH-PROMPT-208-POST-GAROUFALIDIS-FORWARD-PLAN
+git -C siarc-relay-bridge rev-parse 9b716a0^{commit}   # MAZZOCCO-EMAIL-PREVERIFY (today HIGH-conf landing)
+git -C siarc-relay-bridge rev-parse 2867a87^{commit}   # CARNEIRO-PRE-FIRE-GATES-GREEN (today; 5/5 gates GREEN)
+git -C siarc-relay-bridge rev-parse fd669d3^{commit}   # cascade-132 PATH_B (RULE-1-lift precedent)
+```
+
+### STEP 0.2 -- Verify RULE 1 lift commit on claude-chat (full 40-char)
+
+```
+git -C claude-chat rev-parse bfcfd92^{commit}          # 2026-05-10 21:24 JST RULE 1 LIFTED marker
+git -C claude-chat show --stat bfcfd92                 # verify message contains "RULE 1 LIFTED -- math-axis closure complete"
+```
+
+### STEP 0.3 -- Closure-outlook staleness check (per V211 Q-211-3 γ standing rule)
+
+```
+python scripts/outlook_emit.py --out tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_CURRENT.md
+```
+
+Expected: M1-M10 all 🟢/✅; M11 🟡 READY; M12 🟡 READY; RULE 1 lift marker `bfcfd925` present. If axis statuses differ, RED -- halt.
+
+### STEP 0.4 -- Supersession check
+
+Has any landed verdict between bridge HEAD `9d4b0aa` and the moment this prompt fires already resolved endorsement-request timing under Garoufalidis silence-watch?
+
+```
+git -C siarc-relay-bridge log --oneline 9d4b0aa..HEAD
+git -C siarc-relay-bridge log --oneline --all --grep="CARNEIRO" --since="2026-05-13" 
+git -C siarc-relay-bridge log --oneline --all --grep="MAZZOCCO" --since="2026-05-13"
+git -C siarc-relay-bridge log --oneline --all --grep="ENDORSEMENT" --since="2026-05-13"
+```
+
+Expected: no new sessions matching the above keywords (V211 cascade already absorbed; no T1-Synth verdict on timing exists). RED if any match -- re-scope to discharge residual.
+
+### STEP 0.5 -- HALT GATES
+
+| Gate | Halt condition |
+|---|---|
+| G1 | Any STEP 0.1-0.2 SHA fails to resolve |
+| G2 | STEP 0.3 outlook re-emit shows any axis status delta vs the §2 inventory below |
+| G3 | STEP 0.4 supersession check returns any matching session |
+| G4 | V211 v1.1 amendment-packet signoff (Q-211-1 γ gate, ≤48h) has not yet been completed by operator |
+
+G4 is intentional: V211 verdict refines V210 amendments via `γ_PACKET_AGENT_DRAFTED`; any T1-Synth fire that cites V210/V211 substrate should not fire until the v1.1 packet is operator-signed-off. If G4 trips, hold this prompt and address V211 v1.1 first.
+
+---
+
+## §1 BACKGROUND
+
+### What just happened
+
+On 2026-05-13 the M1 D2-NOTE axis closed: the S154 Compliance Addendum landed on Zenodo record `10.5281/zenodo.20015923` (v2.1) via a 3-pass rendering cycle (Pass-1 Markdown broke; Pass-2 HTML-in-WYSIWYG escape-encoded; Pass-3 HTML-in-source-view succeeded; bridge slot `T1-OPERATOR-V211-COMMITMENTS-CASCADE-EXECUTION` head `9d4b0aa`). The fresh `scripts/outlook_emit.py` regeneration confirms **10/12 M-axes CLOSED**; only M11 (endorsement) and M12 (resubmit packaging) remain 🟡 READY.
+
+### Standing constraints in force
+
+1. **RULE 1 LIFTED** 2026-05-10 21:24 JST (commit `bfcfd925`). Admin/distribution work-streams are UNBLOCKED.
+
+2. **Garoufalidis silence-watch** active. Per V208 forward-plan (`198e721`), 14-day silence-floor lands **2026-05-26**. Garoufalidis was the operator's primary math.NT endorsement contact for the DS873D math.NT ride (multi-paper PCF-1/PCF-2/T2B); no reply received as of this prompt's fire time. The silence-floor's purpose is to time the pivot to a backup endorser.
+
+3. **V211 v1.1 amendment-packet signoff** ≤48h gate (Q-211-1 γ). Operator must signoff drafter packet for V210 amendments before downstream V210/V211 substrate is treated as authoritative. **This prompt does NOT cite V210/V211 amendment substance as load-bearing** -- it cites them only as predecessor verdicts.
+
+4. **DISTRIBUTION-class action gate** (per V210 Q-210-4 hybrid α+δ): outbound endorsement-request emails are operator-only fires. Substrate-prep (drafting, contact-pre-verify, ranking) is agent-autonomous.
+
+### Substrate landing today (2026-05-13)
+
+| Slot | Bridge SHA | Status | Relevance |
+|---|---|---|---|
+| `T2-EXECUTOR-MAZZOCCO-EMAIL-PREVERIFY` | `9b716a0` | LANDED | math.NT backup endorser pre-verify HIGH-conf 5-source triangulation; `m.mazzocco@bham.ac.uk` confirmed; UF-MAZZOCCO-1 MEDIUM: arXiv math.NT auto-privilege uncertain |
+| `T2-EXECUTOR-CARNEIRO-ENDORSEMENT-FIRE-PREP` | `2867a87` | PRE-FIRE GATES GREEN | cs.LO endorsement fire substrate; all 5 dispatch gates verified; `marioc@chalmers.se` email confirmed via Mathlib commits; repo URL fix committed `94c834b` claude-chat-side |
+| `T1-OPERATOR-V211-COMMITMENTS-CASCADE-EXECUTION` | `9d4b0aa` | LANDED | V211 5-commitment fire incl. M1 D2-NOTE Zenodo Edit + outlook generator + rubric + standing rule + signoff |
+
+---
+
+## §2 SUBSTRATE INVENTORY (verified live; M-axis closure outlook)
+
+| Axis | Status | Key substrate |
+|:---:|:---:|---|
+| M1 | 🟢 CLOSED | Zenodo `20015923` v2.1 (S154 addendum LANDED today) |
+| M2-M10 | 🟢/✅ | per `M1_M12_CLOSURE_OUTLOOK_CURRENT.md` re-emitted 2026-05-13 15:52 JST |
+| **M11** | 🟡 **READY** | Carneiro cs.LO substrate gates-green; Mazzocco math.NT pre-verify done; Beukers not yet pre-verified |
+| **M12** | 🟡 **READY** | slot 156 4-paper resubmit cadence; AFM desk-reject 2026-05-07 needs alternate venue picks; D-209-2 submission-count audit pending |
+
+---
+
+## §3 CONSULTATION QUESTIONS (5 Q-LOCKs)
+
+### Q-212-1 -- Carneiro cs.LO fire timing
+
+The Carneiro cs.LO endorsement-request substrate is fully prepared (gates 1-5 GREEN per `2867a87`). The only outstanding action is operator-only: request arXiv endorsement code at `https://arxiv.org/auth/need-endorsement/cs.LO`, inject into the staged email body, and send to `marioc@chalmers.se`. Question: **when should the Carneiro fire happen relative to the Garoufalidis silence-watch state?**
+
+Options:
+- **α: Fire immediately (within 24h)** -- cs.LO and math.NT are orthogonal endorsement tracks; Carneiro outreach does NOT signal-leak into Garoufalidis's mailbox; no correlation between the two tracks; the 14-day silence-floor for Carneiro starts now and ends 2026-05-27, which is +1 day after Garoufalidis silence-floor 2026-05-26 -- so both pivot decisions land within the same 48h window, making downstream coordination clean
+- **β: Hold until Garoufalidis silence-floor lands (2026-05-26)** -- adds 14 days of silence with no compounding signal; reduces concurrent-pivot complexity but burns 14 days of dwell at zero downstream gain
+- **γ: Fire conditional on operator's V211 v1.1 signoff** (Q-211-1 γ ≤48h gate; if signoff happens by EOD 2026-05-14, fire Carneiro 2026-05-15; otherwise hold) -- couples two orthogonal gates that have no logical dependency
+- **δ: Fire after operator's 1-night dwell** (sleep-on-it; fire 2026-05-14) -- agent-recommended baseline for any operator-only DISTRIBUTION action under V210 Q-210-4 hybrid α+δ
+
+### Q-212-2 -- Mazzocco math.NT email draft timing
+
+Per UF-MAZZOCCO-1 (MEDIUM): Mazzocco's arXiv math.NT auto-endorsement-privilege is UNVERIFIED; her recent corpus has 0 math.NT primary submissions (primaries are math.CA / math-ph / math.AG / math.QA). Manual-grant path via `help@arxiv.org` exists but adds 1-2 week latency. Per V210 Q-210-4 α (`pre-draft fallback substrate is agent-autonomous, substrate-gathering, NOT DISTRIBUTION`): question is **when to pre-draft the actual endorsement-request email to Mazzocco** -- i.e., write the file `endorsement_request_mazzocco_pcf1_v13_v1.md` -- so that it is fire-ready if Garoufalidis is silent at 2026-05-26.
+
+Options:
+- **α: Draft now (2026-05-13/14)** -- substrate-gathering is permitted; benefits = zero-latency operator action at silence-floor; risks = potential waste if Garoufalidis responds positively pre-floor (low likelihood -- silence at day 13 already implies low base-rate of last-minute reply)
+- **β: Draft at silence-floor T-3 (2026-05-23)** -- "just-in-time" pattern; reduces waste-on-reply but introduces deadline pressure at the moment a pivot decision needs operator attention
+- **γ: Draft after Garoufalidis silence is confirmed at 2026-05-26** -- truly reactive; maximizes wasted dwell at pivot moment (1-2 hour draft delay layered on top of the math.NT auto-privilege manual-grant 1-2 week latency = potentially 1-2 weeks + 2 hours total to first-sent-email)
+- **δ: Draft now AND simultaneously pre-verify the math.NT auto-privilege manual-grant procedure** (mitigation for UF-MAZZOCCO-1) so that the 1-2 week latency window opens day-0 if Garoufalidis is silent
+
+### Q-212-3 -- Beukers contact pre-verify timing
+
+Per UF-MAZZOCCO-1 mitigation (b): if Mazzocco lacks math.NT auto-privilege and the manual-grant path is judged too slow, the fallback is **Beukers (Utrecht emeritus; auto-privileged math.NT-primary)**. Beukers contact data has NOT been pre-verified via the Garoufalidis 5-source standard; his emeritus status may have left stale corresponding-author traces. Per V208 A-208-3 + A-208-2: the Garoufalidis floor (2026-05-26) sits 3 days before the Asperti floor (2026-05-29); the operator should pre-walk the 2-branch decision tree before 2026-05-26. Question: **when to pre-verify Beukers contact?**
+
+Options:
+- **α: Pre-verify now (proactive)** -- 30-minute substrate task per the Mazzocco template; ensures 3rd-backup endpoint substrate is solid before pivot decisions land
+- **β: Pre-verify at silence-floor T-3 (2026-05-23)** -- gives Mazzocco the math.NT primary slot and only escalates if needed
+- **γ: Pre-verify only if Mazzocco math.NT auto-privilege check (Q-212-2 δ) returns NEGATIVE** -- conditional cascade; minimizes unnecessary work
+- **δ: Defer to operator-decided silence-floor moment** -- highest reactive cost but operator-discretion preserved
+
+### Q-212-4 -- Coordination if Garoufalidis returns before silence-floor
+
+If Carneiro is fired now (Q-212-1 α) and Garoufalidis returns POSITIVE before 2026-05-26 (e.g., on day 16), the project has two simultaneously-active endorsement chains (cs.LO + math.NT). Question: **is that a coordination problem, or is it the desired state?**
+
+Options:
+- **α: Desired state** -- cs.LO and math.NT are orthogonal arXiv tracks; the Tunnell CNP Lean 4 paper benefits from cs.LO primary and DS873D ride benefits from math.NT primary; both endorsements can serve different papers simultaneously with no overlap-conflict
+- **β: Coordination problem with mitigation** -- if both come in, operator may need to nuance the wording in the Mazzocco draft (per Q-212-2) to clarify the existing Garoufalidis math.NT endorsement, to prevent looking like double-dipping
+- **γ: Active problem** -- having two senior endorsers in parallel raises professional-etiquette flags; recommend pausing one chain to avoid the appearance
+- **δ: Not a problem if disclosed** -- the Mazzocco email body can include a brief mention that Garoufalidis is the primary track and Mazzocco is being approached as a backup; full transparency resolves any etiquette concern
+
+### Q-212-5 -- Single next-action recommendation
+
+Stack-rank the 4 Q-212 actions in the order operator should execute them, with confidence band per cascade-123 §3.2:
+
+```
+1. ____  (highest priority; clearest gate to flip M11 forward; confidence ____)
+2. ____  (confidence ____)
+3. ____  (confidence ____)
+4. ____  (lowest priority OR defer; confidence ____)
+```
+
+If the recommendation is "fire X immediately and defer the rest until silence-floor lands", say so explicitly. If the recommendation is "do nothing until V211 v1.1 signoff", say so explicitly.
+
+---
+
+## §4 OUTPUT SCHEMA
+
+For each Q-212-k (k=1..5), provide:
+
+1. **LOCK:** which option (α/β/γ/δ or composite)
+2. **Confidence:** numeric 0-1
+3. **Reasoning:** 3-8 sentences
+4. **Sensitivity flag:** what would invert the lock (1-2 sentences)
+
+Followed by a single **§5 Anomalies / open threads** section, and a **§6 AEAL summary table** with one row per Q-LOCK at `evidence_type: consultation_output`, `dps: null`.
+
+Optional: a **§7 Memory-promotion candidate** for any rule observed in this verdict that should be promoted to project memory.
+
+---
+
+## §5 ANCHORING / CITATIONS
+
+| Concept | Anchor |
+|---|---|
+| Garoufalidis silence-watch + DS873D ride | bridge `198e721` (V208 forward-plan) |
+| Mazzocco pre-verify | bridge `9b716a0` |
+| Carneiro pre-fire gates | bridge `2867a87` |
+| RULE 1 lift mechanism | claude-chat `bfcfd92` + cascade-132 `fd669d3` |
+| V210 carryover discipline | bridge `400a32e` (Q-210-4 hybrid α+δ DISTRIBUTION semantics) |
+| V211 carryover discipline | bridge `137730b` (Q-211-1 γ v1.1 signoff gate) |
+| Closure outlook | `tex/submitted/control center/picture/M1_M12_CLOSURE_OUTLOOK_CURRENT.md` (2026-05-13 15:52 JST emission) |
+| Drafting rubric | `tex/submitted/control center/notes/CONSULTATION_PROMPT_DRAFTING_RUBRIC.md` |
+
+---
+
+## §6 PRE-FIRE STATUS (per CONSULTATION_PROMPT_DRAFTING_RUBRIC.md @ bridge `9d4b0aa`)
+
+* STEP 0.1 bridge SHAs: **GREEN** (7 SHAs verified live via `git rev-parse` before draft)
+* STEP 0.2 bibliographic identifiers: **N/A** (no DOI/arXiv-ID acquisition targets; the only Zenodo DOI cited is the M1 record verified live in §1)
+* STEP 0.3 Zenodo DOI tier: **GREEN** (1 version DOI `20015923` cited as M1-state-readback; 1 concept DOI `19996689` cited as cross-link target; tier discipline OK)
+* STEP 0.4 supersession-gate: **GREEN** (no prior LANDED T1-Synth fire on endorsement-request timing under Garoufalidis silence-watch; closest predecessor V208 covers fire-now-or-wait for Carneiro but not the post-RULE-1-lift coordination question with Mazzocco substrate already landed)
+* STEP 0.5 path-inventory: **GREEN** (4 path-inventory entries in §1 / §5 all derived from `git log --oneline --grep` output, not memory)
+* STEP 0.6 outlook staleness: **GREEN** (closure outlook re-emitted 2026-05-13 15:52 JST; M1-M10 closed; M11+M12 are the 🟡 axes referenced in this prompt)
+* STEP 0.7 rubber-duck QA: **DEFERRED** (operator may invoke parallel manual QA via separate CLI session before fire; not blocking for consultation-class)
+
+**Open exceptions:**
+- Q-212-1 γ gate ("V211 v1.1 signoff ≤48h") is upstream of any decision that cites V211 amendment substance as load-bearing. This prompt does NOT cite V211 substance directly; it cites V211 only as a predecessor verdict. Operator should still satisfy G4 in the operator-side fire decision before treating verdict-212 as authoritative.
+
+---
+
+## §7 INSTRUCTIONS TO RESPONDENT (claude.ai Opus-class)
+
+You are a single-witness T1-Synth consultant. Apply cascade-123 §3.2 most-conservative LABEL + BAND if you encounter cross-question coherence interactions (treat them as REFINED discrepancies and document at §5 of your output).
+
+Default to PROCEED with a clear LOCK on each of Q-212-1..5. Reserve δ (defer) for genuine ambiguity. If you find the prompt itself has a substrate gap, surface it in §5 rather than locking on a fallback.
+
+The output will be absorbed by the agent into bridge slot `T1-SYNTH-VERDICT-212-ENDORSEMENT-TIMING-ABSORPTION`, with downstream SQL todos generated per Q-LOCK.
+
+End prompt.
