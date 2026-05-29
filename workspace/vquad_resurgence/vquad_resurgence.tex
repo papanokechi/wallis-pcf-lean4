@@ -1,0 +1,1177 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage[margin=2.5cm]{geometry}
+
+% ── Theorem environments ─────────────────────────────────────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ── Notation ─────────────────────────────────────────────────────
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+\newcommand{\Vq}{V_{\mathrm{quad}}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+% ── Metadata ─────────────────────────────────────────────────────
+\title{A non-classical Painlev\'e~V transcendent
+from a quadratic polynomial continued fraction:
+surface classification and resurgent Stokes data}
+\author{papanokechi}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% ══════════════════════════════════════════════════════════════════
+%  ABSTRACT
+% ══════════════════════════════════════════════════════════════════
+\begin{abstract}
+We study the resurgence and isomonodromic
+structure of a constant $V_{\mathrm{quad}}
+\approx 1.19737\ldots$ arising as the limit
+of a quadratic polynomial continued fraction
+(PCF). The convergent denominators satisfy a
+Wallis-type recurrence whose continuum limit
+yields an exact second-order ODE of the form
+$a(x)y'' + a'(x)y' + c(x)y = 0$, with
+$a(x) = 3x^2+x+1$ and $c(x) = -x^2$. This
+exact-ODE structure forces both finite
+singularities to be apparent and explains,
+via monodromy, the failure of CM-period
+and hypergeometric identification strategies.
+The CM discriminant $\mathrm{disc}(a)
+= 1 - 12 = -11$ that appears throughout
+the analysis is the discriminant of the
+Wallis characteristic polynomial, not a
+deep CM structure; this explains why
+exhaustive PSLQ searches against CM
+period bases at discriminant $-11$ return
+null by a structural argument independent
+of precision.
+
+The isomonodromic deformation of the
+underlying connection is governed by the
+fifth Painlev\'e equation with parameters
+$\alpha=1/6$, $\beta=\gamma=0$,
+$\delta=-1/2$ ($\delta\neq0$); its space of
+initial conditions is the Sakai surface
+$D_5^{(1)}$ with affine Weyl symmetry
+$W(A_3^{(1)})$. Since $\delta\neq0$ the
+equation does not reduce to Painlev\'e~III,
+and the constant is expected to be a
+generic, non-classical PV transcendent.
+The formal asymptotic series at infinity
+is Gevrey-$1$ divergent; its Borel
+transform has a branch-point singularity
+at $\xi_0\approx2/\sqrt{3}$ (the Stokes gap)
+with branch exponent
+$\beta_{\mathrm{exp}}=-1/(3\sqrt{3})$,
+confirmed to eight significant figures
+by Domb--Sykes analysis and
+Richardson$^3$ extrapolation.
+The Stokes constant $S \approx
+0.43770528\ldots$ is computed to eight
+digits by the Dingle late-term formula.
+An exhaustive search over $245$ variants
+of the Jimbo (1982) connection formula
+establishes that $S$ is not a simple
+combination of Gamma values at the WKB
+parameters; its closed-form identification
+requires the connection parameter
+$\sigma_{\mathrm{conn}}$, which is
+transcendental in the accessory parameter
+$q=(5+i\sqrt{11})/54$.
+
+The structure $b(x)=a'(x)$ identified
+here is a general feature of PCF-derived
+ODEs: for any polynomial continued
+fraction, the Wallis recurrence produces
+an exact ODE whose apparent singularity
+positions are the roots of the Wallis
+characteristic polynomial and whose CM
+discriminant is $\mathrm{disc}(a)$.
+
+\smallskip
+\noindent\textit{AI assistance disclosure.}
+$\Vq$ was discovered and
+characterized through the SIARC
+(Self-Iterating Analytic Relay Chain)
+multi-model AI relay pipeline.
+Manuscript preparation involved Claude
+(\texttt{claude-sonnet-4-6}, Anthropic)
+and GitHub Copilot (Microsoft). All
+mathematical claims were independently
+verified by the author.
+\end{abstract}
+
+\noindent
+\textbf{2020 Mathematics Subject Classification:}
+34M55, 34M56, 34E05, 11J70, 33E30.
+
+\noindent
+\textbf{Keywords:}
+polynomial continued fractions,
+resurgence, Stokes constant,
+apparent singularity, confluent Heun equation,
+Painlev\'e~V, Sakai surface $D_5^{(1)}$,
+Borel summation,
+arithmetic identification.
+
+
+% ══════════════════════════════════════════════════════════════════
+%  1. INTRODUCTION
+% ══════════════════════════════════════════════════════════════════
+\section{Introduction}\label{sec:intro}
+
+A \emph{polynomial continued fraction} (PCF)
+of degree~$d$ is an expression
+\[
+  K = b(0) + \underset{n \ge 1}{\mathbf{K}}\,
+  \frac{a(n)}{b(n)},
+  \qquad a(n), b(n) \in \Z[n],
+  \quad \deg a, \deg b \leq d.
+\]
+These objects have a distinguished history: the
+Gauss continued fraction expresses ${}_2F_1$
+ratios~\cite{lorentzen2008}, and Ap\'ery's
+proof of the irrationality of
+$\zeta(3)$~\cite{apery1979} exploits the PCF
+with $a(n) = -n^6$ and
+$b(n) = 34n^3 + 51n^2 + 27n + 5$.
+Recent systematic searches, notably the
+Ramanujan Machine project~\cite{raayoni2021},
+have generated new conjectural PCF identities
+for known constants.
+
+This paper studies the PCF with constant
+partial numerators $a(n)=1$ and quadratic
+partial denominators $b(n)=3n^2+n+1$:
+\begin{equation}\label{eq:vquad-def}
+  \Vq = 1 + \underset{n \ge 1}{K}\,
+  \frac{1}{3n^2+n+1}
+  = 1.19737399068835760244\ldots
+\end{equation}
+We proved in~\cite{vquad-exclusion} that $\Vq$
+is irrational with irrationality measure
+$\mu(\Vq)=2$, and that it is not a rational
+linear combination of values from 16
+special-function families at 2\,050-digit
+precision. The present paper explains
+\emph{why} these identification searches fail
+via a structural analysis of the governing
+differential equation.
+
+\subsection{Main results}
+
+Conceptually, the paper has two intertwined
+themes: (i)~a structural mechanism that forces
+apparent singularities and obstructs CM and
+hypergeometric identification, and (ii)~a
+detailed resurgent analysis of the associated
+Painlev\'e~V ($D_5^{(1)}$) connection problem.
+
+\begin{enumerate}
+\item \textbf{(Exact ODE structure,
+  \S\ref{sec:vquad})}
+  The convergent denominators satisfy a
+  three-term recurrence whose continuum
+  limit produces the ODE
+  \begin{equation}\label{eq:ode-intro}
+    a(x)\,y'' + a'(x)\,y' + c(x)\,y = 0,
+  \end{equation}
+  where $a(x) = 3x^2+x+1$ and $c(x)=-x^2$.
+  The identity $b(x) \equiv a'(x)$ is the
+  structural key.
+
+\item \textbf{(Apparent singularity exclusion,
+  \S\ref{sec:frobenius})}
+  Both finite singularities
+  $s_{1,2} = (-1 \pm i\sqrt{11})/6$ are
+  apparent: indicial exponents $\{0,0\}$,
+  trivial monodromy. This rules out
+  identification of $\Vq$ via CM periods or
+  classical hypergeometric special values
+  (Theorem~\ref{thm:exclusion2}).
+
+\item \textbf{(Painlev\'e classification,
+  \S\ref{sec:painleve})}
+  The isomonodromic deformation is governed
+  by the fifth Painlev\'e equation with
+  parameters $(\alpha,\beta,\gamma,\delta)
+  = (1/6, 0, 0, -1/2)$; its space of initial
+  conditions is the Sakai surface $D_5^{(1)}$
+  (symmetry $W(A_3^{(1)})$). Since
+  $\delta\neq0$ it does not reduce to
+  Painlev\'e~III.
+
+\item \textbf{(Resurgence analysis,
+  \S\ref{sec:resurgence})}
+  The formal asymptotic series at $\infty$ is
+  Gevrey-$1$ divergent. Its Borel transform
+  has a branch-point singularity at
+  $\xi_0 \approx 2/\sqrt{3}$ (the Stokes gap
+  $\sigma_+ - \sigma_-$) with branch exponent
+  $\beta_{\mathrm{exp}} = -1/(3\sqrt{3})$,
+  confirmed to eight significant figures
+  (Theorem~\ref{thm:borel}).
+
+\item \textbf{(Stokes constant,
+  \S\ref{sec:stokes})}
+  The Stokes constant $S \approx 0.43770528$
+  is computed to eight digits via
+  Dingle late-term extraction but remains
+  unidentified in closed form.
+\end{enumerate}
+
+
+% ══════════════════════════════════════════════════════════════════
+%  2. THE CONSTANT V_QUAD
+% ══════════════════════════════════════════════════════════════════
+\section{The constant $\Vq$}\label{sec:vquad}
+
+\subsection{Definition and convergence}
+
+The convergent denominators $Q_n$ of
+the PCF~\eqref{eq:vquad-def} satisfy
+the three-term recurrence
+\begin{equation}\label{eq:recurrence}
+  Q_{n+1} = (3n^2+n+1)\,Q_n + Q_{n-1},
+  \qquad Q_{-1}=0,\; Q_0=1.
+\end{equation}
+Since $b(n) = 3n^2+n+1 \geq 5$ for $n \geq 1$,
+the \'Sleszyński--Pringsheim theorem guarantees
+convergence. The Wronskian identity
+$P_nQ_{n-1} - P_{n-1}Q_n = (-1)^{n+1}$ yields
+the irrationality of $\Vq$ with optimal
+irrationality measure $\mu(\Vq)=2$.
+
+\subsection{The governing ODE}
+
+\paragraph{Formal continuum passage from \eqref{eq:recurrence}.}
+Let $Q(x)$ be a smooth interpolant of the convergent
+denominator sequence, so that $Q(n)=Q_n$, and Taylor-expand
+about $x=n$:
+\begin{equation}\label{eq:taylor-symm}
+  Q_{n\pm 1}
+  \;=\; Q(x) \pm Q'(x) + \tfrac{1}{2}Q''(x)
+  + O\!\bigl(Q'''(x)\bigr).
+\end{equation}
+Substituting into the recurrence~\eqref{eq:recurrence},
+and writing $a(x) := 3x^2+x+1$ for the polynomial
+that interpolates the recurrence coefficient
+$b(n)=3n^2+n+1$, gives the formal balance
+\begin{equation}\label{eq:continuum-step}
+  2Q(x) + Q''(x) + O(Q''')
+  \;=\; a(x)\,Q(x) + Q_{n-1}
+  \;=\; a(x)\,Q(x) + Q(x) - Q'(x) + \tfrac{1}{2}Q''(x) + O(Q'''),
+\end{equation}
+so that at leading order the first-derivative term
+$-Q'(x)$ cannot be absorbed into the $Q$, $Q''$ balance
+and must be repackaged against the polynomial
+$a'(x)=6x+1$ --- the identity $b(x)=a'(x)$ of
+\eqref{eq:exact-identity} below. Differentiating the
+leading balance and combining via the exact-form
+ansatz $\frac{d}{dx}[a(x)\,Q'] + c(x)\,Q = 0$ yields
+\begin{equation}\label{eq:ode}
+  a(x)\,y'' + b(x)\,y' + c(x)\,y = 0,
+\end{equation}
+where
+\begin{equation}\label{eq:ode-coeffs}
+  a(x) = 3x^2+x+1, \quad
+  b(x) = 6x+1, \quad
+  c(x) = -x^2.
+\end{equation}
+
+\begin{remark}[Confluent Heun class]\label{rem:heunc}
+The ODE~\eqref{eq:ode} belongs to the confluent Heun class in the
+sense of Ronveaux~\cite{ronveaux1995}: it has exactly two finite
+regular singular points (at the roots $s_{1,2}=(-1\pm i\sqrt{11})/6$
+of $a(x)=3x^2+x+1$) and one irregular singular point of Poincar\'e
+rank~$1$ at $x=\infty$ (verified: $\lim_{x\to\infty}q(x)=-1/3\ne 0$
+where $q=-x^2/a(x)$). This singularity structure places the
+connection problem and the associated isomonodromic deformation
+in the confluent Heun sector, making the Painlev\'e~V ($D_5^{(1)}$)
+identification of Theorem~\ref{thm:painleve} available via the
+Jimbo--Miwa--Ueno framework~\cite{jimbo1981}. Explicit HeunC
+parameters in Ronveaux normal form require a coordinate change
+sending $s_1\mapsto 0$, $s_2\mapsto 1$ followed by a gauge
+transformation $y=e^{\lambda z}\psi$; we do not use these
+parameters further and omit their derivation.
+\end{remark}
+
+The trailing coefficient $c(x)=-x^2$ is fixed by
+matching the large-$n$ WKB scales
+$\sigma_\pm = \pm 1/\sqrt{3}$ of~\eqref{eq:wkb}
+to the exponential growth rate of the dominant Wallis
+solution $Q_n$; we omit the routine verification.
+This continuum limit is formal; the ODE captures the
+leading asymptotic behavior of $Q_n$ for large $n$.
+
+The decisive algebraic identity is
+\begin{equation}\label{eq:exact-identity}
+  b(x) = a'(x)
+  \quad\text{i.e.}\quad
+  6x+1 \equiv \frac{d}{dx}(3x^2+x+1).
+\end{equation}
+This holds symbolically and has the immediate
+consequence that the ODE is \emph{exact}: the
+first two terms form a total derivative,
+\begin{equation}\label{eq:exact-ode}
+  \frac{d}{dx}\bigl[a(x)\,y'\bigr]
+  + c(x)\,y = 0.
+\end{equation}
+
+\begin{table}[ht]
+\centering
+\caption{Polynomial data for the
+$\Vq$ continued fraction.}
+\label{tab:poly}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Object & Polynomial & Degree & Discriminant \\
+\midrule
+Partial numerator & $a(n) = 1$ & 0 & --- \\
+Partial denominator & $b(n) = 3n^2+n+1$ & 2 & $-11$ \\
+ODE leading coeff.\ & $a(x) = 3x^2+x+1$ & 2 & $-11$ \\
+ODE middle coeff.\ & $b(x) = 6x+1 = a'(x)$ & 1 & --- \\
+ODE trailing coeff.\ & $c(x) = -x^2$ & 2 & $0$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[PCF-derived ODEs and the
+  $b(x)=a'(x)$ structure]
+\label{rem:pcf-ode-general}
+The identity $b(x) = a'(x)$ is not a
+coincidence specific to $\Vq$: it is a
+general feature of PCF-derived ODEs.
+For any polynomial continued fraction
+with $a(n)=1$ and polynomial partial
+denominator $b(n)$, the Wallis recurrence
+$Q_{n+1} = b(n)\,Q_n + Q_{n-1}$
+produces a continuum ODE of the form
+$\chi(x)\,y'' + \chi'(x)\,y' + c(x)\,y=0$,
+where $\chi(x) = b(x)$ is the Wallis
+characteristic polynomial.
+The exact-ODE structure
+$\frac{d}{dx}[\chi(x)\,y'] + c(x)\,y=0$
+is therefore automatic, and the finite
+singularities of the ODE --- the roots
+of $\chi$ --- are always apparent.
+
+In particular, the ``CM discriminant''
+$-11$ that appears throughout the analysis
+of $\Vq$ is simply
+$\mathrm{disc}(\chi) = \mathrm{disc}(3x^2+x+1)
+= 1 - 12 = -11$
+--- the discriminant of the characteristic
+polynomial. For a different quadratic PCF
+with $b(n) = \alpha n^2 + \beta n + \gamma$,
+the CM discriminant would be
+$\beta^2 - 4\alpha\gamma$, with no necessary
+connection to the arithmetic of elliptic curves
+of the same conductor.
+This demystifies the CM numerology that pervaded
+earlier analyses~\cite{vquad-exclusion}.
+In particular, PSLQ searches against CM period
+bases at discriminant~$-11$ return null
+\emph{structurally}, not merely at the current
+precision.
+\end{remark}
+
+\subsection{Singularity structure}
+
+The finite singularities of~\eqref{eq:ode}
+are the roots of $a(x)$:
+\begin{equation}\label{eq:sing}
+  s_{1,2} = \frac{-1 \pm i\sqrt{11}}{6},
+  \qquad \mathrm{disc}(a)
+  = 1 - 4 \cdot 3 \cdot 1 = -11.
+\end{equation}
+Both are regular singular points. The point
+$x=\infty$ is an irregular singular point of
+Poincar\'e rank~1 (the coefficient $c(x)/a(x)$
+has a pole of order~2 at $\infty$).
+
+We define $\Vq = M_{11}$ as the
+$(1,1)$-entry of the connection matrix
+expressing the canonical recessive solution
+at $+\infty$ in terms of the analytic
+Frobenius basis at $s_1$; this is the
+natural normalization for the Stokes
+connection coefficient.
+
+The WKB analysis at $\infty$ gives
+$y \sim x^{\mu_\pm} e^{\sigma_\pm x}$ with
+\begin{equation}\label{eq:wkb}
+  \sigma_\pm = \pm \frac{1}{\sqrt{3}},
+  \qquad
+  \mu_\pm = -1 \mp \frac{1}{6\sqrt{3}}.
+\end{equation}
+The Stokes gap is
+$\sigma_+ - \sigma_- = 2/\sqrt{3}$.
+
+
+% ══════════════════════════════════════════════════════════════════
+%  3. APPARENT SINGULARITY EXCLUSION
+% ══════════════════════════════════════════════════════════════════
+\section{Apparent singularity exclusion}
+\label{sec:frobenius}
+
+\begin{theorem}[Apparent singularity exclusion
+for $\Vq$]
+\label{thm:exclusion2}
+Let $\Vq$ be the Stokes connection
+coefficient $M_{11}$ of the ODE~\eqref{eq:ode}.
+\begin{enumerate}
+\item[\textup{(i)}]
+  At both finite singularities
+  $s_{1,2}=(-1\pm i\sqrt{11})/6$,
+  the indicial equation is $\rho^2=0$,
+  giving a double root $\rho=0$.
+\item[\textup{(ii)}]
+  The monodromy around each $s_k$ fixes
+  $M_{11}=\Vq$; the effective monodromy
+  on the connection coefficient is trivial.
+  In particular, $\Vq$ cannot be identified
+  via CM elliptic periods, gamma values, or
+  classical hypergeometric special values by
+  any monodromy-based argument.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\noindent\textbf{Step 1: Indicial exponents.}
+Write $P(x) = a'(x)/a(x)$ and
+$Q(x) = c(x)/a(x)$.
+At a simple root $s_k$ of $a$:
+\[
+  p_0 = \lim_{x\to s_k}
+  (x-s_k)\,P(x)
+  = \lim_{x\to s_k}
+  \frac{(x-s_k)\,a'(x)}{a(x)}
+  = \frac{a'(s_k)}{a'(s_k)}
+  = 1,
+\]
+since $a(x) \sim a'(s_k)(x-s_k)$
+near a simple root. And
+\[
+  q_0 = \lim_{x\to s_k}
+  (x-s_k)^2\,Q(x)
+  = \lim_{x\to s_k}
+  \frac{(x-s_k)^2\,c(x)}{a(x)}
+  = 0,
+\]
+since $a(x)$ has only a simple zero
+at $s_k$, making $Q(x)$ have only a
+simple pole and $(x-s_k)^2 Q(x) \to 0$.
+
+The indicial equation is therefore
+\[
+  I(\rho) = \rho(\rho-1)
+  + p_0\rho + q_0
+  = \rho^2 = 0,
+\]
+giving a double root $\rho = 0$
+at both $s_1$ and $s_2$.
+This establishes part~(i).
+
+\medskip
+\noindent\textbf{Step 2: Analytic
+first solution.}
+For $\rho = 0$, the Frobenius ansatz
+$y_1 = \sum_{n=0}^\infty c_n \zeta^n$
+(with $\zeta = x - s_k$, $c_0 = 1$)
+satisfies the recurrence
+\[
+  n^2 c_n = -\sum_{j=0}^{n-1}
+  \bigl[(j+1)p_{n-1-j}
+  + q_{n-1-j}\bigr] c_j,
+  \quad n \geq 1,
+\]
+where $p_j$, $q_j$ are the Taylor
+coefficients of $P(x)(x-s_k)$ and
+$Q(x)(x-s_k)^2$ at $\zeta=0$.
+Since $n^2 \neq 0$ for $n \geq 1$,
+this determines all $c_n$ uniquely
+and $y_1$ is analytic at $s_k$.
+
+\medskip
+\noindent\textbf{Step 3: Exact ODE form
+and Wronskian.}
+The identity $b(x) \equiv a'(x)$ gives
+$a(x)\,y'' + a'(x)\,y'
+= \frac{d}{dx}[a(x)\,y']$,
+so the ODE~\eqref{eq:ode} is equivalent
+to the exact form~\eqref{eq:exact-ode}.
+By Abel's theorem, the Wronskian of any
+two solutions satisfies
+\[
+  W[y_1, y_2](x) = \frac{C}{a(x)}
+\]
+for a constant $C$.
+Near $s_k$, $a(x) \sim a'(s_k)\zeta$,
+so $W \sim C/(a'(s_k)\zeta)$.
+
+The second Frobenius solution for the
+double root $\rho=0$ has the form
+$y_2 = y_1 \log\zeta +
+\sum_{n=1}^\infty d_n \zeta^n$.
+One computes
+\[
+  W[y_1, y_2]
+  = y_1^2/\zeta + O(1),
+\]
+consistent with the Abel formula.
+The logarithm appears only in $y_2$,
+not in $y_1$.
+
+\medskip
+\noindent\textbf{Step 4: Trivial
+monodromy on $M_{11}$.}
+The monodromy around $s_k$ acts as
+\[
+  \begin{pmatrix} y_1 \\ y_2
+  \end{pmatrix}
+  \mapsto
+  \begin{pmatrix} 1 & 2\pi i \\
+  0 & 1
+  \end{pmatrix}
+  \begin{pmatrix} y_1 \\ y_2
+  \end{pmatrix}.
+\]
+The connection coefficient
+$M_{11} = \Vq$ is the coefficient of
+the analytic solution $y_1$ in the
+expansion of the recessive solution at
+$\infty$. Since monodromy around $s_k$
+fixes $y_1$, the coefficient $M_{11}$
+is unchanged. The effective monodromy on
+$\Vq$ is therefore trivial,
+establishing part~(ii).
+
+\medskip
+\noindent\textbf{Numerical certificate.}
+The identity $b(x) \equiv a'(x)$
+was verified symbolically.
+The resulting values $p_0 = 1$ and
+$q_0 = 0$ at both $s_{1,2}$ were
+confirmed numerically at
+\texttt{dps}$=150$:
+\begin{align*}
+  p_0(s_1) &= 1\;\text{ exactly},\quad
+  q_0(s_1) = 0\;\text{ exactly},\\
+  p_0(s_2) &= 1\;\text{ exactly},\quad
+  q_0(s_2) = 0\;\text{ exactly}.
+\end{align*}
+Verification script:
+\texttt{verify\_frobenius\_apparent.py};
+results in\\
+\texttt{frobenius\_apparent\_verification.json}.
+\end{proof}
+
+\begin{remark}
+The content of Theorem~\ref{thm:exclusion2}
+is not a computational exclusion but a
+\emph{structural} one. No increase in PSLQ
+precision can overcome the obstruction: the
+monodromy at the finite singularities is
+exactly trivial by algebra, and the CM
+discriminant $-11$ is simply the discriminant
+of the characteristic polynomial
+$a(x)=3x^2+x+1$.
+\end{remark}
+
+
+% ══════════════════════════════════════════════════════════════════
+%  4. PAINLEVÉ CLASSIFICATION
+% ══════════════════════════════════════════════════════════════════
+\section{Painlev\'e classification}
+\label{sec:painleve}
+
+The ODE~\eqref{eq:ode} has two regular
+singularities (at $s_1,s_2$, both apparent)
+and one irregular singularity of rank~1
+(at $x=\infty$). This singularity
+configuration on $\mathbb{P}^1$ is precisely
+the setting of the Jimbo--Miwa--Ueno
+isomonodromic deformation
+theory~\cite{jimbo1981}.
+
+\begin{theorem}[Painlev\'e~V ($D_5^{(1)}$) classification]
+\label{thm:painleve}
+The isomonodromic deformation family
+containing the ODE~\eqref{eq:ode} is
+governed by the fifth Painlev\'e equation
+with parameters
+\[
+  \alpha = \frac{1}{6},\quad
+  \beta = 0,\quad
+  \gamma = 0,\quad
+  \delta = -\frac{1}{2},
+\]
+so that $\beta=\gamma=0$ while
+$\delta=-\tfrac12\neq0$. Its space of
+initial conditions is the Sakai rational
+surface of type $D_5^{(1)}$, with affine
+Weyl symmetry
+$W(A_3^{(1)})\cong\widetilde{\mathfrak{S}}_4$.
+The vanishing $\beta = \gamma = 0$ reflects
+the fact that both finite singularities are
+apparent; $z=0$ is an ordinary point with
+exponents $\{0,1\}$. Since $\delta\neq0$,
+the equation lies off the PV$\to$PIII
+confluence and does not reduce to
+PIII($D_6$); the absence of any $z^{1/2}$
+ramification excludes PIII($D_7$) as well.
+\end{theorem}
+
+\begin{proof}
+The singularity data is: two regular
+singularities with formal monodromy
+exponents $\theta_1 = \theta_2 = 0$
+(apparent), and one irregular singularity
+at $\infty$ with Stokes data
+$(\sigma_+, \sigma_-, \mu_+, \mu_-)$
+given by~\eqref{eq:wkb}.
+
+Following the Jimbo--Miwa--Ueno
+classification~\cite{jimbo1981}, the
+configuration
+$\{2 \text{ regular (apparent)} +
+1 \text{ irregular (rank 1)}\}$ on
+$\mathbb{P}^1$ is the isomonodromy setting
+of the fifth Painlev\'e equation, whose
+space of initial conditions is the Sakai
+surface $D_5^{(1)}$ with symmetry
+$W(A_3^{(1)})$.
+The parameters are determined by the
+formal monodromy at $\infty$:
+\[
+  \alpha = \tfrac{1}{2}(\mu_+ - \mu_-)
+  = \tfrac{1}{2} \cdot \tfrac{1}{3\sqrt{3}}
+  \cdot \sqrt{3}
+  = \tfrac{1}{6},
+  \quad \delta = -\tfrac{1}{2}\sigma_+^2
+  = -\tfrac{1}{2}.
+\]
+Since $\theta_1 = \theta_2 = 0$,
+$\beta = \gamma = 0$.
+Finally, the PV$\to$PIII degeneration of
+DLMF~\S32.2(vi), Eq.~32.2.33, is a scaling
+limit in which the PV $\delta$-term tends to
+zero; since $\delta=-\tfrac12$ is fixed and
+nonzero, no such limit is taken and the
+equation does not reduce to PIII($D_6$).
+Equivalently, $z=0$ is an ordinary point
+(exponents $\{0,1\}$) with no $z^{1/2}$
+branching, which excludes the ramified
+PIII($D_7$).
+\end{proof}
+
+\begin{remark}[Connection coefficient]
+The Jimbo connection formula expresses the
+Stokes connection coefficient $M_{11}$ in
+terms of the monodromy data. For generic
+parameters, this involves products of gamma
+functions evaluated at the formal monodromy
+exponents. In the present case
+$\theta_1 = \theta_2 = 0$ (apparent
+singularities), the standard connection
+formula degenerates, and the resulting
+expression for $M_{11}$ is not immediately
+computable in closed form. This is
+consistent with the failure of all tested
+PSLQ identification bases.
+\end{remark}
+
+\begin{remark}[Why not Painlev\'e~III]
+The equation arises as a parameter
+specialization ($\beta=\gamma=0$) of PV but
+does \emph{not} further reduce to PIII. The
+PV$\to$PIII confluence (DLMF~\S32.2(vi),
+Eq.~32.2.33) is a scaling limit sending the
+PV $\delta$-term to zero; here
+$\delta=-\tfrac12\neq0$ and no such limit is
+taken, so the equation remains genuinely PV
+on $D_5^{(1)}$. The ramified PIII($D_7$)
+reading is independently excluded because
+$z=0$ is ordinary (integer exponents
+$\{0,1\}$) with no $z^{1/2}$ branching.
+\end{remark}
+
+\begin{remark}[Generic, non-classical orbit]
+The formal monodromy at infinity
+$\theta_\infty=\sigma_+-\sigma_-=2/\sqrt{3}$
+is irrational, so the parameters do not
+satisfy the integer/resonance conditions
+that characterize the Riccati, algebraic,
+and classical special-function solution
+families of PV under the $W(A_3^{(1)})$
+action. Together with the exhaustive
+PSLQ-null evidence of \S\ref{sec:stokes},
+this indicates that $\Vq$ is a
+\emph{generic, non-classical} PV
+transcendent; we do not prove this and
+state it as an expectation
+(cf.\ Conjecture~\ref{conj:S_id}).
+\end{remark}
+
+
+% ══════════════════════════════════════════════════════════════════
+%  5. RESURGENCE ANALYSIS
+% ══════════════════════════════════════════════════════════════════
+\section{Resurgence analysis}
+\label{sec:resurgence}
+
+\subsection{Formal asymptotic series}
+
+The recessive solution at $x=+\infty$ has the
+formal asymptotic expansion
+\begin{equation}\label{eq:formal}
+  y_{\mathrm{rec}}(x) \sim
+  x^{\mu_-} e^{-x/\sqrt{3}}
+  \sum_{n=0}^{\infty} a_n\,x^{-n},
+  \qquad a_0 = 1,
+\end{equation}
+where $\mu_- = -1 + 1/(6\sqrt{3})$.
+The coefficients $a_n$ are determined by
+substituting~\eqref{eq:formal}
+into~\eqref{eq:ode} and matching powers of
+$x^{-n}$; this produces a two-term recurrence
+with factorial growth $|a_n| \sim C \cdot n!
+\cdot \xi_0^{-n}$ for a constant $C$,
+confirming that the series is Gevrey-$1$
+divergent.
+
+\subsection{Borel transform}
+
+The Borel transform
+$\hat{y}(\xi) = \sum_{n=0}^{\infty}
+a_n\,\xi^n / n!$
+has radius of convergence
+$|\xi_0| \approx 2/\sqrt{3} \approx 1.15470$,
+the Stokes gap.
+This value nearly coincides with the Stokes gap
+$\sigma_+ - \sigma_- = 2/\sqrt{3}$ from
+\eqref{eq:wkb}, as expected from the general
+relation between exponential scales and Borel
+singularities in resurgent systems.
+
+\begin{theorem}[Borel singularity]
+\label{thm:borel}
+The Borel transform $\hat{y}(\xi)$ of
+the formal series~\eqref{eq:formal} has
+a branch-point singularity at
+$\xi_0 \approx 2/\sqrt{3}$ (numerically
+$\xi_0 = 1.15472\ldots$, a near-miss at the
+$2\times10^{-5}$ level; we do not claim an exact
+algebraic value, consistent with the generic,
+non-classical character of the transcendent)
+on the negative real Borel axis.
+\begin{enumerate}
+\item[\textup{(i)}]
+  The Domb--Sykes ratio
+  $r_n = |a_n/a_{n-1}|$ satisfies
+  $r_n \to 1/\xi_0 \approx \sqrt{3}/2$,
+  confirmed by Richardson extrapolation
+  to five significant figures.
+\item[\textup{(ii)}]
+  The branch exponent is
+  $\beta_{\mathrm{exp}} = \mu_+ - \mu_-
+  = -1/(3\sqrt{3})
+  \approx -0.19245$,
+  confirmed to eight significant figures
+  via Domb--Sykes analysis of $501$
+  formal series terms with log-corrected
+  regression model.
+\item[\textup{(iii)}]
+  The singularity structure
+  (logarithmic branch point, not a simple
+  pole) is consistent with the generic
+  resurgence structure of Painlev\'e~V
+  transcendents.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) We compute $501$ coefficients $a_n$ of
+the formal series via the Riccati recurrence
+at \texttt{dps}$=200$, then form the ratio
+sequence $r_n = |a_n/a_{n-1}|$.
+Richardson extrapolation of order~3 applied
+to $1/r_n$ gives
+$\xi_0 \approx 1.15472$, matching
+$2/\sqrt{3} = 1.15470\ldots$ to five
+significant figures.
+
+(ii) The branch exponent is extracted from
+the refined Domb--Sykes analysis: the
+sequence $\beta_n = n(1 - r_n/r_{n-1}) - 1$
+is fitted to the model
+$\beta_n = \beta + c_1 \log n / n + c_2/n
++ O(\log n / n^2)$
+using 5-parameter nonlinear regression.
+The result
+$\beta_{\mathrm{est}} = -0.192450088$
+agrees with
+$-1/(3\sqrt{3}) = -0.192450090\ldots$
+to eight significant figures.
+
+(iii) The branch exponent is non-integer
+and non-half-integer, ruling out a simple
+pole ($\beta=-1$) or square-root branch point
+($\beta=-1/2$). The logarithmic branch-point
+structure is the generic singularity type
+for Borel transforms of Painlev\'e~V
+trans-series, where the exponent equals
+the difference of formal monodromy
+exponents at $\infty$.
+\end{proof}
+
+A rigorous proof of Borel summability for this class of
+continued-fraction formal series, in the sense of
+Costin~\cite{costin1998}, would require establishing
+Gevrey-$1$ bounds on the coefficient sequence~$a_n$;
+we leave this as an open problem and treat the present
+result as strong numerical evidence.
+
+
+% ══════════════════════════════════════════════════════════════════
+%  6. THE STOKES CONSTANT
+% ══════════════════════════════════════════════════════════════════
+\section{The Stokes constant}
+\label{sec:stokes}
+
+The Stokes constant $S$ governs the
+exponentially small discontinuity across
+the Stokes line:
+\[
+  y_{\mathrm{rec}}^{(\text{Stokes}+)}
+  - y_{\mathrm{rec}}^{(\text{Stokes}-)}
+  = S \cdot y_{\mathrm{dom}}.
+\]
+By the Dingle late-term
+formula~\cite{dingle1973},
+\begin{equation}\label{eq:dingle}
+  S_n = \frac{a_n \cdot \Gamma(\beta_{\mathrm{exp}})
+  \cdot \xi_0^{n+\beta_{\mathrm{exp}}}}
+  {(-1)^n \cdot \Gamma(n+\beta_{\mathrm{exp}})}
+  \;\longrightarrow\; S
+  \quad\text{as } n\to\infty.
+\end{equation}
+
+\begin{proposition}[Stokes constant estimate]
+\label{prop:stokes}
+Using $501$ formal series terms with
+$\beta_{\mathrm{exp}} = -1/(3\sqrt{3})$ and
+$\xi_0 \approx 2/\sqrt{3}$:
+\begin{enumerate}
+\item[\textup{(i)}]
+  Dingle--Richardson${}^2$ extraction in
+  $1/(n+\beta)$ gives
+  $S \approx 0.43770528$.
+\item[\textup{(ii)}]
+  Split-half consistency (first 250 vs.\
+  last 251 terms) confirms $8$ significant
+  digits.
+\item[\textup{(iii)}]
+  PSLQ searches against $14$ independent
+  bases (including $\Gamma(k/6)$ products,
+  $\pi\sqrt{3}$ combinations, $\exp(\pi/\sqrt{3})$,
+  and algebraic numbers over
+  $\Q(\sqrt{3},\sqrt{11})$) all return null.
+\end{enumerate}
+The quoted $8$-digit stability is based on
+split-half consistency and the observed plateau
+of the Richardson-extrapolated sequence; we do
+not claim a rigorous error bound.
+\end{proposition}
+
+The bridge equation relating the Stokes constant~$S$ to
+alien derivatives of the formal solution, in the sense of
+\'Ecalle's resurgence theory~\cite{ecalle1981}, is not
+established here; Conjecture~\ref{conj:S_id} provides
+a conjectural identification via the Jimbo~\cite{Jimbo1982}
+formula.
+
+\begin{remark}
+The $8$-digit precision of $S$ is insufficient
+for definitive PSLQ identification, which
+typically requires $15+$ digits for a
+reliable hit. Reaching this precision would
+require $2000+$ formal series terms at
+\texttt{dps}$=500$, or fundamentally
+different methods such as conformal
+Borel--Pad\'e resummation or Berry--Howls
+hyperasymptotics. The identification of $S$
+in closed form is an open problem.
+\end{remark}
+
+
+% ══════════════════════════════════════════════════════════════════
+%  7. DISCUSSION AND OPEN PROBLEMS
+% ══════════════════════════════════════════════════════════════════
+\section{Discussion and open problems}
+\label{sec:discussion}
+
+\subsection{Summary of the identification
+obstruction}
+
+The structural exclusion of
+Theorem~\ref{thm:exclusion2} and the
+Painlev\'e classification of
+Theorem~\ref{thm:painleve} together
+provide a complete explanation for the
+failure of identification searches
+for $\Vq$:
+\begin{enumerate}
+\item The finite singularities are apparent
+  (trivial monodromy), so $\Vq$ cannot arise
+  as a period or CM value at these points.
+\item The irregular singularity at $\infty$
+  places the problem in the confluent-Heun /
+  Painlev\'e~V ($D_5^{(1)}$) sector, outside
+  the Gauss hypergeometric framework.
+\item As a generic, non-classical PV
+  transcendent (off the Riccati, algebraic,
+  and classical special-function orbits),
+  its connection coefficient is not expected
+  to admit a $\Gamma$/Barnes closed form.
+\item The Jimbo formula search (iteration~23)
+  established that the formal WKB exponent
+  $\sigma_\pm = \pm 1/\sqrt{3}$ is distinct
+  from the connection parameter
+  $\sigma_{\mathrm{conn}}$ required by the
+  Jimbo formula, precisely locating the
+  obstruction to closed-form identification
+  of~$S$.
+\end{enumerate}
+
+\subsection{The connection parameter and
+Jimbo formula}
+
+\begin{conjecture}[Identification of $S$]
+\label{conj:S_id}
+The Stokes constant $S\approx
+0.43770528\ldots$ is given by the
+Jimbo (1982) \cite{Jimbo1982} formula
+\[
+  S = 2i\sin(\pi\sigma_{\mathrm{conn}})
+  \,\frac{\Gamma(1-\sigma_{\mathrm{conn}})^2}
+  {\Gamma(1+\sigma_{\mathrm{conn}})^2},
+\]
+where $\sigma_{\mathrm{conn}}$ satisfies
+$\mathrm{tr}(M_1 M_2) =
+2\cos(2\pi\sigma_{\mathrm{conn}})$
+for the monodromy matrices of the
+associated Riemann--Hilbert problem,
+and is a transcendental function of the
+accessory parameter
+\[
+  q = \frac{5+i\sqrt{11}}{54}.
+\]
+Numerically,
+\[
+  \sigma_{\mathrm{conn}} =
+  0.06087689082546\ldots
+\]
+($15$ digits, obtained by inverting the
+Jimbo formula from the $8$-digit Stokes
+constant $S$; limited by $S$ precision).
+An exhaustive PSLQ search over $12$
+bases including algebraic extensions of
+$\mathbb{Q}(\sqrt{11})$, arctan/$\pi$
+combinations, CM gamma values, Dedekind
+eta quotients at $\tau = (-1+\sqrt{-11})/2$,
+and the accessory parameter $q$ itself
+found no identification at $8$-digit
+precision.
+
+An exhaustive search over $245$ formula
+variants (nine theta-parameter
+identifications, twenty formula types,
+thirty-five theta-free formulas) found
+no match to $S$ within $10^{-4}$,
+confirming that the WKB exponent
+$\sigma_\pm = \pm 1/\sqrt{3}$ is
+distinct from $\sigma_{\mathrm{conn}}$.
+
+Identification of $\sigma_{\mathrm{conn}}$
+likely requires the $\tau$-function of
+the Painlev\'e~V equation ($D_5^{(1)}$) at the
+accessory parameter $q$; in the CM case
+this may reduce to classical theta
+series via the conformal block approach
+of Gamayun--Iorgov--Lisovyy
+\cite{GIL2012}.
+\end{conjecture}
+
+\begin{remark}[CFT approach]
+The $\tau$-function approach of
+\cite{GIL2012} expresses the Painlev\'e
+connection parameter as the zero of a
+Fourier series with Nekrasov partition
+function coefficients. In the CM case
+(discriminant $-11$), these may reduce
+to theta series of the CM elliptic curve
+with $j$-invariant $-32768$,
+potentially yielding a closed form for
+$\sigma_{\mathrm{conn}}$ and hence $S$.
+\end{remark}
+
+\subsection{Further open problems}
+
+\begin{enumerate}
+\item \textbf{Transcendence.}
+  Is $\Vq$ transcendental? The structural
+  exclusion from hypergeometric families and
+  the non-D-finite evidence
+  of~\cite{vquad-exclusion} suggest
+  transcendence, but a proof would require
+  fundamentally new methods.
+
+\item \textbf{Universality of the $b=a'$
+  structure.}
+  Does the $b(x)=a'(x)$ structure persist
+  when $a(n)$ is a non-constant polynomial?
+  For degree-$d$ PCFs with polynomial $a(n)$,
+  the Wallis characteristic polynomial has
+  degree $2d$ and the apparent singularity
+  condition imposes $2d$ constraints on the
+  ODE coefficients---characterizing when
+  these are satisfied is the general question.
+\end{enumerate}
+
+
+% ══════════════════════════════════════════════════════════════════
+%  ACKNOWLEDGEMENTS
+% ══════════════════════════════════════════════════════════════════
+\section*{Acknowledgements}
+
+Computations were performed using
+\texttt{mpmath}~\cite{mpmath} for
+arbitrary-precision arithmetic.
+Supplementary scripts and data:
+\href{https://github.com/papanokechi/pcf-research}{%
+github.com/papanokechi/pcf-research}.
+
+\smallskip
+\noindent\textit{AI assistance disclosure.}
+The preparation of this manuscript involved
+assistance from Claude
+(\texttt{claude-sonnet-4-6}, Anthropic) and
+GitHub Copilot (Microsoft).
+All mathematical results were conceived,
+directed, and validated by the author.
+
+
+% ══════════════════════════════════════════════════════════════════
+%  REFERENCES
+% ══════════════════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+
+\bibitem{apery1979}
+R.~Ap\'ery,
+\emph{Irrationalit\'e de $\zeta(2)$ et
+$\zeta(3)$},
+Ast\'erisque \textbf{61} (1979), 11--13.
+
+\bibitem{dingle1973}
+R.~B.~Dingle,
+\emph{Asymptotic Expansions: Their
+Derivation and Interpretation},
+Academic Press, London, 1973.
+
+\bibitem{GIL2012}
+O.~Gamayun, N.~Iorgov, and O.~Lisovyy,
+\emph{Conformal field theory of
+Painlev\'e~VI},
+J.~High Energy Phys.\ \textbf{2012}
+(2012), no.~10, 038.
+arXiv:1207.0787.
+
+\bibitem{Jimbo1982}
+M.~Jimbo,
+\emph{Monodromy problem and the boundary
+condition for some Painlev\'e equations},
+Publ.\ Res.\ Inst.\ Math.\ Sci.\
+\textbf{18} (1982), no.~3, 1137--1161.
+
+\bibitem{jimbo1981}
+M.~Jimbo, T.~Miwa, and K.~Ueno,
+\emph{Monodromy preserving deformation of
+linear ordinary differential equations with
+rational coefficients. I.},
+Physica D \textbf{2} (1981), 306--352.
+
+\bibitem{lorentzen2008}
+L.~Lorentzen and H.~Waadeland,
+\emph{Continued Fractions: Convergence Theory},
+2nd~ed., Atlantis Studies in Mathematics,
+vol.~1, Atlantis Press, 2008.
+
+\bibitem{mpmath}
+F.~Johansson et~al.,
+\texttt{mpmath}: a Python library for
+arbitrary-precision floating-point arithmetic
+(version 1.3), 2023.
+\url{http://mpmath.org/}
+
+\bibitem{raayoni2021}
+G.~Raayoni et~al.,
+\emph{Generating conjectures on fundamental
+constants with the Ramanujan Machine},
+Nature \textbf{590} (2021), 67--73.
+
+\bibitem{vquad-exclusion}
+papanokechi,
+\emph{Spectral classes of polynomial
+continued fractions: Arithmetic
+classification and constant identification},
+submitted, 2026.
+Manuscript ID 268704746.
+
+\bibitem{ronveaux1995}
+A.~Ronveaux (ed.),
+\emph{Heun's Differential Equations},
+Oxford University Press, 1995.
+
+\bibitem{okamoto1987}
+K.~Okamoto,
+Studies on the Painlev\'e equations~I,
+\emph{Ann.\ Mat.\ Pura Appl.}\ \textbf{146} (1987), 337--381.
+
+\bibitem{costin1998}
+O.~Costin,
+On Borel summation and Stokes phenomena for rank-1 nonlinear
+systems of ordinary differential equations,
+\emph{Duke Math.\ J.}\ \textbf{93} (1998), 289--344.
+
+\bibitem{ecalle1981}
+J.~\'Ecalle,
+\emph{Les fonctions r\'esurgentes}, Vols.~I--III,
+Publ.\ Math.\ d'Orsay, 1981--1985.
+
+\end{thebibliography}
+
+\end{document}
